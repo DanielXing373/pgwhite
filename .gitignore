@@ -1,0 +1,26 @@
+# --- Node / PNPM ---
+node_modules/
+.pnpm-store/
+
+# --- Nuxt / Nitro / Vite ---
+.nuxt/
+.output/
+dist/
+.cache/
+.vite/
+.vitest/
+
+# --- Env / IDE ---
+.env
+.env.*
+.DS_Store
+*.local
+.vscode/
+.idea/
+
+# --- Hosting ---
+.vercel/
+.netlify/
+
+# --- Tests / Coverage ---
+coverage/

@@ -1,0 +1,50 @@
+[
+  {
+    "id": "s_zh_1",
+    "text": "夕阳把河面染成了金色，友人的笑声在水面上跳跃。",
+    "language": "zh",
+    "authorId": "a_rowling",
+    "bookId": "b_hp1",
+    "chapter": "第12章",
+    "genreIds": ["g_fantasy"],
+    "timeIds": ["t_dusk"],
+    "themeIds": ["th_friendship"],
+    "deviceIds": ["d_metaphor"]
+  },
+  {
+    "id": "s_zh_2",
+    "text": "在黄昏的微光里，他们的影子像被风拉长的琴弦。",
+    "language": "zh",
+    "authorId": "a_tolkien",
+    "bookId": "b_lotr",
+    "chapter": "卷一·第二章",
+    "genreIds": ["g_fantasy"],
+    "timeIds": ["t_dusk"],
+    "themeIds": ["th_friendship"],
+    "deviceIds": ["d_metaphor"]
+  },
+  {
+    "id": "s_en_1",
+    "text": "At dusk, the river wore a gilded smile, echoing their laughter.",
+    "language": "en",
+    "authorId": "a_rowling",
+    "bookId": "b_hp1",
+    "chapter": "Ch.12",
+    "genreIds": ["g_fantasy"],
+    "timeIds": ["t_dusk"],
+    "themeIds": ["th_friendship"],
+    "deviceIds": ["d_metaphor"]
+  },
+  {
+    "id": "s_en_2",
+    "text": "Their shadows stretched like strings in the fading light.",
+    "language": "en",
+    "authorId": "a_tolkien",
+    "bookId": "b_lotr",
+    "chapter": "Book I · Ch.2",
+    "genreIds": ["g_fantasy"],
+    "timeIds": ["t_dusk"],
+    "themeIds": ["th_friendship"],
+    "deviceIds": ["d_metaphor"]
+  }
+]
