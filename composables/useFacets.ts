@@ -78,28 +78,33 @@ export function useFacets() {
       .sort((a, b) => a.label.localeCompare(b.label))
   }
 
-  function build(sentences: Sentence[], f: Filters): FacetOptions {
-    try {
-      const base = baseByLangAndText(sentences, f)
-
-      const candAuthors = applyOtherDims(base, f, 'authors').map(s => s.authorId)
-      const candBooks   = applyOtherDims(base, f, 'books').map(s => s.bookId)
-      const candGenres  = applyOtherDims(base, f, 'genres').flatMap(s => s.genreIds)
-      const candTimes   = applyOtherDims(base, f, 'times').flatMap(s => s.timeIds)
-      const candThemes  = applyOtherDims(base, f, 'themes').flatMap(s => s.themeIds)
-      const candDevices = applyOtherDims(base, f, 'devices').flatMap(s => s.deviceIds)
-
-      return {
-        authors: toOptions(candAuthors, 'authors'),
-        books:   toOptions(candBooks,   'books'),
-        genres:  toOptions(candGenres,  'genres'),
-        times:   toOptions(candTimes,   'times'),
-        themes:  toOptions(candThemes,  'themes'),
-        devices: toOptions(candDevices, 'devices')
-      }
-    } catch (e) {
-      // —— 容错：任何异常都不让 facets 变成 undefined —— //
-      return { ...EMPTY_FACETS }
+  function build(sentences: Sentence[], f: Filters) {
+    // —— 只用 语言 + 文本 来决定“候选集合” —— //
+    const { locale } = useI18n()
+    const activeLang = (locale.value === 'en' ? 'en' : 'zh') as 'zh' | 'en'
+  
+    const base = sentences.filter(s => {
+      if (s.language !== activeLang) return false
+      if (f.q && !includesIgnoreCase(s.text, f.q)) return false
+      return true
+    })
+  
+    // —— 不再根据其它维度（authors/books/…）裁剪 —— //
+    const candAuthors = Array.from(new Set(base.map(s => s.authorId)))
+    const candBooks   = Array.from(new Set(base.map(s => s.bookId)))
+    const candGenres  = Array.from(new Set(base.flatMap(s => s.genreIds)))
+    const candTimes   = Array.from(new Set(base.flatMap(s => s.timeIds)))
+    const candThemes  = Array.from(new Set(base.flatMap(s => s.themeIds)))
+    const candDevices = Array.from(new Set(base.flatMap(s => s.deviceIds)))
+  
+    // —— 使用已有的映射函数把 id -> label（中/英） —— //
+    return {
+      authors: toOptions(candAuthors, 'authors'),
+      books:   toOptions(candBooks,   'books'),
+      genres:  toOptions(candGenres,  'genres'),
+      times:   toOptions(candTimes,   'times'),
+      themes:  toOptions(candThemes,  'themes'),
+      devices: toOptions(candDevices, 'devices')
     }
   }
 

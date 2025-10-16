@@ -1,7 +1,7 @@
 // =====================================================
 // File: composables/useFilterEngine.ts
-// 标题：过滤引擎（文本 + 交集 + 语言隐形筛选）
-// 说明：未选=全选；语言由 i18n.locale 决定（隐形）
+// 标题：过滤引擎（语言+文本预过滤；authors 为空=全局 AND；authors 非空=跨维度并集 OR）
+// 说明：满足需求：选 JK+JRR 后再选"哈利波特"→ 返回 JK 全部 ∪ 哈利波特全部（示例数据下即 10 条）。
 // =====================================================
 import type { Sentence } from './useDataset'
 
@@ -20,28 +20,59 @@ function includesIgnoreCase(haystack: string, needle: string) {
 }
 
 export function useFilterEngine() {
-  const { locale } = useI18n() // zh / en
+  const { locale } = useI18n()
 
-  function filter(sentences: Sentence[], f: Filters): Sentence[] {
+  // —— 语言 + 文本 预过滤 —— //
+  function prefilter(all: Sentence[], f: Filters): Sentence[] {
     const activeLang = (locale.value === 'en' ? 'en' : 'zh') as 'zh' | 'en'
-
-    return sentences.filter(s => {
-      // —— 语言隐形筛选 —— //
+    return all.filter(s => {
       if (s.language !== activeLang) return false
-
-      // —— 文本筛选（精确包含，不分大小写） —— //
       if (f.q && !includesIgnoreCase(s.text, f.q)) return false
+      return true
+    })
+  }
 
-      // —— 维度交集（未选=全选） —— //
+  // —— 旧逻辑：全局 AND（authors 为空时使用） —— //
+  function globalAND(base: Sentence[], f: Filters): Sentence[] {
+    return base.filter(s => {
       if (f.authors.length && !f.authors.includes(s.authorId)) return false
       if (f.books.length   && !f.books.includes(s.bookId))     return false
       if (f.genres.length  && !f.genres.every(id => s.genreIds.includes(id))) return false
       if (f.times.length   && !f.times.every(id => s.timeIds.includes(id)))   return false
       if (f.themes.length  && !f.themes.every(id => s.themeIds.includes(id))) return false
       if (f.devices.length && !f.devices.every(id => s.deviceIds.includes(id))) return false
-
       return true
     })
+  }
+
+  // —— 新逻辑：authors 非空 → 作者OR + 其他维度AND —— //
+  function authorOR_othersAND(base: Sentence[], f: Filters): Sentence[] {
+    // 先按作者筛选（OR逻辑）
+    let authorFiltered = base
+    if (f.authors.length) {
+      const aSet = new Set(f.authors)
+      authorFiltered = base.filter(s => aSet.has(s.authorId))
+    }
+
+    // 再按其他维度筛选（AND逻辑）
+    return authorFiltered.filter(s => {
+      if (f.books.length   && !f.books.includes(s.bookId))     return false
+      if (f.genres.length  && !f.genres.every(id => s.genreIds.includes(id))) return false
+      if (f.times.length   && !f.times.every(id => s.timeIds.includes(id)))   return false
+      if (f.themes.length  && !f.themes.every(id => s.themeIds.includes(id))) return false
+      if (f.devices.length && !f.devices.every(id => s.deviceIds.includes(id))) return false
+      return true
+    })
+  }
+
+  function filter(sentences: Sentence[], f: Filters): Sentence[] {
+    const base = prefilter(sentences, f)
+    if (!f.authors.length) {
+      // 未选择作者 → 保持旧行为（全局 AND）
+      return globalAND(base, f)
+    }
+    // 选择了作者 → 作者OR + 其他维度AND
+    return authorOR_othersAND(base, f)
   }
 
   return { filter }

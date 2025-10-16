@@ -1,3 +1,6 @@
 [
-  { "id": "t_dusk", "name_zh": "黄昏", "name_en": "Dusk" }
+  { "id": "t_dusk", "name_zh": "黄昏", "name_en": "Dusk" },
+  { "id": "t_dawn", "name_zh": "黎明", "name_en": "Dawn" },
+  { "id": "t_noon", "name_zh": "正午", "name_en": "Noon" },
+  { "id": "t_night", "name_zh": "深夜", "name_en": "Night" }
 ]
