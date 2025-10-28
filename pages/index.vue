@@ -15,65 +15,16 @@ File: pages/index.vue
 
 <!-- —— 筛选区（固定高度，内部滚动） —— -->
 <!-- —— 筛选区（现在每个筛选块自带浅色背景和边框） —— -->
-<section class="mb-4">
-  <h2 class="text-sm mb-2">{{ $t('filters.title') }}</h2>
-
-  <div class="filter-stack">
-  <!-- 作者 -->
-  <div class="filter-card filter-card--a">
-    <FiltersFilterGroup
-      v-model="authors"
-      :title="'作者'"
-      :options="facets.authors"
-    />
-  </div>
-
-  <!-- 书籍 -->
-  <div class="filter-card filter-card--b">
-    <FiltersFilterGroup
-      v-model="books"
-      :title="'书籍'"
-      :options="facets.books"
-    />
-  </div>
-
-  <!-- 题材 -->
-  <div class="filter-card filter-card--a">
-    <FiltersFilterGroup
-      v-model="genres"
-      :title="'题材'"
-      :options="facets.genres"
-    />
-  </div>
-
-  <!-- 场景时间 -->
-  <div class="filter-card filter-card--b">
-    <FiltersFilterGroup
-      v-model="times"
-      :title="'场景时间'"
-      :options="facets.times"
-    />
-  </div>
-
-  <!-- 主题 -->
-  <div class="filter-card filter-card--a">
-    <FiltersFilterGroup
-      v-model="themes"
-      :title="'主题'"
-      :options="facets.themes"
-    />
-  </div>
-
-  <!-- 修辞手法 -->
-  <div class="filter-card filter-card--b">
-    <FiltersFilterGroup
-      v-model="devices"
-      :title="'修辞手法'"
-      :options="facets.devices"
-    />
-  </div>
-</div>
-</section>
+<FiltersPanel
+  :title="$t('filters.title')"
+  :facets="facets"
+  v-model:authors="authors"
+  v-model:books="books"
+  v-model:genres="genres"
+  v-model:times="times"
+  v-model:themes="themes"
+  v-model:devices="devices"
+/>
 
   <!-- —— 当前已选（先仅清空全部） —— -->
   <section class="mb-4">
