@@ -27,17 +27,11 @@ File: pages/index.vue
 />
 
   <!-- —— 当前已选（先仅清空全部） —— -->
-  <section class="mb-4">
-    <div class="flex items-center justify-between">
-      <div class="text-sm">
-        {{ $t('filters.selected') }}：
-        <span>暂无（V1.0 仅清空全部，后续接上 Chips）</span>
-      </div>
-      <button class="px-3 py-1 rounded border text-sm" style="border-color:#e5e7eb" @click="resetAll">
-        {{ $t('filters.clearAll') }}
-      </button>
-    </div>
-  </section>
+  <SelectedBar
+  :selectedLabel="$t('filters.selected')"
+  :clearAllText="$t('filters.clearAll')"
+  @clearAll="resetAll"
+/>
 
   <!-- —— 结果列表（先渲染数量与卡片简版） —— -->
   <section class="space-y-3">
