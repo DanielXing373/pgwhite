@@ -22,15 +22,106 @@ File: pages/index.vue
   </section>
 
 <!-- —— 筛选区（固定高度，内部滚动） —— -->
+<!-- —— 筛选区（现在每个筛选块自带浅色背景和边框） —— -->
 <section class="mb-4">
   <h2 class="text-sm mb-2">{{ $t('filters.title') }}</h2>
-  <div class="filters-grid grid-equal">
-    <FiltersFilterGroup v-model="authors" :title="'作者'" :options="facets.authors" />
-    <FiltersFilterGroup v-model="books"   :title="'书籍'" :options="facets.books" />
-    <FiltersFilterGroup v-model="genres"  :title="'题材'" :options="facets.genres" />
-    <FiltersFilterGroup v-model="times"   :title="'场景时间'" :options="facets.times" />
-    <FiltersFilterGroup v-model="themes"  :title="'主题'" :options="facets.themes" />
-    <FiltersFilterGroup v-model="devices" :title="'修辞手法'" :options="facets.devices" />
+
+  <div class="flex flex-col" style="display:flex; flex-direction:column; gap:12px;">
+    <!-- 作者 -->
+    <div
+      style="
+        border:1px solid #e5e7eb;
+        border-radius:8px;
+        padding:12px;
+        background-color:#fafafa;
+      "
+    >
+      <FiltersFilterGroup
+        v-model="authors"
+        :title="'作者'"
+        :options="facets.authors"
+      />
+    </div>
+
+    <!-- 书籍 -->
+    <div
+      style="
+        border:1px solid #e5e7eb;
+        border-radius:8px;
+        padding:12px;
+        background-color:#f5f5f5;
+      "
+    >
+      <FiltersFilterGroup
+        v-model="books"
+        :title="'书籍'"
+        :options="facets.books"
+      />
+    </div>
+
+    <!-- 题材 -->
+    <div
+      style="
+        border:1px solid #e5e7eb;
+        border-radius:8px;
+        padding:12px;
+        background-color:#fafafa;
+      "
+    >
+      <FiltersFilterGroup
+        v-model="genres"
+        :title="'题材'"
+        :options="facets.genres"
+      />
+    </div>
+
+    <!-- 场景时间 -->
+    <div
+      style="
+        border:1px solid #e5e7eb;
+        border-radius:8px;
+        padding:12px;
+        background-color:#f5f5f5;
+      "
+    >
+      <FiltersFilterGroup
+        v-model="times"
+        :title="'场景时间'"
+        :options="facets.times"
+      />
+    </div>
+
+    <!-- 主题 -->
+    <div
+      style="
+        border:1px solid #e5e7eb;
+        border-radius:8px;
+        padding:12px;
+        background-color:#fafafa;
+      "
+    >
+      <FiltersFilterGroup
+        v-model="themes"
+        :title="'主题'"
+        :options="facets.themes"
+      />
+    </div>
+
+    <!-- 修辞手法 -->
+    <div
+      style="
+        border:1px solid #e5e7eb;
+        border-radius:8px;
+        padding:12px;
+        background-color:#f5f5f5;
+      "
+    >
+      <FiltersFilterGroup
+        v-model="devices"
+        :title="'修辞手法'"
+        :options="facets.devices"
+      />
+    </div>
   </div>
 </section>
 
