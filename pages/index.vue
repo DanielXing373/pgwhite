@@ -5,21 +5,13 @@ File: pages/index.vue
 ====================================================== -->
 <template>
   <!-- —— 搜索区 —— -->
-  <section class="mb-4">
-    <label class="block text-sm mb-2" style="color:#6b7280">{{ $t('search.placeholder') }}</label>
-    <div class="flex gap-2">
-      <input
-        v-model="q"
-        type="text"
-        class="flex-1 px-3 py-2 rounded border"
-        style="border-color:#e5e7eb"
-        placeholder="如：日落 / friendship"
-      />
-      <button class="px-3 py-2 rounded border" style="border-color:#e5e7eb" @click="resetAll">
-        {{ $t('search.clear') }}
-      </button>
-    </div>
-  </section>
+  <SearchBar
+  v-model="q"
+  :label="$t('search.placeholder')"
+  :placeholder="'如：日落 / friendship'"
+  :clearText="$t('search.clear')"
+  @clear="resetAll"
+/>
 
 <!-- —— 筛选区（固定高度，内部滚动） —— -->
 <!-- —— 筛选区（现在每个筛选块自带浅色背景和边框） —— -->
