@@ -56,3 +56,35 @@
 @media (min-width: 1024px) {
   .grid-equal { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
+
+/* =====================================================
+   Filter card base styles
+   说明：
+   - .filter-card        : 通用外框（边框/圆角/内边距）
+   - .filter-card--a     : 浅灰背景 A
+   - .filter-card--b     : 浅灰背景 B
+   - .filter-stack       : 竖直堆叠容器（控制筛选卡之间的间距）
+   修改配色、圆角、间距请来这里动，不要到处找 inline style。
+   ===================================================== */
+
+   .filter-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* 卡片之间的竖向间距 */
+  }
+  
+  /* 卡片公共框体 */
+  .filter-card {
+    border: 1px solid #e5e7eb; /* 浅灰边框 */
+    border-radius: 8px;        /* 圆角半径 */
+    padding: 12px;             /* 内边距 */
+  }
+  
+  /* 两种交替背景色，方便视觉分组 */
+  .filter-card--a {
+    background-color: #fafafa; /* 比较亮的浅灰 */
+  }
+  
+  .filter-card--b {
+    background-color: #f5f5f5; /* 稍微深一点点的浅灰 */
+  }

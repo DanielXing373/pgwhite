@@ -26,103 +26,61 @@ File: pages/index.vue
 <section class="mb-4">
   <h2 class="text-sm mb-2">{{ $t('filters.title') }}</h2>
 
-  <div class="flex flex-col" style="display:flex; flex-direction:column; gap:12px;">
-    <!-- 作者 -->
-    <div
-      style="
-        border:1px solid #e5e7eb;
-        border-radius:8px;
-        padding:12px;
-        background-color:#fafafa;
-      "
-    >
-      <FiltersFilterGroup
-        v-model="authors"
-        :title="'作者'"
-        :options="facets.authors"
-      />
-    </div>
-
-    <!-- 书籍 -->
-    <div
-      style="
-        border:1px solid #e5e7eb;
-        border-radius:8px;
-        padding:12px;
-        background-color:#f5f5f5;
-      "
-    >
-      <FiltersFilterGroup
-        v-model="books"
-        :title="'书籍'"
-        :options="facets.books"
-      />
-    </div>
-
-    <!-- 题材 -->
-    <div
-      style="
-        border:1px solid #e5e7eb;
-        border-radius:8px;
-        padding:12px;
-        background-color:#fafafa;
-      "
-    >
-      <FiltersFilterGroup
-        v-model="genres"
-        :title="'题材'"
-        :options="facets.genres"
-      />
-    </div>
-
-    <!-- 场景时间 -->
-    <div
-      style="
-        border:1px solid #e5e7eb;
-        border-radius:8px;
-        padding:12px;
-        background-color:#f5f5f5;
-      "
-    >
-      <FiltersFilterGroup
-        v-model="times"
-        :title="'场景时间'"
-        :options="facets.times"
-      />
-    </div>
-
-    <!-- 主题 -->
-    <div
-      style="
-        border:1px solid #e5e7eb;
-        border-radius:8px;
-        padding:12px;
-        background-color:#fafafa;
-      "
-    >
-      <FiltersFilterGroup
-        v-model="themes"
-        :title="'主题'"
-        :options="facets.themes"
-      />
-    </div>
-
-    <!-- 修辞手法 -->
-    <div
-      style="
-        border:1px solid #e5e7eb;
-        border-radius:8px;
-        padding:12px;
-        background-color:#f5f5f5;
-      "
-    >
-      <FiltersFilterGroup
-        v-model="devices"
-        :title="'修辞手法'"
-        :options="facets.devices"
-      />
-    </div>
+  <div class="filter-stack">
+  <!-- 作者 -->
+  <div class="filter-card filter-card--a">
+    <FiltersFilterGroup
+      v-model="authors"
+      :title="'作者'"
+      :options="facets.authors"
+    />
   </div>
+
+  <!-- 书籍 -->
+  <div class="filter-card filter-card--b">
+    <FiltersFilterGroup
+      v-model="books"
+      :title="'书籍'"
+      :options="facets.books"
+    />
+  </div>
+
+  <!-- 题材 -->
+  <div class="filter-card filter-card--a">
+    <FiltersFilterGroup
+      v-model="genres"
+      :title="'题材'"
+      :options="facets.genres"
+    />
+  </div>
+
+  <!-- 场景时间 -->
+  <div class="filter-card filter-card--b">
+    <FiltersFilterGroup
+      v-model="times"
+      :title="'场景时间'"
+      :options="facets.times"
+    />
+  </div>
+
+  <!-- 主题 -->
+  <div class="filter-card filter-card--a">
+    <FiltersFilterGroup
+      v-model="themes"
+      :title="'主题'"
+      :options="facets.themes"
+    />
+  </div>
+
+  <!-- 修辞手法 -->
+  <div class="filter-card filter-card--b">
+    <FiltersFilterGroup
+      v-model="devices"
+      :title="'修辞手法'"
+      :options="facets.devices"
+    />
+  </div>
+</div>
 </section>
 
   <!-- —— 当前已选（先仅清空全部） —— -->
