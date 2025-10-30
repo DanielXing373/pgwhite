@@ -1,8 +1,0 @@
-{
-    "site": { "title": "pgWhite", "subtitle": "好词好句 · 多维检索" },
-    "notice": { "message": "欢迎使用 pgWhite（示例数据演示版）" },
-    "search": { "placeholder": "搜索句子文本（精确包含）", "clear": "清空" },
-    "filters": { "title": "标签筛选", "selected": "当前已选", "clearAll": "清空全部" },
-    "results": { "empty": "未找到结果，请调整搜索或标签" },
-    "lang": { "zh": "中文", "en": "English", "toggle": "中/英切换" }
-  }

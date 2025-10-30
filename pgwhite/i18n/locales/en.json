@@ -1,8 +1,0 @@
-{
-    "site": { "title": "pgWhite", "subtitle": "Quotes · Faceted Search" },
-    "notice": { "message": "Welcome to pgWhite (demo dataset)" },
-    "search": { "placeholder": "Search sentence (exact match)", "clear": "Clear" },
-    "filters": { "title": "Filters", "selected": "Selected", "clearAll": "Clear All" },
-    "results": { "empty": "No result. Adjust search or filters." },
-    "lang": { "zh": "中文", "en": "English", "toggle": "中文/English" }
-  }
