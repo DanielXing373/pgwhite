@@ -1,23 +1,17 @@
-<!-- =====================================================
-File: components/TopBar.vue
-标题：顶部信息条（非 sticky，低存在感）
-说明：左侧为站名与副标题；右侧为语言切换按钮
-改色：颜色/字体来源 styles/theme.css（统一修改入口）
-====================================================== -->
 <template>
   <header class="w-full border-b" style="border-color:#e5e7eb;">
     <div class="mx-auto" :style="{ maxWidth: 'var(--container-w)' }">
-      <div class="flex items-center justify-between py-3 px-4">
-        <div class="flex items-baseline gap-3">
-          <strong class="text-lg" style="color: var(--color-fg)">{{ $t('site.title') }}</strong>
-          <span class="text-sm text-muted">{{ $t('site.subtitle') }}</span>
+      <div class="topbar-row">
+        <!-- 左侧：仅站点标题（去掉副标题），与右侧语言切换保持同一行 -->
+        <div class="flex items-center gap-3">
+          <h1 class="text-lg" style="color: var(--color-fg); margin:0;">{{ $t('site.title') }}</h1>
         </div>
         <div class="flex items-center gap-2">
           <button
             class="px-3 py-1 rounded border text-sm"
             style="border-color:#e5e7eb"
             @click="toggleLocale"
-            aria-label="Toggle language"
+            :aria-label="$t('lang.toggle')"
           >
             {{ $t('lang.toggle') }}
           </button>
@@ -35,3 +29,19 @@ const toggleLocale = () => {
   locale.value = locale.value === 'zh' ? 'en' : 'zh'
 }
 </script>
+
+<style scoped>
+.topbar-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px;
+  /* 关键：不换行，保证按钮与标题同一行 */
+  flex-wrap: nowrap;
+}
+.topbar-row h1 {
+  margin: 0;
+  white-space: nowrap;
+}
+</style>

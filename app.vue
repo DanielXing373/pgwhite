@@ -6,7 +6,6 @@ File: app.vue
 ====================================================== -->
 <template>
   <TopBar />
-  <NoticeBar />
 
   <main class="mx-auto px-4 py-6" :style="{ maxWidth: 'var(--container-w)' }">
     <NuxtPage />

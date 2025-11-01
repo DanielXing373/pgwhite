@@ -4,5 +4,5 @@
     "search": { "placeholder": "Search sentence (exact match)", "clear": "Clear" },
     "filters": { "title": "Filters", "selected": "Selected", "clearAll": "Clear All" },
     "results": { "empty": "No result. Adjust search or filters." },
-    "lang": { "zh": "中文", "en": "English", "toggle": "中文/English" }
+    "lang": { "zh": "中文", "en": "English", "toggle": "简体中文/English" }
   }
