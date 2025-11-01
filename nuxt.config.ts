@@ -30,7 +30,13 @@ export default defineNuxtConfig({
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'description', content: '存储并多维检索好词好句（作者/书籍/题材/场景时间/主题/修辞）' }
-      ]
+      ],
+      // Plan B：不作为 Nuxt 模块加载，而是直接通过 <script> 注入（仅在 Vercel 环境注入，避免本地 404）
+      script: process.env.VERCEL
+        ? [
+            { src: '/_vercel/insights/script.js', defer: true }
+          ]
+        : [],
     }
   }
 })
