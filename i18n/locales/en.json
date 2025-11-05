@@ -1,5 +1,5 @@
 {
-  "site": { "title": "pgWhite", "subtitle": "Quotes · Faceted Search" },
+  "site": { "title": "Pigeon White", "subtitle": "Multi-dimensional Quote Search" },
   "notice": { "message": "Welcome to pgWhite (demo dataset)" },
   "search": {
     "placeholder": "Search sentence (exact match)",
@@ -18,7 +18,8 @@
     "clearAll": "Clear All",
     "clearGroup": "Clear Group",
     "searchInGroup": "Search in group…",
-    "noMatch": "No matches"
+    "noMatch": "No matches",
+    "matchAll": "Match all filters"
   },
   "results": {
     "empty": "No result. Adjust search or filters.",
@@ -31,7 +32,10 @@
     "chapterLabel": "Chapter: "
   },
   "selected": {
-    "none": "None (V1.0 only supports clear all, chips coming soon)"
+    "none": "None (V1.0 only supports clear all, chips coming soon)",
+    "emptyHint": "Your selections will appear here",
+    "undo": "Undo",
+    "redo": "Redo"
   },
   "lang": {
     "zh": "中文",
@@ -39,5 +43,10 @@
     "toggle": "简体中文/English",
     "zhLabel": "Chinese",
     "enLabel": "English"
+  },
+  "floatingButtons": {
+    "scrollToTop": "Scroll to Top",
+    "help": "Help",
+    "submit": "Contribute Quotes"
   }
 }

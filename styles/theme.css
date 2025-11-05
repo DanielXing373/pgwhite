@@ -37,6 +37,24 @@
   /* —— 常用工具类（如轻量文本色） —— */
   .text-muted { color: var(--color-muted); }
 
+  /* —— TopBar 容器布局（与主容器对齐） —— */
+  .topbar-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px; /* 与主容器保持一致 */
+    padding-right: 16px;
+  }
+
+  /* —— 主容器布局（与 TopBar 对齐） —— */
+  .main-container {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 16px; /* 与 TopBar 的容器 padding 保持一致 */
+    padding-right: 16px;
+    padding-top: 24px; /* py-6 */
+    padding-bottom: 24px;
+  }
+
   /* ============ Filter Grid layout ============ */
 /* 筛选区的栅格：最小高度而非固定高度，防止内容压到下面 */
 .filters-grid { min-height: var(--filters-h); }
@@ -89,6 +107,33 @@
     background-color: #f5f5f5; /* 稍微深一点点的浅灰 */
   }
 
+  /* 筛选组标题区域 */
+  .filter-group-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px; /* 减少与下方内容的间距 */
+  }
+
+  /* 筛选组标题样式（减少行高和边距） */
+  .filter-group-title {
+    font-size: 0.875rem; /* text-sm */
+    font-weight: 500; /* font-medium */
+    line-height: 1.2; /* 减少行高，默认通常为 1.5 或更大 */
+    margin: 0; /* 移除 h3 默认的上下边距 */
+    padding: 0; /* 移除默认内边距 */
+  }
+
+  /* 筛选区 chips 容器 */
+  .filter-chips-container {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px; /* 与结果标签 chips 保持一致的间距 */
+  }
+
 /* =====================================================
    Result card styles
    说明：
@@ -124,4 +169,163 @@
 
   .result-card--odd {
     background-color: #fafafa; /* 浅灰背景 */
+  }
+
+  /* 结果标签 chips 容器 */
+  .result-chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px; /* 12px 间距，确保 chip 之间有明显的间隔 */
+  }
+
+  /* 结果标签 chips（展示用，暂不可点击） */
+  .result-chip {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem; /* text-xs */
+    line-height: 1.5;
+    border: 1px solid #e5e7eb;
+    color: var(--color-fg);
+    white-space: nowrap;
+  }
+
+  /* 交替背景色：灰白区分 */
+  .result-chip--even {
+    background-color: #ffffff; /* 白色背景 */
+  }
+
+  .result-chip--odd {
+    background-color: #f3f4f6; /* 浅灰背景（与 var(--color-chip) 一致） */
+  }
+
+  /* 英文书名斜体样式（结果卡片中的书名 chips） */
+  .result-chip--book {
+    font-style: italic;
+  }
+
+  /* 英文书名斜体样式（筛选区中的书名 chips） */
+  .filter-chip--book {
+    font-style: italic;
+  }
+
+/* =====================================================
+   Selected Bar styles
+   说明：
+   - .selected-bar-card          : 选中栏卡片（白底框）
+   - .selected-bar-container      : 选中栏容器（内边距）
+   - .selected-bar-header          : 选中栏标题行（标签文字 + 清空按钮）
+   - .selected-chips-container     : 选中标签 chips 容器
+   - .selected-chip                : 选中标签 chip（全白背景）
+   - .selected-chip--book          : 英文书名斜体样式
+   - .selected-empty               : 无选中项时的提示文字
+   修改配色、间距、圆角请来这里。
+   ===================================================== */
+
+  .selected-bar-section {
+    margin-bottom: 0; /* 由卡片本身提供间距 */
+  }
+
+  .selected-bar-card {
+    background-color: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px; /* 与下方内容保持合适间距 */
+    margin-top: 20px; /* 与上方内容保持合适间距 */
+  }
+
+  .selected-bar-container {
+    /* 容器本身不需要额外边距，由卡片提供 */
+  }
+
+  .selected-bar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+
+  .selected-bar-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .selected-action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    color: var(--color-fg);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .selected-action-btn:hover {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+  }
+
+  .selected-action-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+
+  .selected-clear-all-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    font-size: 0.875rem;
+    background-color: #ffffff;
+    color: var(--color-fg);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+
+  .selected-clear-all-btn:hover {
+    background-color: #f9fafb;
+  }
+
+  .selected-chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px; /* 与结果标签 chips 保持一致的间距 */
+  }
+
+  .selected-chip {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 0.75rem; /* text-xs */
+    line-height: 1.5;
+    background-color: #ffffff; /* 全白背景 */
+    border: 1px solid #e5e7eb;
+    color: var(--color-fg);
+    white-space: nowrap;
+  }
+
+  /* 英文书名斜体样式（选中栏中的书名 chips） */
+  .selected-chip--book {
+    font-style: italic;
+  }
+
+  .selected-empty {
+    font-size: 0.875rem;
+    color: var(--color-muted);
+    padding: 4px 0;
+  }
+
+  /* 搜索结果统计（居中显示） */
+  .results-count {
+    font-size: 0.875rem; /* text-sm */
+    text-align: center;
+    margin-bottom: 12px;
   }

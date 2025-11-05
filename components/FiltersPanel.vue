@@ -56,24 +56,33 @@ File: components/FiltersPanel.vue
             v-model="localTimes"
             :title="$t('filters.times')"
             :options="facets.times"
+            :showMatchAll="true"
+            :matchAll="props.timesAll"
+            @update:matchAll="emit('update:timesAll', $event)"
           />
         </div>
-  
+
         <!-- 主题 -->
         <div class="filter-card filter-card--a">
           <FiltersFilterGroup
             v-model="localThemes"
             :title="$t('filters.themes')"
             :options="facets.themes"
+            :showMatchAll="true"
+            :matchAll="props.themesAll"
+            @update:matchAll="emit('update:themesAll', $event)"
           />
         </div>
-  
+
         <!-- 修辞手法 -->
         <div class="filter-card filter-card--b">
           <FiltersFilterGroup
             v-model="localDevices"
             :title="$t('filters.devices')"
             :options="facets.devices"
+            :showMatchAll="true"
+            :matchAll="props.devicesAll"
+            @update:matchAll="emit('update:devicesAll', $event)"
           />
         </div>
       </div>
@@ -124,6 +133,11 @@ File: components/FiltersPanel.vue
     times:   string[]
     themes:  string[]
     devices: string[]
+    
+    // 后三个维度的"满足所有筛选"复选框状态
+    timesAll: boolean
+    themesAll: boolean
+    devicesAll: boolean
   }>()
   
   /**
@@ -139,6 +153,9 @@ File: components/FiltersPanel.vue
     (e: 'update:times',   v: string[]): void
     (e: 'update:themes',  v: string[]): void
     (e: 'update:devices', v: string[]): void
+    (e: 'update:timesAll', v: boolean): void
+    (e: 'update:themesAll', v: boolean): void
+    (e: 'update:devicesAll', v: boolean): void
   }>()
   
   /**

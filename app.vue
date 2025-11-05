@@ -7,9 +7,11 @@ File: app.vue
 <template>
   <TopBar />
 
-  <main class="mx-auto px-4 py-6" :style="{ maxWidth: 'var(--container-w)' }">
+  <main class="main-container" :style="{ maxWidth: 'var(--container-w)' }">
     <NuxtPage />
   </main>
+
+  <FloatingButtons />
 </template>
 
 <script setup lang="ts">

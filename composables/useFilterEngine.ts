@@ -13,6 +13,9 @@ export type Filters = {
   times: string[]
   themes: string[]
   devices: string[]
+  timesAll: boolean  // 场景时间是否使用 AND 逻辑
+  themesAll: boolean // 主题是否使用 AND 逻辑
+  devicesAll: boolean // 修辞手法是否使用 AND 逻辑
 }
 
 function includesIgnoreCase(haystack: string, needle: string) {
@@ -38,9 +41,34 @@ export function useFilterEngine() {
       if (f.authors.length && !f.authors.includes(s.authorId)) return false
       if (f.books.length   && !f.books.includes(s.bookId))     return false
       if (f.genres.length  && !f.genres.every(id => s.genreIds.includes(id))) return false
-      if (f.times.length   && !f.times.every(id => s.timeIds.includes(id)))   return false
-      if (f.themes.length  && !f.themes.every(id => s.themeIds.includes(id))) return false
-      if (f.devices.length && !f.devices.every(id => s.deviceIds.includes(id))) return false
+      
+      // 后三个维度根据复选框状态决定 AND/OR
+      if (f.times.length) {
+        if (f.timesAll) {
+          // AND 逻辑：必须包含所有选中的标签
+          if (!f.times.every(id => s.timeIds.includes(id))) return false
+        } else {
+          // OR 逻辑：包含任意一个即可
+          if (!f.times.some(id => s.timeIds.includes(id))) return false
+        }
+      }
+      
+      if (f.themes.length) {
+        if (f.themesAll) {
+          if (!f.themes.every(id => s.themeIds.includes(id))) return false
+        } else {
+          if (!f.themes.some(id => s.themeIds.includes(id))) return false
+        }
+      }
+      
+      if (f.devices.length) {
+        if (f.devicesAll) {
+          if (!f.devices.every(id => s.deviceIds.includes(id))) return false
+        } else {
+          if (!f.devices.some(id => s.deviceIds.includes(id))) return false
+        }
+      }
+      
       return true
     })
   }
@@ -54,13 +82,36 @@ export function useFilterEngine() {
       authorFiltered = base.filter(s => aSet.has(s.authorId))
     }
 
-    // 再按其他维度筛选（AND逻辑）
+    // 再按其他维度筛选
     return authorFiltered.filter(s => {
       if (f.books.length   && !f.books.includes(s.bookId))     return false
       if (f.genres.length  && !f.genres.every(id => s.genreIds.includes(id))) return false
-      if (f.times.length   && !f.times.every(id => s.timeIds.includes(id)))   return false
-      if (f.themes.length  && !f.themes.every(id => s.themeIds.includes(id))) return false
-      if (f.devices.length && !f.devices.every(id => s.deviceIds.includes(id))) return false
+      
+      // 后三个维度根据复选框状态决定 AND/OR
+      if (f.times.length) {
+        if (f.timesAll) {
+          if (!f.times.every(id => s.timeIds.includes(id))) return false
+        } else {
+          if (!f.times.some(id => s.timeIds.includes(id))) return false
+        }
+      }
+      
+      if (f.themes.length) {
+        if (f.themesAll) {
+          if (!f.themes.every(id => s.themeIds.includes(id))) return false
+        } else {
+          if (!f.themes.some(id => s.themeIds.includes(id))) return false
+        }
+      }
+      
+      if (f.devices.length) {
+        if (f.devicesAll) {
+          if (!f.devices.every(id => s.deviceIds.includes(id))) return false
+        } else {
+          if (!f.devices.some(id => s.deviceIds.includes(id))) return false
+        }
+      }
+      
       return true
     })
   }

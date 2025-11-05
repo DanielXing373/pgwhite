@@ -7,8 +7,20 @@ File: components/filters/FilterGroup.vue
 <template>
   <div class="h-full rounded border p-3 flex flex-col min-h-0" style="border-color:#e5e7eb">
     <!-- 标题与"清空本组" -->
-    <div class="flex items-center justify-between mb-2">
-      <h3 class="text-sm font-medium">{{ title }}</h3>
+    <div class="filter-group-header">
+      <div class="filter-group-title-row">
+        <h3 class="filter-group-title">{{ title }}</h3>
+        <!-- "满足所有筛选"复选框（仅在后三个维度显示） -->
+        <label v-if="showMatchAll" class="filter-match-all-checkbox">
+          <input
+            type="checkbox"
+            :checked="matchAll"
+            @change="handleMatchAllChange"
+            class="filter-checkbox-input"
+          />
+          <span class="filter-checkbox-label">{{ $t('filters.matchAll') }}</span>
+        </label>
+      </div>
       <button
         class="text-xs px-2 py-1 rounded border"
         style="border-color:#e5e7eb"
@@ -28,11 +40,14 @@ File: components/filters/FilterGroup.vue
     />
 
     <!-- 候选项（内部滚动，不影响整体高度） -->
-    <div class="flex-1 min-h-0 overflow-auto flex flex-wrap gap-2">
+    <div class="filter-chips-container">
       <button
         v-for="opt in filteredOptions"
         :key="opt.id"
-        class="px-2 py-1 rounded text-sm border"
+        :class="[
+          'px-2 py-1 rounded text-sm border',
+          isBookChip(opt.id) && isEnglish ? 'filter-chip--book' : ''
+        ]"
         :style="chipStyle(opt.id)"
         @click="toggle(opt.id)"
       >
@@ -52,11 +67,18 @@ const props = defineProps<{
   title: string
   options: Option[]
   modelValue: string[]    // 已选id数组
+  showMatchAll?: boolean  // 是否显示"满足所有筛选"复选框
+  matchAll?: boolean      // "满足所有筛选"复选框状态
 }>()
 
 const emit = defineEmits<{
   (e: 'update:modelValue', val: string[]): void
+  (e: 'update:matchAll', val: boolean): void
 }>()
+
+// —— 语言检测（用于判断是否应用斜体） —— //
+const { locale } = useI18n()
+const isEnglish = computed(() => locale.value === 'en')
 
 // —— 组内搜索 —— //
 const innerQuery = ref('')
@@ -66,6 +88,11 @@ const filteredOptions = computed(() => {
   if (!q) return props.options
   return props.options.filter(o => o.label.toLowerCase().includes(q))
 })
+
+// —— 判断是否是书名 chip（通过 ID 前缀判断） —— //
+function isBookChip(id: string): boolean {
+  return id.startsWith('b_')
+}
 
 // —— 选择/清空 —— //
 function toggle(id: string) {
@@ -78,6 +105,11 @@ function clearGroup() {
   emit('update:modelValue', [])
 }
 
+function handleMatchAllChange(event: Event) {
+  const target = event.target as HTMLInputElement
+  emit('update:matchAll', target.checked)
+}
+
 // —— 样式：选中/未选 —— //
 function chipStyle(id: string) {
   const active = props.modelValue.includes(id)
@@ -86,3 +118,32 @@ function chipStyle(id: string) {
     : { background: 'var(--color-chip)', borderColor: '#e5e7eb' }
 }
 </script>
+
+<style scoped>
+/* 标题行布局（标题 + 复选框） */
+.filter-group-title-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* "满足所有筛选"复选框样式 */
+.filter-match-all-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  font-size: 0.75rem; /* text-xs */
+  color: var(--color-muted);
+  user-select: none;
+}
+
+.filter-checkbox-input {
+  cursor: pointer;
+  margin: 0;
+}
+
+.filter-checkbox-label {
+  cursor: pointer;
+}
+</style>

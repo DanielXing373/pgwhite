@@ -25,6 +25,11 @@ export function useQueryState() {
   const themes  = ref<string[]>(parseArr(route.query.themes))
   const devices = ref<string[]>(parseArr(route.query.devices))
 
+  // 后三个维度的"满足所有筛选"复选框状态
+  const timesAll = ref<boolean>(route.query.timesAll === 'true')
+  const themesAll = ref<boolean>(route.query.themesAll === 'true')
+  const devicesAll = ref<boolean>(route.query.devicesAll === 'true')
+
   // —— 写回 URL（防抖，避免跳动） —— //
   function debounce<T extends (...args: any[]) => void>(fn: T, delay = 200): T {
     let timer: ReturnType<typeof setTimeout> | null = null
@@ -43,12 +48,15 @@ export function useQueryState() {
         genres:  joinArr(genres.value),
         times:   joinArr(times.value),
         themes:  joinArr(themes.value),
-        devices: joinArr(devices.value)
+        devices: joinArr(devices.value),
+        timesAll: timesAll.value ? 'true' : undefined,
+        themesAll: themesAll.value ? 'true' : undefined,
+        devicesAll: devicesAll.value ? 'true' : undefined
       }
     })
   }, 200)
 
-  watch([q, authors, books, genres, times, themes, devices], updateUrl, { deep: true })
+  watch([q, authors, books, genres, times, themes, devices, timesAll, themesAll, devicesAll], updateUrl, { deep: true })
 
   function resetAll() {
     q.value = ''
@@ -58,7 +66,10 @@ export function useQueryState() {
     times.value = []
     themes.value = []
     devices.value = []
+    timesAll.value = false
+    themesAll.value = false
+    devicesAll.value = false
   }
 
-  return { q, authors, books, genres, times, themes, devices, resetAll }
+  return { q, authors, books, genres, times, themes, devices, timesAll, themesAll, devicesAll, resetAll }
 }

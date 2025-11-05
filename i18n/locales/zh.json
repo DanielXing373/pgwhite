@@ -1,5 +1,5 @@
 {
-  "site": { "title": "鸽白词句库", "subtitle": "" },
+  "site": { "title": "鸽白词句库", "subtitle": "多维度词句检索" },
   "notice": { "message": "欢迎使用 pgWhite（示例数据演示版）" },
   "search": {
     "placeholder": "搜索句子文本（精确包含）",
@@ -18,7 +18,8 @@
     "clearAll": "清空全部",
     "clearGroup": "清空本组",
     "searchInGroup": "组内搜索…",
-    "noMatch": "无匹配项"
+    "noMatch": "无匹配项",
+    "matchAll": "满足所有筛选"
   },
   "results": {
     "empty": "未找到结果，请调整搜索或标签",
@@ -31,7 +32,10 @@
     "chapterLabel": "章节："
   },
   "selected": {
-    "none": "暂无（V1.0 仅清空全部，后续接上 Chips）"
+    "none": "暂无（V1.0 仅清空全部，后续接上 Chips）",
+    "emptyHint": "你的选择将显示在这里",
+    "undo": "撤销",
+    "redo": "恢复"
   },
   "lang": {
     "zh": "中文",
@@ -39,5 +43,10 @@
     "toggle": "简体中文/English",
     "zhLabel": "中文",
     "enLabel": "英文"
+  },
+  "floatingButtons": {
+    "scrollToTop": "返回顶部",
+    "help": "帮助",
+    "submit": "我要投稿"
   }
 }
