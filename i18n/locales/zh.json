@@ -4,6 +4,8 @@
   "search": {
     "placeholder": "搜索句子文本（精确包含）",
     "placeholderExample": "如：日落 / friendship",
+    "placeholderWithTags": "精准搜索（包含所选标签）",
+    "placeholderWithTagsExample": "如：日落 / friendship",
     "clear": "清空"
   },
   "filters": {

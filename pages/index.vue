@@ -4,15 +4,6 @@ File: pages/index.vue
 说明：此版仅演示：文本搜索 + 清空全部 + 语言跟随
 ====================================================== -->
 <template>
-  <!-- —— 搜索区 —— -->
-  <SearchBar
-    v-model="q"
-    :label="$t('search.placeholder')"
-    :placeholder="$t('search.placeholderExample')"
-    :clearText="$t('search.clear')"
-    @clear="resetAll"
-  />
-
 <!-- —— 筛选区（固定高度，内部滚动） —— -->
 <!-- —— 筛选区（现在每个筛选块自带浅色背景和边框） —— -->
 <FiltersPanel
@@ -45,6 +36,15 @@ File: pages/index.vue
     @undo="handleUndo"
     @redo="handleRedo"
     @removeTag="handleRemoveTag"
+  />
+
+  <!-- —— 搜索区（位于 selected 和结果之间） —— -->
+  <SearchBar
+    v-model="q"
+    :label="$t('search.placeholderWithTags')"
+    :placeholder="$t('search.placeholderWithTagsExample')"
+    :clearText="$t('search.clear')"
+    @clear="clearSearch"
   />
 
   <!-- —— 结果列表（先渲染数量与卡片简版） —— -->
@@ -102,7 +102,7 @@ import { truncate } from '~/composables/useUIHelpers'
 const { sentences } = useDataset()
 
 // —— 查询状态（URL 同步） —— //
-const { q, authors, books, genres, times, themes, devices, timesAll, themesAll, devicesAll, resetAll } = useQueryState()
+const { q, authors, books, genres, times, themes, devices, timesAll, themesAll, devicesAll, clearSearch, resetAll } = useQueryState()
 
 /**
  * 获取当前搜索条件状态
@@ -173,15 +173,17 @@ const filteredResults = computed(() => filter(sentences, filters.value))
 const { results } = useSearchResults(filteredResults, filters)
 
 // —— Facets 计算 —— //
+// 注意：facets 只根据语言生成，不受文本搜索和标签筛选影响
+// 这样用户可以随时看到所有可用的标签选项，自由选择
 const { build: buildFacets } = useFacets()
 const facets = computed(() => buildFacets(sentences, {
-  q: q.value,
-  authors: authors.value,
-  books: books.value,
-  genres: genres.value,
-  times: times.value,
-  themes: themes.value,
-  devices: devices.value
+  q: '', // 不传递文本搜索，让 facets 显示所有选项
+  authors: [],
+  books: [],
+  genres: [],
+  times: [],
+  themes: [],
+  devices: []
 }))
 
 // —— 句子标签处理 —— //

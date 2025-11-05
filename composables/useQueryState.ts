@@ -58,6 +58,16 @@ export function useQueryState() {
 
   watch([q, authors, books, genres, times, themes, devices, timesAll, themesAll, devicesAll], updateUrl, { deep: true })
 
+  /**
+   * 只清除文本搜索，不影响标签筛选
+   */
+  function clearSearch() {
+    q.value = ''
+  }
+
+  /**
+   * 清除所有搜索条件（文本搜索 + 所有标签）
+   */
   function resetAll() {
     q.value = ''
     authors.value = []
@@ -71,5 +81,5 @@ export function useQueryState() {
     devicesAll.value = false
   }
 
-  return { q, authors, books, genres, times, themes, devices, timesAll, themesAll, devicesAll, resetAll }
+  return { q, authors, books, genres, times, themes, devices, timesAll, themesAll, devicesAll, clearSearch, resetAll }
 }

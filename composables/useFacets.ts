@@ -95,17 +95,19 @@ export function useFacets() {
   }
 
   function build(sentences: Sentence[], f: Filters) {
-    // —— 只用 语言 + 文本 来决定"候选集合" —— //
-    // 使用 composable 顶层的 locale，确保响应式更新
+    // —— 只用语言来决定"候选集合"，不受文本搜索影响 —— //
+    // 这样标签栏始终显示所有可用的选项，用户可以自由选择
+    // 文本搜索和标签筛选都只影响搜索结果，不影响标签栏显示
     const activeLang = (locale.value === 'en' ? 'en' : 'zh') as 'zh' | 'en'
   
+    // 只根据语言过滤，不考虑文本搜索
     const base = sentences.filter(s => {
       if (s.language !== activeLang) return false
-      if (f.q && !includesIgnoreCase(s.text, f.q)) return false
       return true
     })
   
     // —— 不再根据其它维度（authors/books/…）裁剪 —— //
+    // 显示当前语言下所有可用的标签选项
     const candAuthors = Array.from(new Set(base.map(s => s.authorId)))
     const candBooks   = Array.from(new Set(base.map(s => s.bookId)))
     const candGenres  = Array.from(new Set(base.flatMap(s => s.genreIds)))

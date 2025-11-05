@@ -4,6 +4,8 @@
   "search": {
     "placeholder": "Search sentence (exact match)",
     "placeholderExample": "e.g., sunset / friendship",
+    "placeholderWithTags": "Exact search (include selected tags)",
+    "placeholderWithTagsExample": "e.g., sunset / friendship",
     "clear": "Clear"
   },
   "filters": {
