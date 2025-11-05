@@ -3,8 +3,13 @@
     <div class="selected-bar-card">
       <div class="selected-bar-container">
       <div class="selected-bar-header">
-        <div class="text-sm">
-          {{ selectedLabel }}：
+        <div class="selected-bar-title-section">
+          <div class="text-sm">
+            {{ selectedLabel }}：
+          </div>
+          <span v-if="selectedItems.length > 0" class="selected-hint">
+            {{ $t('selected.clickHint') }}
+          </span>
         </div>
         <div class="selected-bar-actions">
           <button
@@ -39,16 +44,18 @@
       </div>
       <!-- 选中的标签 chips -->
       <div v-if="selectedItems.length > 0" class="selected-chips-container">
-        <span
+        <button
           v-for="item in selectedItems"
           :key="`${item.dimension}-${item.id}`"
           :class="[
             'selected-chip',
             item.dimension === 'books' && isEnglish ? 'selected-chip--book' : ''
           ]"
+          @click="handleRemoveTag(item.dimension, item.id)"
+          :aria-label="$t('selected.removeTag', { label: item.label })"
         >
           {{ item.label }}
-        </span>
+        </button>
       </div>
       <div v-else class="selected-empty">
         {{ $t('selected.emptyHint') }}
@@ -82,10 +89,11 @@ const props = defineProps<{
   canRedo?: boolean
 }>()
 
-defineEmits<{ 
+const emit = defineEmits<{ 
   (e: 'clearAll'): void
   (e: 'undo'): void
   (e: 'redo'): void
+  (e: 'removeTag', dimension: DimKey, id: string): void
 }>()
 
 // —— 数据集和语言 —— //
@@ -173,5 +181,12 @@ function getLabelForId(dim: DimKey, id: string, isEN: boolean): string {
       return isEN ? (device.name_en || device.name_zh || id) : (device.name_zh || device.name_en || id)
     }
   }
+}
+
+/**
+ * 处理删除标签
+ */
+function handleRemoveTag(dimension: DimKey, id: string) {
+  emit('removeTag', dimension, id)
 }
 </script>

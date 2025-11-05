@@ -242,15 +242,26 @@
     margin-top: 20px; /* 与上方内容保持合适间距 */
   }
 
-  .selected-bar-container {
-    /* 容器本身不需要额外边距，由卡片提供 */
-  }
 
   .selected-bar-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 8px;
+  }
+
+  .selected-bar-title-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+  }
+
+  .selected-hint {
+    font-size: 0.75rem; /* text-xs */
+    color: var(--color-muted);
+    font-style: italic;
   }
 
   .selected-bar-actions {
@@ -326,6 +337,17 @@
     border: 1px solid #e5e7eb;
     color: var(--color-fg);
     white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .selected-chip:hover {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+  }
+
+  .selected-chip:active {
+    background-color: #f3f4f6;
   }
 
   /* 英文书名斜体样式（选中栏中的书名 chips） */

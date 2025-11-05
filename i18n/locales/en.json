@@ -35,7 +35,9 @@
     "none": "None (V1.0 only supports clear all, chips coming soon)",
     "emptyHint": "Your selections will appear here",
     "undo": "Undo",
-    "redo": "Redo"
+    "redo": "Redo",
+    "clickHint": "(Click tag to remove)",
+    "removeTag": "Remove tag: {label}"
   },
   "lang": {
     "zh": "中文",

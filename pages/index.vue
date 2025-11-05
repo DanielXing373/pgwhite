@@ -44,6 +44,7 @@ File: pages/index.vue
     @clearAll="resetAll"
     @undo="handleUndo"
     @redo="handleRedo"
+    @removeTag="handleRemoveTag"
   />
 
   <!-- —— 结果列表（先渲染数量与卡片简版） —— -->
@@ -191,4 +192,30 @@ const { locale, t } = useI18n()
 const currentLangLabel = computed(() => 
   locale.value === 'en' ? t('lang.enLabel') : t('lang.zhLabel')
 )
+
+/**
+ * 处理删除标签
+ */
+function handleRemoveTag(dimension: string, id: string) {
+  switch (dimension) {
+    case 'authors':
+      authors.value = authors.value.filter(aid => aid !== id)
+      break
+    case 'books':
+      books.value = books.value.filter(bid => bid !== id)
+      break
+    case 'genres':
+      genres.value = genres.value.filter(gid => gid !== id)
+      break
+    case 'times':
+      times.value = times.value.filter(tid => tid !== id)
+      break
+    case 'themes':
+      themes.value = themes.value.filter(tid => tid !== id)
+      break
+    case 'devices':
+      devices.value = devices.value.filter(did => did !== id)
+      break
+  }
+}
 </script>

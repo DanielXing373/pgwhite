@@ -35,7 +35,9 @@
     "none": "暂无（V1.0 仅清空全部，后续接上 Chips）",
     "emptyHint": "你的选择将显示在这里",
     "undo": "撤销",
-    "redo": "恢复"
+    "redo": "恢复",
+    "clickHint": "（点击标签可删除）",
+    "removeTag": "删除标签：{label}"
   },
   "lang": {
     "zh": "中文",
