@@ -1,8 +1,43 @@
 {
-    "site": { "title": "鸽白词句库", "subtitle": "" },
-    "notice": { "message": "欢迎使用 pgWhite（示例数据演示版）" },
-    "search": { "placeholder": "搜索句子文本（精确包含）", "clear": "清空" },
-    "filters": { "title": "标签筛选", "selected": "当前已选", "clearAll": "清空全部" },
-    "results": { "empty": "未找到结果，请调整搜索或标签" },
-    "lang": { "zh": "中文", "en": "English", "toggle": "简体中文/English" }
+  "site": { "title": "鸽白词句库", "subtitle": "" },
+  "notice": { "message": "欢迎使用 pgWhite（示例数据演示版）" },
+  "search": {
+    "placeholder": "搜索句子文本（精确包含）",
+    "placeholderExample": "如：日落 / friendship",
+    "clear": "清空"
+  },
+  "filters": {
+    "title": "标签筛选",
+    "authors": "作者",
+    "books": "书籍",
+    "genres": "题材",
+    "times": "场景时间",
+    "themes": "主题",
+    "devices": "修辞手法",
+    "selected": "当前已选",
+    "clearAll": "清空全部",
+    "clearGroup": "清空本组",
+    "searchInGroup": "组内搜索…",
+    "noMatch": "无匹配项"
+  },
+  "results": {
+    "empty": "未找到结果，请调整搜索或标签",
+    "count": "共 {count} 条（已按界面语言自动筛选：{lang}）",
+    "author": "作者",
+    "book": "书籍",
+    "chapter": "章节",
+    "authorLabel": "作者：",
+    "bookLabel": "书籍：",
+    "chapterLabel": "章节："
+  },
+  "selected": {
+    "none": "暂无（V1.0 仅清空全部，后续接上 Chips）"
+  },
+  "lang": {
+    "zh": "中文",
+    "en": "English",
+    "toggle": "简体中文/English",
+    "zhLabel": "中文",
+    "enLabel": "英文"
   }
+}

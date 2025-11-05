@@ -6,7 +6,7 @@ File: components/filters/FilterGroup.vue
 ============================================== -->
 <template>
   <div class="h-full rounded border p-3 flex flex-col min-h-0" style="border-color:#e5e7eb">
-    <!-- 标题与“清空本组” -->
+    <!-- 标题与"清空本组" -->
     <div class="flex items-center justify-between mb-2">
       <h3 class="text-sm font-medium">{{ title }}</h3>
       <button
@@ -14,7 +14,7 @@ File: components/filters/FilterGroup.vue
         style="border-color:#e5e7eb"
         @click="clearGroup"
       >
-        清空本组
+        {{ $t('filters.clearGroup') }}
       </button>
     </div>
 
@@ -24,7 +24,7 @@ File: components/filters/FilterGroup.vue
       type="text"
       class="px-2 py-1 rounded border text-sm mb-2"
       style="border-color:#e5e7eb"
-      placeholder="组内搜索…"
+      :placeholder="$t('filters.searchInGroup')"
     />
 
     <!-- 候选项（内部滚动，不影响整体高度） -->
@@ -38,7 +38,9 @@ File: components/filters/FilterGroup.vue
       >
         {{ opt.label }}
       </button>
-      <div v-if="filteredOptions.length === 0" class="text-xs text-muted">无匹配项</div>
+      <div v-if="filteredOptions.length === 0" class="text-xs text-muted">
+        {{ $t('filters.noMatch') }}
+      </div>
     </div>
   </div>
 </template>

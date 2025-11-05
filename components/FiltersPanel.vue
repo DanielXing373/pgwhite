@@ -27,7 +27,7 @@ File: components/FiltersPanel.vue
         <div class="filter-card filter-card--a">
           <FiltersFilterGroup
             v-model="localAuthors"
-            :title="'作者'"
+            :title="$t('filters.authors')"
             :options="facets.authors"
           />
         </div>
@@ -36,7 +36,7 @@ File: components/FiltersPanel.vue
         <div class="filter-card filter-card--b">
           <FiltersFilterGroup
             v-model="localBooks"
-            :title="'书籍'"
+            :title="$t('filters.books')"
             :options="facets.books"
           />
         </div>
@@ -45,7 +45,7 @@ File: components/FiltersPanel.vue
         <div class="filter-card filter-card--a">
           <FiltersFilterGroup
             v-model="localGenres"
-            :title="'题材'"
+            :title="$t('filters.genres')"
             :options="facets.genres"
           />
         </div>
@@ -54,7 +54,7 @@ File: components/FiltersPanel.vue
         <div class="filter-card filter-card--b">
           <FiltersFilterGroup
             v-model="localTimes"
-            :title="'场景时间'"
+            :title="$t('filters.times')"
             :options="facets.times"
           />
         </div>
@@ -63,7 +63,7 @@ File: components/FiltersPanel.vue
         <div class="filter-card filter-card--a">
           <FiltersFilterGroup
             v-model="localThemes"
-            :title="'主题'"
+            :title="$t('filters.themes')"
             :options="facets.themes"
           />
         </div>
@@ -72,7 +72,7 @@ File: components/FiltersPanel.vue
         <div class="filter-card filter-card--b">
           <FiltersFilterGroup
             v-model="localDevices"
-            :title="'修辞手法'"
+            :title="$t('filters.devices')"
             :options="facets.devices"
           />
         </div>

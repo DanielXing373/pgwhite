@@ -24,9 +24,10 @@
 <script setup lang="ts">
 // —— 语言切换（默认 zh ↔ en） ——
 // 注意：此处依赖 @nuxtjs/i18n 已正确配置在 nuxt.config.ts 的 modules 中
-const { locale } = useI18n()
+const { locale, setLocale } = useI18n()
 const toggleLocale = () => {
-  locale.value = locale.value === 'zh' ? 'en' : 'zh'
+  const newLocale = locale.value === 'zh' ? 'en' : 'zh'
+  setLocale(newLocale)
 }
 </script>
 

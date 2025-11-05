@@ -20,7 +20,11 @@ export default defineNuxtConfig({
       ],
       lazy: true,
       langDir: 'locales',
-      detectBrowserLanguage: false
+      detectBrowserLanguage: false,
+      preload: ['zh', 'en'],
+      compilation: {
+        strictMessage: false
+      }
     }]
   ],
 

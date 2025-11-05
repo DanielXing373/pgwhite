@@ -6,12 +6,12 @@ File: pages/index.vue
 <template>
   <!-- —— 搜索区 —— -->
   <SearchBar
-  v-model="q"
-  :label="$t('search.placeholder')"
-  :placeholder="'如：日落 / friendship'"
-  :clearText="$t('search.clear')"
-  @clear="resetAll"
-/>
+    v-model="q"
+    :label="$t('search.placeholder')"
+    :placeholder="$t('search.placeholderExample')"
+    :clearText="$t('search.clear')"
+    @clear="resetAll"
+  />
 
 <!-- —— 筛选区（固定高度，内部滚动） —— -->
 <!-- —— 筛选区（现在每个筛选块自带浅色背景和边框） —— -->
@@ -39,11 +39,15 @@ File: pages/index.vue
       {{ $t('results.empty') }}
     </div>
     <div v-else>
-      <div class="text-sm mb-2" style="color:#6b7280">共 {{ results.length }} 条（已按界面语言自动筛选：{{ currentLangLabel }}）</div>
+      <div class="text-sm mb-2" style="color:#6b7280">
+        {{ $t('results.count', { count: results.length, lang: currentLangLabel }) }}
+      </div>
       <div v-for="s in results" :key="s.id" class="rounded border p-3" style="border-color:#e5e7eb">
         <div class="mb-1">{{ truncate(s.text, 200) }}</div>
         <div class="text-xs" style="color:#6b7280">
-          作者：{{ authorName(s.authorId) }} ｜ 书籍：{{ bookTitle(s.bookId) }} ｜ 章节：{{ s.chapter || '—' }}
+          {{ $t('results.authorLabel') }}{{ authorName(s.authorId) }} ｜ 
+          {{ $t('results.bookLabel') }}{{ bookTitle(s.bookId) }} ｜ 
+          {{ $t('results.chapterLabel') }}{{ s.chapter || '—' }}
         </div>
       </div>
     </div>
@@ -89,8 +93,10 @@ const facets = computed(() => buildFacets(sentences, {
 }))
 
 // —— UI 辅助 —— //
-const { locale } = useI18n()
-const currentLangLabel = computed(() => locale.value === 'en' ? '英文' : '中文')
+const { locale, t } = useI18n()
+const currentLangLabel = computed(() => 
+  locale.value === 'en' ? t('lang.enLabel') : t('lang.zhLabel')
+)
 function truncate(text: string, max = 200) {
   return text.length <= max ? text : text.slice(0, max) + '…'
 }
