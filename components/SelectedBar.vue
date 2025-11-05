@@ -8,8 +8,9 @@
         </div>
         <div class="selected-bar-actions">
           <button
-            v-if="canUndo"
             class="selected-action-btn"
+            :class="{ 'selected-action-btn--disabled': !canUndo }"
+            :disabled="!canUndo"
             @click="$emit('undo')"
             :aria-label="$t('selected.undo')"
             :title="$t('selected.undo')"
@@ -17,8 +18,9 @@
             ↶
           </button>
           <button
-            v-if="canRedo"
             class="selected-action-btn"
+            :class="{ 'selected-action-btn--disabled': !canRedo }"
+            :disabled="!canRedo"
             @click="$emit('redo')"
             :aria-label="$t('selected.redo')"
             :title="$t('selected.redo')"
@@ -26,7 +28,9 @@
             ↷
           </button>
           <button 
-            class="selected-clear-all-btn" 
+            class="selected-clear-all-btn"
+            :class="{ 'selected-clear-all-btn--disabled': selectedItems.length === 0 }"
+            :disabled="selectedItems.length === 0"
             @click="$emit('clearAll')"
           >
             {{ clearAllText }}

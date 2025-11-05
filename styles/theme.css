@@ -199,10 +199,17 @@
     background-color: #f3f4f6; /* 浅灰背景（与 var(--color-chip) 一致） */
   }
 
-  /* 英文书名斜体样式（结果卡片中的书名 chips） */
-  .result-chip--book {
-    font-style: italic;
-  }
+          /* 英文书名斜体样式（结果卡片中的书名 chips） */
+          .result-chip--book {
+            font-style: italic;
+          }
+
+          /* 被选中的标签（匹配搜索条件）加粗样式 */
+          .result-chip--matched {
+            font-weight: 600;
+            border-width: 2px;
+            border-color: var(--color-brand);
+          }
 
   /* 英文书名斜体样式（筛选区中的书名 chips） */
   .filter-chip--book {
@@ -274,9 +281,11 @@
     border-color: #d1d5db;
   }
 
-  .selected-action-btn:disabled {
+  .selected-action-btn:disabled,
+  .selected-action-btn--disabled {
     opacity: 0.4;
     cursor: not-allowed;
+    color: var(--color-muted);
   }
 
   .selected-clear-all-btn {
@@ -287,11 +296,18 @@
     background-color: #ffffff;
     color: var(--color-fg);
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, opacity 0.2s ease, color 0.2s ease;
   }
 
-  .selected-clear-all-btn:hover {
+  .selected-clear-all-btn:hover:not(:disabled) {
     background-color: #f9fafb;
+  }
+
+  .selected-clear-all-btn:disabled,
+  .selected-clear-all-btn--disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    color: var(--color-muted);
   }
 
   .selected-chips-container {

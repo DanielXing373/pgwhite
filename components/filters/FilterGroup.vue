@@ -22,7 +22,9 @@ File: components/filters/FilterGroup.vue
         </label>
       </div>
       <button
-        class="text-xs px-2 py-1 rounded border"
+        class="text-xs px-2 py-1 rounded border filter-clear-group-btn"
+        :class="{ 'filter-clear-group-btn--disabled': !hasSelectedItems }"
+        :disabled="!hasSelectedItems"
         style="border-color:#e5e7eb"
         @click="clearGroup"
       >
@@ -79,6 +81,9 @@ const emit = defineEmits<{
 // —— 语言检测（用于判断是否应用斜体） —— //
 const { locale } = useI18n()
 const isEnglish = computed(() => locale.value === 'en')
+
+// —— 检查是否有选中的项 —— //
+const hasSelectedItems = computed(() => props.modelValue.length > 0)
 
 // —— 组内搜索 —— //
 const innerQuery = ref('')
@@ -145,5 +150,17 @@ function chipStyle(id: string) {
 
 .filter-checkbox-label {
   cursor: pointer;
+}
+
+/* 清空本组按钮样式 */
+.filter-clear-group-btn {
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.filter-clear-group-btn:disabled,
+.filter-clear-group-btn--disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  color: var(--color-muted);
 }
 </style>

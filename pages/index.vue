@@ -39,8 +39,8 @@ File: pages/index.vue
     :times="times"
     :themes="themes"
     :devices="devices"
-    :canUndo="history.canUndo"
-    :canRedo="history.canRedo"
+    :canUndo="history.canUndo.value"
+    :canRedo="history.canRedo.value"
     @clearAll="resetAll"
     @undo="handleUndo"
     @redo="handleRedo"
@@ -73,7 +73,8 @@ File: pages/index.vue
               :class="[
                 'result-chip',
                 tagIndex % 2 === 0 ? 'result-chip--even' : 'result-chip--odd',
-                tag.isBook && locale === 'en' ? 'result-chip--book' : ''
+                tag.isBook && locale === 'en' ? 'result-chip--book' : '',
+                tag.isMatched ? 'result-chip--matched' : ''
               ]"
             >
               {{ tag.label }}
@@ -221,7 +222,7 @@ function handleRedo() {
 
 // —— 过滤引擎（含语言隐形筛选） —— //
 const { filter } = useFilterEngine()
-const results = computed(() => filter(sentences, {
+const filteredResults = computed(() => filter(sentences, {
   q: q.value,
   authors: authors.value,
   books: books.value,
@@ -233,6 +234,81 @@ const results = computed(() => filter(sentences, {
   themesAll: themesAll.value,
   devicesAll: devicesAll.value
 }))
+
+/**
+ * 计算句子命中的标签数量
+ */
+function countMatchedTags(sentence: Sentence): number {
+  let count = 0
+  
+  // 作者
+  if (authors.value.length && authors.value.includes(sentence.authorId)) {
+    count++
+  }
+  
+  // 书籍
+  if (books.value.length && books.value.includes(sentence.bookId)) {
+    count++
+  }
+  
+  // 题材（AND 逻辑：必须全部匹配；OR 逻辑：匹配数量）
+  if (genres.value.length) {
+    const matched = genres.value.filter(id => sentence.genreIds.includes(id)).length
+    count += matched
+  }
+  
+  // 场景时间
+  if (times.value.length) {
+    if (timesAll.value) {
+      // AND 逻辑：全部匹配才算
+      const allMatched = times.value.every(id => sentence.timeIds.includes(id))
+      if (allMatched) count += times.value.length
+    } else {
+      // OR 逻辑：匹配数量
+      const matched = times.value.filter(id => sentence.timeIds.includes(id)).length
+      count += matched
+    }
+  }
+  
+  // 主题
+  if (themes.value.length) {
+    if (themesAll.value) {
+      const allMatched = themes.value.every(id => sentence.themeIds.includes(id))
+      if (allMatched) count += themes.value.length
+    } else {
+      const matched = themes.value.filter(id => sentence.themeIds.includes(id)).length
+      count += matched
+    }
+  }
+  
+  // 修辞手法
+  if (devices.value.length) {
+    if (devicesAll.value) {
+      const allMatched = devices.value.every(id => sentence.deviceIds.includes(id))
+      if (allMatched) count += devices.value.length
+    } else {
+      const matched = devices.value.filter(id => sentence.deviceIds.includes(id)).length
+      count += matched
+    }
+  }
+  
+  return count
+}
+
+/**
+ * 按命中标签数量降序排序结果
+ */
+const results = computed(() => {
+  const sorted = [...filteredResults.value].map(s => ({
+    sentence: s,
+    matchCount: countMatchedTags(s)
+  }))
+  
+  // 按命中数量降序排序
+  sorted.sort((a, b) => b.matchCount - a.matchCount)
+  
+  return sorted.map(item => item.sentence)
+})
 
 // —— Facets 计算 —— //
 const { build: buildFacets } = useFacets()
@@ -291,11 +367,37 @@ function formatBookTitle(title: string, isEN: boolean): string {
 }
 
 /**
+ * 检查标签是否被选中（匹配搜索条件）
+ */
+function isTagMatched(dimension: string, tagId: string, sentence?: Sentence): boolean {
+  switch (dimension) {
+    case 'authors':
+      return authors.value.includes(tagId)
+    case 'books':
+      return books.value.includes(tagId)
+    case 'genres':
+      return genres.value.includes(tagId)
+    case 'times':
+      if (!times.value.length) return false
+      // 只要标签被选中就高亮，无论 AND 还是 OR 逻辑
+      return times.value.includes(tagId)
+    case 'themes':
+      if (!themes.value.length) return false
+      return themes.value.includes(tagId)
+    case 'devices':
+      if (!devices.value.length) return false
+      return devices.value.includes(tagId)
+    default:
+      return false
+  }
+}
+
+/**
  * 获取句子的所有标签（按顺序：作者、书籍、题材、场景时间、主题、修辞手法）
- * 返回格式：{ id: string, label: string, isBook?: boolean }[]
+ * 返回格式：{ id: string, label: string, isBook?: boolean, isMatched?: boolean, dimension: string }[]
  */
 function getSentenceTags(sentence: Sentence) {
-  const tags: { id: string; label: string; isBook?: boolean }[] = []
+  const tags: { id: string; label: string; isBook?: boolean; isMatched?: boolean; dimension: string }[] = []
   const isEN = locale.value === 'en'
 
   // 1. 作者
@@ -303,7 +405,9 @@ function getSentenceTags(sentence: Sentence) {
   if (author) {
     tags.push({
       id: sentence.authorId,
-      label: isEN ? (author.name_en || author.name_zh || sentence.authorId) : (author.name_zh || author.name_en || sentence.authorId)
+      label: isEN ? (author.name_en || author.name_zh || sentence.authorId) : (author.name_zh || author.name_en || sentence.authorId),
+      isMatched: isTagMatched('authors', sentence.authorId, sentence),
+      dimension: 'authors'
     })
   }
 
@@ -314,7 +418,9 @@ function getSentenceTags(sentence: Sentence) {
     tags.push({
       id: sentence.bookId,
       label: formatBookTitle(rawTitle, isEN),
-      isBook: true // 标记这是书名，用于应用斜体样式
+      isBook: true, // 标记这是书名，用于应用斜体样式
+      isMatched: isTagMatched('books', sentence.bookId, sentence),
+      dimension: 'books'
     })
   }
 
@@ -324,7 +430,9 @@ function getSentenceTags(sentence: Sentence) {
     if (genre) {
       tags.push({
         id,
-        label: isEN ? (genre.name_en || genre.name_zh || id) : (genre.name_zh || genre.name_en || id)
+        label: isEN ? (genre.name_en || genre.name_zh || id) : (genre.name_zh || genre.name_en || id),
+        isMatched: isTagMatched('genres', id, sentence),
+        dimension: 'genres'
       })
     }
   })
@@ -335,7 +443,9 @@ function getSentenceTags(sentence: Sentence) {
     if (time) {
       tags.push({
         id,
-        label: isEN ? (time.name_en || time.name_zh || id) : (time.name_zh || time.name_en || id)
+        label: isEN ? (time.name_en || time.name_zh || id) : (time.name_zh || time.name_en || id),
+        isMatched: isTagMatched('times', id, sentence),
+        dimension: 'times'
       })
     }
   })
@@ -346,7 +456,9 @@ function getSentenceTags(sentence: Sentence) {
     if (theme) {
       tags.push({
         id,
-        label: isEN ? (theme.name_en || theme.name_zh || id) : (theme.name_zh || theme.name_en || id)
+        label: isEN ? (theme.name_en || theme.name_zh || id) : (theme.name_zh || theme.name_en || id),
+        isMatched: isTagMatched('themes', id, sentence),
+        dimension: 'themes'
       })
     }
   })
@@ -357,7 +469,9 @@ function getSentenceTags(sentence: Sentence) {
     if (device) {
       tags.push({
         id,
-        label: isEN ? (device.name_en || device.name_zh || id) : (device.name_zh || device.name_en || id)
+        label: isEN ? (device.name_en || device.name_zh || id) : (device.name_zh || device.name_en || id),
+        isMatched: isTagMatched('devices', id, sentence),
+        dimension: 'devices'
       })
     }
   })
