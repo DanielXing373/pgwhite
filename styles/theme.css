@@ -88,3 +88,40 @@
   .filter-card--b {
     background-color: #f5f5f5; /* 稍微深一点点的浅灰 */
   }
+
+/* =====================================================
+   Result card styles
+   说明：
+   - .result-card        : 结果卡片基础样式（边框/圆角/内边距）
+   - .result-card--even  : 偶数索引背景色（更亮）
+   - .result-card--odd   : 奇数索引背景色（稍深）
+   - .result-stack       : 结果列表容器（控制卡片间距）
+   修改配色、圆角、间距请来这里，保持与筛选卡片风格一致。
+   ===================================================== */
+
+  .result-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* 卡片之间的竖向间距 */
+  }
+
+  /* 结果卡片公共框体 */
+  .result-card {
+    border: 1px solid #e5e7eb; /* 浅灰边框 */
+    border-radius: 8px;        /* 圆角半径 */
+    padding: 16px;             /* 内边距（比筛选卡片稍大，因为内容更多） */
+    transition: box-shadow 0.2s ease; /* 添加悬停效果过渡 */
+  }
+
+  .result-card:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* 悬停时轻微阴影 */
+  }
+
+  /* 两种交替背景色，方便视觉分组 */
+  .result-card--even {
+    background-color: #ffffff; /* 白色背景 */
+  }
+
+  .result-card--odd {
+    background-color: #fafafa; /* 浅灰背景 */
+  }

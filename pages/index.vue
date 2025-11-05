@@ -35,19 +35,27 @@ File: pages/index.vue
 
   <!-- —— 结果列表（先渲染数量与卡片简版） —— -->
   <section class="space-y-3">
-    <div v-if="results.length === 0" class="rounded border p-4 text-sm" style="border-color:#e5e7eb; color:#6b7280">
+    <div v-if="results.length === 0" class="rounded border p-4 text-sm result-card" style="border-color:#e5e7eb; color:#6b7280">
       {{ $t('results.empty') }}
     </div>
     <div v-else>
-      <div class="text-sm mb-2" style="color:#6b7280">
+      <div class="text-sm mb-3" style="color:#6b7280">
         {{ $t('results.count', { count: results.length, lang: currentLangLabel }) }}
       </div>
-      <div v-for="s in results" :key="s.id" class="rounded border p-3" style="border-color:#e5e7eb">
-        <div class="mb-1">{{ truncate(s.text, 200) }}</div>
-        <div class="text-xs" style="color:#6b7280">
-          {{ $t('results.authorLabel') }}{{ authorName(s.authorId) }} ｜ 
-          {{ $t('results.bookLabel') }}{{ bookTitle(s.bookId) }} ｜ 
-          {{ $t('results.chapterLabel') }}{{ s.chapter || '—' }}
+      <div class="result-stack">
+        <div
+          v-for="(s, index) in results"
+          :key="s.id"
+          :class="['result-card', index % 2 === 0 ? 'result-card--even' : 'result-card--odd']"
+        >
+          <div class="mb-2" style="color: var(--color-fg); line-height: 1.6;">
+            {{ truncate(s.text, 200) }}
+          </div>
+          <div class="text-xs" style="color: var(--color-muted);">
+            {{ $t('results.authorLabel') }}{{ authorName(s.authorId) }} ｜ 
+            {{ $t('results.bookLabel') }}{{ bookTitle(s.bookId) }} ｜ 
+            {{ $t('results.chapterLabel') }}{{ s.chapter || '—' }}
+          </div>
         </div>
       </div>
     </div>
