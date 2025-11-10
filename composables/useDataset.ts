@@ -25,7 +25,7 @@ export type Sentence = {
   deviceIds: string[]
 }
 
-export type Named = { id: string; name_zh?: string; name_en?: string; title_zh?: string; title_en?: string; authorId?: string }
+export type Named = { id: string; name_zh?: string; name_en?: string; title_zh?: string; title_en?: string; authorId?: string; emoji?: string }
 
 export function useDataset() {
   // —— 原始数组 —— //

@@ -5,6 +5,7 @@
 // =====================================================
 import { useDataset, type Sentence } from './useDataset'
 import type { Filters } from './useFilterEngine'
+import { prependEmoji } from './useUIHelpers'
 
 export type SentenceTag = {
   id: string
@@ -67,9 +68,10 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
     // 1. 作者
     const author = authorById.get(sentence.authorId)
     if (author) {
+      const baseLabel = isEN ? (author.name_en || author.name_zh || sentence.authorId) : (author.name_zh || author.name_en || sentence.authorId)
       tags.push({
         id: sentence.authorId,
-        label: isEN ? (author.name_en || author.name_zh || sentence.authorId) : (author.name_zh || author.name_en || sentence.authorId),
+        label: prependEmoji(author.emoji, baseLabel),
         isMatched: isTagMatched('authors', sentence.authorId),
         dimension: 'authors'
       })
@@ -79,9 +81,10 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
     const book = bookById.get(sentence.bookId)
     if (book) {
       const rawTitle = isEN ? (book.title_en || book.title_zh || sentence.bookId) : (book.title_zh || book.title_en || sentence.bookId)
+      const formattedTitle = formatBookTitle(rawTitle, isEN)
       tags.push({
         id: sentence.bookId,
-        label: formatBookTitle(rawTitle, isEN),
+        label: prependEmoji(book.emoji, formattedTitle),
         isBook: true, // 标记这是书名，用于应用斜体样式
         isMatched: isTagMatched('books', sentence.bookId),
         dimension: 'books'
@@ -92,9 +95,10 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
     sentence.genreIds.forEach(id => {
       const genre = genreById.get(id)
       if (genre) {
+        const baseLabel = isEN ? (genre.name_en || genre.name_zh || id) : (genre.name_zh || genre.name_en || id)
         tags.push({
           id,
-          label: isEN ? (genre.name_en || genre.name_zh || id) : (genre.name_zh || genre.name_en || id),
+          label: prependEmoji(genre.emoji, baseLabel),
           isMatched: isTagMatched('genres', id),
           dimension: 'genres'
         })
@@ -105,9 +109,10 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
     sentence.timeIds.forEach(id => {
       const time = timeById.get(id)
       if (time) {
+        const baseLabel = isEN ? (time.name_en || time.name_zh || id) : (time.name_zh || time.name_en || id)
         tags.push({
           id,
-          label: isEN ? (time.name_en || time.name_zh || id) : (time.name_zh || time.name_en || id),
+          label: prependEmoji(time.emoji, baseLabel),
           isMatched: isTagMatched('times', id),
           dimension: 'times'
         })
@@ -118,9 +123,10 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
     sentence.themeIds.forEach(id => {
       const theme = themeById.get(id)
       if (theme) {
+        const baseLabel = isEN ? (theme.name_en || theme.name_zh || id) : (theme.name_zh || theme.name_en || id)
         tags.push({
           id,
-          label: isEN ? (theme.name_en || theme.name_zh || id) : (theme.name_zh || theme.name_en || id),
+          label: prependEmoji(theme.emoji, baseLabel),
           isMatched: isTagMatched('themes', id),
           dimension: 'themes'
         })
@@ -131,9 +137,10 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
     sentence.deviceIds.forEach(id => {
       const device = deviceById.get(id)
       if (device) {
+        const baseLabel = isEN ? (device.name_en || device.name_zh || id) : (device.name_zh || device.name_en || id)
         tags.push({
           id,
-          label: isEN ? (device.name_en || device.name_zh || id) : (device.name_zh || device.name_en || id),
+          label: prependEmoji(device.emoji, baseLabel),
           isMatched: isTagMatched('devices', id),
           dimension: 'devices'
         })

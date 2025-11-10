@@ -22,3 +22,11 @@ export function truncate(text: string, max = 200): string {
   return cleanedText.length <= max ? cleanedText : cleanedText.slice(0, max) + '…'
 }
 
+/**
+ * 如果提供了 emoji，则在标签前添加 emoji
+ */
+export function prependEmoji(emoji: string | undefined, label: string): string {
+  if (!emoji) return label
+  return `${emoji} ${label}`
+}
+

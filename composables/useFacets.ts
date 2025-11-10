@@ -3,7 +3,7 @@
 // 标题：Facet 计算（保证始终返回 FacetOptions，不为 undefined）
 // =====================================================
 import { useDataset, type Sentence } from '~/composables/useDataset'
-import { EMPTY_FACETS, type FacetOptions } from '~/composables/dimensions'
+import { prependEmoji } from '~/composables/useUIHelpers'
 
 type Filters = {
   q: string
@@ -73,21 +73,43 @@ export function useFacets() {
     const isEN = locale.value === 'en'
     const mapLabel = (id: string): string => {
       switch (dim) {
-        case 'authors': return isEN ? (authorById.get(id)?.name_en || authorById.get(id)?.name_zh || id)
-                                    : (authorById.get(id)?.name_zh || authorById.get(id)?.name_en || id)
-        case 'books':   {
-          const rawTitle = isEN ? (bookById.get(id)?.title_en || bookById.get(id)?.title_zh || id)
-                                : (bookById.get(id)?.title_zh || bookById.get(id)?.title_en || id)
-          return formatBookTitle(rawTitle, isEN)
+        case 'authors': {
+          const author = authorById.get(id)
+          const base = isEN ? (author?.name_en || author?.name_zh || id)
+                             : (author?.name_zh || author?.name_en || id)
+          return prependEmoji(author?.emoji, base)
         }
-        case 'genres':  return isEN ? (genreById.get(id)?.name_en || genreById.get(id)?.name_zh || id)
-                                    : (genreById.get(id)?.name_zh || genreById.get(id)?.name_en || id)
-        case 'times':   return isEN ? (timeById.get(id)?.name_en || timeById.get(id)?.name_zh || id)
-                                    : (timeById.get(id)?.name_zh || timeById.get(id)?.name_en || id)
-        case 'themes':  return isEN ? (themeById.get(id)?.name_en || themeById.get(id)?.name_zh || id)
-                                    : (themeById.get(id)?.name_zh || themeById.get(id)?.name_en || id)
-        case 'devices': return isEN ? (deviceById.get(id)?.name_en || deviceById.get(id)?.name_zh || id)
-                                    : (deviceById.get(id)?.name_zh || deviceById.get(id)?.name_en || id)
+        case 'books': {
+          const book = bookById.get(id)
+          const rawTitle = isEN ? (book?.title_en || book?.title_zh || id)
+                                : (book?.title_zh || book?.title_en || id)
+          const formatted = formatBookTitle(rawTitle, isEN)
+          return prependEmoji(book?.emoji, formatted)
+        }
+        case 'genres': {
+          const genre = genreById.get(id)
+          const base = isEN ? (genre?.name_en || genre?.name_zh || id)
+                             : (genre?.name_zh || genre?.name_en || id)
+          return prependEmoji(genre?.emoji, base)
+        }
+        case 'times': {
+          const time = timeById.get(id)
+          const base = isEN ? (time?.name_en || time?.name_zh || id)
+                            : (time?.name_zh || time?.name_en || id)
+          return prependEmoji(time?.emoji, base)
+        }
+        case 'themes': {
+          const theme = themeById.get(id)
+          const base = isEN ? (theme?.name_en || theme?.name_zh || id)
+                             : (theme?.name_zh || theme?.name_en || id)
+          return prependEmoji(theme?.emoji, base)
+        }
+        case 'devices': {
+          const device = deviceById.get(id)
+          const base = isEN ? (device?.name_en || device?.name_zh || id)
+                              : (device?.name_zh || device?.name_en || id)
+          return prependEmoji(device?.emoji, base)
+        }
       }
     }
     return Array.from(new Set(ids)).map(id => ({ id, label: mapLabel(id) }))

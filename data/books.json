@@ -1,4 +1,4 @@
 [
-  { "id": "b_hp1", "title_zh": "哈利·波特与魔法石", "title_en": "Harry Potter and the Philosopher's Stone", "authorId": "a_rowling" },
-  { "id": "b_lotr", "title_zh": "魔戒", "title_en": "The Lord of the Rings", "authorId": "a_tolkien" }
+  { "id": "b_hp1", "title_zh": "哈利·波特与魔法石", "title_en": "Harry Potter and the Philosopher's Stone", "authorId": "a_rowling", "emoji": "📚" },
+  { "id": "b_lotr", "title_zh": "魔戒", "title_en": "The Lord of the Rings", "authorId": "a_tolkien", "emoji": "📚" }
 ]

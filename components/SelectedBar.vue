@@ -69,6 +69,7 @@
 import { useDataset } from '~/composables/useDataset'
 import { DIM_KEYS } from '~/composables/dimensions'
 import type { DimKey } from '~/composables/dimensions'
+import { prependEmoji } from '~/composables/useUIHelpers'
 
 type SelectedItem = {
   dimension: DimKey
@@ -152,33 +153,39 @@ function getLabelForId(dim: DimKey, id: string, isEN: boolean): string {
     case 'authors': {
       const author = authorById.get(id)
       if (!author) return id
-      return isEN ? (author.name_en || author.name_zh || id) : (author.name_zh || author.name_en || id)
+      const base = isEN ? (author.name_en || author.name_zh || id) : (author.name_zh || author.name_en || id)
+      return prependEmoji(author.emoji, base)
     }
     case 'books': {
       const book = bookById.get(id)
       if (!book) return id
       const rawTitle = isEN ? (book.title_en || book.title_zh || id) : (book.title_zh || book.title_en || id)
-      return formatBookTitle(rawTitle, isEN)
+      const formatted = formatBookTitle(rawTitle, isEN)
+      return prependEmoji(book.emoji, formatted)
     }
     case 'genres': {
       const genre = genreById.get(id)
       if (!genre) return id
-      return isEN ? (genre.name_en || genre.name_zh || id) : (genre.name_zh || genre.name_en || id)
+      const base = isEN ? (genre.name_en || genre.name_zh || id) : (genre.name_zh || genre.name_en || id)
+      return prependEmoji(genre.emoji, base)
     }
     case 'times': {
       const time = timeById.get(id)
       if (!time) return id
-      return isEN ? (time.name_en || time.name_zh || id) : (time.name_zh || time.name_en || id)
+      const base = isEN ? (time.name_en || time.name_zh || id) : (time.name_zh || time.name_en || id)
+      return prependEmoji(time.emoji, base)
     }
     case 'themes': {
       const theme = themeById.get(id)
       if (!theme) return id
-      return isEN ? (theme.name_en || theme.name_zh || id) : (theme.name_zh || theme.name_en || id)
+      const base = isEN ? (theme.name_en || theme.name_zh || id) : (theme.name_zh || theme.name_en || id)
+      return prependEmoji(theme.emoji, base)
     }
     case 'devices': {
       const device = deviceById.get(id)
       if (!device) return id
-      return isEN ? (device.name_en || device.name_zh || id) : (device.name_zh || device.name_en || id)
+      const base = isEN ? (device.name_en || device.name_zh || id) : (device.name_zh || device.name_en || id)
+      return prependEmoji(device.emoji, base)
     }
   }
 }

@@ -1,5 +1,5 @@
 [
-  { "id": "d_metaphor", "name_zh": "隐喻", "name_en": "Metaphor" },
-  { "id": "d_personification", "name_zh": "拟人", "name_en": "Personification" },
-  { "id": "d_alliteration", "name_zh": "头韵", "name_en": "Alliteration" }
+  { "id": "d_metaphor", "name_zh": "隐喻", "name_en": "Metaphor", "emoji": "🛠️" },
+  { "id": "d_personification", "name_zh": "拟人", "name_en": "Personification", "emoji": "🛠️" },
+  { "id": "d_alliteration", "name_zh": "头韵", "name_en": "Alliteration", "emoji": "🛠️" }
 ]

@@ -1,4 +1,4 @@
 [
-  { "id": "a_rowling", "name_zh": "J.K. 罗琳", "name_en": "J.K. Rowling" },
-  { "id": "a_tolkien", "name_zh": "J.R.R. 托尔金", "name_en": "J.R.R. Tolkien" }
+  { "id": "a_rowling", "name_zh": "J.K. 罗琳", "name_en": "J.K. Rowling", "emoji": "👤" },
+  { "id": "a_tolkien", "name_zh": "J.R.R. 托尔金", "name_en": "J.R.R. Tolkien", "emoji": "👤" }
 ]
