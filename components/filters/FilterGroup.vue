@@ -5,7 +5,7 @@ File: components/filters/FilterGroup.vue
 注意：颜色/字体走 styles/theme.css 的变量
 ============================================== -->
 <template>
-  <div class="h-full rounded border p-3 flex flex-col min-h-0" style="border-color:#e5e7eb">
+  <div class="filter-group-wrapper h-full flex flex-col min-h-0">
     <!-- 标题与"清空本组" -->
     <div class="filter-group-header">
       <div class="filter-group-title-row">
@@ -31,15 +31,6 @@ File: components/filters/FilterGroup.vue
         {{ $t('filters.clearGroup') }}
       </button>
     </div>
-
-    <!-- 组内搜索 -->
-    <input
-      v-model="innerQuery"
-      type="text"
-      class="px-2 py-1 rounded border text-sm mb-2"
-      style="border-color:#e5e7eb"
-      :placeholder="$t('filters.searchInGroup')"
-    />
 
     <!-- 候选项（内部滚动，不影响整体高度） -->
     <div class="filter-chips-container">
@@ -85,14 +76,8 @@ const isEnglish = computed(() => locale.value === 'en')
 // —— 检查是否有选中的项 —— //
 const hasSelectedItems = computed(() => props.modelValue.length > 0)
 
-// —— 组内搜索 —— //
-const innerQuery = ref('')
-
-const filteredOptions = computed(() => {
-  const q = innerQuery.value.trim().toLowerCase()
-  if (!q) return props.options
-  return props.options.filter(o => o.label.toLowerCase().includes(q))
-})
+// —— 候选项（直接使用 props.options，不再进行组内搜索过滤） —— //
+const filteredOptions = computed(() => props.options)
 
 // —— 判断是否是书名 chip（通过 ID 前缀判断） —— //
 function isBookChip(id: string): boolean {
@@ -162,5 +147,10 @@ function chipStyle(id: string) {
   opacity: 0.4;
   cursor: not-allowed;
   color: var(--color-muted);
+}
+
+/* 筛选组包装器（在标签页布局中不需要边框和内边距） */
+.filter-group-wrapper {
+  /* 移除边框和内边距，因为标签页面板已经有 padding */
 }
 </style>
