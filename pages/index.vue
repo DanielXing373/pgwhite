@@ -15,6 +15,7 @@ File: pages/index.vue
   v-model:times="times"
   v-model:themes="themes"
   v-model:devices="devices"
+  v-model:q="q"
   v-model:timesAll="timesAll"
   v-model:themesAll="themesAll"
   v-model:devicesAll="devicesAll"
@@ -37,15 +38,6 @@ File: pages/index.vue
     @redo="handleRedo"
     @removeTag="handleRemoveTag"
   />
-
-  <!-- —— 搜索区（位于 selected 和结果之间） —— -->
-  <SearchBar
-    v-model="q"
-    :label="$t('search.placeholderWithTags')"
-    :placeholder="$t('search.placeholderWithTagsExample')"
-    :clearText="$t('search.clear')"
-    @clear="clearSearch"
-/>
 
   <!-- —— 结果列表（先渲染数量与卡片简版） —— -->
   <section class="space-y-3">
@@ -102,7 +94,7 @@ import { truncate } from '~/composables/useUIHelpers'
 const { sentences } = useDataset()
 
 // —— 查询状态（URL 同步） —— //
-const { q, authors, books, genres, times, themes, devices, timesAll, themesAll, devicesAll, clearSearch, resetAll } = useQueryState()
+const { q, authors, books, genres, times, themes, devices, timesAll, themesAll, devicesAll, resetAll } = useQueryState()
 
 /**
  * 获取当前搜索条件状态

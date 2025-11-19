@@ -10,9 +10,6 @@ File: components/FiltersPanel.vue
 
 <template>
   <section class="mb-4">
-    <!-- 标题行（例如"筛选条件"） -->
-    <h2 class="text-sm mb-2">{{ title }}</h2>
-
     <!-- 标签页容器（文件夹样式） -->
     <div class="filter-tabs-container" style="box-shadow: none; border: none;">
       <!-- 标签页按钮行 -->
@@ -95,6 +92,14 @@ File: components/FiltersPanel.vue
             @update:matchAll="emit('update:devicesAll', $event)"
           />
         </div>
+
+        <!-- 精准搜索 -->
+        <div v-show="activeTab === 'search'" class="filter-tab-panel">
+          <FiltersFilterSearch
+            v-model="localQ"
+            :placeholder="$t('search.placeholderWithTagsExample')"
+          />
+        </div>
       </div>
     </div>
   </section>
@@ -145,6 +150,9 @@ const props = defineProps<{
   themes:  string[]
   devices: string[]
   
+  // 精准搜索文本
+  q?: string
+  
   // 后三个维度的"满足所有筛选"复选框状态
   timesAll: boolean
   themesAll: boolean
@@ -164,6 +172,7 @@ const emit = defineEmits<{
   (e: 'update:times',   v: string[]): void
   (e: 'update:themes',  v: string[]): void
   (e: 'update:devices', v: string[]): void
+  (e: 'update:q', v: string): void
   (e: 'update:timesAll', v: boolean): void
   (e: 'update:themesAll', v: boolean): void
   (e: 'update:devicesAll', v: boolean): void
@@ -209,9 +218,14 @@ const localDevices = computed({
   set: (val: string[]) => emit('update:devices', val)
 })
 
+const localQ = computed({
+  get: () => props.q || '',
+  set: (val: string) => emit('update:q', val)
+})
+
 // —— 标签页切换逻辑 —— //
 const { t } = useI18n()
-const activeTab = ref<'authors' | 'books' | 'genres' | 'times' | 'themes' | 'devices'>('authors')
+const activeTab = ref<'authors' | 'books' | 'genres' | 'times' | 'themes' | 'devices' | 'search'>('authors')
 
 // 标签页配置（包含标签文本和已选数量）
 const tabs = computed(() => [
@@ -244,6 +258,11 @@ const tabs = computed(() => [
     key: 'devices' as const,
     label: t('filters.devices'),
     count: props.devices.length
+  },
+  {
+    key: 'search' as const,
+    label: t('filters.search'),
+    count: (props.q && props.q.length > 0) ? 1 : 0 // 如果有搜索文本，显示计数为1
   }
 ])
 </script>
