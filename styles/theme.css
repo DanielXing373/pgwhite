@@ -184,7 +184,7 @@
     height: 36px; /* 固定高度（从40px减小到36px） */
     padding: 0 16px;
     border: none;
-    background-color: #f5f5f5; /* 未选中背景色 */
+    background-color: #f5f5f5; /* 默认未选中背景色（会被特定颜色覆盖） */
     color: var(--color-fg);
     font-size: 0.875rem; /* text-sm */
     font-weight: 500;
@@ -201,20 +201,84 @@
     z-index: 1; /* 默认 z-index */
   }
 
+  /* 彩虹七色：低饱和度优雅配色方案 */
+  /* 1. Authors (红) - 淡玫瑰色 */
+  .filter-tab-button--authors {
+    background-color: #fce7f3;
+  }
+
+  /* 2. Books (橙) - 淡珊瑚色 */
+  .filter-tab-button--books {
+    background-color: #ffe4d6;
+  }
+
+  /* 3. Genres (黄) - 淡金色/香草色 */
+  .filter-tab-button--genres {
+    background-color: #fef3c7;
+  }
+
+  /* 4. Times (绿) - 淡薄荷绿 */
+  .filter-tab-button--times {
+    background-color: #d1fae5;
+  }
+
+  /* 5. Themes (蓝) - 淡天蓝色 */
+  .filter-tab-button--themes {
+    background-color: #dbeafe;
+  }
+
+  /* 6. Devices (靛) - 淡蓝色调（比Themes稍深） */
+  .filter-tab-button--devices {
+    background-color: #c7d2fe; /* 淡蓝色，比Themes稍深 */
+  }
+
+  /* 7. Search (紫) - 淡紫色调 */
+  .filter-tab-button--search {
+    background-color: #f3e8ff; /* 淡紫色/薰衣草色 */
+  }
+
   /* 未选中标签的轻微层叠 */
   .filter-tab-button:not(.filter-tab-button--active) {
     z-index: 1;
   }
 
   .filter-tab-button:hover:not(.filter-tab-button--active) {
-    background-color: #e5e7eb;
+    /* hover时稍微加深背景色，但保持原有色调 */
     z-index: 2; /* hover 时稍微提升 */
+  }
+
+  /* Hover状态：每个tab的hover颜色稍微加深 */
+  .filter-tab-button--authors:hover:not(.filter-tab-button--active) {
+    background-color: #fbcfe8;
+  }
+
+  .filter-tab-button--books:hover:not(.filter-tab-button--active) {
+    background-color: #fed7aa;
+  }
+
+  .filter-tab-button--genres:hover:not(.filter-tab-button--active) {
+    background-color: #fde68a;
+  }
+
+  .filter-tab-button--times:hover:not(.filter-tab-button--active) {
+    background-color: #a7f3d0;
+  }
+
+  .filter-tab-button--themes:hover:not(.filter-tab-button--active) {
+    background-color: #bfdbfe; /* 天蓝色hover */
+  }
+
+  .filter-tab-button--devices:hover:not(.filter-tab-button--active) {
+    background-color: #a5b4fc; /* 更深的蓝色，区别于Themes */
+  }
+
+  .filter-tab-button--search:hover:not(.filter-tab-button--active) {
+    background-color: #e9d5ff; /* 更深的紫色 */
   }
 
   /* 激活状态的标签按钮（覆盖右侧标签） */
   .filter-tab-button--active {
-    background-color: #ffffff;
-    color: var(--color-brand);
+    color: var(--color-fg); /* 保持黑色文字，不使用蓝色 */
     border-bottom: 2px solid var(--color-brand);
     margin-bottom: -1px; /* 覆盖底部边框 */
     font-weight: 600;
@@ -222,8 +286,44 @@
     margin-right: -12px; /* 与未激活按钮保持相同间距，避免位移 */
   }
 
+  /* 激活状态：使用与hover相同的背景色，并添加对应颜色的底部边框 */
+  .filter-tab-button--authors.filter-tab-button--active {
+    background-color: #fbcfe8; /* 与hover相同的玫瑰色 */
+    border-bottom-color: #ec4899; /* 玫瑰色边框 */
+  }
+
+  .filter-tab-button--books.filter-tab-button--active {
+    background-color: #fed7aa; /* 与hover相同的珊瑚色 */
+    border-bottom-color: #fb923c; /* 珊瑚色边框 */
+  }
+
+  .filter-tab-button--genres.filter-tab-button--active {
+    background-color: #fde68a; /* 与hover相同的金色 */
+    border-bottom-color: #fbbf24; /* 金色边框 */
+  }
+
+  .filter-tab-button--times.filter-tab-button--active {
+    background-color: #a7f3d0; /* 与hover相同的薄荷绿 */
+    border-bottom-color: #10b981; /* 薄荷绿边框 */
+  }
+
+  .filter-tab-button--themes.filter-tab-button--active {
+    background-color: #bfdbfe; /* 天蓝色激活状态 */
+    border-bottom-color: #3b82f6; /* 天蓝色边框 */
+  }
+
+  .filter-tab-button--devices.filter-tab-button--active {
+    background-color: #a5b4fc; /* 更深的蓝色激活状态，区别于Themes */
+    border-bottom-color: #6366f1; /* 靛蓝色边框 */
+  }
+
+  .filter-tab-button--search.filter-tab-button--active {
+    background-color: #e9d5ff; /* 与hover相同的紫色 */
+    border-bottom-color: #a78bfa; /* 紫色边框 */
+  }
+
   .filter-tab-button--active:hover {
-    background-color: #ffffff;
+    /* 保持激活时的背景色不变 */
     z-index: 10; /* 保持最上层 */
   }
 
@@ -244,7 +344,7 @@
   }
 
   .filter-tab-button--active .filter-tab-count {
-    color: var(--color-brand);
+    color: var(--color-muted); /* 保持灰色，与未激活状态一致 */
   }
 
   /* 标签页内容区域（固定高度） */

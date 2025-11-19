@@ -19,6 +19,7 @@ File: components/FiltersPanel.vue
           :key="tab.key"
           :class="[
             'filter-tab-button',
+            `filter-tab-button--${tab.key}`,
             { 'filter-tab-button--active': activeTab === tab.key }
           ]"
           @click="activeTab = tab.key"
