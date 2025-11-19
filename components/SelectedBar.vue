@@ -4,8 +4,8 @@
       <div class="selected-bar-container">
       <div class="selected-bar-header">
         <div class="selected-bar-title-section">
-          <div class="text-sm">
-            {{ selectedLabel }}：
+        <div class="text-sm">
+          {{ selectedLabel }}：
           </div>
           <span v-if="selectedItems.length > 0" class="selected-hint">
             {{ $t('selected.clickHint') }}
@@ -38,7 +38,7 @@
             :disabled="selectedItems.length === 0"
             @click="$emit('clearAll')"
           >
-            {{ clearAllText }}
+          {{ clearAllText }}
           </button>
         </div>
       </div>
@@ -61,11 +61,11 @@
         {{ $t('selected.emptyHint') }}
       </div>
     </div>
-    </div>
-  </section>
-</template>
-
-<script setup lang="ts">
+      </div>
+    </section>
+  </template>
+  
+  <script setup lang="ts">
 import { useDataset } from '~/composables/useDataset'
 import { DIM_KEYS } from '~/composables/dimensions'
 import type { DimKey } from '~/composables/dimensions'
@@ -77,9 +77,9 @@ type SelectedItem = {
   label: string
 }
 
-const props = defineProps<{
-  selectedLabel: string
-  clearAllText: string
+  const props = defineProps<{
+    selectedLabel: string
+    clearAllText: string
   authors: string[]
   books: string[]
   genres: string[]
@@ -196,4 +196,4 @@ function getLabelForId(dim: DimKey, id: string, isEN: boolean): string {
 function handleRemoveTag(dimension: DimKey, id: string) {
   emit('removeTag', dimension, id)
 }
-</script>
+  </script>

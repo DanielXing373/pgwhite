@@ -22,8 +22,8 @@ File: pages/index.vue
 
   <!-- —— 当前已选（显示所有选中标签的 chips） —— -->
   <SelectedBar
-    :selectedLabel="$t('filters.selected')"
-    :clearAllText="$t('filters.clearAll')"
+  :selectedLabel="$t('filters.selected')"
+  :clearAllText="$t('filters.clearAll')"
     :authors="authors"
     :books="books"
     :genres="genres"
@@ -32,7 +32,7 @@ File: pages/index.vue
     :devices="devices"
     :canUndo="history.canUndo.value"
     :canRedo="history.canRedo.value"
-    @clearAll="resetAll"
+  @clearAll="resetAll"
     @undo="handleUndo"
     @redo="handleRedo"
     @removeTag="handleRemoveTag"
@@ -45,7 +45,7 @@ File: pages/index.vue
     :placeholder="$t('search.placeholderWithTagsExample')"
     :clearText="$t('search.clear')"
     @clear="clearSearch"
-  />
+/>
 
   <!-- —— 结果列表（先渲染数量与卡片简版） —— -->
   <section class="space-y-3">

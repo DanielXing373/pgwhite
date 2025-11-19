@@ -24,7 +24,7 @@ export function useFacets() {
     authors, books, genres, times, themes, devices,
     authorById, bookById, genreById, timeById, themeById, deviceById
   } = useDataset()
-  
+
   // 在 composable 顶层获取 locale，确保响应式
   const { locale } = useI18n()
 

@@ -6,10 +6,38 @@ File: components/filters/FilterGroup.vue
 ============================================== -->
 <template>
   <div class="filter-group-wrapper h-full flex flex-col min-h-0">
-    <!-- 标题与"清空本组" -->
-    <div class="filter-group-header">
-      <div class="filter-group-title-row">
-        <h3 class="filter-group-title">{{ title }}</h3>
+    <!-- 主内容区：chips 在左侧，操作按钮在右侧 -->
+    <div class="filter-group-main">
+      <!-- 候选项（内部滚动，不影响整体高度） -->
+      <div class="filter-chips-container">
+        <button
+          v-for="opt in filteredOptions"
+          :key="opt.id"
+          :class="[
+            'px-2 py-1 rounded text-sm border',
+            isBookChip(opt.id) && isEnglish ? 'filter-chip--book' : ''
+          ]"
+          :style="chipStyle(opt.id)"
+          @click="toggle(opt.id)"
+        >
+          {{ opt.label }}
+        </button>
+        <div v-if="filteredOptions.length === 0" class="text-xs text-muted">
+          {{ $t('filters.noMatch') }}
+        </div>
+      </div>
+
+      <!-- 操作栏："清空本组"按钮和"满足所有筛选"复选框 -->
+      <div class="filter-group-actions">
+        <button
+          class="text-xs px-2 py-1 rounded border filter-clear-group-btn"
+          :class="{ 'filter-clear-group-btn--disabled': !hasSelectedItems }"
+          :disabled="!hasSelectedItems"
+          style="border-color:#e5e7eb"
+          @click="clearGroup"
+        >
+          {{ $t('filters.clearGroup') }}
+        </button>
         <!-- "满足所有筛选"复选框（仅在后三个维度显示） -->
         <label v-if="showMatchAll" class="filter-match-all-checkbox">
           <input
@@ -20,34 +48,6 @@ File: components/filters/FilterGroup.vue
           />
           <span class="filter-checkbox-label">{{ $t('filters.matchAll') }}</span>
         </label>
-      </div>
-      <button
-        class="text-xs px-2 py-1 rounded border filter-clear-group-btn"
-        :class="{ 'filter-clear-group-btn--disabled': !hasSelectedItems }"
-        :disabled="!hasSelectedItems"
-        style="border-color:#e5e7eb"
-        @click="clearGroup"
-      >
-        {{ $t('filters.clearGroup') }}
-      </button>
-    </div>
-
-    <!-- 候选项（内部滚动，不影响整体高度） -->
-    <div class="filter-chips-container">
-      <button
-        v-for="opt in filteredOptions"
-        :key="opt.id"
-        :class="[
-          'px-2 py-1 rounded text-sm border',
-          isBookChip(opt.id) && isEnglish ? 'filter-chip--book' : ''
-        ]"
-        :style="chipStyle(opt.id)"
-        @click="toggle(opt.id)"
-      >
-        {{ opt.label }}
-      </button>
-      <div v-if="filteredOptions.length === 0" class="text-xs text-muted">
-        {{ $t('filters.noMatch') }}
       </div>
     </div>
   </div>
@@ -110,11 +110,33 @@ function chipStyle(id: string) {
 </script>
 
 <style scoped>
-/* 标题行布局（标题 + 复选框） */
-.filter-group-title-row {
+/* 主内容区：chips 在左侧，操作按钮在右侧 */
+.filter-group-main {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  gap: 16px;
+  height: 100%;
+}
+
+/* 筛选区 chips 容器（左侧，占据剩余空间） */
+.filter-chips-container {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
   gap: 12px;
+  align-content: flex-start;
+}
+
+/* 操作栏（右侧，固定宽度） */
+.filter-group-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  flex-shrink: 0;
 }
 
 /* "满足所有筛选"复选框样式 */

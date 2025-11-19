@@ -189,7 +189,7 @@
     font-size: 0.875rem; /* text-sm */
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease, z-index 0.2s ease;
+    transition: none; /* 移除所有动画，避免位移 */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -197,7 +197,7 @@
     white-space: nowrap;
     /* 创建直角梯形：左边直角，右边斜边（约18度角） */
     clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 0 100%);
-    margin-right: -8px; /* 负边距实现层叠效果 */
+    margin-right: -12px; /* 负边距实现层叠效果，缩短按钮间距 */
     z-index: 1; /* 默认 z-index */
   }
 
@@ -219,7 +219,7 @@
     margin-bottom: -1px; /* 覆盖底部边框 */
     font-weight: 600;
     z-index: 10; /* 激活标签在最上层 */
-    margin-right: -4px; /* 激活时覆盖更多，增强层叠效果 */
+    margin-right: -12px; /* 与未激活按钮保持相同间距，避免位移 */
   }
 
   .filter-tab-button--active:hover {

@@ -14,9 +14,9 @@ File: components/FiltersPanel.vue
     <h2 class="text-sm mb-2">{{ title }}</h2>
 
     <!-- 标签页容器（文件夹样式） -->
-    <div class="filter-tabs-container">
+    <div class="filter-tabs-container" style="box-shadow: none; border: none;">
       <!-- 标签页按钮行 -->
-      <div class="filter-tabs-header">
+      <div class="filter-tabs-header" style="box-shadow: none; background-color: transparent;">
         <button
           v-for="tab in tabs"
           :key="tab.key"
@@ -32,12 +32,12 @@ File: components/FiltersPanel.vue
       </div>
 
       <!-- 标签页内容区域（固定高度） -->
-      <div class="filter-tab-content">
+      <div class="filter-tab-content" style="border: 1px solid #e5e7eb; border-radius: 0 0 8px 8px;">
         <!-- 作者 -->
         <div v-show="activeTab === 'authors'" class="filter-tab-panel">
           <FiltersFilterGroup
             v-model="localAuthors"
-            :title="$t('filters.authors')"
+            title=""
             :options="facets.authors"
           />
         </div>
@@ -46,7 +46,7 @@ File: components/FiltersPanel.vue
         <div v-show="activeTab === 'books'" class="filter-tab-panel">
           <FiltersFilterGroup
             v-model="localBooks"
-            :title="$t('filters.books')"
+            title=""
             :options="facets.books"
           />
         </div>
@@ -55,7 +55,7 @@ File: components/FiltersPanel.vue
         <div v-show="activeTab === 'genres'" class="filter-tab-panel">
           <FiltersFilterGroup
             v-model="localGenres"
-            :title="$t('filters.genres')"
+            title=""
             :options="facets.genres"
           />
         </div>
@@ -64,7 +64,7 @@ File: components/FiltersPanel.vue
         <div v-show="activeTab === 'times'" class="filter-tab-panel">
           <FiltersFilterGroup
             v-model="localTimes"
-            :title="$t('filters.times')"
+            title=""
             :options="facets.times"
             :showMatchAll="true"
             :matchAll="props.timesAll"
@@ -76,7 +76,7 @@ File: components/FiltersPanel.vue
         <div v-show="activeTab === 'themes'" class="filter-tab-panel">
           <FiltersFilterGroup
             v-model="localThemes"
-            :title="$t('filters.themes')"
+            title=""
             :options="facets.themes"
             :showMatchAll="true"
             :matchAll="props.themesAll"
@@ -88,7 +88,7 @@ File: components/FiltersPanel.vue
         <div v-show="activeTab === 'devices'" class="filter-tab-panel">
           <FiltersFilterGroup
             v-model="localDevices"
-            :title="$t('filters.devices')"
+            title=""
             :options="facets.devices"
             :showMatchAll="true"
             :matchAll="props.devicesAll"

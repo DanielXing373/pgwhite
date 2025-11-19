@@ -8,13 +8,13 @@
           <span class="topbar-subtitle">{{ $t('site.subtitle') }}</span>
         </div>
         <!-- 右侧：语言切换按钮（固定位置） -->
-        <button
+          <button
           class="topbar-lang-btn"
-          @click="toggleLocale"
+            @click="toggleLocale"
           :aria-label="targetLanguageLabel"
-        >
+          >
           {{ targetLanguageLabel }}
-        </button>
+          </button>
       </div>
     </div>
   </header>
