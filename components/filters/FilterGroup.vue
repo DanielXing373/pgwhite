@@ -14,10 +14,11 @@ File: components/filters/FilterGroup.vue
           v-for="opt in filteredOptions"
           :key="opt.id"
           :class="[
-            'px-2 py-1 rounded text-sm border',
+            'px-2 py-1 rounded text-sm border filter-chip',
+            props.dimension ? `filter-chip--${props.dimension}` : '',
+            props.modelValue.includes(opt.id) ? 'filter-chip--active' : '',
             isBookChip(opt.id) && isEnglish ? 'filter-chip--book' : ''
           ]"
-          :style="chipStyle(opt.id)"
           @click="toggle(opt.id)"
         >
           {{ opt.label }}
@@ -62,6 +63,7 @@ const props = defineProps<{
   modelValue: string[]    // 已选id数组
   showMatchAll?: boolean  // 是否显示"满足所有筛选"复选框
   matchAll?: boolean      // "满足所有筛选"复选框状态
+  dimension?: 'authors' | 'books' | 'genres' | 'times' | 'themes' | 'devices' // 标签组类型，用于应用对应的主题色
 }>()
 
 const emit = defineEmits<{
@@ -100,13 +102,7 @@ function handleMatchAllChange(event: Event) {
   emit('update:matchAll', target.checked)
 }
 
-// —— 样式：选中/未选 —— //
-function chipStyle(id: string) {
-  const active = props.modelValue.includes(id)
-  return active
-    ? { background: 'var(--color-chip-active)', borderColor: '#93c5fd' }
-    : { background: 'var(--color-chip)', borderColor: '#e5e7eb' }
-}
+// 不再需要 chipStyle 函数，改用 CSS 类
 </script>
 
 <style scoped>

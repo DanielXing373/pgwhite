@@ -201,40 +201,47 @@
     z-index: 1; /* 默认 z-index */
   }
 
-  /* 彩虹七色：低饱和度优雅配色方案 */
-  /* 1. Authors (红) - 淡玫瑰色 */
+  /* 统一配色方案：未选中状态统一为灰色，添加主题色边框显示梯形 */
+  /* 1. Authors - 樱花粉 (序号2) */
   .filter-tab-button--authors {
-    background-color: #fce7f3;
+    background-color: #F3F4F6; /* 未选中：统一灰色 */
+    border: 1.5px solid #FBCFE8; /* 樱花粉边框，显示梯形 */
   }
 
-  /* 2. Books (橙) - 淡珊瑚色 */
+  /* 2. Books - 奶油橘 (序号5) */
   .filter-tab-button--books {
-    background-color: #ffe4d6;
+    background-color: #F3F4F6; /* 未选中：统一灰色 */
+    border: 1.5px solid #FED7AA; /* 奶油橘边框，显示梯形 */
   }
 
-  /* 3. Genres (黄) - 淡金色/香草色 */
+  /* 3. Genres - 芝士黄 (序号7) */
   .filter-tab-button--genres {
-    background-color: #fef3c7;
+    background-color: #F3F4F6; /* 未选中：统一灰色 */
+    border: 1.5px solid #FDE047; /* 芝士黄边框，显示梯形 */
   }
 
-  /* 4. Times (绿) - 淡薄荷绿 */
+  /* 4. Times - 薄荷绿 (序号3) */
   .filter-tab-button--times {
-    background-color: #d1fae5;
+    background-color: #F3F4F6; /* 未选中：统一灰色 */
+    border: 1.5px solid #BBF7D0; /* 薄荷绿边框，显示梯形 */
   }
 
-  /* 5. Themes (蓝) - 淡天蓝色 */
+  /* 5. Themes - 天空蓝 (序号1) */
   .filter-tab-button--themes {
-    background-color: #dbeafe;
+    background-color: #F3F4F6; /* 未选中：统一灰色 */
+    border: 1.5px solid #BAE6FD; /* 天空蓝边框，显示梯形 */
   }
 
-  /* 6. Devices (靛) - 淡蓝色调（比Themes稍深） */
+  /* 6. Devices - 冰川青 (序号6) */
   .filter-tab-button--devices {
-    background-color: #c7d2fe; /* 淡蓝色，比Themes稍深 */
+    background-color: #F3F4F6; /* 未选中：统一灰色 */
+    border: 1.5px solid #A5F3FC; /* 冰川青边框，显示梯形 */
   }
 
-  /* 7. Search (紫) - 淡紫色调 */
+  /* 7. Search - 香芋紫 (序号4) */
   .filter-tab-button--search {
-    background-color: #f3e8ff; /* 淡紫色/薰衣草色 */
+    background-color: #F3F4F6; /* 未选中：统一灰色 */
+    border: 1.5px solid #D8B4FE; /* 香芋紫边框，显示梯形 */
   }
 
   /* 未选中标签的轻微层叠 */
@@ -247,38 +254,39 @@
     z-index: 2; /* hover 时稍微提升 */
   }
 
-  /* Hover状态：每个tab的hover颜色稍微加深 */
+  /* Hover状态：根据表格设置 */
   .filter-tab-button--authors:hover:not(.filter-tab-button--active) {
-    background-color: #fbcfe8;
+    background-color: #FCE7F3; /* 樱花粉 hover */
   }
 
   .filter-tab-button--books:hover:not(.filter-tab-button--active) {
-    background-color: #fed7aa;
+    background-color: #FFEDD5; /* 奶油橘 hover */
   }
 
   .filter-tab-button--genres:hover:not(.filter-tab-button--active) {
-    background-color: #fde68a;
+    background-color: #FEF9C3; /* 芝士黄 hover */
   }
 
   .filter-tab-button--times:hover:not(.filter-tab-button--active) {
-    background-color: #a7f3d0;
+    background-color: #DCFCE7; /* 薄荷绿 hover */
   }
 
   .filter-tab-button--themes:hover:not(.filter-tab-button--active) {
-    background-color: #bfdbfe; /* 天蓝色hover */
+    background-color: #E0F2FE; /* 天空蓝 hover */
   }
 
   .filter-tab-button--devices:hover:not(.filter-tab-button--active) {
-    background-color: #a5b4fc; /* 更深的蓝色，区别于Themes */
+    background-color: #CFFAFE; /* 冰川青 hover */
   }
 
   .filter-tab-button--search:hover:not(.filter-tab-button--active) {
-    background-color: #e9d5ff; /* 更深的紫色 */
+    background-color: #F3E8FF; /* 香芋紫 hover */
   }
 
   /* 激活状态的标签按钮（覆盖右侧标签） */
   .filter-tab-button--active {
     color: var(--color-fg); /* 保持黑色文字，不使用蓝色 */
+    border: none; /* 激活时移除边框，只保留底部边框 */
     border-bottom: 2px solid var(--color-brand);
     margin-bottom: -1px; /* 覆盖底部边框 */
     font-weight: 600;
@@ -286,40 +294,40 @@
     margin-right: -12px; /* 与未激活按钮保持相同间距，避免位移 */
   }
 
-  /* 激活状态：使用与hover相同的背景色，并添加对应颜色的底部边框 */
+  /* 激活状态：根据表格设置，并添加对应颜色的底部边框 */
   .filter-tab-button--authors.filter-tab-button--active {
-    background-color: #fbcfe8; /* 与hover相同的玫瑰色 */
-    border-bottom-color: #ec4899; /* 玫瑰色边框 */
+    background-color: #FBCFE8; /* 樱花粉 selected */
+    border-bottom-color: #ec4899; /* 樱花粉边框 */
   }
 
   .filter-tab-button--books.filter-tab-button--active {
-    background-color: #fed7aa; /* 与hover相同的珊瑚色 */
-    border-bottom-color: #fb923c; /* 珊瑚色边框 */
+    background-color: #FED7AA; /* 奶油橘 selected */
+    border-bottom-color: #fb923c; /* 奶油橘边框 */
   }
 
   .filter-tab-button--genres.filter-tab-button--active {
-    background-color: #fde68a; /* 与hover相同的金色 */
-    border-bottom-color: #fbbf24; /* 金色边框 */
+    background-color: #FDE047; /* 芝士黄 selected */
+    border-bottom-color: #eab308; /* 芝士黄边框 */
   }
 
   .filter-tab-button--times.filter-tab-button--active {
-    background-color: #a7f3d0; /* 与hover相同的薄荷绿 */
+    background-color: #BBF7D0; /* 薄荷绿 selected */
     border-bottom-color: #10b981; /* 薄荷绿边框 */
   }
 
   .filter-tab-button--themes.filter-tab-button--active {
-    background-color: #bfdbfe; /* 天蓝色激活状态 */
-    border-bottom-color: #3b82f6; /* 天蓝色边框 */
+    background-color: #BAE6FD; /* 天空蓝 selected */
+    border-bottom-color: #0ea5e9; /* 天空蓝边框 */
   }
 
   .filter-tab-button--devices.filter-tab-button--active {
-    background-color: #a5b4fc; /* 更深的蓝色激活状态，区别于Themes */
-    border-bottom-color: #6366f1; /* 靛蓝色边框 */
+    background-color: #A5F3FC; /* 冰川青 selected */
+    border-bottom-color: #06b6d4; /* 冰川青边框 */
   }
 
   .filter-tab-button--search.filter-tab-button--active {
-    background-color: #e9d5ff; /* 与hover相同的紫色 */
-    border-bottom-color: #a78bfa; /* 紫色边框 */
+    background-color: #D8B4FE; /* 香芋紫 selected */
+    border-bottom-color: #a78bfa; /* 香芋紫边框 */
   }
 
   .filter-tab-button--active:hover {
@@ -441,6 +449,116 @@
   /* 英文书名斜体样式（筛选区中的书名 chips） */
   .filter-chip--book {
     font-style: italic;
+  }
+
+  /* =====================================================
+     Filter Chips - 主题色三种状态
+     说明：每个标签组的 chip 跟随对应标签的主题色
+     - 未选中：统一灰色背景 + 主题色边框
+     - hover：主题色 hover 背景 + 主题色边框
+     - 选中：主题色 selected 背景 + 主题色边框
+     ===================================================== */
+
+  /* 基础 chip 样式 */
+  .filter-chip {
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
+  }
+
+  /* 1. Authors (樱花粉) */
+  .filter-chip--authors {
+    background-color: #F3F4F6; /* 未选中：统一灰色 */
+    border-color: #d1d5db; /* 未选中时显示浅灰色边框，提示可点击 */
+  }
+
+  .filter-chip--authors:hover:not(.filter-chip--active) {
+    background-color: #FCE7F3; /* 樱花粉 hover */
+    border-color: #d1d5db; /* hover 时保持浅灰色边框 */
+  }
+
+  .filter-chip--authors.filter-chip--active {
+    background-color: #FBCFE8; /* 樱花粉 selected */
+    border-color: #ec4899; /* 选中时显示更深的樱花粉边框 */
+  }
+
+  /* 2. Books (奶油橘) */
+  .filter-chip--books {
+    background-color: #F3F4F6; /* 未选中：统一灰色 */
+    border-color: #d1d5db; /* 未选中时显示浅灰色边框，提示可点击 */
+  }
+
+  .filter-chip--books:hover:not(.filter-chip--active) {
+    background-color: #FFEDD5; /* 奶油橘 hover */
+    border-color: #d1d5db; /* hover 时保持浅灰色边框 */
+  }
+
+  .filter-chip--books.filter-chip--active {
+    background-color: #FED7AA; /* 奶油橘 selected */
+    border-color: #fb923c; /* 选中时显示更深的奶油橘边框 */
+  }
+
+  /* 3. Genres (芝士黄) */
+  .filter-chip--genres {
+    background-color: #F3F4F6; /* 未选中：统一灰色 */
+    border-color: #d1d5db; /* 未选中时显示浅灰色边框，提示可点击 */
+  }
+
+  .filter-chip--genres:hover:not(.filter-chip--active) {
+    background-color: #FEF9C3; /* 芝士黄 hover */
+    border-color: #d1d5db; /* hover 时保持浅灰色边框 */
+  }
+
+  .filter-chip--genres.filter-chip--active {
+    background-color: #FDE047; /* 芝士黄 selected */
+    border-color: #eab308; /* 选中时显示更深的芝士黄边框 */
+  }
+
+  /* 4. Times (薄荷绿) */
+  .filter-chip--times {
+    background-color: #F3F4F6; /* 未选中：统一灰色 */
+    border-color: #d1d5db; /* 未选中时显示浅灰色边框，提示可点击 */
+  }
+
+  .filter-chip--times:hover:not(.filter-chip--active) {
+    background-color: #DCFCE7; /* 薄荷绿 hover */
+    border-color: #d1d5db; /* hover 时保持浅灰色边框 */
+  }
+
+  .filter-chip--times.filter-chip--active {
+    background-color: #BBF7D0; /* 薄荷绿 selected */
+    border-color: #10b981; /* 选中时显示更深的薄荷绿边框 */
+  }
+
+  /* 5. Themes (天空蓝) */
+  .filter-chip--themes {
+    background-color: #F3F4F6; /* 未选中：统一灰色 */
+    border-color: #d1d5db; /* 未选中时显示浅灰色边框，提示可点击 */
+  }
+
+  .filter-chip--themes:hover:not(.filter-chip--active) {
+    background-color: #E0F2FE; /* 天空蓝 hover */
+    border-color: #d1d5db; /* hover 时保持浅灰色边框 */
+  }
+
+  .filter-chip--themes.filter-chip--active {
+    background-color: #BAE6FD; /* 天空蓝 selected */
+    border-color: #0ea5e9; /* 选中时显示更深的天空蓝边框 */
+  }
+
+  /* 6. Devices (冰川青) */
+  .filter-chip--devices {
+    background-color: #F3F4F6; /* 未选中：统一灰色 */
+    border-color: #d1d5db; /* 未选中时显示浅灰色边框，提示可点击 */
+  }
+
+  .filter-chip--devices:hover:not(.filter-chip--active) {
+    background-color: #CFFAFE; /* 冰川青 hover */
+    border-color: #d1d5db; /* hover 时保持浅灰色边框 */
+  }
+
+  .filter-chip--devices.filter-chip--active {
+    background-color: #A5F3FC; /* 冰川青 selected */
+    border-color: #06b6d4; /* 选中时显示更深的冰川青边框 */
   }
 
 /* =====================================================

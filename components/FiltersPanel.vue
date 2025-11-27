@@ -37,6 +37,7 @@ File: components/FiltersPanel.vue
             v-model="localAuthors"
             title=""
             :options="facets.authors"
+            dimension="authors"
           />
         </div>
 
@@ -46,6 +47,7 @@ File: components/FiltersPanel.vue
             v-model="localBooks"
             title=""
             :options="facets.books"
+            dimension="books"
           />
         </div>
 
@@ -55,6 +57,7 @@ File: components/FiltersPanel.vue
             v-model="localGenres"
             title=""
             :options="facets.genres"
+            dimension="genres"
           />
         </div>
 
@@ -64,6 +67,7 @@ File: components/FiltersPanel.vue
             v-model="localTimes"
             title=""
             :options="facets.times"
+            dimension="times"
             :showMatchAll="true"
             :matchAll="props.timesAll"
             @update:matchAll="emit('update:timesAll', $event)"
@@ -76,6 +80,7 @@ File: components/FiltersPanel.vue
             v-model="localThemes"
             title=""
             :options="facets.themes"
+            dimension="themes"
             :showMatchAll="true"
             :matchAll="props.themesAll"
             @update:matchAll="emit('update:themesAll', $event)"
@@ -88,6 +93,7 @@ File: components/FiltersPanel.vue
             v-model="localDevices"
             title=""
             :options="facets.devices"
+            dimension="devices"
             :showMatchAll="true"
             :matchAll="props.devicesAll"
             @update:matchAll="emit('update:devicesAll', $event)"
