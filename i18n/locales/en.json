@@ -21,7 +21,9 @@
     "clearGroup": "Clear Group",
     "searchInGroup": "Search in group…",
     "noMatch": "No matches",
-    "matchAll": "Match all filters"
+    "matchAll": "Match all filters",
+    "search": "Exact Search",
+    "searchHint": "(Selected tags still apply)"
   },
   "results": {
     "empty": "No result. Adjust search or filters.",
@@ -31,7 +33,9 @@
     "chapter": "Chapter",
     "authorLabel": "Author: ",
     "bookLabel": "Book: ",
-    "chapterLabel": "Chapter: "
+    "chapterLabel": "Chapter: ",
+    "add": "Add",
+    "remove": "Remove"
   },
   "selected": {
     "none": "None (V1.0 only supports clear all, chips coming soon)",

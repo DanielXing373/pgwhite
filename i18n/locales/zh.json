@@ -21,7 +21,9 @@
     "clearGroup": "清空本组",
     "searchInGroup": "组内搜索…",
     "noMatch": "无匹配项",
-    "matchAll": "满足所有筛选"
+    "matchAll": "满足所有筛选",
+    "search": "精准搜索",
+    "searchHint": "（所选标签仍适用）"
   },
   "results": {
     "empty": "未找到结果，请调整搜索或标签",
@@ -31,7 +33,9 @@
     "chapter": "章节",
     "authorLabel": "作者：",
     "bookLabel": "书籍：",
-    "chapterLabel": "章节："
+    "chapterLabel": "章节：",
+    "add": "添加",
+    "remove": "删除"
   },
   "selected": {
     "none": "暂无（V1.0 仅清空全部，后续接上 Chips）",

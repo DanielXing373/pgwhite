@@ -15,6 +15,7 @@ File: pages/index.vue
   v-model:times="times"
   v-model:themes="themes"
   v-model:devices="devices"
+  v-model:q="q"
   v-model:timesAll="timesAll"
   v-model:themesAll="themesAll"
   v-model:devicesAll="devicesAll"
@@ -22,8 +23,8 @@ File: pages/index.vue
 
   <!-- —— 当前已选（显示所有选中标签的 chips） —— -->
   <SelectedBar
-    :selectedLabel="$t('filters.selected')"
-    :clearAllText="$t('filters.clearAll')"
+  :selectedLabel="$t('filters.selected')"
+  :clearAllText="$t('filters.clearAll')"
     :authors="authors"
     :books="books"
     :genres="genres"
@@ -32,19 +33,10 @@ File: pages/index.vue
     :devices="devices"
     :canUndo="history.canUndo.value"
     :canRedo="history.canRedo.value"
-    @clearAll="resetAll"
+  @clearAll="resetAll"
     @undo="handleUndo"
     @redo="handleRedo"
     @removeTag="handleRemoveTag"
-  />
-
-  <!-- —— 搜索区（位于 selected 和结果之间） —— -->
-  <SearchBar
-    v-model="q"
-    :label="$t('search.placeholderWithTags')"
-    :placeholder="$t('search.placeholderWithTagsExample')"
-    :clearText="$t('search.clear')"
-    @clear="clearSearch"
   />
 
   <!-- —— 结果列表（先渲染数量与卡片简版） —— -->
@@ -68,18 +60,46 @@ File: pages/index.vue
           </div>
           <!-- 标签 chips -->
           <div class="result-chips-container">
-            <span
+            <div
               v-for="(tag, tagIndex) in getSentenceTags(s)"
               :key="tag.id"
-              :class="[
-                'result-chip',
-                tagIndex % 2 === 0 ? 'result-chip--even' : 'result-chip--odd',
-                tag.isBook && locale === 'en' ? 'result-chip--book' : '',
-                tag.isMatched ? 'result-chip--matched' : ''
-              ]"
+              class="result-chip-wrapper"
             >
-              {{ tag.label }}
-            </span>
+              <button
+                :class="[
+                  'result-chip',
+                  `result-chip--${tag.dimension}`,
+                  tagIndex % 2 === 0 ? 'result-chip--even' : 'result-chip--odd',
+                  tag.isBook && locale === 'en' ? 'result-chip--book' : '',
+                  tag.isMatched ? 'result-chip--matched result-chip--active' : 'result-chip--hover'
+                ]"
+                @click="handleChipClick(tag)"
+              >
+                {{ tag.label }}
+              </button>
+              <!-- 添加/删除按钮 -->
+              <div
+                v-if="activeChipId === `${tag.dimension}-${tag.id}`"
+                class="result-chip-action"
+              >
+                <button
+                  v-if="!tag.isMatched"
+                  class="result-chip-action-btn result-chip-action-btn--add"
+                  @click.stop="handleAddTag(tag.dimension, tag.id)"
+                >
+                  <span class="result-chip-action-icon">+</span>
+                  {{ $t('results.add') }}
+                </button>
+                <button
+                  v-else
+                  class="result-chip-action-btn result-chip-action-btn--remove"
+                  @click.stop="handleRemoveTag(tag.dimension, tag.id)"
+                >
+                  <span class="result-chip-action-icon">×</span>
+                  {{ $t('results.remove') }}
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -88,6 +108,7 @@ File: pages/index.vue
 </template>
 
 <script setup lang="ts">
+import { onMounted } from 'vue'
 import { useDataset } from '~/composables/useDataset'
 import { useQueryState } from '~/composables/useQueryState'
 import { useFilterEngine } from '~/composables/useFilterEngine'
@@ -102,7 +123,7 @@ import { truncate } from '~/composables/useUIHelpers'
 const { sentences } = useDataset()
 
 // —— 查询状态（URL 同步） —— //
-const { q, authors, books, genres, times, themes, devices, timesAll, themesAll, devicesAll, clearSearch, resetAll } = useQueryState()
+const { q, authors, books, genres, times, themes, devices, timesAll, themesAll, devicesAll, resetAll } = useQueryState()
 
 /**
  * 获取当前搜索条件状态
@@ -195,6 +216,69 @@ const currentLangLabel = computed(() =>
   locale.value === 'en' ? t('lang.enLabel') : t('lang.zhLabel')
 )
 
+// —— 管理显示操作按钮的 chip —— //
+const activeChipId = ref<string | null>(null)
+
+// 点击外部区域时隐藏按钮
+onMounted(() => {
+  document.addEventListener('click', (e) => {
+    // 如果点击的不是 chip 或操作按钮，则隐藏
+    const target = e.target as HTMLElement
+    if (!target.closest('.result-chip-wrapper')) {
+      activeChipId.value = null
+    }
+  })
+})
+
+/**
+ * 处理 chip 点击
+ */
+function handleChipClick(tag: { dimension: string; id: string }) {
+  const chipKey = `${tag.dimension}-${tag.id}`
+  // 如果点击的是同一个 chip，则隐藏按钮；否则显示按钮
+  activeChipId.value = activeChipId.value === chipKey ? null : chipKey
+}
+
+/**
+ * 处理添加标签
+ */
+function handleAddTag(dimension: string, id: string) {
+  switch (dimension) {
+    case 'authors':
+      if (!authors.value.includes(id)) {
+        authors.value = [...authors.value, id]
+      }
+      break
+    case 'books':
+      if (!books.value.includes(id)) {
+        books.value = [...books.value, id]
+      }
+      break
+    case 'genres':
+      if (!genres.value.includes(id)) {
+        genres.value = [...genres.value, id]
+      }
+      break
+    case 'times':
+      if (!times.value.includes(id)) {
+        times.value = [...times.value, id]
+      }
+      break
+    case 'themes':
+      if (!themes.value.includes(id)) {
+        themes.value = [...themes.value, id]
+      }
+      break
+    case 'devices':
+      if (!devices.value.includes(id)) {
+        devices.value = [...devices.value, id]
+      }
+      break
+  }
+  // 添加后隐藏按钮
+  activeChipId.value = null
+}
+
 /**
  * 处理删除标签
  */
@@ -219,5 +303,7 @@ function handleRemoveTag(dimension: string, id: string) {
       devices.value = devices.value.filter(did => did !== id)
       break
   }
+  // 删除后隐藏按钮
+  activeChipId.value = null
 }
 </script>
