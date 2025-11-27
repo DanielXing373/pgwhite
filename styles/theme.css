@@ -201,11 +201,31 @@
     z-index: 1; /* 默认 z-index */
   }
 
+  /* 使用伪元素为右侧斜边添加边框 */
+  .filter-tab-button::after {
+    content: '';
+    position: absolute;
+    top: -1.5px; /* 向上偏移以包含边框 */
+    right: -1.5px; /* 向右偏移以包含边框 */
+    width: 15px; /* 12px 斜边宽度 + 1.5px 边框 * 2 */
+    height: calc(100% + 3px); /* 高度 + 边框 * 2 */
+    /* 创建斜边形状：从 (1.5px, 1.5px) 到 (13.5px, 1.5px) 到 (15px, calc(100% + 1.5px)) 到 (3px, calc(100% + 1.5px)) */
+    /* 这样可以在斜边上绘制边框 */
+    clip-path: polygon(1.5px 1.5px, 13.5px 1.5px, 15px calc(100% + 1.5px), 3px calc(100% + 1.5px));
+    /* 使用边框绘制斜边 */
+    border: 1.5px solid currentColor;
+    pointer-events: none; /* 不影响点击事件 */
+    z-index: 1;
+  }
+
   /* 统一配色方案：未选中状态统一为灰色，添加主题色边框显示梯形 */
   /* 1. Authors - 樱花粉 (序号2) */
   .filter-tab-button--authors {
     background-color: #F3F4F6; /* 未选中：统一灰色 */
     border: 1.5px solid #FBCFE8; /* 樱花粉边框，显示梯形 */
+  }
+  .filter-tab-button--authors::after {
+    color: #FBCFE8; /* 斜边边框颜色 */
   }
 
   /* 2. Books - 奶油橘 (序号5) */
@@ -213,11 +233,17 @@
     background-color: #F3F4F6; /* 未选中：统一灰色 */
     border: 1.5px solid #FED7AA; /* 奶油橘边框，显示梯形 */
   }
+  .filter-tab-button--books::after {
+    color: #FED7AA; /* 斜边边框颜色 */
+  }
 
   /* 3. Genres - 芝士黄 (序号7) */
   .filter-tab-button--genres {
     background-color: #F3F4F6; /* 未选中：统一灰色 */
     border: 1.5px solid #FDE047; /* 芝士黄边框，显示梯形 */
+  }
+  .filter-tab-button--genres::after {
+    color: #FDE047; /* 斜边边框颜色 */
   }
 
   /* 4. Times - 薄荷绿 (序号3) */
@@ -225,11 +251,17 @@
     background-color: #F3F4F6; /* 未选中：统一灰色 */
     border: 1.5px solid #BBF7D0; /* 薄荷绿边框，显示梯形 */
   }
+  .filter-tab-button--times::after {
+    color: #BBF7D0; /* 斜边边框颜色 */
+  }
 
   /* 5. Themes - 天空蓝 (序号1) */
   .filter-tab-button--themes {
     background-color: #F3F4F6; /* 未选中：统一灰色 */
     border: 1.5px solid #BAE6FD; /* 天空蓝边框，显示梯形 */
+  }
+  .filter-tab-button--themes::after {
+    color: #BAE6FD; /* 斜边边框颜色 */
   }
 
   /* 6. Devices - 冰川青 (序号6) */
@@ -237,21 +269,64 @@
     background-color: #F3F4F6; /* 未选中：统一灰色 */
     border: 1.5px solid #A5F3FC; /* 冰川青边框，显示梯形 */
   }
+  .filter-tab-button--devices::after {
+    color: #A5F3FC; /* 斜边边框颜色 */
+  }
 
   /* 7. Search - 香芋紫 (序号4) */
   .filter-tab-button--search {
     background-color: #F3F4F6; /* 未选中：统一灰色 */
     border: 1.5px solid #D8B4FE; /* 香芋紫边框，显示梯形 */
   }
+  .filter-tab-button--search::after {
+    color: #D8B4FE; /* 斜边边框颜色 */
+  }
 
-  /* 未选中标签的轻微层叠 */
-  .filter-tab-button:not(.filter-tab-button--active) {
+  /* 未选中标签的层叠：左侧标签 z-index 更高，依次递减 */
+  /* 第1个标签（authors）z-index: 7，第2个（books）z-index: 6，以此类推 */
+  .filter-tab-button:not(.filter-tab-button--active):nth-child(1) {
+    z-index: 7;
+  }
+  .filter-tab-button:not(.filter-tab-button--active):nth-child(2) {
+    z-index: 6;
+  }
+  .filter-tab-button:not(.filter-tab-button--active):nth-child(3) {
+    z-index: 5;
+  }
+  .filter-tab-button:not(.filter-tab-button--active):nth-child(4) {
+    z-index: 4;
+  }
+  .filter-tab-button:not(.filter-tab-button--active):nth-child(5) {
+    z-index: 3;
+  }
+  .filter-tab-button:not(.filter-tab-button--active):nth-child(6) {
+    z-index: 2;
+  }
+  .filter-tab-button:not(.filter-tab-button--active):nth-child(7) {
     z-index: 1;
   }
 
-  .filter-tab-button:hover:not(.filter-tab-button--active) {
-    /* hover时稍微加深背景色，但保持原有色调 */
-    z-index: 2; /* hover 时稍微提升 */
+  /* hover 时 z-index 提升 1，但不超过选中状态的 10 */
+  .filter-tab-button:hover:not(.filter-tab-button--active):nth-child(1) {
+    z-index: 8;
+  }
+  .filter-tab-button:hover:not(.filter-tab-button--active):nth-child(2) {
+    z-index: 7;
+  }
+  .filter-tab-button:hover:not(.filter-tab-button--active):nth-child(3) {
+    z-index: 6;
+  }
+  .filter-tab-button:hover:not(.filter-tab-button--active):nth-child(4) {
+    z-index: 5;
+  }
+  .filter-tab-button:hover:not(.filter-tab-button--active):nth-child(5) {
+    z-index: 4;
+  }
+  .filter-tab-button:hover:not(.filter-tab-button--active):nth-child(6) {
+    z-index: 3;
+  }
+  .filter-tab-button:hover:not(.filter-tab-button--active):nth-child(7) {
+    z-index: 2;
   }
 
   /* Hover状态：根据表格设置 */
@@ -413,7 +488,13 @@
     gap: 12px; /* 12px 间距，确保 chip 之间有明显的间隔 */
   }
 
-  /* 结果标签 chips（展示用，暂不可点击） */
+  /* Chip 包装器，用于包含 chip 和操作按钮 */
+  .result-chip-wrapper {
+    position: relative;
+    display: inline-block;
+  }
+
+  /* 结果标签 chips（现在可点击） */
   .result-chip {
     display: inline-block;
     padding: 4px 10px;
@@ -423,6 +504,13 @@
     border: 1px solid #e5e7eb;
     color: var(--color-fg);
     white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    background-color: transparent;
+  }
+
+  .result-chip:hover {
+    opacity: 0.9;
   }
 
   /* 交替背景色：灰白区分 */
@@ -439,16 +527,159 @@
             font-style: italic;
           }
 
-          /* 被选中的标签（匹配搜索条件）加粗样式 */
+          /* 被选中的标签（匹配搜索条件）加粗样式 - 保留用于兼容 */
           .result-chip--matched {
             font-weight: 600;
-            border-width: 2px;
-            border-color: var(--color-brand);
           }
 
   /* 英文书名斜体样式（筛选区中的书名 chips） */
   .filter-chip--book {
     font-style: italic;
+  }
+
+  /* =====================================================
+     Result Chips - 主题色（选中和 hover 状态）
+     说明：搜索结果中的 chip 根据是否匹配显示不同状态
+     - 匹配的 chip (isMatched=true)：显示选中状态颜色
+     - 未匹配的 chip (isMatched=false)：显示 hover 状态颜色
+     ===================================================== */
+
+  /* 1. Authors (樱花粉) */
+  .result-chip--authors.result-chip--active {
+    background-color: #FBCFE8 !important; /* 樱花粉 selected */
+    border-color: #ec4899 !important; /* 更深的樱花粉边框 */
+    border-width: 1.5px;
+  }
+
+  .result-chip--authors.result-chip--hover {
+    background-color: #FCE7F3 !important; /* 樱花粉 hover */
+    border-color: #d1d5db !important; /* 浅灰色边框 */
+  }
+
+  /* 2. Books (奶油橘) */
+  .result-chip--books.result-chip--active {
+    background-color: #FED7AA !important; /* 奶油橘 selected */
+    border-color: #fb923c !important; /* 更深的奶油橘边框 */
+    border-width: 1.5px;
+  }
+
+  .result-chip--books.result-chip--hover {
+    background-color: #FFEDD5 !important; /* 奶油橘 hover */
+    border-color: #d1d5db !important; /* 浅灰色边框 */
+  }
+
+  /* 3. Genres (芝士黄) */
+  .result-chip--genres.result-chip--active {
+    background-color: #FDE047 !important; /* 芝士黄 selected */
+    border-color: #eab308 !important; /* 更深的芝士黄边框 */
+    border-width: 1.5px;
+  }
+
+  .result-chip--genres.result-chip--hover {
+    background-color: #FEF9C3 !important; /* 芝士黄 hover */
+    border-color: #d1d5db !important; /* 浅灰色边框 */
+  }
+
+  /* 4. Times (薄荷绿) */
+  .result-chip--times.result-chip--active {
+    background-color: #BBF7D0 !important; /* 薄荷绿 selected */
+    border-color: #10b981 !important; /* 更深的薄荷绿边框 */
+    border-width: 1.5px;
+  }
+
+  .result-chip--times.result-chip--hover {
+    background-color: #DCFCE7 !important; /* 薄荷绿 hover */
+    border-color: #d1d5db !important; /* 浅灰色边框 */
+  }
+
+  /* 5. Themes (天空蓝) */
+  .result-chip--themes.result-chip--active {
+    background-color: #BAE6FD !important; /* 天空蓝 selected */
+    border-color: #0ea5e9 !important; /* 更深的天空蓝边框 */
+    border-width: 1.5px;
+  }
+
+  .result-chip--themes.result-chip--hover {
+    background-color: #E0F2FE !important; /* 天空蓝 hover */
+    border-color: #d1d5db !important; /* 浅灰色边框 */
+  }
+
+  /* 6. Devices (冰川青) */
+  .result-chip--devices.result-chip--active {
+    background-color: #A5F3FC !important; /* 冰川青 selected */
+    border-color: #06b6d4 !important; /* 更深的冰川青边框 */
+    border-width: 1.5px;
+  }
+
+  .result-chip--devices.result-chip--hover {
+    background-color: #CFFAFE !important; /* 冰川青 hover */
+    border-color: #d1d5db !important; /* 浅灰色边框 */
+  }
+
+  /* 结果 chip 操作按钮 */
+  .result-chip-action {
+    position: absolute;
+    left: calc(100% + 4px);
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100; /* 确保按钮在最上层，可以覆盖其他元素 */
+    white-space: nowrap;
+  }
+
+  .result-chip-action-btn {
+    padding: 4px 10px; /* 与 result-chip 相同的 padding */
+    border-radius: 6px; /* 与 result-chip 相同的圆角 */
+    font-size: 0.75rem; /* 与 result-chip 相同的字体大小 */
+    line-height: 1.5; /* 与 result-chip 相同的行高 */
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    color: var(--color-fg);
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .result-chip-action-btn:hover {
+    background-color: #f9fafb;
+    border-color: #d1d5db;
+  }
+
+  .result-chip-action-btn--add {
+    color: #10b981; /* 绿色表示添加 */
+    border-color: #10b981;
+  }
+
+  .result-chip-action-btn--add:hover {
+    background-color: #d1fae5;
+    border-color: #059669;
+  }
+
+  .result-chip-action-btn--remove {
+    color: #ef4444; /* 红色表示删除 */
+    border-color: #ef4444;
+  }
+
+  .result-chip-action-btn--remove:hover {
+    background-color: #fee2e2;
+    border-color: #dc2626;
+  }
+
+  /* 操作按钮图标 */
+  .result-chip-action-icon {
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1;
+  }
+
+  .result-chip-action-btn--add .result-chip-action-icon {
+    color: #10b981; /* 绿色加号 */
+  }
+
+  .result-chip-action-btn--remove .result-chip-action-icon {
+    color: #ef4444; /* 红色叉叉 */
   }
 
   /* =====================================================
@@ -461,6 +692,7 @@
 
   /* 基础 chip 样式 */
   .filter-chip {
+    border-radius: 6px; /* 统一圆角，与 selected-chip 和 result-chip 一致 */
     transition: background-color 0.2s ease, border-color 0.2s ease;
     cursor: pointer;
   }
@@ -678,8 +910,8 @@
     border-radius: 6px;
     font-size: 0.75rem; /* text-xs */
     line-height: 1.5;
-    background-color: #ffffff; /* 全白背景 */
-    border: 1px solid #e5e7eb;
+    background-color: #ffffff; /* 默认白色背景，会被主题色覆盖 */
+    border: 1px solid #e5e7eb; /* 默认边框，会被主题色覆盖 */
     color: var(--color-fg);
     white-space: nowrap;
     cursor: pointer;
@@ -698,6 +930,85 @@
   /* 英文书名斜体样式（选中栏中的书名 chips） */
   .selected-chip--book {
     font-style: italic;
+  }
+
+  /* Selected Chips - 主题色（选中状态，与 result-chip--active 完全一致） */
+  /* 1. Authors (樱花粉) - 选中状态 */
+  .selected-chip--authors {
+    background-color: #FBCFE8; /* 樱花粉 selected */
+    border-color: #ec4899; /* 更深的樱花粉边框 */
+    border-width: 1.5px; /* 与 result-chip--active 一致 */
+  }
+
+  .selected-chip--authors:hover {
+    background-color: #FBCFE8; /* 保持选中颜色 */
+    border-color: #ec4899;
+    border-width: 1.5px; /* 保持边框宽度 */
+  }
+
+  /* 2. Books (奶油橘) - 选中状态 */
+  .selected-chip--books {
+    background-color: #FED7AA; /* 奶油橘 selected */
+    border-color: #fb923c; /* 更深的奶油橘边框 */
+    border-width: 1.5px; /* 与 result-chip--active 一致 */
+  }
+
+  .selected-chip--books:hover {
+    background-color: #FED7AA; /* 保持选中颜色 */
+    border-color: #fb923c;
+    border-width: 1.5px; /* 保持边框宽度 */
+  }
+
+  /* 3. Genres (芝士黄) - 选中状态 */
+  .selected-chip--genres {
+    background-color: #FDE047; /* 芝士黄 selected */
+    border-color: #eab308; /* 更深的芝士黄边框 */
+    border-width: 1.5px; /* 与 result-chip--active 一致 */
+  }
+
+  .selected-chip--genres:hover {
+    background-color: #FDE047; /* 保持选中颜色 */
+    border-color: #eab308;
+    border-width: 1.5px; /* 保持边框宽度 */
+  }
+
+  /* 4. Times (薄荷绿) - 选中状态 */
+  .selected-chip--times {
+    background-color: #BBF7D0; /* 薄荷绿 selected */
+    border-color: #10b981; /* 更深的薄荷绿边框 */
+    border-width: 1.5px; /* 与 result-chip--active 一致 */
+  }
+
+  .selected-chip--times:hover {
+    background-color: #BBF7D0; /* 保持选中颜色 */
+    border-color: #10b981;
+    border-width: 1.5px; /* 保持边框宽度 */
+  }
+
+  /* 5. Themes (天空蓝) - 选中状态 */
+  .selected-chip--themes {
+    background-color: #BAE6FD; /* 天空蓝 selected */
+    border-color: #0ea5e9; /* 更深的天空蓝边框 */
+    border-width: 1.5px; /* 与 result-chip--active 一致 */
+  }
+
+  .selected-chip--themes:hover {
+    background-color: #BAE6FD; /* 保持选中颜色 */
+    border-color: #0ea5e9;
+    border-width: 1.5px; /* 保持边框宽度 */
+  }
+
+  /* 6. Devices (冰川青) - 选中状态 */
+  .selected-chip--devices {
+    background-color: #A5F3FC; /* 冰川青 selected */
+    border-color: #06b6d4; /* 更深的冰川青边框 */
+    border-width: 1.5px; /* 与 result-chip--active 一致 */
+  }
+
+  .selected-chip--devices:hover {
+    background-color: #A5F3FC; /* 保持选中颜色 */
+    border-color: #06b6d4;
+    border-width: 1.5px; /* 保持边框宽度 */
   }
 
   .selected-empty {

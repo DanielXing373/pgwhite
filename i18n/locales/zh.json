@@ -33,7 +33,9 @@
     "chapter": "章节",
     "authorLabel": "作者：",
     "bookLabel": "书籍：",
-    "chapterLabel": "章节："
+    "chapterLabel": "章节：",
+    "add": "添加",
+    "remove": "删除"
   },
   "selected": {
     "none": "暂无（V1.0 仅清空全部，后续接上 Chips）",

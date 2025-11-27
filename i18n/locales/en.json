@@ -33,7 +33,9 @@
     "chapter": "Chapter",
     "authorLabel": "Author: ",
     "bookLabel": "Book: ",
-    "chapterLabel": "Chapter: "
+    "chapterLabel": "Chapter: ",
+    "add": "Add",
+    "remove": "Remove"
   },
   "selected": {
     "none": "None (V1.0 only supports clear all, chips coming soon)",

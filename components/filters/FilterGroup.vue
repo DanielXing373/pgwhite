@@ -14,7 +14,7 @@ File: components/filters/FilterGroup.vue
           v-for="opt in filteredOptions"
           :key="opt.id"
           :class="[
-            'px-2 py-1 rounded text-sm border filter-chip',
+            'px-2 py-1 text-sm border filter-chip',
             props.dimension ? `filter-chip--${props.dimension}` : '',
             props.modelValue.includes(opt.id) ? 'filter-chip--active' : '',
             isBookChip(opt.id) && isEnglish ? 'filter-chip--book' : ''

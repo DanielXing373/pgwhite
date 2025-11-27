@@ -49,6 +49,7 @@
           :key="`${item.dimension}-${item.id}`"
           :class="[
             'selected-chip',
+            `selected-chip--${item.dimension}`,
             item.dimension === 'books' && isEnglish ? 'selected-chip--book' : ''
           ]"
           @click="handleRemoveTag(item.dimension, item.id)"
