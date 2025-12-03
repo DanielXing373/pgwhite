@@ -4,6 +4,7 @@
       <div class="topbar-row">
         <!-- 左侧：标题 + 副标题（底部对齐） -->
         <div class="topbar-left-section">
+          <img src="/logo.svg" alt="Logo" class="topbar-logo" />
           <h1 class="topbar-title">{{ $t('site.title') }}</h1>
           <span class="topbar-subtitle">{{ $t('site.subtitle') }}</span>
         </div>
@@ -48,10 +49,22 @@ const toggleLocale = () => {
 /* 左侧区域：标题 + 副标题（底部对齐） */
 .topbar-left-section {
   display: flex;
-  align-items: baseline; /* 基线对齐，让副标题对齐到标题底部 */
-  gap: 12px; /* 标题和副标题之间的间距 */
+  align-items: center; /* 居中对齐，让logo和标题垂直居中 */
+  gap: 20px; /* 减小间距，消除空白 */
   flex: 1; /* 允许左侧区域占据剩余空间 */
   min-width: 0; /* 允许收缩 */
+}
+
+/* Logo 样式 */
+.topbar-logo {
+  width: 6rem; /* 大幅放大，与标题高度匹配 (96px) */
+  height: 6rem; /* 大幅放大，与标题高度匹配 (96px) */
+  min-width: 4rem; /* 确保最小宽度 */
+  min-height: 4rem; /* 确保最小高度 */
+  flex-shrink: 0; /* Logo 不收缩 */
+  display: block;
+  object-fit: contain; /* 保持SVG比例 */
+  margin-right: -8px; /* 负边距，进一步减小视觉间距 */
 }
 
 .topbar-title {
