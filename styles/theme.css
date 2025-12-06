@@ -22,7 +22,7 @@
     --color-chip-active: #dbeafe; /* 选中 chip 背景 */
   
     /* —— 布局尺寸（避免跳动） —— */
-    --filters-h: 420px;           /* 筛选区固定高度，改这里 */
+    --filters-h: 100px;           /* 筛选区固定高度，改这里 */
     --container-w: 1200px;        /* 主容器宽度上限 */
   }
   
@@ -177,237 +177,147 @@
     display: none; /* Chrome/Safari */
   }
 
-  /* 标签按钮（直角梯形，左边直角，右边斜边） */
+  /* 标签按钮（圆角梯形文件夹样式） */
   .filter-tab-button {
     position: relative;
-    width: 130px; /* 固定宽度，确保能显示文字+计数 */
-    height: 36px; /* 固定高度（从40px减小到36px） */
-    padding: 0 16px;
+    min-width: 100px; /* 最小宽度 */
+    width: auto; /* 动态宽度，适应文本 */
+    height: 36px;
+    padding: 0 20px;
     border: none;
-    background-color: #f5f5f5; /* 默认未选中背景色（会被特定颜色覆盖） */
+    background: transparent; /* 背景由 .tab-shape 提供 */
     color: var(--color-fg);
     font-size: 0.875rem; /* text-sm */
     font-weight: 500;
     cursor: pointer;
-    transition: none; /* 移除所有动画，避免位移 */
+    transition: filter 0.2s ease; /* 仅 hover 时的亮度变化 */
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
     white-space: nowrap;
-    /* 创建直角梯形：左边直角，右边斜边（约18度角） */
-    clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 100%, 0 100%);
-    margin-right: -12px; /* 负边距实现层叠效果，缩短按钮间距 */
-    z-index: 1; /* 默认 z-index */
+    overflow: visible; /* 允许形状溢出 */
+    margin-left: -6px; /* 负边距实现层叠效果（第一个按钮除外） */
   }
 
-  /* 使用伪元素为右侧斜边添加边框 */
-  .filter-tab-button::after {
-    content: '';
+  /* 第一个按钮不需要负边距 */
+  .filter-tab-button--first {
+    margin-left: 0;
+  }
+
+  /* Layer 1: Tab Shape (Background) - 使用 perspective transform 创建圆角梯形 */
+  .tab-shape {
     position: absolute;
-    top: -1.5px; /* 向上偏移以包含边框 */
-    right: -1.5px; /* 向右偏移以包含边框 */
-    width: 15px; /* 12px 斜边宽度 + 1.5px 边框 * 2 */
-    height: calc(100% + 3px); /* 高度 + 边框 * 2 */
-    /* 创建斜边形状：从 (1.5px, 1.5px) 到 (13.5px, 1.5px) 到 (15px, calc(100% + 1.5px)) 到 (3px, calc(100% + 1.5px)) */
-    /* 这样可以在斜边上绘制边框 */
-    clip-path: polygon(1.5px 1.5px, 13.5px 1.5px, 15px calc(100% + 1.5px), 3px calc(100% + 1.5px));
-    /* 使用边框绘制斜边 */
-    border: 1.5px solid currentColor;
-    pointer-events: none; /* 不影响点击事件 */
-    z-index: 1;
+    inset: 0;
+    background-color: #f5f5f5; /* 默认未选中背景色（会被特定颜色覆盖） */
+    border: 1.5px solid #e5e7eb;
+    border-bottom: 1.5px solid #e5e7eb; /* 未选中时显示底部边框 */
+    border-top-left-radius: 8px; /* 左上角圆角 */
+    border-top-right-radius: 8px; /* 右上角圆角 */
+    transform-origin: bottom center; /* 从底部中心旋转 */
+    transform: perspective(100px) rotateX(8deg); /* 3D 旋转创建梯形效果 */
+    z-index: 0; /* 在文本下方 */
+    pointer-events: none; /* 不阻挡点击 */
   }
 
-  /* 统一配色方案：未选中状态统一为灰色，添加主题色边框显示梯形 */
-  /* 1. Authors - 樱花粉 (序号2) */
-  .filter-tab-button--authors {
-    background-color: #F3F4F6; /* 未选中：统一灰色 */
-    border: 1.5px solid #FBCFE8; /* 樱花粉边框，显示梯形 */
-  }
-  .filter-tab-button--authors::after {
-    color: #FBCFE8; /* 斜边边框颜色 */
+  /* Layer 2: Text Content - 确保文本在形状上方 */
+  .tab-text {
+    position: relative;
+    z-index: 10; /* 确保文本在形状层上方 */
   }
 
-  /* 2. Books - 奶油橘 (序号5) */
-  .filter-tab-button--books {
-    background-color: #F3F4F6; /* 未选中：统一灰色 */
-    border: 1.5px solid #FED7AA; /* 奶油橘边框，显示梯形 */
-  }
-  .filter-tab-button--books::after {
-    color: #FED7AA; /* 斜边边框颜色 */
+  /* 统一配色方案：未选中状态统一为浅灰/米色，添加主题色边框 */
+  /* 1. Authors - 樱花粉 */
+  .filter-tab-button--authors .tab-shape {
+    background-color: #f5f5f5; /* 浅灰/米色背景 */
+    border-color: #FBCFE8; /* 樱花粉边框 */
   }
 
-  /* 3. Genres - 芝士黄 (序号7) */
-  .filter-tab-button--genres {
-    background-color: #F3F4F6; /* 未选中：统一灰色 */
-    border: 1.5px solid #FDE047; /* 芝士黄边框，显示梯形 */
-  }
-  .filter-tab-button--genres::after {
-    color: #FDE047; /* 斜边边框颜色 */
+  /* 2. Books - 奶油橘 */
+  .filter-tab-button--books .tab-shape {
+    background-color: #f5f5f5;
+    border-color: #FED7AA; /* 奶油橘边框 */
   }
 
-  /* 4. Times - 薄荷绿 (序号3) */
-  .filter-tab-button--times {
-    background-color: #F3F4F6; /* 未选中：统一灰色 */
-    border: 1.5px solid #BBF7D0; /* 薄荷绿边框，显示梯形 */
-  }
-  .filter-tab-button--times::after {
-    color: #BBF7D0; /* 斜边边框颜色 */
+  /* 3. Genres - 芝士黄 */
+  .filter-tab-button--genres .tab-shape {
+    background-color: #f5f5f5;
+    border-color: #FDE047; /* 芝士黄边框 */
   }
 
-  /* 5. Themes - 天空蓝 (序号1) */
-  .filter-tab-button--themes {
-    background-color: #F3F4F6; /* 未选中：统一灰色 */
-    border: 1.5px solid #BAE6FD; /* 天空蓝边框，显示梯形 */
-  }
-  .filter-tab-button--themes::after {
-    color: #BAE6FD; /* 斜边边框颜色 */
+  /* 4. Times - 薄荷绿 */
+  .filter-tab-button--times .tab-shape {
+    background-color: #f5f5f5;
+    border-color: #BBF7D0; /* 薄荷绿边框 */
   }
 
-  /* 6. Devices - 冰川青 (序号6) */
-  .filter-tab-button--devices {
-    background-color: #F3F4F6; /* 未选中：统一灰色 */
-    border: 1.5px solid #A5F3FC; /* 冰川青边框，显示梯形 */
-  }
-  .filter-tab-button--devices::after {
-    color: #A5F3FC; /* 斜边边框颜色 */
+  /* 5. Themes - 天空蓝 */
+  .filter-tab-button--themes .tab-shape {
+    background-color: #f5f5f5;
+    border-color: #BAE6FD; /* 天空蓝边框 */
   }
 
-  /* 7. Search - 香芋紫 (序号4) */
-  .filter-tab-button--search {
-    background-color: #F3F4F6; /* 未选中：统一灰色 */
-    border: 1.5px solid #D8B4FE; /* 香芋紫边框，显示梯形 */
-  }
-  .filter-tab-button--search::after {
-    color: #D8B4FE; /* 斜边边框颜色 */
+  /* 6. Devices - 冰川青 */
+  .filter-tab-button--devices .tab-shape {
+    background-color: #f5f5f5;
+    border-color: #A5F3FC; /* 冰川青边框 */
   }
 
-  /* 未选中标签的层叠：左侧标签 z-index 更高，依次递减 */
-  /* 第1个标签（authors）z-index: 7，第2个（books）z-index: 6，以此类推 */
-  .filter-tab-button:not(.filter-tab-button--active):nth-child(1) {
-    z-index: 7;
-  }
-  .filter-tab-button:not(.filter-tab-button--active):nth-child(2) {
-    z-index: 6;
-  }
-  .filter-tab-button:not(.filter-tab-button--active):nth-child(3) {
-    z-index: 5;
-  }
-  .filter-tab-button:not(.filter-tab-button--active):nth-child(4) {
-    z-index: 4;
-  }
-  .filter-tab-button:not(.filter-tab-button--active):nth-child(5) {
-    z-index: 3;
-  }
-  .filter-tab-button:not(.filter-tab-button--active):nth-child(6) {
-    z-index: 2;
-  }
-  .filter-tab-button:not(.filter-tab-button--active):nth-child(7) {
-    z-index: 1;
+  /* 7. Search - 香芋紫 */
+  .filter-tab-button--search .tab-shape {
+    background-color: #f5f5f5;
+    border-color: #D8B4FE; /* 香芋紫边框 */
   }
 
-  /* hover 时 z-index 提升 1，但不超过选中状态的 10 */
-  .filter-tab-button:hover:not(.filter-tab-button--active):nth-child(1) {
-    z-index: 8;
-  }
-  .filter-tab-button:hover:not(.filter-tab-button--active):nth-child(2) {
-    z-index: 7;
-  }
-  .filter-tab-button:hover:not(.filter-tab-button--active):nth-child(3) {
-    z-index: 6;
-  }
-  .filter-tab-button:hover:not(.filter-tab-button--active):nth-child(4) {
-    z-index: 5;
-  }
-  .filter-tab-button:hover:not(.filter-tab-button--active):nth-child(5) {
-    z-index: 4;
-  }
-  .filter-tab-button:hover:not(.filter-tab-button--active):nth-child(6) {
-    z-index: 3;
-  }
-  .filter-tab-button:hover:not(.filter-tab-button--active):nth-child(7) {
-    z-index: 2;
+  /* Z-index 现在通过内联样式动态计算，不再需要 CSS 规则 */
+
+  /* Hover状态：增加亮度 */
+  .filter-tab-button:hover:not(.filter-tab-button--active) .tab-shape {
+    filter: brightness(1.1); /* 轻微增加亮度 */
   }
 
-  /* Hover状态：根据表格设置 */
-  .filter-tab-button--authors:hover:not(.filter-tab-button--active) {
-    background-color: #FCE7F3; /* 樱花粉 hover */
-  }
-
-  .filter-tab-button--books:hover:not(.filter-tab-button--active) {
-    background-color: #FFEDD5; /* 奶油橘 hover */
-  }
-
-  .filter-tab-button--genres:hover:not(.filter-tab-button--active) {
-    background-color: #FEF9C3; /* 芝士黄 hover */
-  }
-
-  .filter-tab-button--times:hover:not(.filter-tab-button--active) {
-    background-color: #DCFCE7; /* 薄荷绿 hover */
-  }
-
-  .filter-tab-button--themes:hover:not(.filter-tab-button--active) {
-    background-color: #E0F2FE; /* 天空蓝 hover */
-  }
-
-  .filter-tab-button--devices:hover:not(.filter-tab-button--active) {
-    background-color: #CFFAFE; /* 冰川青 hover */
-  }
-
-  .filter-tab-button--search:hover:not(.filter-tab-button--active) {
-    background-color: #F3E8FF; /* 香芋紫 hover */
-  }
-
-  /* 激活状态的标签按钮（覆盖右侧标签） */
+  /* 激活状态的标签按钮（白色背景，与内容区合并） */
   .filter-tab-button--active {
-    color: var(--color-fg); /* 保持黑色文字，不使用蓝色 */
-    border: none; /* 激活时移除边框，只保留底部边框 */
-    border-bottom: 2px solid var(--color-brand);
-    margin-bottom: -1px; /* 覆盖底部边框 */
+    color: var(--color-fg);
     font-weight: 600;
-    z-index: 10; /* 激活标签在最上层 */
-    margin-right: -12px; /* 与未激活按钮保持相同间距，避免位移 */
   }
 
-  /* 激活状态：根据表格设置，并添加对应颜色的底部边框 */
-  .filter-tab-button--authors.filter-tab-button--active {
-    background-color: #FBCFE8; /* 樱花粉 selected */
-    border-bottom-color: #ec4899; /* 樱花粉边框 */
+  /* 激活状态：白色背景，移除底部边框以与内容区合并 */
+  .filter-tab-button--active .tab-shape {
+    background-color: #ffffff; /* 白色背景，与内容区一致 */
+    border-bottom: none; /* 移除底部边框，与内容区无缝合并 */
+    border-top: 1.5px solid #e5e7eb;
+    border-left: 1.5px solid #e5e7eb;
+    border-right: 1.5px solid #e5e7eb;
   }
 
-  .filter-tab-button--books.filter-tab-button--active {
-    background-color: #FED7AA; /* 奶油橘 selected */
-    border-bottom-color: #fb923c; /* 奶油橘边框 */
+  /* 激活状态：根据表格设置边框颜色 */
+  .filter-tab-button--authors.filter-tab-button--active .tab-shape {
+    border-color: #FBCFE8; /* 樱花粉边框 */
   }
 
-  .filter-tab-button--genres.filter-tab-button--active {
-    background-color: #FDE047; /* 芝士黄 selected */
-    border-bottom-color: #eab308; /* 芝士黄边框 */
+  .filter-tab-button--books.filter-tab-button--active .tab-shape {
+    border-color: #FED7AA; /* 奶油橘边框 */
   }
 
-  .filter-tab-button--times.filter-tab-button--active {
-    background-color: #BBF7D0; /* 薄荷绿 selected */
-    border-bottom-color: #10b981; /* 薄荷绿边框 */
+  .filter-tab-button--genres.filter-tab-button--active .tab-shape {
+    border-color: #FDE047; /* 芝士黄边框 */
   }
 
-  .filter-tab-button--themes.filter-tab-button--active {
-    background-color: #BAE6FD; /* 天空蓝 selected */
-    border-bottom-color: #0ea5e9; /* 天空蓝边框 */
+  .filter-tab-button--times.filter-tab-button--active .tab-shape {
+    border-color: #BBF7D0; /* 薄荷绿边框 */
   }
 
-  .filter-tab-button--devices.filter-tab-button--active {
-    background-color: #A5F3FC; /* 冰川青 selected */
-    border-bottom-color: #06b6d4; /* 冰川青边框 */
+  .filter-tab-button--themes.filter-tab-button--active .tab-shape {
+    border-color: #BAE6FD; /* 天空蓝边框 */
   }
 
-  .filter-tab-button--search.filter-tab-button--active {
-    background-color: #D8B4FE; /* 香芋紫 selected */
-    border-bottom-color: #a78bfa; /* 香芋紫边框 */
+  .filter-tab-button--devices.filter-tab-button--active .tab-shape {
+    border-color: #A5F3FC; /* 冰川青边框 */
   }
 
-  .filter-tab-button--active:hover {
-    /* 保持激活时的背景色不变 */
-    z-index: 10; /* 保持最上层 */
+  .filter-tab-button--search.filter-tab-button--active .tab-shape {
+    border-color: #D8B4FE; /* 香芋紫边框 */
   }
 
   /* 标签文本 */
@@ -415,7 +325,7 @@
     flex-shrink: 0;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 80px; /* 确保有空间显示计数 */
+    max-width: 120px; /* 增加最大宽度以适应动态宽度 */
   }
 
   /* 已选数量计数 */
@@ -430,11 +340,12 @@
     color: var(--color-muted); /* 保持灰色，与未激活状态一致 */
   }
 
-  /* 标签页内容区域（固定高度） */
+  /* 标签页内容区域（固定高度，白色背景与激活标签合并） */
   .filter-tab-content {
-    height: 100px; /* 固定高度，统一6个标签页（从400px减半到200px） */
+    height: var(--filters-h); /* 使用全局变量，默认420px */
     overflow: hidden;
     position: relative;
+    background-color: #ffffff; /* 白色背景，与激活标签一致 */
   }
 
   /* 单个标签页面板 */

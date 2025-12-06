@@ -15,17 +15,25 @@ File: components/FiltersPanel.vue
       <!-- 标签页按钮行 -->
       <div class="filter-tabs-header" style="box-shadow: none; background-color: transparent;">
         <button
-          v-for="tab in tabs"
+          v-for="(tab, index) in tabs"
           :key="tab.key"
           :class="[
             'filter-tab-button',
             `filter-tab-button--${tab.key}`,
-            { 'filter-tab-button--active': activeTab === tab.key }
+            { 'filter-tab-button--active': activeTab === tab.key },
+            { 'filter-tab-button--first': index === 0 }
           ]"
+          :style="{
+            zIndex: activeTab === tab.key ? 50 : (tabs.length - index)
+          }"
           @click="activeTab = tab.key"
         >
-          <span class="filter-tab-label">{{ tab.label }}</span>
-          <span class="filter-tab-count" v-if="tab.count > 0">({{ tab.count }})</span>
+          <!-- Layer 1: The Tab Shape (Background) -->
+          <div class="tab-shape"></div>
+          
+          <!-- Layer 2: The Content (Text) -->
+          <span class="tab-text filter-tab-label">{{ tab.label }}</span>
+          <span class="tab-text filter-tab-count" v-if="tab.count > 0">({{ tab.count }})</span>
         </button>
       </div>
 
