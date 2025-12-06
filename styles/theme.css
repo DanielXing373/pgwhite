@@ -161,7 +161,7 @@
     display: flex;
     justify-content: flex-start; /* 居左对齐 */
     align-items: flex-end; /* 底部对齐，便于层叠效果 */
-    border-bottom: 1px solid #e5e7eb;
+    border-bottom: none; /* 移除底部边框，由激活标签页和内容面板无缝连接 */
     background-color: #fafafa;
     padding-left: 0;
     padding-right: 0;
@@ -188,7 +188,7 @@
     background: transparent; /* 背景由 .tab-shape 提供 */
     color: var(--color-fg);
     font-size: 0.875rem; /* text-sm */
-    font-weight: 500;
+    font-weight: 500; /* 非激活状态：正常字重 */
     cursor: pointer;
     transition: filter 0.2s ease; /* 仅 hover 时的亮度变化 */
     display: flex;
@@ -276,22 +276,21 @@
     filter: brightness(1.1); /* 轻微增加亮度 */
   }
 
-  /* 激活状态的标签按钮（白色背景，与内容区合并） */
+  /* 激活状态的标签按钮（主题色背景，黑色粗体文字） */
   .filter-tab-button--active {
-    color: var(--color-fg);
-    font-weight: 600;
+    color: var(--color-fg); /* 黑色文字 */
+    font-weight: 600; /* 粗体 */
   }
 
-  /* 激活状态：白色背景，移除底部边框以与内容区合并 */
+  /* 激活状态：主题色背景，移除底部边框以与内容区无缝合并 */
   .filter-tab-button--active .tab-shape {
-    background-color: #ffffff; /* 白色背景，与内容区一致 */
     border-bottom: none; /* 移除底部边框，与内容区无缝合并 */
-    border-top: 1.5px solid #e5e7eb;
-    border-left: 1.5px solid #e5e7eb;
-    border-right: 1.5px solid #e5e7eb;
+    border-top: 3px solid transparent; /* 顶部边框3px，透明，由背景色显示 */
+    border-left: 3px solid transparent;
+    border-right: 3px solid transparent;
   }
 
-  /* 激活状态：根据表格设置边框颜色 */
+  /* 激活状态：根据表格设置边框颜色（用于非激活状态的边框） */
   .filter-tab-button--authors.filter-tab-button--active .tab-shape {
     border-color: #FBCFE8; /* 樱花粉边框 */
   }

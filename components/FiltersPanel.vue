@@ -24,12 +24,16 @@ File: components/FiltersPanel.vue
             { 'filter-tab-button--first': index === 0 }
           ]"
           :style="{
-            zIndex: activeTab === tab.key ? 50 : (tabs.length - index)
+            zIndex: activeTab === tab.key ? 50 : (tabs.length - index),
+            marginBottom: activeTab === tab.key ? '-3px' : '0'
           }"
           @click="activeTab = tab.key"
         >
           <!-- Layer 1: The Tab Shape (Background) -->
-          <div class="tab-shape"></div>
+          <div 
+            class="tab-shape"
+            :style="activeTab === tab.key ? { backgroundColor: TAB_COLORS[tab.key] } : {}"
+          ></div>
           
           <!-- Layer 2: The Content (Text) -->
           <span class="tab-text filter-tab-label">{{ tab.label }}</span>
@@ -37,8 +41,14 @@ File: components/FiltersPanel.vue
         </button>
       </div>
 
-      <!-- 标签页内容区域（固定高度） -->
-      <div class="filter-tab-content" style="border: 1px solid #e5e7eb; border-radius: 0 0 8px 8px;">
+      <!-- 标签页内容区域（固定高度，动态边框颜色） -->
+      <div 
+        class="filter-tab-content" 
+        :style="{
+          border: `3px solid ${contentPanelBorderColor}`,
+          borderRadius: '0 0 8px 8px'
+        }"
+      >
         <!-- 作者 -->
         <div v-show="activeTab === 'authors'" class="filter-tab-panel">
           <FiltersFilterGroup
@@ -241,6 +251,22 @@ const localQ = computed({
 // —— 标签页切换逻辑 —— //
 const { t } = useI18n()
 const activeTab = ref<'authors' | 'books' | 'genres' | 'times' | 'themes' | 'devices' | 'search'>('authors')
+
+// 标签页颜色映射
+const TAB_COLORS = {
+  authors: '#FBCFE8', // 樱花粉
+  books: '#FED7AA',   // 奶油橘
+  genres: '#FDE047',  // 芝士黄
+  times: '#BBF7D0',   // 薄荷绿
+  themes: '#BAE6FD',  // 天空蓝
+  devices: '#A5F3FC', // 冰川青
+  search: '#D8B4FE'   // 香芋紫
+} as const
+
+// 计算内容面板的边框颜色（匹配激活标签页）
+const contentPanelBorderColor = computed(() => {
+  return TAB_COLORS[activeTab.value] || '#e5e7eb'
+})
 
 // 标签页配置（包含标签文本和已选数量）
 const tabs = computed(() => [
