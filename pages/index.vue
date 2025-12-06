@@ -73,13 +73,13 @@ File: pages/index.vue
                   tag.isBook && locale === 'en' ? 'result-chip--book' : '',
                   tag.isMatched ? 'result-chip--matched result-chip--active' : 'result-chip--hover'
                 ]"
-                @click="handleChipClick(tag)"
+                @click="handleChipClick(s.id, tag)"
               >
                 {{ tag.label }}
               </button>
               <!-- 添加/删除按钮 -->
               <div
-                v-if="activeChipId === `${tag.dimension}-${tag.id}`"
+                v-if="activeChipId?.quoteId === s.id && activeChipId?.tagId === `${tag.dimension}-${tag.id}`"
                 class="result-chip-action"
               >
                 <button
@@ -217,7 +217,8 @@ const currentLangLabel = computed(() =>
 )
 
 // —— 管理显示操作按钮的 chip —— //
-const activeChipId = ref<string | null>(null)
+// 使用复合键来跟踪特定 quote 中的特定 tag
+const activeChipId = ref<{ quoteId: string; tagId: string } | null>(null)
 
 // 点击外部区域时隐藏按钮
 onMounted(() => {
@@ -233,10 +234,15 @@ onMounted(() => {
 /**
  * 处理 chip 点击
  */
-function handleChipClick(tag: { dimension: string; id: string }) {
-  const chipKey = `${tag.dimension}-${tag.id}`
-  // 如果点击的是同一个 chip，则隐藏按钮；否则显示按钮
-  activeChipId.value = activeChipId.value === chipKey ? null : chipKey
+function handleChipClick(quoteId: string, tag: { dimension: string; id: string }) {
+  const tagId = `${tag.dimension}-${tag.id}`
+  const currentKey = activeChipId.value
+  // 如果点击的是同一个 quote 中的同一个 tag，则隐藏按钮；否则显示按钮
+  if (currentKey?.quoteId === quoteId && currentKey?.tagId === tagId) {
+    activeChipId.value = null
+  } else {
+    activeChipId.value = { quoteId, tagId }
+  }
 }
 
 /**
