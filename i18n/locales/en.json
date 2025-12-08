@@ -1,6 +1,6 @@
 {
   "site": { "title": "Pigeon White", "subtitle": "Multi-dimensional Quote Search" },
-  "notice": { "message": "Welcome to pgWhite (demo dataset)" },
+    "notice": { "message": "Welcome to pgWhite (demo dataset)" },
   "search": {
     "placeholder": "Search sentence (exact match)",
     "placeholderExample": "e.g., sunset / friendship",
@@ -57,4 +57,4 @@
     "help": "Help",
     "submit": "Contribute Quotes"
   }
-}
+  }

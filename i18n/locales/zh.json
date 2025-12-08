@@ -1,6 +1,6 @@
 {
   "site": { "title": "鸽白词句库", "subtitle": "多维度词句检索" },
-  "notice": { "message": "欢迎使用 pgWhite（示例数据演示版）" },
+    "notice": { "message": "欢迎使用 pgWhite（示例数据演示版）" },
   "search": {
     "placeholder": "搜索句子文本（精确包含）",
     "placeholderExample": "如：日落 / friendship",
@@ -57,4 +57,4 @@
     "help": "帮助",
     "submit": "我要投稿"
   }
-}
+  }

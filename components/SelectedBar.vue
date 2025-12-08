@@ -47,6 +47,7 @@
         <button
           v-for="item in selectedItems"
           :key="`${item.dimension}-${item.id}`"
+          :id="`active-tag-${item.dimension}-${item.id}`"
           :class="[
             'selected-chip',
             `selected-chip--${item.dimension}`,

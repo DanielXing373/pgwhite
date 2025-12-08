@@ -39,6 +39,9 @@ File: pages/index.vue
     @removeTag="handleRemoveTag"
   />
 
+  <!-- —— 飞行标签动画组件 —— -->
+  <FlyingGhosts />
+
   <!-- —— 结果列表（先渲染数量与卡片简版） —— -->
   <section class="space-y-3">
     <div v-if="results.length === 0" class="rounded border p-4 text-sm result-card" style="border-color:#e5e7eb; color:#6b7280">
@@ -90,7 +93,7 @@ File: pages/index.vue
                 <button
                   v-if="!tag.isMatched"
                   class="result-chip-action-btn result-chip-action-btn--add"
-                  @click.stop="handleAddTag(tag.dimension, tag.id)"
+                  @click.stop="(e) => handleAddTag(tag.dimension, tag.id, tag.label, e)"
                 >
                   <span class="result-chip-action-icon">+</span>
                   {{ $t('results.add') }}
@@ -123,6 +126,7 @@ import { useKeyboardShortcuts } from '~/composables/useKeyboardShortcuts'
 import { useSearchResults } from '~/composables/useSearchResults'
 import { useSentenceTags } from '~/composables/useSentenceTags'
 import { truncate } from '~/composables/useUIHelpers'
+import { useFlyingChips } from '~/composables/useFlyingChips'
 
 // —— 数据集 —— //
 const { sentences } = useDataset()
@@ -209,6 +213,45 @@ watch(results, () => {
   }, 300)
 }, { deep: true })
 
+// —— 中空取消逻辑：监听选中标签变化，移除飞行中的标签 —— //
+// 当标签从选中数组中移除时，立即取消飞行中的动画
+const previousSelectedTags = ref<Set<string>>(new Set())
+let isInitializing = true // 防止初始化时误删除
+
+function getSelectedTagsSet() {
+  const set = new Set<string>()
+  authors.value.forEach(id => set.add(`authors-${id}`))
+  books.value.forEach(id => set.add(`books-${id}`))
+  genres.value.forEach(id => set.add(`genres-${id}`))
+  times.value.forEach(id => set.add(`times-${id}`))
+  themes.value.forEach(id => set.add(`themes-${id}`))
+  devices.value.forEach(id => set.add(`devices-${id}`))
+  return set
+}
+
+watch([authors, books, genres, times, themes, devices], () => {
+  const currentSet = getSelectedTagsSet()
+  
+  // 跳过初始化阶段
+  if (isInitializing) {
+    previousSelectedTags.value = currentSet
+    isInitializing = false
+    return
+  }
+  
+  // 找出被移除的标签
+  previousSelectedTags.value.forEach(tagKey => {
+    if (!currentSet.has(tagKey)) {
+      // 标签被移除，取消飞行中的动画
+      const [dimension, id] = tagKey.split('-', 2)
+      console.log('🚫 Tag removed, canceling flight:', { dimension, id, tagKey })
+      removeGhost(id, dimension)
+    }
+  })
+  
+  previousSelectedTags.value = currentSet
+}, { deep: true, immediate: true })
+
 // —— Facets 计算 —— //
 // 注意：facets 只根据语言生成，不受文本搜索和标签筛选影响
 // 这样用户可以随时看到所有可用的标签选项，自由选择
@@ -261,42 +304,99 @@ function handleChipClick(quoteId: string, tag: { dimension: string; id: string }
   }
 }
 
+// —— 飞行标签动画 —— //
+const { triggerFly, removeGhost } = useFlyingChips()
+
 /**
  * 处理添加标签
  */
-function handleAddTag(dimension: string, id: string) {
+async function handleAddTag(dimension: string, id: string, label: string, event: MouseEvent) {
+  // 检查是否已存在，避免重复添加
+  let alreadyExists = false
   switch (dimension) {
     case 'authors':
-      if (!authors.value.includes(id)) {
+      alreadyExists = authors.value.includes(id)
+      if (!alreadyExists) {
         authors.value = [...authors.value, id]
       }
       break
     case 'books':
-      if (!books.value.includes(id)) {
+      alreadyExists = books.value.includes(id)
+      if (!alreadyExists) {
         books.value = [...books.value, id]
       }
       break
     case 'genres':
-      if (!genres.value.includes(id)) {
+      alreadyExists = genres.value.includes(id)
+      if (!alreadyExists) {
         genres.value = [...genres.value, id]
       }
       break
     case 'times':
-      if (!times.value.includes(id)) {
+      alreadyExists = times.value.includes(id)
+      if (!alreadyExists) {
         times.value = [...times.value, id]
       }
       break
     case 'themes':
-      if (!themes.value.includes(id)) {
+      alreadyExists = themes.value.includes(id)
+      if (!alreadyExists) {
         themes.value = [...themes.value, id]
       }
       break
     case 'devices':
-      if (!devices.value.includes(id)) {
+      alreadyExists = devices.value.includes(id)
+      if (!alreadyExists) {
         devices.value = [...devices.value, id]
       }
       break
   }
+  
+  // 如果已存在，不触发动画
+  if (alreadyExists) {
+    activeChipId.value = null
+    return
+  }
+  
+  // 触发飞行动画
+  // 查找点击的按钮元素（可能是添加按钮或chip本身）
+  const clickTarget = event.target as HTMLElement
+  const chipButton = clickTarget.closest('.result-chip') || clickTarget.closest('.result-chip-action-btn')
+  
+  if (chipButton) {
+    const startRect = chipButton.getBoundingClientRect()
+    
+    // 等待DOM更新
+    await nextTick()
+    
+    // 查找目标元素，可能需要多次尝试
+    const destinationId = `active-tag-${dimension}-${id}`
+    let destinationEl = document.getElementById(destinationId)
+    
+    // 如果找不到，等待一下再试
+    if (!destinationEl) {
+      await new Promise(resolve => setTimeout(resolve, 50))
+      destinationEl = document.getElementById(destinationId)
+    }
+    
+    if (destinationEl) {
+      // 初始时目标标签不可见（作为占位符）
+      destinationEl.style.opacity = '0'
+      const endRect = destinationEl.getBoundingClientRect()
+      
+      // 触发飞行动画
+      triggerFly(id, dimension, label, startRect, endRect)
+      
+      // 动画结束后显示目标标签
+      setTimeout(() => {
+        if (destinationEl) {
+          destinationEl.style.opacity = '1'
+          destinationEl.style.transition = 'opacity 0.2s ease-in'
+        }
+      }, 550) // 与动画持续时间一致
+    }
+  }
+  
   // 添加后隐藏按钮
   activeChipId.value = null
 }
@@ -305,6 +405,9 @@ function handleAddTag(dimension: string, id: string) {
  * 处理删除标签
  */
 function handleRemoveTag(dimension: string, id: string) {
+  // 移除飞行中的标签（如果存在）- 中空取消逻辑
+  removeGhost(id, dimension)
+  
   switch (dimension) {
     case 'authors':
       authors.value = authors.value.filter(aid => aid !== id)

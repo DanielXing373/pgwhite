@@ -19,7 +19,7 @@ File: components/filters/FilterGroup.vue
             props.modelValue.includes(opt.id) ? 'filter-chip--active' : '',
             isBookChip(opt.id) && isEnglish ? 'filter-chip--book' : ''
           ]"
-          @click="toggle(opt.id)"
+          @click="(e) => handleToggle(opt.id, opt.label, e)"
         >
           {{ opt.label }}
         </button>
@@ -75,6 +75,9 @@ const emit = defineEmits<{
 const { locale } = useI18n()
 const isEnglish = computed(() => locale.value === 'en')
 
+// —— 飞行标签动画 —— //
+const { triggerFly, removeGhost } = useFlyingChips()
+
 // —— 检查是否有选中的项 —— //
 const hasSelectedItems = computed(() => props.modelValue.length > 0)
 
@@ -87,9 +90,72 @@ function isBookChip(id: string): boolean {
 }
 
 // —— 选择/清空 —— //
-function toggle(id: string) {
+async function handleToggle(id: string, label: string, event: MouseEvent) {
   const set = new Set(props.modelValue)
-  if (set.has(id)) set.delete(id); else set.add(id)
+  const wasSelected = set.has(id)
+  
+  if (wasSelected) {
+    // 取消选择：移除飞行中的标签（如果存在）
+    if (props.dimension) {
+      removeGhost(id, props.dimension)
+    }
+    set.delete(id)
+  } else {
+    // 选择：触发飞行动画
+    set.add(id)
+    
+    if (props.dimension) {
+      // 捕获起始位置
+      const startRect = (event.target as HTMLElement).getBoundingClientRect()
+      
+      // 更新数据模型
+      emit('update:modelValue', Array.from(set))
+      
+      // 等待DOM更新
+      await nextTick()
+      
+      // 查找目标元素
+      const destinationId = `active-tag-${props.dimension}-${id}`
+      const destinationEl = document.getElementById(destinationId)
+      
+      if (destinationEl) {
+        // 初始时目标标签不可见（作为占位符）
+        destinationEl.style.opacity = '0'
+        const endRect = destinationEl.getBoundingClientRect()
+        
+      // 触发飞行动画
+      console.log('🚀 FilterGroup: Triggering fly animation', { id, dimension: props.dimension, label, startRect, endRect })
+      triggerFly(id, props.dimension, label, startRect, endRect)
+        
+        // 动画结束后显示目标标签
+        setTimeout(() => {
+          if (destinationEl) {
+            destinationEl.style.opacity = '1'
+            destinationEl.style.transition = 'opacity 0.2s ease-in'
+          }
+        }, 550) // 与动画持续时间一致
+      } else {
+        // 如果找不到目标元素，等待更长时间再试
+        setTimeout(async () => {
+          const retryEl = document.getElementById(destinationId)
+          if (retryEl) {
+            retryEl.style.opacity = '0'
+            const endRect = retryEl.getBoundingClientRect()
+            triggerFly(id, props.dimension, label, startRect, endRect)
+            setTimeout(() => {
+              if (retryEl) {
+                retryEl.style.opacity = '1'
+                retryEl.style.transition = 'opacity 0.2s ease-in'
+              }
+            }, 550)
+          }
+        }, 50)
+      }
+      
+      return
+    }
+  }
+  
   emit('update:modelValue', Array.from(set))
 }
 
