@@ -39,10 +39,8 @@ File: pages/index.vue
     @removeTag="handleRemoveTag"
   />
 
-  <!-- —— 飞行标签动画组件 —— -->
-  <FlyingGhosts />
-
   <!-- —— 结果列表（先渲染数量与卡片简版） —— -->
+  <!-- Note: FlyingGhosts has been moved to app.vue root level to avoid blur/opacity conflicts -->
   <section class="space-y-3">
     <div v-if="results.length === 0" class="rounded border p-4 text-sm result-card" style="border-color:#e5e7eb; color:#6b7280">
       {{ $t('results.empty') }}
@@ -242,10 +240,13 @@ watch([authors, books, genres, times, themes, devices], () => {
   // 找出被移除的标签
   previousSelectedTags.value.forEach(tagKey => {
     if (!currentSet.has(tagKey)) {
-      // 标签被移除，取消飞行中的动画
+      // 🛑 DISABLED: 注释掉取消飞行逻辑以修复快速点击时的误判问题
+      // 问题：当URL更新时，响应式数组可能在同步过程中短暂重置，导致误判标签被移除
+      // 解决方案：暂时禁用中空取消功能，让动画自然完成
+      // 如果用户真的想取消选择，可以在动画完成后手动移除
       const [dimension, id] = tagKey.split('-', 2)
-      console.log('🚫 Tag removed, canceling flight:', { dimension, id, tagKey })
-      removeGhost(id, dimension)
+      console.log('🚫 Tag removed (but not canceling flight to avoid false positives):', { dimension, id, tagKey })
+      // removeGhost(id, dimension, true) // removeAll = true - DISABLED
     }
   })
   
@@ -405,8 +406,8 @@ async function handleAddTag(dimension: string, id: string, label: string, event:
  * 处理删除标签
  */
 function handleRemoveTag(dimension: string, id: string) {
-  // 移除飞行中的标签（如果存在）- 中空取消逻辑
-  removeGhost(id, dimension)
+  // 移除飞行中的标签（如果存在）- 中空取消逻辑（移除所有匹配的飞行实例）
+  removeGhost(id, dimension, true) // removeAll = true
   
   switch (dimension) {
     case 'authors':

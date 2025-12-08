@@ -95,9 +95,9 @@ async function handleToggle(id: string, label: string, event: MouseEvent) {
   const wasSelected = set.has(id)
   
   if (wasSelected) {
-    // 取消选择：移除飞行中的标签（如果存在）
+    // 取消选择：移除飞行中的标签（如果存在）- 移除所有匹配的飞行实例
     if (props.dimension) {
-      removeGhost(id, props.dimension)
+      removeGhost(id, props.dimension, true) // removeAll = true
     }
     set.delete(id)
   } else {
@@ -138,7 +138,7 @@ async function handleToggle(id: string, label: string, event: MouseEvent) {
         // 如果找不到目标元素，等待更长时间再试
         setTimeout(async () => {
           const retryEl = document.getElementById(destinationId)
-          if (retryEl) {
+          if (retryEl && props.dimension) {
             retryEl.style.opacity = '0'
             const endRect = retryEl.getBoundingClientRect()
             triggerFly(id, props.dimension, label, startRect, endRect)
