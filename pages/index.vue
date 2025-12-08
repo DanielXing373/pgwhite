@@ -48,7 +48,12 @@ File: pages/index.vue
       <div class="results-count" style="color:#6b7280">
         {{ $t('results.count', { count: results.length, lang: currentLangLabel }) }}
       </div>
-      <div class="result-stack">
+      <div 
+        class="result-stack"
+        :class="{
+          'result-stack--refreshing': isRefreshing
+        }"
+      >
         <div
           v-for="(s, index) in results"
           :key="s.id"
@@ -108,7 +113,7 @@ File: pages/index.vue
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { onMounted, watch } from 'vue'
 import { useDataset } from '~/composables/useDataset'
 import { useQueryState } from '~/composables/useQueryState'
 import { useFilterEngine } from '~/composables/useFilterEngine'
@@ -192,6 +197,17 @@ const filters = computed(() => ({
 
 const filteredResults = computed(() => filter(sentences, filters.value))
 const { results } = useSearchResults(filteredResults, filters)
+
+// —— 搜索结果刷新微交互（"Breath & Blur"效果） —— //
+const isRefreshing = ref(false)
+
+// 监听搜索结果变化，触发微交互
+watch(results, () => {
+  isRefreshing.value = true
+  setTimeout(() => {
+    isRefreshing.value = false
+  }, 300)
+}, { deep: true })
 
 // —— Facets 计算 —— //
 // 注意：facets 只根据语言生成，不受文本搜索和标签筛选影响
