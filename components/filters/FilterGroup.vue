@@ -124,7 +124,6 @@ async function handleToggle(id: string, label: string, event: MouseEvent) {
         const endRect = destinationEl.getBoundingClientRect()
         
       // 触发飞行动画
-      console.log('🚀 FilterGroup: Triggering fly animation', { id, dimension: props.dimension, label, startRect, endRect })
       triggerFly(id, props.dimension, label, startRect, endRect)
         
         // 动画结束后显示目标标签

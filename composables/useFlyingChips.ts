@@ -23,18 +23,15 @@ export function useFlyingChips() {
   // 使用固定的 key 确保所有调用都返回同一个状态实例
   const flyingChips = useState<FlyingChip[]>('flying-chips', () => [])
   
-  // 调试：追踪状态变化
-  watch(() => flyingChips.value, (newChips, oldChips) => {
-    if (newChips.length !== (oldChips?.length || 0)) {
-      console.log('🔔 useFlyingChips: Array length changed', {
-        from: oldChips?.length || 0,
-        to: newChips.length,
-        newChips: newChips.map(c => ({ id: c.id, tagId: c.tagId })),
-        oldChips: oldChips?.map(c => ({ id: c.id, tagId: c.tagId })) || [],
-        stackTrace: new Error().stack
-      })
-    }
-  }, { deep: true })
+  // 调试：追踪状态变化（已禁用，仅在需要调试时启用）
+  // watch(() => flyingChips.value, (newChips, oldChips) => {
+  //   if (newChips.length !== (oldChips?.length || 0)) {
+  //     console.log('🔔 useFlyingChips: Array length changed', {
+  //       from: oldChips?.length || 0,
+  //       to: newChips.length
+  //     })
+  //   }
+  // }, { deep: true })
   
   /**
    * 触发飞行动画
@@ -93,16 +90,11 @@ export function useFlyingChips() {
     // 直接push，不检查重复（因为每个实例都有唯一ID）
     flyingChips.value.push(newChip)
     
-    console.log('✈️ useFlyingChips: Added chip to array', {
-      chip: newChip,
-      totalChips: flyingChips.value.length,
-      array: flyingChips.value.map(c => ({ id: c.id, tagId: c.tagId })) // 创建副本以便调试
-    })
-    
-    // 验证数组确实被更新了
-    nextTick(() => {
-      console.log('✅ After nextTick, array length:', flyingChips.value.length)
-    })
+    // 调试日志（已禁用，仅在需要调试时启用）
+    // console.log('✈️ useFlyingChips: Added chip to array', {
+    //   chip: newChip,
+    //   totalChips: flyingChips.value.length
+    // })
   }
 
   /**
@@ -119,9 +111,9 @@ export function useFlyingChips() {
         !(chip.tagId === tagId && chip.dimension === dimension)
       )
       const removedCount = initialLength - flyingChips.value.length
-      if (removedCount > 0) {
-        console.log(`🗑️ removeGhost: Removed ${removedCount} instance(s) for ${dimension}-${tagId}`)
-      }
+      // if (removedCount > 0) {
+      //   console.log(`🗑️ removeGhost: Removed ${removedCount} instance(s) for ${dimension}-${tagId}`)
+      // }
     } else {
       // 只移除第一个匹配的实例（用于动画完成时）
       const index = flyingChips.value.findIndex(chip => 
@@ -129,7 +121,7 @@ export function useFlyingChips() {
       )
       if (index !== -1) {
         flyingChips.value.splice(index, 1)
-        console.log(`🗑️ removeGhost: Removed one instance for ${dimension}-${tagId}`)
+        // console.log(`🗑️ removeGhost: Removed one instance for ${dimension}-${tagId}`)
       }
     }
   }
@@ -142,10 +134,9 @@ export function useFlyingChips() {
     const index = flyingChips.value.findIndex(chip => chip.id === uniqueId)
     if (index !== -1) {
       flyingChips.value.splice(index, 1)
-      console.log(`🗑️ removeGhostById: Removed instance ${uniqueId}`)
-    } else {
-      console.warn(`⚠️ removeGhostById: Instance not found ${uniqueId}`)
+      // console.log(`🗑️ removeGhostById: Removed instance ${uniqueId}`)
     }
+    // else: 实例不存在（可能已经被移除），静默忽略
   }
 
   /**

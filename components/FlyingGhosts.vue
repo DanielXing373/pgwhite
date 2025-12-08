@@ -5,11 +5,6 @@ File: components/FlyingGhosts.vue
 ====================================================== -->
 <template>
   <Teleport to="body">
-    <!-- 调试：显示当前数组状态 -->
-    <div v-if="flyingChips.length > 0" style="position: fixed; top: 0; right: 0; background: rgba(0,0,0,0.8); color: white; padding: 10px; z-index: 10000; font-size: 12px;">
-      Active Chips: {{ flyingChips.length }}<br>
-      IDs: {{ flyingChips.map(c => c.id.split('-').slice(-1)[0]).join(', ') }}
-    </div>
     <div
       v-for="chip in flyingChips"
       :key="chip.id"
@@ -59,53 +54,17 @@ import type { FlyingChip } from '~/composables/useFlyingChips'
 const flyingChipsStore = useFlyingChips()
 const flyingChips = flyingChipsStore.flyingChips // 确保使用响应式引用
 
-// 生命周期追踪：检测组件是否被重新创建
-const componentId = `FlyingGhosts-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
-
-onMounted(() => {
-  console.log('🟢 FlyingGhosts MOUNTED:', {
-    componentId,
-    timestamp: new Date().toISOString(),
-    initialChips: flyingChips.value.length,
-    stackTrace: new Error().stack
-  })
-})
-
-onBeforeUnmount(() => {
-  console.warn('🟡 FlyingGhosts BEFORE UNMOUNT:', {
-    componentId,
-    timestamp: new Date().toISOString(),
-    activeChips: flyingChips.value.length,
-    stackTrace: new Error().stack
-  })
-})
-
-onUnmounted(() => {
-  console.error('🔴 FlyingGhosts UNMOUNTED:', {
-    componentId,
-    timestamp: new Date().toISOString(),
-    activeChips: flyingChips.value.length,
-    stackTrace: new Error().stack
-  })
-})
-
-// 调试：立即检查初始状态
-console.log('🔍 FlyingGhosts setup, initial flyingChips:', {
-  componentId,
-  length: flyingChips.value.length,
-  chips: [...flyingChips.value],
-  isRef: !!flyingChips.value
-})
-
-// 调试：监听 flyingChips 变化
-watch(() => flyingChips.value, (newChips, oldChips) => {
-  console.log('🛫 FlyingGhosts: flyingChips changed', {
-    length: newChips.length,
-    newChips,
-    oldLength: oldChips?.length || 0,
-    oldChips
-  })
-}, { deep: true, immediate: true })
+// 生命周期追踪（已禁用，仅在需要调试时启用）
+// const componentId = `FlyingGhosts-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
+// onMounted(() => {
+//   console.log('🟢 FlyingGhosts MOUNTED:', { componentId, initialChips: flyingChips.value.length })
+// })
+// onBeforeUnmount(() => {
+//   console.warn('🟡 FlyingGhosts BEFORE UNMOUNT:', { componentId, activeChips: flyingChips.value.length })
+// })
+// onUnmounted(() => {
+//   console.error('🔴 FlyingGhosts UNMOUNTED:', { componentId, activeChips: flyingChips.value.length })
+// })
 
 // 动画持续时间（毫秒）
 const DURATION = 550
@@ -135,33 +94,14 @@ function setInnerRef(chipId: string, el: any) {
 
 function startAnimation(chipId: string) {
   if (animatingChips.value.has(chipId)) {
-    console.log('⚠️ Animation already started for', chipId)
     return // 已经在动画中
   }
   
   const chip = flyingChips.value.find(c => c.id === chipId)
   if (!chip) {
-    console.error('❌ Chip not found in flyingChips array:', {
-      chipId,
-      currentChips: flyingChips.value.map(c => c.id),
-      arrayLength: flyingChips.value.length
-    })
+    // console.error('❌ Chip not found:', chipId)
     return
   }
-  
-  console.log('🎬 startAnimation called for', chipId, {
-    chipExists: !!chip,
-    chipLabel: chip.tagLabel,
-    currentArrayLength: flyingChips.value.length,
-    allChipIds: flyingChips.value.map(c => c.id)
-  })
-  
-  console.log('🎬 Starting animation for', chipId, {
-    start: chip.start,
-    end: chip.end,
-    deltaX: chip.end.x - chip.start.x,
-    deltaY: chip.end.y - chip.start.y
-  })
   
   // 先设置动画状态为true，触发样式更新
   animatingChips.value.add(chipId)
@@ -172,19 +112,9 @@ function startAnimation(chipId: string) {
       const outerEl = outerRefs.get(chipId)
       const innerEl = innerRefs.get(chipId)
       
-      console.log('🔍 Animation setup:', { chipId, outerEl: !!outerEl, innerEl: !!innerEl })
-      
       if (outerEl && innerEl) {
         const deltaX = chip.end.x - chip.start.x
         const deltaY = chip.end.y - chip.start.y
-        
-        console.log('🎯 About to apply transforms:', {
-          chipId,
-          deltaX,
-          deltaY,
-          start: chip.start,
-          end: chip.end
-        })
         
         // 第一步：清除所有 transition 和 transform，设置初始状态
         outerEl.style.transition = 'none'
@@ -212,15 +142,6 @@ function startAnimation(chipId: string) {
             outerEl.style.transform = `translateX(${deltaX}px)`
             innerEl.style.transform = `translateY(${deltaY}px)`
             
-            console.log('✅ Applied transforms:', {
-              deltaX,
-              deltaY,
-              outerTransform: outerEl.style.transform,
-              innerTransform: innerEl.style.transform,
-              outerTransition: outerEl.style.transition,
-              innerTransition: innerEl.style.transition
-            })
-            
             // 监听动画结束 - 使用一个共享的标记来确保只处理一次
             let transitionEnded = false
             let cleanupDone = false
@@ -242,7 +163,7 @@ function startAnimation(chipId: string) {
               const { removeGhostById } = useFlyingChips()
               removeGhostById(chipId)
               animatingChips.value.delete(chipId)
-              console.log('🗑️ Removed chip after animation:', chipId)
+              // console.log('🗑️ Removed chip after animation:', chipId)
               
               // 移除所有事件监听器
               outerElRef.removeEventListener('transitionend', handleTransitionEnd)
@@ -259,25 +180,12 @@ function startAnimation(chipId: string) {
               
               if (e.propertyName === 'transform' && !transitionEnded && (isOuter || isInner)) {
                 transitionEnded = true
-                console.log('🏁 Animation ended for', chipId, {
-                  propertyName: e.propertyName,
-                  elapsedTime: e.elapsedTime,
-                  target: isOuter ? 'outer' : 'inner',
-                  actualTarget: target
-                })
+                // console.log('🏁 Animation ended for', chipId)
                 
                 // 延迟移除，确保动画完全结束
                 setTimeout(performCleanup, 100)
-              } else {
-                console.log('⚠️ Ignored transitionend event:', {
-                  propertyName: e.propertyName,
-                  transitionEnded,
-                  chipId,
-                  isOuter,
-                  isInner,
-                  target: target
-                })
               }
+              // else: 忽略其他transitionend事件（可能是其他属性的transition）
             }
             
             // 也监听body上的transitionend事件（作为fallback，以防元素被重新创建）
@@ -296,10 +204,7 @@ function startAnimation(chipId: string) {
             // Fallback: 如果transitionend事件没有触发（例如元素被移除），在动画时间后强制清理
             fallbackTimeout = setTimeout(() => {
               if (!cleanupDone) {
-                console.warn('⚠️ Fallback cleanup triggered for', chipId, {
-                  elementExists: !!document.querySelector(`[data-chip-id="${chipId}"]`),
-                  stillInArray: flyingChips.value.some(c => c.id === chipId)
-                })
+                // console.warn('⚠️ Fallback cleanup triggered for', chipId)
                 // 移除body监听器
                 document.body.removeEventListener('transitionend', bodyHandler)
                 performCleanup()
@@ -308,7 +213,7 @@ function startAnimation(chipId: string) {
           })
         })
       } else {
-        console.error('❌ Missing refs for', chipId, { outerEl: !!outerEl, innerEl: !!innerEl })
+        // console.error('❌ Missing refs for', chipId, { outerEl: !!outerEl, innerEl: !!innerEl })
       }
     })
   })
@@ -347,26 +252,12 @@ function getInnerStyle(chip: FlyingChip) {
 
 // 监听flyingChips变化，清理已移除的chip的refs并启动新动画
 watch(() => flyingChips.value, (newChips, oldChips) => {
-  console.log('📊 FlyingGhosts watch triggered:', {
-    newLength: newChips.length,
-    oldLength: oldChips?.length || 0,
-    newChips: newChips.map(c => ({ id: c.id, label: c.tagLabel })),
-    oldChips: oldChips?.map(c => ({ id: c.id, label: c.tagLabel })) || []
-  })
-  
   const currentIds = new Set(newChips.map(c => c.id))
   const oldIds = oldChips ? new Set(oldChips.map(c => c.id)) : new Set()
   
   // 清理已移除的chip的refs
   for (const [id] of outerRefs) {
     if (!currentIds.has(id)) {
-      console.warn('🗑️ Removing refs for chip that disappeared from array:', {
-        chipId: id,
-        wasAnimating: animatingChips.value.has(id),
-        currentArrayIds: Array.from(currentIds),
-        oldArrayIds: Array.from(oldIds),
-        stackTrace: new Error().stack
-      })
       outerRefs.delete(id)
       innerRefs.delete(id)
       animatingChips.value.delete(id)
@@ -376,23 +267,17 @@ watch(() => flyingChips.value, (newChips, oldChips) => {
   // 为新添加的chip启动动画
   newChips.forEach(chip => {
     if (!oldIds.has(chip.id) && !animatingChips.value.has(chip.id)) {
-      console.log('🆕 New chip detected, starting animation setup:', chip.id)
       // 新添加的chip，等待ref设置后启动动画
       nextTick(() => {
         const outerEl = outerRefs.get(chip.id)
         if (outerEl) {
-          console.log('✅ Ref found, starting animation:', chip.id)
           startAnimation(chip.id)
         } else {
-          console.log('⏳ Ref not ready yet, will retry:', chip.id)
           // 如果ref还没设置，稍后再试
           setTimeout(() => {
             const el = outerRefs.get(chip.id)
             if (el && !animatingChips.value.has(chip.id)) {
-              console.log('✅ Ref ready after retry, starting animation:', chip.id)
               startAnimation(chip.id)
-            } else {
-              console.warn('❌ Ref still not ready after retry:', chip.id)
             }
           }, 10)
         }

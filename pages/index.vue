@@ -240,12 +240,10 @@ watch([authors, books, genres, times, themes, devices], () => {
   // 找出被移除的标签
   previousSelectedTags.value.forEach(tagKey => {
     if (!currentSet.has(tagKey)) {
-      // 🛑 DISABLED: 注释掉取消飞行逻辑以修复快速点击时的误判问题
-      // 问题：当URL更新时，响应式数组可能在同步过程中短暂重置，导致误判标签被移除
-      // 解决方案：暂时禁用中空取消功能，让动画自然完成
-      // 如果用户真的想取消选择，可以在动画完成后手动移除
-      const [dimension, id] = tagKey.split('-', 2)
-      console.log('🚫 Tag removed (but not canceling flight to avoid false positives):', { dimension, id, tagKey })
+      // 🛑 DISABLED: 中空取消功能已禁用
+      // 原因：当URL更新时，响应式数组可能在同步过程中短暂重置，导致误判标签被移除
+      // 解决方案：让动画自然完成，用户可以在动画完成后手动移除标签
+      // const [dimension, id] = tagKey.split('-', 2)
       // removeGhost(id, dimension, true) // removeAll = true - DISABLED
     }
   })
