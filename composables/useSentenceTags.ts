@@ -17,7 +17,7 @@ export type SentenceTag = {
 
 export function useSentenceTags(filters: ComputedRef<Filters>) {
   const {
-    authorById, bookById, genreById, timeById, themeById, deviceById
+    authorById, bookById, characterById, timeById, themeById, deviceById
   } = useDataset()
   const { locale } = useI18n()
 
@@ -42,8 +42,8 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
         return f.authors.includes(tagId)
       case 'books':
         return f.books.includes(tagId)
-      case 'genres':
-        return f.genres.includes(tagId)
+      case 'characters':
+        return f.characters.includes(tagId)
       case 'times':
         if (!f.times.length) return false
         return f.times.includes(tagId)
@@ -59,7 +59,7 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
   }
 
   /**
-   * 获取句子的所有标签（按顺序：作者、书籍、题材、场景时间、主题、修辞手法）
+   * 获取句子的所有标签（按顺序：作者、书籍、人物、场景时间、主题、修辞手法）
    */
   function getSentenceTags(sentence: Sentence): SentenceTag[] {
     const tags: SentenceTag[] = []
@@ -91,16 +91,16 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
       })
     }
 
-    // 3. 题材
-    sentence.genreIds.forEach(id => {
-      const genre = genreById.get(id)
-      if (genre) {
-        const baseLabel = isEN ? (genre.name_en || genre.name_zh || id) : (genre.name_zh || genre.name_en || id)
+    // 3. 人物
+    sentence.characterIds.forEach(id => {
+      const character = characterById.get(id)
+      if (character) {
+        const baseLabel = isEN ? (character.name_en || character.name_zh || id) : (character.name_zh || character.name_en || id)
         tags.push({
           id,
-          label: prependEmoji(genre.emoji, baseLabel),
-          isMatched: isTagMatched('genres', id),
-          dimension: 'genres'
+          label: prependEmoji(character.emoji, baseLabel),
+          isMatched: isTagMatched('characters', id),
+          dimension: 'characters'
         })
       }
     })

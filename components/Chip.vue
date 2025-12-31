@@ -27,7 +27,7 @@ File: components/Chip.vue
 </template>
 
 <script setup lang="ts">
-type Dimension = 'authors' | 'books' | 'genres' | 'times' | 'themes' | 'devices'
+type Dimension = 'authors' | 'books' | 'characters' | 'times' | 'themes' | 'devices'
 type ChipState = 'default' | 'hover' | 'active'
 
 const props = withDefaults(defineProps<{

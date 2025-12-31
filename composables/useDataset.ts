@@ -7,7 +7,7 @@
 import sentencesRaw from '~/data/sentences.json'
 import authorsRaw from '~/data/authors.json'
 import booksRaw from '~/data/books.json'
-import genresRaw from '~/data/genres.json'
+import charactersRaw from '~/data/characters.json'
 import timesRaw from '~/data/times.json'
 import themesRaw from '~/data/themes.json'
 import devicesRaw from '~/data/devices.json'
@@ -19,7 +19,7 @@ export type Sentence = {
   authorId: string
   bookId: string
   chapter?: string
-  genreIds: string[]
+  characterIds: string[]
   timeIds: string[]
   themeIds: string[]
   deviceIds: string[]
@@ -32,7 +32,7 @@ export function useDataset() {
   const sentences = sentencesRaw as Sentence[]
   const authors = authorsRaw as Named[]
   const books = booksRaw as Named[]
-  const genres = genresRaw as Named[]
+  const characters = charactersRaw as Named[]
   const times = timesRaw as Named[]
   const themes = themesRaw as Named[]
   const devices = devicesRaw as Named[]
@@ -40,14 +40,14 @@ export function useDataset() {
   // —— Map 加速查找 —— //
   const authorById = new Map(authors.map(a => [a.id, a]))
   const bookById = new Map(books.map(b => [b.id, b]))
-  const genreById = new Map(genres.map(g => [g.id, g]))
+  const characterById = new Map(characters.map(c => [c.id, c]))
   const timeById = new Map(times.map(t => [t.id, t]))
   const themeById = new Map(themes.map(t => [t.id, t]))
   const deviceById = new Map(devices.map(d => [d.id, d]))
 
   return {
     sentences,
-    authors, books, genres, times, themes, devices,
-    authorById, bookById, genreById, timeById, themeById, deviceById
+    authors, books, characters, times, themes, devices,
+    authorById, bookById, characterById, timeById, themeById, deviceById
   }
 }

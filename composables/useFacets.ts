@@ -9,7 +9,7 @@ type Filters = {
   q: string
   authors: string[]
   books: string[]
-  genres: string[]
+  characters: string[]
   times: string[]
   themes: string[]
   devices: string[]
@@ -21,8 +21,8 @@ function includesIgnoreCase(haystack: string, needle: string) {
 
 export function useFacets() {
   const {
-    authors, books, genres, times, themes, devices,
-    authorById, bookById, genreById, timeById, themeById, deviceById
+    authors, books, characters, times, themes, devices,
+    authorById, bookById, characterById, timeById, themeById, deviceById
   } = useDataset()
 
   // 在 composable 顶层获取 locale，确保响应式
@@ -41,7 +41,7 @@ export function useFacets() {
     const need = (key: keyof Filters) => (exclude === key ? [] : (f as any)[key] as string[])
     const authorsSel = need('authors')
     const booksSel   = need('books')
-    const genresSel  = need('genres')
+    const charactersSel  = need('characters')
     const timesSel   = need('times')
     const themesSel  = need('themes')
     const devicesSel = need('devices')
@@ -49,7 +49,7 @@ export function useFacets() {
     return cands.filter(s => {
       if (authorsSel.length && !authorsSel.includes(s.authorId)) return false
       if (booksSel.length   && !booksSel.includes(s.bookId))     return false
-      if (genresSel.length  && !genresSel.every(id => s.genreIds.includes(id))) return false
+      if (charactersSel.length  && !charactersSel.every(id => s.characterIds.includes(id))) return false
       if (timesSel.length   && !timesSel.every(id => s.timeIds.includes(id)))   return false
       if (themesSel.length  && !themesSel.every(id => s.themeIds.includes(id))) return false
       if (devicesSel.length && !devicesSel.every(id => s.deviceIds.includes(id))) return false
@@ -68,7 +68,7 @@ export function useFacets() {
     }
   }
 
-  function toOptions(ids: string[], dim: 'authors'|'books'|'genres'|'times'|'themes'|'devices') {
+  function toOptions(ids: string[], dim: 'authors'|'books'|'characters'|'times'|'themes'|'devices') {
     // 使用 composable 顶层的 locale，确保响应式更新
     const isEN = locale.value === 'en'
     const mapLabel = (id: string): string => {
@@ -86,11 +86,11 @@ export function useFacets() {
           const formatted = formatBookTitle(rawTitle, isEN)
           return prependEmoji(book?.emoji, formatted)
         }
-        case 'genres': {
-          const genre = genreById.get(id)
-          const base = isEN ? (genre?.name_en || genre?.name_zh || id)
-                             : (genre?.name_zh || genre?.name_en || id)
-          return prependEmoji(genre?.emoji, base)
+        case 'characters': {
+          const character = characterById.get(id)
+          const base = isEN ? (character?.name_en || character?.name_zh || id)
+                             : (character?.name_zh || character?.name_en || id)
+          return prependEmoji(character?.emoji, base)
         }
         case 'times': {
           const time = timeById.get(id)
@@ -132,7 +132,7 @@ export function useFacets() {
     // 显示当前语言下所有可用的标签选项
     const candAuthors = Array.from(new Set(base.map(s => s.authorId)))
     const candBooks   = Array.from(new Set(base.map(s => s.bookId)))
-    const candGenres  = Array.from(new Set(base.flatMap(s => s.genreIds)))
+    const candCharacters  = Array.from(new Set(base.flatMap(s => s.characterIds)))
     const candTimes   = Array.from(new Set(base.flatMap(s => s.timeIds)))
     const candThemes  = Array.from(new Set(base.flatMap(s => s.themeIds)))
     const candDevices = Array.from(new Set(base.flatMap(s => s.deviceIds)))
@@ -141,7 +141,7 @@ export function useFacets() {
     return {
       authors: toOptions(candAuthors, 'authors'),
       books:   toOptions(candBooks,   'books'),
-      genres:  toOptions(candGenres,  'genres'),
+      characters:  toOptions(candCharacters,  'characters'),
       times:   toOptions(candTimes,   'times'),
       themes:  toOptions(candThemes,  'themes'),
       devices: toOptions(candDevices, 'devices')

@@ -1,0 +1,8 @@
+[
+  { "id": "c_harry_potter", "name_zh": "哈利·波特", "name_en": "Harry Potter", "emoji": "👤" },
+  { "id": "c_hermione", "name_zh": "赫敏·格兰杰", "name_en": "Hermione Granger", "emoji": "👤" },
+  { "id": "c_ron", "name_zh": "罗恩·韦斯莱", "name_en": "Ron Weasley", "emoji": "👤" },
+  { "id": "c_frodo", "name_zh": "佛罗多·巴金斯", "name_en": "Frodo Baggins", "emoji": "👤" },
+  { "id": "c_gandalf", "name_zh": "甘道夫", "name_en": "Gandalf", "emoji": "👤" },
+  { "id": "c_aragorn", "name_zh": "阿拉贡", "name_en": "Aragorn", "emoji": "👤" }
+]

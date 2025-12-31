@@ -333,7 +333,7 @@ watch(() => flyingChips.value, (newChips, oldChips) => {
   color: var(--color-fg);
 }
 
-.flying-ghost-chip--genres {
+.flying-ghost-chip--characters {
   background-color: #FDE047;
   border-color: #eab308;
   color: var(--color-fg);

@@ -3,7 +3,7 @@
 // 标题：查询状态（与 URL 同步）
 // 规则：空数组 = 默认全选；page 可后续加入
 // =====================================================
-type DimKey = 'authors' | 'books' | 'genres' | 'times' | 'themes' | 'devices'
+type DimKey = 'authors' | 'books' | 'characters' | 'times' | 'themes' | 'devices'
 
 function parseArr(val: unknown): string[] {
   if (Array.isArray(val)) return val as string[]
@@ -20,7 +20,7 @@ export function useQueryState() {
 
   const authors = ref<string[]>(parseArr(route.query.authors))
   const books   = ref<string[]>(parseArr(route.query.books))
-  const genres  = ref<string[]>(parseArr(route.query.genres))
+  const characters  = ref<string[]>(parseArr(route.query.characters))
   const times   = ref<string[]>(parseArr(route.query.times))
   const themes  = ref<string[]>(parseArr(route.query.themes))
   const devices = ref<string[]>(parseArr(route.query.devices))
@@ -45,7 +45,7 @@ export function useQueryState() {
         q: q.value || undefined,
         authors: joinArr(authors.value),
         books:   joinArr(books.value),
-        genres:  joinArr(genres.value),
+        characters:  joinArr(characters.value),
         times:   joinArr(times.value),
         themes:  joinArr(themes.value),
         devices: joinArr(devices.value),
@@ -56,7 +56,7 @@ export function useQueryState() {
     })
   }, 200)
 
-  watch([q, authors, books, genres, times, themes, devices, timesAll, themesAll, devicesAll], updateUrl, { deep: true })
+  watch([q, authors, books, characters, times, themes, devices, timesAll, themesAll, devicesAll], updateUrl, { deep: true })
 
   /**
    * 只清除文本搜索，不影响标签筛选
@@ -72,7 +72,7 @@ export function useQueryState() {
     q.value = ''
     authors.value = []
     books.value = []
-    genres.value = []
+    characters.value = []
     times.value = []
     themes.value = []
     devices.value = []
@@ -81,5 +81,5 @@ export function useQueryState() {
     devicesAll.value = false
   }
 
-  return { q, authors, books, genres, times, themes, devices, timesAll, themesAll, devicesAll, clearSearch, resetAll }
+  return { q, authors, books, characters, times, themes, devices, timesAll, themesAll, devicesAll, clearSearch, resetAll }
 }

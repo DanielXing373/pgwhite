@@ -27,9 +27,9 @@ export function useSearchResults(
       count++
     }
     
-    // 题材（OR 逻辑：匹配数量）
-    if (f.genres.length) {
-      const matched = f.genres.filter(id => sentence.genreIds.includes(id)).length
+    // 人物（OR 逻辑：匹配数量）
+    if (f.characters.length) {
+      const matched = f.characters.filter(id => sentence.characterIds.includes(id)).length
       count += matched
     }
     

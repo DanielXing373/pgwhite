@@ -239,8 +239,8 @@
     border-color: #FED7AA; /* 奶油橘边框 */
   }
 
-  /* 3. Genres - 芝士黄 */
-  .filter-tab-button--genres .tab-shape {
+  /* 3. Characters - 芝士黄 */
+  .filter-tab-button--characters .tab-shape {
     background-color: #f5f5f5;
     border-color: #FDE047; /* 芝士黄边框 */
   }
@@ -299,7 +299,7 @@
     border-color: #FED7AA; /* 奶油橘边框 */
   }
 
-  .filter-tab-button--genres.filter-tab-button--active .tab-shape {
+  .filter-tab-button--characters.filter-tab-button--active .tab-shape {
     border-color: #FDE047; /* 芝士黄边框 */
   }
 
@@ -489,14 +489,14 @@
     border-color: #d1d5db !important; /* 浅灰色边框 */
   }
 
-  /* 3. Genres (芝士黄) */
-  .result-chip--genres.result-chip--active {
+  /* 3. Characters (芝士黄) */
+  .result-chip--characters.result-chip--active {
     background-color: #FDE047 !important; /* 芝士黄 selected */
     border-color: #eab308 !important; /* 更深的芝士黄边框 */
     border-width: 1.5px;
   }
 
-  .result-chip--genres.result-chip--hover {
+  .result-chip--characters.result-chip--hover {
     background-color: #FEF9C3 !important; /* 芝士黄 hover */
     border-color: #d1d5db !important; /* 浅灰色边框 */
   }
@@ -650,18 +650,18 @@
     border-color: #fb923c; /* 选中时显示更深的奶油橘边框 */
   }
 
-  /* 3. Genres (芝士黄) */
-  .filter-chip--genres {
+  /* 3. Characters (芝士黄) */
+  .filter-chip--characters {
     background-color: #F3F4F6; /* 未选中：统一灰色 */
     border-color: #d1d5db; /* 未选中时显示浅灰色边框，提示可点击 */
   }
 
-  .filter-chip--genres:hover:not(.filter-chip--active) {
+  .filter-chip--characters:hover:not(.filter-chip--active) {
     background-color: #FEF9C3; /* 芝士黄 hover */
     border-color: #d1d5db; /* hover 时保持浅灰色边框 */
   }
 
-  .filter-chip--genres.filter-chip--active {
+  .filter-chip--characters.filter-chip--active {
     background-color: #FDE047; /* 芝士黄 selected */
     border-color: #eab308; /* 选中时显示更深的芝士黄边框 */
   }
@@ -880,14 +880,14 @@
     border-width: 1.5px; /* 保持边框宽度 */
   }
 
-  /* 3. Genres (芝士黄) - 选中状态 */
-  .selected-chip--genres {
+  /* 3. Characters (芝士黄) - 选中状态 */
+  .selected-chip--characters {
     background-color: #FDE047; /* 芝士黄 selected */
     border-color: #eab308; /* 更深的芝士黄边框 */
     border-width: 1.5px; /* 与 result-chip--active 一致 */
   }
 
-  .selected-chip--genres:hover {
+  .selected-chip--characters:hover {
     background-color: #FDE047; /* 保持选中颜色 */
     border-color: #eab308;
     border-width: 1.5px; /* 保持边框宽度 */

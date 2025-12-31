@@ -8,7 +8,7 @@ export type FilterState = {
   q: string
   authors: string[]
   books: string[]
-  genres: string[]
+  characters: string[]
   times: string[]
   themes: string[]
   devices: string[]
@@ -25,7 +25,7 @@ function cloneState(state: FilterState): FilterState {
     q: state.q,
     authors: [...state.authors],
     books: [...state.books],
-    genres: [...state.genres],
+    characters: [...state.characters],
     times: [...state.times],
     themes: [...state.themes],
     devices: [...state.devices],
@@ -55,7 +55,7 @@ function isStateEqual(a: FilterState, b: FilterState): boolean {
     a.q === b.q &&
     arraysEqual(a.authors, b.authors) &&
     arraysEqual(a.books, b.books) &&
-    arraysEqual(a.genres, b.genres) &&
+    arraysEqual(a.characters, b.characters) &&
     arraysEqual(a.times, b.times) &&
     arraysEqual(a.themes, b.themes) &&
     arraysEqual(a.devices, b.devices) &&

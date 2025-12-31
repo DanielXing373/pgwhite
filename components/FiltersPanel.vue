@@ -55,6 +55,7 @@ File: components/FiltersPanel.vue
             v-model="localAuthors"
             title=""
             :options="facets.authors"
+            :dynamicCounts="HIGHLIGHT_ENABLED_DIMS.includes('authors') ? props.facetCounts.authors : undefined"
             dimension="authors"
           />
         </div>
@@ -65,17 +66,21 @@ File: components/FiltersPanel.vue
             v-model="localBooks"
             title=""
             :options="facets.books"
+            :dynamicCounts="HIGHLIGHT_ENABLED_DIMS.includes('books') ? props.facetCounts.books : undefined"
+            :hasActiveFilters="hasActiveFilters('books')"
             dimension="books"
           />
         </div>
   
-        <!-- 题材 -->
-        <div v-show="activeTab === 'genres'" class="filter-tab-panel">
+        <!-- 人物 -->
+        <div v-show="activeTab === 'characters'" class="filter-tab-panel">
           <FiltersFilterGroup
-            v-model="localGenres"
+            v-model="localCharacters"
             title=""
-            :options="facets.genres"
-            dimension="genres"
+            :options="facets.characters"
+            :dynamicCounts="HIGHLIGHT_ENABLED_DIMS.includes('characters') ? props.facetCounts.characters : undefined"
+            :hasActiveFilters="hasActiveFilters('characters')"
+            dimension="characters"
           />
         </div>
   
@@ -85,6 +90,7 @@ File: components/FiltersPanel.vue
             v-model="localTimes"
             title=""
             :options="facets.times"
+            :dynamicCounts="HIGHLIGHT_ENABLED_DIMS.includes('times') ? props.facetCounts.times : undefined"
             dimension="times"
             :showMatchAll="true"
             :matchAll="props.timesAll"
@@ -98,6 +104,7 @@ File: components/FiltersPanel.vue
             v-model="localThemes"
             title=""
             :options="facets.themes"
+            :dynamicCounts="HIGHLIGHT_ENABLED_DIMS.includes('themes') ? props.facetCounts.themes : undefined"
             dimension="themes"
             :showMatchAll="true"
             :matchAll="props.themesAll"
@@ -111,6 +118,7 @@ File: components/FiltersPanel.vue
             v-model="localDevices"
             title=""
             :options="facets.devices"
+            :dynamicCounts="HIGHLIGHT_ENABLED_DIMS.includes('devices') ? props.facetCounts.devices : undefined"
             dimension="devices"
             :showMatchAll="true"
             :matchAll="props.devicesAll"
@@ -140,7 +148,7 @@ File: components/FiltersPanel.vue
    *   :facets="facets"
    *   v-model:authors="authors"
    *   v-model:books="books"
-   *   v-model:genres="genres"
+   *   v-model:characters="characters"
    *   v-model:times="times"
    *   v-model:themes="themes"
    *   v-model:devices="devices"
@@ -160,17 +168,27 @@ File: components/FiltersPanel.vue
     facets: {
       authors: { id: string; label: string }[]
       books:   { id: string; label: string }[]
-      genres:  { id: string; label: string }[]
+      characters:  { id: string; label: string }[]
       times:   { id: string; label: string }[]
       themes:  { id: string; label: string }[]
       devices: { id: string; label: string }[]
+    }
+
+    // facetCounts: 当前过滤结果中每个标签的出现次数（用于 Spotlight 效果）
+    facetCounts: {
+      authors: Record<string, number>
+      books: Record<string, number>
+      characters: Record<string, number>
+      times: Record<string, number>
+      themes: Record<string, number>
+      devices: Record<string, number>
     }
   
     // 这六个是父组件传进来的当前选中值
     // 注意：父组件里的这些是 ref<string[]>，传进来后在这里就是普通的 string[] 值
     authors: string[]
     books:   string[]
-    genres:  string[]
+    characters:  string[]
     times:   string[]
     themes:  string[]
     devices: string[]
@@ -193,7 +211,7 @@ File: components/FiltersPanel.vue
   const emit = defineEmits<{
     (e: 'update:authors', v: string[]): void
     (e: 'update:books',   v: string[]): void
-    (e: 'update:genres',  v: string[]): void
+    (e: 'update:characters',  v: string[]): void
     (e: 'update:times',   v: string[]): void
     (e: 'update:themes',  v: string[]): void
     (e: 'update:devices', v: string[]): void
@@ -223,9 +241,9 @@ File: components/FiltersPanel.vue
     set: (val: string[]) => emit('update:books', val)
   })
   
-  const localGenres = computed({
-    get: () => props.genres,
-    set: (val: string[]) => emit('update:genres', val)
+  const localCharacters = computed({
+    get: () => props.characters,
+    set: (val: string[]) => emit('update:characters', val)
   })
   
   const localTimes = computed({
@@ -250,13 +268,30 @@ const localQ = computed({
 
 // —— 标签页切换逻辑 —— //
 const { t } = useI18n()
-const activeTab = ref<'authors' | 'books' | 'genres' | 'times' | 'themes' | 'devices' | 'search'>('authors')
+const activeTab = ref<'authors' | 'books' | 'characters' | 'times' | 'themes' | 'devices' | 'search'>('authors')
+
+// —— Spotlight 效果白名单：只在 Books 和 Characters 维度启用高亮和排序 —— //
+const HIGHLIGHT_ENABLED_DIMS = ['books', 'characters'] as const
+
+// 计算是否有其他维度的筛选激活（用于判断是否启用 Spotlight）
+function hasActiveFilters(excludeDimension: string): boolean {
+  // 检查除了当前维度外的其他维度是否有选中项
+  if (excludeDimension !== 'authors' && props.authors.length > 0) return true
+  if (excludeDimension !== 'books' && props.books.length > 0) return true
+  if (excludeDimension !== 'characters' && props.characters.length > 0) return true
+  if (excludeDimension !== 'times' && props.times.length > 0) return true
+  if (excludeDimension !== 'themes' && props.themes.length > 0) return true
+  if (excludeDimension !== 'devices' && props.devices.length > 0) return true
+  // 检查文本搜索
+  if (props.q && props.q.trim().length > 0) return true
+  return false
+}
 
 // 标签页颜色映射
 const TAB_COLORS = {
   authors: '#FBCFE8', // 樱花粉
   books: '#FED7AA',   // 奶油橘
-  genres: '#FDE047',  // 芝士黄
+  characters: '#FDE047',  // 芝士黄
   times: '#BBF7D0',   // 薄荷绿
   themes: '#BAE6FD',  // 天空蓝
   devices: '#A5F3FC', // 冰川青
@@ -281,9 +316,9 @@ const tabs = computed(() => [
     count: props.books.length
   },
   {
-    key: 'genres' as const,
-    label: t('filters.genres'),
-    count: props.genres.length
+    key: 'characters' as const,
+    label: t('filters.characters'),
+    count: props.characters.length
   },
   {
     key: 'times' as const,

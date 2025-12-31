@@ -9,7 +9,7 @@ export type Filters = {
   q: string
   authors: string[]
   books: string[]
-  genres: string[]
+  characters: string[]
   times: string[]
   themes: string[]
   devices: string[]
@@ -40,7 +40,7 @@ export function useFilterEngine() {
     return base.filter(s => {
       if (f.authors.length && !f.authors.includes(s.authorId)) return false
       if (f.books.length   && !f.books.includes(s.bookId))     return false
-      if (f.genres.length  && !f.genres.every(id => s.genreIds.includes(id))) return false
+      if (f.characters.length  && !f.characters.every(id => s.characterIds.includes(id))) return false
       
       // 后三个维度根据复选框状态决定 AND/OR
       if (f.times.length) {
@@ -85,7 +85,7 @@ export function useFilterEngine() {
     // 再按其他维度筛选
     return authorFiltered.filter(s => {
       if (f.books.length   && !f.books.includes(s.bookId))     return false
-      if (f.genres.length  && !f.genres.every(id => s.genreIds.includes(id))) return false
+      if (f.characters.length  && !f.characters.every(id => s.characterIds.includes(id))) return false
       
       // 后三个维度根据复选框状态决定 AND/OR
       if (f.times.length) {

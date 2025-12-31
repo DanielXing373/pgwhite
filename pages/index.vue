@@ -9,9 +9,10 @@ File: pages/index.vue
 <FiltersPanel
   :title="$t('filters.title')"
   :facets="facets"
+  :facetCounts="facetCounts"
   v-model:authors="authors"
   v-model:books="books"
-  v-model:genres="genres"
+  v-model:characters="characters"
   v-model:times="times"
   v-model:themes="themes"
   v-model:devices="devices"
@@ -27,7 +28,7 @@ File: pages/index.vue
   :clearAllText="$t('filters.clearAll')"
     :authors="authors"
     :books="books"
-    :genres="genres"
+    :characters="characters"
     :times="times"
     :themes="themes"
     :devices="devices"
@@ -130,7 +131,7 @@ import { useFlyingChips } from '~/composables/useFlyingChips'
 const { sentences } = useDataset()
 
 // —— 查询状态（URL 同步） —— //
-const { q, authors, books, genres, times, themes, devices, timesAll, themesAll, devicesAll, resetAll } = useQueryState()
+const { q, authors, books, characters, times, themes, devices, timesAll, themesAll, devicesAll, resetAll } = useQueryState()
 
 /**
  * 获取当前搜索条件状态
@@ -140,7 +141,7 @@ function getCurrentState() {
     q: q.value,
     authors: authors.value,
     books: books.value,
-    genres: genres.value,
+    characters: characters.value,
     times: times.value,
     themes: themes.value,
     devices: devices.value,
@@ -156,7 +157,7 @@ function getCurrentState() {
 function applyState(state: ReturnType<typeof getCurrentState>) {
   authors.value = [...state.authors]
   books.value = [...state.books]
-  genres.value = [...state.genres]
+  characters.value = [...state.characters]
   times.value = [...state.times]
   themes.value = [...state.themes]
   devices.value = [...state.devices]
@@ -174,7 +175,7 @@ const { history, handleUndo, handleRedo, setupHistoryWatcher } = useHistoryManag
 
 // 监听搜索条件变化，保存到历史记录
 setupHistoryWatcher(
-  [q, authors, books, genres, times, themes, devices, timesAll, themesAll, devicesAll],
+  [q, authors, books, characters, times, themes, devices, timesAll, themesAll, devicesAll],
   getCurrentState,
   history.saveState
 )
@@ -188,7 +189,7 @@ const filters = computed(() => ({
   q: q.value,
   authors: authors.value,
   books: books.value,
-  genres: genres.value,
+  characters: characters.value,
   times: times.value,
   themes: themes.value,
   devices: devices.value,
@@ -199,6 +200,68 @@ const filters = computed(() => ({
 
 const filteredResults = computed(() => filter(sentences, filters.value))
 const { results } = useSearchResults(filteredResults, filters)
+
+// —— Facet 计数（Spotlight 效果） —— //
+// 统计当前过滤结果中每个标签的出现次数
+const facetCounts = computed(() => {
+  const counts = {
+    authors: {} as Record<string, number>,
+    books: {} as Record<string, number>,
+    characters: {} as Record<string, number>,
+    times: {} as Record<string, number>,
+    themes: {} as Record<string, number>,
+    devices: {} as Record<string, number>
+  }
+
+  // 遍历当前过滤结果，统计每个标签的出现次数
+  results.value.forEach(sentence => {
+    // 作者
+    if (!counts.authors[sentence.authorId]) {
+      counts.authors[sentence.authorId] = 0
+    }
+    counts.authors[sentence.authorId]++
+
+    // 书籍
+    if (!counts.books[sentence.bookId]) {
+      counts.books[sentence.bookId] = 0
+    }
+    counts.books[sentence.bookId]++
+
+    // 人物（可能有多个）
+    sentence.characterIds.forEach(id => {
+      if (!counts.characters[id]) {
+        counts.characters[id] = 0
+      }
+      counts.characters[id]++
+    })
+
+    // 场景时间（可能有多个）
+    sentence.timeIds.forEach(id => {
+      if (!counts.times[id]) {
+        counts.times[id] = 0
+      }
+      counts.times[id]++
+    })
+
+    // 主题（可能有多个）
+    sentence.themeIds.forEach(id => {
+      if (!counts.themes[id]) {
+        counts.themes[id] = 0
+      }
+      counts.themes[id]++
+    })
+
+    // 修辞手法（可能有多个）
+    sentence.deviceIds.forEach(id => {
+      if (!counts.devices[id]) {
+        counts.devices[id] = 0
+      }
+      counts.devices[id]++
+    })
+  })
+
+  return counts
+})
 
 // —— 搜索结果刷新微交互（"Breath & Blur"效果） —— //
 const isRefreshing = ref(false)
@@ -220,14 +283,14 @@ function getSelectedTagsSet() {
   const set = new Set<string>()
   authors.value.forEach(id => set.add(`authors-${id}`))
   books.value.forEach(id => set.add(`books-${id}`))
-  genres.value.forEach(id => set.add(`genres-${id}`))
+  characters.value.forEach(id => set.add(`characters-${id}`))
   times.value.forEach(id => set.add(`times-${id}`))
   themes.value.forEach(id => set.add(`themes-${id}`))
   devices.value.forEach(id => set.add(`devices-${id}`))
   return set
 }
 
-watch([authors, books, genres, times, themes, devices], () => {
+watch([authors, books, characters, times, themes, devices], () => {
   const currentSet = getSelectedTagsSet()
   
   // 跳过初始化阶段
@@ -259,7 +322,7 @@ const facets = computed(() => buildFacets(sentences, {
   q: '', // 不传递文本搜索，让 facets 显示所有选项
   authors: [],
   books: [],
-  genres: [],
+  characters: [],
   times: [],
   themes: [],
   devices: []
@@ -325,10 +388,10 @@ async function handleAddTag(dimension: string, id: string, label: string, event:
         books.value = [...books.value, id]
       }
       break
-    case 'genres':
-      alreadyExists = genres.value.includes(id)
+    case 'characters':
+      alreadyExists = characters.value.includes(id)
       if (!alreadyExists) {
-        genres.value = [...genres.value, id]
+        characters.value = [...characters.value, id]
       }
       break
     case 'times':
@@ -414,8 +477,8 @@ function handleRemoveTag(dimension: string, id: string) {
     case 'books':
       books.value = books.value.filter(bid => bid !== id)
       break
-    case 'genres':
-      genres.value = genres.value.filter(gid => gid !== id)
+    case 'characters':
+      characters.value = characters.value.filter(cid => cid !== id)
       break
     case 'times':
       times.value = times.value.filter(tid => tid !== id)

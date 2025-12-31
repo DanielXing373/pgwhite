@@ -11,19 +11,15 @@ File: components/filters/FilterGroup.vue
       <!-- 候选项（内部滚动，不影响整体高度） -->
       <div class="filter-chips-container">
         <button
-          v-for="opt in filteredOptions"
+          v-for="opt in sortedOptions"
           :key="opt.id"
-          :class="[
-            'px-2 py-1 text-sm border filter-chip',
-            props.dimension ? `filter-chip--${props.dimension}` : '',
-            props.modelValue.includes(opt.id) ? 'filter-chip--active' : '',
-            isBookChip(opt.id) && isEnglish ? 'filter-chip--book' : ''
-          ]"
+          :class="getChipClasses(opt)"
+          :style="getChipStyles(opt)"
           @click="(e) => handleToggle(opt.id, opt.label, e)"
         >
           {{ opt.label }}
         </button>
-        <div v-if="filteredOptions.length === 0" class="text-xs text-muted">
+        <div v-if="sortedOptions.length === 0" class="text-xs text-muted">
           {{ $t('filters.noMatch') }}
         </div>
       </div>
@@ -56,6 +52,7 @@ File: components/filters/FilterGroup.vue
 
 <script setup lang="ts">
 type Option = { id: string; label: string }
+type OptionWithCount = Option & { count: number }
 
 const props = defineProps<{
   title: string
@@ -63,7 +60,9 @@ const props = defineProps<{
   modelValue: string[]    // 已选id数组
   showMatchAll?: boolean  // 是否显示"满足所有筛选"复选框
   matchAll?: boolean      // "满足所有筛选"复选框状态
-  dimension?: 'authors' | 'books' | 'genres' | 'times' | 'themes' | 'devices' // 标签组类型，用于应用对应的主题色
+  dimension?: 'authors' | 'books' | 'characters' | 'times' | 'themes' | 'devices' // 标签组类型，用于应用对应的主题色
+  dynamicCounts?: Record<string, number> // 当前过滤结果中每个标签的出现次数（用于 Spotlight 效果）
+  hasActiveFilters?: boolean // 是否有其他维度的筛选激活（用于判断是否启用 Spotlight）
 }>()
 
 const emit = defineEmits<{
@@ -75,14 +74,126 @@ const emit = defineEmits<{
 const { locale } = useI18n()
 const isEnglish = computed(() => locale.value === 'en')
 
+// —— 维度颜色映射（与 FiltersPanel 中的 TAB_COLORS 保持一致） —— //
+const COLOR_MAP: Record<string, string> = {
+  authors: '#FBCFE8',    // 樱花粉
+  books: '#FED7AA',      // 奶油橘
+  characters: '#FDE047', // 芝士黄
+  times: '#BBF7D0',      // 薄荷绿
+  themes: '#BAE6FD',     // 天空蓝
+  devices: '#A5F3FC',    // 冰川青
+}
+
+// 计算当前维度的主题色
+const themeColor = computed(() => {
+  return props.dimension ? COLOR_MAP[props.dimension] || '#e5e7eb' : '#e5e7eb'
+})
+
+// 将十六进制颜色转换为 rgba（用于背景色透明度）
+function hexToRgba(hex: string, alpha: number): string {
+  const r = parseInt(hex.slice(1, 3), 16)
+  const g = parseInt(hex.slice(3, 5), 16)
+  const b = parseInt(hex.slice(5, 7), 16)
+  return `rgba(${r}, ${g}, ${b}, ${alpha})`
+}
+
+// 获取 chip 的类名（三状态系统）
+function getChipClasses(opt: OptionWithCount): string[] {
+  const isSelected = props.modelValue.includes(opt.id)
+  const classes = [
+    'px-2 py-1 text-sm border filter-chip',
+    props.dimension ? `filter-chip--${props.dimension}` : '',
+    isBookChip(opt.id) && isEnglish.value ? 'filter-chip--book' : ''
+  ]
+
+  // 状态 3: 选中状态（优先级最高）
+  if (isSelected) {
+    classes.push('filter-chip--active')
+    return classes
+  }
+
+  // 状态 2: 推荐状态（hasActiveFilters && count > 0）
+  if (props.hasActiveFilters && props.dynamicCounts && opt.count > 0) {
+    classes.push('filter-chip--recommended')
+    return classes
+  }
+
+  // 状态 1: 中性/无关状态
+  if (props.hasActiveFilters && props.dynamicCounts) {
+    classes.push('filter-chip--normal')
+  }
+  
+  return classes
+}
+
+// 获取 chip 的内联样式（三状态系统）
+function getChipStyles(opt: OptionWithCount): Record<string, string> {
+  const isSelected = props.modelValue.includes(opt.id)
+  
+  // 状态 3: 选中状态 - 使用 theme.css 中的样式，不添加内联样式
+  if (isSelected) {
+    return {}
+  }
+
+  // 状态 2: 推荐状态 - 添加左侧粗边框和四周边框（主题色）
+  if (props.hasActiveFilters && props.dynamicCounts && opt.count > 0 && props.dimension) {
+    return {
+      'border-left-width': '4px',
+      'border-left-color': themeColor.value,
+      'border-left-style': 'solid',
+      'border-width': '2px',
+      'border-color': themeColor.value,
+      'border-style': 'solid'
+    }
+  }
+
+  // 状态 1: 中性状态 - 透明左边框（保持布局一致）
+  if (props.hasActiveFilters && props.dynamicCounts && props.dimension) {
+    return {
+      'border-left-width': '4px',
+      'border-left-color': 'transparent',
+      'border-left-style': 'solid'
+    }
+  }
+
+  // 默认：无特殊样式
+  return {}
+}
+
 // —— 飞行标签动画 —— //
 const { triggerFly, removeGhost } = useFlyingChips()
 
 // —— 检查是否有选中的项 —— //
 const hasSelectedItems = computed(() => props.modelValue.length > 0)
 
-// —— 候选项（直接使用 props.options，不再进行组内搜索过滤） —— //
-const filteredOptions = computed(() => props.options)
+// —— 候选项（合并计数并排序，实现 Spotlight 效果） —— //
+const sortedOptions = computed<OptionWithCount[]>(() => {
+  // 如果没有提供 dynamicCounts 或 hasActiveFilters 为 false，保持原始顺序（按字母顺序）
+  if (!props.dynamicCounts || !props.hasActiveFilters) {
+    return props.options.map(opt => ({ ...opt, count: 0 }))
+      .sort((a, b) => a.label.localeCompare(b.label))
+  }
+  
+  const counts = props.dynamicCounts
+  
+  // 为每个选项添加计数
+  const optionsWithCounts: OptionWithCount[] = props.options.map(opt => ({
+    ...opt,
+    count: counts[opt.id] || 0
+  }))
+  
+  // 排序（只在 hasActiveFilters 为 true 时排序）：
+  // 1. 主排序：有计数的在上（count > 0），无计数的在下（count === 0）
+  // 2. 次排序：按字母顺序（label）
+  return optionsWithCounts.sort((a, b) => {
+    // 主排序：有计数 vs 无计数
+    if (a.count > 0 && b.count === 0) return -1
+    if (a.count === 0 && b.count > 0) return 1
+    
+    // 次排序：字母顺序
+    return a.label.localeCompare(b.label)
+  })
+})
 
 // —— 判断是否是书名 chip（通过 ID 前缀判断） —— //
 function isBookChip(id: string): boolean {
@@ -232,8 +343,17 @@ function handleMatchAllChange(event: Event) {
   color: var(--color-muted);
 }
 
-/* 筛选组包装器（在标签页布局中不需要边框和内边距） */
-.filter-group-wrapper {
-  /* 移除边框和内边距，因为标签页面板已经有 padding */
+/* Spotlight 效果样式 - 三状态系统 */
+.filter-chip--recommended {
+  /* 推荐状态：只通过内联样式添加左边框，不改变其他样式 */
+  transition: all 0.2s ease;
 }
+
+.filter-chip--normal {
+  /* 无关项：保持完全可见，使用透明左边框保持布局一致 */
+  /* 样式通过内联样式应用 */
+  transition: all 0.2s ease;
+}
+
+/* 选中状态：使用 theme.css 中的原有样式，不添加额外样式 */
 </style>

@@ -84,7 +84,7 @@ type SelectedItem = {
     clearAllText: string
   authors: string[]
   books: string[]
-  genres: string[]
+  characters: string[]
   times: string[]
   themes: string[]
   devices: string[]
@@ -101,7 +101,7 @@ const emit = defineEmits<{
 
 // —— 数据集和语言 —— //
 const {
-  authorById, bookById, genreById, timeById, themeById, deviceById
+  authorById, bookById, characterById, timeById, themeById, deviceById
 } = useDataset()
 const { locale } = useI18n()
 const isEnglish = computed(() => locale.value === 'en')
@@ -165,11 +165,11 @@ function getLabelForId(dim: DimKey, id: string, isEN: boolean): string {
       const formatted = formatBookTitle(rawTitle, isEN)
       return prependEmoji(book.emoji, formatted)
     }
-    case 'genres': {
-      const genre = genreById.get(id)
-      if (!genre) return id
-      const base = isEN ? (genre.name_en || genre.name_zh || id) : (genre.name_zh || genre.name_en || id)
-      return prependEmoji(genre.emoji, base)
+    case 'characters': {
+      const character = characterById.get(id)
+      if (!character) return id
+      const base = isEN ? (character.name_en || character.name_zh || id) : (character.name_zh || character.name_en || id)
+      return prependEmoji(character.emoji, base)
     }
     case 'times': {
       const time = timeById.get(id)
