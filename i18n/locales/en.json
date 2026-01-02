@@ -35,7 +35,9 @@
     "bookLabel": "Book: ",
     "chapterLabel": "Chapter: ",
     "add": "Add",
-    "remove": "Remove"
+    "remove": "Remove",
+    "expand": "Expand",
+    "collapse": "Collapse"
   },
   "selected": {
     "none": "None (V1.0 only supports clear all, chips coming soon)",
@@ -55,6 +57,11 @@
   "floatingButtons": {
     "scrollToTop": "Scroll to Top",
     "help": "Help",
-    "submit": "Contribute Quotes"
+    "submit": "Contribute Quotes",
+    "comingSoon": "This feature will be available in a future version."
+  },
+  "pagination": {
+    "previous": "Previous page",
+    "next": "Next page"
   }
   }

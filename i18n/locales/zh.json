@@ -35,7 +35,9 @@
     "bookLabel": "书籍：",
     "chapterLabel": "章节：",
     "add": "添加",
-    "remove": "删除"
+    "remove": "删除",
+    "expand": "展开",
+    "collapse": "收起"
   },
   "selected": {
     "none": "暂无（V1.0 仅清空全部，后续接上 Chips）",
@@ -55,6 +57,11 @@
   "floatingButtons": {
     "scrollToTop": "返回顶部",
     "help": "帮助",
-    "submit": "我要投稿"
+    "submit": "我要投稿",
+    "comingSoon": "此功能将在后续版本中加入。"
+  },
+  "pagination": {
+    "previous": "上一页",
+    "next": "下一页"
   }
   }

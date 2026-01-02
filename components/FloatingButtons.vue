@@ -36,6 +36,8 @@ File: components/FloatingButtons.vue
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
 /**
  * 滚动到页面顶部
  */
@@ -47,19 +49,17 @@ function scrollToTop() {
 }
 
 /**
- * 处理帮助按钮点击（占位，不执行任何操作）
+ * 处理帮助按钮点击（占位，显示提示）
  */
 function handleHelpClick() {
-  // 占位功能，暂时不执行任何操作
-  // 后续可以添加帮助对话框或跳转到帮助页面
+  alert(t('floatingButtons.comingSoon'))
 }
 
 /**
- * 处理投稿按钮点击（占位，不执行任何操作）
+ * 处理投稿按钮点击（占位，显示提示）
  */
 function handleSubmitClick() {
-  // 占位功能，暂时不执行任何操作
-  // 后续可以添加投稿表单或跳转到投稿页面
+  alert(t('floatingButtons.comingSoon'))
 }
 </script>
 

@@ -50,6 +50,14 @@ File: pages/index.vue
       <div class="results-count" style="color:#6b7280">
         <span class="results-count-line"></span><span class="results-count-text">{{ $t('results.count', { count: results.length }) }}</span><span class="results-count-line"></span>
       </div>
+      <!-- 分页器（顶部） -->
+      <Pagination
+        v-if="totalPages > 0"
+        :currentPage="currentPage"
+        :totalPages="totalPages"
+        @page-change="handlePageChange"
+        class="pagination-top"
+      />
       <div 
         class="result-stack"
         :class="{
@@ -57,13 +65,29 @@ File: pages/index.vue
         }"
       >
         <div
-          v-for="(s, index) in results"
+          v-for="(s, index) in paginatedResults"
           :key="s.id"
           :class="['result-card', index % 2 === 0 ? 'result-card--even' : 'result-card--odd']"
         >
           <!-- 句子文本 -->
-          <div style="color: var(--color-fg); line-height: 1.6; margin-bottom: 14px;">
-            {{ truncate(s.text, 200) }}
+          <div class="result-text-wrapper">
+            <div 
+              :ref="el => setTextRef(el, s.id)"
+              class="result-text" 
+              :class="{ 
+                'result-text--expanded': expandedSentences.has(s.id),
+                'result-text--collapsed': !expandedSentences.has(s.id)
+              }"
+            >
+              {{ removeIdPrefix(s.text) }}
+            </div>
+            <button
+              v-if="needsExpandButton.has(s.id)"
+              class="result-text-toggle"
+              @click="toggleSentence(s.id)"
+            >
+              {{ expandedSentences.has(s.id) ? $t('results.collapse') : $t('results.expand') }}
+            </button>
           </div>
           <!-- 标签 chips -->
           <div class="result-chips-container">
@@ -110,12 +134,21 @@ File: pages/index.vue
           </div>
         </div>
       </div>
+      <!-- 分页器（底部） -->
+      <Pagination
+        v-if="totalPages > 0"
+        :currentPage="currentPage"
+        :totalPages="totalPages"
+        @page-change="handlePageChange"
+        class="pagination-bottom"
+      />
     </div>
   </section>
 </template>
 
 <script setup lang="ts">
-import { onMounted, watch } from 'vue'
+import { onMounted, watch, computed, ref, nextTick } from 'vue'
+import Pagination from '~/components/Pagination.vue'
 import { useDataset } from '~/composables/useDataset'
 import { useQueryState } from '~/composables/useQueryState'
 import { useFilterEngine } from '~/composables/useFilterEngine'
@@ -124,7 +157,7 @@ import { useHistoryManagement } from '~/composables/useHistoryManagement'
 import { useKeyboardShortcuts } from '~/composables/useKeyboardShortcuts'
 import { useSearchResults } from '~/composables/useSearchResults'
 import { useSentenceTags } from '~/composables/useSentenceTags'
-import { truncate } from '~/composables/useUIHelpers'
+import { removeIdPrefix } from '~/composables/useUIHelpers'
 import { useFlyingChips } from '~/composables/useFlyingChips'
 
 // —— 数据集 —— //
@@ -201,6 +234,122 @@ const filters = computed(() => ({
 const filteredResults = computed(() => filter(sentences, filters.value))
 const { results } = useSearchResults(filteredResults, filters)
 
+// —— 分页逻辑 —— //
+const ITEMS_PER_PAGE = 10
+const currentPage = ref(1)
+
+// 计算总页数
+const totalPages = computed(() => {
+  return Math.ceil(results.value.length / ITEMS_PER_PAGE)
+})
+
+// 分页后的结果列表
+const paginatedResults = computed(() => {
+  const start = (currentPage.value - 1) * ITEMS_PER_PAGE
+  const end = start + ITEMS_PER_PAGE
+  return results.value.slice(start, end)
+})
+
+// 当搜索结果变化时，重置到第一页（如果当前页超出范围）
+watch([results, totalPages], () => {
+  if (currentPage.value > totalPages.value && totalPages.value > 0) {
+    currentPage.value = 1
+  } else if (totalPages.value === 0) {
+    currentPage.value = 1
+  }
+})
+
+// 处理页码变化
+function handlePageChange(page: number) {
+  currentPage.value = page
+  // 滚动到顶部（可选）
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+// —— 句子展开/收起状态管理（基于行数） —— //
+const expandedSentences = ref<Set<string>>(new Set())
+const needsExpandButton = ref<Set<string>>(new Set())
+const textRefs = new Map<string, HTMLElement>()
+
+// 设置文本元素的引用
+function setTextRef(el: Element | ComponentPublicInstance | null, sentenceId: string) {
+  const htmlEl = el as HTMLElement | null
+  if (htmlEl) {
+    textRefs.set(sentenceId, htmlEl)
+    // 在下一个tick检测是否需要展开按钮
+    nextTick(() => {
+      checkIfNeedsExpand(sentenceId, htmlEl)
+    })
+  } else {
+    textRefs.delete(sentenceId)
+    needsExpandButton.value.delete(sentenceId)
+  }
+}
+
+// 检测文本是否超过2行，需要显示展开按钮
+function checkIfNeedsExpand(sentenceId: string, element?: HTMLElement) {
+  const el = element || textRefs.get(sentenceId)
+  if (!el) return
+
+  // 如果当前是展开状态，不检测
+  if (expandedSentences.value.has(sentenceId)) {
+    return
+  }
+
+  // 确保元素处于折叠状态
+  const wasExpanded = el.classList.contains('result-text--expanded')
+  if (wasExpanded) {
+    el.classList.remove('result-text--expanded')
+  }
+  if (!el.classList.contains('result-text--collapsed')) {
+    el.classList.add('result-text--collapsed')
+  }
+
+  // 使用 requestAnimationFrame 确保样式已应用
+  requestAnimationFrame(() => {
+    // 获取行高（line-height）
+    const computedStyle = window.getComputedStyle(el)
+    const lineHeight = parseFloat(computedStyle.lineHeight) || parseFloat(computedStyle.fontSize) * 1.6
+    const maxHeight = lineHeight * 2 // 2行的最大高度
+
+    // 临时移除行数限制，检测完整高度
+    el.classList.remove('result-text--collapsed')
+    const fullHeight = el.scrollHeight
+    
+    // 立即恢复行数限制（避免闪烁）
+    el.classList.add('result-text--collapsed')
+
+    // 如果完整高度大于2行的最大高度，说明超过2行
+    if (fullHeight > maxHeight + 1) { // +1 是为了处理舍入误差
+      needsExpandButton.value.add(sentenceId)
+    } else {
+      needsExpandButton.value.delete(sentenceId)
+    }
+  })
+}
+
+// 切换句子展开/收起状态
+function toggleSentence(sentenceId: string) {
+  if (expandedSentences.value.has(sentenceId)) {
+    expandedSentences.value.delete(sentenceId)
+    // 收起后重新检测是否需要展开按钮
+    nextTick(() => {
+      checkIfNeedsExpand(sentenceId)
+    })
+  } else {
+    expandedSentences.value.add(sentenceId)
+  }
+}
+
+// 监听分页结果变化，重新检测所有文本元素
+watch(paginatedResults, () => {
+  nextTick(() => {
+    textRefs.forEach((el, sentenceId) => {
+      checkIfNeedsExpand(sentenceId, el)
+    })
+  })
+}, { deep: true })
+
 // —— Facet 计数（Spotlight 效果） —— //
 // 统计当前过滤结果中每个标签的出现次数
 const facetCounts = computed(() => {
@@ -216,16 +365,18 @@ const facetCounts = computed(() => {
   // 遍历当前过滤结果，统计每个标签的出现次数
   results.value.forEach(sentence => {
     // 作者
-    if (!counts.authors[sentence.authorId]) {
-      counts.authors[sentence.authorId] = 0
+    const authorId = sentence.authorId
+    if (!counts.authors[authorId]) {
+      counts.authors[authorId] = 0
     }
-    counts.authors[sentence.authorId]++
+    counts.authors[authorId] = (counts.authors[authorId] || 0) + 1
 
     // 书籍
-    if (!counts.books[sentence.bookId]) {
-      counts.books[sentence.bookId] = 0
+    const bookId = sentence.bookId
+    if (!counts.books[bookId]) {
+      counts.books[bookId] = 0
     }
-    counts.books[sentence.bookId]++
+    counts.books[bookId] = (counts.books[bookId] || 0) + 1
 
     // 人物（可能有多个）
     sentence.characterIds.forEach(id => {

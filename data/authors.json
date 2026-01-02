@@ -1,4 +1,6 @@
 [
-  { "id": "a_rowling", "name_zh": "J.K. 罗琳", "name_en": "J.K. Rowling", "emoji": "👤" },
-  { "id": "a_tolkien", "name_zh": "J.R.R. 托尔金", "name_en": "J.R.R. Tolkien", "emoji": "👤" }
+  { "id": "a_ishiguro", "name_zh": "石黑一雄", "name_en": "Kazuo Ishiguro", "emoji": "👤" },
+  { "id": "a_hesse", "name_zh": "赫尔曼·黑塞", "name_en": "Hermann Hesse", "emoji": "👤" },
+  { "id": "a_granin", "name_zh": "达尼伊尔·格拉宁", "name_en": "Daniil Granin", "emoji": "👤" },
+  { "id": "a_krasznahorkai", "name_zh": "克拉斯诺霍尔卡伊·拉斯洛", "name_en": "László Krasznahorkai", "emoji": "👤" }
 ]

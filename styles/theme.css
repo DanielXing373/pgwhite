@@ -402,6 +402,60 @@
     background-color: #fafafa; /* 浅灰背景 */
   }
 
+  /* 句子文本容器 */
+  .result-text-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+
+  .result-text {
+    flex: 1;
+    color: var(--color-fg);
+    line-height: 1.6;
+    min-width: 0; /* 允许文本收缩 */
+  }
+
+  /* 折叠状态：限制显示2行 */
+  .result-text--collapsed {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* 展开状态：显示完整内容 */
+  .result-text--expanded {
+    display: block;
+  }
+
+  /* 展开/收起按钮 */
+  .result-text-toggle {
+    flex-shrink: 0;
+    padding: 2px 8px;
+    border: none;
+    background-color: transparent;
+    color: #3b82f6;
+    font-size: 0.875rem;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+    align-self: flex-start;
+    margin-top: 2px; /* 轻微上移，与文本对齐 */
+  }
+
+  .result-text-toggle:hover {
+    color: #2563eb;
+  }
+
+  .result-text-toggle:active {
+    color: #1d4ed8;
+  }
+
   /* 结果标签 chips 容器 */
   .result-chips-container {
     display: flex;
@@ -963,4 +1017,13 @@
   .results-count-text {
     white-space: nowrap;
     flex-shrink: 0; /* 文字不收缩 */
+  }
+
+  /* 分页器样式 */
+  .pagination-top {
+    margin-bottom: 16px;
+  }
+
+  .pagination-bottom {
+    margin-top: 24px;
   }

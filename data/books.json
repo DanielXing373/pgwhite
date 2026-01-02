@@ -1,4 +1,6 @@
 [
-  { "id": "b_hp1", "title_zh": "哈利·波特与魔法石", "title_en": "Harry Potter and the Philosopher's Stone", "authorId": "a_rowling", "emoji": "📚" },
-  { "id": "b_lotr", "title_zh": "魔戒", "title_en": "The Lord of the Rings", "authorId": "a_tolkien", "emoji": "📚" }
+  { "id": "b_nocturnes", "title_zh": "夜曲：音乐与黄昏五故事集", "title_en": "Nocturnes: Five Stories of Music and Nightfall", "authorId": "a_ishiguro", "emoji": "📚" },
+  { "id": "b_siddhartha", "title_zh": "悉达多", "title_en": "Siddhartha", "authorId": "a_hesse", "emoji": "📚" },
+  { "id": "b_strange_life", "title_zh": "奇特的一生", "title_en": "The Strange Life of Lyubishchev", "authorId": "a_granin", "emoji": "📚" },
+  { "id": "b_satan_tango", "title_zh": "撒旦探戈", "title_en": "Satantango", "authorId": "a_krasznahorkai", "emoji": "📚" }
 ]

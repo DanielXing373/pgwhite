@@ -24,3 +24,6 @@ dist/
 
 # --- Tests / Coverage ---
 coverage/
+
+# --- Temporary files ---
+temp.txt

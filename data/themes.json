@@ -1,5 +1,3 @@
 [
-  { "id": "th_friendship", "name_zh": "友情", "name_en": "Friendship", "emoji": "🤝" },
-  { "id": "th_betrayal", "name_zh": "背叛", "name_en": "Betrayal", "emoji": "💔" },
-  { "id": "th_courage", "name_zh": "勇气", "name_en": "Courage", "emoji": "🛡️" }
+  { "id": "th_time", "name_zh": "时间", "name_en": "Time", "emoji": "⏰" }
 ]

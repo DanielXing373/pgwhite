@@ -15,11 +15,42 @@ export function removeIdPrefix(text: string): string {
 
 /**
  * 截断文本，并在末尾添加省略号
+ * 改进：在单词边界截断（如果可能），避免在单词中间截断
  */
-export function truncate(text: string, max = 200): string {
+export function truncate(text: string, max = 300): string {
   // 先移除 ID 前缀，再截断
   const cleanedText = removeIdPrefix(text)
-  return cleanedText.length <= max ? cleanedText : cleanedText.slice(0, max) + '…'
+  
+  if (cleanedText.length <= max) {
+    return cleanedText
+  }
+  
+  // 尝试在单词边界截断（适用于英文）
+  // 查找最后一个空格、句号、问号、感叹号等标点符号
+  const truncated = cleanedText.slice(0, max)
+  const lastSpace = truncated.lastIndexOf(' ')
+  const lastPunctuation = Math.max(
+    truncated.lastIndexOf('.'),
+    truncated.lastIndexOf('!'),
+    truncated.lastIndexOf('?'),
+    truncated.lastIndexOf('。'),
+    truncated.lastIndexOf('！'),
+    truncated.lastIndexOf('？')
+  )
+  
+  // 如果找到标点符号，且在最后50个字符内，则在标点符号后截断
+  const cutoff = Math.max(lastPunctuation, lastSpace)
+  if (cutoff > max - 50 && cutoff > max * 0.8) {
+    return cleanedText.slice(0, cutoff + 1) + '…'
+  }
+  
+  // 否则在单词边界截断（如果有空格）
+  if (lastSpace > max * 0.8) {
+    return cleanedText.slice(0, lastSpace) + '…'
+  }
+  
+  // 如果找不到合适的截断点，直接截断
+  return truncated + '…'
 }
 
 /**
