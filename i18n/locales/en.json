@@ -1,5 +1,5 @@
 {
-  "site": { "title": "Pigeon White", "subtitle": "Multi-dimensional Quote Search" },
+  "site": { "title": "Pigeon White", "subtitle": "Multi-dimensional Quote Library" },
     "notice": { "message": "Welcome to pgWhite (demo dataset)" },
   "search": {
     "placeholder": "Search sentence (exact match)",
