@@ -13,7 +13,7 @@ export default defineNuxtConfig({
     // 把 i18n 配置写到模块数组里（这一项是 [模块名, 配置对象] 的二元组）
     ['@nuxtjs/i18n', {
       strategy: 'no_prefix',
-      defaultLocale: 'zh',
+      defaultLocale: 'en',
       locales: [
         { code: 'zh', iso: 'zh-CN', file: 'zh.json', name: '简体中文' },
         { code: 'en', iso: 'en-US', file: 'en.json', name: 'English' }

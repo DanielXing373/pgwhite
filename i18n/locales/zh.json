@@ -26,8 +26,8 @@
     "searchHint": "（所选标签仍适用）"
   },
   "results": {
-    "empty": "未找到结果，请调整搜索或标签",
-    "count": "共 {count} 条（已按界面语言自动筛选：{lang}）",
+    "empty": "未找到结果。词库正在扩充中，更多内容即将到来！",
+    "count": "共 {count} 条",
     "author": "作者",
     "book": "书籍",
     "chapter": "章节",

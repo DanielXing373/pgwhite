@@ -43,12 +43,12 @@ File: pages/index.vue
   <!-- —— 结果列表（先渲染数量与卡片简版） —— -->
   <!-- Note: FlyingGhosts has been moved to app.vue root level to avoid blur/opacity conflicts -->
   <section class="space-y-3">
-    <div v-if="results.length === 0" class="rounded border p-4 text-sm result-card" style="border-color:#e5e7eb; color:#6b7280">
-      {{ $t('results.empty') }}
+    <div v-if="results.length === 0" class="results-count" style="color:#6b7280">
+      <span class="results-count-line"></span><span class="results-count-text">{{ $t('results.empty') }}</span><span class="results-count-line"></span>
     </div>
     <div v-else>
       <div class="results-count" style="color:#6b7280">
-        {{ $t('results.count', { count: results.length, lang: currentLangLabel }) }}
+        <span class="results-count-line"></span><span class="results-count-text">{{ $t('results.count', { count: results.length }) }}</span><span class="results-count-line"></span>
       </div>
       <div 
         class="result-stack"
@@ -62,7 +62,7 @@ File: pages/index.vue
           :class="['result-card', index % 2 === 0 ? 'result-card--even' : 'result-card--odd']"
         >
           <!-- 句子文本 -->
-          <div class="mb-3" style="color: var(--color-fg); line-height: 1.6;">
+          <div style="color: var(--color-fg); line-height: 1.6; margin-bottom: 14px;">
             {{ truncate(s.text, 200) }}
           </div>
           <!-- 标签 chips -->

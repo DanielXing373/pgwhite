@@ -26,8 +26,8 @@
     "searchHint": "(Selected tags still apply)"
   },
   "results": {
-    "empty": "No result. Adjust search or filters.",
-    "count": "Total {count} items (filtered by interface language: {lang})",
+    "empty": "No results found. The library is still growing—more quotes coming soon!",
+    "count": "Total {count} items",
     "author": "Author",
     "book": "Book",
     "chapter": "Chapter",

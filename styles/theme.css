@@ -428,6 +428,8 @@
     cursor: pointer;
     transition: background-color 0.2s ease, border-color 0.2s ease;
     background-color: transparent;
+    transform: scale(1.0); /* 缩小到 0.9 倍大小 */
+    transform-origin: center; /* 从中心缩放 */
   }
 
   .result-chip:hover {
@@ -540,10 +542,10 @@
   /* 结果 chip 操作按钮 */
   .result-chip-action {
     position: absolute;
-    left: calc(100% + 4px);
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 100; /* 确保按钮在最上层，可以覆盖其他元素 */
+    left: 50%;
+    bottom: calc(100% + 4px); /* 位于 chip 上方，间距 4px */
+    transform: translateX(-50%); /* 水平居中 */
+    z-index: 9999; /* 确保按钮在最上层，可以覆盖其他元素 */
     white-space: nowrap;
   }
 
@@ -938,9 +940,27 @@
     padding: 4px 0;
   }
 
-  /* 搜索结果统计（居中显示） */
+  /* 搜索结果统计（居中显示，带分割线） */
   .results-count {
     font-size: 0.875rem; /* text-sm */
     text-align: center;
     margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    position: relative;
+  }
+
+  .results-count-line {
+    flex: 1;
+    height: 2px; /* 加粗分割线 */
+    background-color: #d1d5db; /* 浅灰色分割线 */
+    min-width: 0; /* 允许收缩 */
+  }
+
+  .results-count-text {
+    white-space: nowrap;
+    flex-shrink: 0; /* 文字不收缩 */
   }
