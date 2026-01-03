@@ -37,7 +37,10 @@ export default defineNuxtConfig({
       ],
       link: [
         { rel: 'icon', type: 'image/svg+xml', href: '/logo.svg', sizes: 'any' },
-        { rel: 'apple-touch-icon', href: '/logo.svg' }
+        { rel: 'apple-touch-icon', href: '/logo.svg' },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Noto+Serif+SC:wght@300;400;700&display=swap' }
       ],
       // Plan B：不作为 Nuxt 模块加载，而是直接通过 <script> 注入（仅在 Vercel 环境注入，避免本地 404）
       script: process.env.VERCEL

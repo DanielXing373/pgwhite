@@ -23,22 +23,24 @@ File: pages/index.vue
 />
 
   <!-- —— 当前已选（显示所有选中标签的 chips） —— -->
-  <SelectedBar
-  :selectedLabel="$t('filters.selected')"
-  :clearAllText="$t('filters.clearAll')"
-    :authors="authors"
-    :books="books"
-    :characters="characters"
-    :times="times"
-    :themes="themes"
-    :devices="devices"
-    :canUndo="history.canUndo.value"
-    :canRedo="history.canRedo.value"
-  @clearAll="resetAll"
-    @undo="handleUndo"
-    @redo="handleRedo"
-    @removeTag="handleRemoveTag"
-  />
+  <div ref="selectedBarRef" id="selected-bar-container">
+    <SelectedBar
+      :selectedLabel="$t('filters.selected')"
+      :clearAllText="$t('filters.clearAll')"
+      :authors="authors"
+      :books="books"
+      :characters="characters"
+      :times="times"
+      :themes="themes"
+      :devices="devices"
+      :canUndo="history.canUndo.value"
+      :canRedo="history.canRedo.value"
+      @clearAll="resetAll"
+      @undo="handleUndo"
+      @redo="handleRedo"
+      @removeTag="handleRemoveTag"
+    />
+  </div>
 
   <!-- —— 结果列表（先渲染数量与卡片简版） —— -->
   <!-- Note: FlyingGhosts has been moved to app.vue root level to avoid blur/opacity conflicts -->
@@ -68,6 +70,7 @@ File: pages/index.vue
           v-for="(s, index) in paginatedResults"
           :key="s.id"
           :class="['result-card', index % 2 === 0 ? 'result-card--even' : 'result-card--odd']"
+          :ref="el => setCardRef(el, s.id, index)"
         >
           <!-- 句子文本 -->
           <div class="result-text-wrapper">
@@ -149,6 +152,7 @@ File: pages/index.vue
 <script setup lang="ts">
 import { onMounted, watch, computed, ref, nextTick } from 'vue'
 import Pagination from '~/components/Pagination.vue'
+import SelectedBar from '~/components/SelectedBar.vue'
 import { useDataset } from '~/composables/useDataset'
 import { useQueryState } from '~/composables/useQueryState'
 import { useFilterEngine } from '~/composables/useFilterEngine'
@@ -213,9 +217,6 @@ setupHistoryWatcher(
   history.saveState
 )
 
-// 设置键盘快捷键
-useKeyboardShortcuts(handleUndo, handleRedo)
-
 // —— 过滤和排序 —— //
 const { filter } = useFilterEngine()
 const filters = computed(() => ({
@@ -259,17 +260,47 @@ watch([results, totalPages], () => {
   }
 })
 
+// SelectedBar 引用（使用 HTMLElement 类型）
+const selectedBarRef = ref<HTMLElement | null>(null)
+
 // 处理页码变化
 function handlePageChange(page: number) {
   currentPage.value = page
-  // 滚动到顶部（可选）
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  // 滚动到 SelectedBar（已选 chips 部分）
+  nextTick(() => {
+    if (selectedBarRef.value) {
+      const barTop = selectedBarRef.value.getBoundingClientRect().top + window.scrollY
+      const offset = 20 // 距离顶部的小偏移
+      window.scrollTo({ 
+        top: barTop - offset, 
+        behavior: 'smooth' 
+      })
+    }
+  })
 }
+
+// 设置键盘快捷键（必须在分页逻辑定义之后）
+useKeyboardShortcuts(handleUndo, handleRedo, {
+  currentPage,
+  totalPages,
+  onPageChange: handlePageChange
+})
 
 // —— 句子展开/收起状态管理（基于行数） —— //
 const expandedSentences = ref<Set<string>>(new Set())
 const needsExpandButton = ref<Set<string>>(new Set())
 const textRefs = new Map<string, HTMLElement>()
+const cardRefs = new Map<string, HTMLElement>()
+
+// 设置卡片元素的引用
+function setCardRef(el: Element | ComponentPublicInstance | null, sentenceId: string, index: number) {
+  const htmlEl = el as HTMLElement | null
+  if (htmlEl) {
+    cardRefs.set(sentenceId, htmlEl)
+  } else {
+    cardRefs.delete(sentenceId)
+  }
+}
 
 // 设置文本元素的引用
 function setTextRef(el: Element | ComponentPublicInstance | null, sentenceId: string) {

@@ -1,5 +1,5 @@
 <template>
-  <header class="w-full border-b" style="border-color:#e5e7eb;">
+  <header class="w-full border-b bg-white" style="border-color:#f5f5f4;">
     <div class="topbar-container" :style="{ maxWidth: 'var(--container-w)' }">
       <div class="topbar-row">
         <!-- 左侧：标题 + 副标题（底部对齐） -->
@@ -88,19 +88,21 @@ const toggleLocale = () => {
 .topbar-lang-btn {
   padding: 6px 12px;
   border-radius: 6px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #f5f5f4;
   font-size: 0.875rem;
   background-color: #ffffff;
   color: var(--color-fg);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
   white-space: nowrap;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
   /* 通过 margin-bottom 微调位置，使其与标题底部对齐 */
   margin-bottom: 0.2em; /* 与副标题保持相同的底部位置 */
   flex-shrink: 0; /* 按钮不收缩，保持固定宽度 */
 }
 
 .topbar-lang-btn:hover {
-  background-color: #f9fafb;
+  background-color: #fafafa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
 }
 </style>
