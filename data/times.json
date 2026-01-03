@@ -1,6 +1,7 @@
 [
   { "id": "t_dusk", "name_zh": "黄昏", "name_en": "Dusk", "emoji": "🌇" },
-  { "id": "t_dawn", "name_zh": "黎明", "name_en": "Dawn", "emoji": "🌅" },
   { "id": "t_noon", "name_zh": "正午", "name_en": "Noon", "emoji": "🌞" },
-  { "id": "t_night", "name_zh": "深夜", "name_en": "Night", "emoji": "🌃" }
+  { "id": "t_night", "name_zh": "深夜", "name_en": "Night", "emoji": "🌃" },
+  { "id": "t_sunrise", "name_zh": "日出", "name_en": "Sunrise", "emoji": "🌄" },
+  { "id": "t_storm", "name_zh": "暴风雨", "name_en": "Storm", "emoji": "⛈️" }
 ]

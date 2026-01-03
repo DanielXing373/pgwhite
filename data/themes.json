@@ -1,3 +1,15 @@
 [
-  { "id": "th_time", "name_zh": "时间", "name_en": "Time", "emoji": "⏰" }
+  { "id": "th_time", "name_zh": "时间", "name_en": "Time", "emoji": "⏰" },
+  { "id": "th_suffering", "name_zh": "痛苦", "name_en": "Suffering", "emoji": "😢" },
+  { "id": "th_silence", "name_zh": "寂静", "name_en": "Silence", "emoji": "🔇" },
+  { "id": "th_memory", "name_zh": "记忆", "name_en": "Memory", "emoji": "🧠" },
+  { "id": "th_anxiety", "name_zh": "焦虑", "name_en": "Anxiety", "emoji": "😰" },
+  { "id": "th_decay", "name_zh": "衰败", "name_en": "Decay", "emoji": "🍂" },
+  { "id": "th_control", "name_zh": "掌控", "name_en": "Control", "emoji": "🎯" },
+  { "id": "th_death", "name_zh": "死亡", "name_en": "Death", "emoji": "💀" },
+  { "id": "th_fate", "name_zh": "命运", "name_en": "Fate", "emoji": "🔮" },
+  { "id": "th_sensitivity", "name_zh": "敏感", "name_en": "Sensitivity", "emoji": "🎭" },
+  { "id": "th_apocalypse", "name_zh": "末日", "name_en": "Apocalypse", "emoji": "🌋" },
+  { "id": "th_disgust", "name_zh": "厌恶", "name_en": "Disgust", "emoji": "🤢" },
+  { "id": "th_cycle", "name_zh": "轮回", "name_en": "Cycle", "emoji": "🔄" }
 ]

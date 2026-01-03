@@ -1,6 +1,6 @@
 [
-  { "id": "a_ishiguro", "name_zh": "石黑一雄", "name_en": "Kazuo Ishiguro", "emoji": "👤" },
-  { "id": "a_hesse", "name_zh": "赫尔曼·黑塞", "name_en": "Hermann Hesse", "emoji": "👤" },
-  { "id": "a_granin", "name_zh": "达尼伊尔·格拉宁", "name_en": "Daniil Granin", "emoji": "👤" },
-  { "id": "a_krasznahorkai", "name_zh": "克拉斯诺霍尔卡伊·拉斯洛", "name_en": "László Krasznahorkai", "emoji": "👤" }
+  { "id": "a_ishiguro", "name_zh": "石黑一雄", "name_en": "Kazuo Ishiguro", "emoji": "🇬🇧" },
+  { "id": "a_hesse", "name_zh": "赫尔曼·黑塞", "name_en": "Hermann Hesse", "emoji": "🇩🇪" },
+  { "id": "a_granin", "name_zh": "达尼伊尔·格拉宁", "name_en": "Daniil Granin", "emoji": "🇷🇺" },
+  { "id": "a_krasznahorkai", "name_zh": "克拉斯诺霍尔卡伊·拉斯洛", "name_en": "László Krasznahorkai", "emoji": "🇭🇺" }
 ]
