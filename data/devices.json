@@ -1,12 +1,12 @@
 [
-  { "id": "d_metaphor", "name_zh": "隐喻", "name_en": "Metaphor", "emoji": "🛠️" },
-  { "id": "d_personification", "name_zh": "拟人", "name_en": "Personification", "emoji": "🛠️" },
-  { "id": "d_alliteration", "name_zh": "头韵", "name_en": "Alliteration", "emoji": "🛠️" },
-  { "id": "d_connotation", "name_zh": "内涵", "name_en": "Connotation", "emoji": "🛠️" },
-  { "id": "d_imagery", "name_zh": "意象", "name_en": "Imagery", "emoji": "🛠️" },
-  { "id": "d_appearance", "name_zh": "外貌描写", "name_en": "Appearance Description", "emoji": "🛠️" },
-  { "id": "d_action", "name_zh": "动作描写", "name_en": "Action Description", "emoji": "🛠️" },
-  { "id": "d_long_sentence", "name_zh": "长句描写", "name_en": "Long Sentence", "emoji": "🛠️" },
-  { "id": "d_synesthesia", "name_zh": "通感", "name_en": "Synesthesia", "emoji": "🛠️" },
-  { "id": "d_psychological", "name_zh": "心理描写", "name_en": "Psychological Description", "emoji": "🛠️" }
+  { "id": "d_metaphor", "name_zh": "隐喻", "name_en": "Metaphor", "emoji": "🔗" },
+  { "id": "d_personification", "name_zh": "拟人", "name_en": "Personification", "emoji": "👤" },
+  { "id": "d_alliteration", "name_zh": "头韵", "name_en": "Alliteration", "emoji": "🎵" },
+  { "id": "d_connotation", "name_zh": "内涵", "name_en": "Connotation", "emoji": "💎" },
+  { "id": "d_imagery", "name_zh": "意象", "name_en": "Imagery", "emoji": "🖼️" },
+  { "id": "d_appearance", "name_zh": "外貌描写", "name_en": "Appearance Description", "emoji": "🪞" },
+  { "id": "d_action", "name_zh": "动作描写", "name_en": "Action Description", "emoji": "🏃" },
+  { "id": "d_long_sentence", "name_zh": "长句描写", "name_en": "Long Sentence", "emoji": "📜" },
+  { "id": "d_synesthesia", "name_zh": "通感", "name_en": "Synesthesia", "emoji": "🌈" },
+  { "id": "d_psychological", "name_zh": "心理描写", "name_en": "Psychological Description", "emoji": "💭" }
 ]

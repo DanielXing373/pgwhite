@@ -1,10 +1,10 @@
 [
   { "id": "c_siddhartha", "name_zh": "悉达多", "name_en": "Siddhartha", "emoji": "🧘" },
   { "id": "c_lyubishchev", "name_zh": "柳比歇夫", "name_en": "Lyubishchev", "emoji": "🔬" },
-  { "id": "c_futaki", "name_zh": "弗塔基", "name_en": "Futaki", "emoji": "👨" },
-  { "id": "c_schmidt", "name_zh": "施密特", "name_en": "Schmidt", "emoji": "👨" },
-  { "id": "c_schmidt_wife", "name_zh": "施密特夫人", "name_en": "Schmidt's Wife", "emoji": "👩" },
-  { "id": "c_irimiash", "name_zh": "伊利米阿什", "name_en": "Irimiás", "emoji": "👨" },
-  { "id": "c_doctor", "name_zh": "医生", "name_en": "Doctor", "emoji": "👨" },
-  { "id": "c_kraner_wife", "name_zh": "克拉奈尔夫人", "name_en": "Kraner's Wife", "emoji": "👩" }
+  { "id": "c_futaki", "name_zh": "弗塔基", "name_en": "Futaki", "emoji": "♂️" },
+  { "id": "c_schmidt", "name_zh": "施密特", "name_en": "Schmidt", "emoji": "♂️" },
+  { "id": "c_schmidt_wife", "name_zh": "施密特夫人", "name_en": "Schmidt's Wife", "emoji": "♀️" },
+  { "id": "c_irimiash", "name_zh": "伊利米阿什", "name_en": "Irimiás", "emoji": "♂️" },
+  { "id": "c_doctor", "name_zh": "医生", "name_en": "Doctor", "emoji": "♂️" },
+  { "id": "c_kraner_wife", "name_zh": "克拉奈尔夫人", "name_en": "Kraner's Wife", "emoji": "♀️" }
 ]
