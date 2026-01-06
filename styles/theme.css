@@ -168,9 +168,9 @@
   .filter-tabs-container {
     border: 1px solid #e5e7eb;
     border-radius: 8px;
-    background-color: #ffffff;
+    background-color: transparent; /* 透明背景，消除白色背景条 */
     overflow: hidden;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: none; /* 移除阴影，与透明背景一致 */
   }
 
   /* 标签按钮行（水平排列，居左对齐） */
@@ -179,7 +179,7 @@
     justify-content: flex-start; /* 居左对齐 */
     align-items: flex-end; /* 底部对齐，便于层叠效果 */
     border-bottom: none; /* 移除底部边框，由激活标签页和内容面板无缝连接 */
-    background-color: #fafafa;
+    background-color: transparent; /* 透明背景，消除白色背景条 */
     padding-left: 0;
     padding-right: 0;
     overflow-x: auto;
@@ -226,9 +226,9 @@
   .tab-shape {
     position: absolute;
     inset: 0;
-    background-color: #f5f5f5; /* 默认未选中背景色（会被特定颜色覆盖） */
-    border: 1.5px solid #e5e7eb;
-    border-bottom: 1.5px solid #e5e7eb; /* 未选中时显示底部边框 */
+    background-color: #ffffff; /* 白色背景 - 可在此处调整 */
+    border: 2.5px solid #e5e7eb; /* 加粗边框，增强与背景的对比 - 可在此处调整（建议范围：2px - 3px） */
+    border-bottom: none; /* 移除底部边框，避免与内容栏边框重叠显示，只显示内容栏的边框 */
     border-top-left-radius: 8px; /* 左上角圆角 */
     border-top-right-radius: 8px; /* 右上角圆角 */
     transform-origin: bottom center; /* 从底部中心旋转 */
@@ -243,46 +243,46 @@
     z-index: 10; /* 确保文本在形状层上方 */
   }
 
-  /* 统一配色方案：未选中状态统一为浅灰/米色，添加主题色边框 */
+  /* 统一配色方案：未选中状态统一为白色背景，添加主题色边框 */
   /* 1. Authors - 樱花粉 */
   .filter-tab-button--authors .tab-shape {
-    background-color: #f5f5f5; /* 浅灰/米色背景 */
+    background-color: #ffffff; /* 白色背景 */
     border-color: #FBCFE8; /* 樱花粉边框 */
   }
 
   /* 2. Books - 奶油橘 */
   .filter-tab-button--books .tab-shape {
-    background-color: #f5f5f5;
+    background-color: #ffffff; /* 白色背景 */
     border-color: #FED7AA; /* 奶油橘边框 */
   }
 
   /* 3. Characters - 芝士黄 */
   .filter-tab-button--characters .tab-shape {
-    background-color: #f5f5f5;
+    background-color: #ffffff; /* 白色背景 */
     border-color: #FDE047; /* 芝士黄边框 */
   }
 
   /* 4. Times - 薄荷绿 */
   .filter-tab-button--times .tab-shape {
-    background-color: #f5f5f5;
+    background-color: #ffffff; /* 白色背景 */
     border-color: #BBF7D0; /* 薄荷绿边框 */
   }
 
   /* 5. Themes - 天空蓝 */
   .filter-tab-button--themes .tab-shape {
-    background-color: #f5f5f5;
+    background-color: #ffffff; /* 白色背景 */
     border-color: #BAE6FD; /* 天空蓝边框 */
   }
 
   /* 6. Devices - 冰川青 */
   .filter-tab-button--devices .tab-shape {
-    background-color: #f5f5f5;
+    background-color: #ffffff; /* 白色背景 */
     border-color: #A5F3FC; /* 冰川青边框 */
   }
 
   /* 7. Search - 香芋紫 */
   .filter-tab-button--search .tab-shape {
-    background-color: #f5f5f5;
+    background-color: #ffffff; /* 白色背景 */
     border-color: #D8B4FE; /* 香芋紫边框 */
   }
 
@@ -297,14 +297,15 @@
   .filter-tab-button--active {
     color: var(--color-fg); /* 黑色文字 */
     font-weight: 600; /* 粗体 */
+    position: relative; /* 确保 z-index 生效 */
   }
 
   /* 激活状态：主题色背景，移除底部边框以与内容区无缝合并 */
   .filter-tab-button--active .tab-shape {
     border-bottom: none; /* 移除底部边框，与内容区无缝合并 */
-    border-top: 3px solid transparent; /* 顶部边框3px，透明，由背景色显示 */
-    border-left: 3px solid transparent;
-    border-right: 3px solid transparent;
+    border-top: 3.5px solid transparent; /* 加粗顶部边框，增强对比 - 可在此处调整（建议范围：3px - 4px） */
+    border-left: 3.5px solid transparent; /* 加粗左侧边框 */
+    border-right: 3.5px solid transparent; /* 加粗右侧边框 */
   }
 
   /* 激活状态：根据表格设置边框颜色（用于非激活状态的边框） */
@@ -361,7 +362,11 @@
     height: var(--filters-h); /* 使用全局变量，默认420px */
     overflow: hidden;
     position: relative;
-    background-color: #ffffff; /* 白色背景，与激活标签一致 */
+    background-color: #ffffff; /* 恢复白色背景 */
+    z-index: 10; /* z-index 层级：激活标签(50) > 内容栏(10) > 未选中标签(0)，确保内容栏边框覆盖未选中标签的边框 */
+    box-sizing: border-box; /* 确保边框宽度计算正确 */
+    /* 正常定位，不使用负边距，边框粗细保持一致 */
+    margin: 0;
   }
 
   /* 单个标签页面板 */
@@ -710,6 +715,12 @@
     border-color: #ec4899; /* 选中时显示更深的樱花粉边框 */
   }
 
+  /* 推荐状态：边框变色（与选中状态相同），背景保持白色 */
+  .filter-chip--authors.filter-chip--recommended {
+    background-color: #ffffff; /* 白色背景，与选中状态区分 */
+    border-color: #ec4899; /* 使用与选中状态相同的边框颜色 */
+  }
+
   /* 2. Books (奶油橘) */
   .filter-chip--books {
     background-color: #F3F4F6; /* 未选中：统一灰色 */
@@ -724,6 +735,11 @@
   .filter-chip--books.filter-chip--active {
     background-color: #FED7AA; /* 奶油橘 selected */
     border-color: #fb923c; /* 选中时显示更深的奶油橘边框 */
+  }
+
+  .filter-chip--books.filter-chip--recommended {
+    background-color: #ffffff; /* 白色背景 */
+    border-color: #fb923c; /* 使用与选中状态相同的边框颜色 */
   }
 
   /* 3. Characters (芝士黄) */
@@ -742,6 +758,11 @@
     border-color: #eab308; /* 选中时显示更深的芝士黄边框 */
   }
 
+  .filter-chip--characters.filter-chip--recommended {
+    background-color: #ffffff; /* 白色背景 */
+    border-color: #eab308; /* 使用与选中状态相同的边框颜色 */
+  }
+
   /* 4. Times (薄荷绿) */
   .filter-chip--times {
     background-color: #F3F4F6; /* 未选中：统一灰色 */
@@ -756,6 +777,11 @@
   .filter-chip--times.filter-chip--active {
     background-color: #BBF7D0; /* 薄荷绿 selected */
     border-color: #10b981; /* 选中时显示更深的薄荷绿边框 */
+  }
+
+  .filter-chip--times.filter-chip--recommended {
+    background-color: #ffffff; /* 白色背景 */
+    border-color: #10b981; /* 使用与选中状态相同的边框颜色 */
   }
 
   /* 5. Themes (天空蓝) */
@@ -774,6 +800,11 @@
     border-color: #0ea5e9; /* 选中时显示更深的天空蓝边框 */
   }
 
+  .filter-chip--themes.filter-chip--recommended {
+    background-color: #ffffff; /* 白色背景 */
+    border-color: #0ea5e9; /* 使用与选中状态相同的边框颜色 */
+  }
+
   /* 6. Devices (冰川青) */
   .filter-chip--devices {
     background-color: #F3F4F6; /* 未选中：统一灰色 */
@@ -788,6 +819,11 @@
   .filter-chip--devices.filter-chip--active {
     background-color: #A5F3FC; /* 冰川青 selected */
     border-color: #06b6d4; /* 选中时显示更深的冰川青边框 */
+  }
+
+  .filter-chip--devices.filter-chip--recommended {
+    background-color: #ffffff; /* 白色背景 */
+    border-color: #06b6d4; /* 使用与选中状态相同的边框颜色 */
   }
 
 /* =====================================================

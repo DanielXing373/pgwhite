@@ -135,25 +135,16 @@ function getChipStyles(opt: OptionWithCount): Record<string, string> {
     return {}
   }
 
-  // 状态 2: 推荐状态 - 添加左侧粗边框和四周边框（主题色）
+  // 状态 2: 推荐状态 - 使用CSS类设置样式，不添加内联样式
+  // 边框颜色通过CSS类设置（与选中状态相同），背景保持白色
   if (props.hasActiveFilters && props.dynamicCounts && opt.count > 0 && props.dimension) {
-    return {
-      'border-left-width': '4px',
-      'border-left-color': themeColor.value,
-      'border-left-style': 'solid',
-      'border-width': '2px',
-      'border-color': themeColor.value,
-      'border-style': 'solid'
-    }
+    return {} // 不添加内联样式，使用CSS类
   }
 
-  // 状态 1: 中性状态 - 透明左边框（保持布局一致）
+  // 状态 1: 中性状态 - 不添加任何样式，使用默认样式
+  // 移除透明左边框，避免灰色背景溢出问题
   if (props.hasActiveFilters && props.dynamicCounts && props.dimension) {
-    return {
-      'border-left-width': '4px',
-      'border-left-color': 'transparent',
-      'border-left-style': 'solid'
-    }
+    return {} // 不添加任何样式，使用默认的filter-chip样式
   }
 
   // 默认：无特殊样式

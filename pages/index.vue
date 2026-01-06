@@ -8,28 +8,28 @@ File: pages/index.vue
 <!-- —— 筛选区（现在每个筛选块自带浅色背景和边框） —— -->
 <div class="filters-section">
   <h2 class="filters-subtitle">{{ $t('filters.subtitle') }}</h2>
-  <FiltersPanel
-    :title="$t('filters.title')"
-    :facets="facets"
+<FiltersPanel
+  :title="$t('filters.title')"
+  :facets="facets"
     :facetCounts="facetCounts"
-    v-model:authors="authors"
-    v-model:books="books"
+  v-model:authors="authors"
+  v-model:books="books"
     v-model:characters="characters"
-    v-model:times="times"
-    v-model:themes="themes"
-    v-model:devices="devices"
+  v-model:times="times"
+  v-model:themes="themes"
+  v-model:devices="devices"
     v-model:q="q"
     v-model:timesAll="timesAll"
     v-model:themesAll="themesAll"
     v-model:devicesAll="devicesAll"
-  />
+/>
 </div>
 
   <!-- —— 当前已选（显示所有选中标签的 chips） —— -->
   <div ref="selectedBarRef" id="selected-bar-container">
-    <SelectedBar
-      :selectedLabel="$t('filters.selected')"
-      :clearAllText="$t('filters.clearAll')"
+  <SelectedBar
+  :selectedLabel="$t('filters.selected')"
+  :clearAllText="$t('filters.clearAll')"
       :authors="authors"
       :books="books"
       :characters="characters"
@@ -38,11 +38,11 @@ File: pages/index.vue
       :devices="devices"
       :canUndo="history.canUndo.value"
       :canRedo="history.canRedo.value"
-      @clearAll="resetAll"
+  @clearAll="resetAll"
       @undo="handleUndo"
       @redo="handleRedo"
       @removeTag="handleRemoveTag"
-    />
+/>
   </div>
 
   <!-- —— 结果列表（先渲染数量与卡片简版） —— -->

@@ -24,7 +24,7 @@ File: components/FiltersPanel.vue
             { 'filter-tab-button--first': index === 0 }
           ]"
           :style="{
-            zIndex: activeTab === tab.key ? 50 : (tabs.length - index),
+            zIndex: activeTab === tab.key ? 50 : 0, /* 未选中标签使用 z-index: 0，确保在内容栏下方 */
             marginBottom: activeTab === tab.key ? '-3px' : '0'
           }"
           @click="activeTab = tab.key"
@@ -56,6 +56,7 @@ File: components/FiltersPanel.vue
             title=""
             :options="facets.authors"
             :dynamicCounts="HIGHLIGHT_ENABLED_DIMS.includes('authors') ? props.facetCounts.authors : undefined"
+            :hasActiveFilters="hasActiveFilters('authors')"
             dimension="authors"
           />
         </div>
@@ -270,8 +271,8 @@ const localQ = computed({
 const { t } = useI18n()
 const activeTab = ref<'authors' | 'books' | 'characters' | 'times' | 'themes' | 'devices' | 'search'>('authors')
 
-// —— Spotlight 效果白名单：只在 Books 和 Characters 维度启用高亮和排序 —— //
-const HIGHLIGHT_ENABLED_DIMS = ['books', 'characters'] as const
+// —— Spotlight 效果白名单：在前三个维度（Authors、Books、Characters）启用高亮和排序 —— //
+const HIGHLIGHT_ENABLED_DIMS = ['authors', 'books', 'characters'] as const
 
 // 计算是否有其他维度的筛选激活（用于判断是否启用 Spotlight）
 function hasActiveFilters(excludeDimension: string): boolean {

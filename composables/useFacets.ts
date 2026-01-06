@@ -49,7 +49,7 @@ export function useFacets() {
     return cands.filter(s => {
       if (authorsSel.length && !authorsSel.includes(s.authorId)) return false
       if (booksSel.length   && !booksSel.includes(s.bookId))     return false
-      if (charactersSel.length  && !charactersSel.every(id => s.characterIds.includes(id))) return false
+      if (charactersSel.length  && !charactersSel.some(id => s.characterIds.includes(id))) return false
       if (timesSel.length   && !timesSel.every(id => s.timeIds.includes(id)))   return false
       if (themesSel.length  && !themesSel.every(id => s.themeIds.includes(id))) return false
       if (devicesSel.length && !devicesSel.every(id => s.deviceIds.includes(id))) return false
