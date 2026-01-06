@@ -1,5 +1,5 @@
 {
-  "site": { "title": "Pigeon White", "subtitle": "Multi-dimensional Quote Library" },
+  "site": { "title": "Pigeon White", "subtitle": "A Multi-dimensional Quote Library" },
     "notice": { "message": "Welcome to pgWhite (demo dataset)" },
   "search": {
     "placeholder": "Search sentence (exact match)",
@@ -10,6 +10,7 @@
   },
   "filters": {
     "title": "Filters",
+    "subtitle": "Search by Tags",
     "authors": "Authors",
     "books": "Books",
     "characters": "Characters",
@@ -27,7 +28,7 @@
   },
   "results": {
     "empty": "No results found. The library is still growing—more quotes coming soon!",
-    "count": "Total {count} items",
+    "count": "Search Results: {count} items",
     "author": "Author",
     "book": "Book",
     "chapter": "Chapter",

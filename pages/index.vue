@@ -6,21 +6,24 @@ File: pages/index.vue
 <template>
 <!-- —— 筛选区（固定高度，内部滚动） —— -->
 <!-- —— 筛选区（现在每个筛选块自带浅色背景和边框） —— -->
-<FiltersPanel
-  :title="$t('filters.title')"
-  :facets="facets"
-  :facetCounts="facetCounts"
-  v-model:authors="authors"
-  v-model:books="books"
-  v-model:characters="characters"
-  v-model:times="times"
-  v-model:themes="themes"
-  v-model:devices="devices"
-  v-model:q="q"
-  v-model:timesAll="timesAll"
-  v-model:themesAll="themesAll"
-  v-model:devicesAll="devicesAll"
-/>
+<div class="filters-section">
+  <h2 class="filters-subtitle">{{ $t('filters.subtitle') }}</h2>
+  <FiltersPanel
+    :title="$t('filters.title')"
+    :facets="facets"
+    :facetCounts="facetCounts"
+    v-model:authors="authors"
+    v-model:books="books"
+    v-model:characters="characters"
+    v-model:times="times"
+    v-model:themes="themes"
+    v-model:devices="devices"
+    v-model:q="q"
+    v-model:timesAll="timesAll"
+    v-model:themesAll="themesAll"
+    v-model:devicesAll="devicesAll"
+  />
+</div>
 
   <!-- —— 当前已选（显示所有选中标签的 chips） —— -->
   <div ref="selectedBarRef" id="selected-bar-container">

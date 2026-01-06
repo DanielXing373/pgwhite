@@ -53,9 +53,22 @@
     margin-right: auto;
     padding-left: 16px; /* 与 TopBar 的容器 padding 保持一致 */
     padding-right: 16px;
-    padding-top: 24px; /* py-6 */
+    padding-top: 0; /* 主标题与"按标签搜索"之间的间距 - 可在此处调整 */
     padding-bottom: 24px;
   }
+
+  /* ============ Filter Section ============ */
+.filters-section {
+  margin-bottom: 24px;
+}
+
+.filters-subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-fg);
+  margin-bottom: 12px;
+  font-family: var(--font-sans);
+}
 
   /* ============ Filter Grid layout ============ */
 /* 筛选区的栅格：最小高度而非固定高度，防止内容压到下面 */
