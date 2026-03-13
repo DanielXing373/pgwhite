@@ -27,3 +27,7 @@ coverage/
 
 # --- Temporary files ---
 temp.txt
+
+.env
+
+pgwhite DDL.sql

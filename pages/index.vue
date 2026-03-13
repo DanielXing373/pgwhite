@@ -8,6 +8,24 @@ File: pages/index.vue
 <!-- —— 筛选区（现在每个筛选块自带浅色背景和边框） —— -->
 <div class="filters-section">
   <h2 class="filters-subtitle">{{ $t('filters.subtitle') }}</h2>
+  <!-- MySQL 连接 prototype：测试按钮 -->
+  <section class="mb-4">
+    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
+      <button
+        @click="fetchQuoteCount"
+        style="padding:8px 12px; border:1px solid #e5e7eb; border-radius:6px; background:#fff; cursor:pointer;"
+      >
+        {{ $t('dbPrototype.testButton') }}
+      </button>
+      <span v-if="quoteCountLoading">Loading...</span>
+      <span v-else-if="quoteCount !== null">
+        Quote count: {{ quoteCount }}
+      </span>
+      <span v-else-if="quoteCountError">
+        {{ quoteCountError }}
+      </span>
+    </div>
+  </section>
 <FiltersPanel
   :title="$t('filters.title')"
   :facets="facets"
@@ -169,6 +187,26 @@ import { useFlyingChips } from '~/composables/useFlyingChips'
 
 // —— 数据集 —— //
 const { sentences } = useDataset()
+
+// —— Quote Count（MySQL 前后端连接 prototype） —— //
+const quoteCount = ref<number | null>(null)
+const quoteCountLoading = ref(false)
+const quoteCountError = ref('')
+
+async function fetchQuoteCount() {
+  quoteCountLoading.value = true
+  quoteCountError.value = ''
+
+  try {
+    const data = await $fetch<{ count: number }[]>('/api/quote-count')
+    quoteCount.value = data[0]?.count ?? 0
+  } catch (error) {
+    quoteCountError.value = 'Failed to fetch quote count.'
+    console.error(error)
+  } finally {
+    quoteCountLoading.value = false
+  }
+}
 
 // —— 查询状态（URL 同步） —— //
 const { q, authors, books, characters, times, themes, devices, timesAll, themesAll, devicesAll, resetAll } = useQueryState()

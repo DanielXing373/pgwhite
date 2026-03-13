@@ -64,5 +64,9 @@
   "pagination": {
     "previous": "Previous page",
     "next": "Next page"
+  },
+  "dbPrototype": {
+    "title": "Database Prototype Test",
+    "testButton": "Backend Test"
   }
   }
