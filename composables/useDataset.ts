@@ -16,10 +16,10 @@ import devicesRaw from '~/data/devices.json'
 export type QuoteDisplay = {
   author?: { id: string; name: string; emoji?: string | null }
   book?: { id: string; title: string; emoji?: string | null }
-  characters?: { id: string; name: string }[]
-  sceneTimes?: { id: string; name: string }[]
-  themes?: { id: string; name: string }[]
-  devices?: { id: string; name: string }[]
+  characters?: { id: string; name: string; emoji?: string | null }[]
+  sceneTimes?: { id: string; name: string; emoji?: string | null }[]
+  themes?: { id: string; name: string; emoji?: string | null }[]
+  devices?: { id: string; name: string; emoji?: string | null }[]
 }
 
 export type Sentence = {

@@ -36,7 +36,7 @@ export default defineEventHandler(async event => {
     )
 
     const [bookRows] = await connection.query(
-      `SELECT b.id, bt.title AS title
+      `SELECT b.id, b.emoji, bt.title AS title
        FROM books b
        INNER JOIN book_translations bt ON bt.book_id = b.id AND bt.language_code = ?
        ORDER BY bt.title`,
@@ -44,7 +44,7 @@ export default defineEventHandler(async event => {
     )
 
     const [characterRows] = await connection.query(
-      `SELECT c.id, ct.name
+      `SELECT c.id, c.emoji, ct.name
        FROM characters c
        INNER JOIN character_translations ct ON ct.character_id = c.id AND ct.language_code = ?
        ORDER BY ct.name`,
@@ -52,7 +52,7 @@ export default defineEventHandler(async event => {
     )
 
     const tagSql = `
-      SELECT tg.id, tt.tag_name
+      SELECT tg.id, tg.emoji, tt.tag_name
       FROM tags tg
       INNER JOIN tag_translations tt ON tt.tag_id = tg.id AND tt.language_code = ?
       WHERE tg.${kindCol} = ?
@@ -68,20 +68,20 @@ export default defineEventHandler(async event => {
       label: prependEmoji(r.emoji != null ? String(r.emoji) : '', String(r.name ?? ''))
     }))
 
-    const books = (bookRows as { id: unknown; title: unknown }[]).map(r => ({
+    const books = (bookRows as { id: unknown; emoji: unknown; title: unknown }[]).map(r => ({
       id: String(r.id),
-      label: formatBookLabel(String(r.title ?? ''), lang)
+      label: prependEmoji(r.emoji != null ? String(r.emoji) : '', formatBookLabel(String(r.title ?? ''), lang))
     }))
 
-    const characters = (characterRows as { id: unknown; name: unknown }[]).map(r => ({
+    const characters = (characterRows as { id: unknown; emoji: unknown; name: unknown }[]).map(r => ({
       id: String(r.id),
-      label: String(r.name ?? '')
+      label: prependEmoji(r.emoji != null ? String(r.emoji) : '', String(r.name ?? ''))
     }))
 
-    const mapTag = (rows: { id: unknown; tag_name: unknown }[]) =>
+    const mapTag = (rows: { id: unknown; emoji: unknown; tag_name: unknown }[]) =>
       rows.map(r => ({
         id: String(r.id),
-        label: String(r.tag_name ?? '')
+        label: prependEmoji(r.emoji != null ? String(r.emoji) : '', String(r.tag_name ?? ''))
       }))
 
     const payload: FacetOptions = {

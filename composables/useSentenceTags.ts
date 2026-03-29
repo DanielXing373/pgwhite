@@ -90,7 +90,7 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
       for (const c of d.characters ?? []) {
         tags.push({
           id: c.id,
-          label: c.name,
+          label: prependEmoji(c.emoji ?? undefined, c.name),
           isMatched: isTagMatched('characters', c.id),
           dimension: 'characters'
         })
@@ -98,7 +98,7 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
       for (const t of d.sceneTimes ?? []) {
         tags.push({
           id: t.id,
-          label: t.name,
+          label: prependEmoji(t.emoji ?? undefined, t.name),
           isMatched: isTagMatched('times', t.id),
           dimension: 'times'
         })
@@ -106,7 +106,7 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
       for (const t of d.themes ?? []) {
         tags.push({
           id: t.id,
-          label: t.name,
+          label: prependEmoji(t.emoji ?? undefined, t.name),
           isMatched: isTagMatched('themes', t.id),
           dimension: 'themes'
         })
@@ -114,7 +114,7 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
       for (const t of d.devices ?? []) {
         tags.push({
           id: t.id,
-          label: t.name,
+          label: prependEmoji(t.emoji ?? undefined, t.name),
           isMatched: isTagMatched('devices', t.id),
           dimension: 'devices'
         })

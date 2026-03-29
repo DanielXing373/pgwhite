@@ -31,3 +31,4 @@ temp.txt
 .env
 
 pgwhite DDL.sql
+pgwhite_testing_data.sql

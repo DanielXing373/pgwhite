@@ -40,10 +40,16 @@ function parseJsonNamedList(raw: unknown): { id: string; name: string }[] {
   }
   if (!Array.isArray(arr)) return []
   return arr
-    .map((x: Record<string, unknown>) => ({
-      id: String(x?.id ?? ''),
-      name: String(x?.name ?? '')
-    }))
+    .map((x: Record<string, unknown>) => {
+      const emojiRaw = x?.emoji
+      return {
+        id: String(x?.id ?? ''),
+        name: String(x?.name ?? ''),
+        ...(emojiRaw != null && String(emojiRaw) !== ''
+          ? { emoji: String(emojiRaw) }
+          : {})
+      }
+    })
     .filter(x => x.id)
 }
 
@@ -58,6 +64,7 @@ function mapRow(row: Record<string, unknown>, config: ReturnType<typeof useRunti
   const authorName = String(row.author_name ?? '').trim()
   const bookTitle = String(row.book_title ?? '').trim()
   const authorEmoji = row.author_emoji != null && row.author_emoji !== '' ? String(row.author_emoji) : null
+  const bookEmoji = row.book_emoji != null && row.book_emoji !== '' ? String(row.book_emoji) : null
 
   const characters = parseJsonNamedList(row.characters_json)
   const sceneTimes = parseJsonNamedList(row.scene_times_json)
@@ -79,7 +86,7 @@ function mapRow(row: Record<string, unknown>, config: ReturnType<typeof useRunti
       author: authorId
         ? { id: authorId, name: authorName || authorId, emoji: authorEmoji }
         : undefined,
-      book: bookId ? { id: bookId, title: bookTitle || bookId, emoji: null } : undefined,
+      book: bookId ? { id: bookId, title: bookTitle || bookId, emoji: bookEmoji } : undefined,
       characters,
       sceneTimes,
       themes,
@@ -213,25 +220,26 @@ SELECT
   qt.language_code AS lang_raw,
   au.id AS author_id,
   au.emoji AS author_emoji,
+  b.emoji AS book_emoji,
   q.book_id AS book_id,
   (SELECT at.name FROM author_translations at WHERE at.author_id = au.id AND at.language_code = ? LIMIT 1) AS author_name,
   (SELECT bt.title FROM book_translations bt WHERE bt.book_id = b.id AND bt.language_code = ? LIMIT 1) AS book_title,
-  (SELECT COALESCE(JSON_ARRAYAGG(JSON_OBJECT('id', c.id, 'name', ct.name)), JSON_ARRAY())
+  (SELECT COALESCE(JSON_ARRAYAGG(JSON_OBJECT('id', c.id, 'name', ct.name, 'emoji', c.emoji)), JSON_ARRAY())
    FROM quote_characters qc
    INNER JOIN characters c ON c.id = qc.character_id
    INNER JOIN character_translations ct ON ct.character_id = c.id AND ct.language_code = ?
    WHERE qc.quote_id = q.id) AS characters_json,
-  (SELECT COALESCE(JSON_ARRAYAGG(JSON_OBJECT('id', tg.id, 'name', tt.tag_name)), JSON_ARRAY())
+  (SELECT COALESCE(JSON_ARRAYAGG(JSON_OBJECT('id', tg.id, 'name', tt.tag_name, 'emoji', tg.emoji)), JSON_ARRAY())
    FROM quote_tags rqt
    INNER JOIN tags tg ON tg.id = rqt.tag_id AND tg.${kindCol} = ?
    INNER JOIN tag_translations tt ON tt.tag_id = tg.id AND tt.language_code = ?
    WHERE rqt.quote_id = q.id) AS scene_times_json,
-  (SELECT COALESCE(JSON_ARRAYAGG(JSON_OBJECT('id', tg.id, 'name', tt.tag_name)), JSON_ARRAY())
+  (SELECT COALESCE(JSON_ARRAYAGG(JSON_OBJECT('id', tg.id, 'name', tt.tag_name, 'emoji', tg.emoji)), JSON_ARRAY())
    FROM quote_tags rqt
    INNER JOIN tags tg ON tg.id = rqt.tag_id AND tg.${kindCol} = ?
    INNER JOIN tag_translations tt ON tt.tag_id = tg.id AND tt.language_code = ?
    WHERE rqt.quote_id = q.id) AS themes_json,
-  (SELECT COALESCE(JSON_ARRAYAGG(JSON_OBJECT('id', tg.id, 'name', tt.tag_name)), JSON_ARRAY())
+  (SELECT COALESCE(JSON_ARRAYAGG(JSON_OBJECT('id', tg.id, 'name', tt.tag_name, 'emoji', tg.emoji)), JSON_ARRAY())
    FROM quote_tags rqt
    INNER JOIN tags tg ON tg.id = rqt.tag_id AND tg.${kindCol} = ?
    INNER JOIN tag_translations tt ON tt.tag_id = tg.id AND tt.language_code = ?
