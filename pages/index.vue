@@ -242,6 +242,8 @@ const quoteItems = ref<Sentence[]>([])
 const quotesTotal = ref(0)
 const quotesLoading = ref(true)
 const quotesError = ref('')
+/** 条件变动时立刻模糊，在 fetchQuotes finally 中清除 */
+const isRefreshing = ref(false)
 
 const ITEMS_PER_PAGE = 10
 const currentPage = ref(1)
@@ -316,6 +318,11 @@ async function fetchQuotes() {
     quotesTotal.value = 0
   } finally {
     quotesLoading.value = false
+    nextTick(() => {
+      setTimeout(() => {
+        isRefreshing.value = false
+      }, 300)
+    })
   }
 }
 
@@ -331,6 +338,8 @@ watch(
 watch(
   [currentPage, q, authors, books, characters, times, themes, devices, timesAll, themesAll, devicesAll, locale],
   () => {
+    // 条件一变立刻模糊（不等到 quoteItems 更新）
+    isRefreshing.value = true
     scheduleFetchQuotes()
   },
   { deep: true }
@@ -471,17 +480,6 @@ const facetCounts = computed(() => ({
   themes: {} as Record<string, number>,
   devices: {} as Record<string, number>
 }))
-
-// —— 搜索结果刷新微交互（"Breath & Blur"效果） —— //
-const isRefreshing = ref(false)
-
-// 监听搜索结果变化，触发微交互
-watch(quoteItems, () => {
-  isRefreshing.value = true
-  setTimeout(() => {
-    isRefreshing.value = false
-  }, 300)
-}, { deep: true })
 
 // —— 中空取消逻辑：监听选中标签变化，移除飞行中的标签 —— //
 // 当标签从选中数组中移除时，立即取消飞行中的动画

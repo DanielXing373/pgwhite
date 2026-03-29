@@ -1,7 +1,7 @@
 // =====================================================
 // File: composables/useFilterEngine.ts
-// 标题：过滤引擎（语言+文本预过滤；authors 为空=全局 AND；authors 非空=跨维度并集 OR）
-// 说明：满足需求：选 JK+JRR 后再选"哈利波特"→ 返回 JK 全部 ∪ 哈利波特全部（示例数据下即 10 条）。
+// 标题：过滤引擎（语言+文本预过滤；authors 为空=作者/书/人物全局 AND；authors 非空=作者∪书∪人物 OR）
+// 说明：选 JK+JRR 后再选《哈利波特》→ JK 全部 ∪ JRR 全部 ∪ 该书全部（与 GET /api/quotes 一致）。
 // =====================================================
 import type { Sentence } from './useDataset'
 
@@ -73,21 +73,17 @@ export function useFilterEngine() {
     })
   }
 
-  // —— 新逻辑：authors 非空 → 作者OR + 其他维度AND —— //
-  function authorOR_othersAND(base: Sentence[], f: Filters): Sentence[] {
-    // 先按作者筛选（OR逻辑）
-    let authorFiltered = base
-    if (f.authors.length) {
-      const aSet = new Set(f.authors)
-      authorFiltered = base.filter(s => aSet.has(s.authorId))
-    }
+  /** authors 非空：作者 / 书 / 人物 三者为 OR，再与 times/themes/devices AND */
+  function authorUnion_entityOR_tagsAND(base: Sentence[], f: Filters): Sentence[] {
+    return base.filter(s => {
+      const entityParts: boolean[] = []
+      if (f.authors.length) entityParts.push(f.authors.includes(s.authorId))
+      if (f.books.length) entityParts.push(f.books.includes(s.bookId))
+      if (f.characters.length) {
+        entityParts.push(f.characters.some(id => s.characterIds.includes(id)))
+      }
+      if (entityParts.length && !entityParts.some(Boolean)) return false
 
-    // 再按其他维度筛选
-    return authorFiltered.filter(s => {
-      if (f.books.length   && !f.books.includes(s.bookId))     return false
-      if (f.characters.length  && !f.characters.some(id => s.characterIds.includes(id))) return false
-      
-      // 后三个维度根据复选框状态决定 AND/OR
       if (f.times.length) {
         if (f.timesAll) {
           if (!f.times.every(id => s.timeIds.includes(id))) return false
@@ -95,7 +91,7 @@ export function useFilterEngine() {
           if (!f.times.some(id => s.timeIds.includes(id))) return false
         }
       }
-      
+
       if (f.themes.length) {
         if (f.themesAll) {
           if (!f.themes.every(id => s.themeIds.includes(id))) return false
@@ -103,7 +99,7 @@ export function useFilterEngine() {
           if (!f.themes.some(id => s.themeIds.includes(id))) return false
         }
       }
-      
+
       if (f.devices.length) {
         if (f.devicesAll) {
           if (!f.devices.every(id => s.deviceIds.includes(id))) return false
@@ -111,7 +107,7 @@ export function useFilterEngine() {
           if (!f.devices.some(id => s.deviceIds.includes(id))) return false
         }
       }
-      
+
       return true
     })
   }
@@ -119,11 +115,9 @@ export function useFilterEngine() {
   function filter(sentences: Sentence[], f: Filters): Sentence[] {
     const base = prefilter(sentences, f)
     if (!f.authors.length) {
-      // 未选择作者 → 保持旧行为（全局 AND）
       return globalAND(base, f)
     }
-    // 选择了作者 → 作者OR + 其他维度AND
-    return authorOR_othersAND(base, f)
+    return authorUnion_entityOR_tagsAND(base, f)
   }
 
   return { filter }

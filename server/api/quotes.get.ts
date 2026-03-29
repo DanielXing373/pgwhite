@@ -88,6 +88,13 @@ function mapRow(row: Record<string, unknown>, config: ReturnType<typeof useRunti
   }
 }
 
+/**
+ * 筛选语义（与 composables/useFilterEngine 一致）：
+ * - 未选作者：作者 / 书目 / 人物 之间为 AND（与场景时间、主题、修辞、全文同一套 AND）。
+ * - 已选至少一位作者：作者 ∪ 书目 ∪ 人物 为 OR（例：作者 A + 非 A 的书 B → A 的全部 ∪ B 的全部），
+ *   再与全文、标签维度 AND。
+ * - 同一维度内多选：IN = OR。
+ */
 function buildFilterSql(
   query: ReturnType<typeof getQuery>,
   config: ReturnType<typeof useRuntimeConfig>
@@ -117,20 +124,31 @@ function buildFilterSql(
   }
 
   if (authors.length > 0) {
-    fragments.push(`au.id IN (${authors.map(() => '?').join(',')})`)
+    const entityOr: string[] = []
+    entityOr.push(`au.id IN (${authors.map(() => '?').join(',')})`)
     params.push(...authors)
-  }
-
-  if (books.length > 0) {
-    fragments.push(`q.book_id IN (${books.map(() => '?').join(',')})`)
-    params.push(...books)
-  }
-
-  if (characters.length > 0) {
-    fragments.push(
-      `EXISTS (SELECT 1 FROM quote_characters qc WHERE qc.quote_id = q.id AND qc.character_id IN (${characters.map(() => '?').join(',')}))`
-    )
-    params.push(...characters)
+    if (books.length > 0) {
+      entityOr.push(`q.book_id IN (${books.map(() => '?').join(',')})`)
+      params.push(...books)
+    }
+    if (characters.length > 0) {
+      entityOr.push(
+        `EXISTS (SELECT 1 FROM quote_characters qc WHERE qc.quote_id = q.id AND qc.character_id IN (${characters.map(() => '?').join(',')}))`
+      )
+      params.push(...characters)
+    }
+    fragments.push(`(${entityOr.join(' OR ')})`)
+  } else {
+    if (books.length > 0) {
+      fragments.push(`q.book_id IN (${books.map(() => '?').join(',')})`)
+      params.push(...books)
+    }
+    if (characters.length > 0) {
+      fragments.push(
+        `EXISTS (SELECT 1 FROM quote_characters qc WHERE qc.quote_id = q.id AND qc.character_id IN (${characters.map(() => '?').join(',')}))`
+      )
+      params.push(...characters)
+    }
   }
 
   function addTagFilter(ids: string[], all: boolean, kindVal: number) {
