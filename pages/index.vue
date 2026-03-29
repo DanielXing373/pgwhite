@@ -8,24 +8,6 @@ File: pages/index.vue
 <!-- —— 筛选区（现在每个筛选块自带浅色背景和边框） —— -->
 <div class="filters-section">
   <h2 class="filters-subtitle">{{ $t('filters.subtitle') }}</h2>
-  <!-- MySQL 连接 prototype：测试按钮 -->
-  <section class="mb-4">
-    <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap;">
-      <button
-        @click="fetchQuoteCount"
-        style="padding:8px 12px; border:1px solid #e5e7eb; border-radius:6px; background:#fff; cursor:pointer;"
-      >
-        {{ $t('dbPrototype.testButton') }}
-      </button>
-      <span v-if="quoteCountLoading">Loading...</span>
-      <span v-else-if="quoteCount !== null">
-        Quote count: {{ quoteCount }}
-      </span>
-      <span v-else-if="quoteCountError">
-        {{ quoteCountError }}
-      </span>
-    </div>
-  </section>
 <FiltersPanel
   :title="$t('filters.title')"
   :facets="facets"
@@ -48,6 +30,7 @@ File: pages/index.vue
   <SelectedBar
   :selectedLabel="$t('filters.selected')"
   :clearAllText="$t('filters.clearAll')"
+  :facetOptions="facets"
       :authors="authors"
       :books="books"
       :characters="characters"
@@ -66,12 +49,18 @@ File: pages/index.vue
   <!-- —— 结果列表（先渲染数量与卡片简版） —— -->
   <!-- Note: FlyingGhosts has been moved to app.vue root level to avoid blur/opacity conflicts -->
   <section class="space-y-3">
-    <div v-if="results.length === 0" class="results-count" style="color:#6b7280">
+    <div v-if="quotesError" class="results-count" style="color:#b91c1c">
+      <span class="results-count-text">{{ quotesError }}</span>
+    </div>
+    <div v-if="quotesLoading && quoteItems.length === 0" class="results-count" style="color:#6b7280">
+      <span class="results-count-line"></span><span class="results-count-text">…</span><span class="results-count-line"></span>
+    </div>
+    <div v-else-if="!quotesLoading && quotesTotal === 0" class="results-count" style="color:#6b7280">
       <span class="results-count-line"></span><span class="results-count-text">{{ $t('results.empty') }}</span><span class="results-count-line"></span>
     </div>
     <div v-else>
       <div class="results-count" style="color:#6b7280">
-        <span class="results-count-line"></span><span class="results-count-text">{{ $t('results.count', { count: results.length }) }}</span><span class="results-count-line"></span>
+        <span class="results-count-line"></span><span class="results-count-text">{{ $t('results.count', { count: quotesTotal }) }}</span><span class="results-count-line"></span>
       </div>
       <!-- 分页器（顶部） -->
       <Pagination
@@ -88,7 +77,7 @@ File: pages/index.vue
         }"
       >
         <div
-          v-for="(s, index) in paginatedResults"
+          v-for="(s, index) in quoteItems"
           :key="s.id"
           :class="['result-card', index % 2 === 0 ? 'result-card--even' : 'result-card--odd']"
           :ref="el => setCardRef(el, s.id, index)"
@@ -174,39 +163,15 @@ File: pages/index.vue
 import { onMounted, watch, computed, ref, nextTick } from 'vue'
 import Pagination from '~/components/Pagination.vue'
 import SelectedBar from '~/components/SelectedBar.vue'
-import { useDataset } from '~/composables/useDataset'
+import type { Sentence } from '~/composables/useDataset'
 import { useQueryState } from '~/composables/useQueryState'
-import { useFilterEngine } from '~/composables/useFilterEngine'
-import { useFacets } from '~/composables/useFacets'
+import type { FacetOptions } from '~/composables/dimensions'
+import { EMPTY_FACETS } from '~/composables/dimensions'
 import { useHistoryManagement } from '~/composables/useHistoryManagement'
 import { useKeyboardShortcuts } from '~/composables/useKeyboardShortcuts'
-import { useSearchResults } from '~/composables/useSearchResults'
 import { useSentenceTags } from '~/composables/useSentenceTags'
 import { removeIdPrefix } from '~/composables/useUIHelpers'
 import { useFlyingChips } from '~/composables/useFlyingChips'
-
-// —— 数据集 —— //
-const { sentences } = useDataset()
-
-// —— Quote Count（MySQL 前后端连接 prototype） —— //
-const quoteCount = ref<number | null>(null)
-const quoteCountLoading = ref(false)
-const quoteCountError = ref('')
-
-async function fetchQuoteCount() {
-  quoteCountLoading.value = true
-  quoteCountError.value = ''
-
-  try {
-    const data = await $fetch<{ count: number }[]>('/api/quote-count')
-    quoteCount.value = data[0]?.count ?? 0
-  } catch (error) {
-    quoteCountError.value = 'Failed to fetch quote count.'
-    console.error(error)
-  } finally {
-    quoteCountLoading.value = false
-  }
-}
 
 // —— 查询状态（URL 同步） —— //
 const { q, authors, books, characters, times, themes, devices, timesAll, themesAll, devicesAll, resetAll } = useQueryState()
@@ -258,8 +223,7 @@ setupHistoryWatcher(
   history.saveState
 )
 
-// —— 过滤和排序 —— //
-const { filter } = useFilterEngine()
+// —— 筛选条件（供标签匹配 / useSentenceTags；服务端筛选与之一致） —— //
 const filters = computed(() => ({
   q: q.value,
   authors: authors.value,
@@ -273,32 +237,108 @@ const filters = computed(() => ({
   devicesAll: devicesAll.value
 }))
 
-const filteredResults = computed(() => filter(sentences, filters.value))
-const { results } = useSearchResults(filteredResults, filters)
+// —— /api/quotes 服务端分页结果 —— //
+const quoteItems = ref<Sentence[]>([])
+const quotesTotal = ref(0)
+const quotesLoading = ref(true)
+const quotesError = ref('')
 
-// —— 分页逻辑 —— //
 const ITEMS_PER_PAGE = 10
 const currentPage = ref(1)
 
-// 计算总页数
-const totalPages = computed(() => {
-  return Math.ceil(results.value.length / ITEMS_PER_PAGE)
+const { locale, t } = useI18n()
+
+// —— 筛选栏选项：GET /api/facets（与 data/*.json 脱钩） —— //
+const facets = ref<FacetOptions>({
+  authors: [...EMPTY_FACETS.authors],
+  books: [...EMPTY_FACETS.books],
+  characters: [...EMPTY_FACETS.characters],
+  times: [...EMPTY_FACETS.times],
+  themes: [...EMPTY_FACETS.themes],
+  devices: [...EMPTY_FACETS.devices]
 })
 
-// 分页后的结果列表
-const paginatedResults = computed(() => {
-  const start = (currentPage.value - 1) * ITEMS_PER_PAGE
-  const end = start + ITEMS_PER_PAGE
-  return results.value.slice(start, end)
-})
-
-// 当搜索结果变化时，重置到第一页（如果当前页超出范围）
-watch([results, totalPages], () => {
-  if (currentPage.value > totalPages.value && totalPages.value > 0) {
-    currentPage.value = 1
-  } else if (totalPages.value === 0) {
-    currentPage.value = 1
+async function fetchFacets() {
+  try {
+    facets.value = await $fetch<FacetOptions>('/api/facets', {
+      query: { lang: locale.value === 'en' ? 'en' : 'zh' }
+    })
+  } catch (e) {
+    console.error(e)
   }
+}
+
+watch(locale, () => {
+  fetchFacets()
+})
+
+const totalPages = computed(() => {
+  return Math.ceil(quotesTotal.value / ITEMS_PER_PAGE) || 0
+})
+
+let fetchQuotesTimer: ReturnType<typeof setTimeout> | null = null
+
+function scheduleFetchQuotes() {
+  if (fetchQuotesTimer) clearTimeout(fetchQuotesTimer)
+  fetchQuotesTimer = setTimeout(() => {
+    fetchQuotesTimer = null
+    fetchQuotes()
+  }, 280)
+}
+
+async function fetchQuotes() {
+  quotesLoading.value = true
+  quotesError.value = ''
+  try {
+    const res = await $fetch<{ page: number; pageSize: number; total: number; items: Sentence[] }>('/api/quotes', {
+      query: {
+        lang: locale.value === 'en' ? 'en' : 'zh',
+        page: currentPage.value,
+        pageSize: ITEMS_PER_PAGE,
+        q: q.value.trim() || undefined,
+        author: authors.value.length ? authors.value.join(',') : undefined,
+        book: books.value.length ? books.value.join(',') : undefined,
+        character: characters.value.length ? characters.value.join(',') : undefined,
+        sceneTime: times.value.length ? times.value.join(',') : undefined,
+        theme: themes.value.length ? themes.value.join(',') : undefined,
+        device: devices.value.length ? devices.value.join(',') : undefined,
+        timesAll: String(timesAll.value),
+        themesAll: String(themesAll.value),
+        devicesAll: String(devicesAll.value)
+      }
+    })
+    quoteItems.value = res.items
+    quotesTotal.value = res.total
+  } catch (e) {
+    console.error(e)
+    quotesError.value = 'Failed to load quotes.'
+    quoteItems.value = []
+    quotesTotal.value = 0
+  } finally {
+    quotesLoading.value = false
+  }
+}
+
+/** 筛选 / 搜索 / 语言变化时回到第 1 页 */
+watch(
+  [q, authors, books, characters, times, themes, devices, timesAll, themesAll, devicesAll, locale],
+  () => {
+    if (currentPage.value !== 1) currentPage.value = 1
+  },
+  { deep: true }
+)
+
+watch(
+  [currentPage, q, authors, books, characters, times, themes, devices, timesAll, themesAll, devicesAll, locale],
+  () => {
+    scheduleFetchQuotes()
+  },
+  { deep: true }
+)
+
+onMounted(() => {
+  fetchFacets()
+  fetchQuotes()
 })
 
 // SelectedBar 引用（使用 HTMLElement 类型）
@@ -414,7 +454,7 @@ function toggleSentence(sentenceId: string) {
 }
 
 // 监听分页结果变化，重新检测所有文本元素
-watch(paginatedResults, () => {
+watch(quoteItems, () => {
   nextTick(() => {
     textRefs.forEach((el, sentenceId) => {
       checkIfNeedsExpand(sentenceId, el)
@@ -422,75 +462,21 @@ watch(paginatedResults, () => {
   })
 }, { deep: true })
 
-// —— Facet 计数（Spotlight 效果） —— //
-// 统计当前过滤结果中每个标签的出现次数
-const facetCounts = computed(() => {
-  const counts = {
-    authors: {} as Record<string, number>,
-    books: {} as Record<string, number>,
-    characters: {} as Record<string, number>,
-    times: {} as Record<string, number>,
-    themes: {} as Record<string, number>,
-    devices: {} as Record<string, number>
-  }
-
-  // 遍历当前过滤结果，统计每个标签的出现次数
-  results.value.forEach(sentence => {
-    // 作者
-    const authorId = sentence.authorId
-    if (!counts.authors[authorId]) {
-      counts.authors[authorId] = 0
-    }
-    counts.authors[authorId] = (counts.authors[authorId] || 0) + 1
-
-    // 书籍
-    const bookId = sentence.bookId
-    if (!counts.books[bookId]) {
-      counts.books[bookId] = 0
-    }
-    counts.books[bookId] = (counts.books[bookId] || 0) + 1
-
-    // 人物（可能有多个）
-    sentence.characterIds.forEach(id => {
-      if (!counts.characters[id]) {
-        counts.characters[id] = 0
-      }
-      counts.characters[id]++
-    })
-
-    // 场景时间（可能有多个）
-    sentence.timeIds.forEach(id => {
-      if (!counts.times[id]) {
-        counts.times[id] = 0
-      }
-      counts.times[id]++
-    })
-
-    // 主题（可能有多个）
-    sentence.themeIds.forEach(id => {
-      if (!counts.themes[id]) {
-        counts.themes[id] = 0
-      }
-      counts.themes[id]++
-    })
-
-    // 修辞手法（可能有多个）
-    sentence.deviceIds.forEach(id => {
-      if (!counts.devices[id]) {
-        counts.devices[id] = 0
-      }
-      counts.devices[id]++
-    })
-  })
-
-  return counts
-})
+// —— Facet 计数（Spotlight）：服务端分页后暂无全量统计，占位空对象 —— //
+const facetCounts = computed(() => ({
+  authors: {} as Record<string, number>,
+  books: {} as Record<string, number>,
+  characters: {} as Record<string, number>,
+  times: {} as Record<string, number>,
+  themes: {} as Record<string, number>,
+  devices: {} as Record<string, number>
+}))
 
 // —— 搜索结果刷新微交互（"Breath & Blur"效果） —— //
 const isRefreshing = ref(false)
 
 // 监听搜索结果变化，触发微交互
-watch(results, () => {
+watch(quoteItems, () => {
   isRefreshing.value = true
   setTimeout(() => {
     isRefreshing.value = false
@@ -537,25 +523,10 @@ watch([authors, books, characters, times, themes, devices], () => {
   previousSelectedTags.value = currentSet
 }, { deep: true, immediate: true })
 
-// —— Facets 计算 —— //
-// 注意：facets 只根据语言生成，不受文本搜索和标签筛选影响
-// 这样用户可以随时看到所有可用的标签选项，自由选择
-const { build: buildFacets } = useFacets()
-const facets = computed(() => buildFacets(sentences, {
-  q: '', // 不传递文本搜索，让 facets 显示所有选项
-  authors: [],
-  books: [],
-  characters: [],
-  times: [],
-  themes: [],
-  devices: []
-}))
-
 // —— 句子标签处理 —— //
 const { getSentenceTags } = useSentenceTags(filters)
 
 // —— UI 辅助 —— //
-const { locale, t } = useI18n()
 const currentLangLabel = computed(() => 
   locale.value === 'en' ? t('lang.enLabel') : t('lang.zhLabel')
 )

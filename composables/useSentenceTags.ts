@@ -65,7 +65,64 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
     const tags: SentenceTag[] = []
     const isEN = locale.value === 'en'
 
-    // 1. 作者
+    // —— 服务端已带 display（数据库翻译）时，不再用本地 JSON —— //
+    const d = sentence.display
+    if (d) {
+      if (d.author) {
+        tags.push({
+          id: d.author.id,
+          label: prependEmoji(d.author.emoji ?? undefined, d.author.name),
+          isMatched: isTagMatched('authors', d.author.id),
+          dimension: 'authors'
+        })
+      }
+      if (d.book) {
+        const rawTitle = d.book.title
+        const formattedTitle = formatBookTitle(rawTitle, isEN)
+        tags.push({
+          id: d.book.id,
+          label: prependEmoji(d.book.emoji ?? undefined, formattedTitle),
+          isBook: true,
+          isMatched: isTagMatched('books', d.book.id),
+          dimension: 'books'
+        })
+      }
+      for (const c of d.characters ?? []) {
+        tags.push({
+          id: c.id,
+          label: c.name,
+          isMatched: isTagMatched('characters', c.id),
+          dimension: 'characters'
+        })
+      }
+      for (const t of d.sceneTimes ?? []) {
+        tags.push({
+          id: t.id,
+          label: t.name,
+          isMatched: isTagMatched('times', t.id),
+          dimension: 'times'
+        })
+      }
+      for (const t of d.themes ?? []) {
+        tags.push({
+          id: t.id,
+          label: t.name,
+          isMatched: isTagMatched('themes', t.id),
+          dimension: 'themes'
+        })
+      }
+      for (const t of d.devices ?? []) {
+        tags.push({
+          id: t.id,
+          label: t.name,
+          isMatched: isTagMatched('devices', t.id),
+          dimension: 'devices'
+        })
+      }
+      return tags
+    }
+
+    // 1. 作者（本地 prototype 数据）
     const author = authorById.get(sentence.authorId)
     if (author) {
       const baseLabel = isEN ? (author.name_en || author.name_zh || sentence.authorId) : (author.name_zh || author.name_en || sentence.authorId)

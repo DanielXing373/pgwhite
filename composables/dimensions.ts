@@ -1,6 +1,7 @@
 // =====================================================
 // File: composables/dimensions.ts
 // 标题：维度常量与空 Facets（统一入口，便于未来增删维度）
+// 筛选选项文案来自 GET /api/facets；id 与 URL query、/api/quotes 一致。
 // =====================================================
 export const DIM_KEYS = ['authors','books','characters','times','themes','devices'] as const
 export type DimKey = typeof DIM_KEYS[number]
