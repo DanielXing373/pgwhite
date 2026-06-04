@@ -13,6 +13,7 @@ dist/
 # --- Env / IDE ---
 .env
 .env.*
+!.env.example
 .DS_Store
 *.local
 .vscode/
@@ -31,3 +32,6 @@ temp.txt
 .env
 
 pgwhite DDL.sql
+pgwhite_testing_data.sql
+
+长日将尽笔记.txt

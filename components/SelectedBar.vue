@@ -68,10 +68,8 @@
   </template>
   
   <script setup lang="ts">
-import { useDataset } from '~/composables/useDataset'
 import { DIM_KEYS } from '~/composables/dimensions'
-import type { DimKey } from '~/composables/dimensions'
-import { prependEmoji } from '~/composables/useUIHelpers'
+import type { DimKey, FacetOptions } from '~/composables/dimensions'
 
 type SelectedItem = {
   dimension: DimKey
@@ -79,9 +77,11 @@ type SelectedItem = {
   label: string
 }
 
-  const props = defineProps<{
-    selectedLabel: string
-    clearAllText: string
+const props = defineProps<{
+  selectedLabel: string
+  clearAllText: string
+  /** 与 GET /api/facets 一致，用于把 id 显示为当前语言文案 */
+  facetOptions: FacetOptions
   authors: string[]
   books: string[]
   characters: string[]
@@ -92,54 +92,40 @@ type SelectedItem = {
   canRedo?: boolean
 }>()
 
-const emit = defineEmits<{ 
+const emit = defineEmits<{
   (e: 'clearAll'): void
   (e: 'undo'): void
   (e: 'redo'): void
   (e: 'removeTag', dimension: DimKey, id: string): void
 }>()
 
-// —— 数据集和语言 —— //
-const {
-  authorById, bookById, characterById, timeById, themeById, deviceById
-} = useDataset()
 const { locale } = useI18n()
 const isEnglish = computed(() => locale.value === 'en')
 
-/**
- * 格式化书名：中文加书名号，英文返回原文本（通过 CSS 处理斜体）
- */
-function formatBookTitle(title: string, isEN: boolean): string {
-  if (isEN) {
-    return title
-  } else {
-    return `《${title}》`
-  }
+function getLabelForId(dim: DimKey, id: string): string {
+  const list = props.facetOptions[dim]
+  const opt = list.find(o => o.id === id)
+  return opt?.label ?? id
 }
 
 /**
  * 获取所有选中项的标签，按维度顺序排列
- * 返回格式：{ dimension: DimKey, id: string, label: string }[]
  */
 const selectedItems = computed<SelectedItem[]>(() => {
   const items: SelectedItem[] = []
-  const isEN = isEnglish.value
 
-  // 按照 DIM_KEYS 的顺序处理每个维度
   for (const dim of DIM_KEYS) {
     const selectedIds = props[dim] as string[]
     if (!selectedIds || selectedIds.length === 0) continue
 
-    // 对每个维度内的 ID 进行排序（按标签文本排序，保持一致性）
     const sortedIds = [...selectedIds].sort((a, b) => {
-      const labelA = getLabelForId(dim, a, isEN)
-      const labelB = getLabelForId(dim, b, isEN)
+      const labelA = getLabelForId(dim, a)
+      const labelB = getLabelForId(dim, b)
       return labelA.localeCompare(labelB)
     })
 
-    // 为每个 ID 创建选中项
     for (const id of sortedIds) {
-      const label = getLabelForId(dim, id, isEN)
+      const label = getLabelForId(dim, id)
       items.push({ dimension: dim, id, label })
     }
   }
@@ -147,54 +133,6 @@ const selectedItems = computed<SelectedItem[]>(() => {
   return items
 })
 
-/**
- * 根据维度和 ID 获取标签文本
- */
-function getLabelForId(dim: DimKey, id: string, isEN: boolean): string {
-  switch (dim) {
-    case 'authors': {
-      const author = authorById.get(id)
-      if (!author) return id
-      const base = isEN ? (author.name_en || author.name_zh || id) : (author.name_zh || author.name_en || id)
-      return prependEmoji(author.emoji, base)
-    }
-    case 'books': {
-      const book = bookById.get(id)
-      if (!book) return id
-      const rawTitle = isEN ? (book.title_en || book.title_zh || id) : (book.title_zh || book.title_en || id)
-      const formatted = formatBookTitle(rawTitle, isEN)
-      return prependEmoji(book.emoji, formatted)
-    }
-    case 'characters': {
-      const character = characterById.get(id)
-      if (!character) return id
-      const base = isEN ? (character.name_en || character.name_zh || id) : (character.name_zh || character.name_en || id)
-      return prependEmoji(character.emoji, base)
-    }
-    case 'times': {
-      const time = timeById.get(id)
-      if (!time) return id
-      const base = isEN ? (time.name_en || time.name_zh || id) : (time.name_zh || time.name_en || id)
-      return prependEmoji(time.emoji, base)
-    }
-    case 'themes': {
-      const theme = themeById.get(id)
-      if (!theme) return id
-      const base = isEN ? (theme.name_en || theme.name_zh || id) : (theme.name_zh || theme.name_en || id)
-      return prependEmoji(theme.emoji, base)
-    }
-    case 'devices': {
-      const device = deviceById.get(id)
-      if (!device) return id
-      const base = isEN ? (device.name_en || device.name_zh || id) : (device.name_zh || device.name_en || id)
-      return prependEmoji(device.emoji, base)
-    }
-  }
-}
-
-/**
- * 处理删除标签
- */
 function handleRemoveTag(dimension: DimKey, id: string) {
   emit('removeTag', dimension, id)
 }

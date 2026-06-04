@@ -1,21 +1,11 @@
-import mysql from 'mysql2/promise'
+import { createDbConnection } from '../utils/db'
 
 export default defineEventHandler(async () => {
-  const config = useRuntimeConfig()
-
-  const connection = await mysql.createConnection({
-    host: config.dbHost,
-    port: Number(config.dbPort),
-    user: config.dbUser,
-    password: config.dbPassword,
-    database: config.dbName
-  })
-
-  const [rows] = await connection.query(
-    'SELECT COUNT(*) AS count FROM quotes'
-  )
-
-  await connection.end()
-
-  return rows
+  const connection = await createDbConnection()
+  try {
+    const [rows] = await connection.query('SELECT COUNT(*) AS count FROM quotes')
+    return rows
+  } finally {
+    await connection.end().catch(() => {})
+  }
 })

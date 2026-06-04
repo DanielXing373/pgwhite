@@ -8,6 +8,11 @@ export default defineNuxtConfig({
   typescript: { strict: true },
   css: ['./styles/theme.css'],
 
+  // @nuxt/ui 默认会拉 Google Fonts / Material Icons 元数据，国内常超时重试导致 dev 很慢
+  ui: {
+    fonts: false
+  },
+
   modules: [
     '@nuxt/ui',
     // 把 i18n 配置写到模块数组里（这一项是 [模块名, 配置对象] 的二元组）
@@ -33,7 +38,16 @@ export default defineNuxtConfig({
     dbPort: process.env.DB_PORT,
     dbUser: process.env.DB_USER,
     dbPassword: process.env.DB_PASSWORD,
-    dbName: process.env.DB_NAME
+    dbName: process.env.DB_NAME,
+    /** quote_translations.language_code（你当前为 zh / en） */
+    dbLangZh: process.env.DB_LANG_ZH || 'zh',
+    dbLangEn: process.env.DB_LANG_EN || 'en',
+    /** tags 表「种类」列名（第二列），默认 kind */
+    tagKindColumn: process.env.TAG_KIND_COLUMN || 'source_code',
+    /** 种类数值：场景时间 / 主题 / 修辞 — 对应你库里的 1、2、3（顺序可用环境变量改） */
+    tagKindTime: process.env.TAG_KIND_TIME || '1',
+    tagKindTheme: process.env.TAG_KIND_THEME || '2',
+    tagKindDevice: process.env.TAG_KIND_DEVICE || '3'
   },
   
   app: {

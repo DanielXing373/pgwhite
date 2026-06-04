@@ -1,7 +1,11 @@
 // =====================================================
 // File: composables/useQueryState.ts
 // 标题：查询状态（与 URL 同步）
-// 规则：空数组 = 默认全选；page 可后续加入
+// 规则：空数组 = 该维度不筛选；id 与数据库一致（逗号分隔）
+//
+// 与 GET /api/quotes 对齐：authors / books / characters / times / themes / devices、
+// q、timesAll / themesAll / devicesAll（'true' 或省略）。用户改选标签 → ref 更新 →
+// router.replace → 首页 watch 触发重新请求（当前页码由 index 内逻辑重置）。
 // =====================================================
 type DimKey = 'authors' | 'books' | 'characters' | 'times' | 'themes' | 'devices'
 

@@ -12,6 +12,16 @@ import timesRaw from '~/data/times.json'
 import themesRaw from '~/data/themes.json'
 import devicesRaw from '~/data/devices.json'
 
+/** 后端 /api/quotes 返回的展示块（与 DB 翻译一致，不依赖 data/*.json） */
+export type QuoteDisplay = {
+  author?: { id: string; name: string; emoji?: string | null }
+  book?: { id: string; title: string; emoji?: string | null }
+  characters?: { id: string; name: string; emoji?: string | null }[]
+  sceneTimes?: { id: string; name: string; emoji?: string | null }[]
+  themes?: { id: string; name: string; emoji?: string | null }[]
+  devices?: { id: string; name: string; emoji?: string | null }[]
+}
+
 export type Sentence = {
   id: string
   text: string
@@ -23,6 +33,8 @@ export type Sentence = {
   timeIds: string[]
   themeIds: string[]
   deviceIds: string[]
+  /** 存在时优先用于卡片标签展示（服务端已按请求语言填好文案） */
+  display?: QuoteDisplay
 }
 
 export type Named = { id: string; name_zh?: string; name_en?: string; title_zh?: string; title_en?: string; authorId?: string; emoji?: string }
