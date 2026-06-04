@@ -2,7 +2,7 @@
 // GET /api/facets — 筛选栏全量选项（当前语言下的 label），与 data/*.json 无关
 // Query: lang=zh|en
 // =====================================================
-import { createDbConnection } from '../utils/db'
+import { getDbPool } from '../utils/db'
 import { getTagKindParams } from '../utils/tagKind'
 import type { FacetOptions } from '~/composables/dimensions'
 
@@ -23,11 +23,10 @@ export default defineEventHandler(async event => {
   const dbLang = lang === 'zh' ? String(config.dbLangZh || 'zh') : String(config.dbLangEn || 'en')
   const { kindCol, kTime, kTheme, kDevice } = getTagKindParams(config)
 
-  let connection
   try {
-    connection = await createDbConnection()
+    const pool = getDbPool()
 
-    const [authorRows] = await connection.query(
+    const [authorRows] = await pool.query(
       `SELECT au.id, au.emoji, at.name
        FROM authors au
        INNER JOIN author_translations at ON at.author_id = au.id AND at.language_code = ?
@@ -35,7 +34,7 @@ export default defineEventHandler(async event => {
       [dbLang]
     )
 
-    const [bookRows] = await connection.query(
+    const [bookRows] = await pool.query(
       `SELECT b.id, b.emoji, bt.title AS title
        FROM books b
        INNER JOIN book_translations bt ON bt.book_id = b.id AND bt.language_code = ?
@@ -43,7 +42,7 @@ export default defineEventHandler(async event => {
       [dbLang]
     )
 
-    const [characterRows] = await connection.query(
+    const [characterRows] = await pool.query(
       `SELECT c.id, c.emoji, ct.name
        FROM characters c
        INNER JOIN character_translations ct ON ct.character_id = c.id AND ct.language_code = ?
@@ -59,9 +58,9 @@ export default defineEventHandler(async event => {
       ORDER BY tt.tag_name
     `
 
-    const [timeRows] = await connection.query(tagSql, [dbLang, kTime])
-    const [themeRows] = await connection.query(tagSql, [dbLang, kTheme])
-    const [deviceRows] = await connection.query(tagSql, [dbLang, kDevice])
+    const [timeRows] = await pool.query(tagSql, [dbLang, kTime])
+    const [themeRows] = await pool.query(tagSql, [dbLang, kTheme])
+    const [deviceRows] = await pool.query(tagSql, [dbLang, kDevice])
 
     const authors = (authorRows as { id: unknown; emoji: unknown; name: unknown }[]).map(r => ({
       id: String(r.id),
@@ -100,9 +99,5 @@ export default defineEventHandler(async event => {
       statusCode: 500,
       statusMessage: 'Failed to load facets.'
     })
-  } finally {
-    if (connection) {
-      await connection.end().catch(() => {})
-    }
   }
 })
