@@ -13,6 +13,7 @@ dist/
 # --- Env / IDE ---
 .env
 .env.*
+!.env.example
 .DS_Store
 *.local
 .vscode/

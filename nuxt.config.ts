@@ -8,6 +8,11 @@ export default defineNuxtConfig({
   typescript: { strict: true },
   css: ['./styles/theme.css'],
 
+  // @nuxt/ui 默认会拉 Google Fonts / Material Icons 元数据，国内常超时重试导致 dev 很慢
+  ui: {
+    fonts: false
+  },
+
   modules: [
     '@nuxt/ui',
     // 把 i18n 配置写到模块数组里（这一项是 [模块名, 配置对象] 的二元组）
