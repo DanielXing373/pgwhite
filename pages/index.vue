@@ -278,16 +278,6 @@ const totalPages = computed(() => {
   return Math.ceil(quotesTotal.value / ITEMS_PER_PAGE) || 0
 })
 
-let fetchQuotesTimer: ReturnType<typeof setTimeout> | null = null
-
-function scheduleFetchQuotes() {
-  if (fetchQuotesTimer) clearTimeout(fetchQuotesTimer)
-  fetchQuotesTimer = setTimeout(() => {
-    fetchQuotesTimer = null
-    fetchQuotes()
-  }, 280)
-}
-
 async function fetchQuotes() {
   quotesLoading.value = true
   quotesError.value = ''
@@ -318,29 +308,38 @@ async function fetchQuotes() {
     quotesTotal.value = 0
   } finally {
     quotesLoading.value = false
-    nextTick(() => {
-      setTimeout(() => {
-        isRefreshing.value = false
-      }, 300)
-    })
+    isRefreshing.value = false
   }
 }
 
-/** 筛选 / 搜索 / 语言变化时回到第 1 页 */
-watch(
-  [q, authors, books, characters, times, themes, devices, timesAll, themesAll, devicesAll, locale],
-  () => {
-    if (currentPage.value !== 1) currentPage.value = 1
-  },
-  { deep: true }
-)
+const quoteWatchSources = [
+  currentPage,
+  q,
+  authors,
+  books,
+  characters,
+  times,
+  themes,
+  devices,
+  timesAll,
+  themesAll,
+  devicesAll,
+  locale
+] as const
 
+/** 筛选 / 搜索 / 语言变化时回到第 1 页，并立即拉取（无防抖） */
 watch(
-  [currentPage, q, authors, books, characters, times, themes, devices, timesAll, themesAll, devicesAll, locale],
-  () => {
-    // 条件一变立刻模糊（不等到 quoteItems 更新）
+  quoteWatchSources,
+  (_newVals, oldVals) => {
+    if (oldVals) {
+      const filtersChanged = quoteWatchSources.slice(1).some((source, i) => source.value !== oldVals[i + 1])
+      if (filtersChanged && currentPage.value !== 1) {
+        currentPage.value = 1
+        return
+      }
+    }
     isRefreshing.value = true
-    scheduleFetchQuotes()
+    fetchQuotes()
   },
   { deep: true }
 )

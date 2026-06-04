@@ -4,7 +4,7 @@
 // tag 种类列默认 kind：1=场景时间 2=主题 3=修辞
 // tag_translations: tag_id, language_code, tag_name
 // =====================================================
-import { createDbConnection } from '../utils/db'
+import { getDbPool } from '../utils/db'
 import { getTagKindParams } from '../utils/tagKind'
 
 function parseCsv(v: unknown): string[] {
@@ -182,6 +182,19 @@ function buildFilterSql(
   return { fragments, params }
 }
 
+/** 按 quote_id 预聚合标签 JSON，避免 SELECT 里逐行相关子查询 */
+function tagAggSubquery(kindCol: string, alias: string, jsonAlias: string): string {
+  return `
+LEFT JOIN (
+  SELECT rqt.quote_id,
+    JSON_ARRAYAGG(JSON_OBJECT('id', tg.id, 'name', tt.tag_name, 'emoji', tg.emoji)) AS ${jsonAlias}
+  FROM quote_tags rqt
+  INNER JOIN tags tg ON tg.id = rqt.tag_id AND tg.${kindCol} = ?
+  INNER JOIN tag_translations tt ON tt.tag_id = tg.id AND tt.language_code = ?
+  GROUP BY rqt.quote_id
+) ${alias} ON ${alias}.quote_id = q.id`
+}
+
 export default defineEventHandler(async event => {
   const query = getQuery(event)
   const config = useRuntimeConfig()
@@ -196,10 +209,9 @@ export default defineEventHandler(async event => {
   const dbLang = lang === 'zh' ? String(config.dbLangZh || 'zh') : String(config.dbLangEn || 'en')
 
   const { fragments, params: filterParams } = buildFilterSql(query, config)
-
   const whereExtra = fragments.length ? `AND ${fragments.join(' AND ')}` : ''
 
-  const fromSql = `
+  const baseFrom = `
 FROM quotes q
 INNER JOIN quote_translations qt ON qt.quote_id = q.id AND qt.language_code = ?
 INNER JOIN books b ON b.id = q.book_id
@@ -208,10 +220,7 @@ WHERE 1=1
 ${whereExtra}
 `
 
-  const countSql = `
-SELECT COUNT(DISTINCT q.id) AS total
-${fromSql}
-`
+  const countSql = `SELECT COUNT(*) AS total ${baseFrom}`
 
   const listSql = `
 SELECT
@@ -222,42 +231,43 @@ SELECT
   au.emoji AS author_emoji,
   b.emoji AS book_emoji,
   q.book_id AS book_id,
-  (SELECT at.name FROM author_translations at WHERE at.author_id = au.id AND at.language_code = ? LIMIT 1) AS author_name,
-  (SELECT bt.title FROM book_translations bt WHERE bt.book_id = b.id AND bt.language_code = ? LIMIT 1) AS book_title,
-  (SELECT COALESCE(JSON_ARRAYAGG(JSON_OBJECT('id', c.id, 'name', ct.name, 'emoji', c.emoji)), JSON_ARRAY())
-   FROM quote_characters qc
-   INNER JOIN characters c ON c.id = qc.character_id
-   INNER JOIN character_translations ct ON ct.character_id = c.id AND ct.language_code = ?
-   WHERE qc.quote_id = q.id) AS characters_json,
-  (SELECT COALESCE(JSON_ARRAYAGG(JSON_OBJECT('id', tg.id, 'name', tt.tag_name, 'emoji', tg.emoji)), JSON_ARRAY())
-   FROM quote_tags rqt
-   INNER JOIN tags tg ON tg.id = rqt.tag_id AND tg.${kindCol} = ?
-   INNER JOIN tag_translations tt ON tt.tag_id = tg.id AND tt.language_code = ?
-   WHERE rqt.quote_id = q.id) AS scene_times_json,
-  (SELECT COALESCE(JSON_ARRAYAGG(JSON_OBJECT('id', tg.id, 'name', tt.tag_name, 'emoji', tg.emoji)), JSON_ARRAY())
-   FROM quote_tags rqt
-   INNER JOIN tags tg ON tg.id = rqt.tag_id AND tg.${kindCol} = ?
-   INNER JOIN tag_translations tt ON tt.tag_id = tg.id AND tt.language_code = ?
-   WHERE rqt.quote_id = q.id) AS themes_json,
-  (SELECT COALESCE(JSON_ARRAYAGG(JSON_OBJECT('id', tg.id, 'name', tt.tag_name, 'emoji', tg.emoji)), JSON_ARRAY())
-   FROM quote_tags rqt
-   INNER JOIN tags tg ON tg.id = rqt.tag_id AND tg.${kindCol} = ?
-   INNER JOIN tag_translations tt ON tt.tag_id = tg.id AND tt.language_code = ?
-   WHERE rqt.quote_id = q.id) AS devices_json
-${fromSql}
+  at.name AS author_name,
+  bt.title AS book_title,
+  COALESCE(ch.characters_json, JSON_ARRAY()) AS characters_json,
+  COALESCE(st.scene_times_json, JSON_ARRAY()) AS scene_times_json,
+  COALESCE(th.themes_json, JSON_ARRAY()) AS themes_json,
+  COALESCE(dv.devices_json, JSON_ARRAY()) AS devices_json
+FROM quotes q
+INNER JOIN quote_translations qt ON qt.quote_id = q.id AND qt.language_code = ?
+INNER JOIN books b ON b.id = q.book_id
+INNER JOIN authors au ON au.id = b.author_id
+LEFT JOIN author_translations at ON at.author_id = au.id AND at.language_code = ?
+LEFT JOIN book_translations bt ON bt.book_id = b.id AND bt.language_code = ?
+LEFT JOIN (
+  SELECT qc.quote_id,
+    JSON_ARRAYAGG(JSON_OBJECT('id', c.id, 'name', ct.name, 'emoji', c.emoji)) AS characters_json
+  FROM quote_characters qc
+  INNER JOIN characters c ON c.id = qc.character_id
+  INNER JOIN character_translations ct ON ct.character_id = c.id AND ct.language_code = ?
+  GROUP BY qc.quote_id
+) ch ON ch.quote_id = q.id
+${tagAggSubquery(kindCol, 'st', 'scene_times_json')}
+${tagAggSubquery(kindCol, 'th', 'themes_json')}
+${tagAggSubquery(kindCol, 'dv', 'devices_json')}
+WHERE 1=1
+${whereExtra}
 ORDER BY q.id ASC
 LIMIT ? OFFSET ?
 `
 
-  let connection
   try {
-    connection = await createDbConnection()
-
+    const pool = getDbPool()
     const countParams = [dbLang, ...filterParams]
-    const [countRows] = await connection.query(countSql, countParams)
+    const [countRows] = await pool.query(countSql, countParams)
     const total = Number((countRows as { total: number }[])[0]?.total ?? 0)
 
     const listParams = [
+      dbLang,
       dbLang,
       dbLang,
       dbLang,
@@ -267,13 +277,11 @@ LIMIT ? OFFSET ?
       dbLang,
       kDevice,
       dbLang,
-      dbLang,
       ...filterParams,
       pageSize,
       offset
     ]
-    const [rows] = await connection.query(listSql, listParams)
-
+    const [rows] = await pool.query(listSql, listParams)
     const items = (rows as Record<string, unknown>[]).map(r => mapRow(r, config))
 
     return {
@@ -288,9 +296,5 @@ LIMIT ? OFFSET ?
       statusCode: 500,
       statusMessage: 'Failed to query quotes.'
     })
-  } finally {
-    if (connection) {
-      await connection.end().catch(() => {})
-    }
   }
 })
