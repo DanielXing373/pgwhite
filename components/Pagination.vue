@@ -1,6 +1,5 @@
 <template>
   <div class="pagination">
-    <!-- 左箭头 -->
     <button
       class="pagination-btn pagination-btn--arrow"
       :disabled="currentPage === 1"
@@ -10,20 +9,22 @@
       <span class="pagination-arrow">‹</span>
     </button>
 
-    <!-- 页码按钮 -->
-    <button
-      v-for="page in visiblePages"
-      :key="page"
-      class="pagination-btn pagination-btn--number"
-      :class="{
-        'pagination-btn--active': page === currentPage
-      }"
-      @click="goToPage(page)"
-    >
-      {{ page }}
-    </button>
+    <template v-for="item in paginationItems" :key="item.key">
+      <span
+        v-if="item.type === 'ellipsis'"
+        class="pagination-ellipsis"
+        aria-hidden="true"
+      >…</span>
+      <button
+        v-else
+        class="pagination-btn pagination-btn--number"
+        :class="{ 'pagination-btn--active': item.page === currentPage }"
+        @click="goToPage(item.page)"
+      >
+        {{ item.page }}
+      </button>
+    </template>
 
-    <!-- 右箭头 -->
     <button
       class="pagination-btn pagination-btn--arrow"
       :disabled="currentPage === totalPages"
@@ -37,7 +38,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useI18n } from '#imports'
 
 const props = defineProps<{
   currentPage: number
@@ -48,32 +48,62 @@ const emit = defineEmits<{
   (e: 'page-change', page: number): void
 }>()
 
-const { t } = useI18n()
+type PaginationItem =
+  | { type: 'page'; page: number; key: string }
+  | { type: 'ellipsis'; key: string }
 
-// 计算可见的页码（显示当前页及前后各2页，最多显示7个页码）
-const visiblePages = computed(() => {
-  const pages: number[] = []
-  const maxVisible = 7
-  const halfVisible = Math.floor(maxVisible / 2)
+/** 1 … 4 5 [6] 7 8 … 末页；靠近首尾时展开连续页码块 */
+const paginationItems = computed((): PaginationItem[] => {
+  const total = props.totalPages
+  const current = props.currentPage
+  if (total <= 0) return []
+  if (total === 1) return [{ type: 'page', page: 1, key: 'page-1' }]
 
-  let start = Math.max(1, props.currentPage - halfVisible)
-  let end = Math.min(props.totalPages, props.currentPage + halfVisible)
+  const maxBlock = 7
+  const items: PaginationItem[] = []
 
-  // 如果当前页靠近开头，确保显示足够的页码
-  if (props.currentPage <= halfVisible) {
-    end = Math.min(maxVisible, props.totalPages)
+  if (total <= maxBlock + 2) {
+    for (let p = 1; p <= total; p++) {
+      items.push({ type: 'page', page: p, key: `page-${p}` })
+    }
+    return items
   }
 
-  // 如果当前页靠近结尾，确保显示足够的页码
-  if (props.currentPage > props.totalPages - halfVisible) {
-    start = Math.max(1, props.totalPages - maxVisible + 1)
+  items.push({ type: 'page', page: 1, key: 'page-1' })
+
+  let start = Math.max(2, current - 2)
+  let end = Math.min(total - 1, current + 2)
+
+  if (current <= 4) {
+    start = 2
+    end = maxBlock
+  } else if (current >= total - 3) {
+    start = total - maxBlock + 1
+    end = total - 1
   }
 
-  for (let i = start; i <= end; i++) {
-    pages.push(i)
+  if (start > 2) {
+    items.push({ type: 'ellipsis', key: 'ellipsis-left' })
+  } else {
+    for (let p = 2; p < start; p++) {
+      items.push({ type: 'page', page: p, key: `page-${p}` })
+    }
   }
 
-  return pages
+  for (let p = start; p <= end; p++) {
+    items.push({ type: 'page', page: p, key: `page-${p}` })
+  }
+
+  if (end < total - 1) {
+    items.push({ type: 'ellipsis', key: 'ellipsis-right' })
+  } else {
+    for (let p = end + 1; p < total; p++) {
+      items.push({ type: 'page', page: p, key: `page-${p}` })
+    }
+  }
+
+  items.push({ type: 'page', page: total, key: `page-${total}` })
+  return items
 })
 
 function goToPage(page: number) {
@@ -90,6 +120,7 @@ function goToPage(page: number) {
   justify-content: center;
   gap: 4px;
   margin: 16px 0;
+  flex-wrap: wrap;
 }
 
 .pagination-btn {
@@ -138,5 +169,17 @@ function goToPage(page: number) {
 .pagination-arrow {
   display: inline-block;
   line-height: 1;
+}
+
+.pagination-ellipsis {
+  min-width: 28px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  font-size: 0.875rem;
+  user-select: none;
+  padding: 0 2px;
 }
 </style>

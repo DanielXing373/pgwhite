@@ -40,6 +40,11 @@
     "expand": "Expand",
     "collapse": "Collapse"
   },
+  "sort": {
+    "label": "Sort",
+    "newest": "Newest",
+    "oldest": "Oldest"
+  },
   "selected": {
     "none": "None (V1.0 only supports clear all, chips coming soon)",
     "emptyHint": "Your selections will appear here",

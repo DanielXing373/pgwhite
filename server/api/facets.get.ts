@@ -12,8 +12,8 @@ function prependEmoji(emoji: string | null | undefined, label: string): string {
   return `${e} ${label}`.trim()
 }
 
-function formatBookLabel(title: string, lang: 'zh' | 'en'): string {
-  return lang === 'zh' ? `《${title}》` : title
+function formatBookLabel(title: string, _lang: 'zh' | 'en'): string {
+  return title
 }
 
 export default defineEventHandler(async event => {

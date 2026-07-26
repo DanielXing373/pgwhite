@@ -5,7 +5,7 @@ File: components/filters/FilterGroup.vue
 注意：颜色/字体走 styles/theme.css 的变量
 ============================================== -->
 <template>
-  <div class="filter-group-wrapper h-full flex flex-col min-h-0">
+  <div class="filter-group-wrapper filter-group-wrapper--fill">
     <!-- 主内容区：chips 在左侧，操作按钮在右侧 -->
     <div class="filter-group-main">
       <!-- 候选项（内部滚动，不影响整体高度） -->
@@ -273,33 +273,49 @@ function handleMatchAllChange(event: Event) {
 </script>
 
 <style scoped>
+.filter-group-wrapper--fill {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+}
+
 /* 主内容区：chips 在左侧，操作按钮在右侧 */
 .filter-group-main {
   display: flex;
   align-items: flex-start;
   gap: 14px;
-  height: 100%;
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding-bottom: 6px;
+  box-sizing: border-box;
 }
 
-/* 筛选区 chips 容器（左侧，占据剩余空间） */
+/* 候选项区：仅排版，滚动条在 .filter-group-main 最右侧 */
 .filter-chips-container {
   flex: 1;
   min-width: 0;
-  min-height: 0;
-  overflow: auto;
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
   align-content: flex-start;
+  box-sizing: border-box;
 }
 
-/* 操作栏（右侧，固定宽度） */
+/* 操作栏：清空本组，紧贴滚动条左侧 */
 .filter-group-actions {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   gap: 8px;
   flex-shrink: 0;
+  position: sticky;
+  top: 0;
 }
 
 /* "满足所有筛选"复选框样式 */

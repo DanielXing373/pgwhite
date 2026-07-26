@@ -61,14 +61,16 @@ File: pages/index.vue
       <div class="results-count" style="color:#6b7280">
         <span class="results-count-line"></span><span class="results-count-text">{{ $t('results.count', { count: quotesTotal }) }}</span><span class="results-count-line"></span>
       </div>
-      <!-- 分页器（顶部） -->
-      <Pagination
-        v-if="totalPages > 0"
-        :currentPage="currentPage"
-        :totalPages="totalPages"
-        @page-change="handlePageChange"
-        class="pagination-top"
-      />
+      <!-- 分页 + 排序（顶部） -->
+      <div v-if="totalPages > 0" class="results-toolbar">
+        <Pagination
+          :currentPage="currentPage"
+          :totalPages="totalPages"
+          @page-change="handlePageChange"
+          class="results-toolbar__pagination pagination-top"
+        />
+        <QuoteSortControl v-model="quoteSort" />
+      </div>
       <div 
         class="result-stack"
         :class="{
@@ -161,6 +163,7 @@ File: pages/index.vue
 <script setup lang="ts">
 import { onMounted, watch, computed, ref, nextTick } from 'vue'
 import Pagination from '~/components/Pagination.vue'
+import QuoteSortControl, { type QuoteSortOrder } from '~/components/QuoteSortControl.vue'
 import SelectedBar from '~/components/SelectedBar.vue'
 import type { Sentence } from '~/composables/useDataset'
 import { useQueryState } from '~/composables/useQueryState'
@@ -246,6 +249,8 @@ const isRefreshing = ref(false)
 
 const ITEMS_PER_PAGE = 10
 const currentPage = ref(1)
+/** 按 quote id 排序：desc=最新，asc=最早（与导入顺序一致） */
+const quoteSort = ref<QuoteSortOrder>('asc')
 
 const { locale, t } = useI18n()
 
@@ -295,7 +300,8 @@ async function fetchQuotes() {
         device: devices.value.length ? devices.value.join(',') : undefined,
         timesAll: String(timesAll.value),
         themesAll: String(themesAll.value),
-        devicesAll: String(devicesAll.value)
+        devicesAll: String(devicesAll.value),
+        sort: quoteSort.value
       }
     })
     quoteItems.value = res.items
@@ -313,6 +319,7 @@ async function fetchQuotes() {
 
 const quoteWatchSources = [
   currentPage,
+  quoteSort,
   q,
   authors,
   books,

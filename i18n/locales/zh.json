@@ -40,6 +40,11 @@
     "expand": "展开",
     "collapse": "收起"
   },
+  "sort": {
+    "label": "排序",
+    "newest": "最新",
+    "oldest": "最早"
+  },
   "selected": {
     "none": "暂无（V1.0 仅清空全部，后续接上 Chips）",
     "emptyHint": "你的选择将显示在这里",

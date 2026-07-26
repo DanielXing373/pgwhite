@@ -207,6 +207,7 @@ export default defineEventHandler(async event => {
 
   const lang = (query.lang === 'zh' || query.lang === 'en' ? query.lang : 'zh') as 'zh' | 'en'
   const dbLang = lang === 'zh' ? String(config.dbLangZh || 'zh') : String(config.dbLangEn || 'en')
+  const sortOrder = query.sort === 'desc' ? 'DESC' : 'ASC'
 
   const { fragments, params: filterParams } = buildFilterSql(query, config)
   const whereExtra = fragments.length ? `AND ${fragments.join(' AND ')}` : ''
@@ -256,7 +257,7 @@ ${tagAggSubquery(kindCol, 'th', 'themes_json')}
 ${tagAggSubquery(kindCol, 'dv', 'devices_json')}
 WHERE 1=1
 ${whereExtra}
-ORDER BY q.id ASC
+ORDER BY q.id ${sortOrder}
 LIMIT ? OFFSET ?
 `
 

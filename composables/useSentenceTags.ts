@@ -39,14 +39,10 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
   const { locale } = useI18n()
 
   /**
-   * 格式化书名：中文加书名号，英文返回原文本（在 CSS 中处理斜体）
+   * 格式化书名：中文直接返回原文；英文在 CSS 中加斜体
    */
-  function formatBookTitle(title: string, isEN: boolean): string {
-    if (isEN) {
-      return title // 英文：返回原文本，通过 CSS class 设置斜体
-    } else {
-      return `《${title}》` // 中文：加书名号
-    }
+  function formatBookTitle(title: string, _isEN: boolean): string {
+    return title
   }
 
   /**
