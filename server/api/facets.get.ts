@@ -19,7 +19,7 @@ function formatBookLabel(title: string, lang: 'zh' | 'en'): string {
 export default defineEventHandler(async event => {
   const query = getQuery(event) as Record<string, unknown>
   const config = useRuntimeConfig()
-  const lang = (query.lang === 'zh' || query.lang === 'en' ? query.lang : 'en') as 'zh' | 'en'
+  const lang = (query.lang === 'zh' || query.lang === 'en' ? query.lang : 'zh') as 'zh' | 'en'
   const dbLang = lang === 'zh' ? String(config.dbLangZh || 'zh') : String(config.dbLangEn || 'en')
   const { kindCol, kTime, kTheme, kDevice } = getTagKindParams(config)
 

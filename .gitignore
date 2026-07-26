@@ -34,4 +34,7 @@ temp.txt
 pgwhite DDL.sql
 pgwhite_testing_data.sql
 
+# 微信读书导入脚本缓存（勿提交）
+scripts/.weread-cache.json
+
 长日将尽笔记.txt

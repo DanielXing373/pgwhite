@@ -15,6 +15,23 @@ export type SentenceTag = {
   dimension: string
 }
 
+/** 卡片精简展示：仅作者 + 书名（用于尚未标注人物/标签维度的新导入 quote） */
+const CARD_TAG_DIMENSIONS = new Set(['authors', 'books'])
+
+function cardTagsOnly(tags: SentenceTag[]): SentenceTag[] {
+  return tags.filter(t => CARD_TAG_DIMENSIONS.has(t.dimension))
+}
+
+/** 是否已有人物或任一类 tag；有则卡片展示全部 tag，无则只展示作者、书名 */
+function hasSecondaryTags(sentence: Sentence): boolean {
+  return (
+    sentence.characterIds.length > 0 ||
+    sentence.timeIds.length > 0 ||
+    sentence.themeIds.length > 0 ||
+    sentence.deviceIds.length > 0
+  )
+}
+
 export function useSentenceTags(filters: ComputedRef<Filters>) {
   const {
     authorById, bookById, characterById, timeById, themeById, deviceById
@@ -119,7 +136,7 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
           dimension: 'devices'
         })
       }
-      return tags
+      return hasSecondaryTags(sentence) ? tags : cardTagsOnly(tags)
     }
 
     // 1. 作者（本地 prototype 数据）
@@ -204,7 +221,7 @@ export function useSentenceTags(filters: ComputedRef<Filters>) {
       }
     })
 
-    return tags
+    return hasSecondaryTags(sentence) ? tags : cardTagsOnly(tags)
   }
 
   return {

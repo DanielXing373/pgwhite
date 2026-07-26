@@ -205,7 +205,7 @@ export default defineEventHandler(async event => {
   const pageSize = Math.min(100, Math.max(1, pageSizeRaw))
   const offset = (page - 1) * pageSize
 
-  const lang = (query.lang === 'zh' || query.lang === 'en' ? query.lang : 'en') as 'zh' | 'en'
+  const lang = (query.lang === 'zh' || query.lang === 'en' ? query.lang : 'zh') as 'zh' | 'en'
   const dbLang = lang === 'zh' ? String(config.dbLangZh || 'zh') : String(config.dbLangEn || 'en')
 
   const { fragments, params: filterParams } = buildFilterSql(query, config)

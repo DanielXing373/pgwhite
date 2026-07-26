@@ -269,7 +269,7 @@ const localQ = computed({
 
 // —— 标签页切换逻辑 —— //
 const { t } = useI18n()
-const activeTab = ref<'authors' | 'books' | 'characters' | 'times' | 'themes' | 'devices' | 'search'>('authors')
+const activeTab = ref<'authors' | 'books' | 'characters' | 'times' | 'themes' | 'devices' | 'search'>('books')
 
 // —— Spotlight 效果白名单：在前三个维度（Authors、Books、Characters）启用高亮和排序 —— //
 const HIGHLIGHT_ENABLED_DIMS = ['authors', 'books', 'characters'] as const

@@ -7,7 +7,9 @@
     "dev": "nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "import:weread": "node scripts/generate-weread-import.mjs",
+    "import:weread:batch": "node scripts/generate-weread-batch-import.mjs"
   },
   "dependencies": {
     "@nuxt/ui": "^4.0.1",
