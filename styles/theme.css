@@ -24,7 +24,7 @@
     --color-chip-active: #dbeafe; /* 选中 chip 背景 */
   
     /* —— 布局尺寸（避免跳动） —— */
-    --filters-h: 100px;           /* 筛选区固定高度，改这里 */
+    --filters-h: 126px;           /* 筛选 tab 内容区高度（chip 多时可滚动） */
     --container-w: 1200px;        /* 主容器宽度上限 */
   }
   
@@ -59,15 +59,7 @@
 
   /* ============ Filter Section ============ */
 .filters-section {
-  margin-bottom: 24px;
-}
-
-.filters-subtitle {
-  font-size: 1rem;
-  font-weight: 500;
-  color: var(--color-fg);
-  margin-bottom: 12px;
-  font-family: var(--font-sans);
+  margin-bottom: 16px;
 }
 
   /* ============ Filter Grid layout ============ */
@@ -148,7 +140,7 @@
     overflow: auto;
     display: flex;
     flex-wrap: wrap;
-    gap: 12px; /* 与结果标签 chips 保持一致的间距 */
+    gap: 9px;
   }
 
 /* =====================================================
@@ -372,7 +364,7 @@
   /* 单个标签页面板 */
   .filter-tab-panel {
     height: 100%;
-    padding: 16px;
+    padding: 14px;
     overflow-y: auto;
   }
 
@@ -694,7 +686,9 @@
 
   /* 基础 chip 样式 */
   .filter-chip {
-    border-radius: 6px; /* 统一圆角，与 selected-chip 和 result-chip 一致 */
+    border-radius: 6px;
+    padding: 3px 7px;
+    line-height: 1.35;
     transition: background-color 0.2s ease, border-color 0.2s ease;
     cursor: pointer;
   }

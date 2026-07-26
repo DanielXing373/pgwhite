@@ -101,7 +101,7 @@ function hexToRgba(hex: string, alpha: number): string {
 function getChipClasses(opt: OptionWithCount): string[] {
   const isSelected = props.modelValue.includes(opt.id)
   const classes = [
-    'px-2 py-1 text-sm border filter-chip',
+    'text-sm border filter-chip',
     props.dimension ? `filter-chip--${props.dimension}` : '',
     isBookChip(opt.id) && isEnglish.value ? 'filter-chip--book' : ''
   ]
@@ -277,7 +277,7 @@ function handleMatchAllChange(event: Event) {
 .filter-group-main {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
+  gap: 14px;
   height: 100%;
 }
 
@@ -289,7 +289,7 @@ function handleMatchAllChange(event: Event) {
   overflow: auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 12px;
+  gap: 9px;
   align-content: flex-start;
 }
 

@@ -7,7 +7,6 @@ File: pages/index.vue
 <!-- —— 筛选区（固定高度，内部滚动） —— -->
 <!-- —— 筛选区（现在每个筛选块自带浅色背景和边框） —— -->
 <div class="filters-section">
-  <h2 class="filters-subtitle">{{ $t('filters.subtitle') }}</h2>
 <FiltersPanel
   :title="$t('filters.title')"
   :facets="facets"
