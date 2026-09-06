@@ -27,7 +27,7 @@
     "searchHint": "(Selected tags still apply)"
   },
   "results": {
-    "empty": "No results found. 1,169 quotes are being updated.",
+    "empty": "No results found. 1,169 quotes are under processing.",
     "count": "Search Results: {count} items",
     "author": "Author",
     "book": "Book",

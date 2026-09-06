@@ -38,7 +38,10 @@ File: components/FlyingGhosts.vue
               `flying-ghost-chip--${chip.dimension}`
             ]"
           >
-            {{ chip.tagLabel }}
+            <template v-for="parts in [labelParts(chip.tagLabel)]" :key="`${chip.id}-label`">
+              <ChipEmoji v-if="parts.emoji" :emoji="parts.emoji" />
+              <span>{{ parts.text }}</span>
+            </template>
           </span>
         </div>
       </div>
@@ -50,9 +53,14 @@ File: components/FlyingGhosts.vue
 import { onMounted, onUnmounted, onBeforeUnmount } from 'vue'
 import { useFlyingChips } from '~/composables/useFlyingChips'
 import type { FlyingChip } from '~/composables/useFlyingChips'
+import { splitLeadingEmoji } from '~/composables/useUIHelpers'
 
 const flyingChipsStore = useFlyingChips()
 const flyingChips = flyingChipsStore.flyingChips // 确保使用响应式引用
+
+function labelParts(tagLabel: string) {
+  return splitLeadingEmoji(tagLabel)
+}
 
 // 生命周期追踪（已禁用，仅在需要调试时启用）
 // const componentId = `FlyingGhosts-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`
@@ -309,7 +317,9 @@ watch(() => flyingChips.value, (newChips, oldChips) => {
 }
 
 .flying-ghost-chip {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
   padding: 4px 10px;
   border-radius: 6px;
   font-size: 0.75rem;

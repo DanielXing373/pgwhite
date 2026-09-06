@@ -74,3 +74,35 @@ export function chipDisplayParts(
   return { emoji: e, text: label }
 }
 
+/**
+ * 从「emoji + 文案」整串里拆出开头的 emoji（供飞行 chip 等已拼接的 label 使用）
+ */
+export function splitLeadingEmoji(label: string): { emoji?: string; text: string } {
+  const raw = label.trim()
+  if (!raw) return { text: label }
+
+  const chars = [...raw]
+  let i = 0
+  // 国旗：两个区域指示符
+  const isRI = (cp: number) => cp >= 0x1f1e6 && cp <= 0x1f1ff
+  const first = chars[0]?.codePointAt(0)
+  if (first != null && isRI(first) && chars.length >= 2) {
+    const second = chars[1]?.codePointAt(0)
+    if (second != null && isRI(second)) {
+      i = 2
+    }
+  }
+  if (i === 0) {
+    // 普通 emoji（含可选 FE0F）
+    const cp = first
+    if (cp != null && cp > 0xff) {
+      i = 1
+      if (chars[1]?.codePointAt(0) === 0xfe0f) i = 2
+    }
+  }
+  if (i === 0) return { text: raw }
+  const emoji = chars.slice(0, i).join('')
+  const text = chars.slice(i).join('').trim()
+  return { emoji, text: text || raw }
+}
+
