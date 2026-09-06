@@ -705,13 +705,22 @@
     gap: 0.3em;
   }
 
-  /* 国旗等 emoji：单独字体栈，避免 Merriweather/中文字体渲染成 GB、DE 字母 */
+  /* 国旗等 emoji：Windows 上用 Twemoji 图片；原生 span 作回退 */
   .chip-emoji {
     font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", "Twemoji Mozilla", sans-serif;
     font-style: normal;
     font-weight: normal;
     font-variant-emoji: emoji;
     line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .chip-emoji-img {
+    width: 1.1em;
+    height: 1.1em;
+    display: inline-block;
+    vertical-align: -0.15em;
+    object-fit: contain;
     flex-shrink: 0;
   }
 

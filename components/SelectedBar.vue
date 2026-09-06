@@ -56,7 +56,7 @@
           @click="handleRemoveTag(item.dimension, item.id)"
           :aria-label="$t('selected.removeTag', { label: item.displayLabel })"
         >
-          <span v-if="item.emoji" class="chip-emoji" aria-hidden="true">{{ item.emoji }}</span>
+          <ChipEmoji v-if="item.emoji" :emoji="item.emoji" />
           <span>{{ item.label }}</span>
         </button>
       </div>

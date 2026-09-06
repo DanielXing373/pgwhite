@@ -120,7 +120,7 @@ File: pages/index.vue
                 ]"
                 @click="handleChipClick(s.id, tag)"
               >
-                <span v-if="tag.emoji" class="chip-emoji" aria-hidden="true">{{ tag.emoji }}</span>
+                <ChipEmoji v-if="tag.emoji" :emoji="tag.emoji" />
                 <span>{{ tag.label }}</span>
               </button>
               <!-- 添加/删除按钮 -->

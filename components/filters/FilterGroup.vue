@@ -17,7 +17,7 @@ File: components/filters/FilterGroup.vue
           :style="getChipStyles(opt)"
           @click="(e) => handleToggle(opt.id, displayLabel(opt), e)"
         >
-          <span v-if="opt.emoji" class="chip-emoji" aria-hidden="true">{{ opt.emoji }}</span>
+          <ChipEmoji v-if="opt.emoji" :emoji="opt.emoji" />
           <span>{{ opt.label }}</span>
         </button>
         <div v-if="sortedOptions.length === 0" class="text-xs text-muted">
