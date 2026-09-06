@@ -15,9 +15,10 @@ File: components/filters/FilterGroup.vue
           :key="opt.id"
           :class="getChipClasses(opt)"
           :style="getChipStyles(opt)"
-          @click="(e) => handleToggle(opt.id, opt.label, e)"
+          @click="(e) => handleToggle(opt.id, displayLabel(opt), e)"
         >
-          {{ opt.label }}
+          <span v-if="opt.emoji" class="chip-emoji" aria-hidden="true">{{ opt.emoji }}</span>
+          <span>{{ opt.label }}</span>
         </button>
         <div v-if="sortedOptions.length === 0" class="text-xs text-muted">
           {{ $t('filters.noMatch') }}
@@ -51,7 +52,7 @@ File: components/filters/FilterGroup.vue
 </template>
 
 <script setup lang="ts">
-type Option = { id: string; label: string }
+type Option = { id: string; label: string; emoji?: string }
 type OptionWithCount = Option & { count: number }
 
 const props = defineProps<{
@@ -189,6 +190,10 @@ const sortedOptions = computed<OptionWithCount[]>(() => {
 // —— 判断是否是书名 chip（通过 ID 前缀判断） —— //
 function isBookChip(id: string): boolean {
   return id.startsWith('b_')
+}
+
+function displayLabel(opt: Option): string {
+  return opt.emoji ? `${opt.emoji} ${opt.label}` : opt.label
 }
 
 // —— 选择/清空 —— //

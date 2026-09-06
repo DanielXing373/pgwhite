@@ -61,3 +61,16 @@ export function prependEmoji(emoji: string | undefined, label: string): string {
   return `${emoji} ${label}`
 }
 
+/**
+ * 拆分 chip 展示：国旗等 emoji 需单独用 emoji 字体渲染，
+ * 否则在 Merriweather / 部分中文字体下会变成 GB、DE 这类字母。
+ */
+export function chipDisplayParts(
+  emoji: string | null | undefined,
+  label: string
+): { emoji?: string; text: string } {
+  const e = emoji?.trim()
+  if (!e) return { text: label }
+  return { emoji: e, text: label }
+}
+

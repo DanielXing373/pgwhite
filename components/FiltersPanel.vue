@@ -140,6 +140,8 @@ File: components/FiltersPanel.vue
   </template>
   
   <script setup lang="ts">
+  import type { FacetOptions } from '~/composables/dimensions'
+
   /**
    * Props 定义
    * 父组件(index.vue)会这样传：
@@ -148,32 +150,13 @@ File: components/FiltersPanel.vue
    *   :title="$t('filters.title')"
    *   :facets="facets"
    *   v-model:authors="authors"
-   *   v-model:books="books"
-   *   v-model:characters="characters"
-   *   v-model:times="times"
-   *   v-model:themes="themes"
-   *   v-model:devices="devices"
+   *   ...
    * />
-   *
-   * Vue 在看到 v-model:authors="authors" 时，会自动期望：
-   * - props.authors 存在
-   * - 子组件会在需要更新时 emit('update:authors', newValue)
-   *
-   * 我们必须在这里把这些都声明清楚。
    */
   
   const props = defineProps<{
     title: string
-  
-    // facets: 每个筛选项的选项列表（已经是 label 化的结构）
-    facets: {
-      authors: { id: string; label: string }[]
-      books:   { id: string; label: string }[]
-      characters:  { id: string; label: string }[]
-      times:   { id: string; label: string }[]
-      themes:  { id: string; label: string }[]
-      devices: { id: string; label: string }[]
-    }
+    facets: FacetOptions
 
     // facetCounts: 当前过滤结果中每个标签的出现次数（用于 Spotlight 效果）
     facetCounts: {

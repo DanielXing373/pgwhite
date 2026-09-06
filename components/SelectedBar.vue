@@ -54,9 +54,10 @@
             item.dimension === 'books' && isEnglish ? 'selected-chip--book' : ''
           ]"
           @click="handleRemoveTag(item.dimension, item.id)"
-          :aria-label="$t('selected.removeTag', { label: item.label })"
+          :aria-label="$t('selected.removeTag', { label: item.displayLabel })"
         >
-          {{ item.label }}
+          <span v-if="item.emoji" class="chip-emoji" aria-hidden="true">{{ item.emoji }}</span>
+          <span>{{ item.label }}</span>
         </button>
       </div>
       <div v-else class="selected-empty">
@@ -75,6 +76,8 @@ type SelectedItem = {
   dimension: DimKey
   id: string
   label: string
+  emoji?: string
+  displayLabel: string
 }
 
 const props = defineProps<{
@@ -102,10 +105,12 @@ const emit = defineEmits<{
 const { locale } = useI18n()
 const isEnglish = computed(() => locale.value === 'en')
 
+function getOptionForId(dim: DimKey, id: string) {
+  return props.facetOptions[dim].find(o => o.id === id)
+}
+
 function getLabelForId(dim: DimKey, id: string): string {
-  const list = props.facetOptions[dim]
-  const opt = list.find(o => o.id === id)
-  return opt?.label ?? id
+  return getOptionForId(dim, id)?.label ?? id
 }
 
 /**
@@ -125,8 +130,16 @@ const selectedItems = computed<SelectedItem[]>(() => {
     })
 
     for (const id of sortedIds) {
-      const label = getLabelForId(dim, id)
-      items.push({ dimension: dim, id, label })
+      const opt = getOptionForId(dim, id)
+      const label = opt?.label ?? id
+      const emoji = opt?.emoji
+      items.push({
+        dimension: dim,
+        id,
+        label,
+        emoji,
+        displayLabel: emoji ? `${emoji} ${label}` : label
+      })
     }
   }
 

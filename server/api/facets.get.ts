@@ -6,14 +6,17 @@ import { getDbPool } from '../utils/db'
 import { getTagKindParams } from '../utils/tagKind'
 import type { FacetOptions } from '~/composables/dimensions'
 
-function prependEmoji(emoji: string | null | undefined, label: string): string {
-  const e = emoji?.trim()
-  if (!e) return label
-  return `${e} ${label}`.trim()
-}
-
 function formatBookLabel(title: string, _lang: 'zh' | 'en'): string {
   return title
+}
+
+function mapFacetRow(id: unknown, label: string, emoji: unknown) {
+  const e = emoji != null ? String(emoji).trim() : ''
+  return {
+    id: String(id),
+    label,
+    ...(e ? { emoji: e } : {})
+  }
 }
 
 export default defineEventHandler(async event => {
@@ -62,26 +65,20 @@ export default defineEventHandler(async event => {
     const [themeRows] = await pool.query(tagSql, [dbLang, kTheme])
     const [deviceRows] = await pool.query(tagSql, [dbLang, kDevice])
 
-    const authors = (authorRows as { id: unknown; emoji: unknown; name: unknown }[]).map(r => ({
-      id: String(r.id),
-      label: prependEmoji(r.emoji != null ? String(r.emoji) : '', String(r.name ?? ''))
-    }))
+    const authors = (authorRows as { id: unknown; emoji: unknown; name: unknown }[]).map(r =>
+      mapFacetRow(r.id, String(r.name ?? ''), r.emoji)
+    )
 
-    const books = (bookRows as { id: unknown; emoji: unknown; title: unknown }[]).map(r => ({
-      id: String(r.id),
-      label: prependEmoji(r.emoji != null ? String(r.emoji) : '', formatBookLabel(String(r.title ?? ''), lang))
-    }))
+    const books = (bookRows as { id: unknown; emoji: unknown; title: unknown }[]).map(r =>
+      mapFacetRow(r.id, formatBookLabel(String(r.title ?? ''), lang), r.emoji)
+    )
 
-    const characters = (characterRows as { id: unknown; emoji: unknown; name: unknown }[]).map(r => ({
-      id: String(r.id),
-      label: prependEmoji(r.emoji != null ? String(r.emoji) : '', String(r.name ?? ''))
-    }))
+    const characters = (characterRows as { id: unknown; emoji: unknown; name: unknown }[]).map(r =>
+      mapFacetRow(r.id, String(r.name ?? ''), r.emoji)
+    )
 
     const mapTag = (rows: { id: unknown; emoji: unknown; tag_name: unknown }[]) =>
-      rows.map(r => ({
-        id: String(r.id),
-        label: prependEmoji(r.emoji != null ? String(r.emoji) : '', String(r.tag_name ?? ''))
-      }))
+      rows.map(r => mapFacetRow(r.id, String(r.tag_name ?? ''), r.emoji))
 
     const payload: FacetOptions = {
       authors,

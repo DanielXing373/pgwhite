@@ -120,7 +120,8 @@ File: pages/index.vue
                 ]"
                 @click="handleChipClick(s.id, tag)"
               >
-                {{ tag.label }}
+                <span v-if="tag.emoji" class="chip-emoji" aria-hidden="true">{{ tag.emoji }}</span>
+                <span>{{ tag.label }}</span>
               </button>
               <!-- 添加/删除按钮 -->
               <div
@@ -130,7 +131,7 @@ File: pages/index.vue
                 <button
                   v-if="!tag.isMatched"
                   class="result-chip-action-btn result-chip-action-btn--add"
-                  @click.stop="(e) => handleAddTag(tag.dimension, tag.id, tag.label, e)"
+                  @click.stop="(e) => handleAddTag(tag.dimension, tag.id, prependEmoji(tag.emoji, tag.label), e)"
                 >
                   <span class="result-chip-action-icon">+</span>
                   {{ $t('results.add') }}
@@ -172,7 +173,7 @@ import { EMPTY_FACETS } from '~/composables/dimensions'
 import { useHistoryManagement } from '~/composables/useHistoryManagement'
 import { useKeyboardShortcuts } from '~/composables/useKeyboardShortcuts'
 import { useSentenceTags } from '~/composables/useSentenceTags'
-import { removeIdPrefix } from '~/composables/useUIHelpers'
+import { removeIdPrefix, prependEmoji } from '~/composables/useUIHelpers'
 import { useFlyingChips } from '~/composables/useFlyingChips'
 
 // —— 查询状态（URL 同步） —— //
