@@ -28,6 +28,7 @@
   },
   "results": {
     "empty": "No results found. 1,169 quotes are under processing.",
+    "loadError": "Could not load quotes (usually the Railway database is not connected). Filter chips will also be empty.",
     "count": "Search Results: {count} items",
     "author": "Author",
     "book": "Book",
@@ -73,5 +74,34 @@
   "dbPrototype": {
     "title": "Database Prototype Test",
     "testButton": "Backend Test"
+  },
+  "tagtest": {
+    "brand": "Pigeon White",
+    "subtitle": "Auto-tag test · one at a time · internal",
+    "pickLang": "Choose the language for this test",
+    "loading": "Calling the tagging API (demo)…",
+    "currentBook": "Annotating:",
+    "of": "·",
+    "currentTags": "Tags on this sentence",
+    "newTag": "New",
+    "flag_typo": "Typo",
+    "flag_tag": "Tag",
+    "flag_other": "Other",
+    "duplicate": "Possible duplicate:",
+    "prev": "Previous",
+    "next": "Next",
+    "submit": "Finish and send",
+    "commitFail": "Submit failed (still not written to the database).",
+    "hintChip": "Click a catalog chip to add a tag.",
+    "hintRemove": "Click a selected chip above to remove it.",
+    "hintNew": "Names missing from the list can be created and stay pinned.",
+    "hintEdit": "Click the author, book, or sentence to fix a typo.",
+    "hintDup": "Near-duplicate sentences will be flagged.",
+    "hintLabel": "Tip",
+    "hintPrev": "Previous tip",
+    "hintNext": "Next tip",
+    "characterCatalog": "Characters already in Test Book (Test Author)",
+    "characterEmpty": "Create a character on the right",
+    "characterPinned": "{count} created this session and pinned to the top."
   }
   }

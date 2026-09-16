@@ -309,7 +309,7 @@ async function fetchQuotes() {
     quotesTotal.value = res.total
   } catch (e) {
     console.error(e)
-    quotesError.value = 'Failed to load quotes.'
+    quotesError.value = t('results.loadError')
     quoteItems.value = []
     quotesTotal.value = 0
   } finally {

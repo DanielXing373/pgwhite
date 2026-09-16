@@ -24,8 +24,9 @@ File: components/FloatingButtons.vue
     <span class="floating-btn-icon">?</span>
   </button>
 
-  <!-- 我要投稿（最下面） -->
+  <!-- 我要投稿（最下面）；标注测试页隐藏 -->
   <button
+    v-if="!hideSubmit"
     class="floating-btn floating-btn--submit"
     :aria-label="$t('floatingButtons.submit')"
     @click="handleSubmitClick"
@@ -37,6 +38,10 @@ File: components/FloatingButtons.vue
 
 <script setup lang="ts">
 const { t } = useI18n()
+
+withDefaults(defineProps<{
+  hideSubmit?: boolean
+}>(), { hideSubmit: false })
 
 /**
  * 滚动到页面顶部

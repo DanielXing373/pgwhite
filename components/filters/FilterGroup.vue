@@ -21,7 +21,7 @@ File: components/filters/FilterGroup.vue
           <span>{{ opt.label }}</span>
         </button>
         <div v-if="sortedOptions.length === 0" class="text-xs text-muted">
-          {{ $t('filters.noMatch') }}
+          {{ emptyLabel || $t('filters.noMatch') }}
         </div>
       </div>
 
@@ -64,6 +64,10 @@ const props = defineProps<{
   dimension?: 'authors' | 'books' | 'characters' | 'times' | 'themes' | 'devices' // 标签组类型，用于应用对应的主题色
   dynamicCounts?: Record<string, number> // 当前过滤结果中每个标签的出现次数（用于 Spotlight 效果）
   hasActiveFilters?: boolean // 是否有其他维度的筛选激活（用于判断是否启用 Spotlight）
+  /** 置顶 id（如本批新建的 tag），保持传入顺序，其余仍按原规则排序 */
+  pinnedIds?: string[]
+  /** 无选项时的文案；不传则用首页的「无匹配项」 */
+  emptyLabel?: string
 }>()
 
 const emit = defineEmits<{
@@ -160,31 +164,32 @@ const hasSelectedItems = computed(() => props.modelValue.length > 0)
 
 // —— 候选项（合并计数并排序，实现 Spotlight 效果） —— //
 const sortedOptions = computed<OptionWithCount[]>(() => {
-  // 如果没有提供 dynamicCounts 或 hasActiveFilters 为 false，保持原始顺序（按字母顺序）
-  if (!props.dynamicCounts || !props.hasActiveFilters) {
-    return props.options.map(opt => ({ ...opt, count: 0 }))
-      .sort((a, b) => a.label.localeCompare(b.label))
+  const pinIds = props.pinnedIds ?? []
+  const pinSet = new Set(pinIds)
+
+  const decorate = (opts: Option[]): OptionWithCount[] => {
+    const counts = props.dynamicCounts
+    const useCounts = Boolean(counts && props.hasActiveFilters)
+    return opts.map(opt => ({ ...opt, count: useCounts ? (counts?.[opt.id] || 0) : 0 }))
   }
-  
-  const counts = props.dynamicCounts
-  
-  // 为每个选项添加计数
-  const optionsWithCounts: OptionWithCount[] = props.options.map(opt => ({
-    ...opt,
-    count: counts[opt.id] || 0
-  }))
-  
-  // 排序（只在 hasActiveFilters 为 true 时排序）：
-  // 1. 主排序：有计数的在上（count > 0），无计数的在下（count === 0）
-  // 2. 次排序：按字母顺序（label）
-  return optionsWithCounts.sort((a, b) => {
-    // 主排序：有计数 vs 无计数
-    if (a.count > 0 && b.count === 0) return -1
-    if (a.count === 0 && b.count > 0) return 1
-    
-    // 次排序：字母顺序
-    return a.label.localeCompare(b.label)
-  })
+
+  const sortRest = (opts: OptionWithCount[]) => {
+    if (!props.dynamicCounts || !props.hasActiveFilters) {
+      return [...opts].sort((a, b) => a.label.localeCompare(b.label))
+    }
+    return [...opts].sort((a, b) => {
+      if (a.count > 0 && b.count === 0) return -1
+      if (a.count === 0 && b.count > 0) return 1
+      return a.label.localeCompare(b.label)
+    })
+  }
+
+  const all = decorate(props.options)
+  const pinned = pinIds
+    .map(id => all.find(o => o.id === id))
+    .filter((o): o is OptionWithCount => Boolean(o))
+  const rest = sortRest(all.filter(o => !pinSet.has(o.id)))
+  return [...pinned, ...rest]
 })
 
 // —— 判断是否是书名 chip（通过 ID 前缀判断） —— //

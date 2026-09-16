@@ -28,6 +28,7 @@
   },
   "results": {
     "empty": "未找到结果。词库正在扩充中，更多内容即将到来！",
+    "loadError": "无法加载句子（多半是没连上 Railway 数据库）。筛选标签也会是空的。",
     "count": "搜索结果：共 {count} 条",
     "author": "作者",
     "book": "书籍",
@@ -73,5 +74,34 @@
   "dbPrototype": {
     "title": "数据库原型测试",
     "testButton": "后端测试用"
+  },
+  "tagtest": {
+    "brand": "鸽白词句库",
+    "subtitle": "自动 tag 测试 · 一次一句 · 内部",
+    "pickLang": "请先选择这次测试使用的语言",
+    "loading": "正在请求标注 API（演示）…",
+    "currentBook": "当前批注书籍：",
+    "of": "的",
+    "currentTags": "本句已选",
+    "newTag": "新建",
+    "flag_typo": "错别字",
+    "flag_tag": "tag",
+    "flag_other": "其他",
+    "duplicate": "可能重复：",
+    "prev": "上一句",
+    "next": "下一句",
+    "submit": "完成并发送",
+    "commitFail": "提交失败（仍未写库）。",
+    "hintChip": "点词表里的 chip 可以添加标签。",
+    "hintRemove": "点上方已选 chip 可以删除。",
+    "hintNew": "词表没有的名字可以新建，会自动置顶。",
+    "hintEdit": "点作者、书名或句子本身，可以直接改打错的字。",
+    "hintDup": "很像的句子会提示可能重复。",
+    "hintLabel": "提示",
+    "hintPrev": "上一条提示",
+    "hintNext": "下一条提示",
+    "characterCatalog": "测试作者在《测试书》中已有的人物",
+    "characterEmpty": "右侧新建人物",
+    "characterPinned": "本批已新建并置顶 {count} 个。"
   }
   }
