@@ -106,7 +106,8 @@ export function useHistory() {
   function undo(): FilterState | null {
     if (currentIndex.value > 0) {
       currentIndex.value--
-      return cloneState(history.value[currentIndex.value])
+      const state = history.value[currentIndex.value]
+      return state ? cloneState(state) : null
     }
     return null
   }
@@ -117,7 +118,8 @@ export function useHistory() {
   function redo(): FilterState | null {
     if (currentIndex.value < history.value.length - 1) {
       currentIndex.value++
-      return cloneState(history.value[currentIndex.value])
+      const state = history.value[currentIndex.value]
+      return state ? cloneState(state) : null
     }
     return null
   }

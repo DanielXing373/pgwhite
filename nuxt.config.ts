@@ -5,7 +5,13 @@
 import { defineNuxtConfig } from 'nuxt/config'
 
 export default defineNuxtConfig({
-  typescript: { strict: true },
+  typescript: {
+    strict: true,
+    tsConfig: {
+      // Sprint 0 unit tests use Node's strip-types runner; keep them out of app typecheck.
+      exclude: ['../tests/**/*', 'tests/**/*']
+    }
+  },
   css: ['./styles/theme.css'],
 
   // @nuxt/ui 默认会拉 Google Fonts / Material Icons 元数据，国内常超时重试导致 dev 很慢

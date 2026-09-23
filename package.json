@@ -9,7 +9,15 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "import:weread": "node scripts/generate-weread-import.mjs",
-    "import:weread:batch": "node scripts/generate-weread-batch-import.mjs"
+    "import:weread:batch": "node scripts/generate-weread-batch-import.mjs",
+    "test": "node --experimental-strip-types --import ./tests/ts-resolve-hook.mjs --test tests/unit/*.test.ts tests/unit/*.test.mjs",
+    "typecheck": "nuxt typecheck",
+    "db:migrate": "node scripts/migrate.mjs up",
+    "db:migrate:status": "node scripts/migrate.mjs status",
+    "db:migrate:mark": "node scripts/migrate.mjs mark",
+    "db:migrate:new": "node scripts/migrate.mjs new",
+    "db:seed:dev-users": "node scripts/seed-dev-users.mjs",
+    "db:proof:import": "node scripts/proof-import-foundation.mjs"
   },
   "dependencies": {
     "@nuxt/ui": "^4.0.1",
@@ -19,5 +27,9 @@
     "nuxt": "^4.1.2",
     "vue": "^3.5.22",
     "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "typescript": "5.9.3",
+    "vue-tsc": "2.2.12"
   }
 }

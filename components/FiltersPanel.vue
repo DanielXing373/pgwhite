@@ -255,7 +255,7 @@ const { t } = useI18n()
 const activeTab = ref<'authors' | 'books' | 'characters' | 'times' | 'themes' | 'devices' | 'search'>('books')
 
 // —— Spotlight 效果白名单：在前三个维度（Authors、Books、Characters）启用高亮和排序 —— //
-const HIGHLIGHT_ENABLED_DIMS = ['authors', 'books', 'characters'] as const
+const HIGHLIGHT_ENABLED_DIMS: readonly string[] = ['authors', 'books', 'characters']
 
 // 计算是否有其他维度的筛选激活（用于判断是否启用 Spotlight）
 function hasActiveFilters(excludeDimension: string): boolean {

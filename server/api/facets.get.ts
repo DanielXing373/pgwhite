@@ -80,13 +80,14 @@ export default defineEventHandler(async event => {
     const mapTag = (rows: { id: unknown; emoji: unknown; tag_name: unknown }[]) =>
       rows.map(r => mapFacetRow(r.id, String(r.tag_name ?? ''), r.emoji))
 
+    type TagRow = { id: unknown; emoji: unknown; tag_name: unknown }
     const payload: FacetOptions = {
       authors,
       books,
       characters,
-      times: mapTag(timeRows as { id: unknown; tag_name: unknown }[]),
-      themes: mapTag(themeRows as { id: unknown; tag_name: unknown }[]),
-      devices: mapTag(deviceRows as { id: unknown; tag_name: unknown }[])
+      times: mapTag(timeRows as TagRow[]),
+      themes: mapTag(themeRows as TagRow[]),
+      devices: mapTag(deviceRows as TagRow[])
     }
 
     return payload

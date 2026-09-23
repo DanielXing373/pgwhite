@@ -3,10 +3,13 @@
  * 从微信读书拉取划线，生成 pgwhite_weread_import.sql（增量，不 TRUNCATE）
  * 用法: node scripts/generate-weread-import.mjs
  * 需要 .env 中的 WEREAD_API_KEY（勿提交）
+ *
+ * 这是 Import（外部划线进入 PGWhite），不是 Favorite/收藏。
  */
 import { readFileSync, writeFileSync } from 'node:fs'
 import { resolve, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { generateWereadImportSql } from './lib/wereadImportSql.mjs'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const ROOT = resolve(__dirname, '..')
@@ -37,10 +40,6 @@ function loadWereadKey() {
     /* ignore */
   }
   throw new Error('缺少 WEREAD_API_KEY：请在 .env 中设置，勿写入代码仓库')
-}
-
-function sqlEscape(s) {
-  return String(s).replace(/\\/g, '\\\\').replace(/'/g, "''")
 }
 
 async function wereadPost(key, body) {
@@ -77,70 +76,27 @@ async function fetchHighlights(key, bookId) {
   return {
     title: book.title || `book-${bookId}`,
     author: book.author || '未知作者',
-    items
+    highlights: items.map(u => (u.markText || '').trim()).filter(Boolean)
   }
 }
 
 async function main() {
   const key = loadWereadKey()
-  const lines = []
-  lines.push('-- =====================================================')
-  lines.push('-- pgwhite_weread_import.sql')
-  lines.push('-- 增量导入：微信读书划线 → quotes（仅 zh，无 tag/人物）')
-  lines.push(`-- 生成: ${new Date().toISOString()}`)
-  lines.push('-- 执行前请确认 Railway 上 authors/books/quotes 的 MAX(id) 未与本文件冲突')
-  lines.push('-- =====================================================')
-  lines.push('')
-  lines.push('USE pgwhite;')
-  lines.push('')
-
-  let authorId = START_AUTHOR_ID
-  let bookId = START_BOOK_ID
-  let quoteId = START_QUOTE_ID
-  let totalQuotes = 0
-
+  const books = []
   for (const wereadBookId of WEREAD_BOOK_IDS) {
-    const { title, author, items } = await fetchHighlights(key, wereadBookId)
-    if (!items.length) {
-      lines.push(`-- 跳过 ${title}（无划线）`)
-      lines.push('')
-      continue
-    }
-
-    const authorZh = author.trim()
-    const authorEn = authorZh // 暂用同名占位，后续可补
-    const emoji = authorEmojiGuess(authorZh)
-
-    lines.push(`-- 微信读书 bookId=${wereadBookId} · ${title} · ${authorZh} · ${items.length} 条划线`)
-    lines.push(`INSERT INTO authors (id, emoji) VALUES (${authorId}, '${emoji}');`)
-    lines.push(
-      `INSERT INTO author_translations (author_id, language_code, name) VALUES (${authorId}, 'zh', '${sqlEscape(authorZh)}'), (${authorId}, 'en', '${sqlEscape(authorEn)}');`
-    )
-    lines.push(`INSERT INTO books (id, author_id, emoji) VALUES (${bookId}, ${authorId}, '📚');`)
-    lines.push(
-      `INSERT INTO book_translations (book_id, language_code, title) VALUES (${bookId}, 'zh', '${sqlEscape(title)}'), (${bookId}, 'en', '${sqlEscape(title)}');`
-    )
-    lines.push('')
-
-    for (const item of items) {
-      const text = (item.markText || '').trim()
-      lines.push(`INSERT INTO quotes (id, book_id) VALUES (${quoteId}, ${bookId});`)
-      lines.push(
-        `INSERT INTO quote_translations (quote_id, language_code, content) VALUES (${quoteId}, 'zh', '${sqlEscape(text)}');`
-      )
-      quoteId++
-      totalQuotes++
-    }
-
-    lines.push('')
-    authorId++
-    bookId++
+    const fetched = await fetchHighlights(key, wereadBookId)
+    books.push({ wereadBookId, ...fetched })
   }
 
-  lines.push(`-- 合计新增 ${totalQuotes} 条 quote（${WEREAD_BOOK_IDS.length} 本书）`)
-  lines.push('SELECT COUNT(*) AS quotes_after_import FROM quotes;')
+  const { sql, totalQuotes } = generateWereadImportSql({
+    books,
+    startAuthorId: START_AUTHOR_ID,
+    startBookId: START_BOOK_ID,
+    startQuoteId: START_QUOTE_ID,
+    authorEmojiGuess
+  })
 
-  writeFileSync(OUT, lines.join('\n') + '\n', 'utf8')
+  writeFileSync(OUT, sql, 'utf8')
   console.log(`Wrote ${OUT} (${totalQuotes} quotes)`)
 }
 
