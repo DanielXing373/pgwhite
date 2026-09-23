@@ -1,0 +1,950 @@
+{
+  "generated_at": "2026-09-23T20:58:16.880Z",
+  "note": "Deterministic content-based mapping: data/sentences.json slug → MySQL quote id",
+  "mappings": [
+    {
+      "slug": "s_zh_11",
+      "language": "zh",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 1,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_12",
+      "language": "zh",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 2,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_13",
+      "language": "zh",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 3,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_14",
+      "language": "zh",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 4,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_15",
+      "language": "zh",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 5,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_16",
+      "language": "zh",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 6,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_17",
+      "language": "zh",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 7,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_18",
+      "language": "zh",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 8,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_19",
+      "language": "zh",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 9,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_20",
+      "language": "zh",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 10,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_21",
+      "language": "zh",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 11,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_22",
+      "language": "zh",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 12,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_23",
+      "language": "zh",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 13,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_24",
+      "language": "zh",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 14,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_25",
+      "language": "zh",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 15,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_26",
+      "language": "zh",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 16,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_27",
+      "language": "zh",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 17,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_28",
+      "language": "zh",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 18,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_29",
+      "language": "zh",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 19,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_30",
+      "language": "zh",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 20,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_31",
+      "language": "zh",
+      "book_slug": "b_strange_life",
+      "author_slug": "a_granin",
+      "mysql_quote_id": 21,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_32",
+      "language": "zh",
+      "book_slug": "b_strange_life",
+      "author_slug": "a_granin",
+      "mysql_quote_id": 22,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_33",
+      "language": "zh",
+      "book_slug": "b_strange_life",
+      "author_slug": "a_granin",
+      "mysql_quote_id": 23,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_34",
+      "language": "zh",
+      "book_slug": "b_strange_life",
+      "author_slug": "a_granin",
+      "mysql_quote_id": 24,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_35",
+      "language": "zh",
+      "book_slug": "b_strange_life",
+      "author_slug": "a_granin",
+      "mysql_quote_id": 25,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_36",
+      "language": "zh",
+      "book_slug": "b_strange_life",
+      "author_slug": "a_granin",
+      "mysql_quote_id": 26,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_37",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 27,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_38",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 28,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_39",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 29,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_40",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 30,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_en_11",
+      "language": "en",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 31,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_12",
+      "language": "en",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 32,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_13",
+      "language": "en",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 33,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_14",
+      "language": "en",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 34,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_15",
+      "language": "en",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 35,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_16",
+      "language": "en",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 36,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_17",
+      "language": "en",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 37,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_18",
+      "language": "en",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 38,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_19",
+      "language": "en",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 39,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_20",
+      "language": "en",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 40,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_21",
+      "language": "en",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 41,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_22",
+      "language": "en",
+      "book_slug": "b_nocturnes",
+      "author_slug": "a_ishiguro",
+      "mysql_quote_id": 42,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_23",
+      "language": "en",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 43,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_24",
+      "language": "en",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 44,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_25",
+      "language": "en",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 45,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_26",
+      "language": "en",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 46,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_27",
+      "language": "en",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 47,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_28",
+      "language": "en",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 48,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_29",
+      "language": "en",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 49,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_30",
+      "language": "en",
+      "book_slug": "b_siddhartha",
+      "author_slug": "a_hesse",
+      "mysql_quote_id": 50,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_31",
+      "language": "en",
+      "book_slug": "b_strange_life",
+      "author_slug": "a_granin",
+      "mysql_quote_id": 51,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_32",
+      "language": "en",
+      "book_slug": "b_strange_life",
+      "author_slug": "a_granin",
+      "mysql_quote_id": 52,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_33",
+      "language": "en",
+      "book_slug": "b_strange_life",
+      "author_slug": "a_granin",
+      "mysql_quote_id": 53,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_34",
+      "language": "en",
+      "book_slug": "b_strange_life",
+      "author_slug": "a_granin",
+      "mysql_quote_id": 54,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_35",
+      "language": "en",
+      "book_slug": "b_strange_life",
+      "author_slug": "a_granin",
+      "mysql_quote_id": 55,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_36",
+      "language": "en",
+      "book_slug": "b_strange_life",
+      "author_slug": "a_granin",
+      "mysql_quote_id": 56,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_37",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 57,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_38",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 58,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_39",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 59,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_40",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 60,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_zh_41",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 61,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_42",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 62,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_43",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 63,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_44",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 64,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_45",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 65,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_46",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 66,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_47",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 67,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_48",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 68,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_49",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 69,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_50",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 70,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_51",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 71,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_52",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 72,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_53",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 73,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_54",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 74,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_55",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 75,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_56",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 76,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_57",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 77,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_en_41",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 78,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_42",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 79,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_43",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 80,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_44",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 81,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_45",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 82,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_46",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 83,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_47",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 84,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_48",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 85,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_49",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 86,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_50",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 87,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_51",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 88,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_52",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 89,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_53",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 90,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_54",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 91,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_55",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 92,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_56",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 93,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_57",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 94,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_zh_58",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 95,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_59",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 96,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_60",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 97,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_61",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 98,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_62",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 99,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_63",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 100,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_64",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 101,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_65",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 102,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_66",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 103,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_67",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 104,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_68",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 105,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_zh_69",
+      "language": "zh",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 106,
+      "mysql_language_code": "zh"
+    },
+    {
+      "slug": "s_en_58",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 107,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_59",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 108,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_60",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 109,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_61",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 110,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_62",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 111,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_63",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 112,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_64",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 113,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_65",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 114,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_66",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 115,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_67",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 116,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_68",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 117,
+      "mysql_language_code": "en"
+    },
+    {
+      "slug": "s_en_69",
+      "language": "en",
+      "book_slug": "b_satan_tango",
+      "author_slug": "a_krasznahorkai",
+      "mysql_quote_id": 118,
+      "mysql_language_code": "en"
+    }
+  ]
+}
