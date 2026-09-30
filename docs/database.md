@@ -2,7 +2,11 @@
 
 本文给协作者说明：**库在哪、表怎么拆、schema 如何演进、本地怎么连、数据从哪来**。
 
-**从 Sprint 0 起，schema 的权威演进历史是 `database/migrations/`。**  
+**Product / version context (1.1):** start at [README.md](README.md). Product semantics live in [product/PRODUCT_MODEL.md](product/PRODUCT_MODEL.md); Import ≠ Favorite is recorded in [decisions/ADR-003-import-and-provenance.md](decisions/ADR-003-import-and-provenance.md). Frozen baseline: [releases/1.0-baseline.md](releases/1.0-baseline.md) (`v1.0`).
+
+This file remains the **engineering/ops** reference for MySQL schema and migrations. It does not replace the Product Model.
+
+**从 PGWhite 1.0 foundation 起，schema 的权威演进历史是 `database/migrations/`。**  
 遗留的本机 `pgwhite DDL.sql`（gitignore，含 `DROP DATABASE`）仅作考古参考，**不要再对共享/生产库执行**。
 
 ---
@@ -47,7 +51,7 @@ MIGRATE_ALLOW_REMOTE=1 pnpm db:migrate
 |------|------|------|
 | Production | Railway `DB_*` | 迁移需 `MIGRATE_ALLOW_REMOTE=1` |
 | Development | 本地 MySQL 或个人远端 | 不要把测试指到生产 |
-| Tests（`pnpm test`） | **不连库** | Sprint 0 为纯 unit tests |
+| Tests（`pnpm test`） | **不连库** | 纯 unit tests（见 package.json） |
 
 ---
 
