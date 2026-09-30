@@ -1,0 +1,38 @@
+{
+  "synckey": 2,
+  "totalCount": 2,
+  "hasMore": 0,
+  "removed": [],
+  "reviews": [
+    {
+      "review": {
+        "reviewId": "rev-associated-1",
+        "bookId": "24953413",
+        "content": "这一段像在对读者说话。",
+        "abstract": "你即将开始阅读伊塔洛·卡尔维诺的新小说。",
+        "range": "10-20",
+        "chapterUid": 1,
+        "chapterIdx": 1,
+        "chapterName": "开始阅读",
+        "createTime": 1700000200,
+        "isPrivate": 0,
+        "type": 1,
+        "topics": [],
+        "pictures": []
+      }
+    },
+    {
+      "review": {
+        "reviewId": "rev-orphan-1",
+        "bookId": "24953413",
+        "content": "整本书的读后感。",
+        "abstract": "",
+        "range": "",
+        "chapterUid": 0,
+        "createTime": 1700000300,
+        "isPrivate": 1,
+        "type": 4
+      }
+    }
+  ]
+}

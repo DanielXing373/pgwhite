@@ -1,6 +1,7 @@
 # PGWhite documentation
 
-**Current milestone:** [1.1 — Documentation Baseline](releases/1.1-documentation-baseline.md)  
+**Current milestone:** [1.2 — Live User Ingestion](releases/1.2-live-user-ingestion.md)  
+**Prior documentation baseline:** [1.1](releases/1.1-documentation-baseline.md)  
 **Working product baseline:** [1.0](releases/1.0-baseline.md) (tag `v1.0` → `63ab96ee2f74b58694cf413357de543f0d0ab041`)
 
 This directory is the **source of truth** for product concepts, roadmap, and accepted architectural decisions for future human contributors and AI coding assistants.
@@ -23,7 +24,7 @@ PGWhite (鸽白词句库) turns long-term literary highlights into a searchable,
 - **Content ingestion (admin/offline):** curated seed SQL + WeRead → generated SQL → manual apply
 - **Engineering foundation for future user Library:** Users, Library Entries, Imports, Import Items, provenance, migrations `0001`–`0005`, historical WeRead reconstruction for Daniel’s library
 
-1.0 does **not** yet productize a live user-facing Import → My Library UI. That is the 1.2–1.5 path. See [releases/1.0-baseline.md](releases/1.0-baseline.md).
+1.0 did **not** productize live user-facing Import. **1.2** adds the R&D Daniel path: `/import` → WeRead notebooks → selected-book import → Result (`/?books=`). My Library scoping remains 1.5. See [releases/1.2-live-user-ingestion.md](releases/1.2-live-user-ingestion.md).
 
 ---
 
@@ -32,8 +33,8 @@ PGWhite (鸽白词句库) turns long-term literary highlights into a searchable,
 | Version | Name | Status |
 |---------|------|--------|
 | **1.0** | Working Baseline | Complete (`v1.0`) |
-| **1.1** | Documentation Baseline | **Current** |
-| 1.2 | Live User Ingestion | Next |
+| **1.1** | Documentation Baseline | Complete |
+| **1.2** | Live User Ingestion | **Current** (acceptance Import #3; tag after merge) |
 | 1.3–1.5 | Normalize → AI → My Library + Result | Planned |
 
 Numeric versions only. See [product/ROADMAP.md](product/ROADMAP.md).
@@ -56,12 +57,14 @@ When Product Model / ADRs conflict with code or schema, **report the conflict ex
 
 ---
 
-## Architectural / product boundaries (1.1)
+## Architectural / product boundaries (1.2)
 
-- Homepage stays **Tag / Filter → Result** (not a dashboard / Import / My Library landing page)
+- Homepage stays **Tag / Filter → Result** (not a dashboard / Import / My Library landing page); `/import` is a separate R&D surface
 - **Import ≠ Favorite**
+- Runtime imports satisfy dual provenance: ImportItem → LibraryEntry **and** `LibraryEntry.import_id` → same Import
 - Canonical Quote may participate in Personal and Global layers; interpretations may differ
-- Historical WeRead provenance is **reconstructed at batch level**; no synthetic historical ImportItems
+- Historical WeRead provenance remains **reconstructed at batch level**; no synthetic historical ImportItems
+- Personal imports currently appear in shared Result retrieval until 1.5 scoping
 - `/api/dev/*` is R&D-only (disabled in production unless `DEV_DATA_TOOLS=1`)
 - Do not invent speculative schema or UI for later milestones during earlier ones
 
@@ -69,9 +72,9 @@ When Product Model / ADRs conflict with code or schema, **report the conflict ex
 
 ## What comes next?
 
-**1.2 — Live User Ingestion:** turn the offline/admin WeRead path into an application-level user import path (do not overbuild). Details: [ROADMAP.md](product/ROADMAP.md).
+**1.3 — Normalize + Canonical Matching:** reduce duplicate Quotes across imports; classify matched / new / ambiguous. Details: [ROADMAP.md](product/ROADMAP.md).
 
-Do not begin 1.2 work from this documentation milestone alone without an explicit product request.
+Do not begin 1.3 work from this release alone without an explicit product request.
 
 ---
 

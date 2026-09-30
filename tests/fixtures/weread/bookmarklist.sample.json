@@ -1,0 +1,37 @@
+{
+  "synckey": 1,
+  "updated": [
+    {
+      "bookId": "24953413",
+      "chapterIdx": 1,
+      "bookmarkId": "24953413_1_10-20",
+      "range": "10-20",
+      "markText": "你即将开始阅读伊塔洛·卡尔维诺的新小说。",
+      "colorStyle": 3,
+      "type": 1,
+      "chapterUid": 1,
+      "createTime": 1700000000
+    },
+    {
+      "bookId": "24953413",
+      "chapterIdx": 1,
+      "bookmarkId": "24953413_1_30-40",
+      "range": "30-40",
+      "markText": "放松。集中。驱除一切杂念。",
+      "colorStyle": 1,
+      "type": 1,
+      "chapterUid": 1,
+      "createTime": 1700000100
+    }
+  ],
+  "removed": [],
+  "chapters": [{ "title": "开始阅读", "chapterUid": 1, "chapterIdx": 1 }],
+  "book": {
+    "bookId": "24953413",
+    "title": "如果在冬夜，一个旅人",
+    "author": "伊塔洛·卡尔维诺",
+    "cover": "https://example.com/cover1.jpg",
+    "version": "1",
+    "format": "epub"
+  }
+}

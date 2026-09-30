@@ -1,0 +1,49 @@
+{
+  "synckey": 1,
+  "totalBookCount": 2,
+  "totalNoteCount": 10,
+  "hasMore": 0,
+  "books": [
+    {
+      "bookId": "24953413",
+      "reviewCount": 1,
+      "markedStatus": 1,
+      "readingProgress": 100,
+      "noteCount": 2,
+      "bookmarkCount": 0,
+      "sort": 100,
+      "book": {
+        "bookId": "24953413",
+        "title": "如果在冬夜，一个旅人",
+        "author": "伊塔洛·卡尔维诺",
+        "translator": "萧天佑",
+        "cover": "https://example.com/cover1.jpg",
+        "version": "1",
+        "format": "epub",
+        "language": "zh",
+        "publishTime": "2012-01-01"
+      }
+    },
+    {
+      "bookId": "40249484",
+      "reviewCount": 0,
+      "markedStatus": 1,
+      "readingProgress": 80,
+      "noteCount": 1,
+      "bookmarkCount": 1,
+      "sort": 90,
+      "book": {
+        "bookId": "40249484",
+        "title": "索拉里斯星（译林幻系列）",
+        "author": "斯坦尼斯瓦夫·莱姆",
+        "translator": null,
+        "cover": null,
+        "version": "2",
+        "format": "epub",
+        "language": "zh",
+        "publishTime": "2020-01-01",
+        "categories": [{ "title": "科幻" }]
+      }
+    }
+  ]
+}

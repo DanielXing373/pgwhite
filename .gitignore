@@ -37,4 +37,8 @@ pgwhite_testing_data.sql
 # 微信读书导入脚本缓存（勿提交）
 scripts/.weread-cache.json
 
+# Personal WeRead raw captures (may contain private reading data)
+analysis/weread-raw/
+
 长日将尽笔记.txt
+outdated_import_example.txt

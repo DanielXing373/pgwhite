@@ -47,5 +47,5 @@ Engineering references:
 
 ## Open questions
 
-- Live WeRead ingestion API shape and auth (1.2).
+- Live WeRead ingestion API shape for R&D Daniel is **resolved in 1.2** (`/import`, ephemeral key, notebooks + bookmarklist + review/list/mine). Production auth remains deferred.
 - How to re-fetch WeRead `createTime` / bookmark ids that were discarded by the historical SQL export path.

@@ -8,14 +8,17 @@
           <h1 class="topbar-title">{{ $t('site.title') }}</h1>
           <span class="topbar-subtitle">{{ $t('site.subtitle') }}</span>
         </div>
-        <!-- 右侧：语言切换按钮（固定位置） -->
-          <button
-          class="topbar-lang-btn"
-            @click="toggleLocale"
-          :aria-label="targetLanguageLabel"
-          >
-          {{ targetLanguageLabel }}
-          </button>
+        <!-- 右侧：Import (R&D) + 语言切换 -->
+          <div class="topbar-right">
+            <NuxtLink to="/import" class="topbar-import-link">Import</NuxtLink>
+            <button
+              class="topbar-lang-btn"
+              @click="toggleLocale"
+              :aria-label="targetLanguageLabel"
+            >
+              {{ targetLanguageLabel }}
+            </button>
+          </div>
       </div>
     </div>
   </header>
@@ -93,6 +96,27 @@ const toggleLocale = () => {
      - 增大数值（如 11px）：副标题向下移动
      - 如果看不到变化，请清除浏览器缓存或硬刷新（Ctrl+Shift+R / Cmd+Shift+R）
   */
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.topbar-import-link {
+  font-size: 0.875rem;
+  color: var(--color-fg);
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #f5f5f4;
+  background: #fff;
+}
+
+.topbar-import-link:hover {
+  background-color: #fafafa;
 }
 
 .topbar-lang-btn {

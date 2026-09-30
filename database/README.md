@@ -61,6 +61,14 @@ pnpm db:proof:import
 
 Idempotency: `reconstruction_key` UNIQUE + `(user_id, quote_id)` UNIQUE + `INSERT … ON DUPLICATE KEY UPDATE`.
 
+## Sprint 1.2 (live WeRead ingestion, R&D)
+
+- UI: `/import` — ephemeral API key + notebook picker + import selected books
+- APIs: `POST /api/weread/notebooks`, `POST /api/weread/import` (server-only key; not stored)
+- Runtime provenance: Import → ImportItem → LibraryEntry **and** `library_entries.import_id` → same Import
+- No new migrations; uses existing `0001`–`0005` schema
+- Does **not** delete/replace historical 1169 reconstructed quotes
+
 ## Environments
 
 | Environment | How to point | Notes |

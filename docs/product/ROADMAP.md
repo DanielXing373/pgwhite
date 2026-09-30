@@ -7,8 +7,8 @@ Patch versions (`1.5.1`) are reserved for fixes or small revisions to an already
 
 Do not assign version numbers far into the future unless those milestones have been agreed.
 
-**Current:** 1.1 — Documentation Baseline  
-**Baseline tag:** `v1.0` → `63ab96ee2f74b58694cf413357de543f0d0ab041`
+**Current:** 1.2 — Live User Ingestion (accepted on `feature/1.2-live-user-ingestion`; tag after merge)  
+**Baseline tags:** `v1.0` (create `v1.1` / `v1.2` on main after review)
 
 ---
 
@@ -22,7 +22,7 @@ Snapshot: [releases/1.0-baseline.md](../releases/1.0-baseline.md)
 
 ---
 
-## 1.1 — Documentation Baseline — CURRENT
+## 1.1 — Documentation Baseline — COMPLETE
 
 Establish repository source of truth:
 
@@ -36,11 +36,17 @@ Snapshot: [releases/1.1-documentation-baseline.md](../releases/1.1-documentation
 
 ---
 
-## 1.2 — Live User Ingestion
+## 1.2 — Live User Ingestion — COMPLETE (acceptance Import #3)
 
 **Goal:** Turn the current offline / admin-oriented WeRead ingestion path into an application-level **user import** path.
 
 Do not overbuild.
+
+**Shipped (R&D Daniel):** `/import` UI + `POST /api/weread/notebooks` + `POST /api/weread/import`. Ephemeral API key. Runtime dual provenance. Highlights + reviews with exact `bookId|chapterUid|range` association. Deterministic Author/Book reuse. Visibility via existing Result `/?books=`. No AI / no canonical matching / no legacy 1169 replacement / no Global–My scoping.
+
+**Validated:** Import #3 — 123 ImportItems (123 successful) → 120 Quotes on two books (27 + 93); difference explained by 3 matched reviews sharing highlight Quotes.
+
+Snapshot: [releases/1.2-live-user-ingestion.md](../releases/1.2-live-user-ingestion.md)
 
 ---
 

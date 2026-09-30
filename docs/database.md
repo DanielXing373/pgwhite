@@ -2,7 +2,7 @@
 
 本文给协作者说明：**库在哪、表怎么拆、schema 如何演进、本地怎么连、数据从哪来**。
 
-**Product / version context (1.1):** start at [README.md](README.md). Product semantics live in [product/PRODUCT_MODEL.md](product/PRODUCT_MODEL.md); Import ≠ Favorite is recorded in [decisions/ADR-003-import-and-provenance.md](decisions/ADR-003-import-and-provenance.md). Frozen baseline: [releases/1.0-baseline.md](releases/1.0-baseline.md) (`v1.0`).
+**Product / version context (1.2):** start at [README.md](README.md). Product semantics live in [product/PRODUCT_MODEL.md](product/PRODUCT_MODEL.md); Import ≠ Favorite and dual provenance are in [decisions/ADR-003-import-and-provenance.md](decisions/ADR-003-import-and-provenance.md). Live WeRead import path: [releases/1.2-live-user-ingestion.md](releases/1.2-live-user-ingestion.md). Frozen working baseline: [releases/1.0-baseline.md](releases/1.0-baseline.md) (`v1.0`). Schema for 1.2 reused migrations `0001`–`0005` (no new migration).
 
 This file remains the **engineering/ops** reference for MySQL schema and migrations. It does not replace the Product Model.
 
@@ -188,8 +188,9 @@ Item 可无 Library Entry（failed/pending 仍保留 raw）。状态语义见 `s
 ## 7. 数据从哪来
 
 - Demo seed：本机 `pgwhite_testing_data.sql`（gitignore）  
-- WeRead **Import**：`scripts/generate-weread-*.mjs` → SQL 文件 → 人工执行（非应用内流水线）  
-- Import 只写 `zh`、不写 `quote_tags` / `quote_characters`  
+- WeRead **admin/offline Import**（1.0）：`scripts/generate-weread-*.mjs` → SQL 文件 → 人工执行  
+- WeRead **runtime Import**（1.2）：`/import` + `POST /api/weread/notebooks` + `POST /api/weread/import` → `imports` / `import_items` / `library_entries` / `quotes`（见 [releases/1.2-live-user-ingestion.md](releases/1.2-live-user-ingestion.md)）  
+- Import 只写 `zh`、不写 `quote_tags` / `quote_characters`（1.2 still） 
 
 ---
 
