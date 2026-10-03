@@ -8,8 +8,13 @@ export default defineNuxtConfig({
   typescript: {
     strict: true,
     tsConfig: {
-      // Sprint 0 unit tests use Node's strip-types runner; keep them out of app typecheck.
-      exclude: ['../tests/**/*', 'tests/**/*']
+      // Sprint 0 unit tests + 1.3 research harness use Node strip-types; keep out of app typecheck.
+      exclude: [
+        '../tests/**/*',
+        'tests/**/*',
+        '../research/**/*',
+        'research/**/*'
+      ]
     }
   },
   css: ['./styles/theme.css'],

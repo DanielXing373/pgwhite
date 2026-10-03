@@ -40,5 +40,8 @@ scripts/.weread-cache.json
 # Personal WeRead raw captures (may contain private reading data)
 analysis/weread-raw/
 
+# Dedup benchmark bulky scored JSON (CSV + Markdown report are enough)
+research/dedup-benchmark/output/benchmark-results.json
+
 长日将尽笔记.txt
 outdated_import_example.txt

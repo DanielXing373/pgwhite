@@ -1,36 +1,38 @@
 # ADR-001 — Canonical Content
 
-- **Status:** Accepted
-- **Date:** 2026-09-30
-- **Milestone:** PGWhite 1.1 (Documentation Baseline)
+- **Status:** Accepted (updated 1.3)
+- **Date:** 2026-09-30; updated 2026-10-03
+- **Milestone:** PGWhite 1.1 baseline; matching rules closed in 1.3
 
 ## Context
 
-PGWhite stores literary quotes that may arrive from curated corpora, WeRead imports, and (later) other sources. The same underlying passage may appear with superficial formatting differences, or as distinct translations / editions. The product needs a clear conceptual identity without claiming literary authority over “best” translations.
+PGWhite stores literary quotes from curated corpora and WeRead imports. The same underlying passage may appear with superficial formatting differences. Deduplication must not destroy Personal ownership or auto-publish to Community.
 
 ## Decision
 
 1. Conceptual hierarchy is **Author → Book / Edition → Quote**.
-2. Quote identity should eventually consider author, book, edition/translation context, and **normalized** quote text.
-3. Superficial differences (punctuation, whitespace, formatting noise, attribution suffixes already represented structurally) should be candidates for normalization / matching.
-4. Different translations or materially different editions may remain **distinct** Quotes.
-5. PGWhite does **not** decide which literary translation is objectively best.
-6. Exact canonical matching implementation remains **OPEN** (planned consideration in 1.3).
+2. **Dedup means relationship detection, not merge.** A MATCHED Personal Quote remains its own Quote row with its own text/tags/annotations/provenance.
+3. Matcher outcomes: **MATCHED** | **POSSIBLE_MATCH** | **NO_MATCH**, with publication eligibility **personal_only** | **publication_unresolved** | **publication_eligible**.
+4. Automatic MATCHED (v1) requires safe **normalized exact equality** within Book scope (and Chapter gate when both sides have source chapter ids). Similarity scores support candidate ranking / POSSIBLE_MATCH only — never sole auto-match.
+5. Different Books → no match. Different source chapters (when both known) → no match. Textual score 1.0 cannot override structural gates.
+6. Different translations or materially different editions may remain distinct Quotes.
+7. PGWhite does **not** decide which literary translation is objectively best.
+8. Matcher never publishes, never merges bidirectional content, and never represents user consent.
 
 ## Consequences
 
-- Deduplication and “same quote” UX must wait on an explicit matching decision (1.3+).
-- Admin/offline imports today create distinct MySQL `quotes` rows; historical WeRead rows were not merged with curated rows even when authors overlap.
-- Future Global + My Library results must reason about canonical identity to avoid duplicate cards (see ADR-002).
+- Schema: `quote_match_relations`, `quotes.corpus_layer`, chapter source/display fields, `publication_eligibility`, `personal_annotations` (migration `0006`).
+- Future Publish Quote vs Contribute are distinct actions; MATCHED blocks normal Publish Quote of a duplicate Community copy.
+- Benchmark harness remains a regression asset; real cross-edition calibration is future work.
 
 ## Alternatives considered
 
-- Treat every imported string as permanently unique forever — rejected as product direction; progressive organization requires matching later.
-- Force a single “canonical translation” per work — rejected; product explicitly avoids best-translation judgment.
-- Immediate embedding-based semantic dedup as primary matcher — deferred; prefer deterministic matching first (roadmap 1.3).
+- Merge/delete duplicate rows — rejected (destroys Personal history).
+- Single global similarity threshold — rejected (benchmark FP risks: negation/entity swaps ~0.99).
+- Immediate embedding-based semantic dedup — deferred.
 
 ## Open questions
 
-- Exact normalization rules and identity key.
-- How bilingual curated rows (separate zh/en quote rows in the 1–118 corpus) relate to future edition/translation identity.
-- Whether WeRead-origin and curated-origin passages that are textually near-identical should ever merge, and under what provenance rules.
+- When to promote POSSIBLE_MATCH bands using real cross-edition WeRead pairs.
+- How bilingual curated rows (1–118 zh/en pairs) relate to edition identity long-term.
+- Exact Contribute review/moderation workflow (post-1.3).

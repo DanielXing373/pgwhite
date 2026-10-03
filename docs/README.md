@@ -1,8 +1,7 @@
 # PGWhite documentation
 
-**Current milestone:** [1.2 — Live User Ingestion](releases/1.2-live-user-ingestion.md)  
-**Prior documentation baseline:** [1.1](releases/1.1-documentation-baseline.md)  
-**Working product baseline:** [1.0](releases/1.0-baseline.md) (tag `v1.0` → `63ab96ee2f74b58694cf413357de543f0d0ab041`)
+**Current milestone:** [1.3 — Normalize + Canonical Matching](releases/1.3-normalize-canonical-matching.md)  
+**Prior:** [1.2 Live User Ingestion](releases/1.2-live-user-ingestion.md) · [1.1](releases/1.1-documentation-baseline.md) · [1.0](releases/1.0-baseline.md) (`v1.0`)
 
 This directory is the **source of truth** for product concepts, roadmap, and accepted architectural decisions for future human contributors and AI coding assistants.
 
@@ -34,8 +33,9 @@ PGWhite (鸽白词句库) turns long-term literary highlights into a searchable,
 |---------|------|--------|
 | **1.0** | Working Baseline | Complete (`v1.0`) |
 | **1.1** | Documentation Baseline | Complete |
-| **1.2** | Live User Ingestion | **Current** (acceptance Import #3; tag after merge) |
-| 1.3–1.5 | Normalize → AI → My Library + Result | Planned |
+| **1.2** | Live User Ingestion | Complete (`v1.2`) |
+| **1.3** | Normalize + Canonical Matching | **Current** (`v1.3`) |
+| 1.4–1.5 | AI → My Library + Result | Planned |
 
 Numeric versions only. See [product/ROADMAP.md](product/ROADMAP.md).
 
@@ -57,24 +57,24 @@ When Product Model / ADRs conflict with code or schema, **report the conflict ex
 
 ---
 
-## Architectural / product boundaries (1.2)
+## Architectural / product boundaries (1.3)
 
-- Homepage stays **Tag / Filter → Result** (not a dashboard / Import / My Library landing page); `/import` is a separate R&D surface
+- Homepage stays **Tag / Filter → Result**; `/import` is a separate R&D surface
 - **Import ≠ Favorite**
-- Runtime imports satisfy dual provenance: ImportItem → LibraryEntry **and** `LibraryEntry.import_id` → same Import
-- Canonical Quote may participate in Personal and Global layers; interpretations may differ
-- Historical WeRead provenance remains **reconstructed at batch level**; no synthetic historical ImportItems
-- Personal imports currently appear in shared Result retrieval until 1.5 scoping
+- **Dedup ≠ Merge** — MATCHED keeps Personal and Community Quotes as distinct rows
+- Runtime imports: dual provenance + Personal Quote creation + optional `quote_match_relations`
+- Historical WeRead provenance remains reconstructed at batch level (no synthetic historical ImportItems)
+- Personal imports may still appear in shared Result retrieval until 1.5 scoping (known debt)
+- Publish / Contribute UI and Personal/Community visual treatment are **not** in 1.3
 - `/api/dev/*` is R&D-only (disabled in production unless `DEV_DATA_TOOLS=1`)
-- Do not invent speculative schema or UI for later milestones during earlier ones
 
 ---
 
 ## What comes next?
 
-**1.3 — Normalize + Canonical Matching:** reduce duplicate Quotes across imports; classify matched / new / ambiguous. Details: [ROADMAP.md](product/ROADMAP.md).
+**1.4 — AI Annotation** after 1.3 review. Details: [ROADMAP.md](product/ROADMAP.md).
 
-Do not begin 1.3 work from this release alone without an explicit product request.
+Do not begin 1.4 from this milestone alone without an explicit product request.
 
 ---
 
@@ -88,4 +88,6 @@ Do not begin 1.3 work from this release alone without an explicit product reques
 | [releases/](releases/) | Frozen release snapshots |
 | [database.md](database.md) | Database / migrations / ops |
 | [bug-reports/](bug-reports/) | Historical UI bug notes (not product model) |
+| [research/1.3-dedup-benchmark.md](research/1.3-dedup-benchmark.md) | 1.3 quote-dedup benchmark / dry-run harness (R&D) |
 | [`analysis/`](../analysis/) | Forensic provenance artifacts (not runtime) |
+| [`research/dedup-benchmark/`](../research/dedup-benchmark/) | Benchmark fixtures, scorers, CLI (no DB writes) |

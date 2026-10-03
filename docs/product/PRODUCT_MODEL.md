@@ -54,7 +54,7 @@ Different translations or materially different editions may remain distinct.
 
 PGWhite does **not** determine which literary translation is objectively “best.”
 
-**OPEN:** Exact canonical matching algorithm and identity rules.
+**1.3:** Canonical matching records a **relationship** (MATCHED / POSSIBLE_MATCH / NO_MATCH) and publication eligibility. It does **not** merge Quotes or replace Personal text with Community text. See ADR-001.
 
 ---
 
@@ -120,7 +120,7 @@ Future scope filtering should conceptually support:
 - Global
 - My Library
 
-If the same canonical quote exists in both, it should **not** produce duplicate result cards.
+If related Personal and Community Quotes both exist, future Result may show **both** (prefer not missing personal history). Exact dual-context UI is future work (not 1.3).
 
 The result should expose both contexts and may allow switching:
 
@@ -228,8 +228,11 @@ Do **not** collapse these into one moderation score.
 | **Import** | External highlight/content entering PGWhite (e.g. WeRead) |
 | **Favorite** | Future PGWhite-native action on an existing Quote into My Library |
 | **Library Entry** | Membership: this Quote is in this User’s personal library |
-| **Quote** | Canonical literary content entity |
-| **Global** | Community knowledge layer over Quotes |
-| **My Library** | Personal layer for a User |
+| **Quote** | Literary text artifact (Personal and/or Community layer via `corpus_layer`) |
+| **Canonical match** | Relationship between Personal Quote and Community Quote — not a merge |
+| **Global / Community** | Community knowledge layer |
+| **My Library** | Permanent Personal ownership layer for a User |
+| **Publish Quote** | Future action: introduce a Quote not already in Community |
+| **Contribute** | Future action: propose additions to an existing Community Quote |
 
 See also [ADR-003](../decisions/ADR-003-import-and-provenance.md).

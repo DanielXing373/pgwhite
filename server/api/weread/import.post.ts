@@ -56,7 +56,8 @@ export default defineEventHandler(async event => {
     return {
       ok: true,
       ...result,
-      note: 'Import complete. Quotes are in the global Result corpus and Daniel Library. Not Favorite.'
+      note:
+        'Import complete. Personal Quotes preserved in Daniel Library. Canonical matching records relationships only (no merge/publish). Not Favorite.'
     }
   } catch (err: unknown) {
     // Never include apiKey in logs

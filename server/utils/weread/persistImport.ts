@@ -1,8 +1,17 @@
 // =====================================================
-// PGWhite 1.2 — persist WeRead import into existing schema
+// PGWhite WeRead import persistence
 // Dual provenance: ImportItem→LibraryEntry and LibraryEntry.import_id→Import
+// 1.3: Personal Quote always kept; canonical match = relationship only (no merge).
 // =====================================================
 import type { Pool, PoolConnection, ResultSetHeader, RowDataPacket } from 'mysql2/promise'
+import {
+  insertPersonalAnnotation,
+  matchPersonalQuoteAgainstCommunity
+} from '../canonicalMatching/persist'
+import type {
+  MatchDecisionStatus,
+  PublicationEligibility
+} from '../canonicalMatching/types'
 import {
   deriveImportStatusFromItems,
   summarizeItemCounts,
@@ -13,6 +22,7 @@ import { assertNoCredentialInObject } from './client'
 import {
   associationKey,
   type WereadBookmarkList,
+  type WereadChapterInfo,
   type WereadReviewItem
 } from './parseItems'
 
@@ -22,6 +32,13 @@ export type PersistBookInput = {
   author: string
   bookmarkList: WereadBookmarkList
   reviews: WereadReviewItem[]
+}
+
+export type PersistQuoteMatchSummary = {
+  quoteId: number
+  matchStatus: MatchDecisionStatus
+  publicationEligibility: PublicationEligibility
+  relatedCommunityQuoteIds: number[]
 }
 
 export type PersistImportResult = {
@@ -41,6 +58,7 @@ export type PersistImportResult = {
     bookmarkItems: number
     reviewItems: number
     quoteIds: number[]
+    quoteMatches: PersistQuoteMatchSummary[]
   }>
 }
 
@@ -116,22 +134,64 @@ export async function findOrCreateBookId(
   return bookId
 }
 
-async function insertQuoteWithZh(
+function chapterTitleFromList(
+  chapters: WereadChapterInfo[],
+  chapterUid: number | null | undefined
+): string | null {
+  if (chapterUid == null) return null
+  const hit = chapters.find((c) => c.chapterUid === Number(chapterUid))
+  return hit?.title ? String(hit.title) : null
+}
+
+/**
+ * Insert a Personal Quote row. Never reuses/replaces a Community Quote row.
+ * Matcher may later attach a relationship; text always remains this import's text.
+ */
+async function insertPersonalQuoteWithZh(
   conn: PoolConnection,
-  bookId: number,
-  content: string
+  opts: {
+    bookId: number
+    content: string
+    sourceChapterUid: string | null
+    chapterTitle: string | null
+  }
 ): Promise<number> {
   const [ins] = await conn.query<ResultSetHeader>(
-    `INSERT INTO quotes (book_id) VALUES (?)`,
-    [bookId]
+    `INSERT INTO quotes
+       (book_id, corpus_layer, source_chapter_uid, chapter_title, publication_eligibility)
+     VALUES (?, 'personal', ?, ?, NULL)`,
+    [opts.bookId, opts.sourceChapterUid, opts.chapterTitle]
   )
   const quoteId = Number(ins.insertId)
   await conn.query(
     `INSERT INTO quote_translations (quote_id, language_code, content)
      VALUES (?, 'zh', ?)`,
-    [quoteId, content]
+    [quoteId, opts.content]
   )
   return quoteId
+}
+
+async function runCanonicalMatchForPersonalQuote(
+  conn: PoolConnection,
+  opts: {
+    quoteId: number
+    content: string
+    bookId: number
+    sourceChapterUid: string | null
+  }
+): Promise<PersistQuoteMatchSummary> {
+  const decision = await matchPersonalQuoteAgainstCommunity(conn, {
+    sourceQuoteId: opts.quoteId,
+    sourceText: opts.content,
+    sourceBookId: opts.bookId,
+    sourceChapterUid: opts.sourceChapterUid
+  })
+  return {
+    quoteId: opts.quoteId,
+    matchStatus: decision.status,
+    publicationEligibility: decision.publicationEligibility,
+    relatedCommunityQuoteIds: decision.relations.map((r) => r.targetQuoteId)
+  }
 }
 
 async function ensureLibraryEntry(
@@ -218,6 +278,7 @@ export async function persistWereadImport(
       const pgBookId = await findOrCreateBookId(conn, authorId, title)
 
       const quoteIds: number[] = []
+      const quoteMatches: PersistQuoteMatchSummary[] = []
       const assocToEntry = new Map<string, { libraryEntryId: number; quoteId: number }>()
       let bookmarkItems = 0
       let reviewItems = 0
@@ -239,7 +300,18 @@ export async function persistWereadImport(
             continue
           }
 
-          const quoteId = await insertQuoteWithZh(conn, pgBookId, bm.markText)
+          const sourceChapterUid =
+            bm.chapterUid == null ? null : String(bm.chapterUid)
+          const chapterTitle = chapterTitleFromList(
+            bookIn.bookmarkList.chapters,
+            bm.chapterUid
+          )
+          const quoteId = await insertPersonalQuoteWithZh(conn, {
+            bookId: pgBookId,
+            content: bm.markText,
+            sourceChapterUid,
+            chapterTitle
+          })
           const libraryEntryId = await ensureLibraryEntry(conn, userId, quoteId, importId)
           const r = await insertImportItem(conn, {
             importId,
@@ -262,6 +334,13 @@ export async function persistWereadImport(
           } else {
             itemStatuses.push('processed')
             quoteIds.push(quoteId)
+            const matchSummary = await runCanonicalMatchForPersonalQuote(conn, {
+              quoteId,
+              content: bm.markText,
+              bookId: pgBookId,
+              sourceChapterUid
+            })
+            quoteMatches.push(matchSummary)
             const key = associationKey(bm.bookId || bookIn.wereadBookId, bm.chapterUid, bm.range)
             if (key) assocToEntry.set(key, { libraryEntryId, quoteId })
           }
@@ -291,7 +370,18 @@ export async function persistWereadImport(
           const linked = key ? assocToEntry.get(key) : undefined
 
           if (linked) {
-            // Reliable structural association: same ImportItem→LibraryEntry as highlight
+            // Reliable structural association: same ImportItem→LibraryEntry as highlight.
+            // Annotation is Personal metadata — never written onto a Community Quote.
+            const annotationText = rv.content.trim()
+            if (annotationText) {
+              await insertPersonalAnnotation(conn, {
+                libraryEntryId: linked.libraryEntryId,
+                content: annotationText,
+                source: 'weread_review',
+                externalId,
+                rawPayload: rv.raw
+              })
+            }
             const r = await insertImportItem(conn, {
               importId,
               externalId,
@@ -309,7 +399,8 @@ export async function persistWereadImport(
             continue
           }
 
-          // No reliable association — still import as its own quote when content exists
+          // No reliable association — still import as its own Personal Quote when content exists.
+          // (1.2 orphan-review behavior retained; short labels remain product debt, not deleted.)
           const text = rv.content.trim() || (rv.abstract || '').trim()
           if (!text) {
             const r = await insertImportItem(conn, {
@@ -324,8 +415,26 @@ export async function persistWereadImport(
             continue
           }
 
-          const quoteId = await insertQuoteWithZh(conn, pgBookId, text)
+          const sourceChapterUid =
+            rv.chapterUid == null ? null : String(rv.chapterUid)
+          const chapterTitle =
+            rv.chapterName ||
+            chapterTitleFromList(bookIn.bookmarkList.chapters, rv.chapterUid)
+          const quoteId = await insertPersonalQuoteWithZh(conn, {
+            bookId: pgBookId,
+            content: text,
+            sourceChapterUid,
+            chapterTitle
+          })
           const libraryEntryId = await ensureLibraryEntry(conn, userId, quoteId, importId)
+          // Also keep annotation row for orphan review content (Personal metadata).
+          await insertPersonalAnnotation(conn, {
+            libraryEntryId,
+            content: text,
+            source: 'weread_review_orphan',
+            externalId,
+            rawPayload: rv.raw
+          })
           const r = await insertImportItem(conn, {
             importId,
             externalId,
@@ -344,6 +453,14 @@ export async function persistWereadImport(
           } else {
             itemStatuses.push('processed')
             quoteIds.push(quoteId)
+            quoteMatches.push(
+              await runCanonicalMatchForPersonalQuote(conn, {
+                quoteId,
+                content: text,
+                bookId: pgBookId,
+                sourceChapterUid
+              })
+            )
           }
         } catch (err: unknown) {
           const msg = err instanceof Error ? err.message : 'review persist failed'
@@ -365,7 +482,8 @@ export async function persistWereadImport(
         title,
         bookmarkItems,
         reviewItems,
-        quoteIds
+        quoteIds,
+        quoteMatches
       })
     }
 

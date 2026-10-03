@@ -7,8 +7,8 @@ Patch versions (`1.5.1`) are reserved for fixes or small revisions to an already
 
 Do not assign version numbers far into the future unless those milestones have been agreed.
 
-**Current:** 1.2 — Live User Ingestion (accepted on `feature/1.2-live-user-ingestion`; tag after merge)  
-**Baseline tags:** `v1.0` (create `v1.1` / `v1.2` on main after review)
+**Current:** 1.3 — Normalize + Canonical Matching (accepted; tag `v1.3`)  
+**Baseline tags:** `v1.0`, `v1.2`, `v1.3`
 
 ---
 
@@ -50,17 +50,20 @@ Snapshot: [releases/1.2-live-user-ingestion.md](../releases/1.2-live-user-ingest
 
 ---
 
-## 1.3 — Normalize + Canonical Matching
+## 1.3 — Normalize + Canonical Matching — COMPLETE
 
-**Goal:** Normalize imported quote data and classify approximately:
+**Goal:** Detect Personal↔Community Quote **relationships** (not merges), persist chapter source/display metadata, and derive publication eligibility.
 
-- matched existing canonical quote
-- new quote
-- ambiguous / possible match
+**Shipped:**
 
-Prefer deterministic / reliable matching before overbuilding semantic deduplication.
+- Migration `0006` — `corpus_layer`, chapter fields, `quote_match_relations`, `personal_annotations`, `publication_eligibility`
+- Matcher v1 — normalized-exact MATCHED; similarity/containment → POSSIBLE_MATCH; structural Book/Chapter gates
+- Runtime import wiring — Personal Quotes always preserved; match summary on import response
+- Dedup benchmark harness retained as regression asset
 
-Canonical matching details remain **OPEN** in the Product Model / ADR-001.
+**Deferred by product decision:** historical matcher backfill; POSSIBLE band calibration; Result scoping (1.5); Publish/Contribute UX; orphan-review Quote cleanup.
+
+Snapshot: [releases/1.3-normalize-canonical-matching.md](../releases/1.3-normalize-canonical-matching.md)
 
 ---
 

@@ -1,0 +1,606 @@
+{
+  "version": 1,
+  "exported_at": "2026-10-03T02:11:58.760Z",
+  "selection_method": {
+    "name": "stratified_book_length_trait_v1",
+    "book_allow_list": [
+      1,
+      2,
+      4,
+      5,
+      7,
+      9,
+      10,
+      11,
+      12,
+      13,
+      17,
+      19,
+      20
+    ],
+    "per_book_buckets": [
+      "short<=20",
+      "medium21-80",
+      "long81-220"
+    ],
+    "preference": "dialogue > multi_sentence > cn_quotes > punct_rich; tie=lower quote_id",
+    "target": "25-30 seeds",
+    "note": "Deterministic. Not first-N rows. READ-ONLY SELECT export."
+  },
+  "safety": {
+    "db_mutation": "NONE",
+    "queries": "SELECT only via assertReadOnlySql"
+  },
+  "seeds": [
+    {
+      "quote_id": 1,
+      "book_id": 1,
+      "author_id": 1,
+      "book_title_zh": "夜曲：音乐与黄昏五故事集",
+      "author_name_zh": "石黑一雄",
+      "content_zh": "我很伤心，不是因为她冲我大声嚷嚷，而是因为我知道那是托尼·加德纳的唱片，我知道那张唱片对她来说多么重要。我还知道从此以后，当加德纳轻声吟唱那些美国歌曲时，唱片就会发出\"嗞嗞\"的声音。",
+      "char_len": 91,
+      "chapter": "synthetic:1:0",
+      "traits": {
+        "short": false,
+        "medium": false,
+        "long": true,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": false,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 2,
+      "book_id": 1,
+      "author_id": 1,
+      "book_title_zh": "夜曲：音乐与黄昏五故事集",
+      "author_name_zh": "石黑一雄",
+      "content_zh": "我说我不想叨扰他，可是加德纳先生的语气里有丝丝温和的坚持。\"不会，不会，坐下。你刚才说你母亲喜欢我的唱片。\"",
+      "char_len": 54,
+      "chapter": "synthetic:1:0",
+      "traits": {
+        "short": false,
+        "medium": true,
+        "long": false,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": false,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 14,
+      "book_id": 2,
+      "author_id": 2,
+      "book_title_zh": "悉达多",
+      "author_name_zh": "赫尔曼·黑塞",
+      "content_zh": "他如同一个吃得太多、喝得太撑之人，想要将一切在痛苦中呕吐出去，只为换来一丝解脱。他渴望以一场巨大的呕吐，将所有的欢愉、所有的习性、这荒唐无意的生活，连同他自己一并抛洒、清空。",
+      "char_len": 87,
+      "chapter": "synthetic:2:0",
+      "traits": {
+        "short": false,
+        "medium": false,
+        "long": true,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": false,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 16,
+      "book_id": 2,
+      "author_id": 2,
+      "book_title_zh": "悉达多",
+      "author_name_zh": "赫尔曼·黑塞",
+      "content_zh": "他深深陷入了轮回之流，四面八方的厌恶与死亡被他吸收殆尽，就像一块吸满了水的海绵。他满是倦怠，满是苦痛，满是死亡。",
+      "char_len": 56,
+      "chapter": "synthetic:2:0",
+      "traits": {
+        "short": false,
+        "medium": true,
+        "long": false,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": false,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 63,
+      "book_id": 4,
+      "author_id": 4,
+      "book_title_zh": "撒旦探戈",
+      "author_name_zh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "content_zh": "他们决定，他们将在这里，在厨房里等到天黑。弗塔基把一把椅子拉到窗户跟前，眼睛盯着街对面的房子。施密特的困意上来了，趴在桌子上开始打起呼噜，妇人则从餐具柜后面拉出一只带铁箍的军用木箱，掸掉上面的灰尘，将箱子里面也擦拭干净，随后开始一声不响往箱子里装他们的衣物。",
+      "char_len": 129,
+      "chapter": "synthetic:4:1",
+      "traits": {
+        "short": false,
+        "medium": false,
+        "long": true,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": false,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 66,
+      "book_id": 4,
+      "author_id": 4,
+      "book_title_zh": "撒旦探戈",
+      "author_name_zh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "content_zh": "施密特从风雨衣的内侧口袋里掏出一个用麻绳捆着、塞得鼓鼓囊囊、已被汗水浸湿的信封。\"等一下，\"施密特夫人喊住丈夫，迅速用一块搌布把桌面擦干净，\"现在行了。\"",
+      "char_len": 77,
+      "chapter": "synthetic:4:1",
+      "traits": {
+        "short": false,
+        "medium": true,
+        "long": false,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": false,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 192,
+      "book_id": 7,
+      "author_id": 7,
+      "book_title_zh": "地下室手记（经典译本无删减）",
+      "author_name_zh": "陀思妥耶夫斯基",
+      "content_zh": "因此，这位主人公所具有的双重身份就显得意味深长：“他既是时代的控诉者，又是被时代和历史所控诉的对象。”",
+      "char_len": 51,
+      "chapter": "synthetic:7:4",
+      "traits": {
+        "short": false,
+        "medium": true,
+        "long": false,
+        "dialogue": true,
+        "multi_sentence": false,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 210,
+      "book_id": 7,
+      "author_id": 7,
+      "book_title_zh": "地下室手记（经典译本无删减）",
+      "author_name_zh": "陀思妥耶夫斯基",
+      "content_zh": "因他之故，我想必能得上苍宽恕诸多过错。",
+      "char_len": 19,
+      "chapter": "synthetic:7:5",
+      "traits": {
+        "short": true,
+        "medium": false,
+        "long": false,
+        "dialogue": false,
+        "multi_sentence": false,
+        "has_cn_quotes": false,
+        "punctuation_rich": false
+      }
+    },
+    {
+      "quote_id": 217,
+      "book_id": 7,
+      "author_id": 7,
+      "book_title_zh": "地下室手记（经典译本无删减）",
+      "author_name_zh": "陀思妥耶夫斯基",
+      "content_zh": "这种笔调胜过千言万语的辩解，瞬间就让他们明白，对于“昨日那些不堪回首的往事”，我持一种超然物外的态度。我绝非如诸位所想象的那般被打击得魂飞魄散，相反，我以一个懂得自重的绅士所应有的从容与淡定来看待此事。",
+      "char_len": 101,
+      "chapter": "synthetic:7:5",
+      "traits": {
+        "short": false,
+        "medium": false,
+        "long": true,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 445,
+      "book_id": 9,
+      "author_id": 9,
+      "book_title_zh": "海伯利安四部曲",
+      "author_name_zh": "丹·西蒙斯",
+      "content_zh": "“是六天九小时二十七分。​”飞船修正道。",
+      "char_len": 20,
+      "chapter": "synthetic:9:11",
+      "traits": {
+        "short": true,
+        "medium": false,
+        "long": false,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": false
+      }
+    },
+    {
+      "quote_id": 475,
+      "book_id": 9,
+      "author_id": 9,
+      "book_title_zh": "海伯利安四部曲",
+      "author_name_zh": "丹·西蒙斯",
+      "content_zh": "我静静地在那儿坐了片刻，最后说道：“数十亿人尽可以做他们想做的，但我的生命对我来说很重要。我只是想让它……属于我自己。”",
+      "char_len": 60,
+      "chapter": "synthetic:9:11",
+      "traits": {
+        "short": false,
+        "medium": true,
+        "long": false,
+        "dialogue": true,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 547,
+      "book_id": 9,
+      "author_id": 9,
+      "book_title_zh": "海伯利安四部曲",
+      "author_name_zh": "丹·西蒙斯",
+      "content_zh": "他们脚底下的“手掌”颤动着，朝下坠落五米，几乎将他们颠进空中，然后再次颤动起来。耳畔传来一阵隆隆声，好似巨型建筑倒塌，又好似山坡发生了雪崩。 布劳恩很明显地感觉到，云门是在笑。",
+      "char_len": 88,
+      "chapter": "synthetic:9:13",
+      "traits": {
+        "short": false,
+        "medium": false,
+        "long": true,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 583,
+      "book_id": 10,
+      "author_id": 10,
+      "book_title_zh": "瓦尔登湖",
+      "author_name_zh": "亨利·戴维·梭罗",
+      "content_zh": "大自然并不惮于将其自身呈现给他们。",
+      "char_len": 17,
+      "chapter": "synthetic:10:14",
+      "traits": {
+        "short": true,
+        "medium": false,
+        "long": false,
+        "dialogue": false,
+        "multi_sentence": false,
+        "has_cn_quotes": false,
+        "punctuation_rich": false
+      }
+    },
+    {
+      "quote_id": 600,
+      "book_id": 10,
+      "author_id": 10,
+      "book_title_zh": "瓦尔登湖",
+      "author_name_zh": "亨利·戴维·梭罗",
+      "content_zh": "他有时候会大声说：“我好喜欢聊天啊！天啊，我可以聊一整天！”",
+      "char_len": 30,
+      "chapter": "synthetic:10:15",
+      "traits": {
+        "short": false,
+        "medium": true,
+        "long": false,
+        "dialogue": true,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 602,
+      "book_id": 10,
+      "author_id": 10,
+      "book_title_zh": "瓦尔登湖",
+      "author_name_zh": "亨利·戴维·梭罗",
+      "content_zh": "我离镇区的距离倒是能够帮我筛选朋友呢。我在孤寂的大海中已经航行了很远，应酬的江河虽然汇入这片汪洋，但能够在我身边积聚的，基本上都是最优秀的沉淀物，这是很符合我个人的需要的。",
+      "char_len": 86,
+      "chapter": "synthetic:10:15",
+      "traits": {
+        "short": false,
+        "medium": false,
+        "long": true,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": false,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 656,
+      "book_id": 11,
+      "author_id": 1,
+      "book_title_zh": "长日将尽（译文经典）",
+      "author_name_zh": "石黑一雄",
+      "content_zh": "“不过，当然了，这也并不意味着偶尔就不会有这种的时候—在极其孤独的时刻—你会想要对自己说：‘我的人生中犯了个多么可怕的错误。’而且你会开始想象一种不同的生活，一种你原本可能拥有的更好的生活。",
+      "char_len": 95,
+      "chapter": "synthetic:11:16",
+      "traits": {
+        "short": false,
+        "medium": false,
+        "long": true,
+        "dialogue": true,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 729,
+      "book_id": 11,
+      "author_id": 1,
+      "book_title_zh": "长日将尽（译文经典）",
+      "author_name_zh": "石黑一雄",
+      "content_zh": "她开始走上楼梯，但我又叫住她，跟她说：​“肯顿小姐，请别把我此刻不肯马上上楼去为家父送终看作不近人情之举。您知道，我相信家父也会希望我现在履行好自己的职责。​”",
+      "char_len": 80,
+      "chapter": "synthetic:11:18",
+      "traits": {
+        "short": false,
+        "medium": true,
+        "long": false,
+        "dialogue": true,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 788,
+      "book_id": 12,
+      "author_id": 11,
+      "book_title_zh": "局外人（译文经典）",
+      "author_name_zh": "阿尔贝·加缪",
+      "content_zh": "后来，加缪又在《局外人》英译本的序言中，对这个人物作出一连串的赞词：“他不耍花招，从这个意义上说，他是他所生活的那个社会里的局外人”，“他拒绝说谎……是什么，他就说是什么。他拒绝矫饰自己的感情，于是社会就感到受到了威胁”，“他是穷人，是坦诚的人，喜爱光明正大”，“一个无任何英雄行为而自愿为真理而死的人”。",
+      "char_len": 153,
+      "chapter": "synthetic:12:19",
+      "traits": {
+        "short": false,
+        "medium": false,
+        "long": true,
+        "dialogue": true,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 802,
+      "book_id": 12,
+      "author_id": 11,
+      "book_title_zh": "局外人（译文经典）",
+      "author_name_zh": "阿尔贝·加缪",
+      "content_zh": "。我正要请他离开，不要再管我，他却转身向我，突然大声叫嚷了起来：“不，我不信您的话，我确信您曾经盼望过另外一种生活。",
+      "char_len": 58,
+      "chapter": "synthetic:12:20",
+      "traits": {
+        "short": false,
+        "medium": true,
+        "long": false,
+        "dialogue": true,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 890,
+      "book_id": 13,
+      "author_id": 12,
+      "book_title_zh": "你一生的故事（译林幻系列）",
+      "author_name_zh": "特德·姜",
+      "content_zh": "这个系统会分析：“这是适合领略美的环境吗？如果是，那就欣赏吧；如果不是，那就忽略吧。”但这样就圆满了吗？这就是人们谈论的“辅助性成熟”吗？",
+      "char_len": 69,
+      "chapter": "synthetic:13:22",
+      "traits": {
+        "short": false,
+        "medium": true,
+        "long": false,
+        "dialogue": true,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 898,
+      "book_id": 13,
+      "author_id": 12,
+      "book_title_zh": "你一生的故事（译林幻系列）",
+      "author_name_zh": "特德·姜",
+      "content_zh": "地狱的主要惩罚是对生前没有信仰上帝的悔恨",
+      "char_len": 20,
+      "chapter": "synthetic:13:22",
+      "traits": {
+        "short": true,
+        "medium": false,
+        "long": false,
+        "dialogue": false,
+        "multi_sentence": false,
+        "has_cn_quotes": false,
+        "punctuation_rich": false
+      }
+    },
+    {
+      "quote_id": 1160,
+      "book_id": 17,
+      "author_id": 8,
+      "book_title_zh": "显克维奇中短篇小说选（人文社外国文学名著经典·网格本）",
+      "author_name_zh": "亨利克·显克维奇",
+      "content_zh": "舞台的布景，晚上看起来是那样的辉煌动人，白天阳光一照，却成了一幅拙劣的绘画。生活中也往往出现类似的现象。",
+      "char_len": 52,
+      "chapter": "synthetic:17:29",
+      "traits": {
+        "short": false,
+        "medium": true,
+        "long": false,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": false,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 1185,
+      "book_id": 17,
+      "author_id": 8,
+      "book_title_zh": "显克维奇中短篇小说选（人文社外国文学名著经典·网格本）",
+      "author_name_zh": "亨利克·显克维奇",
+      "content_zh": "这些群众听到这蒸汽呼哨出来的歌声，个个兴奋得不能自制，美国人大声呼叫：“呼啦！”德国人高喊：“啊嘿！”墨西哥人则是叫着：“哎，维瓦！”卡菲拉人高兴得像野兽得到美味那样狂呼乱叫。",
+      "char_len": 88,
+      "chapter": "synthetic:17:29",
+      "traits": {
+        "short": false,
+        "medium": false,
+        "long": true,
+        "dialogue": true,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 1248,
+      "book_id": 19,
+      "author_id": 2,
+      "book_title_zh": "荒原狼（果麦经典）",
+      "author_name_zh": "赫尔曼·黑塞",
+      "content_zh": "“我们在《唐璜》的最后一幕，莱波雷洛￼已经跪下。出色的一幕，音乐也值得一听。其中还有各种人性的意味，但仍能感受到彼岸的气息。比如那笑声——不是吗？”",
+      "char_len": 74,
+      "chapter": "synthetic:19:31",
+      "traits": {
+        "short": false,
+        "medium": true,
+        "long": false,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 1273,
+      "book_id": 19,
+      "author_id": 2,
+      "book_title_zh": "荒原狼（果麦经典）",
+      "author_name_zh": "赫尔曼·黑塞",
+      "content_zh": "浮士德曾说过一句教师们十分熟悉，庸人们分外赞赏的话：“啊，我胸中住着两个灵魂！”但他忘了，他胸中还住着梅菲斯特和一大群其他灵魂。我们的荒原狼也认为他胸中住着两个灵魂（狼和人），还认为他的胸膛因此拥挤不堪。一个人的胸膛、身躯向来只有一个，但居住其中的，却绝不止两个或五个灵魂，而是无数个灵魂。",
+      "char_len": 145,
+      "chapter": "synthetic:19:31",
+      "traits": {
+        "short": false,
+        "medium": false,
+        "long": true,
+        "dialogue": true,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 1288,
+      "book_id": 20,
+      "author_id": 17,
+      "book_title_zh": "索拉里斯星（译林幻系列）",
+      "author_name_zh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "content_zh": "恋人和诗人对爱的力量怀有永恒的信念，认为它比死亡还要持久，但那句千百年来一直缠着我们不放的“生命虽尽，爱犹未尽”，实际上不过是一句谎言。这句谎言只是徒劳无益，并非荒唐可笑。",
+      "char_len": 86,
+      "chapter": "weread:15",
+      "traits": {
+        "short": false,
+        "medium": false,
+        "long": true,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 1313,
+      "book_id": 20,
+      "author_id": 17,
+      "book_title_zh": "索拉里斯星（译林幻系列）",
+      "author_name_zh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "content_zh": "我什么时候起飞？”我问道，一边听到一种沙沙的响声，就好像细沙落在膜片上的声音。",
+      "char_len": 39,
+      "chapter": "weread:2",
+      "traits": {
+        "short": false,
+        "medium": true,
+        "long": false,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 1317,
+      "book_id": 5,
+      "author_id": 5,
+      "book_title_zh": "如果在冬夜，一个旅人",
+      "author_name_zh": "伊塔洛·卡尔维诺",
+      "content_zh": "书是一种点状的、粉末状的物质。在洋洋洒洒的文字之中，读者只能注意到最小的片断、词组、譬喻、句法联系、逻辑关系，以及具有丰富涵义的词汇特点。这些东西好比构成作品核心的基本粒子",
+      "char_len": 86,
+      "chapter": "weread:16",
+      "traits": {
+        "short": false,
+        "medium": false,
+        "long": true,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": false,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 1337,
+      "book_id": 5,
+      "author_id": 5,
+      "book_title_zh": "如果在冬夜，一个旅人",
+      "author_name_zh": "伊塔洛·卡尔维诺",
+      "content_zh": "用她的话说，理想的作家就是像“南瓜秧子结南瓜”一样创作的作家。她还用了一些别的顺应自然过程的隐喻，像风沿山坡走、潮水有涨落、年轮不瞒树龄等。",
+      "char_len": 70,
+      "chapter": "weread:13",
+      "traits": {
+        "short": false,
+        "medium": true,
+        "long": false,
+        "dialogue": false,
+        "multi_sentence": true,
+        "has_cn_quotes": true,
+        "punctuation_rich": true
+      }
+    },
+    {
+      "quote_id": 1401,
+      "book_id": 5,
+      "author_id": 5,
+      "book_title_zh": "如果在冬夜，一个旅人",
+      "author_name_zh": "伊塔洛·卡尔维诺",
+      "content_zh": "柳德米拉",
+      "char_len": 4,
+      "chapter": "synthetic:5:35",
+      "traits": {
+        "short": true,
+        "medium": false,
+        "long": false,
+        "dialogue": false,
+        "multi_sentence": false,
+        "has_cn_quotes": false,
+        "punctuation_rich": false
+      }
+    }
+  ]
+}

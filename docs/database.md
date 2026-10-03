@@ -2,7 +2,7 @@
 
 本文给协作者说明：**库在哪、表怎么拆、schema 如何演进、本地怎么连、数据从哪来**。
 
-**Product / version context (1.2):** start at [README.md](README.md). Product semantics live in [product/PRODUCT_MODEL.md](product/PRODUCT_MODEL.md); Import ≠ Favorite and dual provenance are in [decisions/ADR-003-import-and-provenance.md](decisions/ADR-003-import-and-provenance.md). Live WeRead import path: [releases/1.2-live-user-ingestion.md](releases/1.2-live-user-ingestion.md). Frozen working baseline: [releases/1.0-baseline.md](releases/1.0-baseline.md) (`v1.0`). Schema for 1.2 reused migrations `0001`–`0005` (no new migration).
+**Product / version context (1.3):** start at [README.md](README.md). Canonical matching (relationship ≠ merge): [releases/1.3-normalize-canonical-matching.md](releases/1.3-normalize-canonical-matching.md), [research/1.3-schema-audit.md](research/1.3-schema-audit.md). Import ≠ Favorite: [decisions/ADR-003-import-and-provenance.md](decisions/ADR-003-import-and-provenance.md). Migrations `0001`–`0006`.
 
 This file remains the **engineering/ops** reference for MySQL schema and migrations. It does not replace the Product Model.
 
@@ -150,6 +150,19 @@ Item 可无 Library Entry（failed/pending 仍保留 raw）。状态语义见 `s
 - Quotes **119–1287**：1169 条历史 WeRead → 各一条 Daniel `library_entries`，指向重建 Import `legacy_weread_batch_2026-07-26`。
 - **0** 条 synthetic `import_items`（无逐条划线 raw）。
 - 审计产物：`analysis/`（非运行时依赖）。常量见 `server/utils/legacyWereadMigration.ts`。
+
+### 1.3 增量（Canonical matching — relationship, not merge）
+
+| 变更 | 作用 |
+|------|------|
+| `quotes.corpus_layer` | `personal` \| `community`（1–118 → community；其余 personal） |
+| `quotes.source_chapter_uid` | WeRead chapterUid 等来源章节身份（非跨版本 canonical） |
+| `quotes.chapter_title` | 可读章节名（展示元数据） |
+| `quotes.publication_eligibility` | matcher 推导：`personal_only` \| `publication_unresolved` \| `publication_eligible`（≠ 用户同意发布） |
+| `quote_match_relations` | Personal Quote → Community Quote 的 MATCHED / POSSIBLE_MATCH + 分数字段 |
+| `personal_annotations` | 个人批注挂在 `library_entries`（不写 Community Quote） |
+
+**不变量：** matcher 不合并/删除/覆盖 Quote 正文；不自动发布；ImportItem.raw_payload 仍保证可重建。详见 [research/1.3-schema-audit.md](research/1.3-schema-audit.md)。
 
 ### Sprint 0 核查摘要
 
