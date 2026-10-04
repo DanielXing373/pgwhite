@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pgwhite.local/research/tag-library/schemas/cleanup-decision.v1.json",
+  "title": "Atomic Tag cleanup decision log",
+  "type": "object",
+  "required": ["schema_version", "decisions"],
+  "properties": {
+    "schema_version": { "const": "cleanup-decision.v1" },
+    "created_at": { "type": "string" },
+    "policy": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "summary": { "type": "object" },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["action", "label", "reason"],
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "merge",
+              "exclude",
+              "reclassify",
+              "decompose",
+              "keep_alias",
+              "keep_related"
+            ]
+          },
+          "label": { "type": "string" },
+          "maps_to": {
+            "type": ["string", "array", "null"],
+            "items": { "type": "string" }
+          },
+          "dimension": {
+            "type": ["string", "null"]
+          },
+          "reason": { "type": "string" },
+          "provenance": {
+            "type": "array",
+            "items": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

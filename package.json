@@ -10,7 +10,6 @@
     "postinstall": "nuxt prepare",
     "import:weread": "node scripts/generate-weread-import.mjs",
     "import:weread:batch": "node scripts/generate-weread-batch-import.mjs",
-    "test": "node --experimental-strip-types --import ./tests/ts-resolve-hook.mjs --test tests/unit/*.test.ts tests/unit/*.test.mjs",
     "typecheck": "nuxt typecheck",
     "db:migrate": "node scripts/migrate.mjs up",
     "db:migrate:status": "node scripts/migrate.mjs status",
@@ -21,7 +20,15 @@
     "research:dedup:export-seeds": "node --experimental-strip-types --import ./tests/ts-resolve-hook.mjs research/dedup-benchmark/scripts/export-seeds.mjs",
     "research:dedup:generate": "node --experimental-strip-types --import ./tests/ts-resolve-hook.mjs research/dedup-benchmark/scripts/generate-cases.mjs",
     "research:dedup:benchmark": "node --experimental-strip-types --import ./tests/ts-resolve-hook.mjs research/dedup-benchmark/scripts/run-benchmark.mjs",
-    "research:dedup:dry-run": "node --experimental-strip-types --import ./tests/ts-resolve-hook.mjs research/dedup-benchmark/scripts/dry-run.mjs"
+    "research:dedup:dry-run": "node --experimental-strip-types --import ./tests/ts-resolve-hook.mjs research/dedup-benchmark/scripts/dry-run.mjs",
+    "research:annotation:export-snapshot": "node research/annotation-workbench/scripts/export-readonly-snapshot.mjs",
+    "research:annotation:export-fixture": "node research/annotation-workbench/scripts/export-fixture.mjs",
+    "research:annotation:dry-run": "node --experimental-strip-types --import ./tests/ts-resolve-hook.mjs research/annotation-workbench/scripts/dry-run-mock.mjs",
+    "research:annotation:free-concepts": "node --experimental-strip-types --import ./tests/ts-resolve-hook.mjs research/annotation-workbench/scripts/run-free-concepts-live.mjs",
+    "research:taglib:ingest-lto": "node research/tag-library/scripts/ingest-lto.mjs",
+    "research:taglib:build": "python3 research/tag-library/scripts/build-atomic-library.py",
+    "research:taglib:test": "node --test research/tag-library/tests/*.test.mjs",
+    "test": "node --experimental-strip-types --import ./tests/ts-resolve-hook.mjs --test tests/unit/*.test.ts tests/unit/*.test.mjs research/tag-library/tests/*.test.mjs"
   },
   "dependencies": {
     "@nuxt/ui": "^4.0.1",

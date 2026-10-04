@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pgwhite.local/research/tag-library/schemas/atomic-tag.v1.json",
+  "title": "PGWhite Atomic Tag (research)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "canonical_zh",
+    "dimension",
+    "definition",
+    "aliases",
+    "related",
+    "provenance",
+    "status",
+    "representations"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable research ID (not a production tags.id)."
+    },
+    "canonical_zh": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Canonical Chinese label."
+    },
+    "label_en": {
+      "type": ["string", "null"],
+      "description": "English label if available."
+    },
+    "dimension": {
+      "type": "string",
+      "enum": ["theme", "device"]
+    },
+    "definition": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Concise reusable semantic territory (not quote-specific)."
+    },
+    "aliases": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Near-synonym / wording variants for deterministic matching. NOT related concepts."
+    },
+    "related": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Semantically adjacent concepts. Must not be treated as synonyms."
+    },
+    "parents": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional parent concept labels / categories."
+    },
+    "category": {
+      "type": "string"
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "existing_pgwhite",
+          "legacy_human",
+          "annotation_benchmark",
+          "literary_theme_ontology",
+          "generated_candidate",
+          "manual"
+        ]
+      }
+    },
+    "source_refs": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Opaque source references (pgwhite:tag:N, lto:theme:name, run ids, etc.)."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "active_candidate",
+        "excluded_scene_time_conflict",
+        "deprecated",
+        "needs_review"
+      ]
+    },
+    "notes": { "type": "string" },
+    "representations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["A_label", "B_label_definition", "C_label_definition_aliases"],
+      "properties": {
+        "A_label": { "type": "string" },
+        "B_label_definition": { "type": "string" },
+        "C_label_definition_aliases": {
+          "type": "string",
+          "description": "Must not include related concepts."
+        }
+      }
+    }
+  }
+}

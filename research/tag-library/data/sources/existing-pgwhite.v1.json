@@ -1,0 +1,148 @@
+{
+  "schema_version": "tag-source.v1",
+  "provenance": "existing_pgwhite",
+  "extracted_at": "2026-10-04T20:00:00.000Z",
+  "taxonomy_version": "taxonomy-theme-device-v1-excl-time",
+  "themes": [
+    {
+      "zh": "时间",
+      "en": "Time",
+      "production_tag_id": 6,
+      "assignment_count": 12
+    },
+    {
+      "zh": "痛苦",
+      "en": "Suffering",
+      "production_tag_id": 7,
+      "assignment_count": 2
+    },
+    {
+      "zh": "寂静",
+      "en": "Silence",
+      "production_tag_id": 8,
+      "assignment_count": 2
+    },
+    {
+      "zh": "记忆",
+      "en": "Memory",
+      "production_tag_id": 9,
+      "assignment_count": 2
+    },
+    {
+      "zh": "焦虑",
+      "en": "Anxiety",
+      "production_tag_id": 10,
+      "assignment_count": 4
+    },
+    {
+      "zh": "衰败",
+      "en": "Decay",
+      "production_tag_id": 11,
+      "assignment_count": 2
+    },
+    {
+      "zh": "掌控",
+      "en": "Control",
+      "production_tag_id": 12,
+      "assignment_count": 2
+    },
+    {
+      "zh": "死亡",
+      "en": "Death",
+      "production_tag_id": 13,
+      "assignment_count": 2
+    },
+    {
+      "zh": "命运",
+      "en": "Fate",
+      "production_tag_id": 14,
+      "assignment_count": 2
+    },
+    {
+      "zh": "敏感",
+      "en": "Sensitivity",
+      "production_tag_id": 15,
+      "assignment_count": 2
+    },
+    {
+      "zh": "末日",
+      "en": "Apocalypse",
+      "production_tag_id": 16,
+      "assignment_count": 2
+    },
+    {
+      "zh": "厌恶",
+      "en": "Disgust",
+      "production_tag_id": 17,
+      "assignment_count": 2
+    },
+    {
+      "zh": "轮回",
+      "en": "Cycle",
+      "production_tag_id": 18,
+      "assignment_count": 2
+    }
+  ],
+  "devices": [
+    {
+      "zh": "隐喻",
+      "en": "Metaphor",
+      "production_tag_id": 19,
+      "assignment_count": 46
+    },
+    {
+      "zh": "拟人",
+      "en": "Personification",
+      "production_tag_id": 20,
+      "assignment_count": 14
+    },
+    {
+      "zh": "头韵",
+      "en": "Alliteration",
+      "production_tag_id": 21,
+      "assignment_count": 0
+    },
+    {
+      "zh": "内涵",
+      "en": "Connotation",
+      "production_tag_id": 22,
+      "assignment_count": 16
+    },
+    {
+      "zh": "意象",
+      "en": "Imagery",
+      "production_tag_id": 23,
+      "assignment_count": 12
+    },
+    {
+      "zh": "外貌描写",
+      "en": "Appearance Description",
+      "production_tag_id": 24,
+      "assignment_count": 6
+    },
+    {
+      "zh": "动作描写",
+      "en": "Action Description",
+      "production_tag_id": 25,
+      "assignment_count": 6
+    },
+    {
+      "zh": "长句描写",
+      "en": "Long Sentence",
+      "production_tag_id": 26,
+      "assignment_count": 2
+    },
+    {
+      "zh": "通感",
+      "en": "Synesthesia",
+      "production_tag_id": 27,
+      "assignment_count": 2
+    },
+    {
+      "zh": "心理描写",
+      "en": "Psychological Description",
+      "production_tag_id": 28,
+      "assignment_count": 2
+    }
+  ]
+}

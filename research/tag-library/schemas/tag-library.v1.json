@@ -1,0 +1,34 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pgwhite.local/research/tag-library/schemas/tag-library.v1.json",
+  "title": "PGWhite Atomic Tag Library (research dataset)",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "library_version",
+    "research_only",
+    "production_migration",
+    "themes",
+    "devices"
+  ],
+  "properties": {
+    "schema_version": { "const": "atomic-tag-library.v1" },
+    "library_version": { "type": "string" },
+    "created_at": { "type": "string" },
+    "research_only": { "const": true },
+    "production_migration": { "const": false },
+    "philosophy": { "type": "object" },
+    "dimensions": { "type": "object" },
+    "counts": { "type": "object" },
+    "provenance_counts_themes": { "type": "object" },
+    "category_distribution_themes": { "type": "object" },
+    "themes": {
+      "type": "array",
+      "items": { "$ref": "./atomic-tag.v1.json" }
+    },
+    "devices": {
+      "type": "array",
+      "items": { "$ref": "./atomic-tag.v1.json" }
+    }
+  }
+}

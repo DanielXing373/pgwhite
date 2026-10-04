@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pgwhite://research/annotation-workbench/schemas/annotation-interpretation.v1.json",
+  "title": "Personal Annotation interpretation (Workbench v1)",
+  "description": "Research classification of Personal Annotation evidence. Original annotation text is preserved by the Workbench/input layer, not by the LLM.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "pattern",
+    "summary"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "annotation-interpretation.v1"
+    },
+    "pattern": {
+      "type": "string",
+      "enum": ["tag_signal", "reflective_note", "mixed", "unclear"],
+      "description": "Evidence type. Length is a feature, never a hard rule."
+    },
+    "summary": {
+      "type": "string",
+      "description": "Short Chinese explanation of how the annotation was used as evidence."
+    },
+    "tag_like_signals": {
+      "type": "array",
+      "description": "Optional extracted tag-like fragments (e.g. 比喻, 拟人). Not reconciled here.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["text", "guessed_dimension"],
+        "properties": {
+          "text": { "type": "string" },
+          "guessed_dimension": {
+            "type": "string",
+            "enum": ["theme", "device", "unknown"]
+          }
+        }
+      }
+    },
+    "character_like_signals": {
+      "type": "array",
+      "description": "Research-only. Do not create Character relationships or Theme/Device assignments from these.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["text"],
+        "properties": {
+          "text": { "type": "string" },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "used_as_evidence_for_concepts": {
+      "type": "boolean",
+      "description": "Whether any free theme/device concept was materially influenced by the annotation."
+    }
+  }
+}

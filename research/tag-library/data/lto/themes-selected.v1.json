@@ -1,0 +1,3347 @@
+{
+  "schema_version": "lto-theme-extract.v1",
+  "meta": {
+    "source_repo": "https://github.com/theme-ontology/theming",
+    "source_commit": "5a06dc483961b9907914e6baef8de8ffdfc7f22e",
+    "source_commit_date": "2026-09-28 14:59:58 +0100",
+    "license": "MIT for themes/ontology content used here; story descriptions are CC BY-SA and are NOT included in this extract",
+    "attribution": "Literary Theme Ontology (Theme Ontology Project). Upstream: https://github.com/theme-ontology/theming and https://www.themeontology.org/",
+    "theme_file": "notes/themes/primary.th.txt",
+    "total_upstream_themes": 2966,
+    "selected_count": 240,
+    "selection_policy": "Exact-name curated upper/early-middle literary concepts + ancestors for hierarchy. Rejects fuzzy matches that would pull false friends. Not a blind import of all ~2990 themes.",
+    "depth_distribution": {
+      "0": 3,
+      "1": 8,
+      "2": 34,
+      "3": 39,
+      "4": 70,
+      "5": 44,
+      "6": 39,
+      "7": 3
+    },
+    "missing_requested_exact_names": [],
+    "roots": {
+      "alternate reality": [
+        "crackpot theory",
+        "speculative ability",
+        "speculative being",
+        "speculative effect",
+        "speculative experience",
+        "speculative place",
+        "speculative punishment",
+        "speculative society",
+        "speculative technology",
+        "speculative travel"
+      ],
+      "the human world": [
+        "human nature",
+        "personal human experience",
+        "society"
+      ],
+      "the natural world": [
+        "folk belief",
+        "organized religion",
+        "philosophy",
+        "science",
+        "the art of war"
+      ]
+    },
+    "hierarchy_notes": [
+      "LTO has 3 roots: alternate reality, the human world, the natural world",
+      "Upstream theme count in primary.th.txt: 2966",
+      "Upstream depth ranges roughly 0–9; mass of themes sits around depth 3–5",
+      "Many leaf themes are long phrasal story-situation labels — poor PGWhite atomic tags",
+      "PGWhite should mine conceptual mid-nodes and map them to Chinese atomic labels rather than importing English phrasal leaves"
+    ]
+  },
+  "themes": [
+    {
+      "upstream_id": "lto:theme:abandonment",
+      "upstream_name": "abandonment",
+      "definition": "A character, typically a child, who has been dependent on another character,\ntypically a parent, for guidance and/or sustenance must come to terms with the\nsituation when that aid is suddenly and deliberately withdrawn.",
+      "parents": [
+        "coping with life issues"
+      ],
+      "depth": 5,
+      "aliases": [
+        "coping with being abandoned"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Abandonment_(emotional)",
+        "https://en.wikipedia.org/wiki/Child_abandonment"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:acute anxiety",
+      "upstream_name": "acute anxiety",
+      "definition": "A character exhibits general nervousness, fear, and paranoia.",
+      "parents": [
+        "human mental condition"
+      ],
+      "depth": 6,
+      "aliases": [
+        "anxiety"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Panic_attack"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:aesthetics",
+      "upstream_name": "aesthetics",
+      "definition": "Aesthetics is the branch of philosophy dealing with the nature of art, beauty,\ntaste, as well as with the creation and appreciation of beauty. The theme is\nused whenever an aspect of this branch of philosophy is featured in the story.",
+      "parents": [
+        "philosophy"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Aesthetics"
+      ],
+      "children_count": 3
+    },
+    {
+      "upstream_id": "lto:theme:alternate reality",
+      "upstream_name": "alternate reality",
+      "definition": "This is the most general theme about views on the nature of reality considered\noutside of mainstream thought in a past or present society of significant size\nrelative to the global population. For example, the theme may discuss\nspeculative futures, alternate histories, other worlds, Bigfoot, or magic.",
+      "parents": [],
+      "depth": 0,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Speculative_fiction"
+      ],
+      "children_count": 10
+    },
+    {
+      "upstream_id": "lto:theme:anger",
+      "upstream_name": "anger",
+      "definition": "A character exhibits displeasure or vexation to a point that rises above mere\n\"annoyance\", but is not quite so intense that they fall into a \"rage\", loose\ncontrol of themself, and start smashing glass tables.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Anger",
+        "https://en.wikipedia.org/wiki/Contrasting_and_categorization_of_emotions#Plutchik.27s_wheel_of_emotions"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:arranged marriage",
+      "upstream_name": "arranged marriage",
+      "definition": "We are asked to what extent, if any, people should be free to marry whom they\nchoose, or whether parents and other interested parties should have a say.",
+      "parents": [
+        "sociocultural issue"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Arranged_marriage"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:awe",
+      "upstream_name": "awe",
+      "definition": "Awe is an emotion comparable to wonder but less joyous. Typically, in a story\na character is awestruck by something that impresses them deeply.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Awe"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:beauty is in the eye of the beholder",
+      "upstream_name": "beauty is in the eye of the beholder",
+      "definition": "We are shown that the perception of what is beautiful or not depends on the\nobserver. What is pretty to one may be ugly to another.",
+      "parents": [
+        "human idea about life"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wiktionary.org/wiki/beauty_is_in_the_eye_of_the_beholder"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:belonging",
+      "upstream_name": "belonging",
+      "definition": "A character feels that they are an accepted member of a group. Alternatively,\na character struggles with gaining that acceptance.",
+      "parents": [
+        "humans in group",
+        "human social need"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Belongingness"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:betrayal",
+      "upstream_name": "betrayal",
+      "definition": "A character betrays the trust of friend, a family tie, or some other loyalty.",
+      "parents": [
+        "humans interacting"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Betrayal"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:boredom",
+      "upstream_name": "boredom",
+      "definition": "Someone is feeling bored and depressed with their life and existence.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [
+        "ennui"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Boredom"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:child abuse",
+      "upstream_name": "child abuse",
+      "definition": "Child abuse is featured in a context where it is arguably criminal. Child\nabuse or child maltreatment is physical, sexual, and/or psychological\nmaltreatment or neglect of a child or children, especially by a parent or a\ncaregiver.",
+      "parents": [
+        "crime against the person",
+        "violent crime"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Child_abuse"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:childhood trauma",
+      "upstream_name": "childhood trauma",
+      "definition": "A child suffers a traumatic experience of the kind that can haunt you for the\nrest of your life.",
+      "parents": [
+        "human childhood"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Childhood_trauma"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:civil war",
+      "upstream_name": "civil war",
+      "definition": "A segment of a society takes up arms and violently demand independence or\nreshaping of government.",
+      "parents": [
+        "war"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Civil_war"
+      ],
+      "children_count": 3
+    },
+    {
+      "upstream_id": "lto:theme:compassion",
+      "upstream_name": "compassion",
+      "definition": "Someone displays a notable degree of compassion toward the plight of another\nindividual or group.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Compassion"
+      ],
+      "children_count": 2
+    },
+    {
+      "upstream_id": "lto:theme:conflict of duty",
+      "upstream_name": "conflict of duty",
+      "definition": "A character must choose between their \"duty\" to something (for example, a\nleader) on one hand, and a conflicting impulse (for example, a noble cause) on\nthe other.",
+      "parents": [
+        "personal ethical dilemma"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Conflict_of_interest"
+      ],
+      "children_count": 7
+    },
+    {
+      "upstream_id": "lto:theme:contemplating suicide",
+      "upstream_name": "contemplating suicide",
+      "definition": "A character ponders whether their life is worth living.",
+      "parents": [
+        "human life choice",
+        "suicide"
+      ],
+      "depth": 5,
+      "aliases": [
+        "suicide crisis"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Suicide_crisis"
+      ],
+      "children_count": 3
+    },
+    {
+      "upstream_id": "lto:theme:contempt",
+      "upstream_name": "contempt",
+      "definition": "A character regards another character with scorn or disdain and deems them\nbeneath consideration.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Contempt"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:contraposed political ideologies",
+      "upstream_name": "contraposed political ideologies",
+      "definition": "Two or more reasonably well-defined political ideologies are pointedly\ncontrasted.",
+      "parents": [
+        "political ideology"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Political_philosophy",
+        "https://en.wikipedia.org/wiki/Ideology#Political_ideologies"
+      ],
+      "children_count": 9
+    },
+    {
+      "upstream_id": "lto:theme:controlling family member",
+      "upstream_name": "controlling family member",
+      "definition": "One family member is excessively controlling of the life of another family\nmember. For example, an older brother may be controlling who his younger\nsister dates.",
+      "parents": [
+        "coping with a problematic family member"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:controlling partner",
+      "upstream_name": "controlling partner",
+      "definition": "One side in a romantic relationship is excessively controlling of their\npartner's activities.",
+      "parents": [
+        "romantic relationship issue",
+        "controlling family member"
+      ],
+      "depth": 7,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:coping with a failing marriage",
+      "upstream_name": "coping with a failing marriage",
+      "definition": "Family members struggle through a dysfunctional marriage.",
+      "parents": [
+        "disintegrating romantic relationship"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:coping with a problematic family member",
+      "upstream_name": "coping with a problematic family member",
+      "definition": "A character struggles to get along with, control, or abide, a family member\nthat, for one reason or another, causes them trouble.",
+      "parents": [
+        "coping with a problematic person",
+        "family affairs"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Dysfunctional_family"
+      ],
+      "children_count": 3
+    },
+    {
+      "upstream_id": "lto:theme:coping with a problematic person",
+      "upstream_name": "coping with a problematic person",
+      "definition": "A character must put up with a person who they cannot avoid but find if\ndifficult to deal with for whatever reason.",
+      "parents": [
+        "human challenge in life"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [],
+      "children_count": 32
+    },
+    {
+      "upstream_id": "lto:theme:coping with a terminal illness",
+      "upstream_name": "coping with a terminal illness",
+      "definition": "Someone experiences having a terminal illness.",
+      "parents": [
+        "facing death",
+        "human health condition"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:coping with aging",
+      "upstream_name": "coping with aging",
+      "definition": "Someone copes with the inevitability of growing old.",
+      "parents": [
+        "human health condition"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [],
+      "children_count": 3
+    },
+    {
+      "upstream_id": "lto:theme:coping with life issues",
+      "upstream_name": "coping with life issues",
+      "definition": "A character has to live through one or another of those adverse conditions\nthat have been known to plague human life from time to time.",
+      "parents": [
+        "human challenge in life"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [],
+      "children_count": 31
+    },
+    {
+      "upstream_id": "lto:theme:coping with mortality",
+      "upstream_name": "coping with mortality",
+      "definition": "A character struggles with the realization that they will one day die.",
+      "parents": [
+        "coping with life issues"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:coping with post-traumatic stress",
+      "upstream_name": "coping with post-traumatic stress",
+      "definition": "A character copes with a mental disorder that can develop after a person is\nexposed to a traumatic event.",
+      "parents": [
+        "human health condition"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Posttraumatic_stress_disorder"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:corruption in society",
+      "upstream_name": "corruption in society",
+      "definition": "Discussed is the social problem that arises when officials or other people\nthat have been entrusted with authority, to a wide extent abuses their\nposition to acquire illicit benefits for themselves.",
+      "parents": [
+        "political issue"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Corruption"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:courage",
+      "upstream_name": "courage",
+      "definition": "A character faces a perceived danger boldly.",
+      "parents": [
+        "human character"
+      ],
+      "depth": 4,
+      "aliases": [
+        "bravery"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Courage"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:courage in the face of death",
+      "upstream_name": "courage in the face of death",
+      "definition": "Someone shows bravery in the face of lethal danger.",
+      "parents": [
+        "courage"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:cowardice",
+      "upstream_name": "cowardice",
+      "definition": "Someone exhibits a marked lack of courage when the situation demands it.",
+      "parents": [
+        "human character"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Cowardice"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:crime",
+      "upstream_name": "crime",
+      "definition": "One or another of those proscribed actions that are normally punishable by\ncontemporary states, is featured.",
+      "parents": [
+        "law and order issue"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Crime"
+      ],
+      "children_count": 11
+    },
+    {
+      "upstream_id": "lto:theme:crime against justice",
+      "upstream_name": "crime against justice",
+      "definition": "Featured is a crime that prevents the justice system itself from operating as\nit is meant to. This may involve, for example, false accusations, tampering\nwith evidence, and perjury.",
+      "parents": [
+        "crime"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Perverting_the_course_of_justice",
+        "https://en.wikipedia.org/wiki/Obstruction_of_justice"
+      ],
+      "children_count": 5
+    },
+    {
+      "upstream_id": "lto:theme:crime against the person",
+      "upstream_name": "crime against the person",
+      "definition": "Featured is a crime that involves direct physical harm or force being applied\nto another person.",
+      "parents": [
+        "crime"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Offence_against_the_person"
+      ],
+      "children_count": 9
+    },
+    {
+      "upstream_id": "lto:theme:crime of passion",
+      "upstream_name": "crime of passion",
+      "definition": "Featured is a violent crime, typically homicide, in which the perpetrator\ncommits the act because of sudden strong impulse such as sudden rage rather\nthan as a premeditated crime.",
+      "parents": [
+        "violent crime"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Crime_of_passion"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:cross cultural issue",
+      "upstream_name": "cross cultural issue",
+      "definition": "This is a general theme pertaining to what may happen when people of different\ncultural backgrounds encounter each other.",
+      "parents": [
+        "society"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Cross-cultural_communication"
+      ],
+      "children_count": 11
+    },
+    {
+      "upstream_id": "lto:theme:cruelty",
+      "upstream_name": "cruelty",
+      "definition": "A character is indifferent to, or delights in, pain and suffering that they\ninflict on someone else.",
+      "parents": [
+        "human character"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Cruelty"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:curiosity",
+      "upstream_name": "curiosity",
+      "definition": "A character exhibits a strong desire to know or learn something.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:dark family secret",
+      "upstream_name": "dark family secret",
+      "definition": "There is an embarrassing fact about something pertaining to a person's family\nor ancestry that is not widely known.",
+      "parents": [
+        "family affairs"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Family_secret"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:descent into madness",
+      "upstream_name": "descent into madness",
+      "definition": "The transition of a healthy mind into unhealthy mental disorder is featured.",
+      "parents": [
+        "human mental condition"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Insanity"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:desire",
+      "upstream_name": "desire",
+      "definition": "This a general theme pertaining to states of mind that are expressed by terms\nlike \"wanting\", \"wishing\", \"longing\" or \"craving\".",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Desire"
+      ],
+      "children_count": 20
+    },
+    {
+      "upstream_id": "lto:theme:desire vs. conscience",
+      "upstream_name": "desire vs. conscience",
+      "definition": "Someone is made to choose between what they desire for themselves on the one\nhand, and a cause of action they know to be morally the right on the other.",
+      "parents": [
+        "personal ethical dilemma"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:destiny",
+      "upstream_name": "destiny",
+      "definition": "Destiny, or \"fate\", is the idea that some or all of what happens to us is\npredetermined and cannot be influenced by our decisions. This idea is featured\nin the story. It shouldn't be confused with the idea of (backwards) \"time\ntravel\" and usually isn't used in conjunction with the time travel theme.",
+      "parents": [
+        "folk belief"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Destiny"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:disintegrating romantic relationship",
+      "upstream_name": "disintegrating romantic relationship",
+      "definition": "A romantic relationship breaks down and becomes dysfunctional in one of the\nmany ways such a thing can happen.",
+      "parents": [
+        "romantic relationship issue"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:divorce",
+      "upstream_name": "divorce",
+      "definition": "Two characters who were formally married go through a divorce.",
+      "parents": [
+        "family affairs"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Divorce"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:domestic violence",
+      "upstream_name": "domestic violence",
+      "definition": "A crime involving violence or other abuse by one person against another in a\ndomestic setting, such as in marriage or cohabitation, is featured.",
+      "parents": [
+        "crime against the person",
+        "violent crime"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Domestic_violence"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:dream interpretation",
+      "upstream_name": "dream interpretation",
+      "definition": "Dreams are interpreted in a highly metaphorical or otherwise esoteric way.",
+      "parents": [
+        "folk belief"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:duty vs. desire",
+      "upstream_name": "duty vs. desire",
+      "definition": "A character is forced to choose between following their duty, and acting to\nfurther some goal of their own.",
+      "parents": [
+        "conflict of duty"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:embarrassment",
+      "upstream_name": "embarrassment",
+      "definition": "Someone feels ashamed or self-conscious about themself in front of others.",
+      "parents": [
+        "human emotion",
+        "human social position"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Embarrassment"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:emotional overwhelm",
+      "upstream_name": "emotional overwhelm",
+      "definition": "Someone feels overwhelmed by an emotion or impression, for example by the\ngrandeur of an experience or the gravity of a responsibility, to such an\nextent that they are speechless and come close to fainting or commit suicide\nbecause they can't handle it all.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:epic love",
+      "upstream_name": "epic love",
+      "definition": "The love between idealized Earth-moving love of Gods, legends, and Helen of\nTroy.",
+      "parents": [
+        "romantic love"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:ethics",
+      "upstream_name": "ethics",
+      "definition": "Ethics is the branch of philosophy that involves systematizing, defending, and\nrecommending moral principles. The theme is used whenever an aspect of this\nbranch of philosophy is featured in the story.",
+      "parents": [
+        "philosophy"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Ethics"
+      ],
+      "children_count": 7
+    },
+    {
+      "upstream_id": "lto:theme:exercising self-control",
+      "upstream_name": "exercising self-control",
+      "definition": "A character notices their own emotional inclination to do (or not to do)\nsomething, and that obeying them is undesirable. The character makes a\nreasonable attempt not to do so.",
+      "parents": [
+        "human self-reflection"
+      ],
+      "depth": 4,
+      "aliases": [
+        "struggling with self-control",
+        "exercising self-restraint"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Self-control"
+      ],
+      "children_count": 2
+    },
+    {
+      "upstream_id": "lto:theme:exile",
+      "upstream_name": "exile",
+      "definition": "The practice of punishing someone by expelling them from their native land, is\nfeature.",
+      "parents": [
+        "legal punishment"
+      ],
+      "depth": 5,
+      "aliases": [
+        "banishment"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Exile"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:facing adversity",
+      "upstream_name": "facing adversity",
+      "definition": "A character confronts something difficult that they actively endeavor to\novercome. This includes matters of survival, for example, making a self-\nsacrifice for (typically) someone.",
+      "parents": [
+        "human challenge in life"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [],
+      "children_count": 8
+    },
+    {
+      "upstream_id": "lto:theme:facing death",
+      "upstream_name": "facing death",
+      "definition": "A character is confronted with the fact of their own (more or less) impending\nexpiration. This typically happens when a character learns that they have a\nterminal illness or is about to be executed.",
+      "parents": [
+        "human challenge in life"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [],
+      "children_count": 4
+    },
+    {
+      "upstream_id": "lto:theme:familial love",
+      "upstream_name": "familial love",
+      "definition": "Featured is the sort of love shared among family and friends.",
+      "parents": [
+        "love"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [],
+      "children_count": 6
+    },
+    {
+      "upstream_id": "lto:theme:family affairs",
+      "upstream_name": "family affairs",
+      "definition": "This is a general theme about interpersonal relations, interactions, and those\nsorts of issues that arise among members of a family.",
+      "parents": [
+        "humans in group"
+      ],
+      "depth": 3,
+      "aliases": [
+        "family"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Family"
+      ],
+      "children_count": 16
+    },
+    {
+      "upstream_id": "lto:theme:family dispute",
+      "upstream_name": "family dispute",
+      "definition": "Two or more family members have a perennial or otherwise significant quarrel\nover some material family matter, for example family honor.",
+      "parents": [
+        "family affairs"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:family honor",
+      "upstream_name": "family honor",
+      "definition": "Members of a family contemplate their collective honor. This often happens\nbecause the actions of a family member threatens to put a stain on the\nfamily's reputability.",
+      "parents": [
+        "family affairs",
+        "honor"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Family_honor"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:father and daughter",
+      "upstream_name": "father and daughter",
+      "definition": "The relationship between a father and his daughter is featured.",
+      "parents": [
+        "parent and child"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:father and son",
+      "upstream_name": "father and son",
+      "definition": "The relationship between a father and his son is featured.",
+      "parents": [
+        "parent and child"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:fear",
+      "upstream_name": "fear",
+      "definition": "Someone experiences anxiety about the near future in a way that rises above\n\"apprehension\", but is not so intense that they loose self-control and scream\nout in \"terror\". This theme is typically used when a character percieves a\nclear and present physical danger.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Fear"
+      ],
+      "children_count": 10
+    },
+    {
+      "upstream_id": "lto:theme:fear of death",
+      "upstream_name": "fear of death",
+      "definition": "A character exhibits notable fear and anxiety at the prospect of being dead.\nThis is as opposed to the process of dying, which can naturally be gruesome\nand painful but is not what this theme refers to.",
+      "parents": [
+        "human phobia"
+      ],
+      "depth": 7,
+      "aliases": [
+        "thanatophobia"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Death_anxiety_(psychology)"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:filial love",
+      "upstream_name": "filial love",
+      "definition": "The love of a child for their parent is featured. This is not used for very\nyoung children who just cling to their parents instinctively.",
+      "parents": [
+        "familial love"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:folk belief",
+      "upstream_name": "folk belief",
+      "definition": "A faith-based popular belief or cultural tradition falling outside of the\ndoctrines and practices of established religious institutions, is featured.",
+      "parents": [
+        "the natural world"
+      ],
+      "depth": 1,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Folk_belief",
+        "https://en.wikipedia.org/wiki/Popular_belief",
+        "https://en.wikipedia.org/wiki/Superstition"
+      ],
+      "children_count": 24
+    },
+    {
+      "upstream_id": "lto:theme:form of government",
+      "upstream_name": "form of government",
+      "definition": "Explored is one or another of the many organizing principles for a system of\nstate government that have been proposed, and expressed in a way that makes it\nreasonably well-defined.",
+      "parents": [
+        "national social issue"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Government"
+      ],
+      "children_count": 18
+    },
+    {
+      "upstream_id": "lto:theme:free love",
+      "upstream_name": "free love",
+      "definition": "A character shares their love freely and (at least ostensibly) accepts that\nothers do the same. This is as opposed to monogamy and being jealous about a\npartners love affairs.",
+      "parents": [
+        "human sentiment"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Free_love"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:friendship",
+      "upstream_name": "friendship",
+      "definition": "The friendship between two characters is featured.",
+      "parents": [
+        "humans in pairs"
+      ],
+      "depth": 3,
+      "aliases": [
+        "friend and friend"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Friendship"
+      ],
+      "children_count": 6
+    },
+    {
+      "upstream_id": "lto:theme:gender identity",
+      "upstream_name": "gender identity",
+      "definition": "Gender identity is the personal sense of one's own gender. The story makes a\npoint related to this, for example, by featuring a character whose perception\nof their own gender differs from that suggested by the shape or their body, or\nwhich contradicts the norms of the society they inhabit in some way.",
+      "parents": [
+        "sexual norms in society",
+        "personal identity"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Gender_identity"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:gender issue",
+      "upstream_name": "gender issue",
+      "definition": "The social, psychological, cultural and behavioral aspects of being a man,\nwoman, or other gender identity, is discussed.",
+      "parents": [
+        "national social issue"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Gender"
+      ],
+      "children_count": 15
+    },
+    {
+      "upstream_id": "lto:theme:grief",
+      "upstream_name": "grief",
+      "definition": "A character exhibits that deep \"sadness\" which comes with loosing someone near\nand dear. This typically involves the rending of garments and shedding of\ntears as the character loses self-control.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Grief"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:hate begets hate",
+      "upstream_name": "hate begets hate",
+      "definition": "The committing of hateful acts cause others to do the same, leading to a\nvicious self-reinforcing cycle. The same goes for violence.",
+      "parents": [
+        "human idea about life"
+      ],
+      "depth": 3,
+      "aliases": [
+        "if you live by the sword you will die by the sword"
+      ],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:hatred",
+      "upstream_name": "hatred",
+      "definition": "A character is overcome with inordinate and uncontrolled feelings of hatred\nand anger. In practice, this is used for hot-blooded fighting when it is\nfeatured as part of the story.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Hatred"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:history",
+      "upstream_name": "history",
+      "definition": "This is a general theme pertaining to the study of history, or historical\nevents and personages as they are commonly understood. For example, the story\nmay present a reasonable idea of how a historical event might have transpired,\nwhat a time and place in history might have been like for its inhabitants, or\nwhat a historical figure might have been like.",
+      "parents": [
+        "society"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/History"
+      ],
+      "children_count": 4
+    },
+    {
+      "upstream_id": "lto:theme:homesickness",
+      "upstream_name": "homesickness",
+      "definition": "A character is distressed on account that they are away from their home. The\naffected character may be taking a short trip to a nearby place, such as\nsummer camp, or they may be taking a long trip or have even moved to a\ndifferent country.",
+      "parents": [
+        "human health condition"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Homesickness"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:honesty",
+      "upstream_name": "honesty",
+      "definition": "Someone displays notable truthfulness and lack of deceit.",
+      "parents": [
+        "human character"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Honesty"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:honor",
+      "upstream_name": "honor",
+      "definition": "A character steadfastly sticks to a traditional moral code in spite of\ntemptation to do otherwise. It nearly always has to do with being honest and\ndefending ones reputation.",
+      "parents": [
+        "human character"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Honour"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:honorable suicide",
+      "upstream_name": "honorable suicide",
+      "definition": "A character contemplates committing suicide because doing otherwise would lead\nto some form of dishonor for themself and possibly their family.",
+      "parents": [
+        "contemplating suicide"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Honor_suicide"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:hope",
+      "upstream_name": "hope",
+      "definition": "A character feels that events they wish for may come about.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Hope"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:human addiction",
+      "upstream_name": "human addiction",
+      "definition": "Despite adverse consequences to themself, a character compulsively engages in\nan activity that results in rewarding stimuli. In medical terms, addiction is\ndisorder of the brain's reward system.",
+      "parents": [
+        "human health condition"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Addiction"
+      ],
+      "children_count": 9
+    },
+    {
+      "upstream_id": "lto:theme:human challenge in life",
+      "upstream_name": "human challenge in life",
+      "definition": "This is a general theme pertaining to such problems as we might plausibly face\nin the course of a typical human life.",
+      "parents": [
+        "individual humans"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [],
+      "children_count": 10
+    },
+    {
+      "upstream_id": "lto:theme:human character",
+      "upstream_name": "human character",
+      "definition": "This is a general theme pertaining to character types and personal character\ntraits.",
+      "parents": [
+        "individual humans"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [],
+      "children_count": 50
+    },
+    {
+      "upstream_id": "lto:theme:human childhood",
+      "upstream_name": "human childhood",
+      "definition": "A young character faces one of those problems people tend to go through during\nthe early parts of their lives, typically during childhood or adolescence.",
+      "parents": [
+        "family affairs"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Childhood"
+      ],
+      "children_count": 32
+    },
+    {
+      "upstream_id": "lto:theme:human dreaming",
+      "upstream_name": "human dreaming",
+      "definition": "This is a general theme pertaining to reflections on what was, what could have\nbeen, what might be, what could never be, and so on and so forth.",
+      "parents": [
+        "individual humans"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Reminiscence",
+        "https://en.wikipedia.org/wiki/Fantasy_(psychology)"
+      ],
+      "children_count": 5
+    },
+    {
+      "upstream_id": "lto:theme:human emotion",
+      "upstream_name": "human emotion",
+      "definition": "This is a general theme pertaining to experiences, typically intensely, of one\nof those conscious inner mental states that we call emotions.",
+      "parents": [
+        "individual humans"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Emotion"
+      ],
+      "children_count": 25
+    },
+    {
+      "upstream_id": "lto:theme:human familial relationship",
+      "upstream_name": "human familial relationship",
+      "definition": "The interpersonal relationship between two individuals bound by such a close\nsocial bond that they might be called \"family\" is featured.",
+      "parents": [
+        "humans in pairs",
+        "family affairs"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Family"
+      ],
+      "children_count": 25
+    },
+    {
+      "upstream_id": "lto:theme:human health condition",
+      "upstream_name": "human health condition",
+      "definition": "There is a character whose mental or physiological well-being is featured\nbecause they suffer from some condition or another that is considered to be\npathological. Such a condition is usually detrimental to the individual's\nwell-being.",
+      "parents": [
+        "human challenge in life"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Health"
+      ],
+      "children_count": 32
+    },
+    {
+      "upstream_id": "lto:theme:human idea about life",
+      "upstream_name": "human idea about life",
+      "definition": "This is the general theme pertaining to generalities about what human life may\nbe like. For example, the theme may be practical advice on how one ought to\nlead ones life. Many of the stories featuring this theme contain tidbits of\nfolksy wisdom summed up in readily recognizable pithy aphorisms.",
+      "parents": [
+        "human nature"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Aphorism"
+      ],
+      "children_count": 78
+    },
+    {
+      "upstream_id": "lto:theme:human life choice",
+      "upstream_name": "human life choice",
+      "definition": "A character is made to reflect on a tough decision that involves choices that\nare hard, not because of ethical issues or uncertainty regarding the outcome,\nbut because the decision will have a major impact on the course of their life.",
+      "parents": [
+        "human tough decision"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [],
+      "children_count": 21
+    },
+    {
+      "upstream_id": "lto:theme:human mental condition",
+      "upstream_name": "human mental condition",
+      "definition": "There is a character whose mental well-being is featured because they suffer\nfrom some condition or another that is considered to be pathological. Such a\ncondition is usually detrimental to the individual's well-being.",
+      "parents": [
+        "human health condition"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Mental_disorder"
+      ],
+      "children_count": 46
+    },
+    {
+      "upstream_id": "lto:theme:human nature",
+      "upstream_name": "human nature",
+      "definition": "This is a general theme pertaining to distinguishing characteristics -\nincluding ways of thinking, feeling, and acting - which humans tend to have\nnaturally.",
+      "parents": [
+        "the human world"
+      ],
+      "depth": 1,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Human_nature"
+      ],
+      "children_count": 28
+    },
+    {
+      "upstream_id": "lto:theme:human need",
+      "upstream_name": "human need",
+      "definition": "This is a general theme pertaining to the things people tend to need in order\nto consider ourselves healthy, content, and fulfilled in life. The immediate\nspecializations break down according to a simplified version of Maslow's\nhierarchy of needs.",
+      "parents": [
+        "purpose in life"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [],
+      "children_count": 5
+    },
+    {
+      "upstream_id": "lto:theme:human parenting",
+      "upstream_name": "human parenting",
+      "definition": "A problem or situation that may arise in the interaction between parents and\ntheir progeny is featured.",
+      "parents": [
+        "family affairs"
+      ],
+      "depth": 4,
+      "aliases": [
+        "parenthood"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Parenting"
+      ],
+      "children_count": 29
+    },
+    {
+      "upstream_id": "lto:theme:human phobia",
+      "upstream_name": "human phobia",
+      "definition": "A character displays a persistent and excessive fear to a specific object or\nsituation.",
+      "parents": [
+        "human mental condition",
+        "fear"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Phobia"
+      ],
+      "children_count": 16
+    },
+    {
+      "upstream_id": "lto:theme:human pleasure",
+      "upstream_name": "human pleasure",
+      "definition": "A character engages in an activity for the pure enjoyment of it, such as\nsavoring a tasty meal or engaging in a cherished pastime.",
+      "parents": [
+        "purpose in life"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [],
+      "children_count": 5
+    },
+    {
+      "upstream_id": "lto:theme:human regular activity",
+      "upstream_name": "human regular activity",
+      "definition": "This is a general theme pertaining to various purposeful regular activities\nthat humans may be engaged in. Such activities are typically occupations or\nhobbies.",
+      "parents": [
+        "personal human experience"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [],
+      "children_count": 13
+    },
+    {
+      "upstream_id": "lto:theme:human rights issue",
+      "upstream_name": "human rights issue",
+      "definition": "Explored is one of those ideas of \"rights\", such as the right to not be\ntortured, that we sometimes say people (or other beings that are to be treated\nas people) are inalienably entitled to merely by virtue of existing. It may,\nfor example, involve practical concerns around safeguarding such rights,\ndiscuss ethical questions around what counts as a right, or weight two\nconflicting human rights considerations in a particular situation.\n\nExamples of rights and freedoms which are often thought of as human rights\ninclude civil and political rights, such as the right to life, liberty, and\nproperty, freedom of expression, pursuit of happiness and equality before the\nlaw; and social, cultural and economic rights, including the right to\nparticipate in science and culture, the right to work, and the right to\neducation.",
+      "parents": [
+        "social ethical issue"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Human_rights"
+      ],
+      "children_count": 23
+    },
+    {
+      "upstream_id": "lto:theme:human romantic relationship choice",
+      "upstream_name": "human romantic relationship choice",
+      "definition": "A character must make a choice regarding whether and whom to devote themself\nromantically to.",
+      "parents": [
+        "romantic relationship issue",
+        "human life choice"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [],
+      "children_count": 9
+    },
+    {
+      "upstream_id": "lto:theme:human sacrifice",
+      "upstream_name": "human sacrifice",
+      "definition": "The act of killing humans, usually as an offering to a deity, as part of a\nritual is featured.",
+      "parents": [
+        "organized religion"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Human_sacrifice"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:human safety need",
+      "upstream_name": "human safety need",
+      "definition": "A character's need to feel save from all kinds of dangers is featured. Dangers\nmay include physical dangers, financial dangers, and health risks.",
+      "parents": [
+        "human need"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs#Safety_needs"
+      ],
+      "children_count": 4
+    },
+    {
+      "upstream_id": "lto:theme:human self improvement",
+      "upstream_name": "human self improvement",
+      "definition": "A character in the story contemplates their own person and some way in which\nthey can better themself.",
+      "parents": [
+        "human self-reflection"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Personal_development"
+      ],
+      "children_count": 24
+    },
+    {
+      "upstream_id": "lto:theme:human self-esteem need",
+      "upstream_name": "human self-esteem need",
+      "definition": "One or another of a character's ego related needs is featured. For example,\nthe theme may pertain to the need for things like recognition, status,\nimportance, and respect from others.",
+      "parents": [
+        "human need"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs#Self-esteem"
+      ],
+      "children_count": 11
+    },
+    {
+      "upstream_id": "lto:theme:human self-reflection",
+      "upstream_name": "human self-reflection",
+      "definition": "This a general theme pertaining to the examination of one's own person, for\nexample, desires, motives, one's own conscience, etc.",
+      "parents": [
+        "individual humans"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [],
+      "children_count": 6
+    },
+    {
+      "upstream_id": "lto:theme:human self-sacrifice",
+      "upstream_name": "human self-sacrifice",
+      "definition": "A character helps another character, or does something for a worthy cause, at\na significant cost or risk to themself.",
+      "parents": [
+        "human tough decision"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Altruistic_suicide"
+      ],
+      "children_count": 4
+    },
+    {
+      "upstream_id": "lto:theme:human self-sacrifice for another",
+      "upstream_name": "human self-sacrifice for another",
+      "definition": "Someone goes significantly out of their way in order to help another person\nwho is need of something.",
+      "parents": [
+        "human self-sacrifice"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [],
+      "children_count": 9
+    },
+    {
+      "upstream_id": "lto:theme:human sentiment",
+      "upstream_name": "human sentiment",
+      "definition": "This a general theme pertaining to the various ideas people may have about how\nthey want to lead their lives.",
+      "parents": [
+        "individual humans"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [],
+      "children_count": 16
+    },
+    {
+      "upstream_id": "lto:theme:human sexuality",
+      "upstream_name": "human sexuality",
+      "definition": "The mating urges and rituals of homo sapient are discussed in a philosophical\nmanner.",
+      "parents": [
+        "human nature"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Human_sexuality"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:human social need",
+      "upstream_name": "human social need",
+      "definition": "A character's need to have good connections with other people is featured. For\nexample, the theme may pertain to belonging to a social group, friendship,\nmaintaining family relations, etc.",
+      "parents": [
+        "human need"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Maslow%27s_hierarchy_of_needs#Social_belonging"
+      ],
+      "children_count": 16
+    },
+    {
+      "upstream_id": "lto:theme:human tough decision",
+      "upstream_name": "human tough decision",
+      "definition": "This is a general theme that pertains to an individual struggling with a\ndecision which must be made",
+      "parents": [
+        "individual humans"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [],
+      "children_count": 5
+    },
+    {
+      "upstream_id": "lto:theme:human vs. nature",
+      "upstream_name": "human vs. nature",
+      "definition": "A character's struggle to survive the elements is featured. This could be\nabout surviving in blistering cold, scorching heat, raging wind, etc.",
+      "parents": [
+        "facing adversity"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Conflict_(narrative)#Man_against_nature"
+      ],
+      "children_count": 9
+    },
+    {
+      "upstream_id": "lto:theme:humans at work",
+      "upstream_name": "humans at work",
+      "definition": "This is a general theme pertaining to the experience of people as they seek to\ncollaborate in a workplace.",
+      "parents": [
+        "humans in group"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Job",
+        "https://en.wikipedia.org/wiki/Workplace_politics"
+      ],
+      "children_count": 17
+    },
+    {
+      "upstream_id": "lto:theme:humans in group",
+      "upstream_name": "humans in group",
+      "definition": "This is a general theme pertaining to human group dynamics, or some experience\nsimultaneously applicable to each member of a group of people.",
+      "parents": [
+        "personal human experience"
+      ],
+      "depth": 2,
+      "aliases": [
+        "community"
+      ],
+      "references": [],
+      "children_count": 26
+    },
+    {
+      "upstream_id": "lto:theme:humans in pairs",
+      "upstream_name": "humans in pairs",
+      "definition": "This is a general theme pertaining to the respective interactions and\nattitudes of two people vis-à-vis each other.",
+      "parents": [
+        "personal human experience"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [],
+      "children_count": 43
+    },
+    {
+      "upstream_id": "lto:theme:humans interacting",
+      "upstream_name": "humans interacting",
+      "definition": "This is a general theme pertaining to the interactions between two or more\nhumans.",
+      "parents": [
+        "humans in group"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [],
+      "children_count": 25
+    },
+    {
+      "upstream_id": "lto:theme:immigration in society",
+      "upstream_name": "immigration in society",
+      "definition": "We are asked how much immigration, if any, it is appropriate for a society to\npermit. One extreme is to disband all borders and the other is to build walls.",
+      "parents": [
+        "socioeconomic issue"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Immigration"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:individual humans",
+      "upstream_name": "individual humans",
+      "definition": "This is a general theme pertaining to an individual's personal emotions,\ndispositions, thoughts, urges, ambitions, life issues, and other such\nexperiences.",
+      "parents": [
+        "personal human experience"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [],
+      "children_count": 8
+    },
+    {
+      "upstream_id": "lto:theme:infatuation",
+      "upstream_name": "infatuation",
+      "definition": "An intense but (typically) short-lived passion that may peter out or settle\ninto more enduring romantic love.",
+      "parents": [
+        "romantic love"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Infatuation"
+      ],
+      "children_count": 2
+    },
+    {
+      "upstream_id": "lto:theme:international issue",
+      "upstream_name": "international issue",
+      "definition": "This is a general theme about interactions among sovereign states. For\nexample, the theme may pertain to war, peace, diplomacy, international trade,\nand globalization.",
+      "parents": [
+        "society"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/State_(polity)",
+        "https://en.wikipedia.org/wiki/Transnationality",
+        "https://en.wikipedia.org/wiki/International_relations",
+        "https://en.wikipedia.org/wiki/Global_issue"
+      ],
+      "children_count": 24
+    },
+    {
+      "upstream_id": "lto:theme:jealousy",
+      "upstream_name": "jealousy",
+      "definition": "A character is desirous of an advantage perceived to be held by another,\nwhether it be material (fancy hat) or intangible (love, friends, power,\nability, fame, etc.).",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Jealousy"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:labor relations in society",
+      "upstream_name": "labor relations in society",
+      "definition": "Featured are the complex interrelations between employers and employees,\nlabor/trade unions, employer organizations, and the state.",
+      "parents": [
+        "socioeconomic issue"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Industrial_relations",
+        "https://en.wikipedia.org/wiki/Labor_rights"
+      ],
+      "children_count": 5
+    },
+    {
+      "upstream_id": "lto:theme:law and order issue",
+      "upstream_name": "law and order issue",
+      "definition": "Explored is behavior that is broadly considered to be against the law in\norganized societies. The theme pertains to crimes and the measures we take to\npunish, deter, and prevent them.",
+      "parents": [
+        "national social issue"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Criminal_law",
+        "https://en.wikipedia.org/wiki/Crime"
+      ],
+      "children_count": 18
+    },
+    {
+      "upstream_id": "lto:theme:legal punishment",
+      "upstream_name": "legal punishment",
+      "definition": "Discussed is a type of punishment that is considered legitimate by virtue of\nbeing set out in a law code by a recognized government.",
+      "parents": [
+        "law and order issue"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Punishment"
+      ],
+      "children_count": 11
+    },
+    {
+      "upstream_id": "lto:theme:loneliness",
+      "upstream_name": "loneliness",
+      "definition": "Someone feels bad because they lack friends and meaningful companionship.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Loneliness"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:love",
+      "upstream_name": "love",
+      "definition": "This is a general theme dealing with that feeling of deep affection and\nattachment toward someone or (occasionally) something. If sexuality is\nfeatured then the specialization \"romantic love\" is used.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Love"
+      ],
+      "children_count": 2
+    },
+    {
+      "upstream_id": "lto:theme:love vs. friendship",
+      "upstream_name": "love vs. friendship",
+      "definition": "Someone has to choose between pursuing a romantic relationship on one hand,\nand maintaining a friendship on the other.",
+      "parents": [
+        "human romantic relationship choice"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:love-hate relationship",
+      "upstream_name": "love-hate relationship",
+      "definition": "Two characters simultaneously or alternatingly adore each other and despise\neach other in a very chaotic relationship.",
+      "parents": [
+        "romantic relationship"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:lucid dreaming",
+      "upstream_name": "lucid dreaming",
+      "definition": "The way we can sometimes dream with full awareness and control of our dream is\nfeatured.",
+      "parents": [
+        "human mental condition"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Lucid_dream"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:marriage of convenience",
+      "upstream_name": "marriage of convenience",
+      "definition": "A character ties the knot for reasons other than that of love and commitment.\nTypically, a character seeks personal gain such as monetary wealth or\npolitical advantage.",
+      "parents": [
+        "humans in pairs"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Marriage_of_convenience"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:mental illness",
+      "upstream_name": "mental illness",
+      "definition": "A character exhibits general mental illness.",
+      "parents": [
+        "human mental condition"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Mental_disorder"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:mercy",
+      "upstream_name": "mercy",
+      "definition": "Someone displays forgiveness, pity, or compassion toward another who is under\ntheir authority, i.e., is at their mercy.",
+      "parents": [
+        "humans in pairs"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Mercy"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:mercy vs. justice",
+      "upstream_name": "mercy vs. justice",
+      "definition": "We are made to ponder when and to what extent we think laws should be enforced\nto the letter, and when, if ever, there might be reason to stay enforcement\nfor reasons of mercy.",
+      "parents": [
+        "social ethical dilemma"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:metaphysics",
+      "upstream_name": "metaphysics",
+      "definition": "Metaphysics is the branch of philosophy concerned with the fundamental nature\nof reality and such basic concepts as existence, matter, space, time and\ncausation. The theme is used whenever a notable idea from this branch of\nphilosophy is featured in the story.",
+      "parents": [
+        "philosophy"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Metaphysics"
+      ],
+      "children_count": 18
+    },
+    {
+      "upstream_id": "lto:theme:mimetic desire",
+      "upstream_name": "mimetic desire",
+      "definition": "The peculiar human habit of occasionally wanting something only because we\nbecame cognizant of someone else wanting the same thing, is explicitly\nfeatured.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:mixed marriage",
+      "upstream_name": "mixed marriage",
+      "definition": "We are asked when, if ever, marriage between people of different ethnicities\nought to be tolerated.",
+      "parents": [
+        "sociocultural issue"
+      ],
+      "depth": 4,
+      "aliases": [
+        "interethnic marriage"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Interethnic_marriage"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:modern slavery",
+      "upstream_name": "modern slavery",
+      "definition": "A character is controlled, deceived, or coerced by another character or group\nfor personal or commercial gain, leaving them unable to refuse or leave.",
+      "parents": [
+        "labor relations in society",
+        "human rights issue"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Slavery_in_the_21st_century"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:mother and daughter",
+      "upstream_name": "mother and daughter",
+      "definition": "The relationship between a mother and her daughter is featured.",
+      "parents": [
+        "parent and child"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:mother and son",
+      "upstream_name": "mother and son",
+      "definition": "The relationship between a mother and her son is featured.",
+      "parents": [
+        "parent and child"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:murder",
+      "upstream_name": "murder",
+      "definition": "The crime of unlawful and intentional homicide is featured.",
+      "parents": [
+        "violent crime",
+        "crime against the person"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/List_of_types_of_killing"
+      ],
+      "children_count": 11
+    },
+    {
+      "upstream_id": "lto:theme:music",
+      "upstream_name": "music",
+      "definition": "Music is notably featured in the story. Typically, this is because there is a\nmusician, other music professional, or someone else who is very interested in\nmusic.",
+      "parents": [
+        "the fine arts and the humanities"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Music_appreciation"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:national social issue",
+      "upstream_name": "national social issue",
+      "definition": "This is a general theme pertaining to a single state's internal affairs.",
+      "parents": [
+        "society"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/State_(polity)"
+      ],
+      "children_count": 14
+    },
+    {
+      "upstream_id": "lto:theme:nature vs. nurture",
+      "upstream_name": "nature vs. nurture",
+      "definition": "Discussed is whether human behavior is determined more by the environment,\neither prenatal or during a person's life, or more by a person's genes.",
+      "parents": [
+        "human nature"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Nature_versus_nurture"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:nostalgia",
+      "upstream_name": "nostalgia",
+      "definition": "A character exhibits a feeling of sentimentality, longing for the days of\nyore, etc.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Nostalgia"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:nostalgic love",
+      "upstream_name": "nostalgic love",
+      "definition": "The kind of love a person feels springing from the memory of a bygone passion.",
+      "parents": [
+        "romantic love"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:obsession",
+      "upstream_name": "obsession",
+      "definition": "Someone is fixated with a particular idea or objective to the extent that they\nnotably neglect other concerns.",
+      "parents": [
+        "human character"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://www.merriam-webster.com/dictionary/obsessed"
+      ],
+      "children_count": 2
+    },
+    {
+      "upstream_id": "lto:theme:obsessive love",
+      "upstream_name": "obsessive love",
+      "definition": "An infatuation that is so intense and obsessive that one's self-control and\njudgement becomes impaired.",
+      "parents": [
+        "infatuation",
+        "obsession"
+      ],
+      "depth": 7,
+      "aliases": [
+        "obsessive infatuation"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Obsessive_love"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:old-age love",
+      "upstream_name": "old-age love",
+      "definition": "The love between two aged people that have been together a long time and are\nwell familiar with each other's kinks and flaws.",
+      "parents": [
+        "romantic love"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:order vs. freedom",
+      "upstream_name": "order vs. freedom",
+      "definition": "The typically desirable quality of order in society is contraposed with the\ntypically desirable quality of individual freedom. Should we limit how people\ncan move about in order to avoid potential chaos?",
+      "parents": [
+        "contraposed political ideologies"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:organized crime",
+      "upstream_name": "organized crime",
+      "definition": "The particular social problem of large centralized enterprises that engage in\ncriminal activity is displayed.",
+      "parents": [
+        "crime"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Organized_crime"
+      ],
+      "children_count": 2
+    },
+    {
+      "upstream_id": "lto:theme:organized religion",
+      "upstream_name": "organized religion",
+      "definition": "A doctrine or practice of an institutionalized religion is featured.",
+      "parents": [
+        "the natural world"
+      ],
+      "depth": 1,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Religion",
+        "https://en.wikipedia.org/wiki/Organized_religion"
+      ],
+      "children_count": 50
+    },
+    {
+      "upstream_id": "lto:theme:orphanhood",
+      "upstream_name": "orphanhood",
+      "definition": "Someone grows up having no parents for all or part of their childhood.",
+      "parents": [
+        "human childhood"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Orphan"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:overcoming an addiction",
+      "upstream_name": "overcoming an addiction",
+      "definition": "Someone struggles to overcome being addicted to a substance or activity, e.g.,\na drug or gambling.",
+      "parents": [
+        "human self improvement"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:parent and child",
+      "upstream_name": "parent and child",
+      "definition": "The relationship between a parent and their child is featured.",
+      "parents": [
+        "human familial relationship"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [],
+      "children_count": 6
+    },
+    {
+      "upstream_id": "lto:theme:parental love",
+      "upstream_name": "parental love",
+      "definition": "The love of a parent for their child is featured.",
+      "parents": [
+        "familial love"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 2
+    },
+    {
+      "upstream_id": "lto:theme:peace on Earth",
+      "upstream_name": "peace on Earth",
+      "definition": "An ideal state of freedom and peace within and among the nations on a world.",
+      "parents": [
+        "speculative future event"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/World_peace"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:personal ethical dilemma",
+      "upstream_name": "personal ethical dilemma",
+      "definition": "A character struggles with a tough decision that involves choices that are\nhard because they involve moral considerations. Would you, for example, let\nanother person die if that was the only way to save your own life?",
+      "parents": [
+        "human tough decision"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [],
+      "children_count": 33
+    },
+    {
+      "upstream_id": "lto:theme:personal human experience",
+      "upstream_name": "personal human experience",
+      "definition": "This is the most general theme about individual humans, their inner\nexperiences, their experiences interacting with other individuals, and their\nexperiences of the world they inhabit. For example, the theme may discuss the\nindividual experiences of members making up a small group of people. Or it may\ndiscuss the interpersonal relationship of two people vis-à-vis each other. Or\nit may discuss the trials and tribulations an individual encounters in their\njourney through life. Or it may discuss an individual's emotions, desires, and\ndriving passions, etc.",
+      "parents": [
+        "the human world"
+      ],
+      "depth": 1,
+      "aliases": [],
+      "references": [],
+      "children_count": 5
+    },
+    {
+      "upstream_id": "lto:theme:personal identity",
+      "upstream_name": "personal identity",
+      "definition": "The tricky, as yet sci-fi:ish, question of what precisely constitutes ones\n\"personhood\" is posed: Is it DNA, the body, the brain, memories, something\nelusive called the \"soul,\" or a combination of these? What happens, legally\nand ethically, if some of these are copied or transferred somehow?",
+      "parents": [
+        "metaphysics"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Personal_identity",
+        "http://www.sf-encyclopedia.com/entry/identity"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:philosophy",
+      "upstream_name": "philosophy",
+      "definition": "This is a general theme pertaining to ideas in philosophy, that is, the study\nof general and fundamental questions such as those about existence, reason,\nknowledge, values, mind, and language.",
+      "parents": [
+        "the natural world"
+      ],
+      "depth": 1,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Philosophy"
+      ],
+      "children_count": 10
+    },
+    {
+      "upstream_id": "lto:theme:pleasure in nature",
+      "upstream_name": "pleasure in nature",
+      "definition": "Someone takes pointed satisfaction in scenes of serene natural beauty, or is\nnotably enthusiastic about one aspect or another of those parts of the\nenvironment on a world that are considered natural. Typically, such a\ncharacter studies wild flora or fauna.",
+      "parents": [
+        "human pleasure"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Nature"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:pleasure in violence",
+      "upstream_name": "pleasure in violence",
+      "definition": "The embarrassingly human predilection for battle and bloodshed is featured.",
+      "parents": [
+        "human pleasure"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:poetic justice",
+      "upstream_name": "poetic justice",
+      "definition": "An evildoer ironically falls victim to the very wickedness that they themself\nintended for (or meted out to) someone else.",
+      "parents": [
+        "ethics"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Poetic_justice"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:political ideology",
+      "upstream_name": "political ideology",
+      "definition": "One of those relatively well known, reasonably well defined, ideas about how\nsociety ought to be organized, that we call \"political ideologies\" and often\nlabel with \"-isms\", is featured.",
+      "parents": [
+        "form of government"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/List_of_political_ideologies",
+        "https://en.wikipedia.org/wiki/Ideology#Political_ideologies"
+      ],
+      "children_count": 14
+    },
+    {
+      "upstream_id": "lto:theme:political issue",
+      "upstream_name": "political issue",
+      "definition": "Political power in a society, that is, who rules and makes the laws, is\ndiscussed.",
+      "parents": [
+        "national social issue"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Category:Politics_by_issue"
+      ],
+      "children_count": 35
+    },
+    {
+      "upstream_id": "lto:theme:poverty in society",
+      "upstream_name": "poverty in society",
+      "definition": "Social issues relating to there being large numbers of poor people in a\nsociety are explored.",
+      "parents": [
+        "socioeconomic issue"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Poverty"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:power corrupts",
+      "upstream_name": "power corrupts",
+      "definition": "Someone who was decent gains power and because of the power becomes nasty.",
+      "parents": [
+        "human idea about life"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "http://www.dictionary.com/browse/power-tends-to-corrupt-absolute-power-corrupts-absolutely"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:prejudice in society",
+      "upstream_name": "prejudice in society",
+      "definition": "The subject of preconceived (typically unfavorable) notions about a group of\npeople in society is explored.",
+      "parents": [
+        "relations between social groups in society"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Prejudice"
+      ],
+      "children_count": 8
+    },
+    {
+      "upstream_id": "lto:theme:pride",
+      "upstream_name": "pride",
+      "definition": "A person expresses pride in something they have done or some aspect of who\nthey are.",
+      "parents": [
+        "human character"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Pride"
+      ],
+      "children_count": 9
+    },
+    {
+      "upstream_id": "lto:theme:purpose in life",
+      "upstream_name": "purpose in life",
+      "definition": "This is a general theme pertaining to what drives us and makes us act with\nwhat we perceive as \"purpose\". This theme is about our aspirations, needs,\npleasures, cherished beliefs and such.",
+      "parents": [
+        "individual humans"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Meaning_of_life"
+      ],
+      "children_count": 4
+    },
+    {
+      "upstream_id": "lto:theme:rationality vs. emotionality",
+      "upstream_name": "rationality vs. emotionality",
+      "definition": "The allegedly rational parts of the human psyche are contrasted with its\nemotional parts. For example, the claim might be made that there are cognitive\ntasks in which emotional people excel far beyond what more rational people can\nmanage, or vice versa.",
+      "parents": [
+        "human nature"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:relations between social groups in society",
+      "upstream_name": "relations between social groups in society",
+      "definition": "There are two different and notably distinct social groups within a society,\nfor example two ethnic groups, and some aspect of the relationship between\nthese two groups is featured. Notably, this is a general theme pertaining to\ndifferent types of hatred and prejudice in society.",
+      "parents": [
+        "sociocultural issue"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Social_group"
+      ],
+      "children_count": 3
+    },
+    {
+      "upstream_id": "lto:theme:remembering bygone days",
+      "upstream_name": "remembering bygone days",
+      "definition": "A character looks back with emotion on previous experiences.",
+      "parents": [
+        "human dreaming",
+        "nostalgia"
+      ],
+      "depth": 5,
+      "aliases": [
+        "reminiscence"
+      ],
+      "references": [],
+      "children_count": 2
+    },
+    {
+      "upstream_id": "lto:theme:reminiscence about one's youth",
+      "upstream_name": "reminiscence about one's youth",
+      "definition": "A character thinks back to their childhood years.",
+      "parents": [
+        "remembering bygone days"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:remorse",
+      "upstream_name": "remorse",
+      "definition": "Someone feels regret for a past action that they have come to see as morally\nwrong, or for a mistake they should have been able to avert.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [
+        "guilt",
+        "regret"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Remorse"
+      ],
+      "children_count": 2
+    },
+    {
+      "upstream_id": "lto:theme:resentment",
+      "upstream_name": "resentment",
+      "definition": "A character harbors a resentment toward another stemming from a belief that he\nor she has been wronged by that person.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Resentment"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:romantic infidelity",
+      "upstream_name": "romantic infidelity",
+      "definition": "The question of monogamatic faithfulness arises between two characters in a\nromantic relationship. This usually appears because one of the pair is tempted\nby an attraction to someone else, or one of the pair jealously perceives it to\nbe so.",
+      "parents": [
+        "romantic relationship issue"
+      ],
+      "depth": 4,
+      "aliases": [
+        "adultery"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Infidelity"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:romantic jealousy",
+      "upstream_name": "romantic jealousy",
+      "definition": "A character is notably desirous of the exclusive affections that another\nreceives from a potential lover.",
+      "parents": [
+        "jealousy",
+        "romantic love"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Jealousy#Romantic_jealousy"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:romantic love",
+      "upstream_name": "romantic love",
+      "definition": "Featured is that peculiar sort of love between people so often associated with\nsexual attraction.",
+      "parents": [
+        "love"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Romance_(love)"
+      ],
+      "children_count": 15
+    },
+    {
+      "upstream_id": "lto:theme:romantic relationship",
+      "upstream_name": "romantic relationship",
+      "definition": "Two or more characters engage in an interpersonal relationship, or web of such\nrelationships, that is characterized by romantic intimacy.",
+      "parents": [
+        "humans in pairs"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Romance_(love)"
+      ],
+      "children_count": 31
+    },
+    {
+      "upstream_id": "lto:theme:romantic relationship issue",
+      "upstream_name": "romantic relationship issue",
+      "definition": "The relationship between two (or more) individuals who are, or may become,\nintimately and sexually involved with each other, is featured.",
+      "parents": [
+        "humans in pairs"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Intimate_relationship"
+      ],
+      "children_count": 25
+    },
+    {
+      "upstream_id": "lto:theme:sacrifice for a child",
+      "upstream_name": "sacrifice for a child",
+      "definition": "A character endangers themself in order to save or otherwise benefit a child.",
+      "parents": [
+        "human self-sacrifice for another"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:sacrifice for a friend",
+      "upstream_name": "sacrifice for a friend",
+      "definition": "A character does a self-sacrificial thing for the sake of a friend.",
+      "parents": [
+        "human self-sacrifice for another"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:sacrifice for one's beliefs",
+      "upstream_name": "sacrifice for one's beliefs",
+      "definition": "A character does a self-sacrificial thing for the sake of a cause, or idea,\nthey believe in.",
+      "parents": [
+        "human self-sacrifice"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:science",
+      "upstream_name": "science",
+      "definition": "This is a general theme pertaining to science, that is, the systematic\nendeavor that builds and organizes knowledge in the form of testable\nexplanations and predictions about the universe.",
+      "parents": [
+        "the natural world"
+      ],
+      "depth": 1,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Science"
+      ],
+      "children_count": 15
+    },
+    {
+      "upstream_id": "lto:theme:security vs. freedom",
+      "upstream_name": "security vs. freedom",
+      "definition": "The typically desirable quality of safety and security in society is\ncontraposed with the typically desirable quality of individual freedom. Should\nwe, for example, limit freedom of the press in order not to provoke terrorism?",
+      "parents": [
+        "contraposed political ideologies"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:self-deception",
+      "upstream_name": "self-deception",
+      "definition": "A character notably refuses to face uncomfortable truths.",
+      "parents": [
+        "human self-reflection"
+      ],
+      "depth": 4,
+      "aliases": [
+        "wishful thinking"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Self-deception"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:sexism in society",
+      "upstream_name": "sexism in society",
+      "definition": "Prejudice against someone because of their gender is featured.",
+      "parents": [
+        "gender issue",
+        "prejudice in society"
+      ],
+      "depth": 6,
+      "aliases": [
+        "gender discrimination"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Sexism"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:sexual norms in society",
+      "upstream_name": "sexual norms in society",
+      "definition": "A sexual activity that has at some point been considered deviant or taboo is\ndiscussed from a societal perspective.",
+      "parents": [
+        "gender issue"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Sexual_norm"
+      ],
+      "children_count": 12
+    },
+    {
+      "upstream_id": "lto:theme:shame",
+      "upstream_name": "shame",
+      "definition": "A character feels bad because of past actions of theirs that they have come to\nthink were wrong, or because they have an unbecoming outwards appearance.",
+      "parents": [
+        "human emotion"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Shame"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:sin",
+      "upstream_name": "sin",
+      "definition": "The religious idea of transgression against divine law is explored.",
+      "parents": [
+        "organized religion"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Sin"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:single fatherhood",
+      "upstream_name": "single fatherhood",
+      "definition": "A man raises a child alone because the mother has passed away or is absent for\nsome other reason.",
+      "parents": [
+        "human parenting"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Single_parent"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:single motherhood",
+      "upstream_name": "single motherhood",
+      "definition": "A mother raises a child alone because the father has passed away, is unknown,\nor is absent for some other reason.",
+      "parents": [
+        "human parenting"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Single_parent"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:slavery",
+      "upstream_name": "slavery",
+      "definition": "The practice of the owning, or the buying and selling, of human beings as a\nlegally sanctioned institution in society, is discussed.",
+      "parents": [
+        "socioeconomic issue"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Slavery"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:social ethical dilemma",
+      "upstream_name": "social ethical dilemma",
+      "definition": "A tough trade-off between different ethical considerations in the shaping of\ngovernment policy and norms of conduct is featured.",
+      "parents": [
+        "social ethical issue"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [],
+      "children_count": 39
+    },
+    {
+      "upstream_id": "lto:theme:social ethical issue",
+      "upstream_name": "social ethical issue",
+      "definition": "We are asked to contemplate what is \"right\" and what is \"wrong\" with respect\nto social policy. The social policies may be such that are in use in practice\nor such that have been proposed and could potentially be implemented.",
+      "parents": [
+        "society"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Ethics"
+      ],
+      "children_count": 3
+    },
+    {
+      "upstream_id": "lto:theme:social oppression",
+      "upstream_name": "social oppression",
+      "definition": "Social oppression is when a single group in society takes advantage of, and\nexercises power over, another group using dominance and subordination. This\ntheme is used whenever such a situation is featured in the story.",
+      "parents": [
+        "political issue"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Oppression"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:society",
+      "upstream_name": "society",
+      "definition": "This is the most general theme about social groupings of people sufficiently\nlarge that not everyone personally knows everyone else. For example, the theme\nmay discuss world society as a whole, intra- or inter-societal issues, forms\nof government, or past and present hot button social issues.",
+      "parents": [
+        "the human world"
+      ],
+      "depth": 1,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Society",
+        "https://en.wikipedia.org/wiki/Macrosociology"
+      ],
+      "children_count": 5
+    },
+    {
+      "upstream_id": "lto:theme:sociocultural issue",
+      "upstream_name": "sociocultural issue",
+      "definition": "Explored are the social behaviors and norms that may be widespread in a human\npopulation. Many specializations of this theme mark a past or present moral\ncontroversy of some sort.",
+      "parents": [
+        "national social issue"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Culture"
+      ],
+      "children_count": 35
+    },
+    {
+      "upstream_id": "lto:theme:socioeconomic issue",
+      "upstream_name": "socioeconomic issue",
+      "definition": "Explored is the way that society behaves with regard to economic activity.\nEconomic activity means the use of labor, capital, and land, for the\nproduction of goods and services. In particular, this theme pertains to how\ncorporations fit and function within society, and the creation of markets.\nAdditionally, this theme relates to how capital (wealth and money) is\ndistributed.",
+      "parents": [
+        "national social issue"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Socioeconomics"
+      ],
+      "children_count": 29
+    },
+    {
+      "upstream_id": "lto:theme:sororal love",
+      "upstream_name": "sororal love",
+      "definition": "The love of sister for sister is featured.",
+      "parents": [
+        "familial love"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:speculative future event",
+      "upstream_name": "speculative future event",
+      "definition": "A hypothetical future event of major significance to society is featured.",
+      "parents": [
+        "speculative society"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [],
+      "children_count": 6
+    },
+    {
+      "upstream_id": "lto:theme:speculative society",
+      "upstream_name": "speculative society",
+      "definition": "There is a society that is different from what we normally experience in some\nnovel respect.",
+      "parents": [
+        "alternate reality"
+      ],
+      "depth": 1,
+      "aliases": [],
+      "references": [],
+      "children_count": 17
+    },
+    {
+      "upstream_id": "lto:theme:suicide",
+      "upstream_name": "suicide",
+      "definition": "A character takes, tries to take, or considers taking their own life.",
+      "parents": [
+        "human challenge in life"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Suicide"
+      ],
+      "children_count": 3
+    },
+    {
+      "upstream_id": "lto:theme:survivor guilt",
+      "upstream_name": "survivor guilt",
+      "definition": "Someone has strong feelings of guilt associated with surviving an event in\nwhich others perished.",
+      "parents": [
+        "human mental condition",
+        "remorse"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Survivor_guilt"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:the afterlife",
+      "upstream_name": "the afterlife",
+      "definition": "The idea that we somehow continue to exist in spirit after we die is\ndiscussed. The story contains some information about what might be in store\nfor us, spiritually, post-mortem.",
+      "parents": [
+        "metaphysics"
+      ],
+      "depth": 3,
+      "aliases": [
+        "afterlife"
+      ],
+      "references": [
+        "https://en.wikipedia.org/wiki/Afterlife"
+      ],
+      "children_count": 3
+    },
+    {
+      "upstream_id": "lto:theme:the desire for justice",
+      "upstream_name": "the desire for justice",
+      "definition": "A character seeks righteous, and typically lawful, vengeance upon some\nmiscreant.",
+      "parents": [
+        "desire",
+        "human social need"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:the desire for redemption",
+      "upstream_name": "the desire for redemption",
+      "definition": "A character seeks to make up for past misdeeds and gain forgiveness.",
+      "parents": [
+        "desire",
+        "human self-esteem need"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:the desire to survive",
+      "upstream_name": "the desire to survive",
+      "definition": "A character is determined to live in spite of an adverse situation.",
+      "parents": [
+        "desire",
+        "human safety need"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:the fine arts and the humanities",
+      "upstream_name": "the fine arts and the humanities",
+      "definition": "Art forms or the study of human society is featured. They range from painting\nto tap dancing, from calligraphy to stand up comedy, and from rhetoric to\nanthropology.",
+      "parents": [
+        "human regular activity"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Fine_art",
+        "https://en.wikipedia.org/wiki/Humanities"
+      ],
+      "children_count": 18
+    },
+    {
+      "upstream_id": "lto:theme:the human capacity for good and evil",
+      "upstream_name": "the human capacity for good and evil",
+      "definition": "The story makes a point about individual human's capability to be both, or\nalternatingly, good and evil. If explicit reference is not made to this idea,\na story is still deemed to exhibit the theme if there is a character who in an\nexaggerated way is both good and evil.",
+      "parents": [
+        "human nature"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Good_and_evil"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:the human world",
+      "upstream_name": "the human world",
+      "definition": "This is the most general theme about matters intrinsically human. The theme\nmay pertain to human individuals, their interpersonal relationships, the\nsocial structures in which they are embedded, or the interactions among these\nstructures.",
+      "parents": [],
+      "depth": 0,
+      "aliases": [],
+      "references": [],
+      "children_count": 3
+    },
+    {
+      "upstream_id": "lto:theme:the importance of being honest",
+      "upstream_name": "the importance of being honest",
+      "definition": "It is illustrated that being untruthful can be bad for you and those around\nyou.",
+      "parents": [
+        "human idea about life",
+        "honesty"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:the importance of faith",
+      "upstream_name": "the importance of faith",
+      "definition": "The idea is put forth that (more or less blind) faith in one thing or another,\nis a human quality that is important for a good life and a functioning\nsociety.",
+      "parents": [
+        "human idea about life"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:the instinct for violence",
+      "upstream_name": "the instinct for violence",
+      "definition": "The all too familiar human penchant for violence is discussed.",
+      "parents": [
+        "human nature"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:the natural world",
+      "upstream_name": "the natural world",
+      "definition": "This is the most general theme about mainstream views, be they past or\npresent, on the operations of the world absent humans. The theme may discuss\nwidely held existential claims, moral precepts, or views on human nature. It\nmay particularly discuss scientific, religious, philosophical, artistic, and\nhumanist views on the nature of reality.",
+      "parents": [],
+      "depth": 0,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Nature"
+      ],
+      "children_count": 5
+    },
+    {
+      "upstream_id": "lto:theme:the nature of death",
+      "upstream_name": "the nature of death",
+      "definition": "Existential questions about the end of life are discussed.",
+      "parents": [
+        "human nature"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Cuteness"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:the nature of fear",
+      "upstream_name": "the nature of fear",
+      "definition": "The experience of fear and its root causes is discussed.",
+      "parents": [
+        "human nature"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:the nature of human emotions",
+      "upstream_name": "the nature of human emotions",
+      "definition": "What emotions are and what they mean to us is discussed.",
+      "parents": [
+        "human nature"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Emotion"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:the nature of love",
+      "upstream_name": "the nature of love",
+      "definition": "The emotion of love and associated activities are pondered from a\nphilosophical perspective.",
+      "parents": [
+        "human nature"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Love"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:the nature of memory",
+      "upstream_name": "the nature of memory",
+      "definition": "The definition for, and workings of, human memory is discussed.",
+      "parents": [
+        "metaphysics"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Memory"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:the nature of nightmares",
+      "upstream_name": "the nature of nightmares",
+      "definition": "The why and how of nightmares is discussed. Typically, there is a lengthy\ndiscussion about what someone's bad dreams imply about them.",
+      "parents": [
+        "human nature"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Nightmare"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:the nature of the subconscious",
+      "upstream_name": "the nature of the subconscious",
+      "definition": "The workings of the subconscious mind is explored.",
+      "parents": [
+        "human nature"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Subconscious"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:the need for freedom",
+      "upstream_name": "the need for freedom",
+      "definition": "It is suggested that humans do not feel good about being in captivity or\notherwise deprived of liberty.",
+      "parents": [
+        "human safety need"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Freedom"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:the soul",
+      "upstream_name": "the soul",
+      "definition": "The \"soul\" is the notion that people have an immaterial, intangible and\nimmortal component that will somehow continue to exist after the body dies.\nSuch a thing is featured in the story.",
+      "parents": [
+        "organized religion"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Soul"
+      ],
+      "children_count": 1
+    },
+    {
+      "upstream_id": "lto:theme:the wish to live",
+      "upstream_name": "the wish to live",
+      "definition": "The basic instinct in humans to fight for self-preservation is discussed more\nor less explicitly.\n\nNote: Since many if not most stories feature some sort of struggle for\nsurvival, this theme should be used only when the psychological force is more\nor less explicitly made topical.",
+      "parents": [
+        "human nature"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Will_to_live"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:tragic love",
+      "upstream_name": "tragic love",
+      "definition": "Love that has come to a tragic impasse, for example because the object of the\nfeeling has died prematurely.",
+      "parents": [
+        "romantic love"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:true beauty comes from within",
+      "upstream_name": "true beauty comes from within",
+      "definition": "The idea is posited that real beauty does not come from make-up and such\nmundane trappings, but is a thing of the soul.",
+      "parents": [
+        "human idea about life"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:vigilante justice",
+      "upstream_name": "vigilante justice",
+      "definition": "Extrajudicial punishment that is motivated by the nonexistence of law and\norder or dissatisfaction with justice is featured.",
+      "parents": [
+        "crime against justice"
+      ],
+      "depth": 6,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Frontier_justice"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:violent crime",
+      "upstream_name": "violent crime",
+      "definition": "One or another of those proscribed actions involving violence or the threat of\nviolence, is featured.",
+      "parents": [
+        "crime"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Crime"
+      ],
+      "children_count": 11
+    },
+    {
+      "upstream_id": "lto:theme:vow of silence",
+      "upstream_name": "vow of silence",
+      "definition": "The occasional religious practice of forswearing speech is featured.",
+      "parents": [
+        "organized religion"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Vow_of_silence"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:war",
+      "upstream_name": "war",
+      "definition": "Sovereign factions, usually state-like entities but sometimes armed rebels\netc., taking up arms against each other for one reason or another is featured.",
+      "parents": [
+        "international issue"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/War"
+      ],
+      "children_count": 27
+    },
+    {
+      "upstream_id": "lto:theme:war crime",
+      "upstream_name": "war crime",
+      "definition": "An act that constitutes a serious violation of the laws of war that gives rise\nto individual criminal responsibility is featured.",
+      "parents": [
+        "crime",
+        "war"
+      ],
+      "depth": 5,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/War_crime"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:what is beauty",
+      "upstream_name": "what is beauty",
+      "definition": "The question of what \"beauty\" really is is discussed. Why do we call some\nthings \"beautiful\"?",
+      "parents": [
+        "aesthetics"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Beauty"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:what is justice",
+      "upstream_name": "what is justice",
+      "definition": "The vary nature of what is just and what is unjust is discussed.",
+      "parents": [
+        "ethics"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Justice"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:what is truth",
+      "upstream_name": "what is truth",
+      "definition": "Questions regarding the definition of the word \"truth\" are pondered. Is there\neven such a thing, and if so is it knowable and how can it be confidently\nrecognized?",
+      "parents": [
+        "philosophy"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Truth"
+      ],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:what it is like in prison",
+      "upstream_name": "what it is like in prison",
+      "definition": "We are shown a reasonable vision of what life might be light for an\nincarcerated person in some type of prison.",
+      "parents": [
+        "what life is like"
+      ],
+      "depth": 3,
+      "aliases": [],
+      "references": [],
+      "children_count": 0
+    },
+    {
+      "upstream_id": "lto:theme:what life is like",
+      "upstream_name": "what life is like",
+      "definition": "This is a general theme about aspects of what life may be like for an\nindividual of some interesting cohort (for example, a visible minority group)\nor in some particular situation (for example, in high school).",
+      "parents": [
+        "personal human experience"
+      ],
+      "depth": 2,
+      "aliases": [],
+      "references": [],
+      "children_count": 11
+    },
+    {
+      "upstream_id": "lto:theme:youth rebellion",
+      "upstream_name": "youth rebellion",
+      "definition": "There is conflict between an older generation and a young, up and coming\ngeneration over established moral and cultural norms.",
+      "parents": [
+        "sociocultural issue"
+      ],
+      "depth": 4,
+      "aliases": [],
+      "references": [
+        "https://en.wikipedia.org/wiki/Counterculture_of_the_1960s"
+      ],
+      "children_count": 0
+    }
+  ]
+}

@@ -1,0 +1,2555 @@
+{
+  "schema_version": "experiment-run.v1",
+  "run_id": "mock-dry-run-v1",
+  "fixture_version": "annotation-bench-v1",
+  "fixture_content_hash": "5d12219a3e540807",
+  "taxonomy_version": "taxonomy-theme-device-v1-excl-time",
+  "prompt_version": "zh-literary-rich-v1",
+  "created_at": "2026-10-04T04:34:38.423Z",
+  "research_only": true,
+  "llm": {
+    "adapter_id": "mock-llm",
+    "model": "handcrafted-fixture-responses",
+    "version": "dry-run"
+  },
+  "embedding": {
+    "adapter_id": "mock",
+    "version": "hash-ngram-v0",
+    "notes": "Deterministic mock vectors for plumbing review only."
+  },
+  "pipeline": {
+    "free_concepts_first": true,
+    "active_dimensions": [
+      "theme",
+      "device"
+    ],
+    "reconcile_exclusions": [
+      "theme:时间",
+      "dimension:scene_time"
+    ],
+    "reconcile_threshold": null,
+    "reject_is_blacklist": false
+  },
+  "results": [
+    {
+      "quote_id": 1,
+      "group": "legacy_human_tagged",
+      "annotation_interpretation": null,
+      "free_concepts": [
+        {
+          "concept_text": "忧伤",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "语气带着失落或隐痛。"
+        },
+        {
+          "concept_text": "记忆",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "叙述回望既往经验。"
+        },
+        {
+          "concept_text": "孤独",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "主体处在疏离情境中。"
+        },
+        {
+          "concept_text": "时间流逝",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "文本暗示时辰或岁月推移（不做成 Scene/Time 标签）。"
+        },
+        {
+          "concept_text": "比喻",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "出现以一物喻另一物的表达，不自动等同于词表中的隐喻。"
+        },
+        {
+          "concept_text": "意象",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "具体物象承载情绪。"
+        }
+      ],
+      "proposed_outcomes": [
+        {
+          "concept_text": "忧伤",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.3068337153058843
+            },
+            {
+              "tag_id": 9,
+              "tag_zh": "记忆",
+              "dimension": "theme",
+              "similarity": 0.1463246151344114
+            },
+            {
+              "tag_id": 18,
+              "tag_zh": "轮回",
+              "dimension": "theme",
+              "similarity": 0.12790391521374594
+            },
+            {
+              "tag_id": 8,
+              "tag_zh": "寂静",
+              "dimension": "theme",
+              "similarity": 0.11404117533731388
+            },
+            {
+              "tag_id": 11,
+              "tag_zh": "衰败",
+              "dimension": "theme",
+              "similarity": 0.11269866554469805
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "忧伤",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "记忆",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 9,
+              "tag_zh": "记忆",
+              "dimension": "theme",
+              "similarity": 1.0000000000000002
+            },
+            {
+              "tag_id": 8,
+              "tag_zh": "寂静",
+              "dimension": "theme",
+              "similarity": 0.3667720220822181
+            },
+            {
+              "tag_id": 10,
+              "tag_zh": "焦虑",
+              "dimension": "theme",
+              "similarity": 0.23881576824054657
+            },
+            {
+              "tag_id": 11,
+              "tag_zh": "衰败",
+              "dimension": "theme",
+              "similarity": 0.11359105120488486
+            },
+            {
+              "tag_id": 12,
+              "tag_zh": "掌控",
+              "dimension": "theme",
+              "similarity": 0.10162614375378687
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "记忆",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "孤独",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.13552072846262353
+            },
+            {
+              "tag_id": 14,
+              "tag_zh": "命运",
+              "dimension": "theme",
+              "similarity": 0.06470600067801267
+            },
+            {
+              "tag_id": 16,
+              "tag_zh": "末日",
+              "dimension": "theme",
+              "similarity": 0.05370166866386645
+            },
+            {
+              "tag_id": 13,
+              "tag_zh": "死亡",
+              "dimension": "theme",
+              "similarity": 0.05166348745633857
+            },
+            {
+              "tag_id": 17,
+              "tag_zh": "厌恶",
+              "dimension": "theme",
+              "similarity": 0.03682196355656485
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "孤独",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "时间流逝",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 16,
+              "tag_zh": "末日",
+              "dimension": "theme",
+              "similarity": 0.09548499026348643
+            },
+            {
+              "tag_id": 13,
+              "tag_zh": "死亡",
+              "dimension": "theme",
+              "similarity": 0.08952803739101223
+            },
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.03070896463304977
+            },
+            {
+              "tag_id": 9,
+              "tag_zh": "记忆",
+              "dimension": "theme",
+              "similarity": 0.009535622961902362
+            },
+            {
+              "tag_id": 17,
+              "tag_zh": "厌恶",
+              "dimension": "theme",
+              "similarity": -0.0014563209873607458
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "时间流逝",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "比喻",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 19,
+              "tag_zh": "隐喻",
+              "dimension": "device",
+              "similarity": 0.2620968239798923
+            },
+            {
+              "tag_id": 22,
+              "tag_zh": "内涵",
+              "dimension": "device",
+              "similarity": 0.07349796789535855
+            },
+            {
+              "tag_id": 21,
+              "tag_zh": "头韵",
+              "dimension": "device",
+              "similarity": 0.039010885202209696
+            },
+            {
+              "tag_id": 20,
+              "tag_zh": "拟人",
+              "dimension": "device",
+              "similarity": 0.032103105282754146
+            },
+            {
+              "tag_id": 24,
+              "tag_zh": "外貌描写",
+              "dimension": "device",
+              "similarity": -0.01802557969839431
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "比喻",
+            "dimension": "device"
+          },
+          "caution": "candidates_only_until_human_judges_appropriateness; do_not_assume_biyu_equals_yinyu"
+        },
+        {
+          "concept_text": "意象",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 23,
+              "tag_zh": "意象",
+              "dimension": "device",
+              "similarity": 1.0000000000000002
+            },
+            {
+              "tag_id": 26,
+              "tag_zh": "长句描写",
+              "dimension": "device",
+              "similarity": 0.24360901249985145
+            },
+            {
+              "tag_id": 28,
+              "tag_zh": "心理描写",
+              "dimension": "device",
+              "similarity": 0.19987147048690188
+            },
+            {
+              "tag_id": 19,
+              "tag_zh": "隐喻",
+              "dimension": "device",
+              "similarity": 0.17001332513038964
+            },
+            {
+              "tag_id": 22,
+              "tag_zh": "内涵",
+              "dimension": "device",
+              "similarity": 0.13380412346085435
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "意象",
+            "dimension": "device"
+          }
+        }
+      ],
+      "weak_human_reference_overlap": {
+        "legacy_tag_ids": [
+          19
+        ],
+        "exact_label_hits": [],
+        "note": "weak_overlap_not_accuracy"
+      },
+      "raw_llm": {
+        "schema_version": "llm-free-concepts.v1",
+        "themes": [
+          {
+            "label": "忧伤",
+            "brief_rationale": "语气带着失落或隐痛。"
+          },
+          {
+            "label": "记忆",
+            "brief_rationale": "叙述回望既往经验。"
+          },
+          {
+            "label": "孤独",
+            "brief_rationale": "主体处在疏离情境中。"
+          },
+          {
+            "label": "时间流逝",
+            "brief_rationale": "文本暗示时辰或岁月推移（不做成 Scene/Time 标签）。"
+          }
+        ],
+        "devices": [
+          {
+            "label": "比喻",
+            "brief_rationale": "出现以一物喻另一物的表达，不自动等同于词表中的隐喻。"
+          },
+          {
+            "label": "意象",
+            "brief_rationale": "具体物象承载情绪。"
+          }
+        ],
+        "annotation_interpretation": null,
+        "notes": "mock output for dry-run only"
+      }
+    },
+    {
+      "quote_id": 4,
+      "group": "legacy_human_tagged",
+      "annotation_interpretation": null,
+      "free_concepts": [
+        {
+          "concept_text": "忧伤",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "语气带着失落或隐痛。"
+        },
+        {
+          "concept_text": "记忆",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "叙述回望既往经验。"
+        },
+        {
+          "concept_text": "孤独",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "主体处在疏离情境中。"
+        },
+        {
+          "concept_text": "时间流逝",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "文本暗示时辰或岁月推移（不做成 Scene/Time 标签）。"
+        },
+        {
+          "concept_text": "比喻",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "出现以一物喻另一物的表达，不自动等同于词表中的隐喻。"
+        },
+        {
+          "concept_text": "意象",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "具体物象承载情绪。"
+        }
+      ],
+      "proposed_outcomes": [
+        {
+          "concept_text": "忧伤",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.3068337153058843
+            },
+            {
+              "tag_id": 9,
+              "tag_zh": "记忆",
+              "dimension": "theme",
+              "similarity": 0.1463246151344114
+            },
+            {
+              "tag_id": 18,
+              "tag_zh": "轮回",
+              "dimension": "theme",
+              "similarity": 0.12790391521374594
+            },
+            {
+              "tag_id": 8,
+              "tag_zh": "寂静",
+              "dimension": "theme",
+              "similarity": 0.11404117533731388
+            },
+            {
+              "tag_id": 11,
+              "tag_zh": "衰败",
+              "dimension": "theme",
+              "similarity": 0.11269866554469805
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "忧伤",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "记忆",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 9,
+              "tag_zh": "记忆",
+              "dimension": "theme",
+              "similarity": 1.0000000000000002
+            },
+            {
+              "tag_id": 8,
+              "tag_zh": "寂静",
+              "dimension": "theme",
+              "similarity": 0.3667720220822181
+            },
+            {
+              "tag_id": 10,
+              "tag_zh": "焦虑",
+              "dimension": "theme",
+              "similarity": 0.23881576824054657
+            },
+            {
+              "tag_id": 11,
+              "tag_zh": "衰败",
+              "dimension": "theme",
+              "similarity": 0.11359105120488486
+            },
+            {
+              "tag_id": 12,
+              "tag_zh": "掌控",
+              "dimension": "theme",
+              "similarity": 0.10162614375378687
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "记忆",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "孤独",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.13552072846262353
+            },
+            {
+              "tag_id": 14,
+              "tag_zh": "命运",
+              "dimension": "theme",
+              "similarity": 0.06470600067801267
+            },
+            {
+              "tag_id": 16,
+              "tag_zh": "末日",
+              "dimension": "theme",
+              "similarity": 0.05370166866386645
+            },
+            {
+              "tag_id": 13,
+              "tag_zh": "死亡",
+              "dimension": "theme",
+              "similarity": 0.05166348745633857
+            },
+            {
+              "tag_id": 17,
+              "tag_zh": "厌恶",
+              "dimension": "theme",
+              "similarity": 0.03682196355656485
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "孤独",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "时间流逝",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 16,
+              "tag_zh": "末日",
+              "dimension": "theme",
+              "similarity": 0.09548499026348643
+            },
+            {
+              "tag_id": 13,
+              "tag_zh": "死亡",
+              "dimension": "theme",
+              "similarity": 0.08952803739101223
+            },
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.03070896463304977
+            },
+            {
+              "tag_id": 9,
+              "tag_zh": "记忆",
+              "dimension": "theme",
+              "similarity": 0.009535622961902362
+            },
+            {
+              "tag_id": 17,
+              "tag_zh": "厌恶",
+              "dimension": "theme",
+              "similarity": -0.0014563209873607458
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "时间流逝",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "比喻",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 19,
+              "tag_zh": "隐喻",
+              "dimension": "device",
+              "similarity": 0.2620968239798923
+            },
+            {
+              "tag_id": 22,
+              "tag_zh": "内涵",
+              "dimension": "device",
+              "similarity": 0.07349796789535855
+            },
+            {
+              "tag_id": 21,
+              "tag_zh": "头韵",
+              "dimension": "device",
+              "similarity": 0.039010885202209696
+            },
+            {
+              "tag_id": 20,
+              "tag_zh": "拟人",
+              "dimension": "device",
+              "similarity": 0.032103105282754146
+            },
+            {
+              "tag_id": 24,
+              "tag_zh": "外貌描写",
+              "dimension": "device",
+              "similarity": -0.01802557969839431
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "比喻",
+            "dimension": "device"
+          },
+          "caution": "candidates_only_until_human_judges_appropriateness; do_not_assume_biyu_equals_yinyu"
+        },
+        {
+          "concept_text": "意象",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 23,
+              "tag_zh": "意象",
+              "dimension": "device",
+              "similarity": 1.0000000000000002
+            },
+            {
+              "tag_id": 26,
+              "tag_zh": "长句描写",
+              "dimension": "device",
+              "similarity": 0.24360901249985145
+            },
+            {
+              "tag_id": 28,
+              "tag_zh": "心理描写",
+              "dimension": "device",
+              "similarity": 0.19987147048690188
+            },
+            {
+              "tag_id": 19,
+              "tag_zh": "隐喻",
+              "dimension": "device",
+              "similarity": 0.17001332513038964
+            },
+            {
+              "tag_id": 22,
+              "tag_zh": "内涵",
+              "dimension": "device",
+              "similarity": 0.13380412346085435
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "意象",
+            "dimension": "device"
+          }
+        }
+      ],
+      "weak_human_reference_overlap": {
+        "legacy_tag_ids": [
+          3,
+          19
+        ],
+        "exact_label_hits": [],
+        "note": "weak_overlap_not_accuracy"
+      },
+      "raw_llm": {
+        "schema_version": "llm-free-concepts.v1",
+        "themes": [
+          {
+            "label": "忧伤",
+            "brief_rationale": "语气带着失落或隐痛。"
+          },
+          {
+            "label": "记忆",
+            "brief_rationale": "叙述回望既往经验。"
+          },
+          {
+            "label": "孤独",
+            "brief_rationale": "主体处在疏离情境中。"
+          },
+          {
+            "label": "时间流逝",
+            "brief_rationale": "文本暗示时辰或岁月推移（不做成 Scene/Time 标签）。"
+          }
+        ],
+        "devices": [
+          {
+            "label": "比喻",
+            "brief_rationale": "出现以一物喻另一物的表达，不自动等同于词表中的隐喻。"
+          },
+          {
+            "label": "意象",
+            "brief_rationale": "具体物象承载情绪。"
+          }
+        ],
+        "annotation_interpretation": null,
+        "notes": "mock output for dry-run only"
+      }
+    },
+    {
+      "quote_id": 1376,
+      "group": "annotation_relevant",
+      "annotation_interpretation": {
+        "schema_version": "annotation-interpretation.v1",
+        "pattern": "tag_signal",
+        "original_annotation_unchanged": "罗塔莉娅",
+        "summary": "短批注更像人物/对象指称，而非完整感想。",
+        "tag_like_signals": [],
+        "character_like_signals": [
+          {
+            "text": "罗塔莉娅",
+            "note": "research_only_character_like"
+          }
+        ],
+        "used_as_evidence_for_concepts": true
+      },
+      "free_concepts": [
+        {
+          "concept_text": "身份辨认",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "批注像在指认人物，阅读焦点落在人物身份上。"
+        },
+        {
+          "concept_text": "观察目光",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "引文侧重外貌或现场观察。"
+        },
+        {
+          "concept_text": "陌生感",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "人物以被注视的方式出现，带有疏离感。"
+        },
+        {
+          "concept_text": "外貌刻画",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "引文若含外貌细节，则突出视觉描写。"
+        }
+      ],
+      "proposed_outcomes": [
+        {
+          "concept_text": "身份辨认",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 18,
+              "tag_zh": "轮回",
+              "dimension": "theme",
+              "similarity": 0.30510947152177254
+            },
+            {
+              "tag_id": 9,
+              "tag_zh": "记忆",
+              "dimension": "theme",
+              "similarity": 0.2288000481237478
+            },
+            {
+              "tag_id": 8,
+              "tag_zh": "寂静",
+              "dimension": "theme",
+              "similarity": 0.2170470660427645
+            },
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.07081407626838189
+            },
+            {
+              "tag_id": 10,
+              "tag_zh": "焦虑",
+              "dimension": "theme",
+              "similarity": -0.035343229570455346
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "身份辨认",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "观察目光",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 14,
+              "tag_zh": "命运",
+              "dimension": "theme",
+              "similarity": 0.24953722715268098
+            },
+            {
+              "tag_id": 9,
+              "tag_zh": "记忆",
+              "dimension": "theme",
+              "similarity": 0.19561462050364176
+            },
+            {
+              "tag_id": 8,
+              "tag_zh": "寂静",
+              "dimension": "theme",
+              "similarity": 0.19157319914143645
+            },
+            {
+              "tag_id": 11,
+              "tag_zh": "衰败",
+              "dimension": "theme",
+              "similarity": 0.158390687924863
+            },
+            {
+              "tag_id": 15,
+              "tag_zh": "敏感",
+              "dimension": "theme",
+              "similarity": 0.15594480750072903
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "观察目光",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "陌生感",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 17,
+              "tag_zh": "厌恶",
+              "dimension": "theme",
+              "similarity": 0.5311354342638079
+            },
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.16999853445969393
+            },
+            {
+              "tag_id": 8,
+              "tag_zh": "寂静",
+              "dimension": "theme",
+              "similarity": 0.10562458034433103
+            },
+            {
+              "tag_id": 16,
+              "tag_zh": "末日",
+              "dimension": "theme",
+              "similarity": 0.02603331958005548
+            },
+            {
+              "tag_id": 14,
+              "tag_zh": "命运",
+              "dimension": "theme",
+              "similarity": 0.005211640330272644
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "陌生感",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "外貌刻画",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 24,
+              "tag_zh": "外貌描写",
+              "dimension": "device",
+              "similarity": 0.1949380522750758
+            },
+            {
+              "tag_id": 19,
+              "tag_zh": "隐喻",
+              "dimension": "device",
+              "similarity": 0.07748768891063007
+            },
+            {
+              "tag_id": 22,
+              "tag_zh": "内涵",
+              "dimension": "device",
+              "similarity": -0.028353525098142828
+            },
+            {
+              "tag_id": 25,
+              "tag_zh": "动作描写",
+              "dimension": "device",
+              "similarity": -0.10164358877056667
+            },
+            {
+              "tag_id": 21,
+              "tag_zh": "头韵",
+              "dimension": "device",
+              "similarity": -0.12227354818097894
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "外貌刻画",
+            "dimension": "device"
+          }
+        }
+      ],
+      "weak_human_reference_overlap": {
+        "legacy_tag_ids": [],
+        "exact_label_hits": [],
+        "note": "weak_overlap_not_accuracy"
+      },
+      "raw_llm": {
+        "schema_version": "llm-free-concepts.v1",
+        "themes": [
+          {
+            "label": "身份辨认",
+            "brief_rationale": "批注像在指认人物，阅读焦点落在人物身份上。"
+          },
+          {
+            "label": "观察目光",
+            "brief_rationale": "引文侧重外貌或现场观察。"
+          },
+          {
+            "label": "陌生感",
+            "brief_rationale": "人物以被注视的方式出现，带有疏离感。"
+          }
+        ],
+        "devices": [
+          {
+            "label": "外貌刻画",
+            "brief_rationale": "引文若含外貌细节，则突出视觉描写。"
+          }
+        ],
+        "annotation_interpretation": {
+          "schema_version": "annotation-interpretation.v1",
+          "pattern": "tag_signal",
+          "original_annotation_unchanged": "罗塔莉娅",
+          "summary": "短批注更像人物/对象指称，而非完整感想。",
+          "tag_like_signals": [],
+          "character_like_signals": [
+            {
+              "text": "罗塔莉娅",
+              "note": "research_only_character_like"
+            }
+          ],
+          "used_as_evidence_for_concepts": true
+        }
+      }
+    },
+    {
+      "quote_id": 1399,
+      "group": "annotation_relevant",
+      "annotation_interpretation": {
+        "schema_version": "annotation-interpretation.v1",
+        "pattern": "reflective_note",
+        "original_annotation_unchanged": "剧透\n剧透\n剧透\n我还挺喜欢这个结尾的。要我来说，敷衍的结尾可以参考显克维奇的《第三个女人》，这位弃医从文的爱国作家设置的结尾，也和爱情有关，但远比这里的要敷衍得多。\n回到本书，我认为如果想表达鄙视死亡/爱情二选一的不负责任的传统剧情，作者大可以在“想结婚”就戛然而止。好比许多童话和古老小说，都以类似“他们从此过上了幸福的生活”结尾。但作者又新开一章，真的讲了两句幸福的生活。如果要炫技、讽刺，绞尽脑汁地膈应读者，以其一贯风格，直接把结尾砍掉，岂不更有效果。\n其次，爱情这个选项，对书中包括男读者在内的角色，不失为一条出路。那些有头有脸的警察、富豪、教授、作家，许多都做着世俗上没有意义甚至不光彩的荒唐事，包括绑架自己以免自己被绑架，琢磨万花筒、电话铃声，认真扮演谍中谍等等，像孤零零的十个开头一样，悄然地挑战着规矩与意义的价值。\n男读者孤身追着十本断头小说，小说里又是各种引人入胜但又摸不着头脑的玩世不恭的剧情，女读者和他也并非传统小说里陪衬的同路人的设定。男读者（给我的感觉），象征着还未决定是继续明知无意义的探究，或是爱情死亡二选一的那批人。如果他有自毁倾向，可以参考荒原狼，他听交响乐那段在这里和万花筒以及电话铃声，给我非常相似的感觉。如果选择无意义，那毫无疑问，可以随时找到更多的断头书。就像我读到第三第四篇的时候，就已经做好准备，继续读更多的断头书。相比之下，去寻找一位女读者，而她正好也读类似的书，也为自己无意义的经历苦恼时，两人就此结伴同行，确有可能孕育出温暖彼此的底气。虽说离产生意义依然遥遥无期，但毕竟脱离了死亡的威胁，获得了生活中的确幸，或许正是一部分人渴求的良方。归根结底，我相信并非所有人都有资格、价值、义务，去思考人生的意义，或是简单点，小说该怎么写。",
+        "summary": "长批注是反思性阅读笔记，不是标签清单。",
+        "tag_like_signals": [],
+        "character_like_signals": [],
+        "used_as_evidence_for_concepts": true
+      },
+      "free_concepts": [
+        {
+          "concept_text": "意义探求",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "批注围绕小说意义与结局选择展开。"
+        },
+        {
+          "concept_text": "爱情与死亡",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "批注讨论传统结局中的爱情/死亡二元。"
+        },
+        {
+          "concept_text": "虚无与重建",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "引文/批注触及虚无后被具体意象重新包裹。"
+        },
+        {
+          "concept_text": "阅读旅程",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "批注把阅读本身当成旅程。"
+        },
+        {
+          "concept_text": "元小说",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "批注讨论叙事结构与结尾策略。"
+        },
+        {
+          "concept_text": "反讽",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "批注提到敷衍结尾与炫技式冒犯读者。"
+        }
+      ],
+      "proposed_outcomes": [
+        {
+          "concept_text": "意义探求",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 16,
+              "tag_zh": "末日",
+              "dimension": "theme",
+              "similarity": 0.23392181509899782
+            },
+            {
+              "tag_id": 17,
+              "tag_zh": "厌恶",
+              "dimension": "theme",
+              "similarity": 0.21302520535027195
+            },
+            {
+              "tag_id": 15,
+              "tag_zh": "敏感",
+              "dimension": "theme",
+              "similarity": 0.18205631783193826
+            },
+            {
+              "tag_id": 11,
+              "tag_zh": "衰败",
+              "dimension": "theme",
+              "similarity": 0.16234448698585688
+            },
+            {
+              "tag_id": 18,
+              "tag_zh": "轮回",
+              "dimension": "theme",
+              "similarity": 0.13661178911943747
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "意义探求",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "爱情与死亡",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 13,
+              "tag_zh": "死亡",
+              "dimension": "theme",
+              "similarity": 0.6277821060998152
+            },
+            {
+              "tag_id": 16,
+              "tag_zh": "末日",
+              "dimension": "theme",
+              "similarity": 0.15377423374496876
+            },
+            {
+              "tag_id": 9,
+              "tag_zh": "记忆",
+              "dimension": "theme",
+              "similarity": 0.13865669766907063
+            },
+            {
+              "tag_id": 14,
+              "tag_zh": "命运",
+              "dimension": "theme",
+              "similarity": 0.06895219262559577
+            },
+            {
+              "tag_id": 18,
+              "tag_zh": "轮回",
+              "dimension": "theme",
+              "similarity": 0.050825943962612585
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "爱情与死亡",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "虚无与重建",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 11,
+              "tag_zh": "衰败",
+              "dimension": "theme",
+              "similarity": 0.3724559900513516
+            },
+            {
+              "tag_id": 14,
+              "tag_zh": "命运",
+              "dimension": "theme",
+              "similarity": 0.2605647914449247
+            },
+            {
+              "tag_id": 12,
+              "tag_zh": "掌控",
+              "dimension": "theme",
+              "similarity": 0.25826103451215476
+            },
+            {
+              "tag_id": 8,
+              "tag_zh": "寂静",
+              "dimension": "theme",
+              "similarity": 0.217739401998416
+            },
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.15946996743410913
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "虚无与重建",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "阅读旅程",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 15,
+              "tag_zh": "敏感",
+              "dimension": "theme",
+              "similarity": 0.23510222669861167
+            },
+            {
+              "tag_id": 16,
+              "tag_zh": "末日",
+              "dimension": "theme",
+              "similarity": 0.1315334729956262
+            },
+            {
+              "tag_id": 8,
+              "tag_zh": "寂静",
+              "dimension": "theme",
+              "similarity": 0.11308263078762723
+            },
+            {
+              "tag_id": 10,
+              "tag_zh": "焦虑",
+              "dimension": "theme",
+              "similarity": 0.07746542412350589
+            },
+            {
+              "tag_id": 11,
+              "tag_zh": "衰败",
+              "dimension": "theme",
+              "similarity": 0.031267573383168226
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "阅读旅程",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "元小说",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 22,
+              "tag_zh": "内涵",
+              "dimension": "device",
+              "similarity": 0.2368425840300428
+            },
+            {
+              "tag_id": 26,
+              "tag_zh": "长句描写",
+              "dimension": "device",
+              "similarity": 0.18690572617677573
+            },
+            {
+              "tag_id": 23,
+              "tag_zh": "意象",
+              "dimension": "device",
+              "similarity": 0.06442614193420441
+            },
+            {
+              "tag_id": 28,
+              "tag_zh": "心理描写",
+              "dimension": "device",
+              "similarity": 0.06006126658596687
+            },
+            {
+              "tag_id": 25,
+              "tag_zh": "动作描写",
+              "dimension": "device",
+              "similarity": 0.04290843619123829
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "元小说",
+            "dimension": "device"
+          }
+        },
+        {
+          "concept_text": "反讽",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 21,
+              "tag_zh": "头韵",
+              "dimension": "device",
+              "similarity": 0.09729508282951546
+            },
+            {
+              "tag_id": 27,
+              "tag_zh": "通感",
+              "dimension": "device",
+              "similarity": 0.042771170101869455
+            },
+            {
+              "tag_id": 19,
+              "tag_zh": "隐喻",
+              "dimension": "device",
+              "similarity": 0.042240163091768514
+            },
+            {
+              "tag_id": 20,
+              "tag_zh": "拟人",
+              "dimension": "device",
+              "similarity": -0.08668293738601861
+            },
+            {
+              "tag_id": 25,
+              "tag_zh": "动作描写",
+              "dimension": "device",
+              "similarity": -0.09728106656252647
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "反讽",
+            "dimension": "device"
+          }
+        }
+      ],
+      "weak_human_reference_overlap": {
+        "legacy_tag_ids": [],
+        "exact_label_hits": [],
+        "note": "weak_overlap_not_accuracy"
+      },
+      "raw_llm": {
+        "schema_version": "llm-free-concepts.v1",
+        "themes": [
+          {
+            "label": "意义探求",
+            "brief_rationale": "批注围绕小说意义与结局选择展开。"
+          },
+          {
+            "label": "爱情与死亡",
+            "brief_rationale": "批注讨论传统结局中的爱情/死亡二元。"
+          },
+          {
+            "label": "虚无与重建",
+            "brief_rationale": "引文/批注触及虚无后被具体意象重新包裹。"
+          },
+          {
+            "label": "阅读旅程",
+            "brief_rationale": "批注把阅读本身当成旅程。"
+          }
+        ],
+        "devices": [
+          {
+            "label": "元小说",
+            "brief_rationale": "批注讨论叙事结构与结尾策略。"
+          },
+          {
+            "label": "反讽",
+            "brief_rationale": "批注提到敷衍结尾与炫技式冒犯读者。"
+          }
+        ],
+        "annotation_interpretation": {
+          "schema_version": "annotation-interpretation.v1",
+          "pattern": "reflective_note",
+          "original_annotation_unchanged": "剧透\n剧透\n剧透\n我还挺喜欢这个结尾的。要我来说，敷衍的结尾可以参考显克维奇的《第三个女人》，这位弃医从文的爱国作家设置的结尾，也和爱情有关，但远比这里的要敷衍得多。\n回到本书，我认为如果想表达鄙视死亡/爱情二选一的不负责任的传统剧情，作者大可以在“想结婚”就戛然而止。好比许多童话和古老小说，都以类似“他们从此过上了幸福的生活”结尾。但作者又新开一章，真的讲了两句幸福的生活。如果要炫技、讽刺，绞尽脑汁地膈应读者，以其一贯风格，直接把结尾砍掉，岂不更有效果。\n其次，爱情这个选项，对书中包括男读者在内的角色，不失为一条出路。那些有头有脸的警察、富豪、教授、作家，许多都做着世俗上没有意义甚至不光彩的荒唐事，包括绑架自己以免自己被绑架，琢磨万花筒、电话铃声，认真扮演谍中谍等等，像孤零零的十个开头一样，悄然地挑战着规矩与意义的价值。\n男读者孤身追着十本断头小说，小说里又是各种引人入胜但又摸不着头脑的玩世不恭的剧情，女读者和他也并非传统小说里陪衬的同路人的设定。男读者（给我的感觉），象征着还未决定是继续明知无意义的探究，或是爱情死亡二选一的那批人。如果他有自毁倾向，可以参考荒原狼，他听交响乐那段在这里和万花筒以及电话铃声，给我非常相似的感觉。如果选择无意义，那毫无疑问，可以随时找到更多的断头书。就像我读到第三第四篇的时候，就已经做好准备，继续读更多的断头书。相比之下，去寻找一位女读者，而她正好也读类似的书，也为自己无意义的经历苦恼时，两人就此结伴同行，确有可能孕育出温暖彼此的底气。虽说离产生意义依然遥遥无期，但毕竟脱离了死亡的威胁，获得了生活中的确幸，或许正是一部分人渴求的良方。归根结底，我相信并非所有人都有资格、价值、义务，去思考人生的意义，或是简单点，小说该怎么写。",
+          "summary": "长批注是反思性阅读笔记，不是标签清单。",
+          "tag_like_signals": [],
+          "character_like_signals": [],
+          "used_as_evidence_for_concepts": true
+        }
+      }
+    },
+    {
+      "quote_id": 1295,
+      "group": "annotation_relevant",
+      "annotation_interpretation": {
+        "schema_version": "annotation-interpretation.v1",
+        "pattern": "mixed",
+        "original_annotation_unchanged": "这不是…而是…放在今天要被举报是AI写的了",
+        "summary": "批注既有联想信号，也有个人感想。",
+        "tag_like_signals": [],
+        "character_like_signals": [],
+        "used_as_evidence_for_concepts": true
+      },
+      "free_concepts": [
+        {
+          "concept_text": "作者形象",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "批注联想到现实作者与作品想象的落差。"
+        },
+        {
+          "concept_text": "阅读期待",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "引文讨论是否应认识作者本人。"
+        },
+        {
+          "concept_text": "反差",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "批注强调想象与真人的错位。"
+        },
+        {
+          "concept_text": "引用",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "引文本身可能是对话/转述。"
+        }
+      ],
+      "proposed_outcomes": [
+        {
+          "concept_text": "作者形象",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 12,
+              "tag_zh": "掌控",
+              "dimension": "theme",
+              "similarity": 0.3107975925661717
+            },
+            {
+              "tag_id": 13,
+              "tag_zh": "死亡",
+              "dimension": "theme",
+              "similarity": 0.17882352399843476
+            },
+            {
+              "tag_id": 18,
+              "tag_zh": "轮回",
+              "dimension": "theme",
+              "similarity": 0.05889952297185478
+            },
+            {
+              "tag_id": 14,
+              "tag_zh": "命运",
+              "dimension": "theme",
+              "similarity": 0.014063981768761937
+            },
+            {
+              "tag_id": 8,
+              "tag_zh": "寂静",
+              "dimension": "theme",
+              "similarity": -0.05349555503686598
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "作者形象",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "阅读期待",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 16,
+              "tag_zh": "末日",
+              "dimension": "theme",
+              "similarity": 0.25130611575323863
+            },
+            {
+              "tag_id": 18,
+              "tag_zh": "轮回",
+              "dimension": "theme",
+              "similarity": 0.19412654148580796
+            },
+            {
+              "tag_id": 10,
+              "tag_zh": "焦虑",
+              "dimension": "theme",
+              "similarity": 0.13718174230220476
+            },
+            {
+              "tag_id": 8,
+              "tag_zh": "寂静",
+              "dimension": "theme",
+              "similarity": 0.1369879652311916
+            },
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.12427525188378322
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "阅读期待",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "反差",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 18,
+              "tag_zh": "轮回",
+              "dimension": "theme",
+              "similarity": 0.21590964710276653
+            },
+            {
+              "tag_id": 17,
+              "tag_zh": "厌恶",
+              "dimension": "theme",
+              "similarity": 0.2135861625872671
+            },
+            {
+              "tag_id": 10,
+              "tag_zh": "焦虑",
+              "dimension": "theme",
+              "similarity": 0.16057146312270318
+            },
+            {
+              "tag_id": 15,
+              "tag_zh": "敏感",
+              "dimension": "theme",
+              "similarity": 0.15465760789885352
+            },
+            {
+              "tag_id": 13,
+              "tag_zh": "死亡",
+              "dimension": "theme",
+              "similarity": 0.13885456980333574
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "反差",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "引用",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 28,
+              "tag_zh": "心理描写",
+              "dimension": "device",
+              "similarity": 0.28653845445560766
+            },
+            {
+              "tag_id": 25,
+              "tag_zh": "动作描写",
+              "dimension": "device",
+              "similarity": 0.16430708698081853
+            },
+            {
+              "tag_id": 22,
+              "tag_zh": "内涵",
+              "dimension": "device",
+              "similarity": 0.14972767688534674
+            },
+            {
+              "tag_id": 20,
+              "tag_zh": "拟人",
+              "dimension": "device",
+              "similarity": 0.11202678107669382
+            },
+            {
+              "tag_id": 27,
+              "tag_zh": "通感",
+              "dimension": "device",
+              "similarity": 0.11036250067779793
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "引用",
+            "dimension": "device"
+          }
+        }
+      ],
+      "weak_human_reference_overlap": {
+        "legacy_tag_ids": [],
+        "exact_label_hits": [],
+        "note": "weak_overlap_not_accuracy"
+      },
+      "raw_llm": {
+        "schema_version": "llm-free-concepts.v1",
+        "themes": [
+          {
+            "label": "作者形象",
+            "brief_rationale": "批注联想到现实作者与作品想象的落差。"
+          },
+          {
+            "label": "阅读期待",
+            "brief_rationale": "引文讨论是否应认识作者本人。"
+          },
+          {
+            "label": "反差",
+            "brief_rationale": "批注强调想象与真人的错位。"
+          }
+        ],
+        "devices": [
+          {
+            "label": "引用",
+            "brief_rationale": "引文本身可能是对话/转述。"
+          }
+        ],
+        "annotation_interpretation": {
+          "schema_version": "annotation-interpretation.v1",
+          "pattern": "mixed",
+          "original_annotation_unchanged": "这不是…而是…放在今天要被举报是AI写的了",
+          "summary": "批注既有联想信号，也有个人感想。",
+          "tag_like_signals": [],
+          "character_like_signals": [],
+          "used_as_evidence_for_concepts": true
+        }
+      }
+    },
+    {
+      "quote_id": 329,
+      "group": "cold_start",
+      "annotation_interpretation": null,
+      "free_concepts": [
+        {
+          "concept_text": "忧伤",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "语气带着失落或隐痛。"
+        },
+        {
+          "concept_text": "记忆",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "叙述回望既往经验。"
+        },
+        {
+          "concept_text": "孤独",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "主体处在疏离情境中。"
+        },
+        {
+          "concept_text": "时间流逝",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "文本暗示时辰或岁月推移（不做成 Scene/Time 标签）。"
+        },
+        {
+          "concept_text": "比喻",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "出现以一物喻另一物的表达，不自动等同于词表中的隐喻。"
+        },
+        {
+          "concept_text": "意象",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "具体物象承载情绪。"
+        }
+      ],
+      "proposed_outcomes": [
+        {
+          "concept_text": "忧伤",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.3068337153058843
+            },
+            {
+              "tag_id": 9,
+              "tag_zh": "记忆",
+              "dimension": "theme",
+              "similarity": 0.1463246151344114
+            },
+            {
+              "tag_id": 18,
+              "tag_zh": "轮回",
+              "dimension": "theme",
+              "similarity": 0.12790391521374594
+            },
+            {
+              "tag_id": 8,
+              "tag_zh": "寂静",
+              "dimension": "theme",
+              "similarity": 0.11404117533731388
+            },
+            {
+              "tag_id": 11,
+              "tag_zh": "衰败",
+              "dimension": "theme",
+              "similarity": 0.11269866554469805
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "忧伤",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "记忆",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 9,
+              "tag_zh": "记忆",
+              "dimension": "theme",
+              "similarity": 1.0000000000000002
+            },
+            {
+              "tag_id": 8,
+              "tag_zh": "寂静",
+              "dimension": "theme",
+              "similarity": 0.3667720220822181
+            },
+            {
+              "tag_id": 10,
+              "tag_zh": "焦虑",
+              "dimension": "theme",
+              "similarity": 0.23881576824054657
+            },
+            {
+              "tag_id": 11,
+              "tag_zh": "衰败",
+              "dimension": "theme",
+              "similarity": 0.11359105120488486
+            },
+            {
+              "tag_id": 12,
+              "tag_zh": "掌控",
+              "dimension": "theme",
+              "similarity": 0.10162614375378687
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "记忆",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "孤独",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.13552072846262353
+            },
+            {
+              "tag_id": 14,
+              "tag_zh": "命运",
+              "dimension": "theme",
+              "similarity": 0.06470600067801267
+            },
+            {
+              "tag_id": 16,
+              "tag_zh": "末日",
+              "dimension": "theme",
+              "similarity": 0.05370166866386645
+            },
+            {
+              "tag_id": 13,
+              "tag_zh": "死亡",
+              "dimension": "theme",
+              "similarity": 0.05166348745633857
+            },
+            {
+              "tag_id": 17,
+              "tag_zh": "厌恶",
+              "dimension": "theme",
+              "similarity": 0.03682196355656485
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "孤独",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "时间流逝",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 16,
+              "tag_zh": "末日",
+              "dimension": "theme",
+              "similarity": 0.09548499026348643
+            },
+            {
+              "tag_id": 13,
+              "tag_zh": "死亡",
+              "dimension": "theme",
+              "similarity": 0.08952803739101223
+            },
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.03070896463304977
+            },
+            {
+              "tag_id": 9,
+              "tag_zh": "记忆",
+              "dimension": "theme",
+              "similarity": 0.009535622961902362
+            },
+            {
+              "tag_id": 17,
+              "tag_zh": "厌恶",
+              "dimension": "theme",
+              "similarity": -0.0014563209873607458
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "时间流逝",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "比喻",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 19,
+              "tag_zh": "隐喻",
+              "dimension": "device",
+              "similarity": 0.2620968239798923
+            },
+            {
+              "tag_id": 22,
+              "tag_zh": "内涵",
+              "dimension": "device",
+              "similarity": 0.07349796789535855
+            },
+            {
+              "tag_id": 21,
+              "tag_zh": "头韵",
+              "dimension": "device",
+              "similarity": 0.039010885202209696
+            },
+            {
+              "tag_id": 20,
+              "tag_zh": "拟人",
+              "dimension": "device",
+              "similarity": 0.032103105282754146
+            },
+            {
+              "tag_id": 24,
+              "tag_zh": "外貌描写",
+              "dimension": "device",
+              "similarity": -0.01802557969839431
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "比喻",
+            "dimension": "device"
+          },
+          "caution": "candidates_only_until_human_judges_appropriateness; do_not_assume_biyu_equals_yinyu"
+        },
+        {
+          "concept_text": "意象",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 23,
+              "tag_zh": "意象",
+              "dimension": "device",
+              "similarity": 1.0000000000000002
+            },
+            {
+              "tag_id": 26,
+              "tag_zh": "长句描写",
+              "dimension": "device",
+              "similarity": 0.24360901249985145
+            },
+            {
+              "tag_id": 28,
+              "tag_zh": "心理描写",
+              "dimension": "device",
+              "similarity": 0.19987147048690188
+            },
+            {
+              "tag_id": 19,
+              "tag_zh": "隐喻",
+              "dimension": "device",
+              "similarity": 0.17001332513038964
+            },
+            {
+              "tag_id": 22,
+              "tag_zh": "内涵",
+              "dimension": "device",
+              "similarity": 0.13380412346085435
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "意象",
+            "dimension": "device"
+          }
+        }
+      ],
+      "weak_human_reference_overlap": {
+        "legacy_tag_ids": [],
+        "exact_label_hits": [],
+        "note": "weak_overlap_not_accuracy"
+      },
+      "raw_llm": {
+        "schema_version": "llm-free-concepts.v1",
+        "themes": [
+          {
+            "label": "忧伤",
+            "brief_rationale": "语气带着失落或隐痛。"
+          },
+          {
+            "label": "记忆",
+            "brief_rationale": "叙述回望既往经验。"
+          },
+          {
+            "label": "孤独",
+            "brief_rationale": "主体处在疏离情境中。"
+          },
+          {
+            "label": "时间流逝",
+            "brief_rationale": "文本暗示时辰或岁月推移（不做成 Scene/Time 标签）。"
+          }
+        ],
+        "devices": [
+          {
+            "label": "比喻",
+            "brief_rationale": "出现以一物喻另一物的表达，不自动等同于词表中的隐喻。"
+          },
+          {
+            "label": "意象",
+            "brief_rationale": "具体物象承载情绪。"
+          }
+        ],
+        "annotation_interpretation": null,
+        "notes": "mock output for dry-run only"
+      }
+    },
+    {
+      "quote_id": 527,
+      "group": "cold_start",
+      "annotation_interpretation": null,
+      "free_concepts": [
+        {
+          "concept_text": "忧伤",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "语气带着失落或隐痛。"
+        },
+        {
+          "concept_text": "记忆",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "叙述回望既往经验。"
+        },
+        {
+          "concept_text": "孤独",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "主体处在疏离情境中。"
+        },
+        {
+          "concept_text": "时间流逝",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "文本暗示时辰或岁月推移（不做成 Scene/Time 标签）。"
+        },
+        {
+          "concept_text": "比喻",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "出现以一物喻另一物的表达，不自动等同于词表中的隐喻。"
+        },
+        {
+          "concept_text": "意象",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "brief_rationale": "具体物象承载情绪。"
+        }
+      ],
+      "proposed_outcomes": [
+        {
+          "concept_text": "忧伤",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.3068337153058843
+            },
+            {
+              "tag_id": 9,
+              "tag_zh": "记忆",
+              "dimension": "theme",
+              "similarity": 0.1463246151344114
+            },
+            {
+              "tag_id": 18,
+              "tag_zh": "轮回",
+              "dimension": "theme",
+              "similarity": 0.12790391521374594
+            },
+            {
+              "tag_id": 8,
+              "tag_zh": "寂静",
+              "dimension": "theme",
+              "similarity": 0.11404117533731388
+            },
+            {
+              "tag_id": 11,
+              "tag_zh": "衰败",
+              "dimension": "theme",
+              "similarity": 0.11269866554469805
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "忧伤",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "记忆",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 9,
+              "tag_zh": "记忆",
+              "dimension": "theme",
+              "similarity": 1.0000000000000002
+            },
+            {
+              "tag_id": 8,
+              "tag_zh": "寂静",
+              "dimension": "theme",
+              "similarity": 0.3667720220822181
+            },
+            {
+              "tag_id": 10,
+              "tag_zh": "焦虑",
+              "dimension": "theme",
+              "similarity": 0.23881576824054657
+            },
+            {
+              "tag_id": 11,
+              "tag_zh": "衰败",
+              "dimension": "theme",
+              "similarity": 0.11359105120488486
+            },
+            {
+              "tag_id": 12,
+              "tag_zh": "掌控",
+              "dimension": "theme",
+              "similarity": 0.10162614375378687
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "记忆",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "孤独",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.13552072846262353
+            },
+            {
+              "tag_id": 14,
+              "tag_zh": "命运",
+              "dimension": "theme",
+              "similarity": 0.06470600067801267
+            },
+            {
+              "tag_id": 16,
+              "tag_zh": "末日",
+              "dimension": "theme",
+              "similarity": 0.05370166866386645
+            },
+            {
+              "tag_id": 13,
+              "tag_zh": "死亡",
+              "dimension": "theme",
+              "similarity": 0.05166348745633857
+            },
+            {
+              "tag_id": 17,
+              "tag_zh": "厌恶",
+              "dimension": "theme",
+              "similarity": 0.03682196355656485
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "孤独",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "时间流逝",
+          "dimension": "theme",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 16,
+              "tag_zh": "末日",
+              "dimension": "theme",
+              "similarity": 0.09548499026348643
+            },
+            {
+              "tag_id": 13,
+              "tag_zh": "死亡",
+              "dimension": "theme",
+              "similarity": 0.08952803739101223
+            },
+            {
+              "tag_id": 7,
+              "tag_zh": "痛苦",
+              "dimension": "theme",
+              "similarity": 0.03070896463304977
+            },
+            {
+              "tag_id": 9,
+              "tag_zh": "记忆",
+              "dimension": "theme",
+              "similarity": 0.009535622961902362
+            },
+            {
+              "tag_id": 17,
+              "tag_zh": "厌恶",
+              "dimension": "theme",
+              "similarity": -0.0014563209873607458
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "时间流逝",
+            "dimension": "theme"
+          }
+        },
+        {
+          "concept_text": "比喻",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 19,
+              "tag_zh": "隐喻",
+              "dimension": "device",
+              "similarity": 0.2620968239798923
+            },
+            {
+              "tag_id": 22,
+              "tag_zh": "内涵",
+              "dimension": "device",
+              "similarity": 0.07349796789535855
+            },
+            {
+              "tag_id": 21,
+              "tag_zh": "头韵",
+              "dimension": "device",
+              "similarity": 0.039010885202209696
+            },
+            {
+              "tag_id": 20,
+              "tag_zh": "拟人",
+              "dimension": "device",
+              "similarity": 0.032103105282754146
+            },
+            {
+              "tag_id": 24,
+              "tag_zh": "外貌描写",
+              "dimension": "device",
+              "similarity": -0.01802557969839431
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "比喻",
+            "dimension": "device"
+          },
+          "caution": "candidates_only_until_human_judges_appropriateness; do_not_assume_biyu_equals_yinyu"
+        },
+        {
+          "concept_text": "意象",
+          "dimension": "device",
+          "generation_source": "llm_free",
+          "run_id": "mock-dry-run-v1",
+          "reconciliation_candidates": [
+            {
+              "tag_id": 23,
+              "tag_zh": "意象",
+              "dimension": "device",
+              "similarity": 1.0000000000000002
+            },
+            {
+              "tag_id": 26,
+              "tag_zh": "长句描写",
+              "dimension": "device",
+              "similarity": 0.24360901249985145
+            },
+            {
+              "tag_id": 28,
+              "tag_zh": "心理描写",
+              "dimension": "device",
+              "similarity": 0.19987147048690188
+            },
+            {
+              "tag_id": 19,
+              "tag_zh": "隐喻",
+              "dimension": "device",
+              "similarity": 0.17001332513038964
+            },
+            {
+              "tag_id": 22,
+              "tag_zh": "内涵",
+              "dimension": "device",
+              "similarity": 0.13380412346085435
+            }
+          ],
+          "reconciliation_outcome": "new_personal_concept",
+          "selected_canonical_tag": null,
+          "retained_personal_concept": {
+            "label": "意象",
+            "dimension": "device"
+          }
+        }
+      ],
+      "weak_human_reference_overlap": {
+        "legacy_tag_ids": [],
+        "exact_label_hits": [],
+        "note": "weak_overlap_not_accuracy"
+      },
+      "raw_llm": {
+        "schema_version": "llm-free-concepts.v1",
+        "themes": [
+          {
+            "label": "忧伤",
+            "brief_rationale": "语气带着失落或隐痛。"
+          },
+          {
+            "label": "记忆",
+            "brief_rationale": "叙述回望既往经验。"
+          },
+          {
+            "label": "孤独",
+            "brief_rationale": "主体处在疏离情境中。"
+          },
+          {
+            "label": "时间流逝",
+            "brief_rationale": "文本暗示时辰或岁月推移（不做成 Scene/Time 标签）。"
+          }
+        ],
+        "devices": [
+          {
+            "label": "比喻",
+            "brief_rationale": "出现以一物喻另一物的表达，不自动等同于词表中的隐喻。"
+          },
+          {
+            "label": "意象",
+            "brief_rationale": "具体物象承载情绪。"
+          }
+        ],
+        "annotation_interpretation": null,
+        "notes": "mock output for dry-run only"
+      }
+    }
+  ],
+  "human_evals": [
+    {
+      "quote_id": 1,
+      "overall": "okay",
+      "flags": [
+        "good_new_concept"
+      ],
+      "notes": "Mock eval only — Reject is per-run, not blacklist.",
+      "evaluated_at": "2026-10-04T04:34:38.422Z",
+      "applies_only_to_run_id": "mock-dry-run-v1"
+    }
+  ],
+  "aggregates": {
+    "quotes_n": 7,
+    "mean_free_themes_per_quote": 3.7143,
+    "mean_free_devices_per_quote": 1.7143,
+    "existing_assignment_rate": 0,
+    "new_personal_concept_rate": 1,
+    "bad_reconciliation_rate_from_review": 0,
+    "useful_new_concept_rate_from_review": 1,
+    "annotation_vs_no_annotation": {
+      "with_annotation_n": 3,
+      "without_annotation_n": 4,
+      "mean_themes_with_annotation": 3.3333,
+      "mean_themes_without_annotation": 4,
+      "mean_devices_with_annotation": 1.3333,
+      "mean_devices_without_annotation": 2
+    },
+    "weak_human_reference_overlap": {
+      "label": "weak_overlap_not_accuracy",
+      "quotes_with_any_exact_label_hit": 0,
+      "recurring_exact_label_hits": []
+    },
+    "recurring_personal_concepts": [
+      {
+        "label": "比喻",
+        "count": 4
+      },
+      {
+        "label": "孤独",
+        "count": 4
+      },
+      {
+        "label": "记忆",
+        "count": 4
+      },
+      {
+        "label": "时间流逝",
+        "count": 4
+      },
+      {
+        "label": "意象",
+        "count": 4
+      },
+      {
+        "label": "忧伤",
+        "count": 4
+      },
+      {
+        "label": "爱情与死亡",
+        "count": 1
+      },
+      {
+        "label": "反差",
+        "count": 1
+      },
+      {
+        "label": "反讽",
+        "count": 1
+      },
+      {
+        "label": "观察目光",
+        "count": 1
+      },
+      {
+        "label": "陌生感",
+        "count": 1
+      },
+      {
+        "label": "身份辨认",
+        "count": 1
+      },
+      {
+        "label": "外貌刻画",
+        "count": 1
+      },
+      {
+        "label": "虚无与重建",
+        "count": 1
+      },
+      {
+        "label": "意义探求",
+        "count": 1
+      },
+      {
+        "label": "引用",
+        "count": 1
+      },
+      {
+        "label": "元小说",
+        "count": 1
+      },
+      {
+        "label": "阅读旅程",
+        "count": 1
+      },
+      {
+        "label": "阅读期待",
+        "count": 1
+      },
+      {
+        "label": "作者形象",
+        "count": 1
+      }
+    ],
+    "recurring_concepts_no_canonical_home": [
+      {
+        "label": "比喻",
+        "count": 4
+      },
+      {
+        "label": "孤独",
+        "count": 4
+      },
+      {
+        "label": "记忆",
+        "count": 4
+      },
+      {
+        "label": "时间流逝",
+        "count": 4
+      },
+      {
+        "label": "意象",
+        "count": 4
+      },
+      {
+        "label": "忧伤",
+        "count": 4
+      },
+      {
+        "label": "爱情与死亡",
+        "count": 1
+      },
+      {
+        "label": "反差",
+        "count": 1
+      },
+      {
+        "label": "反讽",
+        "count": 1
+      },
+      {
+        "label": "观察目光",
+        "count": 1
+      },
+      {
+        "label": "陌生感",
+        "count": 1
+      },
+      {
+        "label": "身份辨认",
+        "count": 1
+      },
+      {
+        "label": "外貌刻画",
+        "count": 1
+      },
+      {
+        "label": "虚无与重建",
+        "count": 1
+      },
+      {
+        "label": "意义探求",
+        "count": 1
+      },
+      {
+        "label": "引用",
+        "count": 1
+      },
+      {
+        "label": "元小说",
+        "count": 1
+      },
+      {
+        "label": "阅读旅程",
+        "count": 1
+      },
+      {
+        "label": "阅读期待",
+        "count": 1
+      },
+      {
+        "label": "作者形象",
+        "count": 1
+      }
+    ],
+    "candidate_similarity_distribution": {
+      "n": 190,
+      "min": -0.1223,
+      "max": 1,
+      "mean": 0.1652,
+      "note": "Similarity is a retrieval signal, not interpretation probability or accuracy."
+    }
+  }
+}

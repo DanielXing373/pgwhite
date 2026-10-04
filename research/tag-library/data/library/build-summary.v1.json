@@ -1,0 +1,156 @@
+{
+  "library_version": "atomic-tag-library.v1.41",
+  "themes_total": 218,
+  "themes_active": 217,
+  "devices_total": 31,
+  "raw_theme_rows": 451,
+  "raw_theme_by_provenance": {
+    "existing_pgwhite": 13,
+    "legacy_human": 13,
+    "annotation_benchmark": 75,
+    "literary_theme_ontology": 145,
+    "generated_candidate": 205
+  },
+  "raw_theme_unique": 408,
+  "cleanup_summary": {
+    "exclude": 22,
+    "decompose": 25,
+    "merge": 25,
+    "reclassify": 1
+  },
+  "category_distribution": {
+    "世界": 8,
+    "人生阶段": 4,
+    "关系": 8,
+    "关系角色": 3,
+    "品格": 5,
+    "存在": 34,
+    "宗教": 2,
+    "审美": 2,
+    "心智": 12,
+    "情感": 33,
+    "情感与关系": 13,
+    "感知": 12,
+    "文化": 10,
+    "日常": 1,
+    "权力关系": 1,
+    "社会": 32,
+    "社会自我": 2,
+    "空间情感": 6,
+    "空间社会": 1,
+    "自我": 4,
+    "表达": 1,
+    "认知": 5,
+    "身心": 7,
+    "道德": 5,
+    "道德宗教": 3,
+    "道德社会": 4
+  },
+  "examples": {
+    "记忆": {
+      "id": "theme-0077-记忆",
+      "canonical_zh": "记忆",
+      "label_en": "Memory",
+      "dimension": "theme",
+      "definition": "记住、回想与被过去经验塑造的心智领地，可涵盖回忆唤起、保存与改变。",
+      "aliases": [
+        "回忆"
+      ],
+      "related": [
+        "遗忘",
+        "童年",
+        "怀旧",
+        "身份"
+      ],
+      "parents": [
+        "心智"
+      ],
+      "category": "心智",
+      "provenance": [
+        "annotation_benchmark",
+        "existing_pgwhite",
+        "legacy_human",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:the nature of memory",
+        "pgwhite:tag:9"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "记忆",
+        "B_label_definition": "记忆：记住、回想与被过去经验塑造的心智领地，可涵盖回忆唤起、保存与改变。",
+        "C_label_definition_aliases": "记忆：记住、回想与被过去经验塑造的心智领地，可涵盖回忆唤起、保存与改变。｜别名：回忆"
+      }
+    },
+    "悲伤": {
+      "id": "theme-0098-悲伤",
+      "canonical_zh": "悲伤",
+      "label_en": "Sadness",
+      "dimension": "theme",
+      "definition": "哀伤、难过与情绪低落的基本情感领地。",
+      "aliases": [
+        "伤心",
+        "哀伤",
+        "难过"
+      ],
+      "related": [
+        "失去",
+        "遗憾",
+        "孤独",
+        "死亡"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:grief"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "悲伤",
+        "B_label_definition": "悲伤：哀伤、难过与情绪低落的基本情感领地。",
+        "C_label_definition_aliases": "悲伤：哀伤、难过与情绪低落的基本情感领地。｜别名：伤心、哀伤、难过"
+      }
+    },
+    "比喻": {
+      "id": "device-0020-比喻",
+      "canonical_zh": "比喻",
+      "label_en": "Simile/Analogy",
+      "dimension": "device",
+      "definition": "用相似物说明本体，包括明喻等常见比喻用法。",
+      "aliases": [
+        "明喻",
+        "譬喻"
+      ],
+      "related": [
+        "隐喻",
+        "象征"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "比喻",
+        "B_label_definition": "比喻：用相似物说明本体，包括明喻等常见比喻用法。",
+        "C_label_definition_aliases": "比喻：用相似物说明本体，包括明喻等常见比喻用法。｜别名：明喻、譬喻"
+      }
+    }
+  }
+}

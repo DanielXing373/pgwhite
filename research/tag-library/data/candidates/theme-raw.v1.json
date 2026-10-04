@@ -1,0 +1,5592 @@
+{
+  "schema_version": "tag-candidates-raw.v1",
+  "created_at": "2026-10-04T20:00:00.000Z",
+  "counts_by_provenance": {
+    "existing_pgwhite": 13,
+    "legacy_human": 13,
+    "annotation_benchmark": 75,
+    "literary_theme_ontology": 145,
+    "generated_candidate": 205
+  },
+  "unique_labels": 408,
+  "candidates": [
+    {
+      "raw_id": "raw-theme-0001",
+      "label_zh": "时间",
+      "label_en": "Time",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 6
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0002",
+      "label_zh": "痛苦",
+      "label_en": "Suffering",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 7
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0003",
+      "label_zh": "寂静",
+      "label_en": "Silence",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 8
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0004",
+      "label_zh": "记忆",
+      "label_en": "Memory",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 9
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0005",
+      "label_zh": "焦虑",
+      "label_en": "Anxiety",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 10
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0006",
+      "label_zh": "衰败",
+      "label_en": "Decay",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 11
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0007",
+      "label_zh": "掌控",
+      "label_en": "Control",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 12
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0008",
+      "label_zh": "死亡",
+      "label_en": "Death",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 13
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0009",
+      "label_zh": "命运",
+      "label_en": "Fate",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 14
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0010",
+      "label_zh": "敏感",
+      "label_en": "Sensitivity",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 15
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0011",
+      "label_zh": "末日",
+      "label_en": "Apocalypse",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 16
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0012",
+      "label_zh": "厌恶",
+      "label_en": "Disgust",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 17
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0013",
+      "label_zh": "轮回",
+      "label_en": "Cycle",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 18
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0014",
+      "label_zh": "时间",
+      "label_en": null,
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 6
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0015",
+      "label_zh": "痛苦",
+      "label_en": null,
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0016",
+      "label_zh": "寂静",
+      "label_en": null,
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0017",
+      "label_zh": "记忆",
+      "label_en": null,
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0018",
+      "label_zh": "焦虑",
+      "label_en": null,
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 2
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0019",
+      "label_zh": "轮回",
+      "label_en": null,
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0020",
+      "label_zh": "衰败",
+      "label_en": null,
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0021",
+      "label_zh": "掌控",
+      "label_en": null,
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0022",
+      "label_zh": "死亡",
+      "label_en": null,
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0023",
+      "label_zh": "命运",
+      "label_en": null,
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0024",
+      "label_zh": "敏感",
+      "label_en": null,
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0025",
+      "label_zh": "末日",
+      "label_en": null,
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0026",
+      "label_zh": "厌恶",
+      "label_en": null,
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0027",
+      "label_zh": "伤心",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 2
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0028",
+      "label_zh": "珍视",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 2
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0029",
+      "label_zh": "失去",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0030",
+      "label_zh": "体谅",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0031",
+      "label_zh": "记忆",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 4
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0032",
+      "label_zh": "童年",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 3
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0033",
+      "label_zh": "怀旧",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 3
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0034",
+      "label_zh": "音乐",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 3
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0035",
+      "label_zh": "衰退",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0036",
+      "label_zh": "破坏",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0037",
+      "label_zh": "焦虑",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 2
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0038",
+      "label_zh": "冲动",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0039",
+      "label_zh": "自我冲突",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0040",
+      "label_zh": "观察",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0041",
+      "label_zh": "判断",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0042",
+      "label_zh": "经验",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0043",
+      "label_zh": "衰败",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 3
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0044",
+      "label_zh": "压迫",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0045",
+      "label_zh": "屈辱",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0046",
+      "label_zh": "暴力",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0047",
+      "label_zh": "虚伪",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0048",
+      "label_zh": "好奇",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0049",
+      "label_zh": "厌恶",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0050",
+      "label_zh": "社交",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0051",
+      "label_zh": "压抑",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0052",
+      "label_zh": "异化",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 2
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0053",
+      "label_zh": "倦怠",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 2
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0054",
+      "label_zh": "爱情",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0055",
+      "label_zh": "情感错位",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0056",
+      "label_zh": "欲望",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0057",
+      "label_zh": "空间压迫",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0058",
+      "label_zh": "书籍",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0059",
+      "label_zh": "寻找",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0060",
+      "label_zh": "回归",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0061",
+      "label_zh": "旅程",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0062",
+      "label_zh": "外貌描写",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 2
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0063",
+      "label_zh": "人物刻画",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0064",
+      "label_zh": "悲伤",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0065",
+      "label_zh": "音乐意义",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0066",
+      "label_zh": "记忆与关联",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0067",
+      "label_zh": "安静",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0068",
+      "label_zh": "记忆衰退",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0069",
+      "label_zh": "记忆的纪念物",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0070",
+      "label_zh": "破坏性影响",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0071",
+      "label_zh": "不安",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0072",
+      "label_zh": "冲动与失控",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0073",
+      "label_zh": "自我审查",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0074",
+      "label_zh": "观众认知",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0075",
+      "label_zh": "情境差异",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0076",
+      "label_zh": "自我调整",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0077",
+      "label_zh": "灾难",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0078",
+      "label_zh": "屈从",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0079",
+      "label_zh": "暴力/压迫",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0080",
+      "label_zh": "好奇心",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0081",
+      "label_zh": "厌恶感",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0082",
+      "label_zh": "伪装",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0083",
+      "label_zh": "压迫感",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0084",
+      "label_zh": "单调与重复",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0085",
+      "label_zh": "爱与欲望的区分",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0086",
+      "label_zh": "关系中的误解",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0087",
+      "label_zh": "情感意向的非等同",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0088",
+      "label_zh": "空间受限",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0089",
+      "label_zh": "空间分割",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0090",
+      "label_zh": "离开与归来",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0091",
+      "label_zh": "旅途",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0092",
+      "label_zh": "叙事追寻",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0093",
+      "label_zh": "虚无与重建",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0094",
+      "label_zh": "身体形态特征",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0095",
+      "label_zh": "遗憾",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 2
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0096",
+      "label_zh": "愧疚",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0097",
+      "label_zh": "珍视之物的脆弱",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0098",
+      "label_zh": "情感寄托",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 2
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0099",
+      "label_zh": "记忆与损伤",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0100",
+      "label_zh": "童年回忆",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0101",
+      "label_zh": "记忆唤起",
+      "label_en": null,
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      },
+      "notes": ""
+    },
+    {
+      "raw_id": "raw-theme-0102",
+      "label_zh": "aesthetics",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:aesthetics",
+        "depth": 2,
+        "parents": [
+          "philosophy"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0103",
+      "label_zh": "alternate reality",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:alternate reality",
+        "depth": 0,
+        "parents": []
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0104",
+      "label_zh": "anger",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:anger",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0105",
+      "label_zh": "arranged marriage",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:arranged marriage",
+        "depth": 4,
+        "parents": [
+          "sociocultural issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0106",
+      "label_zh": "awe",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:awe",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0107",
+      "label_zh": "betrayal",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:betrayal",
+        "depth": 4,
+        "parents": [
+          "humans interacting"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0108",
+      "label_zh": "boredom",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:boredom",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0109",
+      "label_zh": "civil war",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:civil war",
+        "depth": 4,
+        "parents": [
+          "war"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0110",
+      "label_zh": "compassion",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:compassion",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0111",
+      "label_zh": "contempt",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:contempt",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0112",
+      "label_zh": "coping with life issues",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:coping with life issues",
+        "depth": 4,
+        "parents": [
+          "human challenge in life"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0113",
+      "label_zh": "corruption in society",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:corruption in society",
+        "depth": 4,
+        "parents": [
+          "political issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0114",
+      "label_zh": "courage",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:courage",
+        "depth": 4,
+        "parents": [
+          "human character"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0115",
+      "label_zh": "cowardice",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:cowardice",
+        "depth": 4,
+        "parents": [
+          "human character"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0116",
+      "label_zh": "crime",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:crime",
+        "depth": 4,
+        "parents": [
+          "law and order issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0117",
+      "label_zh": "cross cultural issue",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:cross cultural issue",
+        "depth": 2,
+        "parents": [
+          "society"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0118",
+      "label_zh": "cruelty",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:cruelty",
+        "depth": 4,
+        "parents": [
+          "human character"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0119",
+      "label_zh": "curiosity",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:curiosity",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0120",
+      "label_zh": "dark family secret",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:dark family secret",
+        "depth": 4,
+        "parents": [
+          "family affairs"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0121",
+      "label_zh": "desire",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:desire",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0122",
+      "label_zh": "destiny",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:destiny",
+        "depth": 2,
+        "parents": [
+          "folk belief"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0123",
+      "label_zh": "disintegrating romantic relationship",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:disintegrating romantic relationship",
+        "depth": 4,
+        "parents": [
+          "romantic relationship issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0124",
+      "label_zh": "divorce",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:divorce",
+        "depth": 4,
+        "parents": [
+          "family affairs"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0125",
+      "label_zh": "dream interpretation",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:dream interpretation",
+        "depth": 2,
+        "parents": [
+          "folk belief"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0126",
+      "label_zh": "embarrassment",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:embarrassment",
+        "depth": 4,
+        "parents": [
+          "human emotion",
+          "human social position"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0127",
+      "label_zh": "emotional overwhelm",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:emotional overwhelm",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0128",
+      "label_zh": "ethics",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:ethics",
+        "depth": 2,
+        "parents": [
+          "philosophy"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0129",
+      "label_zh": "exercising self-control",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:exercising self-control",
+        "depth": 4,
+        "parents": [
+          "human self-reflection"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0130",
+      "label_zh": "facing adversity",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:facing adversity",
+        "depth": 4,
+        "parents": [
+          "human challenge in life"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0131",
+      "label_zh": "facing death",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:facing death",
+        "depth": 4,
+        "parents": [
+          "human challenge in life"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0132",
+      "label_zh": "family affairs",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:family affairs",
+        "depth": 3,
+        "parents": [
+          "humans in group"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0133",
+      "label_zh": "family dispute",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:family dispute",
+        "depth": 4,
+        "parents": [
+          "family affairs"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0134",
+      "label_zh": "fear",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:fear",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0135",
+      "label_zh": "folk belief",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:folk belief",
+        "depth": 1,
+        "parents": [
+          "the natural world"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0136",
+      "label_zh": "form of government",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:form of government",
+        "depth": 3,
+        "parents": [
+          "national social issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0137",
+      "label_zh": "free love",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:free love",
+        "depth": 4,
+        "parents": [
+          "human sentiment"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0138",
+      "label_zh": "friendship",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:friendship",
+        "depth": 3,
+        "parents": [
+          "humans in pairs"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0139",
+      "label_zh": "gender issue",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:gender issue",
+        "depth": 3,
+        "parents": [
+          "national social issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0140",
+      "label_zh": "grief",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:grief",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0141",
+      "label_zh": "hate begets hate",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:hate begets hate",
+        "depth": 3,
+        "parents": [
+          "human idea about life"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0142",
+      "label_zh": "hatred",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:hatred",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0143",
+      "label_zh": "history",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:history",
+        "depth": 2,
+        "parents": [
+          "society"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0144",
+      "label_zh": "honesty",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:honesty",
+        "depth": 4,
+        "parents": [
+          "human character"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0145",
+      "label_zh": "honor",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:honor",
+        "depth": 4,
+        "parents": [
+          "human character"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0146",
+      "label_zh": "hope",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:hope",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0147",
+      "label_zh": "human challenge in life",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human challenge in life",
+        "depth": 3,
+        "parents": [
+          "individual humans"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0148",
+      "label_zh": "human character",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human character",
+        "depth": 3,
+        "parents": [
+          "individual humans"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0149",
+      "label_zh": "human childhood",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human childhood",
+        "depth": 4,
+        "parents": [
+          "family affairs"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0150",
+      "label_zh": "human dreaming",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human dreaming",
+        "depth": 3,
+        "parents": [
+          "individual humans"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0151",
+      "label_zh": "human emotion",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human emotion",
+        "depth": 3,
+        "parents": [
+          "individual humans"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0152",
+      "label_zh": "human familial relationship",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human familial relationship",
+        "depth": 4,
+        "parents": [
+          "humans in pairs",
+          "family affairs"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0153",
+      "label_zh": "human health condition",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human health condition",
+        "depth": 4,
+        "parents": [
+          "human challenge in life"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0154",
+      "label_zh": "human idea about life",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human idea about life",
+        "depth": 2,
+        "parents": [
+          "human nature"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0155",
+      "label_zh": "human life choice",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human life choice",
+        "depth": 4,
+        "parents": [
+          "human tough decision"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0156",
+      "label_zh": "human nature",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human nature",
+        "depth": 1,
+        "parents": [
+          "the human world"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0157",
+      "label_zh": "human need",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human need",
+        "depth": 4,
+        "parents": [
+          "purpose in life"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0158",
+      "label_zh": "human parenting",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human parenting",
+        "depth": 4,
+        "parents": [
+          "family affairs"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0159",
+      "label_zh": "human pleasure",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human pleasure",
+        "depth": 4,
+        "parents": [
+          "purpose in life"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0160",
+      "label_zh": "human regular activity",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human regular activity",
+        "depth": 2,
+        "parents": [
+          "personal human experience"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0161",
+      "label_zh": "human rights issue",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human rights issue",
+        "depth": 3,
+        "parents": [
+          "social ethical issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0162",
+      "label_zh": "human sacrifice",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human sacrifice",
+        "depth": 2,
+        "parents": [
+          "organized religion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0163",
+      "label_zh": "human self improvement",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human self improvement",
+        "depth": 4,
+        "parents": [
+          "human self-reflection"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0164",
+      "label_zh": "human self-reflection",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human self-reflection",
+        "depth": 3,
+        "parents": [
+          "individual humans"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0165",
+      "label_zh": "human self-sacrifice",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human self-sacrifice",
+        "depth": 4,
+        "parents": [
+          "human tough decision"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0166",
+      "label_zh": "human sentiment",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human sentiment",
+        "depth": 3,
+        "parents": [
+          "individual humans"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0167",
+      "label_zh": "human sexuality",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human sexuality",
+        "depth": 2,
+        "parents": [
+          "human nature"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0168",
+      "label_zh": "human tough decision",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:human tough decision",
+        "depth": 3,
+        "parents": [
+          "individual humans"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0169",
+      "label_zh": "humans at work",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:humans at work",
+        "depth": 3,
+        "parents": [
+          "humans in group"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0170",
+      "label_zh": "humans in group",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:humans in group",
+        "depth": 2,
+        "parents": [
+          "personal human experience"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0171",
+      "label_zh": "humans in pairs",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:humans in pairs",
+        "depth": 2,
+        "parents": [
+          "personal human experience"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0172",
+      "label_zh": "humans interacting",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:humans interacting",
+        "depth": 3,
+        "parents": [
+          "humans in group"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0173",
+      "label_zh": "immigration in society",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:immigration in society",
+        "depth": 4,
+        "parents": [
+          "socioeconomic issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0174",
+      "label_zh": "individual humans",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:individual humans",
+        "depth": 2,
+        "parents": [
+          "personal human experience"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0175",
+      "label_zh": "international issue",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:international issue",
+        "depth": 2,
+        "parents": [
+          "society"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0176",
+      "label_zh": "jealousy",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:jealousy",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0177",
+      "label_zh": "labor relations in society",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:labor relations in society",
+        "depth": 4,
+        "parents": [
+          "socioeconomic issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0178",
+      "label_zh": "law and order issue",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:law and order issue",
+        "depth": 3,
+        "parents": [
+          "national social issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0179",
+      "label_zh": "legal punishment",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:legal punishment",
+        "depth": 4,
+        "parents": [
+          "law and order issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0180",
+      "label_zh": "loneliness",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:loneliness",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0181",
+      "label_zh": "love",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:love",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0182",
+      "label_zh": "love-hate relationship",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:love-hate relationship",
+        "depth": 4,
+        "parents": [
+          "romantic relationship"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0183",
+      "label_zh": "marriage of convenience",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:marriage of convenience",
+        "depth": 3,
+        "parents": [
+          "humans in pairs"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0184",
+      "label_zh": "mercy",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:mercy",
+        "depth": 3,
+        "parents": [
+          "humans in pairs"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0185",
+      "label_zh": "mercy vs. justice",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:mercy vs. justice",
+        "depth": 4,
+        "parents": [
+          "social ethical dilemma"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0186",
+      "label_zh": "metaphysics",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:metaphysics",
+        "depth": 2,
+        "parents": [
+          "philosophy"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0187",
+      "label_zh": "mimetic desire",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:mimetic desire",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0188",
+      "label_zh": "mixed marriage",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:mixed marriage",
+        "depth": 4,
+        "parents": [
+          "sociocultural issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0189",
+      "label_zh": "music",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:music",
+        "depth": 4,
+        "parents": [
+          "the fine arts and the humanities"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0190",
+      "label_zh": "national social issue",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:national social issue",
+        "depth": 2,
+        "parents": [
+          "society"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0191",
+      "label_zh": "nature vs. nurture",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:nature vs. nurture",
+        "depth": 2,
+        "parents": [
+          "human nature"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0192",
+      "label_zh": "nostalgia",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:nostalgia",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0193",
+      "label_zh": "obsession",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:obsession",
+        "depth": 4,
+        "parents": [
+          "human character"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0194",
+      "label_zh": "organized religion",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:organized religion",
+        "depth": 1,
+        "parents": [
+          "the natural world"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0195",
+      "label_zh": "peace on Earth",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:peace on Earth",
+        "depth": 3,
+        "parents": [
+          "speculative future event"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0196",
+      "label_zh": "personal ethical dilemma",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:personal ethical dilemma",
+        "depth": 4,
+        "parents": [
+          "human tough decision"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0197",
+      "label_zh": "personal human experience",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:personal human experience",
+        "depth": 1,
+        "parents": [
+          "the human world"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0198",
+      "label_zh": "personal identity",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:personal identity",
+        "depth": 3,
+        "parents": [
+          "metaphysics"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0199",
+      "label_zh": "philosophy",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:philosophy",
+        "depth": 1,
+        "parents": [
+          "the natural world"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0200",
+      "label_zh": "poetic justice",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:poetic justice",
+        "depth": 3,
+        "parents": [
+          "ethics"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0201",
+      "label_zh": "political ideology",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:political ideology",
+        "depth": 4,
+        "parents": [
+          "form of government"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0202",
+      "label_zh": "political issue",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:political issue",
+        "depth": 3,
+        "parents": [
+          "national social issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0203",
+      "label_zh": "poverty in society",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:poverty in society",
+        "depth": 4,
+        "parents": [
+          "socioeconomic issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0204",
+      "label_zh": "power corrupts",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:power corrupts",
+        "depth": 3,
+        "parents": [
+          "human idea about life"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0205",
+      "label_zh": "pride",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:pride",
+        "depth": 4,
+        "parents": [
+          "human character"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0206",
+      "label_zh": "purpose in life",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:purpose in life",
+        "depth": 3,
+        "parents": [
+          "individual humans"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0207",
+      "label_zh": "rationality vs. emotionality",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:rationality vs. emotionality",
+        "depth": 2,
+        "parents": [
+          "human nature"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0208",
+      "label_zh": "remorse",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:remorse",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0209",
+      "label_zh": "resentment",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:resentment",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0210",
+      "label_zh": "romantic infidelity",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:romantic infidelity",
+        "depth": 4,
+        "parents": [
+          "romantic relationship issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0211",
+      "label_zh": "romantic relationship",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:romantic relationship",
+        "depth": 3,
+        "parents": [
+          "humans in pairs"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0212",
+      "label_zh": "romantic relationship issue",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:romantic relationship issue",
+        "depth": 3,
+        "parents": [
+          "humans in pairs"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0213",
+      "label_zh": "science",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:science",
+        "depth": 1,
+        "parents": [
+          "the natural world"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0214",
+      "label_zh": "self-deception",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:self-deception",
+        "depth": 4,
+        "parents": [
+          "human self-reflection"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0215",
+      "label_zh": "sexual norms in society",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:sexual norms in society",
+        "depth": 4,
+        "parents": [
+          "gender issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0216",
+      "label_zh": "shame",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:shame",
+        "depth": 4,
+        "parents": [
+          "human emotion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0217",
+      "label_zh": "sin",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:sin",
+        "depth": 2,
+        "parents": [
+          "organized religion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0218",
+      "label_zh": "slavery",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:slavery",
+        "depth": 4,
+        "parents": [
+          "socioeconomic issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0219",
+      "label_zh": "social ethical dilemma",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:social ethical dilemma",
+        "depth": 3,
+        "parents": [
+          "social ethical issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0220",
+      "label_zh": "social ethical issue",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:social ethical issue",
+        "depth": 2,
+        "parents": [
+          "society"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0221",
+      "label_zh": "social oppression",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:social oppression",
+        "depth": 4,
+        "parents": [
+          "political issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0222",
+      "label_zh": "society",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:society",
+        "depth": 1,
+        "parents": [
+          "the human world"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0223",
+      "label_zh": "sociocultural issue",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:sociocultural issue",
+        "depth": 3,
+        "parents": [
+          "national social issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0224",
+      "label_zh": "socioeconomic issue",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:socioeconomic issue",
+        "depth": 3,
+        "parents": [
+          "national social issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0225",
+      "label_zh": "speculative future event",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:speculative future event",
+        "depth": 2,
+        "parents": [
+          "speculative society"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0226",
+      "label_zh": "speculative society",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:speculative society",
+        "depth": 1,
+        "parents": [
+          "alternate reality"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0227",
+      "label_zh": "suicide",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:suicide",
+        "depth": 4,
+        "parents": [
+          "human challenge in life"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0228",
+      "label_zh": "the afterlife",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:the afterlife",
+        "depth": 3,
+        "parents": [
+          "metaphysics"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0229",
+      "label_zh": "the human world",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:the human world",
+        "depth": 0,
+        "parents": []
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0230",
+      "label_zh": "the importance of faith",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:the importance of faith",
+        "depth": 3,
+        "parents": [
+          "human idea about life"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0231",
+      "label_zh": "the instinct for violence",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:the instinct for violence",
+        "depth": 2,
+        "parents": [
+          "human nature"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0232",
+      "label_zh": "the natural world",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:the natural world",
+        "depth": 0,
+        "parents": []
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0233",
+      "label_zh": "the nature of death",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:the nature of death",
+        "depth": 2,
+        "parents": [
+          "human nature"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0234",
+      "label_zh": "the nature of fear",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:the nature of fear",
+        "depth": 2,
+        "parents": [
+          "human nature"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0235",
+      "label_zh": "the nature of love",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:the nature of love",
+        "depth": 2,
+        "parents": [
+          "human nature"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0236",
+      "label_zh": "the nature of memory",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:the nature of memory",
+        "depth": 3,
+        "parents": [
+          "metaphysics"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0237",
+      "label_zh": "the nature of nightmares",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:the nature of nightmares",
+        "depth": 2,
+        "parents": [
+          "human nature"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0238",
+      "label_zh": "the soul",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:the soul",
+        "depth": 2,
+        "parents": [
+          "organized religion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0239",
+      "label_zh": "the wish to live",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:the wish to live",
+        "depth": 2,
+        "parents": [
+          "human nature"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0240",
+      "label_zh": "vow of silence",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:vow of silence",
+        "depth": 2,
+        "parents": [
+          "organized religion"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0241",
+      "label_zh": "war",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:war",
+        "depth": 3,
+        "parents": [
+          "international issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0242",
+      "label_zh": "what is beauty",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:what is beauty",
+        "depth": 3,
+        "parents": [
+          "aesthetics"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0243",
+      "label_zh": "what is justice",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:what is justice",
+        "depth": 3,
+        "parents": [
+          "ethics"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0244",
+      "label_zh": "what is truth",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:what is truth",
+        "depth": 2,
+        "parents": [
+          "philosophy"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0245",
+      "label_zh": "what life is like",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:what life is like",
+        "depth": 2,
+        "parents": [
+          "personal human experience"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0246",
+      "label_zh": "youth rebellion",
+      "label_en": null,
+      "provenance": [
+        "literary_theme_ontology"
+      ],
+      "evidence": {
+        "upstream_id": "lto:theme:youth rebellion",
+        "depth": 4,
+        "parents": [
+          "sociocultural issue"
+        ]
+      },
+      "notes": "Upstream English theme name (not a PGWhite canonical label)."
+    },
+    {
+      "raw_id": "raw-theme-0247",
+      "label_zh": "悲伤",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0248",
+      "label_zh": "喜悦",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0249",
+      "label_zh": "恐惧",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0250",
+      "label_zh": "愤怒",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0251",
+      "label_zh": "羞愧",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0252",
+      "label_zh": "内疚",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0253",
+      "label_zh": "希望",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0254",
+      "label_zh": "绝望",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0255",
+      "label_zh": "孤独",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0256",
+      "label_zh": "嫉妒",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0257",
+      "label_zh": "仇恨",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0258",
+      "label_zh": "怜悯",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0259",
+      "label_zh": "温柔",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0260",
+      "label_zh": "冷漠",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0261",
+      "label_zh": "无聊",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0262",
+      "label_zh": "敬畏",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0263",
+      "label_zh": "屈辱",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0264",
+      "label_zh": "压抑",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0265",
+      "label_zh": "倦怠",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0266",
+      "label_zh": "满足",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0267",
+      "label_zh": "平静",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0268",
+      "label_zh": "冲动",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0269",
+      "label_zh": "好奇",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0270",
+      "label_zh": "自卑",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0271",
+      "label_zh": "骄傲",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0272",
+      "label_zh": "遗憾",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0273",
+      "label_zh": "思念",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0274",
+      "label_zh": "迷恋",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0275",
+      "label_zh": "安慰",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0276",
+      "label_zh": "体谅",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0277",
+      "label_zh": "爱",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0278",
+      "label_zh": "爱情",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0279",
+      "label_zh": "亲情",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0280",
+      "label_zh": "友情",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0281",
+      "label_zh": "依恋",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0282",
+      "label_zh": "分离",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0283",
+      "label_zh": "团聚",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0284",
+      "label_zh": "背叛",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0285",
+      "label_zh": "信任",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0286",
+      "label_zh": "忠诚",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0287",
+      "label_zh": "父亲",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0288",
+      "label_zh": "母亲",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0289",
+      "label_zh": "孩子",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0290",
+      "label_zh": "婚姻",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0291",
+      "label_zh": "家庭",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0292",
+      "label_zh": "占有",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0293",
+      "label_zh": "生命",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0294",
+      "label_zh": "失去",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0295",
+      "label_zh": "重生",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0296",
+      "label_zh": "虚无",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0297",
+      "label_zh": "意义",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0298",
+      "label_zh": "自由",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0299",
+      "label_zh": "偶然",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0300",
+      "label_zh": "选择",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0301",
+      "label_zh": "责任",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0302",
+      "label_zh": "接受",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0303",
+      "label_zh": "变化",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0304",
+      "label_zh": "重复",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0305",
+      "label_zh": "日常",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0306",
+      "label_zh": "秘密",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0307",
+      "label_zh": "幻灭",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0308",
+      "label_zh": "纯真",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0309",
+      "label_zh": "脆弱",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0310",
+      "label_zh": "珍视",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0311",
+      "label_zh": "身份",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0312",
+      "label_zh": "自我",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0313",
+      "label_zh": "疏离",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0314",
+      "label_zh": "归属",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0315",
+      "label_zh": "潜意识",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0316",
+      "label_zh": "梦",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0317",
+      "label_zh": "幻觉",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0318",
+      "label_zh": "理智",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0319",
+      "label_zh": "疯狂",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0320",
+      "label_zh": "遗忘",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0321",
+      "label_zh": "怀旧",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0322",
+      "label_zh": "经验",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0323",
+      "label_zh": "智慧",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0324",
+      "label_zh": "意志",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0325",
+      "label_zh": "欲望",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0326",
+      "label_zh": "身体",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0327",
+      "label_zh": "灵魂",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0328",
+      "label_zh": "性别",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0329",
+      "label_zh": "性",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0330",
+      "label_zh": "童年",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0331",
+      "label_zh": "青春",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0332",
+      "label_zh": "成长",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0333",
+      "label_zh": "衰老",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0334",
+      "label_zh": "家园",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0335",
+      "label_zh": "流亡",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0336",
+      "label_zh": "旅行",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0337",
+      "label_zh": "离开",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0338",
+      "label_zh": "寻找",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0339",
+      "label_zh": "城市",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0340",
+      "label_zh": "自然",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0341",
+      "label_zh": "废墟",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0342",
+      "label_zh": "灾难",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0343",
+      "label_zh": "权力",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0344",
+      "label_zh": "压迫",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0345",
+      "label_zh": "反抗",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0346",
+      "label_zh": "暴力",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0347",
+      "label_zh": "战争",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0348",
+      "label_zh": "和平",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0349",
+      "label_zh": "公正",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0350",
+      "label_zh": "报复",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0351",
+      "label_zh": "宽恕",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0352",
+      "label_zh": "牺牲",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0353",
+      "label_zh": "勇气",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0354",
+      "label_zh": "懦弱",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0355",
+      "label_zh": "诚实",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0356",
+      "label_zh": "虚伪",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0357",
+      "label_zh": "腐败",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0358",
+      "label_zh": "罪",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0359",
+      "label_zh": "救赎",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0360",
+      "label_zh": "信仰",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0361",
+      "label_zh": "怀疑",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0362",
+      "label_zh": "真相",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0363",
+      "label_zh": "谎言",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0364",
+      "label_zh": "秘密社会",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0365",
+      "label_zh": "阶级",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0366",
+      "label_zh": "贫穷",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0367",
+      "label_zh": "饥饿",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0368",
+      "label_zh": "工作",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0369",
+      "label_zh": "教育",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0370",
+      "label_zh": "法律",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0371",
+      "label_zh": "犯罪",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0372",
+      "label_zh": "惩罚",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0373",
+      "label_zh": "奴役",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0374",
+      "label_zh": "偏见",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0375",
+      "label_zh": "现代性",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0376",
+      "label_zh": "技术",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0377",
+      "label_zh": "移民",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0378",
+      "label_zh": "美",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0379",
+      "label_zh": "丑",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0380",
+      "label_zh": "艺术",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0381",
+      "label_zh": "音乐",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0382",
+      "label_zh": "书籍",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0383",
+      "label_zh": "语言",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0384",
+      "label_zh": "误解",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0385",
+      "label_zh": "表演",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0386",
+      "label_zh": "社交",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0387",
+      "label_zh": "疾病",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0388",
+      "label_zh": "创伤",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0389",
+      "label_zh": "成瘾",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0390",
+      "label_zh": "自杀",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0391",
+      "label_zh": "谋杀",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0392",
+      "label_zh": "抛弃",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0393",
+      "label_zh": "观察",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0394",
+      "label_zh": "判断",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0395",
+      "label_zh": "空间",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0396",
+      "label_zh": "时间流逝",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0397",
+      "label_zh": "表达",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0398",
+      "label_zh": "尊严",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0399",
+      "label_zh": "命运感",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0400",
+      "label_zh": "神",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0401",
+      "label_zh": "来世",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0402",
+      "label_zh": "动物",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0403",
+      "label_zh": "食物",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0404",
+      "label_zh": "财富",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0405",
+      "label_zh": "名声",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0406",
+      "label_zh": "虚荣",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0407",
+      "label_zh": "等待",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0408",
+      "label_zh": "归来",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0409",
+      "label_zh": "破坏",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0410",
+      "label_zh": "保护",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0411",
+      "label_zh": "教育缺失",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0412",
+      "label_zh": "伦理困境",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0413",
+      "label_zh": "人性",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0414",
+      "label_zh": "善恶",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0415",
+      "label_zh": "秩序",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0416",
+      "label_zh": "混乱",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0417",
+      "label_zh": "未来",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0418",
+      "label_zh": "过去",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0419",
+      "label_zh": "历史",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0420",
+      "label_zh": "传统",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0421",
+      "label_zh": "反叛",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0422",
+      "label_zh": "适应",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0423",
+      "label_zh": "生存",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0424",
+      "label_zh": "倾听",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0425",
+      "label_zh": "沉默",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0426",
+      "label_zh": "目光",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0427",
+      "label_zh": "气味",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0428",
+      "label_zh": "触感",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0429",
+      "label_zh": "亲密",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0430",
+      "label_zh": "距离",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0431",
+      "label_zh": "边界",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0432",
+      "label_zh": "仪式",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0433",
+      "label_zh": "游戏",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0434",
+      "label_zh": "竞争",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0435",
+      "label_zh": "合作",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0436",
+      "label_zh": "领导",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0437",
+      "label_zh": "跟随",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0438",
+      "label_zh": "流言",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0439",
+      "label_zh": "禁忌",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0440",
+      "label_zh": "干净",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0441",
+      "label_zh": "污染",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0442",
+      "label_zh": "温度",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0443",
+      "label_zh": "寒冷",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0444",
+      "label_zh": "光",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0445",
+      "label_zh": "黑暗",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0446",
+      "label_zh": "水",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0447",
+      "label_zh": "火",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0448",
+      "label_zh": "土地",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0449",
+      "label_zh": "天空",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0450",
+      "label_zh": "夜晚",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    },
+    {
+      "raw_id": "raw-theme-0451",
+      "label_zh": "早晨",
+      "label_en": null,
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {},
+      "notes": "Offline generative/editorial suggestion for reusable literary Theme."
+    }
+  ]
+}

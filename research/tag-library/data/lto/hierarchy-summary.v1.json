@@ -1,0 +1,78 @@
+{
+  "schema_version": "lto-hierarchy-summary.v1",
+  "source_repo": "https://github.com/theme-ontology/theming",
+  "source_commit": "5a06dc483961b9907914e6baef8de8ffdfc7f22e",
+  "source_commit_date": "2026-09-28 14:59:58 +0100",
+  "license": "MIT for themes/ontology content used here; story descriptions are CC BY-SA and are NOT included in this extract",
+  "attribution": "Literary Theme Ontology (Theme Ontology Project). Upstream: https://github.com/theme-ontology/theming and https://www.themeontology.org/",
+  "total_upstream_themes": 2966,
+  "upstream_depth_distribution": {
+    "0": 3,
+    "1": 18,
+    "2": 290,
+    "3": 693,
+    "4": 833,
+    "5": 593,
+    "6": 397,
+    "7": 116,
+    "8": 20,
+    "9": 3
+  },
+  "parent_count_distribution_upstream": {
+    "0": 3,
+    "1": 2630,
+    "2": 319,
+    "3": 14
+  },
+  "fields_present": {
+    "Description": 2965,
+    "Parents": 2963,
+    "Aliases": 201,
+    "References": 1606,
+    "Examples": 1060
+  },
+  "roots": {
+    "alternate reality": [
+      "crackpot theory",
+      "speculative ability",
+      "speculative being",
+      "speculative effect",
+      "speculative experience",
+      "speculative place",
+      "speculative punishment",
+      "speculative society",
+      "speculative technology",
+      "speculative travel"
+    ],
+    "the human world": [
+      "human nature",
+      "personal human experience",
+      "society"
+    ],
+    "the natural world": [
+      "folk belief",
+      "organized religion",
+      "philosophy",
+      "science",
+      "the art of war"
+    ]
+  },
+  "hierarchy_notes": [
+    "LTO has 3 roots: alternate reality, the human world, the natural world",
+    "Upstream theme count in primary.th.txt: 2966",
+    "Upstream depth ranges roughly 0–9; mass of themes sits around depth 3–5",
+    "Many leaf themes are long phrasal story-situation labels — poor PGWhite atomic tags",
+    "PGWhite should mine conceptual mid-nodes and map them to Chinese atomic labels rather than importing English phrasal leaves"
+  ],
+  "selected_count": 240,
+  "selected_depth_distribution": {
+    "0": 3,
+    "1": 8,
+    "2": 34,
+    "3": 39,
+    "4": 70,
+    "5": 44,
+    "6": 39,
+    "7": 3
+  }
+}

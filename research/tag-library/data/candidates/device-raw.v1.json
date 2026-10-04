@@ -1,0 +1,784 @@
+{
+  "schema_version": "tag-candidates-raw.v1",
+  "created_at": "2026-10-04T20:00:00.000Z",
+  "counts_by_provenance": {
+    "existing_pgwhite": 10,
+    "legacy_human": 8,
+    "annotation_benchmark": 50,
+    "generated_candidate": 21
+  },
+  "unique_labels": 53,
+  "candidates": [
+    {
+      "raw_id": "raw-device-0001",
+      "label_zh": "隐喻",
+      "label_en": "Metaphor",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 19
+      }
+    },
+    {
+      "raw_id": "raw-device-0002",
+      "label_zh": "拟人",
+      "label_en": "Personification",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 20
+      }
+    },
+    {
+      "raw_id": "raw-device-0003",
+      "label_zh": "头韵",
+      "label_en": "Alliteration",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 21
+      }
+    },
+    {
+      "raw_id": "raw-device-0004",
+      "label_zh": "内涵",
+      "label_en": "Connotation",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 22
+      }
+    },
+    {
+      "raw_id": "raw-device-0005",
+      "label_zh": "意象",
+      "label_en": "Imagery",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 23
+      }
+    },
+    {
+      "raw_id": "raw-device-0006",
+      "label_zh": "外貌描写",
+      "label_en": "Appearance Description",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 24
+      }
+    },
+    {
+      "raw_id": "raw-device-0007",
+      "label_zh": "动作描写",
+      "label_en": "Action Description",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 25
+      }
+    },
+    {
+      "raw_id": "raw-device-0008",
+      "label_zh": "长句描写",
+      "label_en": "Long Sentence",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 26
+      }
+    },
+    {
+      "raw_id": "raw-device-0009",
+      "label_zh": "通感",
+      "label_en": "Synesthesia",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 27
+      }
+    },
+    {
+      "raw_id": "raw-device-0010",
+      "label_zh": "心理描写",
+      "label_en": "Psychological Description",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "evidence": {
+        "production_tag_id": 28
+      }
+    },
+    {
+      "raw_id": "raw-device-0011",
+      "label_zh": "隐喻",
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 22
+      }
+    },
+    {
+      "raw_id": "raw-device-0012",
+      "label_zh": "拟人",
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 6
+      }
+    },
+    {
+      "raw_id": "raw-device-0013",
+      "label_zh": "内涵",
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 7
+      }
+    },
+    {
+      "raw_id": "raw-device-0014",
+      "label_zh": "意象",
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 6
+      }
+    },
+    {
+      "raw_id": "raw-device-0015",
+      "label_zh": "动作描写",
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 2
+      }
+    },
+    {
+      "raw_id": "raw-device-0016",
+      "label_zh": "长句描写",
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0017",
+      "label_zh": "外貌描写",
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 3
+      }
+    },
+    {
+      "raw_id": "raw-device-0018",
+      "label_zh": "通感",
+      "provenance": [
+        "legacy_human"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0019",
+      "label_zh": "对比",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 2
+      }
+    },
+    {
+      "raw_id": "raw-device-0020",
+      "label_zh": "借物抒情",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0021",
+      "label_zh": "比喻",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 4
+      }
+    },
+    {
+      "raw_id": "raw-device-0022",
+      "label_zh": "听觉描写",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0023",
+      "label_zh": "借代",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0024",
+      "label_zh": "象征",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 4
+      }
+    },
+    {
+      "raw_id": "raw-device-0025",
+      "label_zh": "动作描写",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 2
+      }
+    },
+    {
+      "raw_id": "raw-device-0026",
+      "label_zh": "细节描写",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 4
+      }
+    },
+    {
+      "raw_id": "raw-device-0027",
+      "label_zh": "拟人",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 2
+      }
+    },
+    {
+      "raw_id": "raw-device-0028",
+      "label_zh": "排比",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0029",
+      "label_zh": "反讽",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0030",
+      "label_zh": "通感",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 2
+      }
+    },
+    {
+      "raw_id": "raw-device-0031",
+      "label_zh": "夸张",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 3
+      }
+    },
+    {
+      "raw_id": "raw-device-0032",
+      "label_zh": "环境描写",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0033",
+      "label_zh": "辨析",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0034",
+      "label_zh": "循环结构",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 2
+      }
+    },
+    {
+      "raw_id": "raw-device-0035",
+      "label_zh": "白描",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0036",
+      "label_zh": "肖像描写",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 2
+      }
+    },
+    {
+      "raw_id": "raw-device-0037",
+      "label_zh": "因果转折",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0038",
+      "label_zh": "重复与强调",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0039",
+      "label_zh": "拟声",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0040",
+      "label_zh": "意象对照",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0041",
+      "label_zh": "隐喻",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0042",
+      "label_zh": "因果象征",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0043",
+      "label_zh": "拟人（物件动作化）",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0044",
+      "label_zh": "贬抑性意象",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0045",
+      "label_zh": "拟态/伪装描写",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0046",
+      "label_zh": "感官意象描写",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0047",
+      "label_zh": "细节堆叠",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0048",
+      "label_zh": "拟因果的环境指向",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0049",
+      "label_zh": "空间描写",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0050",
+      "label_zh": "对称/均分结构",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0051",
+      "label_zh": "听觉意象",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0052",
+      "label_zh": "联想",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0053",
+      "label_zh": "以小见大",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0054",
+      "label_zh": "感官触发回忆",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0055",
+      "label_zh": "以声写静",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0056",
+      "label_zh": "留白",
+      "provenance": [
+        "annotation_benchmark"
+      ],
+      "evidence": {
+        "count": 1
+      }
+    },
+    {
+      "raw_id": "raw-device-0057",
+      "label_zh": "比喻",
+      "label_en": "Simile/Analogy",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0058",
+      "label_zh": "象征",
+      "label_en": "Symbolism",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0059",
+      "label_zh": "排比",
+      "label_en": "Parallelism",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0060",
+      "label_zh": "反讽",
+      "label_en": "Irony",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0061",
+      "label_zh": "夸张",
+      "label_en": "Hyperbole",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0062",
+      "label_zh": "白描",
+      "label_en": "Plain Description",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0063",
+      "label_zh": "借代",
+      "label_en": "Metonymy/Synecdoche",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0064",
+      "label_zh": "对比",
+      "label_en": "Contrast",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0065",
+      "label_zh": "重复",
+      "label_en": "Repetition",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0066",
+      "label_zh": "设问",
+      "label_en": "Rhetorical Question",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0067",
+      "label_zh": "反问",
+      "label_en": "Rhetorical Challenge",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0068",
+      "label_zh": "双关",
+      "label_en": "Pun/Double Meaning",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0069",
+      "label_zh": "对比描写",
+      "label_en": "Contrasting Description",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0070",
+      "label_zh": "细节描写",
+      "label_en": "Detailed Description",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0071",
+      "label_zh": "环境描写",
+      "label_en": "Setting Description",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0072",
+      "label_zh": "侧面描写",
+      "label_en": "Indirect Characterization",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0073",
+      "label_zh": "留白",
+      "label_en": "Narrative Ellipsis",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0074",
+      "label_zh": "暗示",
+      "label_en": "Suggestion/Implication",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0075",
+      "label_zh": "引用",
+      "label_en": "Allusion/Quotation",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0076",
+      "label_zh": "拟声",
+      "label_en": "Onomatopoeia",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "evidence": {}
+    },
+    {
+      "raw_id": "raw-device-0077",
+      "label_zh": "通篇象征",
+      "label_en": "Extended Symbol",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "evidence": {}
+    }
+  ]
+}

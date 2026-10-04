@@ -43,5 +43,12 @@ analysis/weread-raw/
 # Dedup benchmark bulky scored JSON (CSV + Markdown report are enough)
 research/dedup-benchmark/output/benchmark-results.json
 
+# Annotation workbench experiment runs (immutable local artifacts)
+research/annotation-workbench/runs/*
+!research/annotation-workbench/runs/.gitkeep
+research/annotation-workbench/fixtures/audit-snapshot.json
+# Keep committed mock examples; ignore other generated snapshots if re-exported locally
+!research/annotation-workbench/fixtures/examples/
+
 长日将尽笔记.txt
 outdated_import_example.txt

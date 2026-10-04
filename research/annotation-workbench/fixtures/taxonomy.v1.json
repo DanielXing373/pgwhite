@@ -1,0 +1,435 @@
+{
+  "taxonomyVersion": "taxonomy-theme-device-v1-excl-time",
+  "fixtureVersion": "annotation-bench-v1.1",
+  "createdAt": "2026-10-04T16:23:07.445Z",
+  "activeDimensions": [
+    "theme",
+    "device"
+  ],
+  "excludedDimensionsFromReconcile": [
+    "scene_time"
+  ],
+  "exclusions": [
+    {
+      "id": 6,
+      "zh": "时间",
+      "en": "Time",
+      "reason": "Semantic conflict with Scene/Time dimension under product reconsideration. Excluded from Workbench v1 Theme reconciliation targets. Production tag unmodified."
+    }
+  ],
+  "notes": [
+    "Scene/Time tags (source_code=1) are never reconciliation candidates in Workbench v1.",
+    "Theme 时间 (id=6) is present in production taxonomy but excluded from Workbench v1 reconcile targets.",
+    "Do not assume 比喻→隐喻; inappropriate matches should remain New Personal Concepts.",
+    "High Personal-Concept rate is not automatically a failure."
+  ],
+  "tags": [
+    {
+      "id": 6,
+      "dimension": "theme",
+      "zh": "时间",
+      "en": "Time",
+      "emoji": "⏰",
+      "assignmentCount": 12,
+      "sourceCode": 2
+    },
+    {
+      "id": 7,
+      "dimension": "theme",
+      "zh": "痛苦",
+      "en": "Suffering",
+      "emoji": "😢",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 8,
+      "dimension": "theme",
+      "zh": "寂静",
+      "en": "Silence",
+      "emoji": "🔇",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 9,
+      "dimension": "theme",
+      "zh": "记忆",
+      "en": "Memory",
+      "emoji": "🧠",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 10,
+      "dimension": "theme",
+      "zh": "焦虑",
+      "en": "Anxiety",
+      "emoji": "😰",
+      "assignmentCount": 4,
+      "sourceCode": 2
+    },
+    {
+      "id": 11,
+      "dimension": "theme",
+      "zh": "衰败",
+      "en": "Decay",
+      "emoji": "🍂",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 12,
+      "dimension": "theme",
+      "zh": "掌控",
+      "en": "Control",
+      "emoji": "🎯",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 13,
+      "dimension": "theme",
+      "zh": "死亡",
+      "en": "Death",
+      "emoji": "💀",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 14,
+      "dimension": "theme",
+      "zh": "命运",
+      "en": "Fate",
+      "emoji": "🔮",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 15,
+      "dimension": "theme",
+      "zh": "敏感",
+      "en": "Sensitivity",
+      "emoji": "🎭",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 16,
+      "dimension": "theme",
+      "zh": "末日",
+      "en": "Apocalypse",
+      "emoji": "🌋",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 17,
+      "dimension": "theme",
+      "zh": "厌恶",
+      "en": "Disgust",
+      "emoji": "🤢",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 18,
+      "dimension": "theme",
+      "zh": "轮回",
+      "en": "Cycle",
+      "emoji": "🔄",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 19,
+      "dimension": "device",
+      "zh": "隐喻",
+      "en": "Metaphor",
+      "emoji": "🔗",
+      "assignmentCount": 46,
+      "sourceCode": 3
+    },
+    {
+      "id": 20,
+      "dimension": "device",
+      "zh": "拟人",
+      "en": "Personification",
+      "emoji": "👤",
+      "assignmentCount": 14,
+      "sourceCode": 3
+    },
+    {
+      "id": 21,
+      "dimension": "device",
+      "zh": "头韵",
+      "en": "Alliteration",
+      "emoji": "🎵",
+      "assignmentCount": 0,
+      "sourceCode": 3
+    },
+    {
+      "id": 22,
+      "dimension": "device",
+      "zh": "内涵",
+      "en": "Connotation",
+      "emoji": "💎",
+      "assignmentCount": 16,
+      "sourceCode": 3
+    },
+    {
+      "id": 23,
+      "dimension": "device",
+      "zh": "意象",
+      "en": "Imagery",
+      "emoji": "🖼️",
+      "assignmentCount": 12,
+      "sourceCode": 3
+    },
+    {
+      "id": 24,
+      "dimension": "device",
+      "zh": "外貌描写",
+      "en": "Appearance Description",
+      "emoji": "🪞",
+      "assignmentCount": 6,
+      "sourceCode": 3
+    },
+    {
+      "id": 25,
+      "dimension": "device",
+      "zh": "动作描写",
+      "en": "Action Description",
+      "emoji": "🏃",
+      "assignmentCount": 6,
+      "sourceCode": 3
+    },
+    {
+      "id": 26,
+      "dimension": "device",
+      "zh": "长句描写",
+      "en": "Long Sentence",
+      "emoji": "📜",
+      "assignmentCount": 2,
+      "sourceCode": 3
+    },
+    {
+      "id": 27,
+      "dimension": "device",
+      "zh": "通感",
+      "en": "Synesthesia",
+      "emoji": "🌈",
+      "assignmentCount": 2,
+      "sourceCode": 3
+    },
+    {
+      "id": 28,
+      "dimension": "device",
+      "zh": "心理描写",
+      "en": "Psychological Description",
+      "emoji": "💭",
+      "assignmentCount": 2,
+      "sourceCode": 3
+    }
+  ],
+  "reconcileTargets": [
+    {
+      "id": 7,
+      "dimension": "theme",
+      "zh": "痛苦",
+      "en": "Suffering",
+      "emoji": "😢",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 8,
+      "dimension": "theme",
+      "zh": "寂静",
+      "en": "Silence",
+      "emoji": "🔇",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 9,
+      "dimension": "theme",
+      "zh": "记忆",
+      "en": "Memory",
+      "emoji": "🧠",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 10,
+      "dimension": "theme",
+      "zh": "焦虑",
+      "en": "Anxiety",
+      "emoji": "😰",
+      "assignmentCount": 4,
+      "sourceCode": 2
+    },
+    {
+      "id": 11,
+      "dimension": "theme",
+      "zh": "衰败",
+      "en": "Decay",
+      "emoji": "🍂",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 12,
+      "dimension": "theme",
+      "zh": "掌控",
+      "en": "Control",
+      "emoji": "🎯",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 13,
+      "dimension": "theme",
+      "zh": "死亡",
+      "en": "Death",
+      "emoji": "💀",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 14,
+      "dimension": "theme",
+      "zh": "命运",
+      "en": "Fate",
+      "emoji": "🔮",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 15,
+      "dimension": "theme",
+      "zh": "敏感",
+      "en": "Sensitivity",
+      "emoji": "🎭",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 16,
+      "dimension": "theme",
+      "zh": "末日",
+      "en": "Apocalypse",
+      "emoji": "🌋",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 17,
+      "dimension": "theme",
+      "zh": "厌恶",
+      "en": "Disgust",
+      "emoji": "🤢",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 18,
+      "dimension": "theme",
+      "zh": "轮回",
+      "en": "Cycle",
+      "emoji": "🔄",
+      "assignmentCount": 2,
+      "sourceCode": 2
+    },
+    {
+      "id": 19,
+      "dimension": "device",
+      "zh": "隐喻",
+      "en": "Metaphor",
+      "emoji": "🔗",
+      "assignmentCount": 46,
+      "sourceCode": 3
+    },
+    {
+      "id": 20,
+      "dimension": "device",
+      "zh": "拟人",
+      "en": "Personification",
+      "emoji": "👤",
+      "assignmentCount": 14,
+      "sourceCode": 3
+    },
+    {
+      "id": 21,
+      "dimension": "device",
+      "zh": "头韵",
+      "en": "Alliteration",
+      "emoji": "🎵",
+      "assignmentCount": 0,
+      "sourceCode": 3
+    },
+    {
+      "id": 22,
+      "dimension": "device",
+      "zh": "内涵",
+      "en": "Connotation",
+      "emoji": "💎",
+      "assignmentCount": 16,
+      "sourceCode": 3
+    },
+    {
+      "id": 23,
+      "dimension": "device",
+      "zh": "意象",
+      "en": "Imagery",
+      "emoji": "🖼️",
+      "assignmentCount": 12,
+      "sourceCode": 3
+    },
+    {
+      "id": 24,
+      "dimension": "device",
+      "zh": "外貌描写",
+      "en": "Appearance Description",
+      "emoji": "🪞",
+      "assignmentCount": 6,
+      "sourceCode": 3
+    },
+    {
+      "id": 25,
+      "dimension": "device",
+      "zh": "动作描写",
+      "en": "Action Description",
+      "emoji": "🏃",
+      "assignmentCount": 6,
+      "sourceCode": 3
+    },
+    {
+      "id": 26,
+      "dimension": "device",
+      "zh": "长句描写",
+      "en": "Long Sentence",
+      "emoji": "📜",
+      "assignmentCount": 2,
+      "sourceCode": 3
+    },
+    {
+      "id": 27,
+      "dimension": "device",
+      "zh": "通感",
+      "en": "Synesthesia",
+      "emoji": "🌈",
+      "assignmentCount": 2,
+      "sourceCode": 3
+    },
+    {
+      "id": 28,
+      "dimension": "device",
+      "zh": "心理描写",
+      "en": "Psychological Description",
+      "emoji": "💭",
+      "assignmentCount": 2,
+      "sourceCode": 3
+    }
+  ]
+}

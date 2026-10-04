@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pgwhite.local/research/tag-library/schemas/lto-theme-extract.v1.json",
+  "title": "Literary Theme Ontology research extract",
+  "type": "object",
+  "required": ["schema_version", "meta", "themes"],
+  "properties": {
+    "schema_version": { "const": "lto-theme-extract.v1" },
+    "meta": {
+      "type": "object",
+      "required": [
+        "source_repo",
+        "source_commit",
+        "license",
+        "total_upstream_themes",
+        "selected_count",
+        "selection_policy"
+      ],
+      "properties": {
+        "source_repo": { "type": "string" },
+        "source_commit": { "type": "string" },
+        "source_commit_date": { "type": "string" },
+        "license": { "type": "string" },
+        "attribution": { "type": "string" },
+        "theme_file": { "type": "string" },
+        "total_upstream_themes": { "type": "integer" },
+        "selected_count": { "type": "integer" },
+        "selection_policy": { "type": "string" },
+        "depth_distribution": { "type": "object" },
+        "roots": { "type": "object" },
+        "hierarchy_notes": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "missing_requested_exact_names": {
+          "type": "array"
+        }
+      }
+    },
+    "themes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "upstream_id",
+          "upstream_name",
+          "parents",
+          "depth"
+        ],
+        "properties": {
+          "upstream_id": { "type": "string" },
+          "upstream_name": { "type": "string" },
+          "definition": { "type": ["string", "null"] },
+          "parents": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "depth": { "type": "integer" },
+          "aliases": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "references": {
+            "type": "array",
+            "items": { "type": "string" }
+          },
+          "children_count": { "type": "integer" }
+        }
+      }
+    }
+  }
+}

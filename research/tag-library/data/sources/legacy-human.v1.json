@@ -1,0 +1,39 @@
+{
+  "schema_version": "tag-source.v1",
+  "provenance": "legacy_human",
+  "extracted_at": "2026-10-04T20:00:00.000Z",
+  "fixture_version": "annotation-bench-v1.1",
+  "fixture_content_hash": "b0df54ecc74aebf2",
+  "theme_counts": {
+    "时间": 6,
+    "痛苦": 1,
+    "寂静": 1,
+    "记忆": 1,
+    "焦虑": 2,
+    "轮回": 1,
+    "衰败": 1,
+    "掌控": 1,
+    "死亡": 1,
+    "命运": 1,
+    "敏感": 1,
+    "末日": 1,
+    "厌恶": 1
+  },
+  "device_counts": {
+    "隐喻": 22,
+    "拟人": 6,
+    "内涵": 7,
+    "意象": 6,
+    "动作描写": 2,
+    "长句描写": 1,
+    "外貌描写": 3,
+    "通感": 1
+  },
+  "scene_time_counts": {
+    "深夜": 4,
+    "日出": 4,
+    "暴风雨": 3,
+    "黄昏": 1
+  },
+  "note": "Legacy human tags are weak references only. Scene/Time listed for exclusion evidence."
+}

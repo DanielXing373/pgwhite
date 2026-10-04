@@ -1,0 +1,8040 @@
+{
+  "schema_version": "atomic-tag-library.v1",
+  "library_version": "atomic-tag-library.v1.41",
+  "created_at": "2026-10-04T20:00:00.000Z",
+  "research_only": true,
+  "production_migration": false,
+  "philosophy": {
+    "tag_is": "a semantically atomic, reusable retrieval component",
+    "tag_is_not": "a miniature literary analysis or quote-specific summary",
+    "recall_over_precision": true,
+    "empty_tags_acceptable": true,
+    "fourier_analogy": "PRODUCT/CONCEPTUAL only: a Quote can be decomposed into reusable semantic basis components (Tags), possibly with different relevance strengths. PGWhite does NOT use Fourier Transform, FFT, frequency-domain processing, or DSP."
+  },
+  "dimensions": {
+    "active": [
+      "theme",
+      "device"
+    ],
+    "inactive": [
+      "scene_time",
+      "character"
+    ],
+    "notes": "Scene/Time not reactivated. Character remains outside active tagging."
+  },
+  "counts": {
+    "themes_total": 218,
+    "themes_active_candidate": 217,
+    "themes_excluded_or_other": 1,
+    "devices_total": 31,
+    "raw_theme_rows": 451,
+    "raw_theme_unique_labels": 408,
+    "raw_device_rows": 77,
+    "cleanup_decisions": 73
+  },
+  "provenance_counts_themes": {
+    "generated_candidate": 205,
+    "annotation_benchmark": 46,
+    "literary_theme_ontology": 94,
+    "existing_pgwhite": 13,
+    "legacy_human": 13
+  },
+  "category_distribution_themes": {
+    "世界": 8,
+    "人生阶段": 4,
+    "关系": 8,
+    "关系角色": 3,
+    "品格": 5,
+    "存在": 34,
+    "宗教": 2,
+    "审美": 2,
+    "心智": 12,
+    "情感": 33,
+    "情感与关系": 13,
+    "感知": 12,
+    "文化": 10,
+    "日常": 1,
+    "权力关系": 1,
+    "社会": 32,
+    "社会自我": 2,
+    "空间情感": 6,
+    "空间社会": 1,
+    "自我": 4,
+    "表达": 1,
+    "认知": 5,
+    "身心": 7,
+    "道德": 5,
+    "道德宗教": 3,
+    "道德社会": 4
+  },
+  "themes": [
+    {
+      "id": "theme-0001-动物",
+      "canonical_zh": "动物",
+      "label_en": "Animals",
+      "dimension": "theme",
+      "definition": "动物作为生命他者、象征或伦理对象。",
+      "aliases": [
+        "野兽"
+      ],
+      "related": [
+        "自然",
+        "怜悯",
+        "暴力"
+      ],
+      "parents": [
+        "世界"
+      ],
+      "category": "世界",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "动物",
+        "B_label_definition": "动物：动物作为生命他者、象征或伦理对象。",
+        "C_label_definition_aliases": "动物：动物作为生命他者、象征或伦理对象。｜别名：野兽"
+      }
+    },
+    {
+      "id": "theme-0002-土地",
+      "canonical_zh": "土地",
+      "label_en": "Land",
+      "dimension": "theme",
+      "definition": "土地、扎根与耕作/占有关系。",
+      "aliases": [
+        "大地"
+      ],
+      "related": [
+        "家园",
+        "自然",
+        "归属"
+      ],
+      "parents": [
+        "世界"
+      ],
+      "category": "世界",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "土地",
+        "B_label_definition": "土地：土地、扎根与耕作/占有关系。",
+        "C_label_definition_aliases": "土地：土地、扎根与耕作/占有关系。｜别名：大地"
+      }
+    },
+    {
+      "id": "theme-0003-天空",
+      "canonical_zh": "天空",
+      "label_en": "Sky",
+      "dimension": "theme",
+      "definition": "开阔、超越与天气意象的意义领地。",
+      "aliases": [
+        "苍穹"
+      ],
+      "related": [
+        "自由",
+        "自然",
+        "希望"
+      ],
+      "parents": [
+        "世界"
+      ],
+      "category": "世界",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "天空",
+        "B_label_definition": "天空：开阔、超越与天气意象的意义领地。",
+        "C_label_definition_aliases": "天空：开阔、超越与天气意象的意义领地。｜别名：苍穹"
+      }
+    },
+    {
+      "id": "theme-0004-废墟",
+      "canonical_zh": "废墟",
+      "label_en": "Ruin",
+      "dimension": "theme",
+      "definition": "毁坏后的残存空间与历史痕迹。",
+      "aliases": [
+        "残骸"
+      ],
+      "related": [
+        "衰败",
+        "战争",
+        "记忆"
+      ],
+      "parents": [
+        "世界"
+      ],
+      "category": "世界",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "废墟",
+        "B_label_definition": "废墟：毁坏后的残存空间与历史痕迹。",
+        "C_label_definition_aliases": "废墟：毁坏后的残存空间与历史痕迹。｜别名：残骸"
+      }
+    },
+    {
+      "id": "theme-0005-水",
+      "canonical_zh": "水",
+      "label_en": "Water",
+      "dimension": "theme",
+      "definition": "水流、淹没、清洗与流动的意义领地。",
+      "aliases": [
+        "河海"
+      ],
+      "related": [
+        "自然",
+        "死亡",
+        "净化"
+      ],
+      "parents": [
+        "世界"
+      ],
+      "category": "世界",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "水",
+        "B_label_definition": "水：水流、淹没、清洗与流动的意义领地。",
+        "C_label_definition_aliases": "水：水流、淹没、清洗与流动的意义领地。｜别名：河海"
+      }
+    },
+    {
+      "id": "theme-0006-火",
+      "canonical_zh": "火",
+      "label_en": "Fire",
+      "dimension": "theme",
+      "definition": "燃烧、热情、毁灭与净化。",
+      "aliases": [
+        "火焰"
+      ],
+      "related": [
+        "欲望",
+        "破坏",
+        "愤怒"
+      ],
+      "parents": [
+        "世界"
+      ],
+      "category": "世界",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "火",
+        "B_label_definition": "火：燃烧、热情、毁灭与净化。",
+        "C_label_definition_aliases": "火：燃烧、热情、毁灭与净化。｜别名：火焰"
+      }
+    },
+    {
+      "id": "theme-0007-灾难",
+      "canonical_zh": "灾难",
+      "label_en": "Disaster",
+      "dimension": "theme",
+      "definition": "突发的大规模破坏与危机。",
+      "aliases": [
+        "灾祸"
+      ],
+      "related": [
+        "末日",
+        "恐惧",
+        "死亡"
+      ],
+      "parents": [
+        "世界"
+      ],
+      "category": "世界",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "灾难",
+        "B_label_definition": "灾难：突发的大规模破坏与危机。",
+        "C_label_definition_aliases": "灾难：突发的大规模破坏与危机。｜别名：灾祸"
+      }
+    },
+    {
+      "id": "theme-0008-自然",
+      "canonical_zh": "自然",
+      "label_en": "Nature",
+      "dimension": "theme",
+      "definition": "自然界及其与人的关系。",
+      "aliases": [
+        "大自然"
+      ],
+      "related": [
+        "衰败",
+        "家园",
+        "生命",
+        "敬畏"
+      ],
+      "parents": [
+        "世界"
+      ],
+      "category": "世界",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:human vs. nature",
+        "lto:theme:pleasure in nature"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "自然",
+        "B_label_definition": "自然：自然界及其与人的关系。",
+        "C_label_definition_aliases": "自然：自然界及其与人的关系。｜别名：大自然"
+      }
+    },
+    {
+      "id": "theme-0009-成长",
+      "canonical_zh": "成长",
+      "label_en": "Coming of Age",
+      "dimension": "theme",
+      "definition": "从稚嫩走向成熟的变化与觉醒。",
+      "aliases": [
+        "成熟"
+      ],
+      "related": [
+        "童年",
+        "青春",
+        "身份",
+        "经验"
+      ],
+      "parents": [
+        "人生阶段"
+      ],
+      "category": "人生阶段",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "成长",
+        "B_label_definition": "成长：从稚嫩走向成熟的变化与觉醒。",
+        "C_label_definition_aliases": "成长：从稚嫩走向成熟的变化与觉醒。｜别名：成熟"
+      }
+    },
+    {
+      "id": "theme-0010-童年",
+      "canonical_zh": "童年",
+      "label_en": "Childhood",
+      "dimension": "theme",
+      "definition": "儿童时期的经验、感知与回忆。",
+      "aliases": [
+        "幼年"
+      ],
+      "related": [
+        "记忆",
+        "成长",
+        "纯真",
+        "父亲",
+        "母亲"
+      ],
+      "parents": [
+        "人生阶段"
+      ],
+      "category": "人生阶段",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:childhood trauma",
+        "lto:theme:human childhood"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "童年",
+        "B_label_definition": "童年：儿童时期的经验、感知与回忆。",
+        "C_label_definition_aliases": "童年：儿童时期的经验、感知与回忆。｜别名：幼年"
+      }
+    },
+    {
+      "id": "theme-0011-衰老",
+      "canonical_zh": "衰老",
+      "label_en": "Aging",
+      "dimension": "theme",
+      "definition": "变老、机能衰退与老年处境。",
+      "aliases": [
+        "变老",
+        "老去"
+      ],
+      "related": [
+        "衰败",
+        "死亡",
+        "记忆"
+      ],
+      "parents": [
+        "人生阶段"
+      ],
+      "category": "人生阶段",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:coping with aging"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "衰老",
+        "B_label_definition": "衰老：变老、机能衰退与老年处境。",
+        "C_label_definition_aliases": "衰老：变老、机能衰退与老年处境。｜别名：变老、老去"
+      }
+    },
+    {
+      "id": "theme-0012-青春",
+      "canonical_zh": "青春",
+      "label_en": "Youth",
+      "dimension": "theme",
+      "definition": "青年阶段的热情、躁动与形成期。",
+      "aliases": [
+        "少年"
+      ],
+      "related": [
+        "成长",
+        "欲望",
+        "反叛"
+      ],
+      "parents": [
+        "人生阶段"
+      ],
+      "category": "人生阶段",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:reminiscence about one's youth",
+        "lto:theme:youth rebellion"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "青春",
+        "B_label_definition": "青春：青年阶段的热情、躁动与形成期。",
+        "C_label_definition_aliases": "青春：青年阶段的热情、躁动与形成期。｜别名：少年"
+      }
+    },
+    {
+      "id": "theme-0013-亲密",
+      "canonical_zh": "亲密",
+      "label_en": "Intimacy",
+      "dimension": "theme",
+      "definition": "深度靠近的情感/身体亲近。",
+      "aliases": [
+        "亲近"
+      ],
+      "related": [
+        "爱",
+        "脆弱",
+        "性"
+      ],
+      "parents": [
+        "关系"
+      ],
+      "category": "关系",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "亲密",
+        "B_label_definition": "亲密：深度靠近的情感/身体亲近。",
+        "C_label_definition_aliases": "亲密：深度靠近的情感/身体亲近。｜别名：亲近"
+      }
+    },
+    {
+      "id": "theme-0014-保护",
+      "canonical_zh": "保护",
+      "label_en": "Protection",
+      "dimension": "theme",
+      "definition": "守护他者免受伤害。",
+      "aliases": [
+        "庇护"
+      ],
+      "related": [
+        "爱",
+        "恐惧",
+        "牺牲"
+      ],
+      "parents": [
+        "关系"
+      ],
+      "category": "关系",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "保护",
+        "B_label_definition": "保护：守护他者免受伤害。",
+        "C_label_definition_aliases": "保护：守护他者免受伤害。｜别名：庇护"
+      }
+    },
+    {
+      "id": "theme-0015-倾听",
+      "canonical_zh": "倾听",
+      "label_en": "Listening",
+      "dimension": "theme",
+      "definition": "认真听取他者或世界的声音。",
+      "aliases": [
+        "聆听"
+      ],
+      "related": [
+        "寂静",
+        "体谅",
+        "语言"
+      ],
+      "parents": [
+        "关系"
+      ],
+      "category": "关系",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "倾听",
+        "B_label_definition": "倾听：认真听取他者或世界的声音。",
+        "C_label_definition_aliases": "倾听：认真听取他者或世界的声音。｜别名：聆听"
+      }
+    },
+    {
+      "id": "theme-0016-抛弃",
+      "canonical_zh": "抛弃",
+      "label_en": "Abandonment",
+      "dimension": "theme",
+      "definition": "被离开、被弃置或切断依赖。",
+      "aliases": [
+        "舍弃",
+        "遗弃"
+      ],
+      "related": [
+        "失去",
+        "童年",
+        "依恋",
+        "恐惧"
+      ],
+      "parents": [
+        "关系"
+      ],
+      "category": "关系",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:abandonment"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "抛弃",
+        "B_label_definition": "抛弃：被离开、被弃置或切断依赖。",
+        "C_label_definition_aliases": "抛弃：被离开、被弃置或切断依赖。｜别名：舍弃、遗弃"
+      }
+    },
+    {
+      "id": "theme-0017-教育缺失",
+      "canonical_zh": "教育缺失",
+      "label_en": "Neglect in Upbringing",
+      "dimension": "theme",
+      "definition": "养育缺失或无人引导的成长缺口。",
+      "aliases": [
+        "疏于教养"
+      ],
+      "related": [
+        "童年",
+        "抛弃",
+        "创伤"
+      ],
+      "parents": [
+        "关系"
+      ],
+      "category": "关系",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "More specific than preferred; retained pending evidence of retrieval usefulness.",
+      "representations": {
+        "A_label": "教育缺失",
+        "B_label_definition": "教育缺失：养育缺失或无人引导的成长缺口。",
+        "C_label_definition_aliases": "教育缺失：养育缺失或无人引导的成长缺口。｜别名：疏于教养"
+      }
+    },
+    {
+      "id": "theme-0018-误解",
+      "canonical_zh": "误解",
+      "label_en": "Misunderstanding",
+      "dimension": "theme",
+      "definition": "彼此理解失败或意义错位。",
+      "aliases": [
+        "误会"
+      ],
+      "related": [
+        "语言",
+        "孤独",
+        "爱情"
+      ],
+      "parents": [
+        "关系"
+      ],
+      "category": "关系",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "误解",
+        "B_label_definition": "误解：彼此理解失败或意义错位。",
+        "C_label_definition_aliases": "误解：彼此理解失败或意义错位。｜别名：误会"
+      }
+    },
+    {
+      "id": "theme-0019-距离",
+      "canonical_zh": "距离",
+      "label_en": "Distance",
+      "dimension": "theme",
+      "definition": "物理或情感上的间隔。",
+      "aliases": [
+        "疏远"
+      ],
+      "related": [
+        "分离",
+        "孤独",
+        "疏离"
+      ],
+      "parents": [
+        "关系"
+      ],
+      "category": "关系",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "距离",
+        "B_label_definition": "距离：物理或情感上的间隔。",
+        "C_label_definition_aliases": "距离：物理或情感上的间隔。｜别名：疏远"
+      }
+    },
+    {
+      "id": "theme-0020-边界",
+      "canonical_zh": "边界",
+      "label_en": "Boundary",
+      "dimension": "theme",
+      "definition": "自我/他者、内/外的界限及其被侵越。",
+      "aliases": [
+        "界限"
+      ],
+      "related": [
+        "空间",
+        "亲密",
+        "权力"
+      ],
+      "parents": [
+        "关系"
+      ],
+      "category": "关系",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "边界",
+        "B_label_definition": "边界：自我/他者、内/外的界限及其被侵越。",
+        "C_label_definition_aliases": "边界：自我/他者、内/外的界限及其被侵越。｜别名：界限"
+      }
+    },
+    {
+      "id": "theme-0021-孩子",
+      "canonical_zh": "孩子",
+      "label_en": "Child",
+      "dimension": "theme",
+      "definition": "作为子女或孩童的处境、视角与被养育关系。",
+      "aliases": [
+        "子女",
+        "小孩"
+      ],
+      "related": [
+        "父亲",
+        "母亲",
+        "童年",
+        "亲情"
+      ],
+      "parents": [
+        "关系角色"
+      ],
+      "category": "关系角色",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:human childhood",
+        "lto:theme:human parenting"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "孩子",
+        "B_label_definition": "孩子：作为子女或孩童的处境、视角与被养育关系。",
+        "C_label_definition_aliases": "孩子：作为子女或孩童的处境、视角与被养育关系。｜别名：子女、小孩"
+      }
+    },
+    {
+      "id": "theme-0022-母亲",
+      "canonical_zh": "母亲",
+      "label_en": "Mother",
+      "dimension": "theme",
+      "definition": "母职、母亲形象及其情感/养育关系（高复用关系概念）。",
+      "aliases": [
+        "妈妈",
+        "母"
+      ],
+      "related": [
+        "父亲",
+        "孩子",
+        "亲情"
+      ],
+      "parents": [
+        "关系角色"
+      ],
+      "category": "关系角色",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:mother and daughter",
+        "lto:theme:mother and son",
+        "lto:theme:single motherhood"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "母亲",
+        "B_label_definition": "母亲：母职、母亲形象及其情感/养育关系（高复用关系概念）。",
+        "C_label_definition_aliases": "母亲：母职、母亲形象及其情感/养育关系（高复用关系概念）。｜别名：妈妈、母"
+      }
+    },
+    {
+      "id": "theme-0023-父亲",
+      "canonical_zh": "父亲",
+      "label_en": "Father",
+      "dimension": "theme",
+      "definition": "父职、父亲形象及其情感/权力关系（高复用关系概念）。",
+      "aliases": [
+        "父",
+        "爸爸"
+      ],
+      "related": [
+        "母亲",
+        "孩子",
+        "亲情"
+      ],
+      "parents": [
+        "关系角色"
+      ],
+      "category": "关系角色",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:father and daughter",
+        "lto:theme:father and son",
+        "lto:theme:single fatherhood"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "父亲",
+        "B_label_definition": "父亲：父职、父亲形象及其情感/权力关系（高复用关系概念）。",
+        "C_label_definition_aliases": "父亲：父职、父亲形象及其情感/权力关系（高复用关系概念）。｜别名：父、爸爸"
+      }
+    },
+    {
+      "id": "theme-0024-勇气",
+      "canonical_zh": "勇气",
+      "label_en": "Courage",
+      "dimension": "theme",
+      "definition": "面对恐惧或压力仍坚持行动。",
+      "aliases": [
+        "勇敢"
+      ],
+      "related": [
+        "恐惧",
+        "牺牲",
+        "懦弱"
+      ],
+      "parents": [
+        "品格"
+      ],
+      "category": "品格",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:courage",
+        "lto:theme:courage in the face of death"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "勇气",
+        "B_label_definition": "勇气：面对恐惧或压力仍坚持行动。",
+        "C_label_definition_aliases": "勇气：面对恐惧或压力仍坚持行动。｜别名：勇敢"
+      }
+    },
+    {
+      "id": "theme-0025-懦弱",
+      "canonical_zh": "懦弱",
+      "label_en": "Cowardice",
+      "dimension": "theme",
+      "definition": "因恐惧而退缩、回避应负之责。",
+      "aliases": [
+        "胆怯"
+      ],
+      "related": [
+        "勇气",
+        "恐惧",
+        "羞愧"
+      ],
+      "parents": [
+        "品格"
+      ],
+      "category": "品格",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:cowardice"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "懦弱",
+        "B_label_definition": "懦弱：因恐惧而退缩、回避应负之责。",
+        "C_label_definition_aliases": "懦弱：因恐惧而退缩、回避应负之责。｜别名：胆怯"
+      }
+    },
+    {
+      "id": "theme-0026-虚伪",
+      "canonical_zh": "虚伪",
+      "label_en": "Hypocrisy",
+      "dimension": "theme",
+      "definition": "表里不一或假装道德。",
+      "aliases": [
+        "伪善"
+      ],
+      "related": [
+        "诚实",
+        "羞耻",
+        "社会"
+      ],
+      "parents": [
+        "品格"
+      ],
+      "category": "品格",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "虚伪",
+        "B_label_definition": "虚伪：表里不一或假装道德。",
+        "C_label_definition_aliases": "虚伪：表里不一或假装道德。｜别名：伪善"
+      }
+    },
+    {
+      "id": "theme-0027-虚荣",
+      "canonical_zh": "虚荣",
+      "label_en": "Vanity",
+      "dimension": "theme",
+      "definition": "过度在意外表或他人评价。",
+      "aliases": [
+        "爱慕虚荣"
+      ],
+      "related": [
+        "骄傲",
+        "表演",
+        "美"
+      ],
+      "parents": [
+        "品格"
+      ],
+      "category": "品格",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "虚荣",
+        "B_label_definition": "虚荣：过度在意外表或他人评价。",
+        "C_label_definition_aliases": "虚荣：过度在意外表或他人评价。｜别名：爱慕虚荣"
+      }
+    },
+    {
+      "id": "theme-0028-诚实",
+      "canonical_zh": "诚实",
+      "label_en": "Honesty",
+      "dimension": "theme",
+      "definition": "如实言说与行事。",
+      "aliases": [
+        "率直"
+      ],
+      "related": [
+        "虚伪",
+        "信任",
+        "真相"
+      ],
+      "parents": [
+        "品格"
+      ],
+      "category": "品格",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:honesty",
+        "lto:theme:the importance of being honest"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "诚实",
+        "B_label_definition": "诚实：如实言说与行事。",
+        "C_label_definition_aliases": "诚实：如实言说与行事。｜别名：率直"
+      }
+    },
+    {
+      "id": "theme-0029-人性",
+      "canonical_zh": "人性",
+      "label_en": "Human Nature",
+      "dimension": "theme",
+      "definition": "关于人固有倾向、善恶与限度的思索。",
+      "aliases": [
+        "人之本性"
+      ],
+      "related": [
+        "善恶",
+        "欲望",
+        "暴力"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:human nature",
+        "lto:theme:the human capacity for good and evil"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "人性",
+        "B_label_definition": "人性：关于人固有倾向、善恶与限度的思索。",
+        "C_label_definition_aliases": "人性：关于人固有倾向、善恶与限度的思索。｜别名：人之本性"
+      }
+    },
+    {
+      "id": "theme-0030-偶然",
+      "canonical_zh": "偶然",
+      "label_en": "Chance",
+      "dimension": "theme",
+      "definition": "无明确意图的巧合、机运与不确定。",
+      "aliases": [
+        "巧合",
+        "运气"
+      ],
+      "related": [
+        "命运",
+        "选择"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "偶然",
+        "B_label_definition": "偶然：无明确意图的巧合、机运与不确定。",
+        "C_label_definition_aliases": "偶然：无明确意图的巧合、机运与不确定。｜别名：巧合、运气"
+      }
+    },
+    {
+      "id": "theme-0031-变化",
+      "canonical_zh": "变化",
+      "label_en": "Change",
+      "dimension": "theme",
+      "definition": "状态、关系或自我发生转变。",
+      "aliases": [
+        "变迁",
+        "转变"
+      ],
+      "related": [
+        "成长",
+        "失去",
+        "适应"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "变化",
+        "B_label_definition": "变化：状态、关系或自我发生转变。",
+        "C_label_definition_aliases": "变化：状态、关系或自我发生转变。｜别名：变迁、转变"
+      }
+    },
+    {
+      "id": "theme-0032-命运",
+      "canonical_zh": "命运",
+      "label_en": "Fate",
+      "dimension": "theme",
+      "definition": "命定、不可控力量或轨迹感如何塑造人生。",
+      "aliases": [
+        "天命",
+        "宿命"
+      ],
+      "related": [
+        "自由",
+        "掌控",
+        "偶然",
+        "意义"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "existing_pgwhite",
+        "legacy_human",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:destiny",
+        "pgwhite:tag:14"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "命运",
+        "B_label_definition": "命运：命定、不可控力量或轨迹感如何塑造人生。",
+        "C_label_definition_aliases": "命运：命定、不可控力量或轨迹感如何塑造人生。｜别名：天命、宿命"
+      }
+    },
+    {
+      "id": "theme-0033-命运感",
+      "canonical_zh": "命运感",
+      "label_en": "Sense of Destiny",
+      "dimension": "theme",
+      "definition": "感到事件被更大力量牵引的主观体验。",
+      "aliases": [],
+      "related": [
+        "命运",
+        "自由",
+        "意义"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "命运感",
+        "B_label_definition": "命运感：感到事件被更大力量牵引的主观体验。",
+        "C_label_definition_aliases": "命运感：感到事件被更大力量牵引的主观体验。｜别名：（无）"
+      }
+    },
+    {
+      "id": "theme-0034-失去",
+      "canonical_zh": "失去",
+      "label_en": "Loss",
+      "dimension": "theme",
+      "definition": "无可挽回地丧失人或重要之物/状态。",
+      "aliases": [
+        "丧失",
+        "失落"
+      ],
+      "related": [
+        "悲伤",
+        "死亡",
+        "记忆",
+        "遗憾"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "失去",
+        "B_label_definition": "失去：无可挽回地丧失人或重要之物/状态。",
+        "C_label_definition_aliases": "失去：无可挽回地丧失人或重要之物/状态。｜别名：丧失、失落"
+      }
+    },
+    {
+      "id": "theme-0035-幻灭",
+      "canonical_zh": "幻灭",
+      "label_en": "Disillusionment",
+      "dimension": "theme",
+      "definition": "理想或信念破灭后的清醒与失落。",
+      "aliases": [
+        "失望"
+      ],
+      "related": [
+        "希望",
+        "真相",
+        "成长"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "幻灭",
+        "B_label_definition": "幻灭：理想或信念破灭后的清醒与失落。",
+        "C_label_definition_aliases": "幻灭：理想或信念破灭后的清醒与失落。｜别名：失望"
+      }
+    },
+    {
+      "id": "theme-0036-意义",
+      "canonical_zh": "意义",
+      "label_en": "Meaning",
+      "dimension": "theme",
+      "definition": "人生、事件或行动是否值得、指向什么。",
+      "aliases": [
+        "价值",
+        "意义感"
+      ],
+      "related": [
+        "虚无",
+        "信仰",
+        "选择"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "意义",
+        "B_label_definition": "意义：人生、事件或行动是否值得、指向什么。",
+        "C_label_definition_aliases": "意义：人生、事件或行动是否值得、指向什么。｜别名：价值、意义感"
+      }
+    },
+    {
+      "id": "theme-0037-接受",
+      "canonical_zh": "接受",
+      "label_en": "Acceptance",
+      "dimension": "theme",
+      "definition": "承认现实并不再无谓抗拒。",
+      "aliases": [
+        "接纳"
+      ],
+      "related": [
+        "平静",
+        "失去",
+        "命运"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "接受",
+        "B_label_definition": "接受：承认现实并不再无谓抗拒。",
+        "C_label_definition_aliases": "接受：承认现实并不再无谓抗拒。｜别名：接纳"
+      }
+    },
+    {
+      "id": "theme-0038-日常",
+      "canonical_zh": "日常",
+      "label_en": "Everyday Life",
+      "dimension": "theme",
+      "definition": "平凡反复的生活肌理与琐碎现实。",
+      "aliases": [
+        "平淡"
+      ],
+      "related": [
+        "工作",
+        "家庭",
+        "无聊"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "日常",
+        "B_label_definition": "日常：平凡反复的生活肌理与琐碎现实。",
+        "C_label_definition_aliases": "日常：平凡反复的生活肌理与琐碎现实。｜别名：平淡"
+      }
+    },
+    {
+      "id": "theme-0039-时间",
+      "canonical_zh": "时间",
+      "label_en": "Time",
+      "dimension": "theme",
+      "definition": "时间流逝、时序感知与时间意识；因与 Scene/Time 维度冲突，研究库保留但不作为活跃 Theme。",
+      "aliases": [
+        "时光"
+      ],
+      "related": [
+        "记忆",
+        "衰老",
+        "怀旧",
+        "命运"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:6"
+      ],
+      "status": "excluded_scene_time_conflict",
+      "notes": "Present in production Theme taxonomy but excluded from active 1.4/1.41 Theme reconcile targets.",
+      "representations": {
+        "A_label": "时间",
+        "B_label_definition": "时间：时间流逝、时序感知与时间意识；因与 Scene/Time 维度冲突，研究库保留但不作为活跃 Theme。",
+        "C_label_definition_aliases": "时间：时间流逝、时序感知与时间意识；因与 Scene/Time 维度冲突，研究库保留但不作为活跃 Theme。｜别名：时光"
+      }
+    },
+    {
+      "id": "theme-0040-时间流逝",
+      "canonical_zh": "时间流逝",
+      "label_en": "Passage of Time",
+      "dimension": "theme",
+      "definition": "感到时间过去、不可逆的变易意识（非 Scene/Time 标签）。",
+      "aliases": [
+        "岁月"
+      ],
+      "related": [
+        "记忆",
+        "衰老",
+        "怀旧",
+        "死亡"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "时间流逝",
+        "B_label_definition": "时间流逝：感到时间过去、不可逆的变易意识（非 Scene/Time 标签）。",
+        "C_label_definition_aliases": "时间流逝：感到时间过去、不可逆的变易意识（非 Scene/Time 标签）。｜别名：岁月"
+      }
+    },
+    {
+      "id": "theme-0041-未来",
+      "canonical_zh": "未来",
+      "label_en": "Future",
+      "dimension": "theme",
+      "definition": "尚未到来的时间及其忧惧或希望。",
+      "aliases": [
+        "前途"
+      ],
+      "related": [
+        "希望",
+        "焦虑",
+        "命运"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "未来",
+        "B_label_definition": "未来：尚未到来的时间及其忧惧或希望。",
+        "C_label_definition_aliases": "未来：尚未到来的时间及其忧惧或希望。｜别名：前途"
+      }
+    },
+    {
+      "id": "theme-0042-末日",
+      "canonical_zh": "末日",
+      "label_en": "Apocalypse",
+      "dimension": "theme",
+      "definition": "世界或既有秩序走向终结的想象与危机感。",
+      "aliases": [
+        "末世"
+      ],
+      "related": [
+        "死亡",
+        "灾难",
+        "衰败",
+        "恐惧"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:16"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "末日",
+        "B_label_definition": "末日：世界或既有秩序走向终结的想象与危机感。",
+        "C_label_definition_aliases": "末日：世界或既有秩序走向终结的想象与危机感。｜别名：末世"
+      }
+    },
+    {
+      "id": "theme-0043-死亡",
+      "canonical_zh": "死亡",
+      "label_en": "Death",
+      "dimension": "theme",
+      "definition": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。",
+      "aliases": [
+        "过世"
+      ],
+      "related": [
+        "失去",
+        "悲伤",
+        "恐惧",
+        "生命"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "existing_pgwhite",
+        "legacy_human",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:coping with mortality",
+        "lto:theme:facing death",
+        "lto:theme:fear of death",
+        "lto:theme:the nature of death",
+        "pgwhite:tag:13"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "死亡",
+        "B_label_definition": "死亡：生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。",
+        "C_label_definition_aliases": "死亡：生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。｜别名：过世"
+      }
+    },
+    {
+      "id": "theme-0044-珍视",
+      "canonical_zh": "珍视",
+      "label_en": "Cherishing",
+      "dimension": "theme",
+      "definition": "对人或物的宝贵感与舍不得失去。",
+      "aliases": [
+        "珍惜"
+      ],
+      "related": [
+        "失去",
+        "爱",
+        "记忆"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "珍视",
+        "B_label_definition": "珍视：对人或物的宝贵感与舍不得失去。",
+        "C_label_definition_aliases": "珍视：对人或物的宝贵感与舍不得失去。｜别名：珍惜"
+      }
+    },
+    {
+      "id": "theme-0045-生命",
+      "canonical_zh": "生命",
+      "label_en": "Life",
+      "dimension": "theme",
+      "definition": "活着本身、生命力与生存境况。",
+      "aliases": [
+        "存活"
+      ],
+      "related": [
+        "死亡",
+        "身体",
+        "意义"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:the wish to live",
+        "lto:theme:what life is like"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "生命",
+        "B_label_definition": "生命：活着本身、生命力与生存境况。",
+        "C_label_definition_aliases": "生命：活着本身、生命力与生存境况。｜别名：存活"
+      }
+    },
+    {
+      "id": "theme-0046-生存",
+      "canonical_zh": "生存",
+      "label_en": "Survival",
+      "dimension": "theme",
+      "definition": "在压力下活下去的优先目标。",
+      "aliases": [
+        "活命"
+      ],
+      "related": [
+        "死亡",
+        "恐惧",
+        "饥饿"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:the desire to survive"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "生存",
+        "B_label_definition": "生存：在压力下活下去的优先目标。",
+        "C_label_definition_aliases": "生存：在压力下活下去的优先目标。｜别名：活命"
+      }
+    },
+    {
+      "id": "theme-0047-破坏",
+      "canonical_zh": "破坏",
+      "label_en": "Destruction",
+      "dimension": "theme",
+      "definition": "摧毁既有事物或秩序。",
+      "aliases": [
+        "毁坏"
+      ],
+      "related": [
+        "暴力",
+        "衰败",
+        "战争"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "破坏",
+        "B_label_definition": "破坏：摧毁既有事物或秩序。",
+        "C_label_definition_aliases": "破坏：摧毁既有事物或秩序。｜别名：毁坏"
+      }
+    },
+    {
+      "id": "theme-0048-秘密",
+      "canonical_zh": "秘密",
+      "label_en": "Secret",
+      "dimension": "theme",
+      "definition": "被隐藏的信息、过去或欲望。",
+      "aliases": [
+        "隐秘"
+      ],
+      "related": [
+        "真相",
+        "羞耻",
+        "家庭"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:dark family secret"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "秘密",
+        "B_label_definition": "秘密：被隐藏的信息、过去或欲望。",
+        "C_label_definition_aliases": "秘密：被隐藏的信息、过去或欲望。｜别名：隐秘"
+      }
+    },
+    {
+      "id": "theme-0049-等待",
+      "canonical_zh": "等待",
+      "label_en": "Waiting",
+      "dimension": "theme",
+      "definition": "悬置中的期待、焦灼或空耗。",
+      "aliases": [
+        "等候"
+      ],
+      "related": [
+        "希望",
+        "焦虑",
+        "时间流逝"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "等待",
+        "B_label_definition": "等待：悬置中的期待、焦灼或空耗。",
+        "C_label_definition_aliases": "等待：悬置中的期待、焦灼或空耗。｜别名：等候"
+      }
+    },
+    {
+      "id": "theme-0050-纯真",
+      "canonical_zh": "纯真",
+      "label_en": "Innocence",
+      "dimension": "theme",
+      "definition": "未受污染的天真、无知或道德清白。",
+      "aliases": [
+        "天真"
+      ],
+      "related": [
+        "童年",
+        "腐败",
+        "成长"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "纯真",
+        "B_label_definition": "纯真：未受污染的天真、无知或道德清白。",
+        "C_label_definition_aliases": "纯真：未受污染的天真、无知或道德清白。｜别名：天真"
+      }
+    },
+    {
+      "id": "theme-0051-脆弱",
+      "canonical_zh": "脆弱",
+      "label_en": "Vulnerability",
+      "dimension": "theme",
+      "definition": "易受伤害、需要被保护的状态。",
+      "aliases": [
+        "易碎"
+      ],
+      "related": [
+        "敏感",
+        "身体",
+        "爱"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "脆弱",
+        "B_label_definition": "脆弱：易受伤害、需要被保护的状态。",
+        "C_label_definition_aliases": "脆弱：易受伤害、需要被保护的状态。｜别名：易碎"
+      }
+    },
+    {
+      "id": "theme-0052-自杀",
+      "canonical_zh": "自杀",
+      "label_en": "Suicide",
+      "dimension": "theme",
+      "definition": "结束自己生命的意念、行动或其阴影。",
+      "aliases": [
+        "自尽"
+      ],
+      "related": [
+        "死亡",
+        "绝望",
+        "痛苦"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:contemplating suicide",
+        "lto:theme:suicide"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "自杀",
+        "B_label_definition": "自杀：结束自己生命的意念、行动或其阴影。",
+        "C_label_definition_aliases": "自杀：结束自己生命的意念、行动或其阴影。｜别名：自尽"
+      }
+    },
+    {
+      "id": "theme-0053-自由",
+      "canonical_zh": "自由",
+      "label_en": "Freedom",
+      "dimension": "theme",
+      "definition": "免于束缚、能够自主选择与行动。",
+      "aliases": [
+        "自主"
+      ],
+      "related": [
+        "权力",
+        "压迫",
+        "命运",
+        "掌控"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:order vs. freedom",
+        "lto:theme:security vs. freedom",
+        "lto:theme:the need for freedom"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "自由",
+        "B_label_definition": "自由：免于束缚、能够自主选择与行动。",
+        "C_label_definition_aliases": "自由：免于束缚、能够自主选择与行动。｜别名：自主"
+      }
+    },
+    {
+      "id": "theme-0054-虚无",
+      "canonical_zh": "虚无",
+      "label_en": "Nothingness",
+      "dimension": "theme",
+      "definition": "意义空缺、空洞与存在无根基感。",
+      "aliases": [
+        "空虚",
+        "虚无感"
+      ],
+      "related": [
+        "绝望",
+        "意义",
+        "孤独"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "虚无",
+        "B_label_definition": "虚无：意义空缺、空洞与存在无根基感。",
+        "C_label_definition_aliases": "虚无：意义空缺、空洞与存在无根基感。｜别名：空虚、虚无感"
+      }
+    },
+    {
+      "id": "theme-0055-衰败",
+      "canonical_zh": "衰败",
+      "label_en": "Decay",
+      "dimension": "theme",
+      "definition": "事物、身体、关系或秩序走向破损、腐朽与没落。",
+      "aliases": [
+        "凋敝",
+        "没落",
+        "衰退"
+      ],
+      "related": [
+        "衰老",
+        "死亡",
+        "废墟",
+        "时间流逝"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "annotation_benchmark",
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:11"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "衰败",
+        "B_label_definition": "衰败：事物、身体、关系或秩序走向破损、腐朽与没落。",
+        "C_label_definition_aliases": "衰败：事物、身体、关系或秩序走向破损、腐朽与没落。｜别名：凋敝、没落、衰退"
+      }
+    },
+    {
+      "id": "theme-0056-责任",
+      "canonical_zh": "责任",
+      "label_en": "Responsibility",
+      "dimension": "theme",
+      "definition": "对他人、角色或后果应承担的义务感。",
+      "aliases": [
+        "担当"
+      ],
+      "related": [
+        "内疚",
+        "家庭",
+        "牺牲"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "责任",
+        "B_label_definition": "责任：对他人、角色或后果应承担的义务感。",
+        "C_label_definition_aliases": "责任：对他人、角色或后果应承担的义务感。｜别名：担当"
+      }
+    },
+    {
+      "id": "theme-0057-轮回",
+      "canonical_zh": "轮回",
+      "label_en": "Cycle",
+      "dimension": "theme",
+      "definition": "循环往复、重复发生或生死流转的模式感。",
+      "aliases": [
+        "循环"
+      ],
+      "related": [
+        "命运",
+        "重复",
+        "时间流逝",
+        "重生"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:18"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "轮回",
+        "B_label_definition": "轮回：循环往复、重复发生或生死流转的模式感。",
+        "C_label_definition_aliases": "轮回：循环往复、重复发生或生死流转的模式感。｜别名：循环"
+      }
+    },
+    {
+      "id": "theme-0058-过去",
+      "canonical_zh": "过去",
+      "label_en": "Past",
+      "dimension": "theme",
+      "definition": "已发生之事对当下的压力与召回。",
+      "aliases": [
+        "往昔"
+      ],
+      "related": [
+        "记忆",
+        "怀旧",
+        "历史"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "过去",
+        "B_label_definition": "过去：已发生之事对当下的压力与召回。",
+        "C_label_definition_aliases": "过去：已发生之事对当下的压力与召回。｜别名：往昔"
+      }
+    },
+    {
+      "id": "theme-0059-适应",
+      "canonical_zh": "适应",
+      "label_en": "Adaptation",
+      "dimension": "theme",
+      "definition": "调整自身以应对环境变化。",
+      "aliases": [
+        "顺应"
+      ],
+      "related": [
+        "变化",
+        "生存",
+        "身份"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "适应",
+        "B_label_definition": "适应：调整自身以应对环境变化。",
+        "C_label_definition_aliases": "适应：调整自身以应对环境变化。｜别名：顺应"
+      }
+    },
+    {
+      "id": "theme-0060-选择",
+      "canonical_zh": "选择",
+      "label_en": "Choice",
+      "dimension": "theme",
+      "definition": "在可能性之间做出取舍及其后果。",
+      "aliases": [
+        "抉择"
+      ],
+      "related": [
+        "自由",
+        "责任",
+        "遗憾"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "选择",
+        "B_label_definition": "选择：在可能性之间做出取舍及其后果。",
+        "C_label_definition_aliases": "选择：在可能性之间做出取舍及其后果。｜别名：抉择"
+      }
+    },
+    {
+      "id": "theme-0061-重复",
+      "canonical_zh": "重复",
+      "label_en": "Repetition",
+      "dimension": "theme",
+      "definition": "同样模式一再发生的体验。",
+      "aliases": [
+        "一再"
+      ],
+      "related": [
+        "轮回",
+        "日常",
+        "无聊"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "重复",
+        "B_label_definition": "重复：同样模式一再发生的体验。",
+        "C_label_definition_aliases": "重复：同样模式一再发生的体验。｜别名：一再"
+      }
+    },
+    {
+      "id": "theme-0062-重生",
+      "canonical_zh": "重生",
+      "label_en": "Rebirth",
+      "dimension": "theme",
+      "definition": "经历崩解后的更新、再出发或再生想象。",
+      "aliases": [
+        "再生",
+        "新生"
+      ],
+      "related": [
+        "死亡",
+        "救赎",
+        "轮回"
+      ],
+      "parents": [
+        "存在"
+      ],
+      "category": "存在",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "重生",
+        "B_label_definition": "重生：经历崩解后的更新、再出发或再生想象。",
+        "C_label_definition_aliases": "重生：经历崩解后的更新、再出发或再生想象。｜别名：再生、新生"
+      }
+    },
+    {
+      "id": "theme-0063-来世",
+      "canonical_zh": "来世",
+      "label_en": "Afterlife",
+      "dimension": "theme",
+      "definition": "死后世界或灵魂去向的想象。",
+      "aliases": [
+        "死后"
+      ],
+      "related": [
+        "死亡",
+        "信仰",
+        "灵魂"
+      ],
+      "parents": [
+        "宗教"
+      ],
+      "category": "宗教",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:the afterlife"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "来世",
+        "B_label_definition": "来世：死后世界或灵魂去向的想象。",
+        "C_label_definition_aliases": "来世：死后世界或灵魂去向的想象。｜别名：死后"
+      }
+    },
+    {
+      "id": "theme-0064-神",
+      "canonical_zh": "神",
+      "label_en": "God",
+      "dimension": "theme",
+      "definition": "神性存在、神圣他者或其缺席。",
+      "aliases": [
+        "上帝",
+        "神性"
+      ],
+      "related": [
+        "信仰",
+        "罪",
+        "灵魂"
+      ],
+      "parents": [
+        "宗教"
+      ],
+      "category": "宗教",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:the importance of faith"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "神",
+        "B_label_definition": "神：神性存在、神圣他者或其缺席。",
+        "C_label_definition_aliases": "神：神性存在、神圣他者或其缺席。｜别名：上帝、神性"
+      }
+    },
+    {
+      "id": "theme-0065-丑",
+      "canonical_zh": "丑",
+      "label_en": "Ugliness",
+      "dimension": "theme",
+      "definition": "被视为丑陋、不堪或令人不适的审美/道德感受。",
+      "aliases": [
+        "丑陋"
+      ],
+      "related": [
+        "美",
+        "厌恶",
+        "身体"
+      ],
+      "parents": [
+        "审美"
+      ],
+      "category": "审美",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "丑",
+        "B_label_definition": "丑：被视为丑陋、不堪或令人不适的审美/道德感受。",
+        "C_label_definition_aliases": "丑：被视为丑陋、不堪或令人不适的审美/道德感受。｜别名：丑陋"
+      }
+    },
+    {
+      "id": "theme-0066-美",
+      "canonical_zh": "美",
+      "label_en": "Beauty",
+      "dimension": "theme",
+      "definition": "美感、审美判断与对美的追求或幻灭。",
+      "aliases": [
+        "美丽"
+      ],
+      "related": [
+        "艺术",
+        "欲望",
+        "表象"
+      ],
+      "parents": [
+        "审美"
+      ],
+      "category": "审美",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:aesthetics",
+        "lto:theme:what is beauty"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "美",
+        "B_label_definition": "美：美感、审美判断与对美的追求或幻灭。",
+        "C_label_definition_aliases": "美：美感、审美判断与对美的追求或幻灭。｜别名：美丽"
+      }
+    },
+    {
+      "id": "theme-0067-幻觉",
+      "canonical_zh": "幻觉",
+      "label_en": "Illusion",
+      "dimension": "theme",
+      "definition": "不实的感知或被误认的真实。",
+      "aliases": [
+        "幻象"
+      ],
+      "related": [
+        "真相",
+        "疯狂",
+        "梦"
+      ],
+      "parents": [
+        "心智"
+      ],
+      "category": "心智",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "幻觉",
+        "B_label_definition": "幻觉：不实的感知或被误认的真实。",
+        "C_label_definition_aliases": "幻觉：不实的感知或被误认的真实。｜别名：幻象"
+      }
+    },
+    {
+      "id": "theme-0068-怀旧",
+      "canonical_zh": "怀旧",
+      "label_en": "Nostalgia",
+      "dimension": "theme",
+      "definition": "对往昔的感伤回望与情感召回。",
+      "aliases": [
+        "思旧"
+      ],
+      "related": [
+        "记忆",
+        "童年",
+        "青春",
+        "遗憾"
+      ],
+      "parents": [
+        "心智"
+      ],
+      "category": "心智",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:nostalgia",
+        "lto:theme:reminiscence about one's youth"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "怀旧",
+        "B_label_definition": "怀旧：对往昔的感伤回望与情感召回。",
+        "C_label_definition_aliases": "怀旧：对往昔的感伤回望与情感召回。｜别名：思旧"
+      }
+    },
+    {
+      "id": "theme-0069-意志",
+      "canonical_zh": "意志",
+      "label_en": "Will",
+      "dimension": "theme",
+      "definition": "坚持意向、推动行动的内在力量。",
+      "aliases": [
+        "毅力"
+      ],
+      "related": [
+        "欲望",
+        "自由",
+        "掌控"
+      ],
+      "parents": [
+        "心智"
+      ],
+      "category": "心智",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "意志",
+        "B_label_definition": "意志：坚持意向、推动行动的内在力量。",
+        "C_label_definition_aliases": "意志：坚持意向、推动行动的内在力量。｜别名：毅力"
+      }
+    },
+    {
+      "id": "theme-0070-智慧",
+      "canonical_zh": "智慧",
+      "label_en": "Wisdom",
+      "dimension": "theme",
+      "definition": "深刻洞见与妥善判断的智性品质。",
+      "aliases": [
+        "睿智"
+      ],
+      "related": [
+        "经验",
+        "真相",
+        "衰老"
+      ],
+      "parents": [
+        "心智"
+      ],
+      "category": "心智",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "智慧",
+        "B_label_definition": "智慧：深刻洞见与妥善判断的智性品质。",
+        "C_label_definition_aliases": "智慧：深刻洞见与妥善判断的智性品质。｜别名：睿智"
+      }
+    },
+    {
+      "id": "theme-0071-梦",
+      "canonical_zh": "梦",
+      "label_en": "Dream",
+      "dimension": "theme",
+      "definition": "梦境、愿望投射与潜意识显现。",
+      "aliases": [
+        "梦境"
+      ],
+      "related": [
+        "潜意识",
+        "希望",
+        "幻灭"
+      ],
+      "parents": [
+        "心智"
+      ],
+      "category": "心智",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:human dreaming",
+        "lto:theme:lucid dreaming"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "梦",
+        "B_label_definition": "梦：梦境、愿望投射与潜意识显现。",
+        "C_label_definition_aliases": "梦：梦境、愿望投射与潜意识显现。｜别名：梦境"
+      }
+    },
+    {
+      "id": "theme-0072-欲望",
+      "canonical_zh": "欲望",
+      "label_en": "Desire",
+      "dimension": "theme",
+      "definition": "强烈的想望、渴求与被吸引。",
+      "aliases": [
+        "欲求",
+        "渴求"
+      ],
+      "related": [
+        "爱情",
+        "权力",
+        "冲动"
+      ],
+      "parents": [
+        "心智"
+      ],
+      "category": "心智",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:desire",
+        "lto:theme:mimetic desire"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "欲望",
+        "B_label_definition": "欲望：强烈的想望、渴求与被吸引。",
+        "C_label_definition_aliases": "欲望：强烈的想望、渴求与被吸引。｜别名：欲求、渴求"
+      }
+    },
+    {
+      "id": "theme-0073-潜意识",
+      "canonical_zh": "潜意识",
+      "label_en": "Unconscious",
+      "dimension": "theme",
+      "definition": "未被清晰觉察却影响行为的心理层面。",
+      "aliases": [
+        "无意识"
+      ],
+      "related": [
+        "梦",
+        "欲望",
+        "记忆"
+      ],
+      "parents": [
+        "心智"
+      ],
+      "category": "心智",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:the nature of the subconscious"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "潜意识",
+        "B_label_definition": "潜意识：未被清晰觉察却影响行为的心理层面。",
+        "C_label_definition_aliases": "潜意识：未被清晰觉察却影响行为的心理层面。｜别名：无意识"
+      }
+    },
+    {
+      "id": "theme-0074-理智",
+      "canonical_zh": "理智",
+      "label_en": "Reason",
+      "dimension": "theme",
+      "definition": "冷静分析、克制情感的认知力量。",
+      "aliases": [
+        "理性"
+      ],
+      "related": [
+        "疯狂",
+        "情感",
+        "控制"
+      ],
+      "parents": [
+        "心智"
+      ],
+      "category": "心智",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:rationality vs. emotionality"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "理智",
+        "B_label_definition": "理智：冷静分析、克制情感的认知力量。",
+        "C_label_definition_aliases": "理智：冷静分析、克制情感的认知力量。｜别名：理性"
+      }
+    },
+    {
+      "id": "theme-0075-疯狂",
+      "canonical_zh": "疯狂",
+      "label_en": "Madness",
+      "dimension": "theme",
+      "definition": "理智失控或被视为失常的状态。",
+      "aliases": [
+        "疯癫"
+      ],
+      "related": [
+        "理智",
+        "恐惧",
+        "暴力"
+      ],
+      "parents": [
+        "心智"
+      ],
+      "category": "心智",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:descent into madness"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "疯狂",
+        "B_label_definition": "疯狂：理智失控或被视为失常的状态。",
+        "C_label_definition_aliases": "疯狂：理智失控或被视为失常的状态。｜别名：疯癫"
+      }
+    },
+    {
+      "id": "theme-0076-经验",
+      "canonical_zh": "经验",
+      "label_en": "Experience",
+      "dimension": "theme",
+      "definition": "经事后沉淀的阅历与体会。",
+      "aliases": [
+        "阅历"
+      ],
+      "related": [
+        "记忆",
+        "成长",
+        "智慧"
+      ],
+      "parents": [
+        "心智"
+      ],
+      "category": "心智",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "经验",
+        "B_label_definition": "经验：经事后沉淀的阅历与体会。",
+        "C_label_definition_aliases": "经验：经事后沉淀的阅历与体会。｜别名：阅历"
+      }
+    },
+    {
+      "id": "theme-0077-记忆",
+      "canonical_zh": "记忆",
+      "label_en": "Memory",
+      "dimension": "theme",
+      "definition": "记住、回想与被过去经验塑造的心智领地，可涵盖回忆唤起、保存与改变。",
+      "aliases": [
+        "回忆"
+      ],
+      "related": [
+        "遗忘",
+        "童年",
+        "怀旧",
+        "身份"
+      ],
+      "parents": [
+        "心智"
+      ],
+      "category": "心智",
+      "provenance": [
+        "annotation_benchmark",
+        "existing_pgwhite",
+        "legacy_human",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:the nature of memory",
+        "pgwhite:tag:9"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "记忆",
+        "B_label_definition": "记忆：记住、回想与被过去经验塑造的心智领地，可涵盖回忆唤起、保存与改变。",
+        "C_label_definition_aliases": "记忆：记住、回想与被过去经验塑造的心智领地，可涵盖回忆唤起、保存与改变。｜别名：回忆"
+      }
+    },
+    {
+      "id": "theme-0078-遗忘",
+      "canonical_zh": "遗忘",
+      "label_en": "Forgetting",
+      "dimension": "theme",
+      "definition": "记不起、被抹去或主动放下过去。",
+      "aliases": [
+        "失忆"
+      ],
+      "related": [
+        "记忆",
+        "失去",
+        "衰老"
+      ],
+      "parents": [
+        "心智"
+      ],
+      "category": "心智",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:the nature of memory"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "遗忘",
+        "B_label_definition": "遗忘：记不起、被抹去或主动放下过去。",
+        "C_label_definition_aliases": "遗忘：记不起、被抹去或主动放下过去。｜别名：失忆"
+      }
+    },
+    {
+      "id": "theme-0079-仇恨",
+      "canonical_zh": "仇恨",
+      "label_en": "Hatred",
+      "dimension": "theme",
+      "definition": "强烈而持久的敌意与憎恶。",
+      "aliases": [
+        "恨意",
+        "憎恨"
+      ],
+      "related": [
+        "愤怒",
+        "暴力",
+        "报复",
+        "宽恕"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:hate begets hate"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "仇恨",
+        "B_label_definition": "仇恨：强烈而持久的敌意与憎恶。",
+        "C_label_definition_aliases": "仇恨：强烈而持久的敌意与憎恶。｜别名：恨意、憎恨"
+      }
+    },
+    {
+      "id": "theme-0080-体谅",
+      "canonical_zh": "体谅",
+      "label_en": "Understanding",
+      "dimension": "theme",
+      "definition": "体察他人处境并予以包容理解。",
+      "aliases": [
+        "体贴",
+        "谅解"
+      ],
+      "related": [
+        "怜悯",
+        "爱",
+        "宽恕"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "体谅",
+        "B_label_definition": "体谅：体察他人处境并予以包容理解。",
+        "C_label_definition_aliases": "体谅：体察他人处境并予以包容理解。｜别名：体贴、谅解"
+      }
+    },
+    {
+      "id": "theme-0081-倦怠",
+      "canonical_zh": "倦怠",
+      "label_en": "Burnout",
+      "dimension": "theme",
+      "definition": "长期消耗后的身心疲惫与提不起劲。",
+      "aliases": [
+        "倦意",
+        "疲惫"
+      ],
+      "related": [
+        "无聊",
+        "工作",
+        "绝望"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "倦怠",
+        "B_label_definition": "倦怠：长期消耗后的身心疲惫与提不起劲。",
+        "C_label_definition_aliases": "倦怠：长期消耗后的身心疲惫与提不起劲。｜别名：倦意、疲惫"
+      }
+    },
+    {
+      "id": "theme-0082-内疚",
+      "canonical_zh": "内疚",
+      "label_en": "Guilt",
+      "dimension": "theme",
+      "definition": "觉得做错事或亏欠他人时的自责。",
+      "aliases": [
+        "愧疚",
+        "自责"
+      ],
+      "related": [
+        "羞愧",
+        "遗憾",
+        "救赎"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:survivor guilt"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "内疚",
+        "B_label_definition": "内疚：觉得做错事或亏欠他人时的自责。",
+        "C_label_definition_aliases": "内疚：觉得做错事或亏欠他人时的自责。｜别名：愧疚、自责"
+      }
+    },
+    {
+      "id": "theme-0083-冲动",
+      "canonical_zh": "冲动",
+      "label_en": "Impulse",
+      "dimension": "theme",
+      "definition": "未经充分克制的突然行动倾向。",
+      "aliases": [
+        "莽撞"
+      ],
+      "related": [
+        "欲望",
+        "掌控",
+        "后悔"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "冲动",
+        "B_label_definition": "冲动：未经充分克制的突然行动倾向。",
+        "C_label_definition_aliases": "冲动：未经充分克制的突然行动倾向。｜别名：莽撞"
+      }
+    },
+    {
+      "id": "theme-0084-冷漠",
+      "canonical_zh": "冷漠",
+      "label_en": "Apathy",
+      "dimension": "theme",
+      "definition": "缺乏关心、情感抽离或不愿投入。",
+      "aliases": [
+        "无动于衷",
+        "淡漠"
+      ],
+      "related": [
+        "疏离",
+        "孤独",
+        "压抑"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "冷漠",
+        "B_label_definition": "冷漠：缺乏关心、情感抽离或不愿投入。",
+        "C_label_definition_aliases": "冷漠：缺乏关心、情感抽离或不愿投入。｜别名：无动于衷、淡漠"
+      }
+    },
+    {
+      "id": "theme-0085-压抑",
+      "canonical_zh": "压抑",
+      "label_en": "Repression",
+      "dimension": "theme",
+      "definition": "情感、欲望或表达被压制而不能释放。",
+      "aliases": [
+        "压制感"
+      ],
+      "related": [
+        "焦虑",
+        "欲望",
+        "自由"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "压抑",
+        "B_label_definition": "压抑：情感、欲望或表达被压制而不能释放。",
+        "C_label_definition_aliases": "压抑：情感、欲望或表达被压制而不能释放。｜别名：压制感"
+      }
+    },
+    {
+      "id": "theme-0086-厌恶",
+      "canonical_zh": "厌恶",
+      "label_en": "Disgust",
+      "dimension": "theme",
+      "definition": "反感、嫌恶与排斥的情感反应。",
+      "aliases": [
+        "厌恶感",
+        "反感",
+        "嫌恶"
+      ],
+      "related": [
+        "仇恨",
+        "羞耻",
+        "身体"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "annotation_benchmark",
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:17"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "厌恶",
+        "B_label_definition": "厌恶：反感、嫌恶与排斥的情感反应。",
+        "C_label_definition_aliases": "厌恶：反感、嫌恶与排斥的情感反应。｜别名：厌恶感、反感、嫌恶"
+      }
+    },
+    {
+      "id": "theme-0087-喜悦",
+      "canonical_zh": "喜悦",
+      "label_en": "Joy",
+      "dimension": "theme",
+      "definition": "愉快、高兴与欢欣的正向情感。",
+      "aliases": [
+        "快乐",
+        "欢喜"
+      ],
+      "related": [
+        "希望",
+        "爱",
+        "满足"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "喜悦",
+        "B_label_definition": "喜悦：愉快、高兴与欢欣的正向情感。",
+        "C_label_definition_aliases": "喜悦：愉快、高兴与欢欣的正向情感。｜别名：快乐、欢喜"
+      }
+    },
+    {
+      "id": "theme-0088-好奇",
+      "canonical_zh": "好奇",
+      "label_en": "Curiosity",
+      "dimension": "theme",
+      "definition": "想知道、探索与追问的驱力。",
+      "aliases": [
+        "好奇心"
+      ],
+      "related": [
+        "求知",
+        "旅行",
+        "秘密"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "好奇",
+        "B_label_definition": "好奇：想知道、探索与追问的驱力。",
+        "C_label_definition_aliases": "好奇：想知道、探索与追问的驱力。｜别名：好奇心"
+      }
+    },
+    {
+      "id": "theme-0089-嫉妒",
+      "canonical_zh": "嫉妒",
+      "label_en": "Jealousy",
+      "dimension": "theme",
+      "definition": "担心失去所爱，或因他人拥有而不平衡。",
+      "aliases": [
+        "妒忌"
+      ],
+      "related": [
+        "爱情",
+        "占有",
+        "背叛",
+        "自卑"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:jealousy",
+        "lto:theme:romantic jealousy"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "嫉妒",
+        "B_label_definition": "嫉妒：担心失去所爱，或因他人拥有而不平衡。",
+        "C_label_definition_aliases": "嫉妒：担心失去所爱，或因他人拥有而不平衡。｜别名：妒忌"
+      }
+    },
+    {
+      "id": "theme-0090-孤独",
+      "canonical_zh": "孤独",
+      "label_en": "Loneliness",
+      "dimension": "theme",
+      "definition": "缺乏联结、被隔绝或无人理解的感受。",
+      "aliases": [
+        "孤单",
+        "寂寞"
+      ],
+      "related": [
+        "疏离",
+        "归属",
+        "友情",
+        "爱情"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:loneliness"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "孤独",
+        "B_label_definition": "孤独：缺乏联结、被隔绝或无人理解的感受。",
+        "C_label_definition_aliases": "孤独：缺乏联结、被隔绝或无人理解的感受。｜别名：孤单、寂寞"
+      }
+    },
+    {
+      "id": "theme-0091-安慰",
+      "canonical_zh": "安慰",
+      "label_en": "Comfort",
+      "dimension": "theme",
+      "definition": "被抚慰或寻求慰藉的情感需求。",
+      "aliases": [
+        "慰藉"
+      ],
+      "related": [
+        "悲伤",
+        "体谅",
+        "家园"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "安慰",
+        "B_label_definition": "安慰：被抚慰或寻求慰藉的情感需求。",
+        "C_label_definition_aliases": "安慰：被抚慰或寻求慰藉的情感需求。｜别名：慰藉"
+      }
+    },
+    {
+      "id": "theme-0092-屈辱",
+      "canonical_zh": "屈辱",
+      "label_en": "Humiliation",
+      "dimension": "theme",
+      "definition": "被贬低、践踏尊严时的难堪与痛感。",
+      "aliases": [
+        "受辱"
+      ],
+      "related": [
+        "羞愧",
+        "压迫",
+        "权力"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "屈辱",
+        "B_label_definition": "屈辱：被贬低、践踏尊严时的难堪与痛感。",
+        "C_label_definition_aliases": "屈辱：被贬低、践踏尊严时的难堪与痛感。｜别名：受辱"
+      }
+    },
+    {
+      "id": "theme-0093-希望",
+      "canonical_zh": "希望",
+      "label_en": "Hope",
+      "dimension": "theme",
+      "definition": "对更好可能的期待与信心。",
+      "aliases": [
+        "盼望"
+      ],
+      "related": [
+        "绝望",
+        "命运",
+        "意义"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:hope"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "希望",
+        "B_label_definition": "希望：对更好可能的期待与信心。",
+        "C_label_definition_aliases": "希望：对更好可能的期待与信心。｜别名：盼望"
+      }
+    },
+    {
+      "id": "theme-0094-平静",
+      "canonical_zh": "平静",
+      "label_en": "Calm",
+      "dimension": "theme",
+      "definition": "情绪安稳、内心少波动的状态。",
+      "aliases": [
+        "安宁",
+        "平和"
+      ],
+      "related": [
+        "寂静",
+        "希望",
+        "接受"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "平静",
+        "B_label_definition": "平静：情绪安稳、内心少波动的状态。",
+        "C_label_definition_aliases": "平静：情绪安稳、内心少波动的状态。｜别名：安宁、平和"
+      }
+    },
+    {
+      "id": "theme-0095-怜悯",
+      "canonical_zh": "怜悯",
+      "label_en": "Compassion",
+      "dimension": "theme",
+      "definition": "对他人苦难的同情与愿减轻痛苦的倾向。",
+      "aliases": [
+        "同情",
+        "慈悲"
+      ],
+      "related": [
+        "残酷",
+        "暴力",
+        "救赎"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:compassion",
+        "lto:theme:mercy"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "怜悯",
+        "B_label_definition": "怜悯：对他人苦难的同情与愿减轻痛苦的倾向。",
+        "C_label_definition_aliases": "怜悯：对他人苦难的同情与愿减轻痛苦的倾向。｜别名：同情、慈悲"
+      }
+    },
+    {
+      "id": "theme-0096-思念",
+      "canonical_zh": "思念",
+      "label_en": "Longing",
+      "dimension": "theme",
+      "definition": "对不在场之人、之地或之时的牵挂与渴念。",
+      "aliases": [
+        "想念",
+        "牵挂"
+      ],
+      "related": [
+        "爱",
+        "怀旧",
+        "分离"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "思念",
+        "B_label_definition": "思念：对不在场之人、之地或之时的牵挂与渴念。",
+        "C_label_definition_aliases": "思念：对不在场之人、之地或之时的牵挂与渴念。｜别名：想念、牵挂"
+      }
+    },
+    {
+      "id": "theme-0097-恐惧",
+      "canonical_zh": "恐惧",
+      "label_en": "Fear",
+      "dimension": "theme",
+      "definition": "对危险、未知或伤害的害怕与惊惧。",
+      "aliases": [
+        "害怕",
+        "惊惧"
+      ],
+      "related": [
+        "死亡",
+        "焦虑",
+        "暴力",
+        "勇气"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:fear",
+        "lto:theme:fear of death",
+        "lto:theme:the nature of fear"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "恐惧",
+        "B_label_definition": "恐惧：对危险、未知或伤害的害怕与惊惧。",
+        "C_label_definition_aliases": "恐惧：对危险、未知或伤害的害怕与惊惧。｜别名：害怕、惊惧"
+      }
+    },
+    {
+      "id": "theme-0098-悲伤",
+      "canonical_zh": "悲伤",
+      "label_en": "Sadness",
+      "dimension": "theme",
+      "definition": "哀伤、难过与情绪低落的基本情感领地。",
+      "aliases": [
+        "伤心",
+        "哀伤",
+        "难过"
+      ],
+      "related": [
+        "失去",
+        "遗憾",
+        "孤独",
+        "死亡"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:grief"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "悲伤",
+        "B_label_definition": "悲伤：哀伤、难过与情绪低落的基本情感领地。",
+        "C_label_definition_aliases": "悲伤：哀伤、难过与情绪低落的基本情感领地。｜别名：伤心、哀伤、难过"
+      }
+    },
+    {
+      "id": "theme-0099-愤怒",
+      "canonical_zh": "愤怒",
+      "label_en": "Anger",
+      "dimension": "theme",
+      "definition": "被冒犯、受阻或受伤害时的怒意。",
+      "aliases": [
+        "怒火",
+        "恼怒"
+      ],
+      "related": [
+        "暴力",
+        "仇恨",
+        "报复",
+        "公正"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:anger"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "愤怒",
+        "B_label_definition": "愤怒：被冒犯、受阻或受伤害时的怒意。",
+        "C_label_definition_aliases": "愤怒：被冒犯、受阻或受伤害时的怒意。｜别名：怒火、恼怒"
+      }
+    },
+    {
+      "id": "theme-0100-敬畏",
+      "canonical_zh": "敬畏",
+      "label_en": "Awe",
+      "dimension": "theme",
+      "definition": "面对巨大、崇高或神秘事物时的震慑与崇敬。",
+      "aliases": [
+        "畏敬"
+      ],
+      "related": [
+        "信仰",
+        "自然",
+        "美"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:awe"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "敬畏",
+        "B_label_definition": "敬畏：面对巨大、崇高或神秘事物时的震慑与崇敬。",
+        "C_label_definition_aliases": "敬畏：面对巨大、崇高或神秘事物时的震慑与崇敬。｜别名：畏敬"
+      }
+    },
+    {
+      "id": "theme-0101-无聊",
+      "canonical_zh": "无聊",
+      "label_en": "Boredom",
+      "dimension": "theme",
+      "definition": "缺乏刺激或意义时的空虚与倦怠感。",
+      "aliases": [
+        "乏味"
+      ],
+      "related": [
+        "倦怠",
+        "重复",
+        "日常"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:boredom"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "无聊",
+        "B_label_definition": "无聊：缺乏刺激或意义时的空虚与倦怠感。",
+        "C_label_definition_aliases": "无聊：缺乏刺激或意义时的空虚与倦怠感。｜别名：乏味"
+      }
+    },
+    {
+      "id": "theme-0102-温柔",
+      "canonical_zh": "温柔",
+      "label_en": "Tenderness",
+      "dimension": "theme",
+      "definition": "柔和、体贴与小心对待他者的情感质地。",
+      "aliases": [
+        "柔情"
+      ],
+      "related": [
+        "爱",
+        "体谅",
+        "脆弱"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "温柔",
+        "B_label_definition": "温柔：柔和、体贴与小心对待他者的情感质地。",
+        "C_label_definition_aliases": "温柔：柔和、体贴与小心对待他者的情感质地。｜别名：柔情"
+      }
+    },
+    {
+      "id": "theme-0103-满足",
+      "canonical_zh": "满足",
+      "label_en": "Contentment",
+      "dimension": "theme",
+      "definition": "感到足够、安稳或心意落地的状态。",
+      "aliases": [
+        "知足"
+      ],
+      "related": [
+        "喜悦",
+        "平静",
+        "家园"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "满足",
+        "B_label_definition": "满足：感到足够、安稳或心意落地的状态。",
+        "C_label_definition_aliases": "满足：感到足够、安稳或心意落地的状态。｜别名：知足"
+      }
+    },
+    {
+      "id": "theme-0104-焦虑",
+      "canonical_zh": "焦虑",
+      "label_en": "Anxiety",
+      "dimension": "theme",
+      "definition": "担忧、紧张与不安的持续性心理压力。",
+      "aliases": [
+        "不安",
+        "忧虑"
+      ],
+      "related": [
+        "恐惧",
+        "控制",
+        "未来"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "annotation_benchmark",
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "lto:theme:acute anxiety",
+        "pgwhite:tag:10"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "焦虑",
+        "B_label_definition": "焦虑：担忧、紧张与不安的持续性心理压力。",
+        "C_label_definition_aliases": "焦虑：担忧、紧张与不安的持续性心理压力。｜别名：不安、忧虑"
+      }
+    },
+    {
+      "id": "theme-0105-痛苦",
+      "canonical_zh": "痛苦",
+      "label_en": "Suffering",
+      "dimension": "theme",
+      "definition": "身体或精神上的受苦、伤痛与难耐体验。",
+      "aliases": [
+        "苦痛",
+        "苦难"
+      ],
+      "related": [
+        "悲伤",
+        "疾病",
+        "创伤",
+        "绝望"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:7"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "痛苦",
+        "B_label_definition": "痛苦：身体或精神上的受苦、伤痛与难耐体验。",
+        "C_label_definition_aliases": "痛苦：身体或精神上的受苦、伤痛与难耐体验。｜别名：苦痛、苦难"
+      }
+    },
+    {
+      "id": "theme-0106-绝望",
+      "canonical_zh": "绝望",
+      "label_en": "Despair",
+      "dimension": "theme",
+      "definition": "感到无路可走、失去盼望的沉重心境。",
+      "aliases": [
+        "无望"
+      ],
+      "related": [
+        "希望",
+        "死亡",
+        "虚无"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "绝望",
+        "B_label_definition": "绝望：感到无路可走、失去盼望的沉重心境。",
+        "C_label_definition_aliases": "绝望：感到无路可走、失去盼望的沉重心境。｜别名：无望"
+      }
+    },
+    {
+      "id": "theme-0107-羞愧",
+      "canonical_zh": "羞愧",
+      "label_en": "Shame",
+      "dimension": "theme",
+      "definition": "自觉丢脸或未达自我标准时的羞耻感。",
+      "aliases": [
+        "羞耻",
+        "耻辱"
+      ],
+      "related": [
+        "内疚",
+        "屈辱",
+        "虚伪"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:shame"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "羞愧",
+        "B_label_definition": "羞愧：自觉丢脸或未达自我标准时的羞耻感。",
+        "C_label_definition_aliases": "羞愧：自觉丢脸或未达自我标准时的羞耻感。｜别名：羞耻、耻辱"
+      }
+    },
+    {
+      "id": "theme-0108-自卑",
+      "canonical_zh": "自卑",
+      "label_en": "Inferiority",
+      "dimension": "theme",
+      "definition": "觉得自己不如他人、不够好的自我评价。",
+      "aliases": [
+        "低人一等"
+      ],
+      "related": [
+        "嫉妒",
+        "羞耻",
+        "身份"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "自卑",
+        "B_label_definition": "自卑：觉得自己不如他人、不够好的自我评价。",
+        "C_label_definition_aliases": "自卑：觉得自己不如他人、不够好的自我评价。｜别名：低人一等"
+      }
+    },
+    {
+      "id": "theme-0109-迷恋",
+      "canonical_zh": "迷恋",
+      "label_en": "Obsession",
+      "dimension": "theme",
+      "definition": "过度专注、难以放下的执念。",
+      "aliases": [
+        "执念",
+        "痴迷"
+      ],
+      "related": [
+        "欲望",
+        "爱情",
+        "控制"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:obsession",
+        "lto:theme:obsessive love"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "迷恋",
+        "B_label_definition": "迷恋：过度专注、难以放下的执念。",
+        "C_label_definition_aliases": "迷恋：过度专注、难以放下的执念。｜别名：执念、痴迷"
+      }
+    },
+    {
+      "id": "theme-0110-遗憾",
+      "canonical_zh": "遗憾",
+      "label_en": "Regret",
+      "dimension": "theme",
+      "definition": "对未能实现、未能挽回之事的怅恨。",
+      "aliases": [
+        "悔恨",
+        "惋惜"
+      ],
+      "related": [
+        "失去",
+        "记忆",
+        "选择"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "遗憾",
+        "B_label_definition": "遗憾：对未能实现、未能挽回之事的怅恨。",
+        "C_label_definition_aliases": "遗憾：对未能实现、未能挽回之事的怅恨。｜别名：悔恨、惋惜"
+      }
+    },
+    {
+      "id": "theme-0111-骄傲",
+      "canonical_zh": "骄傲",
+      "label_en": "Pride",
+      "dimension": "theme",
+      "definition": "自我肯定、尊严感或过分自矜。",
+      "aliases": [
+        "傲慢",
+        "自豪"
+      ],
+      "related": [
+        "身份",
+        "羞愧",
+        "权力"
+      ],
+      "parents": [
+        "情感"
+      ],
+      "category": "情感",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:pride"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "骄傲",
+        "B_label_definition": "骄傲：自我肯定、尊严感或过分自矜。",
+        "C_label_definition_aliases": "骄傲：自我肯定、尊严感或过分自矜。｜别名：傲慢、自豪"
+      }
+    },
+    {
+      "id": "theme-0112-亲情",
+      "canonical_zh": "亲情",
+      "label_en": "Familial Affection",
+      "dimension": "theme",
+      "definition": "家庭成员之间的情感联结与牵挂。",
+      "aliases": [
+        "骨肉之情"
+      ],
+      "related": [
+        "父亲",
+        "母亲",
+        "孩子",
+        "爱",
+        "失去"
+      ],
+      "parents": [
+        "情感与关系"
+      ],
+      "category": "情感与关系",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:filial love",
+        "lto:theme:parental love"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "亲情",
+        "B_label_definition": "亲情：家庭成员之间的情感联结与牵挂。",
+        "C_label_definition_aliases": "亲情：家庭成员之间的情感联结与牵挂。｜别名：骨肉之情"
+      }
+    },
+    {
+      "id": "theme-0113-依恋",
+      "canonical_zh": "依恋",
+      "label_en": "Attachment",
+      "dimension": "theme",
+      "definition": "强烈依赖与不愿分离的情感纽带。",
+      "aliases": [
+        "依赖"
+      ],
+      "related": [
+        "爱",
+        "分离",
+        "恐惧"
+      ],
+      "parents": [
+        "情感与关系"
+      ],
+      "category": "情感与关系",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "依恋",
+        "B_label_definition": "依恋：强烈依赖与不愿分离的情感纽带。",
+        "C_label_definition_aliases": "依恋：强烈依赖与不愿分离的情感纽带。｜别名：依赖"
+      }
+    },
+    {
+      "id": "theme-0114-信任",
+      "canonical_zh": "信任",
+      "label_en": "Trust",
+      "dimension": "theme",
+      "definition": "信赖他人或被他人视为可靠。",
+      "aliases": [
+        "信赖"
+      ],
+      "related": [
+        "背叛",
+        "友情",
+        "诚实"
+      ],
+      "parents": [
+        "情感与关系"
+      ],
+      "category": "情感与关系",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:friendship",
+        "lto:theme:honesty"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "信任",
+        "B_label_definition": "信任：信赖他人或被他人视为可靠。",
+        "C_label_definition_aliases": "信任：信赖他人或被他人视为可靠。｜别名：信赖"
+      }
+    },
+    {
+      "id": "theme-0115-分离",
+      "canonical_zh": "分离",
+      "label_en": "Separation",
+      "dimension": "theme",
+      "definition": "离开、拆散或关系中断的处境。",
+      "aliases": [
+        "分手",
+        "离别"
+      ],
+      "related": [
+        "团聚",
+        "思念",
+        "失去",
+        "旅行"
+      ],
+      "parents": [
+        "情感与关系"
+      ],
+      "category": "情感与关系",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "分离",
+        "B_label_definition": "分离：离开、拆散或关系中断的处境。",
+        "C_label_definition_aliases": "分离：离开、拆散或关系中断的处境。｜别名：分手、离别"
+      }
+    },
+    {
+      "id": "theme-0116-占有",
+      "canonical_zh": "占有",
+      "label_en": "Possessiveness",
+      "dimension": "theme",
+      "definition": "想把人或物据为己有的控制倾向。",
+      "aliases": [
+        "独占"
+      ],
+      "related": [
+        "嫉妒",
+        "爱情",
+        "掌控"
+      ],
+      "parents": [
+        "情感与关系"
+      ],
+      "category": "情感与关系",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "占有",
+        "B_label_definition": "占有：想把人或物据为己有的控制倾向。",
+        "C_label_definition_aliases": "占有：想把人或物据为己有的控制倾向。｜别名：独占"
+      }
+    },
+    {
+      "id": "theme-0117-友情",
+      "canonical_zh": "友情",
+      "label_en": "Friendship",
+      "dimension": "theme",
+      "definition": "非血缘、非情爱的友伴关系与互助信任。",
+      "aliases": [
+        "友谊"
+      ],
+      "related": [
+        "信任",
+        "背叛",
+        "忠诚",
+        "孤独"
+      ],
+      "parents": [
+        "情感与关系"
+      ],
+      "category": "情感与关系",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:friendship",
+        "lto:theme:love vs. friendship"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "友情",
+        "B_label_definition": "友情：非血缘、非情爱的友伴关系与互助信任。",
+        "C_label_definition_aliases": "友情：非血缘、非情爱的友伴关系与互助信任。｜别名：友谊"
+      }
+    },
+    {
+      "id": "theme-0118-团聚",
+      "canonical_zh": "团聚",
+      "label_en": "Reunion",
+      "dimension": "theme",
+      "definition": "重逢、回归与关系恢复。",
+      "aliases": [
+        "归来",
+        "重逢"
+      ],
+      "related": [
+        "分离",
+        "家园",
+        "亲情"
+      ],
+      "parents": [
+        "情感与关系"
+      ],
+      "category": "情感与关系",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "团聚",
+        "B_label_definition": "团聚：重逢、回归与关系恢复。",
+        "C_label_definition_aliases": "团聚：重逢、回归与关系恢复。｜别名：归来、重逢"
+      }
+    },
+    {
+      "id": "theme-0119-婚姻",
+      "canonical_zh": "婚姻",
+      "label_en": "Marriage",
+      "dimension": "theme",
+      "definition": "婚姻制度与夫妻关系中的联结、张力与变故。",
+      "aliases": [
+        "结婚"
+      ],
+      "related": [
+        "爱情",
+        "家庭",
+        "背叛",
+        "责任"
+      ],
+      "parents": [
+        "情感与关系"
+      ],
+      "category": "情感与关系",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:arranged marriage",
+        "lto:theme:coping with a failing marriage",
+        "lto:theme:mixed marriage"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "婚姻",
+        "B_label_definition": "婚姻：婚姻制度与夫妻关系中的联结、张力与变故。",
+        "C_label_definition_aliases": "婚姻：婚姻制度与夫妻关系中的联结、张力与变故。｜别名：结婚"
+      }
+    },
+    {
+      "id": "theme-0120-家庭",
+      "canonical_zh": "家庭",
+      "label_en": "Family",
+      "dimension": "theme",
+      "definition": "家庭作为情感、责任与冲突的单位。",
+      "aliases": [
+        "家人"
+      ],
+      "related": [
+        "亲情",
+        "父亲",
+        "母亲",
+        "秘密"
+      ],
+      "parents": [
+        "情感与关系"
+      ],
+      "category": "情感与关系",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:dark family secret",
+        "lto:theme:family dispute",
+        "lto:theme:family honor"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "家庭",
+        "B_label_definition": "家庭：家庭作为情感、责任与冲突的单位。",
+        "C_label_definition_aliases": "家庭：家庭作为情感、责任与冲突的单位。｜别名：家人"
+      }
+    },
+    {
+      "id": "theme-0121-忠诚",
+      "canonical_zh": "忠诚",
+      "label_en": "Loyalty",
+      "dimension": "theme",
+      "definition": "对人或价值保持忠贞不渝。",
+      "aliases": [
+        "忠贞"
+      ],
+      "related": [
+        "背叛",
+        "友情",
+        "信仰"
+      ],
+      "parents": [
+        "情感与关系"
+      ],
+      "category": "情感与关系",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "忠诚",
+        "B_label_definition": "忠诚：对人或价值保持忠贞不渝。",
+        "C_label_definition_aliases": "忠诚：对人或价值保持忠贞不渝。｜别名：忠贞"
+      }
+    },
+    {
+      "id": "theme-0122-爱",
+      "canonical_zh": "爱",
+      "label_en": "Love",
+      "dimension": "theme",
+      "definition": "广义的爱与被爱，涵盖亲密、依恋与深切关怀。",
+      "aliases": [
+        "热爱"
+      ],
+      "related": [
+        "亲情",
+        "爱情",
+        "友情",
+        "依恋"
+      ],
+      "parents": [
+        "情感与关系"
+      ],
+      "category": "情感与关系",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:love",
+        "lto:theme:the nature of love"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "爱",
+        "B_label_definition": "爱：广义的爱与被爱，涵盖亲密、依恋与深切关怀。",
+        "C_label_definition_aliases": "爱：广义的爱与被爱，涵盖亲密、依恋与深切关怀。｜别名：热爱"
+      }
+    },
+    {
+      "id": "theme-0123-爱情",
+      "canonical_zh": "爱情",
+      "label_en": "Romantic Love",
+      "dimension": "theme",
+      "definition": "浪漫或情爱关系中的吸引、依恋与情感纠葛。",
+      "aliases": [
+        "恋情",
+        "浪漫"
+      ],
+      "related": [
+        "爱",
+        "欲望",
+        "嫉妒",
+        "背叛"
+      ],
+      "parents": [
+        "情感与关系"
+      ],
+      "category": "情感与关系",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:romantic love",
+        "lto:theme:tragic love"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "爱情",
+        "B_label_definition": "爱情：浪漫或情爱关系中的吸引、依恋与情感纠葛。",
+        "C_label_definition_aliases": "爱情：浪漫或情爱关系中的吸引、依恋与情感纠葛。｜别名：恋情、浪漫"
+      }
+    },
+    {
+      "id": "theme-0124-背叛",
+      "canonical_zh": "背叛",
+      "label_en": "Betrayal",
+      "dimension": "theme",
+      "definition": "信任被出卖或承诺被违背。",
+      "aliases": [
+        "背弃"
+      ],
+      "related": [
+        "信任",
+        "友情",
+        "爱情",
+        "仇恨"
+      ],
+      "parents": [
+        "情感与关系"
+      ],
+      "category": "情感与关系",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:betrayal"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "背叛",
+        "B_label_definition": "背叛：信任被出卖或承诺被违背。",
+        "C_label_definition_aliases": "背叛：信任被出卖或承诺被违背。｜别名：背弃"
+      }
+    },
+    {
+      "id": "theme-0125-光",
+      "canonical_zh": "光",
+      "label_en": "Light",
+      "dimension": "theme",
+      "definition": "光明、显现与启示的象征领地。",
+      "aliases": [
+        "光明"
+      ],
+      "related": [
+        "黑暗",
+        "真相",
+        "希望"
+      ],
+      "parents": [
+        "感知"
+      ],
+      "category": "感知",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "光",
+        "B_label_definition": "光：光明、显现与启示的象征领地。",
+        "C_label_definition_aliases": "光：光明、显现与启示的象征领地。｜别名：光明"
+      }
+    },
+    {
+      "id": "theme-0126-夜晚",
+      "canonical_zh": "夜晚",
+      "label_en": "Night",
+      "dimension": "theme",
+      "definition": "夜间作为心理/象征时间（非 Scene 标签枚举替代，研究候选）。",
+      "aliases": [
+        "黑夜"
+      ],
+      "related": [
+        "黑暗",
+        "孤独",
+        "梦"
+      ],
+      "parents": [
+        "感知"
+      ],
+      "category": "感知",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "Borderline vs Scene/Time or spatial scene tags; kept as Theme candidate for semantic territory, pending 1.42+ review.",
+      "representations": {
+        "A_label": "夜晚",
+        "B_label_definition": "夜晚：夜间作为心理/象征时间（非 Scene 标签枚举替代，研究候选）。",
+        "C_label_definition_aliases": "夜晚：夜间作为心理/象征时间（非 Scene 标签枚举替代，研究候选）。｜别名：黑夜"
+      }
+    },
+    {
+      "id": "theme-0127-寂静",
+      "canonical_zh": "寂静",
+      "label_en": "Silence",
+      "dimension": "theme",
+      "definition": "安静、无声或声音退后的氛围与内心状态。",
+      "aliases": [
+        "安静",
+        "沉默",
+        "静默"
+      ],
+      "related": [
+        "孤独",
+        "倾听",
+        "压抑"
+      ],
+      "parents": [
+        "感知"
+      ],
+      "category": "感知",
+      "provenance": [
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:8"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "寂静",
+        "B_label_definition": "寂静：安静、无声或声音退后的氛围与内心状态。",
+        "C_label_definition_aliases": "寂静：安静、无声或声音退后的氛围与内心状态。｜别名：安静、沉默、静默"
+      }
+    },
+    {
+      "id": "theme-0128-寒冷",
+      "canonical_zh": "寒冷",
+      "label_en": "Coldness",
+      "dimension": "theme",
+      "definition": "冷作为疏离、严酷或情感缺失的感受。",
+      "aliases": [
+        "冰冷"
+      ],
+      "related": [
+        "孤独",
+        "死亡",
+        "自然"
+      ],
+      "parents": [
+        "感知"
+      ],
+      "category": "感知",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "寒冷",
+        "B_label_definition": "寒冷：冷作为疏离、严酷或情感缺失的感受。",
+        "C_label_definition_aliases": "寒冷：冷作为疏离、严酷或情感缺失的感受。｜别名：冰冷"
+      }
+    },
+    {
+      "id": "theme-0129-敏感",
+      "canonical_zh": "敏感",
+      "label_en": "Sensitivity",
+      "dimension": "theme",
+      "definition": "对外界刺激或他人情绪过分敏锐、易受触动。",
+      "aliases": [
+        "纤敏"
+      ],
+      "related": [
+        "脆弱",
+        "感知",
+        "焦虑"
+      ],
+      "parents": [
+        "感知"
+      ],
+      "category": "感知",
+      "provenance": [
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:15"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "敏感",
+        "B_label_definition": "敏感：对外界刺激或他人情绪过分敏锐、易受触动。",
+        "C_label_definition_aliases": "敏感：对外界刺激或他人情绪过分敏锐、易受触动。｜别名：纤敏"
+      }
+    },
+    {
+      "id": "theme-0130-早晨",
+      "canonical_zh": "早晨",
+      "label_en": "Morning",
+      "dimension": "theme",
+      "definition": "开始、苏醒与清新再出发的象征领地。",
+      "aliases": [
+        "清晨"
+      ],
+      "related": [
+        "希望",
+        "重生",
+        "日常"
+      ],
+      "parents": [
+        "感知"
+      ],
+      "category": "感知",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "Borderline vs Scene/Time or spatial scene tags; kept as Theme candidate for semantic territory, pending 1.42+ review.",
+      "representations": {
+        "A_label": "早晨",
+        "B_label_definition": "早晨：开始、苏醒与清新再出发的象征领地。",
+        "C_label_definition_aliases": "早晨：开始、苏醒与清新再出发的象征领地。｜别名：清晨"
+      }
+    },
+    {
+      "id": "theme-0131-气味",
+      "canonical_zh": "气味",
+      "label_en": "Smell",
+      "dimension": "theme",
+      "definition": "嗅觉触发的记忆与情感（感知主题，非修辞）。",
+      "aliases": [
+        "嗅觉"
+      ],
+      "related": [
+        "记忆",
+        "怀旧",
+        "身体"
+      ],
+      "parents": [
+        "感知"
+      ],
+      "category": "感知",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "气味",
+        "B_label_definition": "气味：嗅觉触发的记忆与情感（感知主题，非修辞）。",
+        "C_label_definition_aliases": "气味：嗅觉触发的记忆与情感（感知主题，非修辞）。｜别名：嗅觉"
+      }
+    },
+    {
+      "id": "theme-0132-温度",
+      "canonical_zh": "温度",
+      "label_en": "Warmth",
+      "dimension": "theme",
+      "definition": "温暖作为照料、人情或环境感受的隐喻领地。",
+      "aliases": [
+        "暖意"
+      ],
+      "related": [
+        "家园",
+        "爱",
+        "孤独"
+      ],
+      "parents": [
+        "感知"
+      ],
+      "category": "感知",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "温度",
+        "B_label_definition": "温度：温暖作为照料、人情或环境感受的隐喻领地。",
+        "C_label_definition_aliases": "温度：温暖作为照料、人情或环境感受的隐喻领地。｜别名：暖意"
+      }
+    },
+    {
+      "id": "theme-0133-目光",
+      "canonical_zh": "目光",
+      "label_en": "Gaze",
+      "dimension": "theme",
+      "definition": "看与被看所形成的权力或欲望关系。",
+      "aliases": [
+        "注视"
+      ],
+      "related": [
+        "观察",
+        "欲望",
+        "表演"
+      ],
+      "parents": [
+        "感知"
+      ],
+      "category": "感知",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "目光",
+        "B_label_definition": "目光：看与被看所形成的权力或欲望关系。",
+        "C_label_definition_aliases": "目光：看与被看所形成的权力或欲望关系。｜别名：注视"
+      }
+    },
+    {
+      "id": "theme-0134-空间",
+      "canonical_zh": "空间",
+      "label_en": "Space",
+      "dimension": "theme",
+      "definition": "空间感受、边界与压迫/开放感（非具体场景时刻）。",
+      "aliases": [
+        "场所感"
+      ],
+      "related": [
+        "压迫",
+        "自由",
+        "家园"
+      ],
+      "parents": [
+        "感知"
+      ],
+      "category": "感知",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "Borderline vs Scene/Time or spatial scene tags; kept as Theme candidate for semantic territory, pending 1.42+ review.",
+      "representations": {
+        "A_label": "空间",
+        "B_label_definition": "空间：空间感受、边界与压迫/开放感（非具体场景时刻）。",
+        "C_label_definition_aliases": "空间：空间感受、边界与压迫/开放感（非具体场景时刻）。｜别名：场所感"
+      }
+    },
+    {
+      "id": "theme-0135-触感",
+      "canonical_zh": "触感",
+      "label_en": "Touch",
+      "dimension": "theme",
+      "definition": "触觉亲密、伤害或物质质地经验。",
+      "aliases": [
+        "触觉"
+      ],
+      "related": [
+        "身体",
+        "亲密",
+        "暴力"
+      ],
+      "parents": [
+        "感知"
+      ],
+      "category": "感知",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "触感",
+        "B_label_definition": "触感：触觉亲密、伤害或物质质地经验。",
+        "C_label_definition_aliases": "触感：触觉亲密、伤害或物质质地经验。｜别名：触觉"
+      }
+    },
+    {
+      "id": "theme-0136-黑暗",
+      "canonical_zh": "黑暗",
+      "label_en": "Darkness",
+      "dimension": "theme",
+      "definition": "暗夜、隐蔽与未知的压迫或庇护。",
+      "aliases": [
+        "暗"
+      ],
+      "related": [
+        "光",
+        "恐惧",
+        "秘密"
+      ],
+      "parents": [
+        "感知"
+      ],
+      "category": "感知",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "黑暗",
+        "B_label_definition": "黑暗：暗夜、隐蔽与未知的压迫或庇护。",
+        "C_label_definition_aliases": "黑暗：暗夜、隐蔽与未知的压迫或庇护。｜别名：暗"
+      }
+    },
+    {
+      "id": "theme-0137-书籍",
+      "canonical_zh": "书籍",
+      "label_en": "Books",
+      "dimension": "theme",
+      "definition": "阅读、书籍物象及其知识/慰藉功能。",
+      "aliases": [
+        "阅读"
+      ],
+      "related": [
+        "记忆",
+        "寻找",
+        "智慧"
+      ],
+      "parents": [
+        "文化"
+      ],
+      "category": "文化",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "书籍",
+        "B_label_definition": "书籍：阅读、书籍物象及其知识/慰藉功能。",
+        "C_label_definition_aliases": "书籍：阅读、书籍物象及其知识/慰藉功能。｜别名：阅读"
+      }
+    },
+    {
+      "id": "theme-0138-仪式",
+      "canonical_zh": "仪式",
+      "label_en": "Ritual",
+      "dimension": "theme",
+      "definition": "重复性的象征行为与其社会/心理功能。",
+      "aliases": [
+        "典礼"
+      ],
+      "related": [
+        "传统",
+        "死亡",
+        "信仰"
+      ],
+      "parents": [
+        "文化"
+      ],
+      "category": "文化",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "仪式",
+        "B_label_definition": "仪式：重复性的象征行为与其社会/心理功能。",
+        "C_label_definition_aliases": "仪式：重复性的象征行为与其社会/心理功能。｜别名：典礼"
+      }
+    },
+    {
+      "id": "theme-0139-传统",
+      "canonical_zh": "传统",
+      "label_en": "Tradition",
+      "dimension": "theme",
+      "definition": "被传承的习俗、规范与其束缚/安慰。",
+      "aliases": [
+        "习俗"
+      ],
+      "related": [
+        "家庭",
+        "反叛",
+        "身份"
+      ],
+      "parents": [
+        "文化"
+      ],
+      "category": "文化",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "传统",
+        "B_label_definition": "传统：被传承的习俗、规范与其束缚/安慰。",
+        "C_label_definition_aliases": "传统：被传承的习俗、规范与其束缚/安慰。｜别名：习俗"
+      }
+    },
+    {
+      "id": "theme-0140-历史",
+      "canonical_zh": "历史",
+      "label_en": "History",
+      "dimension": "theme",
+      "definition": "集体过去、记述与历史意识。",
+      "aliases": [
+        "史事"
+      ],
+      "related": [
+        "记忆",
+        "战争",
+        "真相"
+      ],
+      "parents": [
+        "文化"
+      ],
+      "category": "文化",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:history"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "历史",
+        "B_label_definition": "历史：集体过去、记述与历史意识。",
+        "C_label_definition_aliases": "历史：集体过去、记述与历史意识。｜别名：史事"
+      }
+    },
+    {
+      "id": "theme-0141-游戏",
+      "canonical_zh": "游戏",
+      "label_en": "Play",
+      "dimension": "theme",
+      "definition": "玩耍、规则内的自由与假装。",
+      "aliases": [
+        "玩乐"
+      ],
+      "related": [
+        "童年",
+        "表演",
+        "自由"
+      ],
+      "parents": [
+        "文化"
+      ],
+      "category": "文化",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "游戏",
+        "B_label_definition": "游戏：玩耍、规则内的自由与假装。",
+        "C_label_definition_aliases": "游戏：玩耍、规则内的自由与假装。｜别名：玩乐"
+      }
+    },
+    {
+      "id": "theme-0142-禁忌",
+      "canonical_zh": "禁忌",
+      "label_en": "Taboo",
+      "dimension": "theme",
+      "definition": "不可触碰的规范与其诱惑。",
+      "aliases": [
+        "忌讳"
+      ],
+      "related": [
+        "欲望",
+        "罪",
+        "秘密"
+      ],
+      "parents": [
+        "文化"
+      ],
+      "category": "文化",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "禁忌",
+        "B_label_definition": "禁忌：不可触碰的规范与其诱惑。",
+        "C_label_definition_aliases": "禁忌：不可触碰的规范与其诱惑。｜别名：忌讳"
+      }
+    },
+    {
+      "id": "theme-0143-艺术",
+      "canonical_zh": "艺术",
+      "label_en": "Art",
+      "dimension": "theme",
+      "definition": "艺术创造与审美实践的意义。",
+      "aliases": [
+        "文艺"
+      ],
+      "related": [
+        "美",
+        "音乐",
+        "表达"
+      ],
+      "parents": [
+        "文化"
+      ],
+      "category": "文化",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:aesthetics"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "艺术",
+        "B_label_definition": "艺术：艺术创造与审美实践的意义。",
+        "C_label_definition_aliases": "艺术：艺术创造与审美实践的意义。｜别名：文艺"
+      }
+    },
+    {
+      "id": "theme-0144-表达",
+      "canonical_zh": "表达",
+      "label_en": "Expression",
+      "dimension": "theme",
+      "definition": "情感或思想如何被说出、写出或演出。",
+      "aliases": [
+        "抒发"
+      ],
+      "related": [
+        "语言",
+        "艺术",
+        "压抑"
+      ],
+      "parents": [
+        "文化"
+      ],
+      "category": "文化",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "表达",
+        "B_label_definition": "表达：情感或思想如何被说出、写出或演出。",
+        "C_label_definition_aliases": "表达：情感或思想如何被说出、写出或演出。｜别名：抒发"
+      }
+    },
+    {
+      "id": "theme-0145-语言",
+      "canonical_zh": "语言",
+      "label_en": "Language",
+      "dimension": "theme",
+      "definition": "言说、命名与表达能否抵达的问题。",
+      "aliases": [
+        "言说"
+      ],
+      "related": [
+        "沉默",
+        "真相",
+        "误解"
+      ],
+      "parents": [
+        "文化"
+      ],
+      "category": "文化",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "语言",
+        "B_label_definition": "语言：言说、命名与表达能否抵达的问题。",
+        "C_label_definition_aliases": "语言：言说、命名与表达能否抵达的问题。｜别名：言说"
+      }
+    },
+    {
+      "id": "theme-0146-音乐",
+      "canonical_zh": "音乐",
+      "label_en": "Music",
+      "dimension": "theme",
+      "definition": "音乐作为情感、记忆与意义的载体。",
+      "aliases": [
+        "乐曲"
+      ],
+      "related": [
+        "记忆",
+        "怀旧",
+        "艺术"
+      ],
+      "parents": [
+        "文化"
+      ],
+      "category": "文化",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:music"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "音乐",
+        "B_label_definition": "音乐：音乐作为情感、记忆与意义的载体。",
+        "C_label_definition_aliases": "音乐：音乐作为情感、记忆与意义的载体。｜别名：乐曲"
+      }
+    },
+    {
+      "id": "theme-0147-食物",
+      "canonical_zh": "食物",
+      "label_en": "Food",
+      "dimension": "theme",
+      "definition": "饮食、喂养与围绕食物的情感/权力。",
+      "aliases": [
+        "吃"
+      ],
+      "related": [
+        "饥饿",
+        "家庭",
+        "身体"
+      ],
+      "parents": [
+        "日常"
+      ],
+      "category": "日常",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "食物",
+        "B_label_definition": "食物：饮食、喂养与围绕食物的情感/权力。",
+        "C_label_definition_aliases": "食物：饮食、喂养与围绕食物的情感/权力。｜别名：吃"
+      }
+    },
+    {
+      "id": "theme-0148-掌控",
+      "canonical_zh": "掌控",
+      "label_en": "Control",
+      "dimension": "theme",
+      "definition": "试图支配局面、他人或自我冲动的力量感与控制欲。",
+      "aliases": [
+        "控制"
+      ],
+      "related": [
+        "权力",
+        "自由",
+        "压迫",
+        "冲动"
+      ],
+      "parents": [
+        "权力关系"
+      ],
+      "category": "权力关系",
+      "provenance": [
+        "annotation_benchmark",
+        "existing_pgwhite",
+        "legacy_human",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:controlling partner",
+        "lto:theme:exercising self-control",
+        "pgwhite:tag:12"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "掌控",
+        "B_label_definition": "掌控：试图支配局面、他人或自我冲动的力量感与控制欲。",
+        "C_label_definition_aliases": "掌控：试图支配局面、他人或自我冲动的力量感与控制欲。｜别名：控制"
+      }
+    },
+    {
+      "id": "theme-0149-偏见",
+      "canonical_zh": "偏见",
+      "label_en": "Prejudice",
+      "dimension": "theme",
+      "definition": "先入为主的贬低或排斥。",
+      "aliases": [
+        "成见"
+      ],
+      "related": [
+        "仇恨",
+        "身份",
+        "阶级"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:sexism in society"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "偏见",
+        "B_label_definition": "偏见：先入为主的贬低或排斥。",
+        "C_label_definition_aliases": "偏见：先入为主的贬低或排斥。｜别名：成见"
+      }
+    },
+    {
+      "id": "theme-0150-压迫",
+      "canonical_zh": "压迫",
+      "label_en": "Oppression",
+      "dimension": "theme",
+      "definition": "系统性压制、剥夺自由或尊严。",
+      "aliases": [
+        "压制"
+      ],
+      "related": [
+        "权力",
+        "自由",
+        "反抗",
+        "屈辱"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:social oppression"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "压迫",
+        "B_label_definition": "压迫：系统性压制、剥夺自由或尊严。",
+        "C_label_definition_aliases": "压迫：系统性压制、剥夺自由或尊严。｜别名：压制"
+      }
+    },
+    {
+      "id": "theme-0151-反叛",
+      "canonical_zh": "反叛",
+      "label_en": "Rebellion",
+      "dimension": "theme",
+      "definition": "对权威、规范或命运的违抗。",
+      "aliases": [
+        "叛逆"
+      ],
+      "related": [
+        "自由",
+        "青春",
+        "压迫"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:youth rebellion"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "反叛",
+        "B_label_definition": "反叛：对权威、规范或命运的违抗。",
+        "C_label_definition_aliases": "反叛：对权威、规范或命运的违抗。｜别名：叛逆"
+      }
+    },
+    {
+      "id": "theme-0152-反抗",
+      "canonical_zh": "反抗",
+      "label_en": "Resistance",
+      "dimension": "theme",
+      "definition": "对压迫或不公的拒斥与斗争。",
+      "aliases": [
+        "抗争"
+      ],
+      "related": [
+        "压迫",
+        "自由",
+        "勇气"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "反抗",
+        "B_label_definition": "反抗：对压迫或不公的拒斥与斗争。",
+        "C_label_definition_aliases": "反抗：对压迫或不公的拒斥与斗争。｜别名：抗争"
+      }
+    },
+    {
+      "id": "theme-0153-合作",
+      "canonical_zh": "合作",
+      "label_en": "Cooperation",
+      "dimension": "theme",
+      "definition": "共同行动与相互依赖。",
+      "aliases": [
+        "协作"
+      ],
+      "related": [
+        "友情",
+        "信任",
+        "社会"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "合作",
+        "B_label_definition": "合作：共同行动与相互依赖。",
+        "C_label_definition_aliases": "合作：共同行动与相互依赖。｜别名：协作"
+      }
+    },
+    {
+      "id": "theme-0154-名声",
+      "canonical_zh": "名声",
+      "label_en": "Fame",
+      "dimension": "theme",
+      "definition": "被看见、被谈论的名望及其代价。",
+      "aliases": [
+        "名气",
+        "名誉"
+      ],
+      "related": [
+        "表演",
+        "虚荣",
+        "孤独"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "名声",
+        "B_label_definition": "名声：被看见、被谈论的名望及其代价。",
+        "C_label_definition_aliases": "名声：被看见、被谈论的名望及其代价。｜别名：名气、名誉"
+      }
+    },
+    {
+      "id": "theme-0155-和平",
+      "canonical_zh": "和平",
+      "label_en": "Peace",
+      "dimension": "theme",
+      "definition": "无战状态或内心/社会的安宁秩序。",
+      "aliases": [
+        "太平"
+      ],
+      "related": [
+        "战争",
+        "平静",
+        "希望"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:peace on Earth"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "和平",
+        "B_label_definition": "和平：无战状态或内心/社会的安宁秩序。",
+        "C_label_definition_aliases": "和平：无战状态或内心/社会的安宁秩序。｜别名：太平"
+      }
+    },
+    {
+      "id": "theme-0156-奴役",
+      "canonical_zh": "奴役",
+      "label_en": "Slavery",
+      "dimension": "theme",
+      "definition": "人身自由被剥夺、被占有与剥削。",
+      "aliases": [
+        "奴役制"
+      ],
+      "related": [
+        "压迫",
+        "自由",
+        "暴力"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:modern slavery",
+        "lto:theme:slavery"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "奴役",
+        "B_label_definition": "奴役：人身自由被剥夺、被占有与剥削。",
+        "C_label_definition_aliases": "奴役：人身自由被剥夺、被占有与剥削。｜别名：奴役制"
+      }
+    },
+    {
+      "id": "theme-0157-工作",
+      "canonical_zh": "工作",
+      "label_en": "Work",
+      "dimension": "theme",
+      "definition": "劳动、职业处境与工作对人的塑造。",
+      "aliases": [
+        "劳动",
+        "职业"
+      ],
+      "related": [
+        "日常",
+        "倦怠",
+        "阶级"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:humans at work"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "工作",
+        "B_label_definition": "工作：劳动、职业处境与工作对人的塑造。",
+        "C_label_definition_aliases": "工作：劳动、职业处境与工作对人的塑造。｜别名：劳动、职业"
+      }
+    },
+    {
+      "id": "theme-0158-惩罚",
+      "canonical_zh": "惩罚",
+      "label_en": "Punishment",
+      "dimension": "theme",
+      "definition": "对过错施加的惩戒与其正义性。",
+      "aliases": [
+        "惩戒"
+      ],
+      "related": [
+        "公正",
+        "罪",
+        "宽恕"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "惩罚",
+        "B_label_definition": "惩罚：对过错施加的惩戒与其正义性。",
+        "C_label_definition_aliases": "惩罚：对过错施加的惩戒与其正义性。｜别名：惩戒"
+      }
+    },
+    {
+      "id": "theme-0159-战争",
+      "canonical_zh": "战争",
+      "label_en": "War",
+      "dimension": "theme",
+      "definition": "武装冲突及其伦理与创伤。",
+      "aliases": [
+        "战乱"
+      ],
+      "related": [
+        "暴力",
+        "死亡",
+        "和平",
+        "恐惧"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:civil war",
+        "lto:theme:war",
+        "lto:theme:war crime"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "战争",
+        "B_label_definition": "战争：武装冲突及其伦理与创伤。",
+        "C_label_definition_aliases": "战争：武装冲突及其伦理与创伤。｜别名：战乱"
+      }
+    },
+    {
+      "id": "theme-0160-技术",
+      "canonical_zh": "技术",
+      "label_en": "Technology",
+      "dimension": "theme",
+      "definition": "工具与技术系统如何改变人与世界。",
+      "aliases": [
+        "科技"
+      ],
+      "related": [
+        "现代性",
+        "权力",
+        "身体"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "技术",
+        "B_label_definition": "技术：工具与技术系统如何改变人与世界。",
+        "C_label_definition_aliases": "技术：工具与技术系统如何改变人与世界。｜别名：科技"
+      }
+    },
+    {
+      "id": "theme-0161-教育",
+      "canonical_zh": "教育",
+      "label_en": "Education",
+      "dimension": "theme",
+      "definition": "学习、教化与知识权力关系。",
+      "aliases": [
+        "求学"
+      ],
+      "related": [
+        "成长",
+        "权力",
+        "童年"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "教育",
+        "B_label_definition": "教育：学习、教化与知识权力关系。",
+        "C_label_definition_aliases": "教育：学习、教化与知识权力关系。｜别名：求学"
+      }
+    },
+    {
+      "id": "theme-0162-暴力",
+      "canonical_zh": "暴力",
+      "label_en": "Violence",
+      "dimension": "theme",
+      "definition": "对他者施加伤害的强制与破坏。",
+      "aliases": [],
+      "related": [
+        "压迫",
+        "恐惧",
+        "权力",
+        "死亡"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:domestic violence",
+        "lto:theme:the instinct for violence"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "暴力",
+        "B_label_definition": "暴力：对他者施加伤害的强制与破坏。",
+        "C_label_definition_aliases": "暴力：对他者施加伤害的强制与破坏。｜别名：（无）"
+      }
+    },
+    {
+      "id": "theme-0163-权力",
+      "canonical_zh": "权力",
+      "label_en": "Power",
+      "dimension": "theme",
+      "definition": "支配他人或资源的力量及其效应。",
+      "aliases": [
+        "权势"
+      ],
+      "related": [
+        "掌控",
+        "压迫",
+        "腐败",
+        "自由"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:power corrupts"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "权力",
+        "B_label_definition": "权力：支配他人或资源的力量及其效应。",
+        "C_label_definition_aliases": "权力：支配他人或资源的力量及其效应。｜别名：权势"
+      }
+    },
+    {
+      "id": "theme-0164-法律",
+      "canonical_zh": "法律",
+      "label_en": "Law",
+      "dimension": "theme",
+      "definition": "规则、裁决与制度化的约束力量。",
+      "aliases": [
+        "律法"
+      ],
+      "related": [
+        "公正",
+        "罪",
+        "权力"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:crime",
+        "lto:theme:what is justice"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "法律",
+        "B_label_definition": "法律：规则、裁决与制度化的约束力量。",
+        "C_label_definition_aliases": "法律：规则、裁决与制度化的约束力量。｜别名：律法"
+      }
+    },
+    {
+      "id": "theme-0165-流言",
+      "canonical_zh": "流言",
+      "label_en": "Rumor",
+      "dimension": "theme",
+      "definition": "未经证实却流通的说法。",
+      "aliases": [
+        "谣言"
+      ],
+      "related": [
+        "名誉",
+        "真相",
+        "社交"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "流言",
+        "B_label_definition": "流言：未经证实却流通的说法。",
+        "C_label_definition_aliases": "流言：未经证实却流通的说法。｜别名：谣言"
+      }
+    },
+    {
+      "id": "theme-0166-混乱",
+      "canonical_zh": "混乱",
+      "label_en": "Chaos",
+      "dimension": "theme",
+      "definition": "失序、不可预测与结构崩解。",
+      "aliases": [
+        "无序"
+      ],
+      "related": [
+        "秩序",
+        "恐惧",
+        "自由"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "混乱",
+        "B_label_definition": "混乱：失序、不可预测与结构崩解。",
+        "C_label_definition_aliases": "混乱：失序、不可预测与结构崩解。｜别名：无序"
+      }
+    },
+    {
+      "id": "theme-0167-犯罪",
+      "canonical_zh": "犯罪",
+      "label_en": "Crime",
+      "dimension": "theme",
+      "definition": "违法或被社会定罪的行为。",
+      "aliases": [
+        "罪行"
+      ],
+      "related": [
+        "罪",
+        "暴力",
+        "惩罚"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:crime",
+        "lto:theme:murder",
+        "lto:theme:violent crime"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "犯罪",
+        "B_label_definition": "犯罪：违法或被社会定罪的行为。",
+        "C_label_definition_aliases": "犯罪：违法或被社会定罪的行为。｜别名：罪行"
+      }
+    },
+    {
+      "id": "theme-0168-现代性",
+      "canonical_zh": "现代性",
+      "label_en": "Modernity",
+      "dimension": "theme",
+      "definition": "现代社会的速度、技术与疏离经验。",
+      "aliases": [
+        "现代"
+      ],
+      "related": [
+        "城市",
+        "技术",
+        "疏离"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "现代性",
+        "B_label_definition": "现代性：现代社会的速度、技术与疏离经验。",
+        "C_label_definition_aliases": "现代性：现代社会的速度、技术与疏离经验。｜别名：现代"
+      }
+    },
+    {
+      "id": "theme-0169-秘密社会",
+      "canonical_zh": "秘密社会",
+      "label_en": "Conspiracy",
+      "dimension": "theme",
+      "definition": "隐秘操控与密谋结构的想象（谨慎使用）。",
+      "aliases": [
+        "阴谋"
+      ],
+      "related": [
+        "权力",
+        "真相",
+        "恐惧"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "Low priority / possibly too plot-genre; retained for inspectability.",
+      "representations": {
+        "A_label": "秘密社会",
+        "B_label_definition": "秘密社会：隐秘操控与密谋结构的想象（谨慎使用）。",
+        "C_label_definition_aliases": "秘密社会：隐秘操控与密谋结构的想象（谨慎使用）。｜别名：阴谋"
+      }
+    },
+    {
+      "id": "theme-0170-秩序",
+      "canonical_zh": "秩序",
+      "label_en": "Order",
+      "dimension": "theme",
+      "definition": "规则、结构化稳定与其压制面向。",
+      "aliases": [
+        "条理"
+      ],
+      "related": [
+        "混乱",
+        "自由",
+        "权力"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:order vs. freedom"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "秩序",
+        "B_label_definition": "秩序：规则、结构化稳定与其压制面向。",
+        "C_label_definition_aliases": "秩序：规则、结构化稳定与其压制面向。｜别名：条理"
+      }
+    },
+    {
+      "id": "theme-0171-移民",
+      "canonical_zh": "移民",
+      "label_en": "Migration",
+      "dimension": "theme",
+      "definition": "跨地域迁徙及其身份/归属后果。",
+      "aliases": [
+        "迁徙"
+      ],
+      "related": [
+        "家园",
+        "流亡",
+        "归属"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:immigration in society"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "移民",
+        "B_label_definition": "移民：跨地域迁徙及其身份/归属后果。",
+        "C_label_definition_aliases": "移民：跨地域迁徙及其身份/归属后果。｜别名：迁徙"
+      }
+    },
+    {
+      "id": "theme-0172-竞争",
+      "canonical_zh": "竞争",
+      "label_en": "Competition",
+      "dimension": "theme",
+      "definition": "争夺胜负、资源或承认。",
+      "aliases": [
+        "角逐"
+      ],
+      "related": [
+        "嫉妒",
+        "工作",
+        "权力"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "竞争",
+        "B_label_definition": "竞争：争夺胜负、资源或承认。",
+        "C_label_definition_aliases": "竞争：争夺胜负、资源或承认。｜别名：角逐"
+      }
+    },
+    {
+      "id": "theme-0173-腐败",
+      "canonical_zh": "腐败",
+      "label_en": "Corruption",
+      "dimension": "theme",
+      "definition": "权力或道德的堕落与败坏。",
+      "aliases": [
+        "腐化"
+      ],
+      "related": [
+        "权力",
+        "罪",
+        "虚伪"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:corruption in society",
+        "lto:theme:power corrupts"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "腐败",
+        "B_label_definition": "腐败：权力或道德的堕落与败坏。",
+        "C_label_definition_aliases": "腐败：权力或道德的堕落与败坏。｜别名：腐化"
+      }
+    },
+    {
+      "id": "theme-0174-谋杀",
+      "canonical_zh": "谋杀",
+      "label_en": "Murder",
+      "dimension": "theme",
+      "definition": "故意杀害他人及其动机、罪责与后果。",
+      "aliases": [
+        "杀害"
+      ],
+      "related": [
+        "死亡",
+        "暴力",
+        "罪",
+        "报复"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:murder"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "谋杀",
+        "B_label_definition": "谋杀：故意杀害他人及其动机、罪责与后果。",
+        "C_label_definition_aliases": "谋杀：故意杀害他人及其动机、罪责与后果。｜别名：杀害"
+      }
+    },
+    {
+      "id": "theme-0175-财富",
+      "canonical_zh": "财富",
+      "label_en": "Wealth",
+      "dimension": "theme",
+      "definition": "富有、占有资源及其道德/社会效应。",
+      "aliases": [
+        "富有",
+        "金钱"
+      ],
+      "related": [
+        "贫穷",
+        "权力",
+        "欲望"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "财富",
+        "B_label_definition": "财富：富有、占有资源及其道德/社会效应。",
+        "C_label_definition_aliases": "财富：富有、占有资源及其道德/社会效应。｜别名：富有、金钱"
+      }
+    },
+    {
+      "id": "theme-0176-贫穷",
+      "canonical_zh": "贫穷",
+      "label_en": "Poverty",
+      "dimension": "theme",
+      "definition": "物质匮乏与由此产生的生存压力。",
+      "aliases": [
+        "贫困"
+      ],
+      "related": [
+        "饥饿",
+        "阶级",
+        "尊严"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:poverty in society"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "贫穷",
+        "B_label_definition": "贫穷：物质匮乏与由此产生的生存压力。",
+        "C_label_definition_aliases": "贫穷：物质匮乏与由此产生的生存压力。｜别名：贫困"
+      }
+    },
+    {
+      "id": "theme-0177-跟随",
+      "canonical_zh": "跟随",
+      "label_en": "Followership",
+      "dimension": "theme",
+      "definition": "追随权威或潮流的位置。",
+      "aliases": [
+        "追随"
+      ],
+      "related": [
+        "领导",
+        "信仰",
+        "自由"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "跟随",
+        "B_label_definition": "跟随：追随权威或潮流的位置。",
+        "C_label_definition_aliases": "跟随：追随权威或潮流的位置。｜别名：追随"
+      }
+    },
+    {
+      "id": "theme-0178-阶级",
+      "canonical_zh": "阶级",
+      "label_en": "Class",
+      "dimension": "theme",
+      "definition": "社会经济分层及其造成的差距与偏见。",
+      "aliases": [
+        "阶层"
+      ],
+      "related": [
+        "贫穷",
+        "权力",
+        "身份"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:poverty in society"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "阶级",
+        "B_label_definition": "阶级：社会经济分层及其造成的差距与偏见。",
+        "C_label_definition_aliases": "阶级：社会经济分层及其造成的差距与偏见。｜别名：阶层"
+      }
+    },
+    {
+      "id": "theme-0179-领导",
+      "canonical_zh": "领导",
+      "label_en": "Leadership",
+      "dimension": "theme",
+      "definition": "带领、权威与责任的集中。",
+      "aliases": [
+        "领袖"
+      ],
+      "related": [
+        "权力",
+        "责任",
+        "跟随"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "领导",
+        "B_label_definition": "领导：带领、权威与责任的集中。",
+        "C_label_definition_aliases": "领导：带领、权威与责任的集中。｜别名：领袖"
+      }
+    },
+    {
+      "id": "theme-0180-饥饿",
+      "canonical_zh": "饥饿",
+      "label_en": "Hunger",
+      "dimension": "theme",
+      "definition": "食物匮乏或强烈匮乏驱动。",
+      "aliases": [
+        "挨饿"
+      ],
+      "related": [
+        "贫穷",
+        "欲望",
+        "身体"
+      ],
+      "parents": [
+        "社会"
+      ],
+      "category": "社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "饥饿",
+        "B_label_definition": "饥饿：食物匮乏或强烈匮乏驱动。",
+        "C_label_definition_aliases": "饥饿：食物匮乏或强烈匮乏驱动。｜别名：挨饿"
+      }
+    },
+    {
+      "id": "theme-0181-社交",
+      "canonical_zh": "社交",
+      "label_en": "Social Life",
+      "dimension": "theme",
+      "definition": "人际往来、场面与社会互动。",
+      "aliases": [
+        "交际"
+      ],
+      "related": [
+        "孤独",
+        "表演",
+        "疏离"
+      ],
+      "parents": [
+        "社会自我"
+      ],
+      "category": "社会自我",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "社交",
+        "B_label_definition": "社交：人际往来、场面与社会互动。",
+        "C_label_definition_aliases": "社交：人际往来、场面与社会互动。｜别名：交际"
+      }
+    },
+    {
+      "id": "theme-0182-表演",
+      "canonical_zh": "表演",
+      "label_en": "Performance",
+      "dimension": "theme",
+      "definition": "展示、扮演与被观看的自我。",
+      "aliases": [
+        "扮演"
+      ],
+      "related": [
+        "虚伪",
+        "身份",
+        "社交"
+      ],
+      "parents": [
+        "社会自我"
+      ],
+      "category": "社会自我",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "表演",
+        "B_label_definition": "表演：展示、扮演与被观看的自我。",
+        "C_label_definition_aliases": "表演：展示、扮演与被观看的自我。｜别名：扮演"
+      }
+    },
+    {
+      "id": "theme-0183-家园",
+      "canonical_zh": "家园",
+      "label_en": "Home",
+      "dimension": "theme",
+      "definition": "家、故土或情感安放之所。",
+      "aliases": [
+        "家乡",
+        "故乡"
+      ],
+      "related": [
+        "流亡",
+        "归属",
+        "怀旧",
+        "离开"
+      ],
+      "parents": [
+        "空间情感"
+      ],
+      "category": "空间情感",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:homesickness"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "家园",
+        "B_label_definition": "家园：家、故土或情感安放之所。",
+        "C_label_definition_aliases": "家园：家、故土或情感安放之所。｜别名：家乡、故乡"
+      }
+    },
+    {
+      "id": "theme-0184-寻找",
+      "canonical_zh": "寻找",
+      "label_en": "Quest",
+      "dimension": "theme",
+      "definition": "寻找某人或某种意义/真相的过程。",
+      "aliases": [
+        "追寻"
+      ],
+      "related": [
+        "旅行",
+        "意义",
+        "失落"
+      ],
+      "parents": [
+        "空间情感"
+      ],
+      "category": "空间情感",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "寻找",
+        "B_label_definition": "寻找：寻找某人或某种意义/真相的过程。",
+        "C_label_definition_aliases": "寻找：寻找某人或某种意义/真相的过程。｜别名：追寻"
+      }
+    },
+    {
+      "id": "theme-0185-归来",
+      "canonical_zh": "归来",
+      "label_en": "Return",
+      "dimension": "theme",
+      "definition": "回到原处、原关系或原身份。",
+      "aliases": [
+        "返回"
+      ],
+      "related": [
+        "团聚",
+        "家园",
+        "旅行"
+      ],
+      "parents": [
+        "空间情感"
+      ],
+      "category": "空间情感",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "归来",
+        "B_label_definition": "归来：回到原处、原关系或原身份。",
+        "C_label_definition_aliases": "归来：回到原处、原关系或原身份。｜别名：返回"
+      }
+    },
+    {
+      "id": "theme-0186-旅行",
+      "canonical_zh": "旅行",
+      "label_en": "Journey",
+      "dimension": "theme",
+      "definition": "在路上的移动、寻找与通过仪式。",
+      "aliases": [
+        "上路",
+        "旅程",
+        "旅途"
+      ],
+      "related": [
+        "家园",
+        "寻找",
+        "成长"
+      ],
+      "parents": [
+        "空间情感"
+      ],
+      "category": "空间情感",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "旅行",
+        "B_label_definition": "旅行：在路上的移动、寻找与通过仪式。",
+        "C_label_definition_aliases": "旅行：在路上的移动、寻找与通过仪式。｜别名：上路、旅程、旅途"
+      }
+    },
+    {
+      "id": "theme-0187-流亡",
+      "canonical_zh": "流亡",
+      "label_en": "Exile",
+      "dimension": "theme",
+      "definition": "离开原属之地/群体后的放逐状态。",
+      "aliases": [
+        "放逐",
+        "流离"
+      ],
+      "related": [
+        "家园",
+        "归属",
+        "旅行",
+        "孤独"
+      ],
+      "parents": [
+        "空间情感"
+      ],
+      "category": "空间情感",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:exile"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "流亡",
+        "B_label_definition": "流亡：离开原属之地/群体后的放逐状态。",
+        "C_label_definition_aliases": "流亡：离开原属之地/群体后的放逐状态。｜别名：放逐、流离"
+      }
+    },
+    {
+      "id": "theme-0188-离开",
+      "canonical_zh": "离开",
+      "label_en": "Departure",
+      "dimension": "theme",
+      "definition": "启程、出走或告别原处。",
+      "aliases": [
+        "出走"
+      ],
+      "related": [
+        "分离",
+        "旅行",
+        "自由"
+      ],
+      "parents": [
+        "空间情感"
+      ],
+      "category": "空间情感",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "离开",
+        "B_label_definition": "离开：启程、出走或告别原处。",
+        "C_label_definition_aliases": "离开：启程、出走或告别原处。｜别名：出走"
+      }
+    },
+    {
+      "id": "theme-0189-城市",
+      "canonical_zh": "城市",
+      "label_en": "City",
+      "dimension": "theme",
+      "definition": "都市生活、密度与匿名性。",
+      "aliases": [
+        "都市"
+      ],
+      "related": [
+        "疏离",
+        "工作",
+        "现代性"
+      ],
+      "parents": [
+        "空间社会"
+      ],
+      "category": "空间社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "城市",
+        "B_label_definition": "城市：都市生活、密度与匿名性。",
+        "C_label_definition_aliases": "城市：都市生活、密度与匿名性。｜别名：都市"
+      }
+    },
+    {
+      "id": "theme-0190-归属",
+      "canonical_zh": "归属",
+      "label_en": "Belonging",
+      "dimension": "theme",
+      "definition": "感到被接纳、有位置、与群体或地方相连。",
+      "aliases": [
+        "归属感"
+      ],
+      "related": [
+        "家园",
+        "疏离",
+        "身份",
+        "亲情"
+      ],
+      "parents": [
+        "自我"
+      ],
+      "category": "自我",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:belonging"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "归属",
+        "B_label_definition": "归属：感到被接纳、有位置、与群体或地方相连。",
+        "C_label_definition_aliases": "归属：感到被接纳、有位置、与群体或地方相连。｜别名：归属感"
+      }
+    },
+    {
+      "id": "theme-0191-疏离",
+      "canonical_zh": "疏离",
+      "label_en": "Alienation",
+      "dimension": "theme",
+      "definition": "与他人、社会或自我格格不入。",
+      "aliases": [
+        "异化",
+        "隔阂"
+      ],
+      "related": [
+        "孤独",
+        "归属",
+        "压迫",
+        "身份"
+      ],
+      "parents": [
+        "自我"
+      ],
+      "category": "自我",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "疏离",
+        "B_label_definition": "疏离：与他人、社会或自我格格不入。",
+        "C_label_definition_aliases": "疏离：与他人、社会或自我格格不入。｜别名：异化、隔阂"
+      }
+    },
+    {
+      "id": "theme-0192-自我",
+      "canonical_zh": "自我",
+      "label_en": "Self",
+      "dimension": "theme",
+      "definition": "自我意识、自我观察与自我关系。",
+      "aliases": [
+        "自身"
+      ],
+      "related": [
+        "身份",
+        "孤独",
+        "欲望"
+      ],
+      "parents": [
+        "自我"
+      ],
+      "category": "自我",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "自我",
+        "B_label_definition": "自我：自我意识、自我观察与自我关系。",
+        "C_label_definition_aliases": "自我：自我意识、自我观察与自我关系。｜别名：自身"
+      }
+    },
+    {
+      "id": "theme-0193-身份",
+      "canonical_zh": "身份",
+      "label_en": "Identity",
+      "dimension": "theme",
+      "definition": "关于“我是谁”的自我与社会定位。",
+      "aliases": [
+        "自我认同",
+        "身份认同"
+      ],
+      "related": [
+        "归属",
+        "疏离",
+        "性别",
+        "记忆"
+      ],
+      "parents": [
+        "自我"
+      ],
+      "category": "自我",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:gender identity",
+        "lto:theme:personal identity"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "身份",
+        "B_label_definition": "身份：关于“我是谁”的自我与社会定位。",
+        "C_label_definition_aliases": "身份：关于“我是谁”的自我与社会定位。｜别名：自我认同、身份认同"
+      }
+    },
+    {
+      "id": "theme-0194-沉默",
+      "canonical_zh": "沉默",
+      "label_en": "Muteness",
+      "dimension": "theme",
+      "definition": "不说出口、被迫或主动的无言。",
+      "aliases": [
+        "不语"
+      ],
+      "related": [
+        "寂静",
+        "压抑",
+        "秘密"
+      ],
+      "parents": [
+        "表达"
+      ],
+      "category": "表达",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:vow of silence"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "沉默",
+        "B_label_definition": "沉默：不说出口、被迫或主动的无言。",
+        "C_label_definition_aliases": "沉默：不说出口、被迫或主动的无言。｜别名：不语"
+      }
+    },
+    {
+      "id": "theme-0195-判断",
+      "canonical_zh": "判断",
+      "label_en": "Judgment",
+      "dimension": "theme",
+      "definition": "评价、定罪或道德裁定。",
+      "aliases": [
+        "评判"
+      ],
+      "related": [
+        "偏见",
+        "公正",
+        "羞愧"
+      ],
+      "parents": [
+        "认知"
+      ],
+      "category": "认知",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "判断",
+        "B_label_definition": "判断：评价、定罪或道德裁定。",
+        "C_label_definition_aliases": "判断：评价、定罪或道德裁定。｜别名：评判"
+      }
+    },
+    {
+      "id": "theme-0196-怀疑",
+      "canonical_zh": "怀疑",
+      "label_en": "Doubt",
+      "dimension": "theme",
+      "definition": "对信念、他者或自我的不确定。",
+      "aliases": [
+        "疑虑"
+      ],
+      "related": [
+        "信仰",
+        "真相",
+        "焦虑"
+      ],
+      "parents": [
+        "认知"
+      ],
+      "category": "认知",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "怀疑",
+        "B_label_definition": "怀疑：对信念、他者或自我的不确定。",
+        "C_label_definition_aliases": "怀疑：对信念、他者或自我的不确定。｜别名：疑虑"
+      }
+    },
+    {
+      "id": "theme-0197-真相",
+      "canonical_zh": "真相",
+      "label_en": "Truth",
+      "dimension": "theme",
+      "definition": "真实、揭示与是否说穿。",
+      "aliases": [
+        "真实",
+        "真理"
+      ],
+      "related": [
+        "谎言",
+        "诚实",
+        "幻觉"
+      ],
+      "parents": [
+        "认知"
+      ],
+      "category": "认知",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:what is truth"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "真相",
+        "B_label_definition": "真相：真实、揭示与是否说穿。",
+        "C_label_definition_aliases": "真相：真实、揭示与是否说穿。｜别名：真实、真理"
+      }
+    },
+    {
+      "id": "theme-0198-观察",
+      "canonical_zh": "观察",
+      "label_en": "Observation",
+      "dimension": "theme",
+      "definition": "注视、打量与认知他者/世界。",
+      "aliases": [
+        "打量"
+      ],
+      "related": [
+        "判断",
+        "疏离",
+        "自我"
+      ],
+      "parents": [
+        "认知"
+      ],
+      "category": "认知",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "观察",
+        "B_label_definition": "观察：注视、打量与认知他者/世界。",
+        "C_label_definition_aliases": "观察：注视、打量与认知他者/世界。｜别名：打量"
+      }
+    },
+    {
+      "id": "theme-0199-谎言",
+      "canonical_zh": "谎言",
+      "label_en": "Lie",
+      "dimension": "theme",
+      "definition": "故意不实的言说或伪装。",
+      "aliases": [
+        "欺骗"
+      ],
+      "related": [
+        "真相",
+        "虚伪",
+        "信任"
+      ],
+      "parents": [
+        "认知"
+      ],
+      "category": "认知",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:self-deception"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "谎言",
+        "B_label_definition": "谎言：故意不实的言说或伪装。",
+        "C_label_definition_aliases": "谎言：故意不实的言说或伪装。｜别名：欺骗"
+      }
+    },
+    {
+      "id": "theme-0200-创伤",
+      "canonical_zh": "创伤",
+      "label_en": "Trauma",
+      "dimension": "theme",
+      "definition": "剧烈伤害留下的持久心理裂痕。",
+      "aliases": [
+        "心里创伤"
+      ],
+      "related": [
+        "记忆",
+        "恐惧",
+        "暴力",
+        "童年"
+      ],
+      "parents": [
+        "身心"
+      ],
+      "category": "身心",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:childhood trauma",
+        "lto:theme:coping with post-traumatic stress"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "创伤",
+        "B_label_definition": "创伤：剧烈伤害留下的持久心理裂痕。",
+        "C_label_definition_aliases": "创伤：剧烈伤害留下的持久心理裂痕。｜别名：心里创伤"
+      }
+    },
+    {
+      "id": "theme-0201-性",
+      "canonical_zh": "性",
+      "label_en": "Sexuality",
+      "dimension": "theme",
+      "definition": "性欲、性关系与性的社会意义。",
+      "aliases": [
+        "性欲"
+      ],
+      "related": [
+        "欲望",
+        "身体",
+        "爱情",
+        "权力"
+      ],
+      "parents": [
+        "身心"
+      ],
+      "category": "身心",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:human sexuality"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "性",
+        "B_label_definition": "性：性欲、性关系与性的社会意义。",
+        "C_label_definition_aliases": "性：性欲、性关系与性的社会意义。｜别名：性欲"
+      }
+    },
+    {
+      "id": "theme-0202-性别",
+      "canonical_zh": "性别",
+      "label_en": "Gender",
+      "dimension": "theme",
+      "definition": "性别角色、认同与社会期待。",
+      "aliases": [
+        "性属"
+      ],
+      "related": [
+        "身份",
+        "身体",
+        "权力"
+      ],
+      "parents": [
+        "身心"
+      ],
+      "category": "身心",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:gender identity",
+        "lto:theme:sexism in society"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "性别",
+        "B_label_definition": "性别：性别角色、认同与社会期待。",
+        "C_label_definition_aliases": "性别：性别角色、认同与社会期待。｜别名：性属"
+      }
+    },
+    {
+      "id": "theme-0203-成瘾",
+      "canonical_zh": "成瘾",
+      "label_en": "Addiction",
+      "dimension": "theme",
+      "definition": "对物质或行为的失控依赖。",
+      "aliases": [
+        "沉溺"
+      ],
+      "related": [
+        "欲望",
+        "失控",
+        "身体"
+      ],
+      "parents": [
+        "身心"
+      ],
+      "category": "身心",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:human addiction",
+        "lto:theme:overcoming an addiction"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "成瘾",
+        "B_label_definition": "成瘾：对物质或行为的失控依赖。",
+        "C_label_definition_aliases": "成瘾：对物质或行为的失控依赖。｜别名：沉溺"
+      }
+    },
+    {
+      "id": "theme-0204-灵魂",
+      "canonical_zh": "灵魂",
+      "label_en": "Soul",
+      "dimension": "theme",
+      "definition": "内在精神本质或超越肉身的自我想象。",
+      "aliases": [
+        "心灵"
+      ],
+      "related": [
+        "身体",
+        "信仰",
+        "死亡",
+        "意义"
+      ],
+      "parents": [
+        "身心"
+      ],
+      "category": "身心",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:the soul"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "灵魂",
+        "B_label_definition": "灵魂：内在精神本质或超越肉身的自我想象。",
+        "C_label_definition_aliases": "灵魂：内在精神本质或超越肉身的自我想象。｜别名：心灵"
+      }
+    },
+    {
+      "id": "theme-0205-疾病",
+      "canonical_zh": "疾病",
+      "label_en": "Illness",
+      "dimension": "theme",
+      "definition": "身体或精神的病痛与其社会意义。",
+      "aliases": [
+        "病痛"
+      ],
+      "related": [
+        "身体",
+        "死亡",
+        "痛苦",
+        "脆弱"
+      ],
+      "parents": [
+        "身心"
+      ],
+      "category": "身心",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:coping with a terminal illness",
+        "lto:theme:mental illness"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "疾病",
+        "B_label_definition": "疾病：身体或精神的病痛与其社会意义。",
+        "C_label_definition_aliases": "疾病：身体或精神的病痛与其社会意义。｜别名：病痛"
+      }
+    },
+    {
+      "id": "theme-0206-身体",
+      "canonical_zh": "身体",
+      "label_en": "Body",
+      "dimension": "theme",
+      "definition": "肉身感知、外貌与身体处境。",
+      "aliases": [
+        "肉身"
+      ],
+      "related": [
+        "欲望",
+        "疾病",
+        "死亡",
+        "自我"
+      ],
+      "parents": [
+        "身心"
+      ],
+      "category": "身心",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "身体",
+        "B_label_definition": "身体：肉身感知、外貌与身体处境。",
+        "C_label_definition_aliases": "身体：肉身感知、外貌与身体处境。｜别名：肉身"
+      }
+    },
+    {
+      "id": "theme-0207-伦理困境",
+      "canonical_zh": "伦理困境",
+      "label_en": "Ethical Dilemma",
+      "dimension": "theme",
+      "definition": "价值冲突下难以两全的抉择。",
+      "aliases": [
+        "道德两难"
+      ],
+      "related": [
+        "责任",
+        "选择",
+        "牺牲"
+      ],
+      "parents": [
+        "道德"
+      ],
+      "category": "道德",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:coping with life issues"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "伦理困境",
+        "B_label_definition": "伦理困境：价值冲突下难以两全的抉择。",
+        "C_label_definition_aliases": "伦理困境：价值冲突下难以两全的抉择。｜别名：道德两难"
+      }
+    },
+    {
+      "id": "theme-0208-善恶",
+      "canonical_zh": "善恶",
+      "label_en": "Good and Evil",
+      "dimension": "theme",
+      "definition": "道德上的善与恶及其边界。",
+      "aliases": [
+        "好坏"
+      ],
+      "related": [
+        "人性",
+        "罪",
+        "救赎"
+      ],
+      "parents": [
+        "道德"
+      ],
+      "category": "道德",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:the human capacity for good and evil"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "善恶",
+        "B_label_definition": "善恶：道德上的善与恶及其边界。",
+        "C_label_definition_aliases": "善恶：道德上的善与恶及其边界。｜别名：好坏"
+      }
+    },
+    {
+      "id": "theme-0209-尊严",
+      "canonical_zh": "尊严",
+      "label_en": "Dignity",
+      "dimension": "theme",
+      "definition": "人格不受践踏的自我与社会承认。",
+      "aliases": [
+        "体面"
+      ],
+      "related": [
+        "屈辱",
+        "贫穷",
+        "权力"
+      ],
+      "parents": [
+        "道德"
+      ],
+      "category": "道德",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "尊严",
+        "B_label_definition": "尊严：人格不受践踏的自我与社会承认。",
+        "C_label_definition_aliases": "尊严：人格不受践踏的自我与社会承认。｜别名：体面"
+      }
+    },
+    {
+      "id": "theme-0210-干净",
+      "canonical_zh": "干净",
+      "label_en": "Purity",
+      "dimension": "theme",
+      "definition": "洁净、纯洁及其道德化想象。",
+      "aliases": [
+        "纯洁"
+      ],
+      "related": [
+        "污染",
+        "纯真",
+        "身体"
+      ],
+      "parents": [
+        "道德"
+      ],
+      "category": "道德",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "干净",
+        "B_label_definition": "干净：洁净、纯洁及其道德化想象。",
+        "C_label_definition_aliases": "干净：洁净、纯洁及其道德化想象。｜别名：纯洁"
+      }
+    },
+    {
+      "id": "theme-0211-污染",
+      "canonical_zh": "污染",
+      "label_en": "Contamination",
+      "dimension": "theme",
+      "definition": "被弄脏、侵染或道德沾污。",
+      "aliases": [
+        "玷污"
+      ],
+      "related": [
+        "干净",
+        "疾病",
+        "羞耻"
+      ],
+      "parents": [
+        "道德"
+      ],
+      "category": "道德",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "污染",
+        "B_label_definition": "污染：被弄脏、侵染或道德沾污。",
+        "C_label_definition_aliases": "污染：被弄脏、侵染或道德沾污。｜别名：玷污"
+      }
+    },
+    {
+      "id": "theme-0212-信仰",
+      "canonical_zh": "信仰",
+      "label_en": "Faith",
+      "dimension": "theme",
+      "definition": "对超越性、教义或终极意义的信靠。",
+      "aliases": [
+        "信念"
+      ],
+      "related": [
+        "怀疑",
+        "灵魂",
+        "意义"
+      ],
+      "parents": [
+        "道德宗教"
+      ],
+      "category": "道德宗教",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:folk belief",
+        "lto:theme:the importance of faith"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "信仰",
+        "B_label_definition": "信仰：对超越性、教义或终极意义的信靠。",
+        "C_label_definition_aliases": "信仰：对超越性、教义或终极意义的信靠。｜别名：信念"
+      }
+    },
+    {
+      "id": "theme-0213-救赎",
+      "canonical_zh": "救赎",
+      "label_en": "Redemption",
+      "dimension": "theme",
+      "definition": "从罪责或堕落中寻求挽回与更新。",
+      "aliases": [
+        "赎罪"
+      ],
+      "related": [
+        "罪",
+        "宽恕",
+        "牺牲"
+      ],
+      "parents": [
+        "道德宗教"
+      ],
+      "category": "道德宗教",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:the desire for redemption"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "救赎",
+        "B_label_definition": "救赎：从罪责或堕落中寻求挽回与更新。",
+        "C_label_definition_aliases": "救赎：从罪责或堕落中寻求挽回与更新。｜别名：赎罪"
+      }
+    },
+    {
+      "id": "theme-0214-罪",
+      "canonical_zh": "罪",
+      "label_en": "Sin",
+      "dimension": "theme",
+      "definition": "过错、罪责或道德/宗教意义上的堕落。",
+      "aliases": [
+        "罪恶",
+        "罪过"
+      ],
+      "related": [
+        "内疚",
+        "救赎",
+        "信仰"
+      ],
+      "parents": [
+        "道德宗教"
+      ],
+      "category": "道德宗教",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:sin"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "罪",
+        "B_label_definition": "罪：过错、罪责或道德/宗教意义上的堕落。",
+        "C_label_definition_aliases": "罪：过错、罪责或道德/宗教意义上的堕落。｜别名：罪恶、罪过"
+      }
+    },
+    {
+      "id": "theme-0215-公正",
+      "canonical_zh": "公正",
+      "label_en": "Justice",
+      "dimension": "theme",
+      "definition": "公平、正义诉求与奖惩是否得当。",
+      "aliases": [
+        "正义"
+      ],
+      "related": [
+        "报复",
+        "宽恕",
+        "罪"
+      ],
+      "parents": [
+        "道德社会"
+      ],
+      "category": "道德社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:mercy vs. justice",
+        "lto:theme:poetic justice",
+        "lto:theme:what is justice"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "公正",
+        "B_label_definition": "公正：公平、正义诉求与奖惩是否得当。",
+        "C_label_definition_aliases": "公正：公平、正义诉求与奖惩是否得当。｜别名：正义"
+      }
+    },
+    {
+      "id": "theme-0216-宽恕",
+      "canonical_zh": "宽恕",
+      "label_en": "Forgiveness",
+      "dimension": "theme",
+      "definition": "放下怨恨、原谅或寻求被原谅。",
+      "aliases": [
+        "原谅"
+      ],
+      "related": [
+        "内疚",
+        "救赎",
+        "仇恨",
+        "怜悯"
+      ],
+      "parents": [
+        "道德社会"
+      ],
+      "category": "道德社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:mercy",
+        "lto:theme:the desire for redemption"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "宽恕",
+        "B_label_definition": "宽恕：放下怨恨、原谅或寻求被原谅。",
+        "C_label_definition_aliases": "宽恕：放下怨恨、原谅或寻求被原谅。｜别名：原谅"
+      }
+    },
+    {
+      "id": "theme-0217-报复",
+      "canonical_zh": "报复",
+      "label_en": "Revenge",
+      "dimension": "theme",
+      "definition": "以伤害回应伤害的报复冲动或行动。",
+      "aliases": [
+        "复仇"
+      ],
+      "related": [
+        "仇恨",
+        "公正",
+        "暴力"
+      ],
+      "parents": [
+        "道德社会"
+      ],
+      "category": "道德社会",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "报复",
+        "B_label_definition": "报复：以伤害回应伤害的报复冲动或行动。",
+        "C_label_definition_aliases": "报复：以伤害回应伤害的报复冲动或行动。｜别名：复仇"
+      }
+    },
+    {
+      "id": "theme-0218-牺牲",
+      "canonical_zh": "牺牲",
+      "label_en": "Sacrifice",
+      "dimension": "theme",
+      "definition": "为他者或价值放弃自身利益乃至生命。",
+      "aliases": [
+        "献身"
+      ],
+      "related": [
+        "爱",
+        "勇气",
+        "死亡",
+        "救赎"
+      ],
+      "parents": [
+        "道德社会"
+      ],
+      "category": "道德社会",
+      "provenance": [
+        "generated_candidate",
+        "literary_theme_ontology"
+      ],
+      "source_refs": [
+        "lto:theme:human self-sacrifice",
+        "lto:theme:sacrifice for a child"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "牺牲",
+        "B_label_definition": "牺牲：为他者或价值放弃自身利益乃至生命。",
+        "C_label_definition_aliases": "牺牲：为他者或价值放弃自身利益乃至生命。｜别名：献身"
+      }
+    }
+  ],
+  "devices": [
+    {
+      "id": "device-0001-侧面描写",
+      "canonical_zh": "侧面描写",
+      "label_en": "Indirect Characterization",
+      "dimension": "device",
+      "definition": "通过他者反应或相关物侧面表现对象。",
+      "aliases": [
+        "间接描写"
+      ],
+      "related": [
+        "对比",
+        "象征"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "侧面描写",
+        "B_label_definition": "侧面描写：通过他者反应或相关物侧面表现对象。",
+        "C_label_definition_aliases": "侧面描写：通过他者反应或相关物侧面表现对象。｜别名：间接描写"
+      }
+    },
+    {
+      "id": "device-0002-借代",
+      "canonical_zh": "借代",
+      "label_en": "Metonymy/Synecdoche",
+      "dimension": "device",
+      "definition": "用相关或局部特征指代本体。",
+      "aliases": [
+        "换喻"
+      ],
+      "related": [
+        "比喻",
+        "象征"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "借代",
+        "B_label_definition": "借代：用相关或局部特征指代本体。",
+        "C_label_definition_aliases": "借代：用相关或局部特征指代本体。｜别名：换喻"
+      }
+    },
+    {
+      "id": "device-0003-内涵",
+      "canonical_zh": "内涵",
+      "label_en": "Connotation",
+      "dimension": "device",
+      "definition": "词语或意象在字面之外的联想意义。",
+      "aliases": [
+        "意涵"
+      ],
+      "related": [
+        "象征",
+        "意象"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:22"
+      ],
+      "status": "active_candidate",
+      "notes": "Product-historical Device; overlaps Theme-ish semantics — review later.",
+      "representations": {
+        "A_label": "内涵",
+        "B_label_definition": "内涵：词语或意象在字面之外的联想意义。",
+        "C_label_definition_aliases": "内涵：词语或意象在字面之外的联想意义。｜别名：意涵"
+      }
+    },
+    {
+      "id": "device-0004-动作描写",
+      "canonical_zh": "动作描写",
+      "label_en": "Action Description",
+      "dimension": "device",
+      "definition": "对人物动作与行为过程的刻画。",
+      "aliases": [],
+      "related": [
+        "外貌描写",
+        "心理描写"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:25"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "动作描写",
+        "B_label_definition": "动作描写：对人物动作与行为过程的刻画。",
+        "C_label_definition_aliases": "动作描写：对人物动作与行为过程的刻画。｜别名：（无）"
+      }
+    },
+    {
+      "id": "device-0005-双关",
+      "canonical_zh": "双关",
+      "label_en": "Pun/Double Meaning",
+      "dimension": "device",
+      "definition": "一语同时关联双重含义。",
+      "aliases": [],
+      "related": [
+        "反讽"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "双关",
+        "B_label_definition": "双关：一语同时关联双重含义。",
+        "C_label_definition_aliases": "双关：一语同时关联双重含义。｜别名：（无）"
+      }
+    },
+    {
+      "id": "device-0006-反讽",
+      "canonical_zh": "反讽",
+      "label_en": "Irony",
+      "dimension": "device",
+      "definition": "字面与真意相反或情境与期待错位造成的讽刺效果。",
+      "aliases": [
+        "讽刺"
+      ],
+      "related": [
+        "对比"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "反讽",
+        "B_label_definition": "反讽：字面与真意相反或情境与期待错位造成的讽刺效果。",
+        "C_label_definition_aliases": "反讽：字面与真意相反或情境与期待错位造成的讽刺效果。｜别名：讽刺"
+      }
+    },
+    {
+      "id": "device-0007-反问",
+      "canonical_zh": "反问",
+      "label_en": "Rhetorical Challenge",
+      "dimension": "device",
+      "definition": "用疑问形式加强肯定/否定语气。",
+      "aliases": [],
+      "related": [
+        "设问"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "反问",
+        "B_label_definition": "反问：用疑问形式加强肯定/否定语气。",
+        "C_label_definition_aliases": "反问：用疑问形式加强肯定/否定语气。｜别名：（无）"
+      }
+    },
+    {
+      "id": "device-0008-外貌描写",
+      "canonical_zh": "外貌描写",
+      "label_en": "Appearance Description",
+      "dimension": "device",
+      "definition": "对人物外貌特征的刻画。",
+      "aliases": [
+        "肖像描写"
+      ],
+      "related": [
+        "动作描写",
+        "心理描写"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:24"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "外貌描写",
+        "B_label_definition": "外貌描写：对人物外貌特征的刻画。",
+        "C_label_definition_aliases": "外貌描写：对人物外貌特征的刻画。｜别名：肖像描写"
+      }
+    },
+    {
+      "id": "device-0009-头韵",
+      "canonical_zh": "头韵",
+      "label_en": "Alliteration",
+      "dimension": "device",
+      "definition": "相邻或邻近词语声母/起音重复的语音修辞。",
+      "aliases": [],
+      "related": [
+        "重复"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "existing_pgwhite"
+      ],
+      "source_refs": [
+        "pgwhite:tag:21"
+      ],
+      "status": "active_candidate",
+      "notes": "Zero production assignments; retained as conventional term.",
+      "representations": {
+        "A_label": "头韵",
+        "B_label_definition": "头韵：相邻或邻近词语声母/起音重复的语音修辞。",
+        "C_label_definition_aliases": "头韵：相邻或邻近词语声母/起音重复的语音修辞。｜别名：（无）"
+      }
+    },
+    {
+      "id": "device-0010-夸张",
+      "canonical_zh": "夸张",
+      "label_en": "Hyperbole",
+      "dimension": "device",
+      "definition": "故意夸大或缩小以突出特征。",
+      "aliases": [
+        "夸饰"
+      ],
+      "related": [
+        "比喻"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "夸张",
+        "B_label_definition": "夸张：故意夸大或缩小以突出特征。",
+        "C_label_definition_aliases": "夸张：故意夸大或缩小以突出特征。｜别名：夸饰"
+      }
+    },
+    {
+      "id": "device-0011-对比",
+      "canonical_zh": "对比",
+      "label_en": "Contrast",
+      "dimension": "device",
+      "definition": "并置差异以凸显特征或主题张力。",
+      "aliases": [
+        "对照"
+      ],
+      "related": [
+        "反讽",
+        "排比"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "对比",
+        "B_label_definition": "对比：并置差异以凸显特征或主题张力。",
+        "C_label_definition_aliases": "对比：并置差异以凸显特征或主题张力。｜别名：对照"
+      }
+    },
+    {
+      "id": "device-0012-对比描写",
+      "canonical_zh": "对比描写",
+      "label_en": "Contrasting Description",
+      "dimension": "device",
+      "definition": "通过对照性描写强化差异（保守保留）。",
+      "aliases": [],
+      "related": [
+        "对比"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "Possibly redundant with 对比; kept for inspectability.",
+      "representations": {
+        "A_label": "对比描写",
+        "B_label_definition": "对比描写：通过对照性描写强化差异（保守保留）。",
+        "C_label_definition_aliases": "对比描写：通过对照性描写强化差异（保守保留）。｜别名：（无）"
+      }
+    },
+    {
+      "id": "device-0013-引用",
+      "canonical_zh": "引用",
+      "label_en": "Allusion/Quotation",
+      "dimension": "device",
+      "definition": "援引成说、典故或他文以增生意义。",
+      "aliases": [
+        "典故",
+        "用典"
+      ],
+      "related": [
+        "象征"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "引用",
+        "B_label_definition": "引用：援引成说、典故或他文以增生意义。",
+        "C_label_definition_aliases": "引用：援引成说、典故或他文以增生意义。｜别名：典故、用典"
+      }
+    },
+    {
+      "id": "device-0014-心理描写",
+      "canonical_zh": "心理描写",
+      "label_en": "Psychological Description",
+      "dimension": "device",
+      "definition": "对内心活动、思绪与情感过程的刻画。",
+      "aliases": [
+        "内心描写"
+      ],
+      "related": [
+        "动作描写",
+        "外貌描写"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:28"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "心理描写",
+        "B_label_definition": "心理描写：对内心活动、思绪与情感过程的刻画。",
+        "C_label_definition_aliases": "心理描写：对内心活动、思绪与情感过程的刻画。｜别名：内心描写"
+      }
+    },
+    {
+      "id": "device-0015-意象",
+      "canonical_zh": "意象",
+      "label_en": "Imagery",
+      "dimension": "device",
+      "definition": "可感知的形象单元及其组合所形成的画面感。",
+      "aliases": [
+        "形象"
+      ],
+      "related": [
+        "象征",
+        "比喻"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:23"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "意象",
+        "B_label_definition": "意象：可感知的形象单元及其组合所形成的画面感。",
+        "C_label_definition_aliases": "意象：可感知的形象单元及其组合所形成的画面感。｜别名：形象"
+      }
+    },
+    {
+      "id": "device-0016-拟人",
+      "canonical_zh": "拟人",
+      "label_en": "Personification",
+      "dimension": "device",
+      "definition": "把非人事物当作人来写，赋予人的动作或情感。",
+      "aliases": [
+        "人格化"
+      ],
+      "related": [
+        "比喻",
+        "通感"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:20"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "拟人",
+        "B_label_definition": "拟人：把非人事物当作人来写，赋予人的动作或情感。",
+        "C_label_definition_aliases": "拟人：把非人事物当作人来写，赋予人的动作或情感。｜别名：人格化"
+      }
+    },
+    {
+      "id": "device-0017-拟声",
+      "canonical_zh": "拟声",
+      "label_en": "Onomatopoeia",
+      "dimension": "device",
+      "definition": "摹仿声音的词语运用。",
+      "aliases": [
+        "象声"
+      ],
+      "related": [],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "拟声",
+        "B_label_definition": "拟声：摹仿声音的词语运用。",
+        "C_label_definition_aliases": "拟声：摹仿声音的词语运用。｜别名：象声"
+      }
+    },
+    {
+      "id": "device-0018-排比",
+      "canonical_zh": "排比",
+      "label_en": "Parallelism",
+      "dimension": "device",
+      "definition": "结构相似的短语或句子并列推进。",
+      "aliases": [],
+      "related": [
+        "重复",
+        "对比"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "排比",
+        "B_label_definition": "排比：结构相似的短语或句子并列推进。",
+        "C_label_definition_aliases": "排比：结构相似的短语或句子并列推进。｜别名：（无）"
+      }
+    },
+    {
+      "id": "device-0019-暗示",
+      "canonical_zh": "暗示",
+      "label_en": "Suggestion/Implication",
+      "dimension": "device",
+      "definition": "不明说而让意义被推断出来。",
+      "aliases": [],
+      "related": [
+        "象征",
+        "留白"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "暗示",
+        "B_label_definition": "暗示：不明说而让意义被推断出来。",
+        "C_label_definition_aliases": "暗示：不明说而让意义被推断出来。｜别名：（无）"
+      }
+    },
+    {
+      "id": "device-0020-比喻",
+      "canonical_zh": "比喻",
+      "label_en": "Simile/Analogy",
+      "dimension": "device",
+      "definition": "用相似物说明本体，包括明喻等常见比喻用法。",
+      "aliases": [
+        "明喻",
+        "譬喻"
+      ],
+      "related": [
+        "隐喻",
+        "象征"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "比喻",
+        "B_label_definition": "比喻：用相似物说明本体，包括明喻等常见比喻用法。",
+        "C_label_definition_aliases": "比喻：用相似物说明本体，包括明喻等常见比喻用法。｜别名：明喻、譬喻"
+      }
+    },
+    {
+      "id": "device-0021-环境描写",
+      "canonical_zh": "环境描写",
+      "label_en": "Setting Description",
+      "dimension": "device",
+      "definition": "对环境气氛与物象环境的刻画（手法，非 Scene 标签）。",
+      "aliases": [
+        "景物描写"
+      ],
+      "related": [
+        "意象",
+        "细节描写"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "环境描写",
+        "B_label_definition": "环境描写：对环境气氛与物象环境的刻画（手法，非 Scene 标签）。",
+        "C_label_definition_aliases": "环境描写：对环境气氛与物象环境的刻画（手法，非 Scene 标签）。｜别名：景物描写"
+      }
+    },
+    {
+      "id": "device-0022-留白",
+      "canonical_zh": "留白",
+      "label_en": "Narrative Ellipsis",
+      "dimension": "device",
+      "definition": "有意省略以唤起想象或余味。",
+      "aliases": [
+        "空白"
+      ],
+      "related": [
+        "暗示"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "留白",
+        "B_label_definition": "留白：有意省略以唤起想象或余味。",
+        "C_label_definition_aliases": "留白：有意省略以唤起想象或余味。｜别名：空白"
+      }
+    },
+    {
+      "id": "device-0023-白描",
+      "canonical_zh": "白描",
+      "label_en": "Plain Description",
+      "dimension": "device",
+      "definition": "少修饰、以简练线条勾勒对象。",
+      "aliases": [],
+      "related": [
+        "细节描写"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "白描",
+        "B_label_definition": "白描：少修饰、以简练线条勾勒对象。",
+        "C_label_definition_aliases": "白描：少修饰、以简练线条勾勒对象。｜别名：（无）"
+      }
+    },
+    {
+      "id": "device-0024-细节描写",
+      "canonical_zh": "细节描写",
+      "label_en": "Detailed Description",
+      "dimension": "device",
+      "definition": "以具体细部刻画增强实感与意味。",
+      "aliases": [
+        "细描"
+      ],
+      "related": [
+        "白描",
+        "意象"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "细节描写",
+        "B_label_definition": "细节描写：以具体细部刻画增强实感与意味。",
+        "C_label_definition_aliases": "细节描写：以具体细部刻画增强实感与意味。｜别名：细描"
+      }
+    },
+    {
+      "id": "device-0025-设问",
+      "canonical_zh": "设问",
+      "label_en": "Rhetorical Question",
+      "dimension": "device",
+      "definition": "明知故问或引导思考的问句形式。",
+      "aliases": [
+        "反问"
+      ],
+      "related": [],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "设问",
+        "B_label_definition": "设问：明知故问或引导思考的问句形式。",
+        "C_label_definition_aliases": "设问：明知故问或引导思考的问句形式。｜别名：反问"
+      }
+    },
+    {
+      "id": "device-0026-象征",
+      "canonical_zh": "象征",
+      "label_en": "Symbolism",
+      "dimension": "device",
+      "definition": "以具体形象稳定指向抽象意义。",
+      "aliases": [],
+      "related": [
+        "隐喻",
+        "意象"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "象征",
+        "B_label_definition": "象征：以具体形象稳定指向抽象意义。",
+        "C_label_definition_aliases": "象征：以具体形象稳定指向抽象意义。｜别名：（无）"
+      }
+    },
+    {
+      "id": "device-0027-通感",
+      "canonical_zh": "通感",
+      "label_en": "Synesthesia",
+      "dimension": "device",
+      "definition": "打通不同感官，以一种感觉写另一种感觉。",
+      "aliases": [
+        "联觉"
+      ],
+      "related": [
+        "比喻",
+        "意象"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "annotation_benchmark",
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:27"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "通感",
+        "B_label_definition": "通感：打通不同感官，以一种感觉写另一种感觉。",
+        "C_label_definition_aliases": "通感：打通不同感官，以一种感觉写另一种感觉。｜别名：联觉"
+      }
+    },
+    {
+      "id": "device-0028-通篇象征",
+      "canonical_zh": "通篇象征",
+      "label_en": "Extended Symbol",
+      "dimension": "device",
+      "definition": "象征在较长篇幅中持续展开（谨慎、低频）。",
+      "aliases": [],
+      "related": [
+        "象征"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "Borderline compositional; status review later.",
+      "representations": {
+        "A_label": "通篇象征",
+        "B_label_definition": "通篇象征：象征在较长篇幅中持续展开（谨慎、低频）。",
+        "C_label_definition_aliases": "通篇象征：象征在较长篇幅中持续展开（谨慎、低频）。｜别名：（无）"
+      }
+    },
+    {
+      "id": "device-0029-重复",
+      "canonical_zh": "重复",
+      "label_en": "Repetition",
+      "dimension": "device",
+      "definition": "词语、结构或意象的有意反复。",
+      "aliases": [
+        "反复"
+      ],
+      "related": [
+        "排比",
+        "头韵"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "generated_candidate"
+      ],
+      "source_refs": [],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "重复",
+        "B_label_definition": "重复：词语、结构或意象的有意反复。",
+        "C_label_definition_aliases": "重复：词语、结构或意象的有意反复。｜别名：反复"
+      }
+    },
+    {
+      "id": "device-0030-长句描写",
+      "canonical_zh": "长句描写",
+      "label_en": "Long-Sentence Description",
+      "dimension": "device",
+      "definition": "以较长句法展开绵密描写的表现方式。",
+      "aliases": [
+        "长句"
+      ],
+      "related": [],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:26"
+      ],
+      "status": "active_candidate",
+      "notes": "Narrow craft label; keep conservative.",
+      "representations": {
+        "A_label": "长句描写",
+        "B_label_definition": "长句描写：以较长句法展开绵密描写的表现方式。",
+        "C_label_definition_aliases": "长句描写：以较长句法展开绵密描写的表现方式。｜别名：长句"
+      }
+    },
+    {
+      "id": "device-0031-隐喻",
+      "canonical_zh": "隐喻",
+      "label_en": "Metaphor",
+      "dimension": "device",
+      "definition": "以彼喻此，用一事物暗示另一事物的深层相似。",
+      "aliases": [
+        "暗喻"
+      ],
+      "related": [
+        "比喻",
+        "象征"
+      ],
+      "parents": [
+        "修辞与表现手法"
+      ],
+      "category": "修辞与表现手法",
+      "provenance": [
+        "existing_pgwhite",
+        "legacy_human"
+      ],
+      "source_refs": [
+        "pgwhite:tag:19"
+      ],
+      "status": "active_candidate",
+      "notes": "",
+      "representations": {
+        "A_label": "隐喻",
+        "B_label_definition": "隐喻：以彼喻此，用一事物暗示另一事物的深层相似。",
+        "C_label_definition_aliases": "隐喻：以彼喻此，用一事物暗示另一事物的深层相似。｜别名：暗喻"
+      }
+    }
+  ]
+}

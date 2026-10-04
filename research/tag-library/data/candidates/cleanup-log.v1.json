@@ -1,0 +1,825 @@
+{
+  "schema_version": "cleanup-decision.v1",
+  "created_at": "2026-10-04T20:00:00.000Z",
+  "policy": [
+    "Do not silently delete evidence — raw candidates retained.",
+    "Aliases ≠ related concepts.",
+    "Prefer reusable literary atoms over entity/relation enumeration and analysis titles.",
+    "High recall over strict precision for Personal-tag fallthrough later.",
+    "Scene/Time not reactivated.",
+    "Invented Device analysis titles excluded without external evidence."
+  ],
+  "decisions": [
+    {
+      "action": "exclude",
+      "label": "深夜",
+      "maps_to": null,
+      "dimension": "scene_time",
+      "reason": "Scene/Time dimension label; not reactivated as Theme in 1.41.",
+      "provenance": [
+        "legacy_human"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "日出",
+      "maps_to": null,
+      "dimension": "scene_time",
+      "reason": "Scene/Time dimension label; not reactivated as Theme in 1.41.",
+      "provenance": [
+        "legacy_human"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "暴风雨",
+      "maps_to": null,
+      "dimension": "scene_time",
+      "reason": "Scene/Time dimension label; not reactivated as Theme in 1.41.",
+      "provenance": [
+        "legacy_human"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "黄昏",
+      "maps_to": null,
+      "dimension": "scene_time",
+      "reason": "Scene/Time dimension label; not reactivated as Theme in 1.41.",
+      "provenance": [
+        "legacy_human"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "时间",
+      "maps_to": null,
+      "dimension": "theme",
+      "reason": "Existing Theme collides with Scene/Time reconsideration; retained in library with status excluded_scene_time_conflict but not active.",
+      "provenance": [
+        "existing_pgwhite"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "音乐唤醒记忆",
+      "maps_to": [
+        "音乐",
+        "记忆"
+      ],
+      "dimension": "theme",
+      "reason": "Compound causal summary → atomic components.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "记忆与损伤",
+      "maps_to": "记忆",
+      "dimension": "theme",
+      "reason": "Compound analysis title; damage/衰败 may co-tag separately when evidenced.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "记忆的损伤",
+      "maps_to": [
+        "记忆",
+        "衰败"
+      ],
+      "dimension": "theme",
+      "reason": "Quote-specific compound.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "童年回忆",
+      "maps_to": [
+        "童年",
+        "记忆"
+      ],
+      "dimension": "theme",
+      "reason": "Composable pair collapsed into one label.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "记忆唤起",
+      "maps_to": "记忆",
+      "dimension": "theme",
+      "reason": "Process paraphrase of 记忆.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "珍视之物的脆弱",
+      "maps_to": [
+        "珍视",
+        "脆弱"
+      ],
+      "dimension": "theme",
+      "reason": "Literary-analysis sentence masquerading as tag.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "复杂的父子关系",
+      "maps_to": [
+        "父亲",
+        "亲情"
+      ],
+      "dimension": "theme",
+      "reason": "Relationship enumeration/analysis title.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "记忆衰退",
+      "maps_to": [
+        "记忆",
+        "衰败"
+      ],
+      "dimension": "theme",
+      "reason": "Compound of memory + decay.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "记忆的纪念物",
+      "maps_to": [
+        "记忆",
+        "珍视"
+      ],
+      "dimension": "theme",
+      "reason": "Over-specific object framing.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "音乐意义",
+      "maps_to": [
+        "音乐",
+        "意义"
+      ],
+      "dimension": "theme",
+      "reason": "Compound.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "记忆与关联",
+      "maps_to": "记忆",
+      "dimension": "theme",
+      "reason": "Vague compound.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "破坏性影响",
+      "maps_to": "破坏",
+      "dimension": "theme",
+      "reason": "Analytic paraphrase.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "冲动与失控",
+      "maps_to": [
+        "冲动",
+        "掌控"
+      ],
+      "dimension": "theme",
+      "reason": "Compound pair.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "暴力/压迫",
+      "maps_to": [
+        "暴力",
+        "压迫"
+      ],
+      "dimension": "theme",
+      "reason": "Slash compound.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "爱与欲望的区分",
+      "maps_to": [
+        "爱情",
+        "欲望"
+      ],
+      "dimension": "theme",
+      "reason": "Analytical contrast title.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "关系中的误解",
+      "maps_to": "误解",
+      "dimension": "theme",
+      "reason": "Prefixed specificity.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "情感意向的非等同",
+      "maps_to": [
+        "误解",
+        "欲望"
+      ],
+      "dimension": "theme",
+      "reason": "Literary-analysis sentence.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "空间受限",
+      "maps_to": [
+        "空间",
+        "压迫"
+      ],
+      "dimension": "theme",
+      "reason": "Compound spatial analysis.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "空间分割",
+      "maps_to": "空间",
+      "dimension": "theme",
+      "reason": "Over-specific.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "离开与归来",
+      "maps_to": [
+        "离开",
+        "归来"
+      ],
+      "dimension": "theme",
+      "reason": "Pair compound.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "叙事追寻",
+      "maps_to": "寻找",
+      "dimension": "theme",
+      "reason": "Narratology wording.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "虚无与重建",
+      "maps_to": [
+        "虚无",
+        "重生"
+      ],
+      "dimension": "theme",
+      "reason": "Compound.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "情感寄托",
+      "maps_to": [
+        "依恋",
+        "珍视"
+      ],
+      "dimension": "theme",
+      "reason": "Slightly compound; mapped to reusable components.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "自我冲突",
+      "maps_to": "自我",
+      "dimension": "theme",
+      "reason": "Mildly compound; keep 自我 as canonical.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "情感错位",
+      "maps_to": [
+        "误解",
+        "爱情"
+      ],
+      "dimension": "theme",
+      "reason": "Analysis title.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "空间压迫",
+      "maps_to": [
+        "空间",
+        "压迫"
+      ],
+      "dimension": "theme",
+      "reason": "Compound.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "人物刻画",
+      "maps_to": null,
+      "dimension": "theme",
+      "reason": "Craft/Device-ish, not Theme; excluded from Theme library.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "reclassify",
+      "label": "外貌描写",
+      "maps_to": "外貌描写",
+      "dimension": "device",
+      "reason": "Device label appearing in Theme free-concepts; reclassified.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "身体形态特征",
+      "maps_to": "身体",
+      "dimension": "theme",
+      "reason": "Over-specific physical description as Theme.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "观众认知",
+      "maps_to": [
+        "观察",
+        "判断"
+      ],
+      "dimension": "theme",
+      "reason": "Over-specific.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "情境差异",
+      "maps_to": null,
+      "dimension": "theme",
+      "reason": "Too situational/analytic.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "自我调整",
+      "maps_to": [
+        "自我",
+        "适应"
+      ],
+      "dimension": "theme",
+      "reason": "Compound process.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "自我审查",
+      "maps_to": [
+        "自我",
+        "压抑"
+      ],
+      "dimension": "theme",
+      "reason": "Compound.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "屈从",
+      "maps_to": "压迫",
+      "dimension": "theme",
+      "reason": "Near-synonym/related to oppression; not separate unless needed later.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "伪装",
+      "maps_to": [
+        "虚伪",
+        "表演"
+      ],
+      "dimension": "theme",
+      "reason": "Maps to reusable concepts.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "单调与重复",
+      "maps_to": [
+        "重复",
+        "无聊"
+      ],
+      "dimension": "theme",
+      "reason": "Compound.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "安静",
+      "maps_to": "寂静",
+      "dimension": "theme",
+      "reason": "Near-synonym → alias/merge into 寂静.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "衰退",
+      "maps_to": "衰败",
+      "dimension": "theme",
+      "reason": "Near-synonym → merge into 衰败.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "伤心",
+      "maps_to": "悲伤",
+      "dimension": "theme",
+      "reason": "Alias of 悲伤.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "好奇心",
+      "maps_to": "好奇",
+      "dimension": "theme",
+      "reason": "Near-identical wording.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "厌恶感",
+      "maps_to": "厌恶",
+      "dimension": "theme",
+      "reason": "Suffix variant.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "不安",
+      "maps_to": "焦虑",
+      "dimension": "theme",
+      "reason": "Treated as alias territory of 焦虑 for now.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "旅途",
+      "maps_to": "旅行",
+      "dimension": "theme",
+      "reason": "Near-synonym.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "异化",
+      "maps_to": "疏离",
+      "dimension": "theme",
+      "reason": "Alias of 疏离.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "拟因果的环境指向",
+      "maps_to": null,
+      "dimension": "device",
+      "reason": "Invented analysis-title Device from Nano; no established reusable terminology.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "对称/均分结构",
+      "maps_to": null,
+      "dimension": "device",
+      "reason": "Invented structural analysis title; not conventional Device term.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "因果转折",
+      "maps_to": null,
+      "dimension": "device",
+      "reason": "Ad-hoc narratology label without stable reusable status.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "重复与强调",
+      "maps_to": [
+        "重复"
+      ],
+      "dimension": "device",
+      "reason": "Split toward 重复; 强调 not added as separate Device yet.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "意象对照",
+      "maps_to": "对比",
+      "dimension": "device",
+      "reason": "Maps toward 对比 / 意象 usage; avoid Device inflation.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "因果象征",
+      "maps_to": null,
+      "dimension": "device",
+      "reason": "Compound invented Device.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "拟人（物件动作化）",
+      "maps_to": "拟人",
+      "dimension": "device",
+      "reason": "Parenthetical variant of 拟人.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "贬抑性意象",
+      "maps_to": null,
+      "dimension": "device",
+      "reason": "Over-specific evaluative Device title.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "拟态/伪装描写",
+      "maps_to": null,
+      "dimension": "device",
+      "reason": "Invented compound Device.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "decompose",
+      "label": "感官意象描写",
+      "maps_to": [
+        "意象",
+        "通感",
+        "细节描写"
+      ],
+      "dimension": "device",
+      "reason": "Prefer 意象 / 通感 / 细节描写 as established terms.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "细节堆叠",
+      "maps_to": "细节描写",
+      "dimension": "device",
+      "reason": "Variant of 细节描写.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "空间描写",
+      "maps_to": "环境描写",
+      "dimension": "device",
+      "reason": "Maps to 环境描写.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "循环结构",
+      "maps_to": null,
+      "dimension": "device",
+      "reason": "Structural analysis title; insufficient evidence as conventional Device.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "联想",
+      "maps_to": null,
+      "dimension": "device",
+      "reason": "Too generic / cognitive, not established Device term for library v1.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "以小见大",
+      "maps_to": null,
+      "dimension": "device",
+      "reason": "Critical cliché rather than stable Device atom for retrieval.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "感官触发回忆",
+      "maps_to": null,
+      "dimension": "device",
+      "reason": "Theme-ish compound (记忆) disguised as Device.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "以声写静",
+      "maps_to": null,
+      "dimension": "device",
+      "reason": "Technique paraphrase; not canonical Device name.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "辨析",
+      "maps_to": null,
+      "dimension": "device",
+      "reason": "Not a literary Device term.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "听觉描写",
+      "maps_to": "意象",
+      "dimension": "device",
+      "reason": "Prefer 细节描写 / 通感 / 环境描写 depending on use; not separate canonical yet.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "听觉意象",
+      "maps_to": "意象",
+      "dimension": "device",
+      "reason": "Prefer 意象.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "借物抒情",
+      "maps_to": null,
+      "dimension": "device",
+      "reason": "School-essay formula; overly instructional, not atomic Device.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "merge",
+      "label": "肖像描写",
+      "maps_to": "外貌描写",
+      "dimension": "device",
+      "reason": "Alias of 外貌描写.",
+      "provenance": [
+        "annotation_benchmark"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "父子关系",
+      "maps_to": null,
+      "dimension": null,
+      "reason": "Avoid enumerating every kinship subtype as canonical Theme; prefer 亲情 + 父亲 when needed.",
+      "provenance": [
+        "manual"
+      ]
+    },
+    {
+      "action": "exclude",
+      "label": "母女关系",
+      "maps_to": null,
+      "dimension": null,
+      "reason": "Same abstraction boundary as other kinship enumerations.",
+      "provenance": [
+        "manual"
+      ]
+    }
+  ],
+  "summary": {
+    "exclude": 22,
+    "decompose": 25,
+    "merge": 25,
+    "reclassify": 1
+  }
+}

@@ -1,0 +1,268 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pgwhite://research/annotation-workbench/schemas/experiment-run.v1.json",
+  "title": "Annotation Workbench experiment run",
+  "description": "Immutable per-run_id research record. Never writes production DB. Reject/Bad/Edit apply only to this run.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "fixture_version",
+    "taxonomy_version",
+    "prompt_version",
+    "created_at",
+    "llm",
+    "embedding",
+    "pipeline",
+    "results",
+    "aggregates"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "experiment-run.v1" },
+    "run_id": { "type": "string", "minLength": 1 },
+    "fixture_version": { "type": "string" },
+    "fixture_content_hash": { "type": "string" },
+    "taxonomy_version": { "type": "string" },
+    "prompt_version": { "type": "string" },
+    "created_at": { "type": "string", "format": "date-time" },
+    "research_only": { "type": "boolean", "const": true },
+    "llm": {
+      "type": "object",
+      "required": ["adapter_id", "model"],
+      "properties": {
+        "adapter_id": { "type": "string" },
+        "model": { "type": "string" },
+        "version": { "type": "string" }
+      }
+    },
+    "embedding": {
+      "type": "object",
+      "required": ["adapter_id"],
+      "properties": {
+        "adapter_id": {
+          "type": "string",
+          "description": "bge-m3 | qwen3-embedding | mock | none"
+        },
+        "version": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "pipeline": {
+      "type": "object",
+      "required": ["free_concepts_first", "active_dimensions", "reconcile_exclusions"],
+      "properties": {
+        "free_concepts_first": { "type": "boolean", "const": true },
+        "active_dimensions": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["theme", "device"] }
+        },
+        "reconcile_exclusions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "e.g. theme:时间, dimension:scene_time"
+        },
+        "reconcile_threshold": {
+          "type": ["number", "null"],
+          "description": "Experiment-only. null means record candidates without auto-assign."
+        },
+        "reject_is_blacklist": { "type": "boolean", "const": false }
+      }
+    },
+    "results": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/quote_result" }
+    },
+    "human_evals": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/human_eval" }
+    },
+    "aggregates": { "$ref": "#/$defs/aggregates" }
+  },
+  "$defs": {
+    "quote_result": {
+      "type": "object",
+      "required": [
+        "quote_id",
+        "group",
+        "free_concepts",
+        "proposed_outcomes"
+      ],
+      "properties": {
+        "quote_id": { "type": "integer" },
+        "group": {
+          "type": "string",
+          "enum": ["legacy_human_tagged", "annotation_relevant", "cold_start"]
+        },
+        "annotation_interpretation": {
+          "anyOf": [
+            { "type": "null" },
+            { "$ref": "annotation-interpretation.v1.json" }
+          ]
+        },
+        "free_concepts": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/free_concept_record" }
+        },
+        "proposed_outcomes": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/concept_outcome" }
+        },
+        "weak_human_reference_overlap": {
+          "type": "object",
+          "description": "Weak overlap with legacy tags — NOT accuracy.",
+          "properties": {
+            "legacy_tag_ids": { "type": "array", "items": { "type": "integer" } },
+            "exact_label_hits": { "type": "array", "items": { "type": "string" } },
+            "note": { "type": "string" }
+          }
+        },
+        "raw_llm": { "type": "object" }
+      }
+    },
+    "free_concept_record": {
+      "type": "object",
+      "required": ["concept_text", "dimension", "generation_source", "run_id"],
+      "properties": {
+        "concept_text": { "type": "string" },
+        "dimension": {
+          "type": "string",
+          "enum": ["theme", "device", "other"]
+        },
+        "generation_source": {
+          "type": "string",
+          "enum": ["llm_free", "annotation_signal"]
+        },
+        "run_id": { "type": "string" },
+        "brief_rationale": { "type": "string" }
+      }
+    },
+    "concept_outcome": {
+      "type": "object",
+      "required": [
+        "concept_text",
+        "dimension",
+        "generation_source",
+        "run_id",
+        "reconciliation_candidates",
+        "reconciliation_outcome"
+      ],
+      "properties": {
+        "concept_text": { "type": "string" },
+        "dimension": { "type": "string", "enum": ["theme", "device", "other"] },
+        "generation_source": { "type": "string" },
+        "run_id": { "type": "string" },
+        "reconciliation_candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["tag_id", "tag_zh", "dimension", "similarity"],
+            "properties": {
+              "tag_id": { "type": "integer" },
+              "tag_zh": { "type": "string" },
+              "dimension": { "type": "string", "enum": ["theme", "device"] },
+              "similarity": { "type": "number" }
+            }
+          }
+        },
+        "reconciliation_outcome": {
+          "type": "string",
+          "enum": ["existing_assignment", "new_personal_concept", "skipped_not_active_dimension"]
+        },
+        "selected_canonical_tag": {
+          "anyOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "properties": {
+                "tag_id": { "type": "integer" },
+                "tag_zh": { "type": "string" },
+                "similarity": { "type": "number" }
+              }
+            }
+          ]
+        },
+        "retained_personal_concept": {
+          "anyOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "properties": {
+                "label": { "type": "string" },
+                "dimension": { "type": "string" }
+              }
+            }
+          ]
+        },
+        "caution": {
+          "type": "string",
+          "description": "e.g. do_not_force_biyu_to_yinyu"
+        }
+      }
+    },
+    "human_eval": {
+      "type": "object",
+      "required": ["quote_id", "overall", "flags", "evaluated_at"],
+      "properties": {
+        "quote_id": { "type": "integer" },
+        "overall": { "type": "string", "enum": ["useful", "okay", "bad"] },
+        "flags": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "missing_useful_tag",
+              "too_many_tags",
+              "bad_interpretation",
+              "wrong_rhetorical_device",
+              "bad_taxonomy_match",
+              "good_new_concept"
+            ]
+          }
+        },
+        "notes": { "type": "string" },
+        "evaluated_at": { "type": "string" },
+        "applies_only_to_run_id": {
+          "type": "string",
+          "description": "Reject/Bad/Edit are per-run evaluation, not a permanent blacklist."
+        }
+      }
+    },
+    "aggregates": {
+      "type": "object",
+      "description": "Research statistics — never collapsed into a single accuracy score.",
+      "properties": {
+        "quotes_n": { "type": "integer" },
+        "mean_free_themes_per_quote": { "type": "number" },
+        "mean_free_devices_per_quote": { "type": "number" },
+        "existing_assignment_rate": { "type": "number" },
+        "new_personal_concept_rate": { "type": "number" },
+        "bad_reconciliation_rate_from_review": { "type": ["number", "null"] },
+        "useful_new_concept_rate_from_review": { "type": ["number", "null"] },
+        "annotation_vs_no_annotation": { "type": "object" },
+        "weak_human_reference_overlap": { "type": "object" },
+        "recurring_personal_concepts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "count": { "type": "integer" }
+            }
+          }
+        },
+        "recurring_concepts_no_canonical_home": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "count": { "type": "integer" }
+            }
+          }
+        },
+        "candidate_similarity_distribution": { "type": "object" }
+      }
+    }
+  }
+}

@@ -1,0 +1,2517 @@
+{
+  "fixtureVersion": "annotation-bench-v1.1",
+  "taxonomyVersion": "taxonomy-theme-device-v1-excl-time",
+  "createdAt": "2026-10-04T16:23:19.694Z",
+  "researchOnly": true,
+  "notes": [
+    "Chinese-first Workbench v1.1 fixture (102 Quotes).",
+    "Legacy tags = weak human references, NOT ground truth / NOT accuracy labels.",
+    "Import #3 annotations reconstructed for research only; production untouched.",
+    "Excluded quote 1399 (orphan_quote_equals_annotation) from annotation_relevant; not replaced.",
+    "Do not expand annotation group artificially to reach a round number.",
+    "Theme 时间 excluded from reconcile targets — see taxonomy snapshot."
+  ],
+  "selectionMethod": {
+    "legacy_human_tagged": {
+      "pool": "community Quotes with zh translation AND quote_tags; EN-only twins excluded",
+      "poolSize": 44,
+      "selected": 40,
+      "algorithm": "Keep all ZH-tagged from books other than 撒旦探戈 (book 4). Fill remainder from book 4 via round-robin on strata lengthBucket×hasTheme×hasDevice×dialogueIsh, ascending quote_id within strata. Target 40. Tags are weak references, not ground truth."
+    },
+    "annotation_relevant": {
+      "pool": "import_items import_id=3 kind=weread_review",
+      "selected": 12,
+      "excludedQuoteIds": [
+        1399
+      ],
+      "algorithm": "Start from all 13 Import #3 reviews. Reconstruct Personal Annotation from raw_payload.item.content. Matched: literary text = production Quote. Orphan with abstract: literary text = item.abstract. EXCLUDE orphan_quote_equals_annotation cases (quote 1399) — invalid Quote+Annotation benchmark; production rows untouched; do not synthesize replacements. Expected kept = 12."
+    },
+    "cold_start": {
+      "selected": 50,
+      "algorithm": "Exclude quote_ids from legacy+annotation groups, excluded orphans, and review LEs. Prefer up to 30 Import #3 bookmarks without review on same LE, stratified by book×length×dialogue. Fill to 50 from Import #2 stratified preferring long, then medium, then short. Ascending quote_id within strata."
+    }
+  },
+  "summary": {
+    "total": 102,
+    "byGroup": {
+      "legacy_human_tagged": 40,
+      "annotation_relevant": 12,
+      "cold_start": 50
+    },
+    "lengthBuckets": {
+      "short": 23,
+      "medium": 68,
+      "long": 11
+    },
+    "dialogueIsh": 5,
+    "books": [
+      "10:瓦尔登湖",
+      "11:长日将尽（译文经典）",
+      "12:局外人（译文经典）",
+      "13:你一生的故事（译林幻系列）",
+      "14:中国历代政治得失",
+      "15:本巴（第十一届茅盾文学奖获奖作品）",
+      "16:冰岛往事.1，狂暴海",
+      "17:显克维奇中短篇小说选（人文社外国文学名著经典·网格本）",
+      "18:一个叫欧维的男人决定去死（同名电影原著）",
+      "19:荒原狼（果麦经典）",
+      "1:夜曲：音乐与黄昏五故事集",
+      "20:索拉里斯星（译林幻系列）",
+      "2:悉达多",
+      "3:奇特的一生",
+      "4:撒旦探戈",
+      "5:如果在冬夜，一个旅人",
+      "8:你往何处去",
+      "9:海伯利安四部曲"
+    ]
+  },
+  "contentHash": "b0df54ecc74aebf2",
+  "quotes": [
+    {
+      "quoteId": 1,
+      "group": "legacy_human_tagged",
+      "bookId": 1,
+      "bookTitleZh": "夜曲：音乐与黄昏五故事集",
+      "authorNameZh": "石黑一雄",
+      "chapterTitle": null,
+      "textZh": "我很伤心，不是因为她冲我大声嚷嚷，而是因为我知道那是托尼·加德纳的唱片，我知道那张唱片对她来说多么重要。我还知道从此以后，当加德纳轻声吟唱那些美国歌曲时，唱片就会发出\"嗞嗞\"的声音。",
+      "productionQuoteTextZh": "我很伤心，不是因为她冲我大声嚷嚷，而是因为我知道那是托尼·加德纳的唱片，我知道那张唱片对她来说多么重要。我还知道从此以后，当加德纳轻声吟唱那些美国歌曲时，唱片就会发出\"嗞嗞\"的声音。",
+      "lengthBucket": "medium",
+      "charLen": 91,
+      "dialogueIsh": true,
+      "legacyTagIds": [
+        19
+      ],
+      "legacyTags": [
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 4,
+      "group": "legacy_human_tagged",
+      "bookId": 1,
+      "bookTitleZh": "夜曲：音乐与黄昏五故事集",
+      "authorNameZh": "石黑一雄",
+      "chapterTitle": null,
+      "textZh": "加德纳先生唱了起来，很轻很柔地，像是只记得一部分歌词。可是他的声音还是清晰地回响在安静的运河上。而且真是太好听了。一时间我仿佛又回到了童年，回到了那个公寓。",
+      "productionQuoteTextZh": "加德纳先生唱了起来，很轻很柔地，像是只记得一部分歌词。可是他的声音还是清晰地回响在安静的运河上。而且真是太好听了。一时间我仿佛又回到了童年，回到了那个公寓。",
+      "lengthBucket": "medium",
+      "charLen": 78,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        3,
+        19
+      ],
+      "legacyTags": [
+        {
+          "id": 3,
+          "dimension": "scene_time",
+          "zh": "深夜"
+        },
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 5,
+      "group": "legacy_human_tagged",
+      "bookId": 1,
+      "bookTitleZh": "夜曲：音乐与黄昏五故事集",
+      "authorNameZh": "石黑一雄",
+      "chapterTitle": null,
+      "textZh": "要多少了解你的观众，不管是哪个方面，你得知道一点儿。一件让你心里觉得今晚的观众跟昨晚的不同的事。",
+      "productionQuoteTextZh": "要多少了解你的观众，不管是哪个方面，你得知道一点儿。一件让你心里觉得今晚的观众跟昨晚的不同的事。",
+      "lengthBucket": "medium",
+      "charLen": 48,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        3
+      ],
+      "legacyTags": [
+        {
+          "id": 3,
+          "dimension": "scene_time",
+          "zh": "深夜"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 6,
+      "group": "legacy_human_tagged",
+      "bookId": 1,
+      "bookTitleZh": "夜曲：音乐与黄昏五故事集",
+      "authorNameZh": "石黑一雄",
+      "chapterTitle": null,
+      "textZh": "他的声音时而低得近乎耳语，像是在自言自语。而当路灯或者沿途窗户的灯光照到船上时，他就会突然想起我，提高音量，然后问\"你明白我的意思吗，朋友？\"之类的。",
+      "productionQuoteTextZh": "他的声音时而低得近乎耳语，像是在自言自语。而当路灯或者沿途窗户的灯光照到船上时，他就会突然想起我，提高音量，然后问\"你明白我的意思吗，朋友？\"之类的。",
+      "lengthBucket": "medium",
+      "charLen": 75,
+      "dialogueIsh": true,
+      "legacyTagIds": [
+        3
+      ],
+      "legacyTags": [
+        {
+          "id": 3,
+          "dimension": "scene_time",
+          "zh": "深夜"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 7,
+      "group": "legacy_human_tagged",
+      "bookId": 1,
+      "bookTitleZh": "夜曲：音乐与黄昏五故事集",
+      "authorNameZh": "石黑一雄",
+      "chapterTitle": null,
+      "textZh": "天还没有全黑，但已经布满了星星。越过天台尽头的那堵墙，我能望见数英里内的窗户和几码内邻居屋里的家具。很多人家的窗户都亮了；眯起眼，远处的窗户就像星星的延伸。",
+      "productionQuoteTextZh": "天还没有全黑，但已经布满了星星。越过天台尽头的那堵墙，我能望见数英里内的窗户和几码内邻居屋里的家具。很多人家的窗户都亮了；眯起眼，远处的窗户就像星星的延伸。",
+      "lengthBucket": "medium",
+      "charLen": 78,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        3,
+        19
+      ],
+      "legacyTags": [
+        {
+          "id": 3,
+          "dimension": "scene_time",
+          "zh": "深夜"
+        },
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 8,
+      "group": "legacy_human_tagged",
+      "bookId": 1,
+      "bookTitleZh": "夜曲：音乐与黄昏五故事集",
+      "authorNameZh": "石黑一雄",
+      "chapterTitle": null,
+      "textZh": "当楼下吵吵嚷嚷的时候，我打开房里的凸窗，坐在宽大的窗台上，面向绵延数英里的山丘弹奏吉他。我刚来的时候，一连几个早上都是大晴天，感觉好极了，景色一望无际。我随意拨弄琴弦，琴声好像能传遍整个英国。",
+      "productionQuoteTextZh": "当楼下吵吵嚷嚷的时候，我打开房里的凸窗，坐在宽大的窗台上，面向绵延数英里的山丘弹奏吉他。我刚来的时候，一连几个早上都是大晴天，感觉好极了，景色一望无际。我随意拨弄琴弦，琴声好像能传遍整个英国。",
+      "lengthBucket": "medium",
+      "charLen": 96,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        4,
+        19
+      ],
+      "legacyTags": [
+        {
+          "id": 4,
+          "dimension": "scene_time",
+          "zh": "日出"
+        },
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 10,
+      "group": "legacy_human_tagged",
+      "bookId": 1,
+      "bookTitleZh": "夜曲：音乐与黄昏五故事集",
+      "authorNameZh": "石黑一雄",
+      "chapterTitle": null,
+      "textZh": "再者，那女人刚才说的关于他旧日老师的那番话触到了他内心深处一根隐隐作痛的心弦——一些他一直不敢面对的想法。",
+      "productionQuoteTextZh": "再者，那女人刚才说的关于他旧日老师的那番话触到了他内心深处一根隐隐作痛的心弦——一些他一直不敢面对的想法。",
+      "lengthBucket": "medium",
+      "charLen": 53,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        19
+      ],
+      "legacyTags": [
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 12,
+      "group": "legacy_human_tagged",
+      "bookId": 1,
+      "bookTitleZh": "夜曲：音乐与黄昏五故事集",
+      "authorNameZh": "石黑一雄",
+      "chapterTitle": null,
+      "textZh": "在那一刻，歌手突然告诉我们，他的心碎了。这一刻感人至深，让人几乎不可能不动容，而这份感动恰恰来自于一种张力，张力的一头是这种情感本身，另一头是为了宣告这份情感而不得不克服的巨大阻力。",
+      "productionQuoteTextZh": "在那一刻，歌手突然告诉我们，他的心碎了。这一刻感人至深，让人几乎不可能不动容，而这份感动恰恰来自于一种张力，张力的一头是这种情感本身，另一头是为了宣告这份情感而不得不克服的巨大阻力。",
+      "lengthBucket": "medium",
+      "charLen": 91,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        19
+      ],
+      "legacyTags": [
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 13,
+      "group": "legacy_human_tagged",
+      "bookId": 2,
+      "bookTitleZh": "悉达多",
+      "authorNameZh": "赫尔曼·黑塞",
+      "chapterTitle": null,
+      "textZh": "白昼短暂，夜晚短暂，每一个时辰都如海面上疾驰的风帆般飞逝，而帆下那艘船，满载着珍宝与喜悦。",
+      "productionQuoteTextZh": "白昼短暂，夜晚短暂，每一个时辰都如海面上疾驰的风帆般飞逝，而帆下那艘船，满载着珍宝与喜悦。",
+      "lengthBucket": "medium",
+      "charLen": 45,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        6,
+        19
+      ],
+      "legacyTags": [
+        {
+          "id": 6,
+          "dimension": "theme",
+          "zh": "时间"
+        },
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 14,
+      "group": "legacy_human_tagged",
+      "bookId": 2,
+      "bookTitleZh": "悉达多",
+      "authorNameZh": "赫尔曼·黑塞",
+      "chapterTitle": null,
+      "textZh": "他如同一个吃得太多、喝得太撑之人，想要将一切在痛苦中呕吐出去，只为换来一丝解脱。他渴望以一场巨大的呕吐，将所有的欢愉、所有的习性、这荒唐无意的生活，连同他自己一并抛洒、清空。",
+      "productionQuoteTextZh": "他如同一个吃得太多、喝得太撑之人，想要将一切在痛苦中呕吐出去，只为换来一丝解脱。他渴望以一场巨大的呕吐，将所有的欢愉、所有的习性、这荒唐无意的生活，连同他自己一并抛洒、清空。",
+      "lengthBucket": "medium",
+      "charLen": 87,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        19
+      ],
+      "legacyTags": [
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 16,
+      "group": "legacy_human_tagged",
+      "bookId": 2,
+      "bookTitleZh": "悉达多",
+      "authorNameZh": "赫尔曼·黑塞",
+      "chapterTitle": null,
+      "textZh": "他深深陷入了轮回之流，四面八方的厌恶与死亡被他吸收殆尽，就像一块吸满了水的海绵。他满是倦怠，满是苦痛，满是死亡。",
+      "productionQuoteTextZh": "他深深陷入了轮回之流，四面八方的厌恶与死亡被他吸收殆尽，就像一块吸满了水的海绵。他满是倦怠，满是苦痛，满是死亡。",
+      "lengthBucket": "medium",
+      "charLen": 56,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        19
+      ],
+      "legacyTags": [
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 24,
+      "group": "legacy_human_tagged",
+      "bookId": 3,
+      "bookTitleZh": "奇特的一生",
+      "authorNameZh": "达尼伊尔·格拉宁",
+      "chapterTitle": null,
+      "textZh": "柳比歇夫的时间酷似物质，从不会了无痕迹地消失，不会平白无故地蒸发，而总能够查明它们变成了什么。借助时间核算，柳比歇夫不断地开采着新的时间。而时间，才是真正的矿藏。",
+      "productionQuoteTextZh": "柳比歇夫的时间酷似物质，从不会了无痕迹地消失，不会平白无故地蒸发，而总能够查明它们变成了什么。借助时间核算，柳比歇夫不断地开采着新的时间。而时间，才是真正的矿藏。",
+      "lengthBucket": "medium",
+      "charLen": 81,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        6,
+        19
+      ],
+      "legacyTags": [
+        {
+          "id": 6,
+          "dimension": "theme",
+          "zh": "时间"
+        },
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 25,
+      "group": "legacy_human_tagged",
+      "bookId": 3,
+      "bookTitleZh": "奇特的一生",
+      "authorNameZh": "达尼伊尔·格拉宁",
+      "chapterTitle": null,
+      "textZh": "儿子的死令他心痛了好多年。他死死地抓住严苛的生活计划，如同冲浪者死死地抓住快艇的绳索。一旦稍有松懈，速度放缓，立刻就会沉入水底。",
+      "productionQuoteTextZh": "儿子的死令他心痛了好多年。他死死地抓住严苛的生活计划，如同冲浪者死死地抓住快艇的绳索。一旦稍有松懈，速度放缓，立刻就会沉入水底。",
+      "lengthBucket": "medium",
+      "charLen": 64,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        19
+      ],
+      "legacyTags": [
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 26,
+      "group": "legacy_human_tagged",
+      "bookId": 3,
+      "bookTitleZh": "奇特的一生",
+      "authorNameZh": "达尼伊尔·格拉宁",
+      "chapterTitle": null,
+      "textZh": "人类对时间总抱有敌意。空间、物质，这些东西都被人驯服了。唯独时间，亘古便野性难驯。自人类眺望宇宙深处以来，便听得到世界时钟数十亿年未曾中断的嘀嗒声；当人类目睹星系的坍塌时，时间似乎变得更加可怕了。",
+      "productionQuoteTextZh": "人类对时间总抱有敌意。空间、物质，这些东西都被人驯服了。唯独时间，亘古便野性难驯。自人类眺望宇宙深处以来，便听得到世界时钟数十亿年未曾中断的嘀嗒声；当人类目睹星系的坍塌时，时间似乎变得更加可怕了。",
+      "lengthBucket": "medium",
+      "charLen": 98,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        6,
+        19,
+        20
+      ],
+      "legacyTags": [
+        {
+          "id": 6,
+          "dimension": "theme",
+          "zh": "时间"
+        },
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        },
+        {
+          "id": 20,
+          "dimension": "device",
+          "zh": "拟人"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 27,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "十月末的一个清晨，就在冷酷无情的漫长秋雨在村子西边干涸龟裂的盐碱地上落下第一粒雨滴前不久（从那之后直到第一次霜冻，臭气熏天的泥沙海洋使逶迤的小径变得无法行走，城市也变得无法靠近）",
+      "productionQuoteTextZh": "十月末的一个清晨，就在冷酷无情的漫长秋雨在村子西边干涸龟裂的盐碱地上落下第一粒雨滴前不久（从那之后直到第一次霜冻，臭气熏天的泥沙海洋使逶迤的小径变得无法行走，城市也变得无法靠近）",
+      "lengthBucket": "medium",
+      "charLen": 89,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        4,
+        22
+      ],
+      "legacyTags": [
+        {
+          "id": 4,
+          "dimension": "scene_time",
+          "zh": "日出"
+        },
+        {
+          "id": 22,
+          "dimension": "device",
+          "zh": "内涵"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 28,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "红肿的旭日射出的第一道曙光投照在一座顶无片瓦、摇摇欲坠的农舍房顶的木梁之间。",
+      "productionQuoteTextZh": "红肿的旭日射出的第一道曙光投照在一座顶无片瓦、摇摇欲坠的农舍房顶的木梁之间。",
+      "lengthBucket": "short",
+      "charLen": 38,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        4,
+        20,
+        22
+      ],
+      "legacyTags": [
+        {
+          "id": 4,
+          "dimension": "scene_time",
+          "zh": "日出"
+        },
+        {
+          "id": 20,
+          "dimension": "device",
+          "zh": "拟人"
+        },
+        {
+          "id": 22,
+          "dimension": "device",
+          "zh": "内涵"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 29,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "时间在他的话语上沉积，凝结，就像胶冻样的藻类凝固在许多世纪的化石里。",
+      "productionQuoteTextZh": "时间在他的话语上沉积，凝结，就像胶冻样的藻类凝固在许多世纪的化石里。",
+      "lengthBucket": "short",
+      "charLen": 34,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        6,
+        19
+      ],
+      "legacyTags": [
+        {
+          "id": 6,
+          "dimension": "theme",
+          "zh": "时间"
+        },
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 30,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "蜿蜒的街道和被积水浸泡、开始下沉的公园顺从地躺在大雨中；光秃的橡树、折断的干花、烧焦的草地谦卑地匍匐在暴风雨里，就像殉难者趴在刽子手脚下。",
+      "productionQuoteTextZh": "蜿蜒的街道和被积水浸泡、开始下沉的公园顺从地躺在大雨中；光秃的橡树、折断的干花、烧焦的草地谦卑地匍匐在暴风雨里，就像殉难者趴在刽子手脚下。",
+      "lengthBucket": "medium",
+      "charLen": 69,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        5,
+        19,
+        20,
+        22,
+        23
+      ],
+      "legacyTags": [
+        {
+          "id": 5,
+          "dimension": "scene_time",
+          "zh": "暴风雨"
+        },
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        },
+        {
+          "id": 20,
+          "dimension": "device",
+          "zh": "拟人"
+        },
+        {
+          "id": 22,
+          "dimension": "device",
+          "zh": "内涵"
+        },
+        {
+          "id": 23,
+          "dimension": "device",
+          "zh": "意象"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 61,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "为了能够通过搅乱气味、味道的正常秩序唤起自己的警觉，因为他相信，与令人绝望的永恒结局相比，死亡更是一种警告。",
+      "productionQuoteTextZh": "为了能够通过搅乱气味、味道的正常秩序唤起自己的警觉，因为他相信，与令人绝望的永恒结局相比，死亡更是一种警告。",
+      "lengthBucket": "medium",
+      "charLen": 54,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        7
+      ],
+      "legacyTags": [
+        {
+          "id": 7,
+          "dimension": "theme",
+          "zh": "痛苦"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 62,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "弗塔基两手颤抖着卷了一支烟，随后从桌子旁站起来，一瘸一拐地走到窗前，他左手拄着拐棍，望着房顶上水花如浪的雨水，望着在风中摇曳的树木，以及光秃的树枝在空中画出的弧线。",
+      "productionQuoteTextZh": "弗塔基两手颤抖着卷了一支烟，随后从桌子旁站起来，一瘸一拐地走到窗前，他左手拄着拐棍，望着房顶上水花如浪的雨水，望着在风中摇曳的树木，以及光秃的树枝在空中画出的弧线。",
+      "lengthBucket": "medium",
+      "charLen": 82,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        5,
+        25
+      ],
+      "legacyTags": [
+        {
+          "id": 5,
+          "dimension": "scene_time",
+          "zh": "暴风雨"
+        },
+        {
+          "id": 25,
+          "dimension": "device",
+          "zh": "动作描写"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 64,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "时间缓慢流逝，让他们觉得幸运的是，闹钟早就不走了，所以没有滴答滴答的声响提醒他们注意时间。",
+      "productionQuoteTextZh": "时间缓慢流逝，让他们觉得幸运的是，闹钟早就不走了，所以没有滴答滴答的声响提醒他们注意时间。",
+      "lengthBucket": "medium",
+      "charLen": 45,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        6
+      ],
+      "legacyTags": [
+        {
+          "id": 6,
+          "dimension": "theme",
+          "zh": "时间"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 67,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "他们清楚地知道日光灯在布满细如发丝、密如蛛网的裂缝的天花板上发出的那令人头疼欲裂的吱吱声和故意摔门发出的永恒回声都意味着什么，知道他们厚重的、钉了月牙形铁掌的皮靴如何火星四溅地咚咚走在高大空旷、贴满瓷砖的走廊里，他们似乎能够猜到身后的灯为什么全都这样昏暗，为什么每个角落看上去都是这般令人倦怠。",
+      "productionQuoteTextZh": "他们清楚地知道日光灯在布满细如发丝、密如蛛网的裂缝的天花板上发出的那令人头疼欲裂的吱吱声和故意摔门发出的永恒回声都意味着什么，知道他们厚重的、钉了月牙形铁掌的皮靴如何火星四溅地咚咚走在高大空旷、贴满瓷砖的走廊里，他们似乎能够猜到身后的灯为什么全都这样昏暗，为什么每个角落看上去都是这般令人倦怠。",
+      "lengthBucket": "long",
+      "charLen": 147,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        22,
+        26
+      ],
+      "legacyTags": [
+        {
+          "id": 22,
+          "dimension": "device",
+          "zh": "内涵"
+        },
+        {
+          "id": 26,
+          "dimension": "device",
+          "zh": "长句描写"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 68,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "度量的根本就不是时间，而是无可奈何的永恒现实，我们跟它之间的关系不过就像树枝跟雨水之间的关系：在它面前我们束手无策。",
+      "productionQuoteTextZh": "度量的根本就不是时间，而是无可奈何的永恒现实，我们跟它之间的关系不过就像树枝跟雨水之间的关系：在它面前我们束手无策。",
+      "lengthBucket": "medium",
+      "charLen": 58,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        6,
+        19,
+        23
+      ],
+      "legacyTags": [
+        {
+          "id": 6,
+          "dimension": "theme",
+          "zh": "时间"
+        },
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        },
+        {
+          "id": 23,
+          "dimension": "device",
+          "zh": "意象"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 69,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "军士突然咬住嘴唇，轻蔑地打量了他们俩一眼，然后仰身靠在椅背上，失神而淡漠，重又成为背后海绵质的密集噪声的一部分；一分钟前，他刚从那片噪声里钻出来，现在又被吸了回去，仿佛被吞回到魔鬼的喉咙里。",
+      "productionQuoteTextZh": "军士突然咬住嘴唇，轻蔑地打量了他们俩一眼，然后仰身靠在椅背上，失神而淡漠，重又成为背后海绵质的密集噪声的一部分；一分钟前，他刚从那片噪声里钻出来，现在又被吸了回去，仿佛被吞回到魔鬼的喉咙里。",
+      "lengthBucket": "medium",
+      "charLen": 95,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        19
+      ],
+      "legacyTags": [
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 70,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "上尉在揉太阳穴，他的脸……仿佛罩上了一层铠甲，泛着金属般幽暗、灰色的光，皮肤下显露出神秘的权势：腐朽复活，从骨髓腔里爬出来，立即充盈到尸体的每个部位，就像活着时那样血脉充盈，随后连最表层的皮肤也战歌高唱地充满了不可战胜的力量。",
+      "productionQuoteTextZh": "上尉在揉太阳穴，他的脸……仿佛罩上了一层铠甲，泛着金属般幽暗、灰色的光，皮肤下显露出神秘的权势：腐朽复活，从骨髓腔里爬出来，立即充盈到尸体的每个部位，就像活着时那样血脉充盈，随后连最表层的皮肤也战歌高唱地充满了不可战胜的力量。",
+      "lengthBucket": "medium",
+      "charLen": 113,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        19,
+        24
+      ],
+      "legacyTags": [
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        },
+        {
+          "id": 24,
+          "dimension": "device",
+          "zh": "外貌描写"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 71,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "原本弧线形的精致鼻子、微微隆起的颧骨、发丝般纤细的皱纹被重新形成的鼻子、颧骨和皱纹所取代，以抹掉与之相关的所有记忆，消除掉他身上过去的影子，以保留在许多年后被从墓穴里掘出的那副样子。",
+      "productionQuoteTextZh": "原本弧线形的精致鼻子、微微隆起的颧骨、发丝般纤细的皱纹被重新形成的鼻子、颧骨和皱纹所取代，以抹掉与之相关的所有记忆，消除掉他身上过去的影子，以保留在许多年后被从墓穴里掘出的那副样子。",
+      "lengthBucket": "medium",
+      "charLen": 91,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        19,
+        24
+      ],
+      "legacyTags": [
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        },
+        {
+          "id": 24,
+          "dimension": "device",
+          "zh": "外貌描写"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 72,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "苦涩、窒闷的臭味跟成团的烟雾混在一起，酸腐的酒气升向被烟熏黑了的天花板。",
+      "productionQuoteTextZh": "苦涩、窒闷的臭味跟成团的烟雾混在一起，酸腐的酒气升向被烟熏黑了的天花板。",
+      "lengthBucket": "short",
+      "charLen": 36,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        22
+      ],
+      "legacyTags": [
+        {
+          "id": 22,
+          "dimension": "device",
+          "zh": "内涵"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 73,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "下水道的臭味跟泥泞、水洼、撕破夜空的闪电的气味混到了一起，风摇撼着电线、瓦片、被弃的鸟巢；透过关不严的矮窗的缝隙，能够感到屋内令人窒息的闷热……",
+      "productionQuoteTextZh": "下水道的臭味跟泥泞、水洼、撕破夜空的闪电的气味混到了一起，风摇撼着电线、瓦片、被弃的鸟巢；透过关不严的矮窗的缝隙，能够感到屋内令人窒息的闷热……",
+      "lengthBucket": "medium",
+      "charLen": 72,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        5,
+        22,
+        23
+      ],
+      "legacyTags": [
+        {
+          "id": 5,
+          "dimension": "scene_time",
+          "zh": "暴风雨"
+        },
+        {
+          "id": 22,
+          "dimension": "device",
+          "zh": "内涵"
+        },
+        {
+          "id": 23,
+          "dimension": "device",
+          "zh": "意象"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 74,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "没有一只鸟在固体般坚实的天空中飞翔，没有动物用窸窣的响动打破像晨雾般在大地上弥漫的寂静，只有一头孤独、受惊的小鹿——仿佛泥沼在呼吸——时而仰头，时而低头，时刻准备着逃离，逃向远方。",
+      "productionQuoteTextZh": "没有一只鸟在固体般坚实的天空中飞翔，没有动物用窸窣的响动打破像晨雾般在大地上弥漫的寂静，只有一头孤独、受惊的小鹿——仿佛泥沼在呼吸——时而仰头，时而低头，时刻准备着逃离，逃向远方。",
+      "lengthBucket": "medium",
+      "charLen": 90,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        8
+      ],
+      "legacyTags": [
+        {
+          "id": 8,
+          "dimension": "theme",
+          "zh": "寂静"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 75,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "伊利米阿什都没有听见，也许他装没听见，他高昂着头，迈着大步走在道路中央，他的鹰钩鼻子和尖下巴像刀一样地劈进了暗夜里。",
+      "productionQuoteTextZh": "伊利米阿什都没有听见，也许他装没听见，他高昂着头，迈着大步走在道路中央，他的鹰钩鼻子和尖下巴像刀一样地劈进了暗夜里。",
+      "lengthBucket": "medium",
+      "charLen": 58,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        19,
+        24
+      ],
+      "legacyTags": [
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        },
+        {
+          "id": 24,
+          "dimension": "device",
+          "zh": "外貌描写"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 76,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "东边，天空以记忆的速度开始发亮，在波浪起伏的地平线上浮现出一抹赤红和一片淡蓝。",
+      "productionQuoteTextZh": "东边，天空以记忆的速度开始发亮，在波浪起伏的地平线上浮现出一抹赤红和一片淡蓝。",
+      "lengthBucket": "short",
+      "charLen": 39,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        4,
+        19
+      ],
+      "legacyTags": [
+        {
+          "id": 4,
+          "dimension": "scene_time",
+          "zh": "日出"
+        },
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 95,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "一根位置放错的火柴或帕林卡酒盅本身就是对造成记忆力衰退的破坏性影响的纪念品。",
+      "productionQuoteTextZh": "一根位置放错的火柴或帕林卡酒盅本身就是对造成记忆力衰退的破坏性影响的纪念品。",
+      "lengthBucket": "short",
+      "charLen": 38,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        9,
+        23
+      ],
+      "legacyTags": [
+        {
+          "id": 9,
+          "dimension": "theme",
+          "zh": "记忆"
+        },
+        {
+          "id": 23,
+          "dimension": "device",
+          "zh": "意象"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 96,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "某种无法解释的深深不安会给他注入一针兴奋剂，杯子或铅笔开始在他的手里抖动，焦虑地在日记本里记下想到的话，随后，又以粗莽、激愤的动作用橡皮擦掉。",
+      "productionQuoteTextZh": "某种无法解释的深深不安会给他注入一针兴奋剂，杯子或铅笔开始在他的手里抖动，焦虑地在日记本里记下想到的话，随后，又以粗莽、激愤的动作用橡皮擦掉。",
+      "lengthBucket": "medium",
+      "charLen": 71,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        10,
+        18,
+        20,
+        25
+      ],
+      "legacyTags": [
+        {
+          "id": 10,
+          "dimension": "theme",
+          "zh": "焦虑"
+        },
+        {
+          "id": 18,
+          "dimension": "theme",
+          "zh": "轮回"
+        },
+        {
+          "id": 20,
+          "dimension": "device",
+          "zh": "拟人"
+        },
+        {
+          "id": 25,
+          "dimension": "device",
+          "zh": "动作描写"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 97,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "克拉奈尔夫人单有一把进屋的钥匙，每次她来，刚一迈腿进屋，就立即能闻到刺鼻的酸臭味，这股气味被吸进她的衣服里，甚至渗透进她的皮肤里，即便她——\"在登门探望医生的日子里\"——每天洗两遍澡也无济于事。",
+      "productionQuoteTextZh": "克拉奈尔夫人单有一把进屋的钥匙，每次她来，刚一迈腿进屋，就立即能闻到刺鼻的酸臭味，这股气味被吸进她的衣服里，甚至渗透进她的皮肤里，即便她——\"在登门探望医生的日子里\"——每天洗两遍澡也无济于事。",
+      "lengthBucket": "medium",
+      "charLen": 97,
+      "dialogueIsh": true,
+      "legacyTagIds": [
+        11,
+        27
+      ],
+      "legacyTags": [
+        {
+          "id": 11,
+          "dimension": "theme",
+          "zh": "衰败"
+        },
+        {
+          "id": 27,
+          "dimension": "device",
+          "zh": "通感"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 98,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "有那么几次，当他在由于黄昏的突然降临而变得昏暗的房间里一样样地审视他那些摆放如意的用品时，会感到一股温暖和些许的满足，他意识到所有的一切都在他的掌控之下，他的掌控力无所不在。",
+      "productionQuoteTextZh": "有那么几次，当他在由于黄昏的突然降临而变得昏暗的房间里一样样地审视他那些摆放如意的用品时，会感到一股温暖和些许的满足，他意识到所有的一切都在他的掌控之下，他的掌控力无所不在。",
+      "lengthBucket": "medium",
+      "charLen": 87,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        1,
+        12
+      ],
+      "legacyTags": [
+        {
+          "id": 1,
+          "dimension": "scene_time",
+          "zh": "黄昏"
+        },
+        {
+          "id": 12,
+          "dimension": "theme",
+          "zh": "掌控"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 99,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "直到他的身体脏器与他解除那份\"能够维持彼此交易关系的协议\"，直到他的肉和骨头遭到死亡与腐烂的秃鹫的攻击。",
+      "productionQuoteTextZh": "直到他的身体脏器与他解除那份\"能够维持彼此交易关系的协议\"，直到他的肉和骨头遭到死亡与腐烂的秃鹫的攻击。",
+      "lengthBucket": "medium",
+      "charLen": 52,
+      "dialogueIsh": true,
+      "legacyTagIds": [
+        13,
+        19,
+        20
+      ],
+      "legacyTags": [
+        {
+          "id": 13,
+          "dimension": "theme",
+          "zh": "死亡"
+        },
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        },
+        {
+          "id": 20,
+          "dimension": "device",
+          "zh": "拟人"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 101,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "他看到自己毫无防卫、无可奈何地像受难者一样站在这个滚动的地球上，他的出生与死亡的弧线脆弱地呈现在惊涛翻卷的大海与雄壮崛起的山峦之间喑哑无声的激战中。",
+      "productionQuoteTextZh": "他看到自己毫无防卫、无可奈何地像受难者一样站在这个滚动的地球上，他的出生与死亡的弧线脆弱地呈现在惊涛翻卷的大海与雄壮崛起的山峦之间喑哑无声的激战中。",
+      "lengthBucket": "medium",
+      "charLen": 74,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        14,
+        19,
+        22,
+        23
+      ],
+      "legacyTags": [
+        {
+          "id": 14,
+          "dimension": "theme",
+          "zh": "命运"
+        },
+        {
+          "id": 19,
+          "dimension": "device",
+          "zh": "隐喻"
+        },
+        {
+          "id": 22,
+          "dimension": "device",
+          "zh": "内涵"
+        },
+        {
+          "id": 23,
+          "dimension": "device",
+          "zh": "意象"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 102,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "因为即便\"最小的噪声，最轻的声响\"——这种时候，就连从他体内传出的心脏、大脑或肠胃运转的细微声响——都会立即引起他的注意。很快，他沉入了焦虑不安的梦乡。",
+      "productionQuoteTextZh": "因为即便\"最小的噪声，最轻的声响\"——这种时候，就连从他体内传出的心脏、大脑或肠胃运转的细微声响——都会立即引起他的注意。很快，他沉入了焦虑不安的梦乡。",
+      "lengthBucket": "medium",
+      "charLen": 76,
+      "dialogueIsh": true,
+      "legacyTagIds": [
+        10,
+        15
+      ],
+      "legacyTags": [
+        {
+          "id": 10,
+          "dimension": "theme",
+          "zh": "焦虑"
+        },
+        {
+          "id": 15,
+          "dimension": "theme",
+          "zh": "敏感"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 105,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "一支庞大的、衣衫褴褛的队伍在一片沙漠般的荒野里蜿蜒前行，在他们身后是一片笼罩在硝烟和火光之中的天塌地陷、千疮百孔的城市废墟，在他们前方有一块巨大、可怕的虚斑。",
+      "productionQuoteTextZh": "一支庞大的、衣衫褴褛的队伍在一片沙漠般的荒野里蜿蜒前行，在他们身后是一片笼罩在硝烟和火光之中的天塌地陷、千疮百孔的城市废墟，在他们前方有一块巨大、可怕的虚斑。",
+      "lengthBucket": "medium",
+      "charLen": 79,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        16,
+        23
+      ],
+      "legacyTags": [
+        {
+          "id": 16,
+          "dimension": "theme",
+          "zh": "末日"
+        },
+        {
+          "id": 23,
+          "dimension": "device",
+          "zh": "意象"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 106,
+      "group": "legacy_human_tagged",
+      "bookId": 4,
+      "bookTitleZh": "撒旦探戈",
+      "authorNameZh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "chapterTitle": null,
+      "textZh": "那样一来，他就不得不应付那些伪装成狡黠、粗俗的问候和寒暄的令人作呕的好奇心。",
+      "productionQuoteTextZh": "那样一来，他就不得不应付那些伪装成狡黠、粗俗的问候和寒暄的令人作呕的好奇心。",
+      "lengthBucket": "short",
+      "charLen": 38,
+      "dialogueIsh": false,
+      "legacyTagIds": [
+        17,
+        20
+      ],
+      "legacyTags": [
+        {
+          "id": 17,
+          "dimension": "theme",
+          "zh": "厌恶"
+        },
+        {
+          "id": 20,
+          "dimension": "device",
+          "zh": "拟人"
+        }
+      ],
+      "personalAnnotation": null,
+      "notes": "Weak human reference tags only — NOT ground truth. EN-only twins excluded from pool."
+    },
+    {
+      "quoteId": 329,
+      "group": "cold_start",
+      "bookId": 8,
+      "bookTitleZh": "你往何处去",
+      "authorNameZh": "亨利克·显克维奇",
+      "chapterTitle": null,
+      "textZh": "就狮子和老虎在撕碎人体上谁胜过谁的问题还发生了争论，甚至形成了两派对立的观点。许多地方都有一些人在互相打赌。有的还谈到了在基督徒出场之前会有一些角斗士来进行比武，对这种比武的看法又分成了好几派，有的欣赏萨姆尼特人的比武，有的爱看高卢人的表演，有的喜欢密尔密隆人、特拉克人和撒网角斗士。",
+      "productionQuoteTextZh": "就狮子和老虎在撕碎人体上谁胜过谁的问题还发生了争论，甚至形成了两派对立的观点。许多地方都有一些人在互相打赌。有的还谈到了在基督徒出场之前会有一些角斗士来进行比武，对这种比武的看法又分成了好几派，有的欣赏萨姆尼特人的比武，有的爱看高卢人的表演，有的喜欢密尔密隆人、特拉克人和撒网角斗士。",
+      "lengthBucket": "long",
+      "charLen": 142,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 527,
+      "group": "cold_start",
+      "bookId": 9,
+      "bookTitleZh": "海伯利安四部曲",
+      "authorNameZh": "丹·西蒙斯",
+      "chapterTitle": null,
+      "textZh": "昨天中午，我和塔克从火焰林的东北角走了出来，那边已经烧成一片灰烬。我们来到一条小溪边，在那儿迅速搭好帐篷，然后呼呼地睡了十八个小时；我们已经三晚没睡，而两个白天则是在火与灰的梦魇中不停赶路，完全没有休息过，现在，得好好补一下了。我们向陡峭的山脊接近，那是森林的终点。",
+      "productionQuoteTextZh": "昨天中午，我和塔克从火焰林的东北角走了出来，那边已经烧成一片灰烬。我们来到一条小溪边，在那儿迅速搭好帐篷，然后呼呼地睡了十八个小时；我们已经三晚没睡，而两个白天则是在火与灰的梦魇中不停赶路，完全没有休息过，现在，得好好补一下了。我们向陡峭的山脊接近，那是森林的终点。",
+      "lengthBucket": "long",
+      "charLen": 133,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 579,
+      "group": "cold_start",
+      "bookId": 10,
+      "bookTitleZh": "瓦尔登湖",
+      "authorNameZh": "亨利·戴维·梭罗",
+      "chapterTitle": null,
+      "textZh": "每天早晨，这个画廊的经理都会拿出几幅新的画作，色彩更加明艳或者更加和谐，用以代替墙上的旧作。",
+      "productionQuoteTextZh": "每天早晨，这个画廊的经理都会拿出几幅新的画作，色彩更加明艳或者更加和谐，用以代替墙上的旧作。",
+      "lengthBucket": "medium",
+      "charLen": 46,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 641,
+      "group": "cold_start",
+      "bookId": 10,
+      "bookTitleZh": "瓦尔登湖",
+      "authorNameZh": "亨利·戴维·梭罗",
+      "chapterTitle": null,
+      "textZh": "我想要开列的生活指南，并不是给坚强勇敢者看的，那些人不管在天堂还是地狱，都能把自己照顾得很好；和最富裕的人比起来，他们盖的楼房可能更华丽，花起钱来可能更豪爽，又不会把自己弄得很穷，而且还不知道他们——假如真有这种人的话——过着的是人们向来梦寐以求的生活；也不是给那些在当前的境况中找到他们的勇气和灵感的人看的，他们怀着恋人般的怜爱和热情，珍惜着此时此刻的生活——从某种程度上来讲，我觉得我也属于这类人；我想说的话，并不是说给那些无论处境如何都能过得很好的人听的，他们知道自己是否过得好；我的话是说给一类为数众多的人听的，那些人满腹牢骚，总是徒劳地抱怨他们的命运或者时代很艰难，其实他们原本是可以去予以改善的。",
+      "productionQuoteTextZh": "我想要开列的生活指南，并不是给坚强勇敢者看的，那些人不管在天堂还是地狱，都能把自己照顾得很好；和最富裕的人比起来，他们盖的楼房可能更华丽，花起钱来可能更豪爽，又不会把自己弄得很穷，而且还不知道他们——假如真有这种人的话——过着的是人们向来梦寐以求的生活；也不是给那些在当前的境况中找到他们的勇气和灵感的人看的，他们怀着恋人般的怜爱和热情，珍惜着此时此刻的生活——从某种程度上来讲，我觉得我也属于这类人；我想说的话，并不是说给那些无论处境如何都能过得很好的人听的，他们知道自己是否过得好；我的话是说给一类为数众多的人听的，那些人满腹牢骚，总是徒劳地抱怨他们的命运或者时代很艰难，其实他们原本是可以去予以改善的。",
+      "lengthBucket": "long",
+      "charLen": 304,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 649,
+      "group": "cold_start",
+      "bookId": 11,
+      "bookTitleZh": "长日将尽（译文经典）",
+      "authorNameZh": "石黑一雄",
+      "chapterTitle": null,
+      "textZh": "‘尊严’云云，其至关紧要的一点即在于一位管家无论何时何地都能坚守其职业生命的能力”​；​“伟大的管家之所以伟大，是由于他们能够化入他们的职业角色，并且是全身心地化入”​。身",
+      "productionQuoteTextZh": "‘尊严’云云，其至关紧要的一点即在于一位管家无论何时何地都能坚守其职业生命的能力”​；​“伟大的管家之所以伟大，是由于他们能够化入他们的职业角色，并且是全身心地化入”​。身",
+      "lengthBucket": "medium",
+      "charLen": 86,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 650,
+      "group": "cold_start",
+      "bookId": 11,
+      "bookTitleZh": "长日将尽（译文经典）",
+      "authorNameZh": "石黑一雄",
+      "chapterTitle": null,
+      "textZh": "日裔英国作家石黑一雄（Kazuo Ishiguro，1954年12月8日— ）因“以其巨大的情感力量，发掘了隐藏在我们与世界的虚幻联系之下的深渊”而荣获二〇一七年度诺贝尔文学奖，瑞典文学院并进而明确指出石黑一雄的文学创作的三个关键词是“时间、记忆与自我欺骗”​。想",
+      "productionQuoteTextZh": "日裔英国作家石黑一雄（Kazuo Ishiguro，1954年12月8日— ）因“以其巨大的情感力量，发掘了隐藏在我们与世界的虚幻联系之下的深渊”而荣获二〇一七年度诺贝尔文学奖，瑞典文学院并进而明确指出石黑一雄的文学创作的三个关键词是“时间、记忆与自我欺骗”​。想",
+      "lengthBucket": "long",
+      "charLen": 132,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 787,
+      "group": "cold_start",
+      "bookId": 12,
+      "bookTitleZh": "局外人（译文经典）",
+      "authorNameZh": "阿尔贝·加缪",
+      "chapterTitle": null,
+      "textZh": "后来，他要去打一局台球，我跟着去差一点儿输了。接着，他又要去逛妓院。我说不，因为我不喜欢。",
+      "productionQuoteTextZh": "后来，他要去打一局台球，我跟着去差一点儿输了。接着，他又要去逛妓院。我说不，因为我不喜欢。",
+      "lengthBucket": "medium",
+      "charLen": 45,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 788,
+      "group": "cold_start",
+      "bookId": 12,
+      "bookTitleZh": "局外人（译文经典）",
+      "authorNameZh": "阿尔贝·加缪",
+      "chapterTitle": null,
+      "textZh": "后来，加缪又在《局外人》英译本的序言中，对这个人物作出一连串的赞词：“他不耍花招，从这个意义上说，他是他所生活的那个社会里的局外人”，“他拒绝说谎……是什么，他就说是什么。他拒绝矫饰自己的感情，于是社会就感到受到了威胁”，“他是穷人，是坦诚的人，喜爱光明正大”，“一个无任何英雄行为而自愿为真理而死的人”。",
+      "productionQuoteTextZh": "后来，加缪又在《局外人》英译本的序言中，对这个人物作出一连串的赞词：“他不耍花招，从这个意义上说，他是他所生活的那个社会里的局外人”，“他拒绝说谎……是什么，他就说是什么。他拒绝矫饰自己的感情，于是社会就感到受到了威胁”，“他是穷人，是坦诚的人，喜爱光明正大”，“一个无任何英雄行为而自愿为真理而死的人”。",
+      "lengthBucket": "long",
+      "charLen": 153,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 869,
+      "group": "cold_start",
+      "bookId": 13,
+      "bookTitleZh": "你一生的故事（译林幻系列）",
+      "authorNameZh": "特德·姜",
+      "chapterTitle": null,
+      "textZh": "美本身不是问题，人们滥用美才是问题。审美干扰镜好就好在这里：它让你对这个问题保持警惕。",
+      "productionQuoteTextZh": "美本身不是问题，人们滥用美才是问题。审美干扰镜好就好在这里：它让你对这个问题保持警惕。",
+      "lengthBucket": "medium",
+      "charLen": 43,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1051,
+      "group": "cold_start",
+      "bookId": 14,
+      "bookTitleZh": "中国历代政治得失",
+      "authorNameZh": "钱穆",
+      "chapterTitle": null,
+      "textZh": "可见任何制度有利亦有弊，并不是我们的传统政治只是专制黑暗，无理性，无法度；却是一切合理性有法度的制度全都该不断改进，不断生长。",
+      "productionQuoteTextZh": "可见任何制度有利亦有弊，并不是我们的传统政治只是专制黑暗，无理性，无法度；却是一切合理性有法度的制度全都该不断改进，不断生长。",
+      "lengthBucket": "medium",
+      "charLen": 63,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1054,
+      "group": "cold_start",
+      "bookId": 14,
+      "bookTitleZh": "中国历代政治得失",
+      "authorNameZh": "钱穆",
+      "chapterTitle": null,
+      "textZh": "唐县分上、中、下三等：六千户以上为上县，六千户以下、三千户以上为中县，三千户以下为下县。汉县仅分二级：万户以上为大县，其长官称“令”。万户以下为二级县，其长官称“长”。可见唐代的县比汉县为小。唐代的州也分上、中、下三级：十万户以上为上州，二万户以上为中州，二万户以下为下州。",
+      "productionQuoteTextZh": "唐县分上、中、下三等：六千户以上为上县，六千户以下、三千户以上为中县，三千户以下为下县。汉县仅分二级：万户以上为大县，其长官称“令”。万户以下为二级县，其长官称“长”。可见唐代的县比汉县为小。唐代的州也分上、中、下三级：十万户以上为上州，二万户以上为中州，二万户以下为下州。",
+      "lengthBucket": "long",
+      "charLen": 137,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1080,
+      "group": "cold_start",
+      "bookId": 15,
+      "bookTitleZh": "本巴（第十一届茅盾文学奖获奖作品）",
+      "authorNameZh": "刘亮程",
+      "chapterTitle": null,
+      "textZh": "“如果说你会失去什么，你只会失去好汉的美名；如果说我会失去什么，我只会失去良驹的名声。除此之外，没有什么别的会失去。",
+      "productionQuoteTextZh": "“如果说你会失去什么，你只会失去好汉的美名；如果说我会失去什么，我只会失去良驹的名声。除此之外，没有什么别的会失去。",
+      "lengthBucket": "medium",
+      "charLen": 58,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1118,
+      "group": "cold_start",
+      "bookId": 16,
+      "bookTitleZh": "冰岛往事.1，狂暴海",
+      "authorNameZh": "约恩·卡尔曼·斯特凡松",
+      "chapterTitle": null,
+      "textZh": "他们听到海尔加的脚步声越来越近，迅速而平静的脚步。有些人走路就是这样，似乎什么都不能让他们失去平衡，似乎他们走什么道路都毫无困难，也有一些人除了犹豫什么都不会。",
+      "productionQuoteTextZh": "他们听到海尔加的脚步声越来越近，迅速而平静的脚步。有些人走路就是这样，似乎什么都不能让他们失去平衡，似乎他们走什么道路都毫无困难，也有一些人除了犹豫什么都不会。",
+      "lengthBucket": "medium",
+      "charLen": 80,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1137,
+      "group": "cold_start",
+      "bookId": 16,
+      "bookTitleZh": "冰岛往事.1，狂暴海",
+      "authorNameZh": "约恩·卡尔曼·斯特凡松",
+      "chapterTitle": null,
+      "textZh": "她问风、问雪，却没有得到回答。它们不需要回答她。风继续吹，它来也匆匆去也匆匆；雪花继续从天上飘落，所以它们才是白色的，样子就像天使的翅膀。上天从不需要解释什么，拱形的天空就高悬在我们头顶，凌驾于我们的生活之上。天空总是那么遥远，不论我们是站在屋顶还是站在山上，都永远无法接近它，哪怕是借助词语或交通工具都没有用。",
+      "productionQuoteTextZh": "她问风、问雪，却没有得到回答。它们不需要回答她。风继续吹，它来也匆匆去也匆匆；雪花继续从天上飘落，所以它们才是白色的，样子就像天使的翅膀。上天从不需要解释什么，拱形的天空就高悬在我们头顶，凌驾于我们的生活之上。天空总是那么遥远，不论我们是站在屋顶还是站在山上，都永远无法接近它，哪怕是借助词语或交通工具都没有用。",
+      "lengthBucket": "long",
+      "charLen": 156,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1150,
+      "group": "cold_start",
+      "bookId": 17,
+      "bookTitleZh": "显克维奇中短篇小说选（人文社外国文学名著经典·网格本）",
+      "authorNameZh": "亨利克·显克维奇",
+      "chapterTitle": null,
+      "textZh": "那少女开始说起话来，声音低得就像莲花的白色花瓣被夏日的和风亲吻时所发出的响声一样。",
+      "productionQuoteTextZh": "那少女开始说起话来，声音低得就像莲花的白色花瓣被夏日的和风亲吻时所发出的响声一样。",
+      "lengthBucket": "medium",
+      "charLen": 41,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1155,
+      "group": "cold_start",
+      "bookId": 17,
+      "bookTitleZh": "显克维奇中短篇小说选（人文社外国文学名著经典·网格本）",
+      "authorNameZh": "亨利克·显克维奇",
+      "chapterTitle": null,
+      "textZh": "那时候他第一次看见了意大利、罗马、西西里岛、大海、非洲海岸，但是任何印象都不能抹去他心中对所爱女人的思念。无论是在佛罗伦萨和罗马的画廊里，还是在大海或沙漠中，她都是在伴随着他的，他总是通过她来感受那一切的，他到处对她说“你看”，仿佛她就在他面前似的。",
+      "productionQuoteTextZh": "那时候他第一次看见了意大利、罗马、西西里岛、大海、非洲海岸，但是任何印象都不能抹去他心中对所爱女人的思念。无论是在佛罗伦萨和罗马的画廊里，还是在大海或沙漠中，她都是在伴随着他的，他总是通过她来感受那一切的，他到处对她说“你看”，仿佛她就在他面前似的。",
+      "lengthBucket": "long",
+      "charLen": 125,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1210,
+      "group": "cold_start",
+      "bookId": 18,
+      "bookTitleZh": "一个叫欧维的男人决定去死（同名电影原著）",
+      "authorNameZh": "弗雷德里克·巴克曼",
+      "chapterTitle": null,
+      "textZh": "帕尔瓦娜的女儿又过生日了，不等人解释究竟是怎么回事儿，三岁女孩已经变成了六岁女孩。就像所有没大没小的三岁女孩一样。",
+      "productionQuoteTextZh": "帕尔瓦娜的女儿又过生日了，不等人解释究竟是怎么回事儿，三岁女孩已经变成了六岁女孩。就像所有没大没小的三岁女孩一样。",
+      "lengthBucket": "medium",
+      "charLen": 57,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1212,
+      "group": "cold_start",
+      "bookId": 18,
+      "bookTitleZh": "一个叫欧维的男人决定去死（同名电影原著）",
+      "authorNameZh": "弗雷德里克·巴克曼",
+      "chapterTitle": null,
+      "textZh": "死亡是一桩奇怪的事情。人们终其一生都在假装它并不存在，尽管这是生命的最大动机之一。我们其中一些人有足够时间认识死亡，他们得以活得更努力、更执着、更壮烈。有些人却要等到它真正逼近时才意识到它的反义词有多美好。另一些人深受其困扰，在它宣布到来之前就早早地坐进等候室。我们害怕它，但我们更害怕它发生在身边的人身上。对死亡最大的恐惧，在于它与我们擦肩而过，留下我们独自一人。",
+      "productionQuoteTextZh": "死亡是一桩奇怪的事情。人们终其一生都在假装它并不存在，尽管这是生命的最大动机之一。我们其中一些人有足够时间认识死亡，他们得以活得更努力、更执着、更壮烈。有些人却要等到它真正逼近时才意识到它的反义词有多美好。另一些人深受其困扰，在它宣布到来之前就早早地坐进等候室。我们害怕它，但我们更害怕它发生在身边的人身上。对死亡最大的恐惧，在于它与我们擦肩而过，留下我们独自一人。",
+      "lengthBucket": "long",
+      "charLen": 183,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1244,
+      "group": "cold_start",
+      "bookId": 19,
+      "bookTitleZh": "荒原狼（果麦经典）",
+      "authorNameZh": "赫尔曼·黑塞",
+      "chapterTitle": null,
+      "textZh": "这邪恶的金属漏斗果然喷出嚼烂的橡胶和支气管黏液的混合物，喷出留声机的拥有者和收音机用户们齐声称为“音乐”的东西",
+      "productionQuoteTextZh": "这邪恶的金属漏斗果然喷出嚼烂的橡胶和支气管黏液的混合物，喷出留声机的拥有者和收音机用户们齐声称为“音乐”的东西",
+      "lengthBucket": "medium",
+      "charLen": 55,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1273,
+      "group": "cold_start",
+      "bookId": 19,
+      "bookTitleZh": "荒原狼（果麦经典）",
+      "authorNameZh": "赫尔曼·黑塞",
+      "chapterTitle": null,
+      "textZh": "浮士德曾说过一句教师们十分熟悉，庸人们分外赞赏的话：“啊，我胸中住着两个灵魂！”但他忘了，他胸中还住着梅菲斯特和一大群其他灵魂。我们的荒原狼也认为他胸中住着两个灵魂（狼和人），还认为他的胸膛因此拥挤不堪。一个人的胸膛、身躯向来只有一个，但居住其中的，却绝不止两个或五个灵魂，而是无数个灵魂。",
+      "productionQuoteTextZh": "浮士德曾说过一句教师们十分熟悉，庸人们分外赞赏的话：“啊，我胸中住着两个灵魂！”但他忘了，他胸中还住着梅菲斯特和一大群其他灵魂。我们的荒原狼也认为他胸中住着两个灵魂（狼和人），还认为他的胸膛因此拥挤不堪。一个人的胸膛、身躯向来只有一个，但居住其中的，却绝不止两个或五个灵魂，而是无数个灵魂。",
+      "lengthBucket": "long",
+      "charLen": 145,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 2,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1288,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "恋人和诗人对爱的力量怀有永恒的信念，认为它比死亡还要持久，但那句千百年来一直缠着我们不放的“生命虽尽，爱犹未尽”，实际上不过是一句谎言。这句谎言只是徒劳无益，并非荒唐可笑。",
+      "productionQuoteTextZh": "恋人和诗人对爱的力量怀有永恒的信念，认为它比死亡还要持久，但那句千百年来一直缠着我们不放的“生命虽尽，爱犹未尽”，实际上不过是一句谎言。这句谎言只是徒劳无益，并非荒唐可笑。",
+      "lengthBucket": "medium",
+      "charLen": 86,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1289,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "每当我醒来时，我总是有一种反常的感觉，就好像梦里的情景才是真实的现实世界，而我睁开眼时所看到的只不过是它干瘪的影子。",
+      "productionQuoteTextZh": "每当我醒来时，我总是有一种反常的感觉，就好像梦里的情景才是真实的现实世界，而我睁开眼时所看到的只不过是它干瘪的影子。",
+      "lengthBucket": "medium",
+      "charLen": 58,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1290,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "当所有可研究的东西都被研究完了的时候，教条主义和学术僵化就会接踵而至。",
+      "productionQuoteTextZh": "当所有可研究的东西都被研究完了的时候，教条主义和学术僵化就会接踵而至。",
+      "lengthBucket": "short",
+      "charLen": 35,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1291,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "在一片漠不关心、停滞不前、灰心丧气的氛围中，一篇篇无用的印刷文献似乎泛滥成了第二个海洋，正好和索拉里斯的海洋做伴。",
+      "productionQuoteTextZh": "在一片漠不关心、停滞不前、灰心丧气的氛围中，一篇篇无用的印刷文献似乎泛滥成了第二个海洋，正好和索拉里斯的海洋做伴。",
+      "lengthBucket": "medium",
+      "charLen": 57,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1292,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "能力非凡且个性坚强的人降生的频率多少是恒定的，只是他们的选择不均匀。",
+      "productionQuoteTextZh": "能力非凡且个性坚强的人降生的频率多少是恒定的，只是他们的选择不均匀。",
+      "lengthBucket": "short",
+      "charLen": 34,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1293,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "我浏览了一下按字母顺序排列的作者索引，读起来就像是一份阵亡人员名单——里面已经没几个还活着的了，而且据我所知，没有一个仍活跃在索拉里斯学领域里。",
+      "productionQuoteTextZh": "我浏览了一下按字母顺序排列的作者索引，读起来就像是一份阵亡人员名单——里面已经没几个还活着的了，而且据我所知，没有一个仍活跃在索拉里斯学领域里。",
+      "lengthBucket": "medium",
+      "charLen": 72,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1294,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "沉重的海洋波浪起伏，好似一片无边无际的黑色平原，海面上闪烁着一种柔和的暗紫色反光，就像是对天空中柔和光晕的回应，只有天顶还是一片铁锈红。",
+      "productionQuoteTextZh": "沉重的海洋波浪起伏，好似一片无边无际的黑色平原，海面上闪烁着一种柔和的暗紫色反光，就像是对天空中柔和光晕的回应，只有天顶还是一片铁锈红。",
+      "lengthBucket": "medium",
+      "charLen": 68,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1295,
+      "group": "annotation_relevant",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "上层走廊高高的窗户上是一幅格外美丽的日落景象。它不是通常那种好似肿胀的阴郁的红色，而是一片朦胧闪亮、色调各异的粉红色，上面似乎撒满了一粒粒纯净无比的银子。",
+      "productionQuoteTextZh": "上层走廊高高的窗户上是一幅格外美丽的日落景象。它不是通常那种好似肿胀的阴郁的红色，而是一片朦胧闪亮、色调各异的粉红色，上面似乎撒满了一粒粒纯净无比的银子。",
+      "literarySource": "production_quote_zh",
+      "lengthBucket": "medium",
+      "charLen": 77,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": {
+        "content": "这不是…而是…放在今天要被举报是AI写的了",
+        "source": "import_item_review_matched",
+        "importItemId": 29,
+        "externalId": "weread:review:335636284_8bKASFeXb",
+        "libraryEntryId": 2060,
+        "association": "matched_highlight",
+        "originalContent": "这不是…而是…放在今天要被举报是AI写的了"
+      },
+      "notes": "Research-time reconstruction from import_items.raw_payload. No personal_annotations backfill. Production records untouched."
+    },
+    {
+      "quoteId": 1296,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "我就像一座没有灯光照明的灰色舞台，空荡荡的舞台四周是一群看不见的观众，他们像圆形剧场似的围成一圈，剧场中央一片寂静",
+      "productionQuoteTextZh": "我就像一座没有灯光照明的灰色舞台，空荡荡的舞台四周是一群看不见的观众，他们像圆形剧场似的围成一圈，剧场中央一片寂静",
+      "lengthBucket": "medium",
+      "charLen": 57,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1297,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "仿佛值得尊敬的做法就是硬着头皮往前走，陷入一片泥潭，在你不理解而且永远都不会理解的东西里活活淹死。”",
+      "productionQuoteTextZh": "仿佛值得尊敬的做法就是硬着头皮往前走，陷入一片泥潭，在你不理解而且永远都不会理解的东西里活活淹死。”",
+      "lengthBucket": "medium",
+      "charLen": 50,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1298,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "我一动不动地站在那里，凝视着渐黑的天空，凝视着满天的星斗，它们就好像地球上群星的鬼影。",
+      "productionQuoteTextZh": "我一动不动地站在那里，凝视着渐黑的天空，凝视着满天的星斗，它们就好像地球上群星的鬼影。",
+      "lengthBucket": "medium",
+      "charLen": 43,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1300,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "这么说她爱你，而你是想要爱她。这不是一回事。”",
+      "productionQuoteTextZh": "这么说她爱你，而你是想要爱她。这不是一回事。”",
+      "lengthBucket": "short",
+      "charLen": 23,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1303,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "红色太阳就在他身后，一道道紫红色的光芒好像正在从他花白的头发上放射出来。",
+      "productionQuoteTextZh": "红色太阳就在他身后，一道道紫红色的光芒好像正在从他花白的头发上放射出来。",
+      "lengthBucket": "short",
+      "charLen": 36,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1304,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "头顶上的通风口一会儿嗡嗡作响，一会儿悄然无声，就像一只拍打着翅膀的飞蛾。",
+      "productionQuoteTextZh": "头顶上的通风口一会儿嗡嗡作响，一会儿悄然无声，就像一只拍打着翅膀的飞蛾。",
+      "lengthBucket": "short",
+      "charLen": 36,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1308,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "毕竟在这种偏远的前哨基地里，也的确曾经发生过集体性神经病的案例……",
+      "productionQuoteTextZh": "毕竟在这种偏远的前哨基地里，也的确曾经发生过集体性神经病的案例……",
+      "lengthBucket": "short",
+      "charLen": 33,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1311,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "舱外响起了一种轻微而尖利的吱吱声，就像金属划在湿玻璃上的声音。",
+      "productionQuoteTextZh": "舱外响起了一种轻微而尖利的吱吱声，就像金属划在湿玻璃上的声音。",
+      "lengthBucket": "short",
+      "charLen": 31,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1313,
+      "group": "cold_start",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "我什么时候起飞？”我问道，一边听到一种沙沙的响声，就好像细沙落在膜片上的声音。",
+      "productionQuoteTextZh": "我什么时候起飞？”我问道，一边听到一种沙沙的响声，就好像细沙落在膜片上的声音。",
+      "lengthBucket": "short",
+      "charLen": 39,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1314,
+      "group": "annotation_relevant",
+      "bookId": 20,
+      "bookTitleZh": "索拉里斯星（译林幻系列）",
+      "authorNameZh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "chapterTitle": null,
+      "textZh": "2021年波兰“斯坦尼斯瓦夫·莱姆年”",
+      "productionQuoteTextZh": "我真以为书的开头就是“致华语读者”",
+      "literarySource": "import_item_abstract",
+      "lengthBucket": "short",
+      "charLen": 19,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": {
+        "content": "我真以为书的开头就是“致华语读者”",
+        "source": "import_item_review_orphan",
+        "importItemId": 30,
+        "externalId": "weread:review:335636284_8btDBgvsj",
+        "libraryEntryId": 2079,
+        "association": "orphan_review_quote",
+        "originalContent": "我真以为书的开头就是“致华语读者”"
+      },
+      "notes": "Research-time reconstruction from import_items.raw_payload. No personal_annotations backfill. Production records untouched."
+    },
+    {
+      "quoteId": 1315,
+      "group": "cold_start",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "古时候小说结尾只有两种：男女主人公经受磨难，要么结为夫妻，要么双双死去。一切小说最终的涵义都包括这两个方面：生命在继续，死亡不可避免。",
+      "productionQuoteTextZh": "古时候小说结尾只有两种：男女主人公经受磨难，要么结为夫妻，要么双双死去。一切小说最终的涵义都包括这两个方面：生命在继续，死亡不可避免。",
+      "lengthBucket": "medium",
+      "charLen": 67,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1316,
+      "group": "cold_start",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "读书是无目的的行为，或者说读书的目的就是读书，书本身不过是个不重要的载体，是个借口。",
+      "productionQuoteTextZh": "读书是无目的的行为，或者说读书的目的就是读书，书本身不过是个不重要的载体，是个借口。",
+      "lengthBucket": "medium",
+      "charLen": 42,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1317,
+      "group": "cold_start",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "书是一种点状的、粉末状的物质。在洋洋洒洒的文字之中，读者只能注意到最小的片断、词组、譬喻、句法联系、逻辑关系，以及具有丰富涵义的词汇特点。这些东西好比构成作品核心的基本粒子",
+      "productionQuoteTextZh": "书是一种点状的、粉末状的物质。在洋洋洒洒的文字之中，读者只能注意到最小的片断、词组、譬喻、句法联系、逻辑关系，以及具有丰富涵义的词汇特点。这些东西好比构成作品核心的基本粒子",
+      "lengthBucket": "medium",
+      "charLen": 86,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1318,
+      "group": "cold_start",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "在这条不存在任何东西却继续被称为大街的狭长地带的尽头，一个穿着浅色裘皮外衣的瘦小身影慢慢走过来。是弗兰齐斯卡！",
+      "productionQuoteTextZh": "在这条不存在任何东西却继续被称为大街的狭长地带的尽头，一个穿着浅色裘皮外衣的瘦小身影慢慢走过来。是弗兰齐斯卡！",
+      "lengthBucket": "medium",
+      "charLen": 55,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1319,
+      "group": "cold_start",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "从我的视野里驱除一切身穿她上次穿过的浅色裘皮外衣的年轻姑娘，以便我远远看见她时相信是她，不至于使我产生误会或失望",
+      "productionQuoteTextZh": "从我的视野里驱除一切身穿她上次穿过的浅色裘皮外衣的年轻姑娘，以便我远远看见她时相信是她，不至于使我产生误会或失望",
+      "lengthBucket": "medium",
+      "charLen": 56,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1320,
+      "group": "cold_start",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "我沿着这座城市最宽的街道漫步，并决定把我不想考虑的东西从头脑里抹去。",
+      "productionQuoteTextZh": "我沿着这座城市最宽的街道漫步，并决定把我不想考虑的东西从头脑里抹去。",
+      "lengthBucket": "short",
+      "charLen": 34,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1321,
+      "group": "cold_start",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "“是这本书：它要在世界毁灭之后才赋予世界以意义；它赋予世界的意义是：世界即是世界上一切事物的毁灭，世界上唯一存在的事物就是世界的毁灭。”",
+      "productionQuoteTextZh": "“是这本书：它要在世界毁灭之后才赋予世界以意义；它赋予世界的意义是：世界即是世界上一切事物的毁灭，世界上唯一存在的事物就是世界的毁灭。”",
+      "lengthBucket": "medium",
+      "charLen": 68,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1322,
+      "group": "cold_start",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "至于他的观点，他则希望证明文字背后是空虚，世界仅仅存在于伪造、假冒、误解与谎言之中。",
+      "productionQuoteTextZh": "至于他的观点，他则希望证明文字背后是空虚，世界仅仅存在于伪造、假冒、误解与谎言之中。",
+      "lengthBucket": "medium",
+      "charLen": 42,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1323,
+      "group": "cold_start",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "阅读就是抛弃自己的一切意图与偏见，随时准备接收突如其来且不知来自何方的声音。",
+      "productionQuoteTextZh": "阅读就是抛弃自己的一切意图与偏见，随时准备接收突如其来且不知来自何方的声音。",
+      "lengthBucket": "short",
+      "charLen": 38,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1329,
+      "group": "cold_start",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "正如在音乐中那样，寂静的背景是使每个音符突出出来的必要条件。",
+      "productionQuoteTextZh": "正如在音乐中那样，寂静的背景是使每个音符突出出来的必要条件。",
+      "lengthBucket": "short",
+      "charLen": 30,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1332,
+      "group": "cold_start",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "凡是阴谋最后都会摆脱首领的控制。”她含糊其辞地回答说。",
+      "productionQuoteTextZh": "凡是阴谋最后都会摆脱首领的控制。”她含糊其辞地回答说。",
+      "lengthBucket": "short",
+      "charLen": 27,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1335,
+      "group": "cold_start",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "她认为文学的真实性在于写作这一行为的生理属性。",
+      "productionQuoteTextZh": "她认为文学的真实性在于写作这一行为的生理属性。",
+      "lengthBucket": "short",
+      "charLen": 23,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1338,
+      "group": "annotation_relevant",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "“柳德米拉认为，最好不要认识作者本人，因为真实的人从来不会与读书时想像的作者形象吻合。”",
+      "productionQuoteTextZh": "“柳德米拉认为，最好不要认识作者本人，因为真实的人从来不会与读书时想像的作者形象吻合。”",
+      "literarySource": "production_quote_zh",
+      "lengthBucket": "medium",
+      "charLen": 44,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": {
+        "content": "首先想到的是余华，生活中居然是一位慈眉善目笑颜常在的人",
+        "source": "import_item_review_matched",
+        "importItemId": 117,
+        "externalId": "weread:review:335636284_8b7VRrDiu",
+        "libraryEntryId": 2103,
+        "association": "matched_highlight",
+        "originalContent": "首先想到的是余华，生活中居然是一位慈眉善目笑颜常在的人"
+      },
+      "notes": "Research-time reconstruction from import_items.raw_payload. No personal_annotations backfill. Production records untouched."
+    },
+    {
+      "quoteId": 1339,
+      "group": "cold_start",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "她读那些小说的目的是为了找寻她阅读之前就存在于她脑子里的东西。",
+      "productionQuoteTextZh": "她读那些小说的目的是为了找寻她阅读之前就存在于她脑子里的东西。",
+      "lengthBucket": "short",
+      "charLen": 31,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1341,
+      "group": "cold_start",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "回忆只有在没有写出来的时候、没有具体形式的时候才是完全真实的。",
+      "productionQuoteTextZh": "回忆只有在没有写出来的时候、没有具体形式的时候才是完全真实的。",
+      "lengthBucket": "short",
+      "charLen": 31,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": null,
+      "importId": 3,
+      "notes": "No useful tag/annotation context. Cold-start free→reconcile."
+    },
+    {
+      "quoteId": 1376,
+      "group": "annotation_relevant",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "她长得尖嘴猴腮，脸上戴着一副深度近视眼镜，拳曲的头发梳成一条大辫子，脖子显得很长，上身穿件肥大的衬衣，下身穿条紧身裤。",
+      "productionQuoteTextZh": "她长得尖嘴猴腮，脸上戴着一副深度近视眼镜，拳曲的头发梳成一条大辫子，脖子显得很长，上身穿件肥大的衬衣，下身穿条紧身裤。",
+      "literarySource": "production_quote_zh",
+      "lengthBucket": "medium",
+      "charLen": 59,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": {
+        "content": "罗塔莉娅",
+        "source": "import_item_review_matched",
+        "importItemId": 119,
+        "externalId": "weread:review:335636284_8aXeFTvL3",
+        "libraryEntryId": 2141,
+        "association": "matched_highlight",
+        "originalContent": "罗塔莉娅"
+      },
+      "notes": "Research-time reconstruction from import_items.raw_payload. No personal_annotations backfill. Production records untouched."
+    },
+    {
+      "quoteId": 1400,
+      "group": "annotation_relevant",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "你为了寻找那些小说离开这座城市，走遍世界，最后又回到这里。",
+      "productionQuoteTextZh": "有种世界终于被重新搭建的感觉，在一片虚无中被图书馆这个具体的意象重新包裹，接下来就要到达旅途的终点了",
+      "literarySource": "import_item_abstract",
+      "lengthBucket": "short",
+      "charLen": 29,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": {
+        "content": "有种世界终于被重新搭建的感觉，在一片虚无中被图书馆这个具体的意象重新包裹，接下来就要到达旅途的终点了",
+        "source": "import_item_review_orphan",
+        "importItemId": 116,
+        "externalId": "weread:review:335636284_8beBZRJy9",
+        "libraryEntryId": 2165,
+        "association": "orphan_review_quote",
+        "originalContent": "有种世界终于被重新搭建的感觉，在一片虚无中被图书馆这个具体的意象重新包裹，接下来就要到达旅途的终点了"
+      },
+      "notes": "Research-time reconstruction from import_items.raw_payload. No personal_annotations backfill. Production records untouched."
+    },
+    {
+      "quoteId": 1401,
+      "group": "annotation_relevant",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "通过观察你的厨房可以得到这样的印象：你是个聪明、敏感，很有条理却不善料理家务的女性，让实用性服务于幻想。",
+      "productionQuoteTextZh": "柳德米拉",
+      "literarySource": "import_item_abstract",
+      "lengthBucket": "medium",
+      "charLen": 52,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": {
+        "content": "柳德米拉",
+        "source": "import_item_review_orphan",
+        "importItemId": 118,
+        "externalId": "weread:review:335636284_8b3jM9Ofn",
+        "libraryEntryId": 2166,
+        "association": "orphan_review_quote",
+        "originalContent": "柳德米拉"
+      },
+      "notes": "Research-time reconstruction from import_items.raw_payload. No personal_annotations backfill. Production records untouched."
+    },
+    {
+      "quoteId": 1402,
+      "group": "annotation_relevant",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "齐—图齐翻译得非常自如了，犹如鱼儿在水中游泳：他划着手，犹如鱼儿摇晃着鳍；他的嘴唇一张一合，使得他的话语像小汽泡一般冒出；他的目光一行行扫过书页，仿佛鱼儿观察海底，或者像游人观赏水族馆中鱼儿在灯光照明的鱼缸中游动。",
+      "productionQuoteTextZh": "乌齐图齐",
+      "literarySource": "import_item_abstract",
+      "lengthBucket": "medium",
+      "charLen": 107,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": {
+        "content": "乌齐图齐",
+        "source": "import_item_review_orphan",
+        "importItemId": 120,
+        "externalId": "weread:review:335636284_8aXe8Kg9U",
+        "libraryEntryId": 2167,
+        "association": "orphan_review_quote",
+        "originalContent": "乌齐图齐"
+      },
+      "notes": "Research-time reconstruction from import_items.raw_payload. No personal_annotations backfill. Production records untouched."
+    },
+    {
+      "quoteId": 1403,
+      "group": "annotation_relevant",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "一个满脸胡须、身穿又脏又破的衣服、被雨水淋透了的男子蜷缩在平台的台阶与棚子的支柱之间。他那双明亮的眼睛正望着我。",
+      "productionQuoteTextZh": "逃犯",
+      "literarySource": "import_item_abstract",
+      "lengthBucket": "medium",
+      "charLen": 56,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": {
+        "content": "逃犯",
+        "source": "import_item_review_orphan",
+        "importItemId": 121,
+        "externalId": "weread:review:335636284_8aVJfQr6d",
+        "libraryEntryId": 2168,
+        "association": "orphan_review_quote",
+        "originalContent": "逃犯"
+      },
+      "notes": "Research-time reconstruction from import_items.raw_payload. No personal_annotations backfill. Production records untouched."
+    },
+    {
+      "quoteId": 1404,
+      "group": "annotation_relevant",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "他身穿一件长外套和一条法国轻骑兵式马裤，都呈灰色或者黑白相间的小方格，连他戴的帽子也是这种颜色。",
+      "productionQuoteTextZh": "考德雷尔先生",
+      "literarySource": "import_item_abstract",
+      "lengthBucket": "medium",
+      "charLen": 48,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": {
+        "content": "考德雷尔先生",
+        "source": "import_item_review_orphan",
+        "importItemId": 122,
+        "externalId": "weread:review:335636284_8aUcSUVXt",
+        "libraryEntryId": 2169,
+        "association": "orphan_review_quote",
+        "originalContent": "考德雷尔先生"
+      },
+      "notes": "Research-time reconstruction from import_items.raw_payload. No personal_annotations backfill. Production records untouched."
+    },
+    {
+      "quoteId": 1405,
+      "group": "annotation_relevant",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "他一个鲤鱼跳龙门的动作，准确地跳到某个书架某一点附近，抓出一本普普通通的绿皮书，然后拍拍上面的尘土。",
+      "productionQuoteTextZh": "乌齐图齐教授",
+      "literarySource": "import_item_abstract",
+      "lengthBucket": "medium",
+      "charLen": 50,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": {
+        "content": "乌齐图齐教授",
+        "source": "import_item_review_orphan",
+        "importItemId": 123,
+        "externalId": "weread:review:335636284_8aUbWX0l1",
+        "libraryEntryId": 2170,
+        "association": "orphan_review_quote",
+        "originalContent": "乌齐图齐教授"
+      },
+      "notes": "Research-time reconstruction from import_items.raw_payload. No personal_annotations backfill. Production records untouched."
+    },
+    {
+      "quoteId": 1406,
+      "group": "annotation_relevant",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "这个房间很窄小，墙边都摆满了书架，还有个书架无处摆放，放在房间当中，把这斗室分成两个面积相等的小间。",
+      "productionQuoteTextZh": "环境",
+      "literarySource": "import_item_abstract",
+      "lengthBucket": "medium",
+      "charLen": 50,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": {
+        "content": "环境",
+        "source": "import_item_review_orphan",
+        "importItemId": 124,
+        "externalId": "weread:review:335636284_8aU9rblCP",
+        "libraryEntryId": 2171,
+        "association": "orphan_review_quote",
+        "originalContent": "环境"
+      },
+      "notes": "Research-time reconstruction from import_items.raw_payload. No personal_annotations backfill. Production records untouched."
+    },
+    {
+      "quoteId": 1407,
+      "group": "annotation_relevant",
+      "bookId": 5,
+      "bookTitleZh": "如果在冬夜，一个旅人",
+      "authorNameZh": "伊塔洛·卡尔维诺",
+      "chapterTitle": null,
+      "textZh": "你觉得帽檐下面这双眼睛的眼神不可能是个粉刷工人的眼神，因为这双眼睛仿佛是要飞越绝壁的人的眼睛：想着彼岸，凝视前方，既不向下看亦不向两侧看。",
+      "productionQuoteTextZh": "乌齐图齐教授",
+      "literarySource": "import_item_abstract",
+      "lengthBucket": "medium",
+      "charLen": 69,
+      "dialogueIsh": false,
+      "legacyTagIds": [],
+      "legacyTags": [],
+      "personalAnnotation": {
+        "content": "乌齐图齐教授",
+        "source": "import_item_review_orphan",
+        "importItemId": 125,
+        "externalId": "weread:review:335636284_8aU9ep9l1",
+        "libraryEntryId": 2172,
+        "association": "orphan_review_quote",
+        "originalContent": "乌齐图齐教授"
+      },
+      "notes": "Research-time reconstruction from import_items.raw_payload. No personal_annotations backfill. Production records untouched."
+    }
+  ]
+}

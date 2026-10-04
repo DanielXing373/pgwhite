@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pgwhite://research/annotation-workbench/schemas/llm-free-concepts.v1.json",
+  "title": "LLM free literary concepts (Workbench v1)",
+  "description": "Structured output for prompt zh-literary-rich-v1. Taxonomy must NOT be visible to the LLM at this stage.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "themes", "devices", "annotation_interpretation"],
+  "properties": {
+    "schema_version": {
+      "type": "string",
+      "const": "llm-free-concepts.v1"
+    },
+    "themes": {
+      "type": "array",
+      "description": "Soft target usually 3–5 useful theme concepts; fewer or more allowed when justified. No filler.",
+      "items": { "$ref": "#/$defs/concept" }
+    },
+    "devices": {
+      "type": "array",
+      "description": "Soft target usually 0–3 useful rhetorical/device concepts; empty array is valid.",
+      "items": { "$ref": "#/$defs/concept" }
+    },
+    "annotation_interpretation": {
+      "description": "null when no personal annotation was provided in the prompt.",
+      "anyOf": [
+        { "type": "null" },
+        { "$ref": "annotation-interpretation.v1.json" }
+      ]
+    },
+    "notes": {
+      "type": "string",
+      "description": "Optional short research note from the model; not shown as a user-facing tag."
+    }
+  },
+  "$defs": {
+    "concept": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "brief_rationale"],
+      "properties": {
+        "label": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 40,
+          "description": "Short Chinese literary concept label (not a canonical tag id)."
+        },
+        "brief_rationale": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200,
+          "description": "One-sentence Chinese rationale grounded in the Quote and/or annotation evidence."
+        }
+      }
+    }
+  }
+}
