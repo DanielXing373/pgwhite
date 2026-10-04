@@ -1,0 +1,38 @@
+{
+  "schema_version": "retrieval-benchmark.v1",
+  "benchmark_version": "synthetic-smoke.v1",
+  "created_at": "2026-10-04T21:00:00.000Z",
+  "research_only": true,
+  "notes": [
+    "Tiny synthetic fixture for runner infrastructure tests only.",
+    "NOT the real 20–30 Quote calibration set.",
+    "NOT ground truth from GPT free-concepts or legacy production tags."
+  ],
+  "quotes": [
+    {
+      "quote_id": "synth-001",
+      "text_zh": "童年的回忆渐渐模糊，只剩下淡淡的悲伤。",
+      "source": "synthetic",
+      "category": "smoke",
+      "expected_theme_labels": ["记忆", "悲伤", "童年"],
+      "notes": "Contains 回忆 (alias of 记忆) and 悲伤 (canonical)."
+    },
+    {
+      "quote_id": "synth-002",
+      "text_zh": "他终于承认了对死亡的恐惧，却说不出口。",
+      "source": "synthetic",
+      "category": "smoke",
+      "expected_theme_labels": ["死亡", "恐惧"],
+      "notes": "Canonical labels appear as substrings."
+    },
+    {
+      "quote_id": "synth-003",
+      "text_zh": "窗外下着雨，没有明显主题词。",
+      "source": "synthetic",
+      "category": "smoke",
+      "expected_theme_labels": [],
+      "ambiguity_flags": ["no_expected_tags"],
+      "notes": "Unevaluated / empty expected set — metrics skip this Quote."
+    }
+  ]
+}

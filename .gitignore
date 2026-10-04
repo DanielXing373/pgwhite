@@ -50,5 +50,17 @@ research/annotation-workbench/fixtures/audit-snapshot.json
 # Keep committed mock examples; ignore other generated snapshots if re-exported locally
 !research/annotation-workbench/fixtures/examples/
 
+
+# Retrieval benchmark: keep small committed runs; ignore local heavy caches only
+research/retrieval/.cache/
+research/retrieval/**/__pycache__/
+research/retrieval/**/*.npy
+research/retrieval/**/*.pt
+research/retrieval/**/*.pth
+research/retrieval/**/*.safetensors
+research/retrieval/**/.venv/
+research/retrieval/**/venv/
+
+
 长日将尽笔记.txt
 outdated_import_example.txt

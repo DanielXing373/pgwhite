@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pgwhite.local/research/retrieval/schemas/retrieval-run.v1.json",
+  "title": "PGWhite retrieval experiment run artifact (research)",
+  "type": "object",
+  "required": ["schema_version", "run_id", "config", "results"],
+  "properties": {
+    "schema_version": { "const": "retrieval-run.v1" },
+    "run_id": { "type": "string" },
+    "created_at": { "type": "string" },
+    "git_commit_sha": { "type": ["string", "null"] },
+    "tag_library_version": { "type": "string" },
+    "tag_library_hash": { "type": "string" },
+    "benchmark_version": { "type": "string" },
+    "benchmark_hash": { "type": "string" },
+    "representation": { "enum": ["A", "B", "C"] },
+    "embedding_provider": { "type": "object" },
+    "config": { "type": "object" },
+    "hardware": { "type": "object" },
+    "aggregate_metrics": { "type": "object" },
+    "results": { "type": "array" },
+    "notes": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "analysis": {
+      "type": "object",
+      "description": "Optional post-hoc human analysis. Must not overwrite raw results."
+    }
+  }
+}

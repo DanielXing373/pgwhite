@@ -28,7 +28,9 @@
     "research:taglib:ingest-lto": "node research/tag-library/scripts/ingest-lto.mjs",
     "research:taglib:build": "python3 research/tag-library/scripts/build-atomic-library.py",
     "research:taglib:test": "node --test research/tag-library/tests/*.test.mjs",
-    "test": "node --experimental-strip-types --import ./tests/ts-resolve-hook.mjs --test tests/unit/*.test.ts tests/unit/*.test.mjs research/tag-library/tests/*.test.mjs"
+    "research:retrieval:run": "node research/retrieval/runner/scripts/run-retrieval-benchmark.mjs",
+    "research:retrieval:test": "node --test research/retrieval/tests/*.test.mjs",
+    "test": "node --experimental-strip-types --import ./tests/ts-resolve-hook.mjs --test tests/unit/*.test.ts tests/unit/*.test.mjs research/tag-library/tests/*.test.mjs research/retrieval/tests/*.test.mjs"
   },
   "dependencies": {
     "@nuxt/ui": "^4.0.1",
