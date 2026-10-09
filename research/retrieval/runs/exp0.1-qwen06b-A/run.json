@@ -1,0 +1,1678 @@
+{
+  "schema_version": "retrieval-run.v1",
+  "run_id": "exp0.1-qwen06b-A",
+  "created_at": "2026-10-09T00:27:18.479Z",
+  "git_commit_sha": "91ba724fdd257e0b2f5e96f1ba4349ca0a06b453",
+  "tag_library_version": "atomic-tag-library.v1.41",
+  "tag_library_hash": "d8e8d97127d5aa2211d70a3f268fb09a258548ec89abdfc69760d557a9dc56ac",
+  "tag_library_path": "research/tag-library/data/library/atomic-tag-library.v1.json",
+  "active_theme_count": 217,
+  "benchmark_version": "exp0.1-exploratory-single-quote.v1",
+  "benchmark_hash": "4c5629d71d90f53890976a5d544588948bc1fdb343d0adc9967cc63b72ed3c37",
+  "benchmark_path": "research/retrieval/benchmark/fixtures/exp0.1-exploratory-single-quote.v1.json",
+  "representation": "A",
+  "embedding_provider": {
+    "provider_id": "qwen3-embedding",
+    "model_name": "Qwen/Qwen3-Embedding-0.6B",
+    "model_identifier": "Qwen/Qwen3-Embedding-0.6B",
+    "model_revision": "tags:\n- sentence-transformers\n- sentence-similarity\n- feature-extraction\n- dense\nbase_model: Qwen/Qwen3-Embedding-0.6B\npipeline_tag: sentence-similarity\nlibrary_name: sentence-transformers",
+    "dimensions": 1024,
+    "device": "cuda",
+    "normalize_embeddings": true,
+    "batch_size": 32,
+    "require_cuda": true,
+    "python_executable": "python",
+    "worker_script": "research/retrieval/runner/python/embed_qwen3.py",
+    "status": "ready",
+    "backend": "sentence-transformers",
+    "loaded_name_or_path": "Qwen/Qwen3-Embedding-0.6B",
+    "trust_remote_code": true,
+    "cuda_available": true,
+    "cuda_device_count": 1,
+    "cuda_device_id": 0,
+    "gpu_name": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "torch_version": "2.14.1+cu132",
+    "sentence_transformers_version": "5.7.0"
+  },
+  "config": {
+    "schema_version": "retrieval-config.v1",
+    "config_id": "exp0.1-qwen06b-exploratory-v1",
+    "research_only": true,
+    "dimension": "theme",
+    "tag_library_path": "research/tag-library/data/library/atomic-tag-library.v1.json",
+    "active_status": "active_candidate",
+    "benchmark_path": "research/retrieval/benchmark/fixtures/exp0.1-exploratory-single-quote.v1.json",
+    "representation": "A",
+    "provider": {
+      "id": "qwen3",
+      "options": {
+        "model": "Qwen/Qwen3-Embedding-0.6B",
+        "normalize_embeddings": true,
+        "require_cuda": true,
+        "trust_remote_code": true,
+        "batch_size": 32
+      }
+    },
+    "ranking": {
+      "top_k_report": [
+        5,
+        10,
+        20
+      ],
+      "store_full_ranking": true
+    },
+    "deterministic_match": {
+      "enabled": true,
+      "method": "exact_substring",
+      "notes": [
+        "Conservative Chinese exact substring of canonical/alias forms.",
+        "Short surfaces (len < 2) are recorded with caution_short_surface=true; no fuzzy/NLP."
+      ]
+    },
+    "runs_dir": "research/retrieval/runs",
+    "overwrite_completed_runs": false,
+    "notes": [
+      "Experiment 0.1 exploratory full-library retrieval for Representations A/B/C.",
+      "Immutable run IDs: exp0.1-qwen06b-A / exp0.1-qwen06b-B / exp0.1-qwen06b-C",
+      "require_cuda=true: do not silently fall back to CPU."
+    ]
+  },
+  "hardware": {
+    "platform": "win32",
+    "arch": "x64",
+    "release": "10.0.26200",
+    "cpus": "13th Gen Intel(R) Core(TM) i7-13620H",
+    "total_mem_bytes": 33968857088,
+    "cuda_device_id": 0,
+    "gpu_name": "NVIDIA GeForce RTX 5070 Laptop GPU",
+    "cuda_available": true,
+    "torch_version": "2.14.1+cu132",
+    "sentence_transformers_version": "5.7.0",
+    "embedding_device": "cuda"
+  },
+  "aggregate_metrics": {
+    "evaluated_quotes": 0,
+    "skipped_empty_expected": 1,
+    "mean_recall_at_5": null,
+    "recall_at_5_values": [],
+    "mean_recall_at_10": null,
+    "recall_at_10_values": [],
+    "mean_recall_at_20": null,
+    "recall_at_20_values": []
+  },
+  "results": [
+    {
+      "quote_id": "exp0.1-q1",
+      "text_zh": "听到这首旧歌，我突然想起小时候住过的房间。",
+      "source": "manual_exploratory",
+      "category": "exp0.1",
+      "notes": "Single-quote sanity/exploratory probe for Qwen3-Embedding-0.6B Representations A/B/C.",
+      "ambiguity_flags": [
+        "exploratory_no_ground_truth"
+      ],
+      "expected_theme_ids": [],
+      "expected_theme_labels": [],
+      "deterministic_hits": [],
+      "semantic_ranking": {
+        "top_5": [
+          {
+            "rank": 1,
+            "tag_id": "theme-0068-怀旧",
+            "canonical_zh": "怀旧",
+            "similarity": 0.5879978802291258
+          },
+          {
+            "rank": 2,
+            "tag_id": "theme-0077-记忆",
+            "canonical_zh": "记忆",
+            "similarity": 0.5234039956210139
+          },
+          {
+            "rank": 3,
+            "tag_id": "theme-0010-童年",
+            "canonical_zh": "童年",
+            "similarity": 0.5104931758580845
+          },
+          {
+            "rank": 4,
+            "tag_id": "theme-0058-过去",
+            "canonical_zh": "过去",
+            "similarity": 0.5020331254103182
+          },
+          {
+            "rank": 5,
+            "tag_id": "theme-0040-时间流逝",
+            "canonical_zh": "时间流逝",
+            "similarity": 0.48204282718405106
+          }
+        ],
+        "top_10": [
+          {
+            "rank": 1,
+            "tag_id": "theme-0068-怀旧",
+            "canonical_zh": "怀旧",
+            "similarity": 0.5879978802291258
+          },
+          {
+            "rank": 2,
+            "tag_id": "theme-0077-记忆",
+            "canonical_zh": "记忆",
+            "similarity": 0.5234039956210139
+          },
+          {
+            "rank": 3,
+            "tag_id": "theme-0010-童年",
+            "canonical_zh": "童年",
+            "similarity": 0.5104931758580845
+          },
+          {
+            "rank": 4,
+            "tag_id": "theme-0058-过去",
+            "canonical_zh": "过去",
+            "similarity": 0.5020331254103182
+          },
+          {
+            "rank": 5,
+            "tag_id": "theme-0040-时间流逝",
+            "canonical_zh": "时间流逝",
+            "similarity": 0.48204282718405106
+          },
+          {
+            "rank": 6,
+            "tag_id": "theme-0127-寂静",
+            "canonical_zh": "寂静",
+            "similarity": 0.47901824511962254
+          },
+          {
+            "rank": 7,
+            "tag_id": "theme-0078-遗忘",
+            "canonical_zh": "遗忘",
+            "similarity": 0.47529922225397636
+          },
+          {
+            "rank": 8,
+            "tag_id": "theme-0183-家园",
+            "canonical_zh": "家园",
+            "similarity": 0.4684356465384924
+          },
+          {
+            "rank": 9,
+            "tag_id": "theme-0185-归来",
+            "canonical_zh": "归来",
+            "similarity": 0.4608807482093847
+          },
+          {
+            "rank": 10,
+            "tag_id": "theme-0096-思念",
+            "canonical_zh": "思念",
+            "similarity": 0.45873680755438234
+          }
+        ],
+        "top_20": [
+          {
+            "rank": 1,
+            "tag_id": "theme-0068-怀旧",
+            "canonical_zh": "怀旧",
+            "similarity": 0.5879978802291258
+          },
+          {
+            "rank": 2,
+            "tag_id": "theme-0077-记忆",
+            "canonical_zh": "记忆",
+            "similarity": 0.5234039956210139
+          },
+          {
+            "rank": 3,
+            "tag_id": "theme-0010-童年",
+            "canonical_zh": "童年",
+            "similarity": 0.5104931758580845
+          },
+          {
+            "rank": 4,
+            "tag_id": "theme-0058-过去",
+            "canonical_zh": "过去",
+            "similarity": 0.5020331254103182
+          },
+          {
+            "rank": 5,
+            "tag_id": "theme-0040-时间流逝",
+            "canonical_zh": "时间流逝",
+            "similarity": 0.48204282718405106
+          },
+          {
+            "rank": 6,
+            "tag_id": "theme-0127-寂静",
+            "canonical_zh": "寂静",
+            "similarity": 0.47901824511962254
+          },
+          {
+            "rank": 7,
+            "tag_id": "theme-0078-遗忘",
+            "canonical_zh": "遗忘",
+            "similarity": 0.47529922225397636
+          },
+          {
+            "rank": 8,
+            "tag_id": "theme-0183-家园",
+            "canonical_zh": "家园",
+            "similarity": 0.4684356465384924
+          },
+          {
+            "rank": 9,
+            "tag_id": "theme-0185-归来",
+            "canonical_zh": "归来",
+            "similarity": 0.4608807482093847
+          },
+          {
+            "rank": 10,
+            "tag_id": "theme-0096-思念",
+            "canonical_zh": "思念",
+            "similarity": 0.45873680755438234
+          },
+          {
+            "rank": 11,
+            "tag_id": "theme-0071-梦",
+            "canonical_zh": "梦",
+            "similarity": 0.443258233240078
+          },
+          {
+            "rank": 12,
+            "tag_id": "theme-0109-迷恋",
+            "canonical_zh": "迷恋",
+            "similarity": 0.4296033909979923
+          },
+          {
+            "rank": 13,
+            "tag_id": "theme-0126-夜晚",
+            "canonical_zh": "夜晚",
+            "similarity": 0.4174354795473181
+          },
+          {
+            "rank": 14,
+            "tag_id": "theme-0120-家庭",
+            "canonical_zh": "家庭",
+            "similarity": 0.41031810761851123
+          },
+          {
+            "rank": 15,
+            "tag_id": "theme-0067-幻觉",
+            "canonical_zh": "幻觉",
+            "similarity": 0.4101941030269611
+          },
+          {
+            "rank": 16,
+            "tag_id": "theme-0002-土地",
+            "canonical_zh": "土地",
+            "similarity": 0.4085531975293234
+          },
+          {
+            "rank": 17,
+            "tag_id": "theme-0134-空间",
+            "canonical_zh": "空间",
+            "similarity": 0.4080642494933431
+          },
+          {
+            "rank": 18,
+            "tag_id": "theme-0035-幻灭",
+            "canonical_zh": "幻灭",
+            "similarity": 0.4064822404481553
+          },
+          {
+            "rank": 19,
+            "tag_id": "theme-0063-来世",
+            "canonical_zh": "来世",
+            "similarity": 0.40646555164928994
+          },
+          {
+            "rank": 20,
+            "tag_id": "theme-0045-生命",
+            "canonical_zh": "生命",
+            "similarity": 0.4026956507368984
+          }
+        ],
+        "full": [
+          {
+            "rank": 1,
+            "tag_id": "theme-0068-怀旧",
+            "canonical_zh": "怀旧",
+            "similarity": 0.5879978802291258
+          },
+          {
+            "rank": 2,
+            "tag_id": "theme-0077-记忆",
+            "canonical_zh": "记忆",
+            "similarity": 0.5234039956210139
+          },
+          {
+            "rank": 3,
+            "tag_id": "theme-0010-童年",
+            "canonical_zh": "童年",
+            "similarity": 0.5104931758580845
+          },
+          {
+            "rank": 4,
+            "tag_id": "theme-0058-过去",
+            "canonical_zh": "过去",
+            "similarity": 0.5020331254103182
+          },
+          {
+            "rank": 5,
+            "tag_id": "theme-0040-时间流逝",
+            "canonical_zh": "时间流逝",
+            "similarity": 0.48204282718405106
+          },
+          {
+            "rank": 6,
+            "tag_id": "theme-0127-寂静",
+            "canonical_zh": "寂静",
+            "similarity": 0.47901824511962254
+          },
+          {
+            "rank": 7,
+            "tag_id": "theme-0078-遗忘",
+            "canonical_zh": "遗忘",
+            "similarity": 0.47529922225397636
+          },
+          {
+            "rank": 8,
+            "tag_id": "theme-0183-家园",
+            "canonical_zh": "家园",
+            "similarity": 0.4684356465384924
+          },
+          {
+            "rank": 9,
+            "tag_id": "theme-0185-归来",
+            "canonical_zh": "归来",
+            "similarity": 0.4608807482093847
+          },
+          {
+            "rank": 10,
+            "tag_id": "theme-0096-思念",
+            "canonical_zh": "思念",
+            "similarity": 0.45873680755438234
+          },
+          {
+            "rank": 11,
+            "tag_id": "theme-0071-梦",
+            "canonical_zh": "梦",
+            "similarity": 0.443258233240078
+          },
+          {
+            "rank": 12,
+            "tag_id": "theme-0109-迷恋",
+            "canonical_zh": "迷恋",
+            "similarity": 0.4296033909979923
+          },
+          {
+            "rank": 13,
+            "tag_id": "theme-0126-夜晚",
+            "canonical_zh": "夜晚",
+            "similarity": 0.4174354795473181
+          },
+          {
+            "rank": 14,
+            "tag_id": "theme-0120-家庭",
+            "canonical_zh": "家庭",
+            "similarity": 0.41031810761851123
+          },
+          {
+            "rank": 15,
+            "tag_id": "theme-0067-幻觉",
+            "canonical_zh": "幻觉",
+            "similarity": 0.4101941030269611
+          },
+          {
+            "rank": 16,
+            "tag_id": "theme-0002-土地",
+            "canonical_zh": "土地",
+            "similarity": 0.4085531975293234
+          },
+          {
+            "rank": 17,
+            "tag_id": "theme-0134-空间",
+            "canonical_zh": "空间",
+            "similarity": 0.4080642494933431
+          },
+          {
+            "rank": 18,
+            "tag_id": "theme-0035-幻灭",
+            "canonical_zh": "幻灭",
+            "similarity": 0.4064822404481553
+          },
+          {
+            "rank": 19,
+            "tag_id": "theme-0063-来世",
+            "canonical_zh": "来世",
+            "similarity": 0.40646555164928994
+          },
+          {
+            "rank": 20,
+            "tag_id": "theme-0045-生命",
+            "canonical_zh": "生命",
+            "similarity": 0.4026956507368984
+          },
+          {
+            "rank": 21,
+            "tag_id": "theme-0090-孤独",
+            "canonical_zh": "孤独",
+            "similarity": 0.4015454057824149
+          },
+          {
+            "rank": 22,
+            "tag_id": "theme-0146-音乐",
+            "canonical_zh": "音乐",
+            "similarity": 0.39899457575308295
+          },
+          {
+            "rank": 23,
+            "tag_id": "theme-0118-团聚",
+            "canonical_zh": "团聚",
+            "similarity": 0.3951797777786458
+          },
+          {
+            "rank": 24,
+            "tag_id": "theme-0139-传统",
+            "canonical_zh": "传统",
+            "similarity": 0.3941852315254457
+          },
+          {
+            "rank": 25,
+            "tag_id": "theme-0112-亲情",
+            "canonical_zh": "亲情",
+            "similarity": 0.3923709310067711
+          },
+          {
+            "rank": 26,
+            "tag_id": "theme-0098-悲伤",
+            "canonical_zh": "悲伤",
+            "similarity": 0.3917584844183555
+          },
+          {
+            "rank": 27,
+            "tag_id": "theme-0004-废墟",
+            "canonical_zh": "废墟",
+            "similarity": 0.39090600747369797
+          },
+          {
+            "rank": 28,
+            "tag_id": "theme-0044-珍视",
+            "canonical_zh": "珍视",
+            "similarity": 0.38984190118300066
+          },
+          {
+            "rank": 29,
+            "tag_id": "theme-0136-黑暗",
+            "canonical_zh": "黑暗",
+            "similarity": 0.3879131728218035
+          },
+          {
+            "rank": 30,
+            "tag_id": "theme-0122-爱",
+            "canonical_zh": "爱",
+            "similarity": 0.3862438259089648
+          },
+          {
+            "rank": 31,
+            "tag_id": "theme-0187-流亡",
+            "canonical_zh": "流亡",
+            "similarity": 0.38449171660801446
+          },
+          {
+            "rank": 32,
+            "tag_id": "theme-0061-重复",
+            "canonical_zh": "重复",
+            "similarity": 0.38283423666289984
+          },
+          {
+            "rank": 33,
+            "tag_id": "theme-0003-天空",
+            "canonical_zh": "天空",
+            "similarity": 0.38212854056515677
+          },
+          {
+            "rank": 34,
+            "tag_id": "theme-0022-母亲",
+            "canonical_zh": "母亲",
+            "similarity": 0.3809070525180324
+          },
+          {
+            "rank": 35,
+            "tag_id": "theme-0117-友情",
+            "canonical_zh": "友情",
+            "similarity": 0.3782253609221275
+          },
+          {
+            "rank": 36,
+            "tag_id": "theme-0188-离开",
+            "canonical_zh": "离开",
+            "similarity": 0.37787342045237804
+          },
+          {
+            "rank": 37,
+            "tag_id": "theme-0194-沉默",
+            "canonical_zh": "沉默",
+            "similarity": 0.3774781114358062
+          },
+          {
+            "rank": 38,
+            "tag_id": "theme-0116-占有",
+            "canonical_zh": "占有",
+            "similarity": 0.37703217679372375
+          },
+          {
+            "rank": 39,
+            "tag_id": "theme-0176-贫穷",
+            "canonical_zh": "贫穷",
+            "similarity": 0.3740431056916
+          },
+          {
+            "rank": 40,
+            "tag_id": "theme-0113-依恋",
+            "canonical_zh": "依恋",
+            "similarity": 0.37342194912382193
+          },
+          {
+            "rank": 41,
+            "tag_id": "theme-0012-青春",
+            "canonical_zh": "青春",
+            "similarity": 0.3733577243621586
+          },
+          {
+            "rank": 42,
+            "tag_id": "theme-0031-变化",
+            "canonical_zh": "变化",
+            "similarity": 0.37268099445414515
+          },
+          {
+            "rank": 43,
+            "tag_id": "theme-0055-衰败",
+            "canonical_zh": "衰败",
+            "similarity": 0.37231106526971486
+          },
+          {
+            "rank": 44,
+            "tag_id": "theme-0106-绝望",
+            "canonical_zh": "绝望",
+            "similarity": 0.3717817377347867
+          },
+          {
+            "rank": 45,
+            "tag_id": "theme-0034-失去",
+            "canonical_zh": "失去",
+            "similarity": 0.371170359614187
+          },
+          {
+            "rank": 46,
+            "tag_id": "theme-0177-跟随",
+            "canonical_zh": "跟随",
+            "similarity": 0.370805105711629
+          },
+          {
+            "rank": 47,
+            "tag_id": "theme-0048-秘密",
+            "canonical_zh": "秘密",
+            "similarity": 0.37035316238207616
+          },
+          {
+            "rank": 48,
+            "tag_id": "theme-0011-衰老",
+            "canonical_zh": "衰老",
+            "similarity": 0.36978336180302923
+          },
+          {
+            "rank": 49,
+            "tag_id": "theme-0046-生存",
+            "canonical_zh": "生存",
+            "similarity": 0.3693895946762552
+          },
+          {
+            "rank": 50,
+            "tag_id": "theme-0125-光",
+            "canonical_zh": "光",
+            "similarity": 0.3681671402245273
+          },
+          {
+            "rank": 51,
+            "tag_id": "theme-0123-爱情",
+            "canonical_zh": "爱情",
+            "similarity": 0.3641221752421953
+          },
+          {
+            "rank": 52,
+            "tag_id": "theme-0101-无聊",
+            "canonical_zh": "无聊",
+            "similarity": 0.3633350831674601
+          },
+          {
+            "rank": 53,
+            "tag_id": "theme-0066-美",
+            "canonical_zh": "美",
+            "similarity": 0.36320821959368477
+          },
+          {
+            "rank": 54,
+            "tag_id": "theme-0038-日常",
+            "canonical_zh": "日常",
+            "similarity": 0.361908114406334
+          },
+          {
+            "rank": 55,
+            "tag_id": "theme-0184-寻找",
+            "canonical_zh": "寻找",
+            "similarity": 0.3612019152252941
+          },
+          {
+            "rank": 56,
+            "tag_id": "theme-0057-轮回",
+            "canonical_zh": "轮回",
+            "similarity": 0.36085545980957995
+          },
+          {
+            "rank": 57,
+            "tag_id": "theme-0110-遗憾",
+            "canonical_zh": "遗憾",
+            "similarity": 0.36035065119584314
+          },
+          {
+            "rank": 58,
+            "tag_id": "theme-0030-偶然",
+            "canonical_zh": "偶然",
+            "similarity": 0.36011436596161867
+          },
+          {
+            "rank": 59,
+            "tag_id": "theme-0081-倦怠",
+            "canonical_zh": "倦怠",
+            "similarity": 0.3591681403074748
+          },
+          {
+            "rank": 60,
+            "tag_id": "theme-0094-平静",
+            "canonical_zh": "平静",
+            "similarity": 0.3572724453640938
+          },
+          {
+            "rank": 61,
+            "tag_id": "theme-0016-抛弃",
+            "canonical_zh": "抛弃",
+            "similarity": 0.3569513562904389
+          },
+          {
+            "rank": 62,
+            "tag_id": "theme-0204-灵魂",
+            "canonical_zh": "灵魂",
+            "similarity": 0.35671156040711455
+          },
+          {
+            "rank": 63,
+            "tag_id": "theme-0009-成长",
+            "canonical_zh": "成长",
+            "similarity": 0.3553918628531895
+          },
+          {
+            "rank": 64,
+            "tag_id": "theme-0015-倾听",
+            "canonical_zh": "倾听",
+            "similarity": 0.35426839943330574
+          },
+          {
+            "rank": 65,
+            "tag_id": "theme-0041-未来",
+            "canonical_zh": "未来",
+            "similarity": 0.35305682369515584
+          },
+          {
+            "rank": 66,
+            "tag_id": "theme-0042-末日",
+            "canonical_zh": "末日",
+            "similarity": 0.3519210675358326
+          },
+          {
+            "rank": 67,
+            "tag_id": "theme-0169-秘密社会",
+            "canonical_zh": "秘密社会",
+            "similarity": 0.34887820649246815
+          },
+          {
+            "rank": 68,
+            "tag_id": "theme-0133-目光",
+            "canonical_zh": "目光",
+            "similarity": 0.3482509502306274
+          },
+          {
+            "rank": 69,
+            "tag_id": "theme-0070-智慧",
+            "canonical_zh": "智慧",
+            "similarity": 0.34822020138782467
+          },
+          {
+            "rank": 70,
+            "tag_id": "theme-0033-命运感",
+            "canonical_zh": "命运感",
+            "similarity": 0.3481362459363808
+          },
+          {
+            "rank": 71,
+            "tag_id": "theme-0128-寒冷",
+            "canonical_zh": "寒冷",
+            "similarity": 0.3477715971879638
+          },
+          {
+            "rank": 72,
+            "tag_id": "theme-0091-安慰",
+            "canonical_zh": "安慰",
+            "similarity": 0.3474942133619976
+          },
+          {
+            "rank": 73,
+            "tag_id": "theme-0087-喜悦",
+            "canonical_zh": "喜悦",
+            "similarity": 0.34498873278363845
+          },
+          {
+            "rank": 74,
+            "tag_id": "theme-0092-屈辱",
+            "canonical_zh": "屈辱",
+            "similarity": 0.34433071255610037
+          },
+          {
+            "rank": 75,
+            "tag_id": "theme-0073-潜意识",
+            "canonical_zh": "潜意识",
+            "similarity": 0.34429133263318806
+          },
+          {
+            "rank": 76,
+            "tag_id": "theme-0182-表演",
+            "canonical_zh": "表演",
+            "similarity": 0.3439952249182889
+          },
+          {
+            "rank": 77,
+            "tag_id": "theme-0190-归属",
+            "canonical_zh": "归属",
+            "similarity": 0.343905952363398
+          },
+          {
+            "rank": 78,
+            "tag_id": "theme-0197-真相",
+            "canonical_zh": "真相",
+            "similarity": 0.3429114944709972
+          },
+          {
+            "rank": 79,
+            "tag_id": "theme-0052-自杀",
+            "canonical_zh": "自杀",
+            "similarity": 0.3417201592283994
+          },
+          {
+            "rank": 80,
+            "tag_id": "theme-0054-虚无",
+            "canonical_zh": "虚无",
+            "similarity": 0.3417064773290812
+          },
+          {
+            "rank": 81,
+            "tag_id": "theme-0088-好奇",
+            "canonical_zh": "好奇",
+            "similarity": 0.34121735559411104
+          },
+          {
+            "rank": 82,
+            "tag_id": "theme-0021-孩子",
+            "canonical_zh": "孩子",
+            "similarity": 0.3411667574458354
+          },
+          {
+            "rank": 83,
+            "tag_id": "theme-0159-战争",
+            "canonical_zh": "战争",
+            "similarity": 0.34072900791429206
+          },
+          {
+            "rank": 84,
+            "tag_id": "theme-0093-希望",
+            "canonical_zh": "希望",
+            "similarity": 0.3404011749057694
+          },
+          {
+            "rank": 85,
+            "tag_id": "theme-0008-自然",
+            "canonical_zh": "自然",
+            "similarity": 0.3401289881439121
+          },
+          {
+            "rank": 86,
+            "tag_id": "theme-0097-恐惧",
+            "canonical_zh": "恐惧",
+            "similarity": 0.3395951723447819
+          },
+          {
+            "rank": 87,
+            "tag_id": "theme-0032-命运",
+            "canonical_zh": "命运",
+            "similarity": 0.33959167157846604
+          },
+          {
+            "rank": 88,
+            "tag_id": "theme-0085-压抑",
+            "canonical_zh": "压抑",
+            "similarity": 0.33947338463540283
+          },
+          {
+            "rank": 89,
+            "tag_id": "theme-0023-父亲",
+            "canonical_zh": "父亲",
+            "similarity": 0.33932245666217514
+          },
+          {
+            "rank": 90,
+            "tag_id": "theme-0043-死亡",
+            "canonical_zh": "死亡",
+            "similarity": 0.3392360360062484
+          },
+          {
+            "rank": 91,
+            "tag_id": "theme-0178-阶级",
+            "canonical_zh": "阶级",
+            "similarity": 0.3381637845618128
+          },
+          {
+            "rank": 92,
+            "tag_id": "theme-0218-牺牲",
+            "canonical_zh": "牺牲",
+            "similarity": 0.33588138734797746
+          },
+          {
+            "rank": 93,
+            "tag_id": "theme-0065-丑",
+            "canonical_zh": "丑",
+            "similarity": 0.33516916510207667
+          },
+          {
+            "rank": 94,
+            "tag_id": "theme-0168-现代性",
+            "canonical_zh": "现代性",
+            "similarity": 0.33452677309614964
+          },
+          {
+            "rank": 95,
+            "tag_id": "theme-0017-教育缺失",
+            "canonical_zh": "教育缺失",
+            "similarity": 0.3344536180181017
+          },
+          {
+            "rank": 96,
+            "tag_id": "theme-0025-懦弱",
+            "canonical_zh": "懦弱",
+            "similarity": 0.33359820650295924
+          },
+          {
+            "rank": 97,
+            "tag_id": "theme-0051-脆弱",
+            "canonical_zh": "脆弱",
+            "similarity": 0.3333638192438777
+          },
+          {
+            "rank": 98,
+            "tag_id": "theme-0013-亲密",
+            "canonical_zh": "亲密",
+            "similarity": 0.332272747980688
+          },
+          {
+            "rank": 99,
+            "tag_id": "theme-0007-灾难",
+            "canonical_zh": "灾难",
+            "similarity": 0.33217366253928576
+          },
+          {
+            "rank": 100,
+            "tag_id": "theme-0140-历史",
+            "canonical_zh": "历史",
+            "similarity": 0.3317698670393804
+          },
+          {
+            "rank": 101,
+            "tag_id": "theme-0131-气味",
+            "canonical_zh": "气味",
+            "similarity": 0.33133939496603193
+          },
+          {
+            "rank": 102,
+            "tag_id": "theme-0105-痛苦",
+            "canonical_zh": "痛苦",
+            "similarity": 0.33104120569614465
+          },
+          {
+            "rank": 103,
+            "tag_id": "theme-0132-温度",
+            "canonical_zh": "温度",
+            "similarity": 0.3306792433155894
+          },
+          {
+            "rank": 104,
+            "tag_id": "theme-0005-水",
+            "canonical_zh": "水",
+            "similarity": 0.33028927476985837
+          },
+          {
+            "rank": 105,
+            "tag_id": "theme-0165-流言",
+            "canonical_zh": "流言",
+            "similarity": 0.32987997373740036
+          },
+          {
+            "rank": 106,
+            "tag_id": "theme-0196-怀疑",
+            "canonical_zh": "怀疑",
+            "similarity": 0.32984041241061723
+          },
+          {
+            "rank": 107,
+            "tag_id": "theme-0076-经验",
+            "canonical_zh": "经验",
+            "similarity": 0.32960801790827465
+          },
+          {
+            "rank": 108,
+            "tag_id": "theme-0062-重生",
+            "canonical_zh": "重生",
+            "similarity": 0.3280461751406228
+          },
+          {
+            "rank": 109,
+            "tag_id": "theme-0145-语言",
+            "canonical_zh": "语言",
+            "similarity": 0.327534971059867
+          },
+          {
+            "rank": 110,
+            "tag_id": "theme-0014-保护",
+            "canonical_zh": "保护",
+            "similarity": 0.326700355386398
+          },
+          {
+            "rank": 111,
+            "tag_id": "theme-0049-等待",
+            "canonical_zh": "等待",
+            "similarity": 0.32627147543946683
+          },
+          {
+            "rank": 112,
+            "tag_id": "theme-0199-谎言",
+            "canonical_zh": "谎言",
+            "similarity": 0.32613504470722704
+          },
+          {
+            "rank": 113,
+            "tag_id": "theme-0171-移民",
+            "canonical_zh": "移民",
+            "similarity": 0.32573766535341125
+          },
+          {
+            "rank": 114,
+            "tag_id": "theme-0155-和平",
+            "canonical_zh": "和平",
+            "similarity": 0.3256880115345427
+          },
+          {
+            "rank": 115,
+            "tag_id": "theme-0130-早晨",
+            "canonical_zh": "早晨",
+            "similarity": 0.3242686547635704
+          },
+          {
+            "rank": 116,
+            "tag_id": "theme-0102-温柔",
+            "canonical_zh": "温柔",
+            "similarity": 0.3236494211824515
+          },
+          {
+            "rank": 117,
+            "tag_id": "theme-0111-骄傲",
+            "canonical_zh": "骄傲",
+            "similarity": 0.32308264208943577
+          },
+          {
+            "rank": 118,
+            "tag_id": "theme-0161-教育",
+            "canonical_zh": "教育",
+            "similarity": 0.322823029275545
+          },
+          {
+            "rank": 119,
+            "tag_id": "theme-0050-纯真",
+            "canonical_zh": "纯真",
+            "similarity": 0.3223902909692913
+          },
+          {
+            "rank": 120,
+            "tag_id": "theme-0181-社交",
+            "canonical_zh": "社交",
+            "similarity": 0.32153251859050563
+          },
+          {
+            "rank": 121,
+            "tag_id": "theme-0060-选择",
+            "canonical_zh": "选择",
+            "similarity": 0.32026122660213363
+          },
+          {
+            "rank": 122,
+            "tag_id": "theme-0213-救赎",
+            "canonical_zh": "救赎",
+            "similarity": 0.3195793667451276
+          },
+          {
+            "rank": 123,
+            "tag_id": "theme-0119-婚姻",
+            "canonical_zh": "婚姻",
+            "similarity": 0.31928741086564044
+          },
+          {
+            "rank": 124,
+            "tag_id": "theme-0020-边界",
+            "canonical_zh": "边界",
+            "similarity": 0.31874222665540136
+          },
+          {
+            "rank": 125,
+            "tag_id": "theme-0138-仪式",
+            "canonical_zh": "仪式",
+            "similarity": 0.31859361226615274
+          },
+          {
+            "rank": 126,
+            "tag_id": "theme-0191-疏离",
+            "canonical_zh": "疏离",
+            "similarity": 0.31816521845729323
+          },
+          {
+            "rank": 127,
+            "tag_id": "theme-0107-羞愧",
+            "canonical_zh": "羞愧",
+            "similarity": 0.3155488346990269
+          },
+          {
+            "rank": 128,
+            "tag_id": "theme-0198-观察",
+            "canonical_zh": "观察",
+            "similarity": 0.31491874519407004
+          },
+          {
+            "rank": 129,
+            "tag_id": "theme-0037-接受",
+            "canonical_zh": "接受",
+            "similarity": 0.31397586401554467
+          },
+          {
+            "rank": 130,
+            "tag_id": "theme-0166-混乱",
+            "canonical_zh": "混乱",
+            "similarity": 0.3139734038990515
+          },
+          {
+            "rank": 131,
+            "tag_id": "theme-0201-性",
+            "canonical_zh": "性",
+            "similarity": 0.3138436398119908
+          },
+          {
+            "rank": 132,
+            "tag_id": "theme-0156-奴役",
+            "canonical_zh": "奴役",
+            "similarity": 0.31330156320362645
+          },
+          {
+            "rank": 133,
+            "tag_id": "theme-0001-动物",
+            "canonical_zh": "动物",
+            "similarity": 0.31321534216710983
+          },
+          {
+            "rank": 134,
+            "tag_id": "theme-0019-距离",
+            "canonical_zh": "距离",
+            "similarity": 0.31306298134043886
+          },
+          {
+            "rank": 135,
+            "tag_id": "theme-0079-仇恨",
+            "canonical_zh": "仇恨",
+            "similarity": 0.3125145196649524
+          },
+          {
+            "rank": 136,
+            "tag_id": "theme-0186-旅行",
+            "canonical_zh": "旅行",
+            "similarity": 0.3118032787268407
+          },
+          {
+            "rank": 137,
+            "tag_id": "theme-0147-食物",
+            "canonical_zh": "食物",
+            "similarity": 0.3105485978300976
+          },
+          {
+            "rank": 138,
+            "tag_id": "theme-0143-艺术",
+            "canonical_zh": "艺术",
+            "similarity": 0.31030995581954
+          },
+          {
+            "rank": 139,
+            "tag_id": "theme-0047-破坏",
+            "canonical_zh": "破坏",
+            "similarity": 0.3102260426979799
+          },
+          {
+            "rank": 140,
+            "tag_id": "theme-0086-厌恶",
+            "canonical_zh": "厌恶",
+            "similarity": 0.3083531228441105
+          },
+          {
+            "rank": 141,
+            "tag_id": "theme-0170-秩序",
+            "canonical_zh": "秩序",
+            "similarity": 0.3077565540315782
+          },
+          {
+            "rank": 142,
+            "tag_id": "theme-0203-成瘾",
+            "canonical_zh": "成瘾",
+            "similarity": 0.30757900866038984
+          },
+          {
+            "rank": 143,
+            "tag_id": "theme-0192-自我",
+            "canonical_zh": "自我",
+            "similarity": 0.30644138259661746
+          },
+          {
+            "rank": 144,
+            "tag_id": "theme-0135-触感",
+            "canonical_zh": "触感",
+            "similarity": 0.3050204345738736
+          },
+          {
+            "rank": 145,
+            "tag_id": "theme-0018-误解",
+            "canonical_zh": "误解",
+            "similarity": 0.30495448984450285
+          },
+          {
+            "rank": 146,
+            "tag_id": "theme-0141-游戏",
+            "canonical_zh": "游戏",
+            "similarity": 0.3048351971938078
+          },
+          {
+            "rank": 147,
+            "tag_id": "theme-0108-自卑",
+            "canonical_zh": "自卑",
+            "similarity": 0.3045780084490714
+          },
+          {
+            "rank": 148,
+            "tag_id": "theme-0095-怜悯",
+            "canonical_zh": "怜悯",
+            "similarity": 0.30447318861011846
+          },
+          {
+            "rank": 149,
+            "tag_id": "theme-0082-内疚",
+            "canonical_zh": "内疚",
+            "similarity": 0.30436007185657
+          },
+          {
+            "rank": 150,
+            "tag_id": "theme-0149-偏见",
+            "canonical_zh": "偏见",
+            "similarity": 0.3028419687277397
+          },
+          {
+            "rank": 151,
+            "tag_id": "theme-0075-疯狂",
+            "canonical_zh": "疯狂",
+            "similarity": 0.30262218610251046
+          },
+          {
+            "rank": 152,
+            "tag_id": "theme-0089-嫉妒",
+            "canonical_zh": "嫉妒",
+            "similarity": 0.3021662076872421
+          },
+          {
+            "rank": 153,
+            "tag_id": "theme-0115-分离",
+            "canonical_zh": "分离",
+            "similarity": 0.3012543079929002
+          },
+          {
+            "rank": 154,
+            "tag_id": "theme-0124-背叛",
+            "canonical_zh": "背叛",
+            "similarity": 0.300766683165908
+          },
+          {
+            "rank": 155,
+            "tag_id": "theme-0152-反抗",
+            "canonical_zh": "反抗",
+            "similarity": 0.299435398009031
+          },
+          {
+            "rank": 156,
+            "tag_id": "theme-0180-饥饿",
+            "canonical_zh": "饥饿",
+            "similarity": 0.29943184651778204
+          },
+          {
+            "rank": 157,
+            "tag_id": "theme-0175-财富",
+            "canonical_zh": "财富",
+            "similarity": 0.2985419413268035
+          },
+          {
+            "rank": 158,
+            "tag_id": "theme-0029-人性",
+            "canonical_zh": "人性",
+            "similarity": 0.29825585012859235
+          },
+          {
+            "rank": 159,
+            "tag_id": "theme-0006-火",
+            "canonical_zh": "火",
+            "similarity": 0.29815704995111525
+          },
+          {
+            "rank": 160,
+            "tag_id": "theme-0210-干净",
+            "canonical_zh": "干净",
+            "similarity": 0.2979350072007172
+          },
+          {
+            "rank": 161,
+            "tag_id": "theme-0084-冷漠",
+            "canonical_zh": "冷漠",
+            "similarity": 0.2975748242318681
+          },
+          {
+            "rank": 162,
+            "tag_id": "theme-0053-自由",
+            "canonical_zh": "自由",
+            "similarity": 0.29658628022059563
+          },
+          {
+            "rank": 163,
+            "tag_id": "theme-0080-体谅",
+            "canonical_zh": "体谅",
+            "similarity": 0.29538431961212125
+          },
+          {
+            "rank": 164,
+            "tag_id": "theme-0189-城市",
+            "canonical_zh": "城市",
+            "similarity": 0.2948010580384263
+          },
+          {
+            "rank": 165,
+            "tag_id": "theme-0103-满足",
+            "canonical_zh": "满足",
+            "similarity": 0.2894995017153814
+          },
+          {
+            "rank": 166,
+            "tag_id": "theme-0069-意志",
+            "canonical_zh": "意志",
+            "similarity": 0.28903795300279456
+          },
+          {
+            "rank": 167,
+            "tag_id": "theme-0202-性别",
+            "canonical_zh": "性别",
+            "similarity": 0.28715077995191834
+          },
+          {
+            "rank": 168,
+            "tag_id": "theme-0104-焦虑",
+            "canonical_zh": "焦虑",
+            "similarity": 0.28683260973322766
+          },
+          {
+            "rank": 169,
+            "tag_id": "theme-0209-尊严",
+            "canonical_zh": "尊严",
+            "similarity": 0.28505289362081737
+          },
+          {
+            "rank": 170,
+            "tag_id": "theme-0083-冲动",
+            "canonical_zh": "冲动",
+            "similarity": 0.2845758315935513
+          },
+          {
+            "rank": 171,
+            "tag_id": "theme-0195-判断",
+            "canonical_zh": "判断",
+            "similarity": 0.2844009123256011
+          },
+          {
+            "rank": 172,
+            "tag_id": "theme-0164-法律",
+            "canonical_zh": "法律",
+            "similarity": 0.2838817395462633
+          },
+          {
+            "rank": 173,
+            "tag_id": "theme-0151-反叛",
+            "canonical_zh": "反叛",
+            "similarity": 0.2831729707913515
+          },
+          {
+            "rank": 174,
+            "tag_id": "theme-0200-创伤",
+            "canonical_zh": "创伤",
+            "similarity": 0.2830076380778137
+          },
+          {
+            "rank": 175,
+            "tag_id": "theme-0211-污染",
+            "canonical_zh": "污染",
+            "similarity": 0.2828461523667087
+          },
+          {
+            "rank": 176,
+            "tag_id": "theme-0150-压迫",
+            "canonical_zh": "压迫",
+            "similarity": 0.28246982102298157
+          },
+          {
+            "rank": 177,
+            "tag_id": "theme-0193-身份",
+            "canonical_zh": "身份",
+            "similarity": 0.28061672341111704
+          },
+          {
+            "rank": 178,
+            "tag_id": "theme-0036-意义",
+            "canonical_zh": "意义",
+            "similarity": 0.28032115470552743
+          },
+          {
+            "rank": 179,
+            "tag_id": "theme-0174-谋杀",
+            "canonical_zh": "谋杀",
+            "similarity": 0.28005775684073236
+          },
+          {
+            "rank": 180,
+            "tag_id": "theme-0158-惩罚",
+            "canonical_zh": "惩罚",
+            "similarity": 0.2797504446563286
+          },
+          {
+            "rank": 181,
+            "tag_id": "theme-0172-竞争",
+            "canonical_zh": "竞争",
+            "similarity": 0.2793118311962897
+          },
+          {
+            "rank": 182,
+            "tag_id": "theme-0214-罪",
+            "canonical_zh": "罪",
+            "similarity": 0.279248822681751
+          },
+          {
+            "rank": 183,
+            "tag_id": "theme-0217-报复",
+            "canonical_zh": "报复",
+            "similarity": 0.2790843962004896
+          },
+          {
+            "rank": 184,
+            "tag_id": "theme-0154-名声",
+            "canonical_zh": "名声",
+            "similarity": 0.27631581201916
+          },
+          {
+            "rank": 185,
+            "tag_id": "theme-0142-禁忌",
+            "canonical_zh": "禁忌",
+            "similarity": 0.2755565489392505
+          },
+          {
+            "rank": 186,
+            "tag_id": "theme-0100-敬畏",
+            "canonical_zh": "敬畏",
+            "similarity": 0.2749613364955767
+          },
+          {
+            "rank": 187,
+            "tag_id": "theme-0160-技术",
+            "canonical_zh": "技术",
+            "similarity": 0.27402570293784684
+          },
+          {
+            "rank": 188,
+            "tag_id": "theme-0208-善恶",
+            "canonical_zh": "善恶",
+            "similarity": 0.2732592060385008
+          },
+          {
+            "rank": 189,
+            "tag_id": "theme-0179-领导",
+            "canonical_zh": "领导",
+            "similarity": 0.2730082253844305
+          },
+          {
+            "rank": 190,
+            "tag_id": "theme-0205-疾病",
+            "canonical_zh": "疾病",
+            "similarity": 0.27280005113726
+          },
+          {
+            "rank": 191,
+            "tag_id": "theme-0064-神",
+            "canonical_zh": "神",
+            "similarity": 0.2688860254569919
+          },
+          {
+            "rank": 192,
+            "tag_id": "theme-0114-信任",
+            "canonical_zh": "信任",
+            "similarity": 0.2684655181331057
+          },
+          {
+            "rank": 193,
+            "tag_id": "theme-0167-犯罪",
+            "canonical_zh": "犯罪",
+            "similarity": 0.26839483920337287
+          },
+          {
+            "rank": 194,
+            "tag_id": "theme-0173-腐败",
+            "canonical_zh": "腐败",
+            "similarity": 0.2680353658365563
+          },
+          {
+            "rank": 195,
+            "tag_id": "theme-0129-敏感",
+            "canonical_zh": "敏感",
+            "similarity": 0.26781631527273125
+          },
+          {
+            "rank": 196,
+            "tag_id": "theme-0027-虚荣",
+            "canonical_zh": "虚荣",
+            "similarity": 0.2675893273852693
+          },
+          {
+            "rank": 197,
+            "tag_id": "theme-0206-身体",
+            "canonical_zh": "身体",
+            "similarity": 0.26726617980744555
+          },
+          {
+            "rank": 198,
+            "tag_id": "theme-0026-虚伪",
+            "canonical_zh": "虚伪",
+            "similarity": 0.26468917911615797
+          },
+          {
+            "rank": 199,
+            "tag_id": "theme-0144-表达",
+            "canonical_zh": "表达",
+            "similarity": 0.2645647194585605
+          },
+          {
+            "rank": 200,
+            "tag_id": "theme-0059-适应",
+            "canonical_zh": "适应",
+            "similarity": 0.2642570765938983
+          },
+          {
+            "rank": 201,
+            "tag_id": "theme-0148-掌控",
+            "canonical_zh": "掌控",
+            "similarity": 0.2641768460477719
+          },
+          {
+            "rank": 202,
+            "tag_id": "theme-0024-勇气",
+            "canonical_zh": "勇气",
+            "similarity": 0.2633738672110444
+          },
+          {
+            "rank": 203,
+            "tag_id": "theme-0137-书籍",
+            "canonical_zh": "书籍",
+            "similarity": 0.26086525160391044
+          },
+          {
+            "rank": 204,
+            "tag_id": "theme-0099-愤怒",
+            "canonical_zh": "愤怒",
+            "similarity": 0.2588215327437796
+          },
+          {
+            "rank": 205,
+            "tag_id": "theme-0212-信仰",
+            "canonical_zh": "信仰",
+            "similarity": 0.2575298282108592
+          },
+          {
+            "rank": 206,
+            "tag_id": "theme-0157-工作",
+            "canonical_zh": "工作",
+            "similarity": 0.255631241655757
+          },
+          {
+            "rank": 207,
+            "tag_id": "theme-0162-暴力",
+            "canonical_zh": "暴力",
+            "similarity": 0.25499599714312365
+          },
+          {
+            "rank": 208,
+            "tag_id": "theme-0121-忠诚",
+            "canonical_zh": "忠诚",
+            "similarity": 0.2531677679251219
+          },
+          {
+            "rank": 209,
+            "tag_id": "theme-0072-欲望",
+            "canonical_zh": "欲望",
+            "similarity": 0.24833407488208825
+          },
+          {
+            "rank": 210,
+            "tag_id": "theme-0216-宽恕",
+            "canonical_zh": "宽恕",
+            "similarity": 0.24679185708905765
+          },
+          {
+            "rank": 211,
+            "tag_id": "theme-0074-理智",
+            "canonical_zh": "理智",
+            "similarity": 0.24618055205960462
+          },
+          {
+            "rank": 212,
+            "tag_id": "theme-0056-责任",
+            "canonical_zh": "责任",
+            "similarity": 0.24214287359211648
+          },
+          {
+            "rank": 213,
+            "tag_id": "theme-0163-权力",
+            "canonical_zh": "权力",
+            "similarity": 0.23960077008690386
+          },
+          {
+            "rank": 214,
+            "tag_id": "theme-0153-合作",
+            "canonical_zh": "合作",
+            "similarity": 0.22604976421993586
+          },
+          {
+            "rank": 215,
+            "tag_id": "theme-0215-公正",
+            "canonical_zh": "公正",
+            "similarity": 0.22350897694137345
+          },
+          {
+            "rank": 216,
+            "tag_id": "theme-0028-诚实",
+            "canonical_zh": "诚实",
+            "similarity": 0.21894839597121574
+          },
+          {
+            "rank": 217,
+            "tag_id": "theme-0207-伦理困境",
+            "canonical_zh": "伦理困境",
+            "similarity": 0.2149522104983077
+          }
+        ]
+      },
+      "ranks_of_expected": [],
+      "recall_at": {
+        "5": {
+          "evaluated": false,
+          "expected_count": 0,
+          "hit_count": 0,
+          "recall": null,
+          "hits": [],
+          "misses": []
+        },
+        "10": {
+          "evaluated": false,
+          "expected_count": 0,
+          "hit_count": 0,
+          "recall": null,
+          "hits": [],
+          "misses": []
+        },
+        "20": {
+          "evaluated": false,
+          "expected_count": 0,
+          "hit_count": 0,
+          "recall": null,
+          "hits": [],
+          "misses": []
+        }
+      },
+      "analysis_hints": {
+        "possible_retrieval_failure": false,
+        "taxonomy_gap": null,
+        "benchmark_ambiguity": true
+      }
+    }
+  ],
+  "notes": [
+    "Research-only retrieval benchmark. No production Tag assignment.",
+    "Deterministic hits are separate from semantic similarity scores.",
+    "Fake provider results are not semantic quality evidence.",
+    "EXPLORATORY fixture/run: no expected Theme ground truth; Recall@K is not interpretable as calibration quality."
+  ]
+}

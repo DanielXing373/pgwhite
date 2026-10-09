@@ -1,0 +1,18 @@
+{
+  "schema_version": "retrieval-analysis.v1",
+  "notes": "Post-hoc human analysis only. Do not overwrite run.json raw outputs.",
+  "categories": {
+    "retrieval_failure": "Expected Tag exists in library but ranks poorly / outside Top-20.",
+    "taxonomy_gap": "Important concept appears missing from the Theme library.",
+    "benchmark_ambiguity": "Expected Tag itself is debatable or abstraction level unclear."
+  },
+  "quotes": [
+    {
+      "quote_id": "exp0.1-q1",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [],
+      "ranks_of_expected": []
+    }
+  ]
+}
