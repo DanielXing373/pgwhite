@@ -1,0 +1,23 @@
+{
+  "schema_version": "retrieval-run-manifest.v1",
+  "run_id": "calib-qwen06b-B",
+  "created_at": "2026-10-09T21:03:42.041Z",
+  "git_commit_sha": "5f36a0244671f627f5d35b9b1b0a9c842331d91a",
+  "representation": "B",
+  "provider_id": "qwen3-embedding",
+  "model_name": "Qwen/Qwen3-Embedding-0.6B",
+  "model_identifier": "Qwen/Qwen3-Embedding-0.6B",
+  "benchmark_version": "calib-zh-themes.v1",
+  "benchmark_hash": "9ff6a089238ab20acfc325ce77a9a6aa86f41dc1800ffadca29cd02433a204b3",
+  "tag_library_version": "atomic-tag-library.v1.41",
+  "tag_library_hash": "d8e8d97127d5aa2211d70a3f268fb09a258548ec89abdfc69760d557a9dc56ac",
+  "active_theme_count": 217,
+  "exploratory": false,
+  "aggregate_metrics": {
+    "evaluated_quotes": 21,
+    "mean_recall_at_5": 0.6031746031746031,
+    "mean_recall_at_10": 0.8095238095238095,
+    "mean_recall_at_20": 0.9047619047619048
+  },
+  "completed": true
+}
