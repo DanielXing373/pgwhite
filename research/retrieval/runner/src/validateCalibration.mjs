@@ -29,7 +29,8 @@ import {
  * - expected_theme_label must exist as active canonical → error
  * - when both ids and labels are provided, they must agree as the same set → error
  * - draft calibration may have empty quotes[] (scaffold) → warning only
- * - frozen calibration must have quotes and each quote should have ≥1 expected Theme → error if missing
+ * - frozen calibration must have quotes; empty expected Themes are allowed only when
+ *   ambiguity_flags include zero_theme and/or taxonomy_gap (incl. taxonomy_gap:<label>)
  */
 export function validateCalibrationBenchmark({
   repoRoot,
@@ -210,12 +211,21 @@ export function validateCalibrationBenchmark({
     }
 
     if (status === "frozen" && ids.length === 0 && labels.length === 0) {
-      issues.push({
-        severity: "error",
-        code: "frozen_missing_expected",
-        quote_id: qid,
-        message: `Quote ${qid}: frozen calibration requires expected Themes.`,
-      });
+      const flags = Array.isArray(q.ambiguity_flags) ? q.ambiguity_flags : [];
+      const allowsEmptyExpected = flags.some(
+        (f) =>
+          f === "zero_theme" ||
+          f === "taxonomy_gap" ||
+          (typeof f === "string" && f.startsWith("taxonomy_gap:")),
+      );
+      if (!allowsEmptyExpected) {
+        issues.push({
+          severity: "error",
+          code: "frozen_missing_expected",
+          quote_id: qid,
+          message: `Quote ${qid}: frozen calibration requires expected Themes, or ambiguity_flags zero_theme / taxonomy_gap for intentional empty expected.`,
+        });
+      }
     }
   }
 

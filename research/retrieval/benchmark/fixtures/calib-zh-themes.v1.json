@@ -1,20 +1,465 @@
 {
   "schema_version": "retrieval-benchmark.v1",
   "benchmark_version": "calib-zh-themes.v1",
-  "created_at": "2026-10-08T00:00:00.000Z",
+  "created_at": "2026-10-09T00:00:00.000Z",
   "research_only": true,
   "calibration": true,
   "exploratory": false,
-  "status": "draft",
+  "status": "frozen",
   "notes": [
-    "FROZEN CALIBRATION SET scaffold for Representations A/B/C Recall@5/10/20.",
-    "STATUS: draft — quotes[] is intentionally empty.",
-    "Populate manually outside Cursor (~20–30 Chinese literary-style Quotes).",
-    "Expected Themes must be chosen BEFORE inspecting retrieval results for that Quote.",
-    "Use only active Themes from atomic-tag-library.v1.41 (217 active_candidate).",
-    "Do NOT invent new Themes. Do NOT use model-generated labels as ground truth.",
-    "See research/retrieval/docs/calibration-rules.md.",
+    "Calibration Quotes manually authored from manual_defined_test.txt.",
+    "Expected Themes chosen by human; mapped only to active Themes in atomic-tag-library.v1.41.",
+    "Taxonomy gaps recorded explicitly (时间, 知识, 道德, 懒惰, 荣誉) — NOT substituted.",
+    "status=frozen after human review of validated manual GT; taxonomy gaps preserved (时间, 知识, 道德, 懒惰, 荣誉).",
     "NOT Experiment 0.1. NOT training data."
   ],
-  "quotes": []
+  "quotes": [
+    {
+      "quote_id": "calib-001",
+      "text_zh": "加德纳先生唱了起来，很轻很柔地，像是只记得一部分歌词。可是他的声音还是清晰地回响在安静的运河上。而且真是太好听了。一时间我仿佛又回到了童年，回到了那个公寓。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "multi_theme",
+      "expected_theme_ids": [
+        "theme-0146-音乐",
+        "theme-0077-记忆",
+        "theme-0010-童年"
+      ],
+      "expected_theme_labels": [
+        "音乐",
+        "记忆",
+        "童年"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 音乐，记忆，童年"
+    },
+    {
+      "quote_id": "calib-002",
+      "text_zh": "知识是可以传授的，而智慧却不能。智慧只能被发现、被体验，可以活出来，可以成为人心的依托，甚至可以借它创造奇迹，但它无法用言语表达，也无法教授他人。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "mixed_expected_and_taxonomy_gap",
+      "expected_theme_ids": [
+        "theme-0070-智慧",
+        "theme-0145-语言"
+      ],
+      "expected_theme_labels": [
+        "智慧",
+        "语言"
+      ],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:知识"
+      ],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 知识，智慧，语言 taxonomy gap: 知识 — recorded as gap only; NOT substituted with another Theme."
+    },
+    {
+      "quote_id": "calib-003",
+      "text_zh": "他深深陷入了轮回之流，四面八方的厌恶与死亡被他吸收殆尽，就像一块吸满了水的海绵。他满是倦怠，满是苦痛，满是死亡。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "multi_theme",
+      "expected_theme_ids": [
+        "theme-0057-轮回",
+        "theme-0043-死亡"
+      ],
+      "expected_theme_labels": [
+        "轮回",
+        "死亡"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 轮回，死亡"
+    },
+    {
+      "quote_id": "calib-004",
+      "text_zh": "道德没有计量单位，即便对于那些永恒而普遍的范畴（诸如善与恶，仁慈与残忍），我们也时常稀里糊涂、无从对照，分不清谁是真正的善良，谁只是没有坏心眼儿；不知道何谓真正的正派，也搞不清楚这些品质的标准究竟何在。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "taxonomy_gap",
+      "expected_theme_ids": [],
+      "expected_theme_labels": [],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:道德"
+      ],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 道德 taxonomy gap: 道德 — recorded as gap only; NOT substituted with another Theme."
+    },
+    {
+      "quote_id": "calib-005",
+      "text_zh": "柳比歇夫的时间酷似物质，从不会了无痕迹地消失，不会平白无故地蒸发，而总能够查明它们变成了什么。借助时间核算，柳比歇夫不断地开采着新的时间。而时间，才是真正的矿藏。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "taxonomy_gap",
+      "expected_theme_ids": [],
+      "expected_theme_labels": [],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:时间"
+      ],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: taxonomy gap: 时间 taxonomy gap: 时间 — recorded as gap only; NOT substituted with another Theme."
+    },
+    {
+      "quote_id": "calib-006",
+      "text_zh": "人类对时间总抱有敌意。空间、物质，这些东西都被人驯服了。唯独时间，亘古便野性难驯。自人类眺望宇宙深处以来，便听得到世界时钟数十亿年未曾中断的嘀嗒声；当人类目睹星系的坍塌时，时间似乎变得更加可怕了。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "mixed_expected_and_taxonomy_gap",
+      "expected_theme_ids": [
+        "theme-0097-恐惧"
+      ],
+      "expected_theme_labels": [
+        "恐惧"
+      ],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:时间"
+      ],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 恐惧，taxonomy gap: 时间 taxonomy gap: 时间 — recorded as gap only; NOT substituted with another Theme."
+    },
+    {
+      "quote_id": "calib-007",
+      "text_zh": "为了能够通过搅乱气味、味道的正常秩序唤起自己的警觉，因为他相信，与令人绝望的永恒结局相比，死亡更是一种警告。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "single_theme",
+      "expected_theme_ids": [
+        "theme-0043-死亡"
+      ],
+      "expected_theme_labels": [
+        "死亡"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 死亡"
+    },
+    {
+      "quote_id": "calib-008",
+      "text_zh": "没有一只鸟在固体般坚实的天空中飞翔，没有动物用窸窣的响动打破像晨雾般在大地上弥漫的寂静，只有一头孤独、受惊的小鹿——仿佛泥沼在呼吸——时而仰头，时而低头，时刻准备着逃离，逃向远方。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "single_theme",
+      "expected_theme_ids": [
+        "theme-0127-寂静"
+      ],
+      "expected_theme_labels": [
+        "寂静"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 寂静"
+    },
+    {
+      "quote_id": "calib-009",
+      "text_zh": "一根位置放错的火柴或帕林卡酒盅本身就是对造成记忆力衰退的破坏性影响的纪念品。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "multi_theme",
+      "expected_theme_ids": [
+        "theme-0077-记忆",
+        "theme-0078-遗忘"
+      ],
+      "expected_theme_labels": [
+        "记忆",
+        "遗忘"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 记忆，遗忘"
+    },
+    {
+      "quote_id": "calib-010",
+      "text_zh": "某种无法解释的深深不安会给他注入一针兴奋剂，杯子或铅笔开始在他的手里抖动，焦虑地在日记本里记下想到的话，随后，又以粗莽、激愤的动作用橡皮擦掉。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "single_theme",
+      "expected_theme_ids": [
+        "theme-0104-焦虑"
+      ],
+      "expected_theme_labels": [
+        "焦虑"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 焦虑"
+    },
+    {
+      "quote_id": "calib-011",
+      "text_zh": "克拉奈尔夫人单有一把进屋的钥匙，每次她来，刚一迈腿进屋，就立即能闻到刺鼻的酸臭味，这股气味被吸进她的衣服里，甚至渗透进她的皮肤里，即便她——\"在登门探望医生的日子里\"——每天洗两遍澡也无济于事。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "zero_theme",
+      "expected_theme_ids": [],
+      "expected_theme_labels": [],
+      "ambiguity_flags": [
+        "zero_theme"
+      ],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 无 Manual marker 无 — zero expected Themes."
+    },
+    {
+      "quote_id": "calib-012",
+      "text_zh": "有那么几次，当他在由于黄昏的突然降临而变得昏暗的房间里一样样地审视他那些摆放如意的用品时，会感到一股温暖和些许的满足，他意识到所有的一切都在他的掌控之下，他的掌控力无所不在。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "multi_theme",
+      "expected_theme_ids": [
+        "theme-0148-掌控",
+        "theme-0103-满足"
+      ],
+      "expected_theme_labels": [
+        "掌控",
+        "满足"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 掌控，满足"
+    },
+    {
+      "quote_id": "calib-013",
+      "text_zh": "直到他的身体脏器与他解除那份\"能够维持彼此交易关系的协议\"，直到他的肉和骨头遭到死亡与腐烂的秃鹫的攻击。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "single_theme",
+      "expected_theme_ids": [
+        "theme-0043-死亡"
+      ],
+      "expected_theme_labels": [
+        "死亡"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 死亡"
+    },
+    {
+      "quote_id": "calib-014",
+      "text_zh": "医生全神贯注地观察了一会儿，然后在日记本里勾画了一张场景的草图，就连最小的水坑、水流都仔细、认真地标记出来，随后在草图的下方注明了时间。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "single_theme",
+      "expected_theme_ids": [
+        "theme-0198-观察"
+      ],
+      "expected_theme_labels": [
+        "观察"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 观察"
+    },
+    {
+      "quote_id": "calib-015",
+      "text_zh": "一支庞大的、衣衫褴褛的队伍在一片沙漠般的荒野里蜿蜒前行，在他们身后是一片笼罩在硝烟和火光之中的天塌地陷、千疮百孔的城市废墟，在他们前方有一块巨大、可怕的虚斑。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "multi_theme",
+      "expected_theme_ids": [
+        "theme-0042-末日",
+        "theme-0004-废墟"
+      ],
+      "expected_theme_labels": [
+        "末日",
+        "废墟"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 末日，废墟"
+    },
+    {
+      "quote_id": "calib-016",
+      "text_zh": "那样一来，他就不得不应付那些伪装成狡黠、粗俗的问候和寒暄的令人作呕的好奇心。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "single_theme",
+      "expected_theme_ids": [
+        "theme-0088-好奇"
+      ],
+      "expected_theme_labels": [
+        "好奇"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 好奇"
+    },
+    {
+      "quote_id": "calib-017",
+      "text_zh": "这部充满了各种感觉的小说突然被这些不知深浅的漩涡隔断了，犹如你希望生活充实结果却发现了生活中的空虚。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "single_theme",
+      "expected_theme_ids": [
+        "theme-0054-虚无"
+      ],
+      "expected_theme_labels": [
+        "虚无"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 虚无"
+    },
+    {
+      "quote_id": "calib-018",
+      "text_zh": "你用刀刃在纸张中开路犹如用思想在文字中开路，因为阅读就像在密林中前进。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "zero_theme",
+      "expected_theme_ids": [],
+      "expected_theme_labels": [],
+      "ambiguity_flags": [
+        "zero_theme"
+      ],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 无 Manual marker 无 — zero expected Themes."
+    },
+    {
+      "quote_id": "calib-019",
+      "text_zh": "你原来认为对生活寄托希望的年代已经过去了，现在却心满意足地走出书店。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "single_theme",
+      "expected_theme_ids": [
+        "theme-0093-希望"
+      ],
+      "expected_theme_labels": [
+        "希望"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 希望"
+    },
+    {
+      "quote_id": "calib-020",
+      "text_zh": "读者啊！那位幸福的女读者进入你的视野，进入你注意的范围，或者说你陷入了一个磁场，而且摆脱不了这个磁场的吸引力。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "zero_theme",
+      "expected_theme_ids": [],
+      "expected_theme_labels": [],
+      "ambiguity_flags": [
+        "zero_theme"
+      ],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 无 Manual marker 无 — zero expected Themes."
+    },
+    {
+      "quote_id": "calib-021",
+      "text_zh": "你在梦境之中要寻找一种抽象的、绝对的时空，并沿着一条明确的路线前进。但是，当你觉得你快要找到的时候，你却醒了，发现你躺在床上并未动弹，只得一切重新开始。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "single_theme",
+      "expected_theme_ids": [
+        "theme-0071-梦"
+      ],
+      "expected_theme_labels": [
+        "梦"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 梦"
+    },
+    {
+      "quote_id": "calib-022",
+      "text_zh": "难道你就没有想到我手表上的日历在那个小方框里啪啪倒退，仿佛断头台上被屠刀砍下的头颅一个个从我脚下滚过吗？",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "taxonomy_gap",
+      "expected_theme_ids": [],
+      "expected_theme_labels": [],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:时间"
+      ],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: taxonomy gap: 时间 taxonomy gap: 时间 — recorded as gap only; NOT substituted with another Theme."
+    },
+    {
+      "quote_id": "calib-023",
+      "text_zh": "眼睛盯着挂钟的指针，徒劳地要使那巨大的时针倒转，倒着经历那已经属于过去的时刻。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "taxonomy_gap",
+      "expected_theme_ids": [],
+      "expected_theme_labels": [],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:时间"
+      ],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: taxonomy gap: 时间 taxonomy gap: 时间 — recorded as gap only; NOT substituted with another Theme."
+    },
+    {
+      "quote_id": "calib-024",
+      "text_zh": "懒汉不干活，冬天里借口天冷，夏天里借口天热。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "taxonomy_gap",
+      "expected_theme_ids": [],
+      "expected_theme_labels": [],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:懒惰"
+      ],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 懒惰 taxonomy gap: 懒惰 — recorded as gap only; NOT substituted with another Theme."
+    },
+    {
+      "quote_id": "calib-025",
+      "text_zh": "要知道：有钱人保卫自身或财产的最强大力量，在于下人和邻人对他的敬爱和友爱。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "single_theme",
+      "expected_theme_ids": [
+        "theme-0175-财富"
+      ],
+      "expected_theme_labels": [
+        "财富"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 财富"
+    },
+    {
+      "quote_id": "calib-026",
+      "text_zh": "凡是你仆人和对你毕恭毕敬的人，对他们的意见特别要保持距离；因为他们的话恐怕出于惧怕而非敬爱。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "single_theme",
+      "expected_theme_ids": [
+        "theme-0097-恐惧"
+      ],
+      "expected_theme_labels": [
+        "恐惧"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 恐惧"
+    },
+    {
+      "quote_id": "calib-027",
+      "text_zh": "对朋友甜言蜜语的人，在他脚前安置了诱捕的罗网。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "single_theme",
+      "expected_theme_ids": [
+        "theme-0117-友情"
+      ],
+      "expected_theme_labels": [
+        "友情"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 友情"
+    },
+    {
+      "quote_id": "calib-028",
+      "text_zh": "可见，谁若满载着荣誉断了气，他的亲友该为他去世而欣喜，因为等他令名因年龄而枯槁，那时他的能耐已完全被忘掉。所以如果有人要留个好名誉，那么最好在声名最隆时死去。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "mixed_expected_and_taxonomy_gap",
+      "expected_theme_ids": [
+        "theme-0043-死亡"
+      ],
+      "expected_theme_labels": [
+        "死亡"
+      ],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:荣誉"
+      ],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 死亡，荣誉 taxonomy gap: 荣誉 — recorded as gap only; NOT substituted with another Theme."
+    },
+    {
+      "quote_id": "calib-029",
+      "text_zh": "所以我认为明智的做法就是：要自愿地去做非做不可的事，要甘心接受不可避免的情形，特别是我们必然遭遇的命运。",
+      "source": "manual_defined_test.txt",
+      "category": "calib",
+      "test_purpose": "single_theme",
+      "expected_theme_ids": [
+        "theme-0032-命运"
+      ],
+      "expected_theme_labels": [
+        "命运"
+      ],
+      "ambiguity_flags": [],
+      "notes": "Manual GT from manual_defined_test.txt; original labels: 命运"
+    }
+  ]
 }

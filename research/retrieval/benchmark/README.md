@@ -6,7 +6,7 @@ Versioned Quote inputs for retrieval experiments.
 |---------|------|
 | `synthetic-smoke.v1.json` | Infrastructure smoke only; **not** calibration GT |
 | `exp0.1-exploratory-single-quote.v1.json` | Experiment 0.1 exploratory (no expected Themes) |
-| `calib-zh-themes.v1.json` | **Calibration scaffold** (~20–30 Quotes); starts `status=draft` with empty `quotes[]` |
+| `calib-zh-themes.v1.json` | **Frozen calibration** (29 Quotes; `status=frozen`); manual GT vs active 217 Themes |
 
 ## Calibration
 

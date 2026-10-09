@@ -27,9 +27,12 @@ Authoritative Theme universe:
 
 | Situation | Action |
 |-----------|--------|
-| Important concept missing from the 217 Themes | Record a **taxonomy gap** note / analysis flag; do not invent a Theme |
+| Important concept missing from the 217 Themes | Record a **taxonomy gap** (`ambiguity_flags`: `taxonomy_gap` and/or `taxonomy_gap:<label>`); leave that label out of `expected_theme_*`; do not invent or substitute a nearby Theme |
+| Manual marker `无` (no Theme applies) | Empty `expected_theme_*` with `ambiguity_flags: ["zero_theme"]` |
 | Expected Theme itself is debatable / abstraction unclear | Set `ambiguity_flags` and notes; keep GT honest |
 | Retrieval ranks expected Theme poorly | Leave as **retrieval failure** evidence |
+
+Frozen fixtures may include empty-expected Quotes **only** when `zero_theme` and/or `taxonomy_gap` metadata is present.
 
 Use `analysis.json` on runs (or Quote `notes` / `ambiguity_flags`) for post-hoc classification. Do not rewrite the frozen fixture to chase scores.
 

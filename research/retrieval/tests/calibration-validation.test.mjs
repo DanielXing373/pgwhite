@@ -27,24 +27,103 @@ function writeTempBenchmark(obj) {
   return { dir, path };
 }
 
-test("draft calibration scaffold validates with warning and empty quotes", () => {
+test("frozen calib-zh-themes.v1 validates with populated Quotes", () => {
   const result = validateCalibrationBenchmark({
     repoRoot,
     benchmarkPath: CALIB_PATH,
   });
   assert.equal(result.ok, true);
-  assert.equal(result.status, "draft");
-  assert.equal(result.quote_count, 0);
+  assert.equal(result.status, "frozen");
+  assert.equal(result.quote_count, 29);
   assert.equal(result.active_theme_count, 217);
-  assert.ok(result.warnings.some((w) => w.code === "draft_empty"));
   assert.equal(result.errors.length, 0);
+  assert.equal(result.warnings.length, 0);
+
+  const bench = loadBenchmark(repoRoot, CALIB_PATH);
+  assert.equal(bench.data.quotes.length, 29);
+  const emptyExpected = bench.data.quotes.filter(
+    (q) =>
+      (q.expected_theme_ids ?? []).length === 0 &&
+      (q.expected_theme_labels ?? []).length === 0,
+  );
+  assert.equal(emptyExpected.length, 8);
+  for (const q of emptyExpected) {
+    const flags = q.ambiguity_flags ?? [];
+    assert.ok(
+      flags.some(
+        (f) =>
+          f === "zero_theme" ||
+          f === "taxonomy_gap" ||
+          String(f).startsWith("taxonomy_gap:"),
+      ),
+      `${q.quote_id} empty expected must declare zero_theme or taxonomy_gap`,
+    );
+  }
 });
 
-test("retrieval runner rejects empty calibration scaffold (needs quotes)", () => {
-  assert.throws(
-    () => loadBenchmark(repoRoot, CALIB_PATH),
-    /non-empty array/,
-  );
+test("frozen empty expected without zero_theme/taxonomy_gap fails", () => {
+  const { dir, path } = writeTempBenchmark({
+    schema_version: "retrieval-benchmark.v1",
+    benchmark_version: "tmp-calib",
+    calibration: true,
+    status: "frozen",
+    exploratory: false,
+    quotes: [
+      {
+        quote_id: "c-empty",
+        text_zh: "无期望且无标注。",
+        expected_theme_ids: [],
+        expected_theme_labels: [],
+        ambiguity_flags: [],
+      },
+    ],
+  });
+  try {
+    const result = validateCalibrationBenchmark({
+      repoRoot,
+      benchmarkPath: path,
+    });
+    assert.equal(result.ok, false);
+    assert.ok(result.errors.some((e) => e.code === "frozen_missing_expected"));
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("frozen empty expected with taxonomy_gap or zero_theme is allowed", () => {
+  const { dir, path } = writeTempBenchmark({
+    schema_version: "retrieval-benchmark.v1",
+    benchmark_version: "tmp-calib",
+    calibration: true,
+    status: "frozen",
+    exploratory: false,
+    quotes: [
+      {
+        quote_id: "c-gap",
+        text_zh: "taxonomy gap only。",
+        expected_theme_ids: [],
+        expected_theme_labels: [],
+        ambiguity_flags: ["taxonomy_gap", "taxonomy_gap:道德"],
+      },
+      {
+        quote_id: "c-zero",
+        text_zh: "zero theme marker。",
+        expected_theme_ids: [],
+        expected_theme_labels: [],
+        ambiguity_flags: ["zero_theme"],
+      },
+    ],
+  });
+  try {
+    const result = validateCalibrationBenchmark({
+      repoRoot,
+      benchmarkPath: path,
+    });
+    assert.equal(result.ok, true);
+    assert.equal(result.errors.length, 0);
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
 });
 
 test("expected Theme id must exist in active 217 library", () => {
