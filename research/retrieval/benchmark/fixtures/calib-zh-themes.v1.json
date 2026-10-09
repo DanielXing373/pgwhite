@@ -1,0 +1,20 @@
+{
+  "schema_version": "retrieval-benchmark.v1",
+  "benchmark_version": "calib-zh-themes.v1",
+  "created_at": "2026-10-08T00:00:00.000Z",
+  "research_only": true,
+  "calibration": true,
+  "exploratory": false,
+  "status": "draft",
+  "notes": [
+    "FROZEN CALIBRATION SET scaffold for Representations A/B/C Recall@5/10/20.",
+    "STATUS: draft — quotes[] is intentionally empty.",
+    "Populate manually outside Cursor (~20–30 Chinese literary-style Quotes).",
+    "Expected Themes must be chosen BEFORE inspecting retrieval results for that Quote.",
+    "Use only active Themes from atomic-tag-library.v1.41 (217 active_candidate).",
+    "Do NOT invent new Themes. Do NOT use model-generated labels as ground truth.",
+    "See research/retrieval/docs/calibration-rules.md.",
+    "NOT Experiment 0.1. NOT training data."
+  ],
+  "quotes": []
+}

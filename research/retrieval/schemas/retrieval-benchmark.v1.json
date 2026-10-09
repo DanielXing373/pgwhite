@@ -17,13 +17,21 @@
       "type": "boolean",
       "description": "When true, fixture has no calibration ground truth; Recall@K is not interpretable."
     },
+    "calibration": {
+      "type": "boolean",
+      "description": "When true, fixture is a calibration set (manual expected Themes for Recall@K)."
+    },
+    "status": {
+      "type": "string",
+      "description": "Calibration lifecycle: draft (may have empty quotes) | frozen (populated, immutable GT intent)."
+    },
     "notes": {
       "type": "array",
       "items": { "type": "string" }
     },
     "quotes": {
       "type": "array",
-      "minItems": 1,
+      "description": "May be empty only for calibration status=draft scaffolds awaiting manual population.",
       "items": {
         "type": "object",
         "additionalProperties": false,
@@ -39,7 +47,14 @@
             "minLength": 1
           },
           "source": { "type": "string" },
-          "category": { "type": "string" },
+          "category": {
+            "type": "string",
+            "description": "Broad bucket, e.g. calib / smoke / exploratory."
+          },
+          "test_purpose": {
+            "type": "string",
+            "description": "Calibration intent, e.g. lexical_explicit | semantic_implicit | multi_theme | confusable | taxonomy_stress."
+          },
           "expected_theme_ids": {
             "type": "array",
             "items": { "type": "string" },

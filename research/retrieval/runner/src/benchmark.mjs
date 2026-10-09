@@ -1,7 +1,14 @@
 import { readJsonFile, resolveRepoPath, sha256File } from "./io.mjs";
 import { indexThemesByCanonical, indexThemesById } from "./tagLibrary.mjs";
 
-export function loadBenchmark(repoRoot, relativePath) {
+/**
+ * @param {string} repoRoot
+ * @param {string} relativePath
+ * @param {{ allowEmptyQuotes?: boolean }} [options]
+ *   allowEmptyQuotes: permit quotes=[] for draft calibration scaffolds.
+ *   Retrieval runs still require at least one quote (default).
+ */
+export function loadBenchmark(repoRoot, relativePath, options = {}) {
   const path = resolveRepoPath(repoRoot, relativePath);
   const data = readJsonFile(path);
   if (data.schema_version !== "retrieval-benchmark.v1") {
@@ -12,18 +19,26 @@ export function loadBenchmark(repoRoot, relativePath) {
   if (!data.benchmark_version || typeof data.benchmark_version !== "string") {
     throw new Error("benchmark_version is required");
   }
-  if (!Array.isArray(data.quotes) || data.quotes.length < 1) {
+  if (!Array.isArray(data.quotes)) {
+    throw new Error("benchmark quotes[] must be an array");
+  }
+  // Draft calibration scaffolds may be empty only when explicitly allowed
+  // (validation tooling). Retrieval runs always require ≥1 quote.
+  if (data.quotes.length < 1 && options.allowEmptyQuotes !== true) {
     throw new Error("benchmark quotes[] must be a non-empty array");
   }
   if (data.exploratory != null && typeof data.exploratory !== "boolean") {
     throw new Error("exploratory must be a boolean when present");
   }
+  if (data.calibration != null && typeof data.calibration !== "boolean") {
+    throw new Error("calibration must be a boolean when present");
+  }
   for (const q of data.quotes) {
     if (!q.quote_id || typeof q.quote_id !== "string") {
       throw new Error("Each quote requires quote_id");
     }
-    if (!q.text_zh || typeof q.text_zh !== "string") {
-      throw new Error(`Quote ${q.quote_id}: text_zh required`);
+    if (typeof q.text_zh !== "string" || !q.text_zh.trim()) {
+      throw new Error(`Quote ${q.quote_id}: text_zh required (non-empty)`);
     }
     if (q.expected_theme_ids != null && !Array.isArray(q.expected_theme_ids)) {
       throw new Error(`Quote ${q.quote_id}: expected_theme_ids must be array`);

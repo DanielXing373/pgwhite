@@ -11,7 +11,8 @@ research/retrieval/
   README.md, docs/setup.md
   config/                      # including exp0.1-qwen06b.retrieval.v1.json
   schemas/
-  benchmark/fixtures/          # synthetic smoke + exploratory exp0.1 (not calibration GT)
+  benchmark/fixtures/          # smoke, exp0.1 exploratory, calib-zh-themes scaffold
+  docs/calibration-rules.md    # manual GT rules for A/B/C Recall@K
   runner/src/                  # loaders, match, providers, rank, eval
   runner/python/               # Sentence Transformers Qwen3 worker
   runner/scripts/              # CLI
@@ -34,8 +35,13 @@ npm run research:retrieval:run -- --config research/retrieval/config/exp0.1-qwen
 npm run research:retrieval:run -- --config research/retrieval/config/exp0.1-qwen06b.retrieval.v1.json --provider qwen3 --representation B --run-id exp0.1-qwen06b-B
 npm run research:retrieval:run -- --config research/retrieval/config/exp0.1-qwen06b.retrieval.v1.json --provider qwen3 --representation C --run-id exp0.1-qwen06b-C
 
+# Validate calibration fixture (draft empty quotes → warning OK)
+npm run research:retrieval:validate-calib
+
 npm run research:retrieval:test
 ```
+
+Calibration ground truth is populated **manually** into `benchmark/fixtures/calib-zh-themes.v1.json` (see `docs/calibration-rules.md`). Do not invent expected Themes in Cursor.
 
 Completed runs refuse overwrite. Use a new `--run-id` for material config changes.
 
