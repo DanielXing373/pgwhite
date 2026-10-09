@@ -1,0 +1,9 @@
+# PGWhite 1.42 — Qwen3 embedding dependencies (experiment machine venv).
+#
+# Install CUDA-enabled PyTorch FIRST for your platform from https://pytorch.org
+# (do not rely on a CPU-only torch wheel when require_cuda=true).
+# Then:
+#   pip install -r research/retrieval/runner/python/requirements-qwen3.txt
+#
+sentence-transformers>=3.0.0,<6
+numpy>=1.26,<3

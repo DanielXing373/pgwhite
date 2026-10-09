@@ -18,7 +18,11 @@ import {
 } from "../runner/src/representations.mjs";
 import { findDeterministicHits } from "../runner/src/deterministicMatch.mjs";
 import { createFakeEmbeddingProvider } from "../runner/src/providers/fake.mjs";
-import { createQwen3EmbeddingProviderStub } from "../runner/src/providers/interface.mjs";
+import {
+  buildQwen3WorkerArgs,
+  createQwen3EmbeddingProvider,
+  resolvePythonExecutable,
+} from "../runner/src/providers/qwen3.mjs";
 import { cosineSimilarity, rankByCosine, takeTopK } from "../runner/src/rank.mjs";
 import { recallAtK, aggregateRecalls } from "../runner/src/evaluate.mjs";
 import { loadBenchmark, resolveExpectedThemeIds } from "../runner/src/benchmark.mjs";
@@ -27,7 +31,7 @@ import {
   resolveRunDir,
   writeRunArtifacts,
 } from "../runner/src/runArtifact.mjs";
-import { runRetrievalBenchmark, loadConfig } from "../runner/src/pipeline.mjs";
+import { runRetrievalBenchmark, loadConfig, createProvider } from "../runner/src/pipeline.mjs";
 
 const repoRoot = resolveRepoRoot();
 function resolveRepoRoot() {
@@ -137,10 +141,64 @@ test("fake embedding provider is deterministic", async () => {
   assert.notDeepEqual(a[0], a[1]);
 });
 
-test("qwen stub fails loudly without implementing model download", async () => {
-  const p = createQwen3EmbeddingProviderStub();
+test("qwen3 worker args default to require_cuda and normalize", () => {
+  const { model, args, requireCuda } = buildQwen3WorkerArgs({});
+  assert.equal(model, "Qwen/Qwen3-Embedding-0.6B");
+  assert.equal(requireCuda, true);
+  assert.ok(args.includes("--require-cuda"));
+  assert.ok(args.includes("--normalize-embeddings"));
+  // No hardcoded CUDA device index in default args (portable across machines).
+  assert.ok(!args.includes("--device"));
+  assert.ok(!args.includes("cuda:0"));
+});
+
+test("qwen3 provider fails clearly when Python executable is missing", async () => {
+  const p = createQwen3EmbeddingProvider({
+    python_executable: "__pgwhite_missing_python_executable__",
+    require_cuda: true,
+  });
   assert.equal(p.getMetadata().provider_id, "qwen3-embedding");
-  await assert.rejects(() => p.embed(["x"]), /not implemented/i);
+  assert.equal(p.getMetadata().model_name, "Qwen/Qwen3-Embedding-0.6B");
+  await assert.rejects(() => p.embed(["记忆"]), /Failed to start Python|Qwen3/i);
+});
+
+test("createProvider(qwen3) wires real provider (no silent fake fallback)", () => {
+  const p = createProvider({ id: "qwen3", options: { require_cuda: true } });
+  const meta = p.getMetadata();
+  assert.equal(meta.provider_id, "qwen3-embedding");
+  assert.notEqual(meta.provider_id, "fake");
+  assert.equal(typeof resolvePythonExecutable({}), "string");
+});
+
+test("exp0.1 exploratory fixture has no expected Themes and keeps 217-universe", async () => {
+  const { config } = loadConfig(
+    repoRoot,
+    "research/retrieval/config/exp0.1-qwen06b.retrieval.v1.json",
+  );
+  assert.equal(config.provider.id, "qwen3");
+  assert.equal(config.provider.options.require_cuda, true);
+  const bench = loadBenchmark(repoRoot, config.benchmark_path);
+  assert.equal(bench.data.exploratory, true);
+  assert.equal(bench.data.quotes.length, 1);
+  assert.equal(
+    bench.data.quotes[0].text_zh,
+    "听到这首旧歌，我突然想起小时候住过的房间。",
+  );
+  assert.deepEqual(bench.data.quotes[0].expected_theme_ids, []);
+  assert.deepEqual(bench.data.quotes[0].expected_theme_labels, []);
+  // Run with fake provider override so CI does not download Qwen.
+  const { run, manifest } = await runRetrievalBenchmark({
+    repoRoot,
+    config: { ...config, provider: { id: "fake", options: { dimensions: 32 } } },
+    representation: "A",
+    runId: "test-exp0.1-fake-A",
+    providerOverride: createFakeEmbeddingProvider({ dimensions: 32 }),
+  });
+  assert.equal(run.active_theme_count, 217);
+  assert.equal(manifest.exploratory, true);
+  assert.equal(run.aggregate_metrics.evaluated_quotes, 0);
+  assert.equal(run.results[0].semantic_ranking.top_20.length, 20);
+  assert.equal(run.results[0].semantic_ranking.full.length, 217);
 });
 
 test("cosine ranking Top-K ordering is deterministic", () => {

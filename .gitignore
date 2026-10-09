@@ -60,6 +60,8 @@ research/retrieval/**/*.pth
 research/retrieval/**/*.safetensors
 research/retrieval/**/.venv/
 research/retrieval/**/venv/
+.venv-qwen/
+.venv/
 
 
 长日将尽笔记.txt

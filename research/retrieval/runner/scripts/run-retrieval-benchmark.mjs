@@ -6,7 +6,8 @@
  *   node research/retrieval/runner/scripts/run-retrieval-benchmark.mjs --representation A --run-id smoke-fake-A
  *   npm run research:retrieval:run -- --representation B --run-id smoke-fake-B
  *
- * Default provider is fake (no model download). Real Qwen is out of scope for this foundation.
+ * Default config uses fake (no model download). For Qwen3 on the experiment machine,
+ * pass --provider qwen3 and a CUDA-ready Python venv (see research/retrieval/docs/setup.md).
  */
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -52,9 +53,12 @@ Options:
   --config <path>          Config JSON (default: research/retrieval/config/default.retrieval.v1.json)
   --representation A|B|C   Override config representation
   --run-id <id>            Required unique run directory name under research/retrieval/runs/
-  --provider fake|qwen3    Override provider (qwen3 not implemented yet; fails loudly)
+  --provider fake|qwen3    Override provider (qwen3 requires local CUDA Sentence Transformers venv)
   --dry-run                Compute results but do not write run artifacts
   --help
+
+Experiment 0.1 example:
+  npm run research:retrieval:run -- --config research/retrieval/config/exp0.1-qwen06b.retrieval.v1.json --provider qwen3 --representation A --run-id exp0.1-qwen06b-A
 `;
 }
 

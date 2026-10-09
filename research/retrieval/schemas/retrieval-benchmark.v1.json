@@ -13,6 +13,10 @@
     },
     "created_at": { "type": "string" },
     "research_only": { "type": "boolean" },
+    "exploratory": {
+      "type": "boolean",
+      "description": "When true, fixture has no calibration ground truth; Recall@K is not interpretable."
+    },
     "notes": {
       "type": "array",
       "items": { "type": "string" }

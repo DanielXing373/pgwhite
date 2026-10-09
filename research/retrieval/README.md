@@ -1,23 +1,21 @@
 # PGWhite 1.42 — Retrieval research tree
 
-Portable **Existing-Tag Retrieval Benchmark** foundation for Qwen3-Embedding experiments.
+Portable **Existing-Tag Retrieval Benchmark** for Qwen3-Embedding experiments.
 
 Base: accepted **PGWhite 1.41** (`v1.41`).
-
-This tree does **not** download models. Default provider is a deterministic **fake** embedder for infrastructure tests.
 
 ## Layout
 
 ```text
 research/retrieval/
-  README.md
-  docs/setup.md
-  config/default.retrieval.v1.json
+  README.md, docs/setup.md
+  config/                      # including exp0.1-qwen06b.retrieval.v1.json
   schemas/
-  benchmark/fixtures/          # versioned inputs (synthetic smoke only for now)
+  benchmark/fixtures/          # synthetic smoke + exploratory exp0.1 (not calibration GT)
   runner/src/                  # loaders, match, providers, rank, eval
+  runner/python/               # Sentence Transformers Qwen3 worker
   runner/scripts/              # CLI
-  runs/                        # immutable experiment outputs (gitkeep + committed small runs)
+  runs/                        # immutable experiment outputs
   tests/
 ```
 
@@ -28,20 +26,25 @@ Authoritative Tag Library (do not duplicate):
 ## Commands
 
 ```bash
-# Infrastructure smoke (fake provider; writes a run)
+# Infrastructure smoke (fake provider)
 npm run research:retrieval:run -- --representation A --run-id local-smoke-fake-A
 
-npm run research:retrieval:run -- --representation B --run-id local-smoke-fake-B
-npm run research:retrieval:run -- --representation C --run-id local-smoke-fake-C
+# Experiment 0.1 on CUDA machine (see docs/setup.md)
+npm run research:retrieval:run -- --config research/retrieval/config/exp0.1-qwen06b.retrieval.v1.json --provider qwen3 --representation A --run-id exp0.1-qwen06b-A
+npm run research:retrieval:run -- --config research/retrieval/config/exp0.1-qwen06b.retrieval.v1.json --provider qwen3 --representation B --run-id exp0.1-qwen06b-B
+npm run research:retrieval:run -- --config research/retrieval/config/exp0.1-qwen06b.retrieval.v1.json --provider qwen3 --representation C --run-id exp0.1-qwen06b-C
 
-# Dry-run (no artifact write)
-npm run research:retrieval:run -- --representation A --run-id tmp --dry-run
-
-# Tests
 npm run research:retrieval:test
 ```
 
 Completed runs refuse overwrite. Use a new `--run-id` for material config changes.
+
+## Providers
+
+| id | Role |
+|----|------|
+| `fake` | Deterministic plumbing tests only (default in unit tests) |
+| `qwen3` | Local `Qwen/Qwen3-Embedding-0.6B` via Sentence Transformers + CUDA (`require_cuda=true` by default) |
 
 ## Representations (1.41 semantics)
 
@@ -52,7 +55,3 @@ Completed runs refuse overwrite. Use a new `--run-id` for material config change
 ## Deterministic evidence vs semantic ranking
 
 Exact substring hits for canonical/alias forms are recorded separately from cosine ranking. They do **not** boost similarity scores.
-
-## Future Qwen (experiment machine)
-
-See `docs/setup.md`. Provider id `qwen3` is reserved and currently fails loudly until implemented on the RTX machine workflow.

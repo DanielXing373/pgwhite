@@ -15,6 +15,9 @@ export function loadBenchmark(repoRoot, relativePath) {
   if (!Array.isArray(data.quotes) || data.quotes.length < 1) {
     throw new Error("benchmark quotes[] must be a non-empty array");
   }
+  if (data.exploratory != null && typeof data.exploratory !== "boolean") {
+    throw new Error("exploratory must be a boolean when present");
+  }
   for (const q of data.quotes) {
     if (!q.quote_id || typeof q.quote_id !== "string") {
       throw new Error("Each quote requires quote_id");

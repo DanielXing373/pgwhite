@@ -1,0 +1,39 @@
+{
+  "schema_version": "retrieval-config.v1",
+  "config_id": "exp0.1-qwen06b-exploratory-v1",
+  "research_only": true,
+  "dimension": "theme",
+  "tag_library_path": "research/tag-library/data/library/atomic-tag-library.v1.json",
+  "active_status": "active_candidate",
+  "benchmark_path": "research/retrieval/benchmark/fixtures/exp0.1-exploratory-single-quote.v1.json",
+  "representation": "A",
+  "provider": {
+    "id": "qwen3",
+    "options": {
+      "model": "Qwen/Qwen3-Embedding-0.6B",
+      "normalize_embeddings": true,
+      "require_cuda": true,
+      "trust_remote_code": true,
+      "batch_size": 32
+    }
+  },
+  "ranking": {
+    "top_k_report": [5, 10, 20],
+    "store_full_ranking": true
+  },
+  "deterministic_match": {
+    "enabled": true,
+    "method": "exact_substring",
+    "notes": [
+      "Conservative Chinese exact substring of canonical/alias forms.",
+      "Short surfaces (len < 2) are recorded with caution_short_surface=true; no fuzzy/NLP."
+    ]
+  },
+  "runs_dir": "research/retrieval/runs",
+  "overwrite_completed_runs": false,
+  "notes": [
+    "Experiment 0.1 exploratory full-library retrieval for Representations A/B/C.",
+    "Immutable run IDs: exp0.1-qwen06b-A / exp0.1-qwen06b-B / exp0.1-qwen06b-C",
+    "require_cuda=true: do not silently fall back to CPU."
+  ]
+}

@@ -1,5 +1,5 @@
 import { createFakeEmbeddingProvider } from "./providers/fake.mjs";
-import { createQwen3EmbeddingProviderStub } from "./providers/interface.mjs";
+import { createQwen3EmbeddingProvider } from "./providers/qwen3.mjs";
 import { loadTagLibrary, selectActiveThemes } from "./tagLibrary.mjs";
 import { buildThemeCorpus } from "./representations.mjs";
 import { findDeterministicHits } from "./deterministicMatch.mjs";
@@ -29,8 +29,10 @@ export function createProvider(providerConfig) {
     return createFakeEmbeddingProvider(providerConfig.options ?? {});
   }
   if (id === "qwen3" || id === "qwen" || id === "Qwen/Qwen3-Embedding-0.6B") {
-    return createQwen3EmbeddingProviderStub({
+    return createQwen3EmbeddingProvider({
       model: "Qwen/Qwen3-Embedding-0.6B",
+      normalize_embeddings: true,
+      require_cuda: true,
       ...(providerConfig.options ?? {}),
     });
   }
@@ -86,126 +88,157 @@ export async function runRetrievalBenchmark({
 
   const loadedBench = loadBenchmark(repoRoot, config.benchmark_path);
   const provider = providerOverride ?? createProvider(config.provider ?? { id: "fake" });
-  const providerMeta = provider.getMetadata();
 
-  const corpus = buildThemeCorpus(themes, rep);
-  const themeVectors = await provider.embed(corpus.map((c) => c.text));
-  const libraryItems = corpus.map((c, i) => ({
-    id: c.id,
-    canonical_zh: c.canonical_zh,
-    vector: themeVectors[i],
-    text: c.text,
-  }));
+  try {
+    const corpus = buildThemeCorpus(themes, rep);
+    const themeVectors = await provider.embed(corpus.map((c) => c.text));
+    const libraryItems = corpus.map((c, i) => ({
+      id: c.id,
+      canonical_zh: c.canonical_zh,
+      vector: themeVectors[i],
+      text: c.text,
+    }));
 
-  const topKs = config.ranking?.top_k_report ?? [5, 10, 20];
-  const storeFull = config.ranking?.store_full_ranking !== false;
-  const detEnabled = config.deterministic_match?.enabled !== false;
+    const topKs = config.ranking?.top_k_report ?? [5, 10, 20];
+    const storeFull = config.ranking?.store_full_ranking !== false;
+    const detEnabled = config.deterministic_match?.enabled !== false;
+    const providerMeta = provider.getMetadata();
 
-  const results = [];
-  for (const quote of loadedBench.data.quotes) {
-    const expectedIds = resolveExpectedThemeIds(quote, themes);
-    const expectedLabels = expectedIds.map(
-      (id) => themes.find((t) => t.id === id).canonical_zh,
-    );
+    const results = [];
+    for (const quote of loadedBench.data.quotes) {
+      const expectedIds = resolveExpectedThemeIds(quote, themes);
+      const expectedLabels = expectedIds.map(
+        (id) => themes.find((t) => t.id === id).canonical_zh,
+      );
 
-    const deterministic_hits = detEnabled
-      ? findDeterministicHits(quote.text_zh, themes)
-      : [];
+      const deterministic_hits = detEnabled
+        ? findDeterministicHits(quote.text_zh, themes)
+        : [];
 
-    const [qVec] = await provider.embed([quote.text_zh]);
-    const ranked = rankByCosine(qVec, libraryItems);
+      const [qVec] = await provider.embed([quote.text_zh]);
+      const ranked = rankByCosine(qVec, libraryItems);
 
-    const recall_at = {};
-    for (const k of topKs) {
-      recall_at[k] = recallAtK(expectedIds, ranked, k);
+      const recall_at = {};
+      for (const k of topKs) {
+        recall_at[k] = recallAtK(expectedIds, ranked, k);
+      }
+
+      results.push({
+        quote_id: quote.quote_id,
+        text_zh: quote.text_zh,
+        source: quote.source ?? null,
+        category: quote.category ?? null,
+        notes: quote.notes ?? null,
+        ambiguity_flags: quote.ambiguity_flags ?? [],
+        expected_theme_ids: expectedIds,
+        expected_theme_labels: expectedLabels,
+        deterministic_hits,
+        // Keep deterministic evidence structurally separate from semantic ranking.
+        semantic_ranking: {
+          top_5: takeTopK(ranked, 5),
+          top_10: takeTopK(ranked, 10),
+          top_20: takeTopK(ranked, 20),
+          full: storeFull ? ranked : null,
+        },
+        ranks_of_expected: expectedRanks(expectedIds, ranked),
+        recall_at,
+        // Placeholder slots for later human failure analysis (not auto-filled).
+        analysis_hints: {
+          possible_retrieval_failure: expectedIds.some((id) => {
+            const row = ranked.find((r) => r.tag_id === id);
+            return !row || row.rank > 20;
+          }),
+          taxonomy_gap: null,
+          benchmark_ambiguity: (quote.ambiguity_flags ?? []).length > 0,
+        },
+      });
     }
 
-    results.push({
-      quote_id: quote.quote_id,
-      text_zh: quote.text_zh,
-      source: quote.source ?? null,
-      category: quote.category ?? null,
-      notes: quote.notes ?? null,
-      ambiguity_flags: quote.ambiguity_flags ?? [],
-      expected_theme_ids: expectedIds,
-      expected_theme_labels: expectedLabels,
-      deterministic_hits,
-      // Keep deterministic evidence structurally separate from semantic ranking.
-      semantic_ranking: {
-        top_5: takeTopK(ranked, 5),
-        top_10: takeTopK(ranked, 10),
-        top_20: takeTopK(ranked, 20),
-        full: storeFull ? ranked : null,
+    const aggregate_metrics = aggregateRecalls(
+      results.map((r) => ({ recall_at: r.recall_at })),
+      topKs,
+    );
+
+    const created_at = new Date().toISOString();
+    const git_commit_sha = detectGitSha(repoRoot);
+    const hardware = {
+      ...collectHardwareMetadata(),
+      // Prefer runtime values reported by the embedding provider (no hardcoded GPU ids).
+      cuda_device_id: providerMeta.cuda_device_id ?? null,
+      gpu_name: providerMeta.gpu_name ?? null,
+      cuda_available: providerMeta.cuda_available ?? null,
+      torch_version: providerMeta.torch_version ?? null,
+      sentence_transformers_version:
+        providerMeta.sentence_transformers_version ?? null,
+      embedding_device: providerMeta.device ?? null,
+    };
+
+    const exploratory =
+      Boolean(loadedBench.data.exploratory) ||
+      results.every((r) => (r.expected_theme_ids || []).length === 0);
+
+    const run = {
+      schema_version: "retrieval-run.v1",
+      run_id: runId,
+      created_at,
+      git_commit_sha,
+      tag_library_version: loadedLib.library_version,
+      tag_library_hash: loadedLib.hash,
+      tag_library_path: config.tag_library_path,
+      active_theme_count: themes.length,
+      benchmark_version: loadedBench.data.benchmark_version,
+      benchmark_hash: loadedBench.hash,
+      benchmark_path: config.benchmark_path,
+      representation: rep,
+      embedding_provider: providerMeta,
+      config,
+      hardware,
+      aggregate_metrics,
+      results,
+      notes: [
+        "Research-only retrieval benchmark. No production Tag assignment.",
+        "Deterministic hits are separate from semantic similarity scores.",
+        "Fake provider results are not semantic quality evidence.",
+        ...(exploratory
+          ? [
+              "EXPLORATORY fixture/run: no expected Theme ground truth; Recall@K is not interpretable as calibration quality.",
+            ]
+          : []),
+      ],
+    };
+
+    const manifest = {
+      schema_version: "retrieval-run-manifest.v1",
+      run_id: runId,
+      created_at,
+      git_commit_sha,
+      representation: rep,
+      provider_id: providerMeta.provider_id,
+      model_name: providerMeta.model_name,
+      model_identifier: providerMeta.model_identifier ?? providerMeta.model_name,
+      benchmark_version: loadedBench.data.benchmark_version,
+      benchmark_hash: loadedBench.hash,
+      tag_library_version: loadedLib.library_version,
+      tag_library_hash: loadedLib.hash,
+      active_theme_count: themes.length,
+      exploratory,
+      aggregate_metrics: {
+        evaluated_quotes: aggregate_metrics.evaluated_quotes,
+        mean_recall_at_5: aggregate_metrics.mean_recall_at_5,
+        mean_recall_at_10: aggregate_metrics.mean_recall_at_10,
+        mean_recall_at_20: aggregate_metrics.mean_recall_at_20,
       },
-      ranks_of_expected: expectedRanks(expectedIds, ranked),
-      recall_at,
-      // Placeholder slots for later human failure analysis (not auto-filled).
-      analysis_hints: {
-        possible_retrieval_failure: expectedIds.some((id) => {
-          const row = ranked.find((r) => r.tag_id === id);
-          return !row || row.rank > 20;
-        }),
-        taxonomy_gap: null,
-        benchmark_ambiguity: (quote.ambiguity_flags ?? []).length > 0,
-      },
-    });
+      completed: true,
+    };
+
+    return { run, manifest, themes, libraryItems };
+  } finally {
+    if (typeof provider.close === "function") {
+      try {
+        await provider.close();
+      } catch {
+        // ignore close errors
+      }
+    }
   }
-
-  const aggregate_metrics = aggregateRecalls(
-    results.map((r) => ({ recall_at: r.recall_at })),
-    topKs,
-  );
-
-  const created_at = new Date().toISOString();
-  const git_commit_sha = detectGitSha(repoRoot);
-  const hardware = collectHardwareMetadata();
-
-  const run = {
-    schema_version: "retrieval-run.v1",
-    run_id: runId,
-    created_at,
-    git_commit_sha,
-    tag_library_version: loadedLib.library_version,
-    tag_library_hash: loadedLib.hash,
-    tag_library_path: config.tag_library_path,
-    active_theme_count: themes.length,
-    benchmark_version: loadedBench.data.benchmark_version,
-    benchmark_hash: loadedBench.hash,
-    benchmark_path: config.benchmark_path,
-    representation: rep,
-    embedding_provider: providerMeta,
-    config,
-    hardware,
-    aggregate_metrics,
-    results,
-    notes: [
-      "Research-only retrieval benchmark. No production Tag assignment.",
-      "Deterministic hits are separate from semantic similarity scores.",
-      "Fake provider results are not semantic quality evidence.",
-    ],
-  };
-
-  const manifest = {
-    schema_version: "retrieval-run-manifest.v1",
-    run_id: runId,
-    created_at,
-    git_commit_sha,
-    representation: rep,
-    provider_id: providerMeta.provider_id,
-    model_name: providerMeta.model_name,
-    benchmark_version: loadedBench.data.benchmark_version,
-    benchmark_hash: loadedBench.hash,
-    tag_library_version: loadedLib.library_version,
-    tag_library_hash: loadedLib.hash,
-    active_theme_count: themes.length,
-    aggregate_metrics: {
-      evaluated_quotes: aggregate_metrics.evaluated_quotes,
-      mean_recall_at_5: aggregate_metrics.mean_recall_at_5,
-      mean_recall_at_10: aggregate_metrics.mean_recall_at_10,
-      mean_recall_at_20: aggregate_metrics.mean_recall_at_20,
-    },
-    completed: true,
-  };
-
-  return { run, manifest, themes, libraryItems };
 }

@@ -1,0 +1,25 @@
+{
+  "schema_version": "retrieval-benchmark.v1",
+  "benchmark_version": "exp0.1-exploratory-single-quote.v1",
+  "created_at": "2026-10-08T00:00:00.000Z",
+  "research_only": true,
+  "exploratory": true,
+  "notes": [
+    "EXPERIMENT 0.1 — exploratory unrestricted retrieval over all 217 active Themes.",
+    "NOT calibration ground truth.",
+    "Do NOT treat any Theme (including 记忆/童年/音乐) as an expected answer.",
+    "No expected_theme_ids / expected_theme_labels are provided; Recall@K is not interpretable here."
+  ],
+  "quotes": [
+    {
+      "quote_id": "exp0.1-q1",
+      "text_zh": "听到这首旧歌，我突然想起小时候住过的房间。",
+      "source": "manual_exploratory",
+      "category": "exp0.1",
+      "expected_theme_ids": [],
+      "expected_theme_labels": [],
+      "ambiguity_flags": ["exploratory_no_ground_truth"],
+      "notes": "Single-quote sanity/exploratory probe for Qwen3-Embedding-0.6B Representations A/B/C."
+    }
+  ]
+}
