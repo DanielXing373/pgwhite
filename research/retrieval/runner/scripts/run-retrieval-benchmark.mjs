@@ -27,6 +27,7 @@ function parseArgs(argv) {
   const out = {
     config: "research/retrieval/config/default.retrieval.v1.json",
     representation: null,
+    route: null,
     runId: null,
     provider: null,
     dryRun: false,
@@ -37,6 +38,7 @@ function parseArgs(argv) {
     if (a === "--help" || a === "-h") out.help = true;
     else if (a === "--config") out.config = argv[++i];
     else if (a === "--representation") out.representation = argv[++i];
+    else if (a === "--route") out.route = argv[++i];
     else if (a === "--run-id") out.runId = argv[++i];
     else if (a === "--provider") out.provider = argv[++i];
     else if (a === "--dry-run") out.dryRun = true;
@@ -47,11 +49,12 @@ function parseArgs(argv) {
 
 function usage() {
   return `Usage:
-  run-retrieval-benchmark.mjs --representation A|B|C --run-id <id> [options]
+  run-retrieval-benchmark.mjs --run-id <id> [options]
 
 Options:
   --config <path>          Config JSON (default: research/retrieval/config/default.retrieval.v1.json)
   --representation A|B|C   Override config representation
+  --route direct|generate-map|retrieve-rerank  Override the route configured in JSON
   --run-id <id>            Required unique run directory name under research/retrieval/runs/
   --provider fake|qwen3    Override provider (qwen3 requires local CUDA Sentence Transformers venv)
   --dry-run                Compute results but do not write run artifacts
@@ -83,6 +86,7 @@ async function main() {
       id: args.provider,
     };
   }
+  if (args.route) config.route_id = args.route;
 
   const runDir = resolveRunDir(repoRoot, config.runs_dir || "research/retrieval/runs", args.runId);
   if (!args.dryRun) {
@@ -104,6 +108,7 @@ async function main() {
         {
           dry_run: true,
           run_id: run.run_id,
+          route_id: run.route_id,
           representation: run.representation,
           active_theme_count: run.active_theme_count,
           aggregate_metrics: run.aggregate_metrics,
@@ -128,15 +133,18 @@ async function main() {
         ok: true,
         run_dir: runDir,
         run_id: run.run_id,
+        route_id: run.route_id,
         representation: run.representation,
         provider: run.embedding_provider.provider_id,
         active_theme_count: run.active_theme_count,
         aggregate_metrics: {
           evaluated_quotes: run.aggregate_metrics.evaluated_quotes,
+          mean_recall_at_3: run.aggregate_metrics.mean_recall_at_3,
           mean_recall_at_5: run.aggregate_metrics.mean_recall_at_5,
-          mean_recall_at_10: run.aggregate_metrics.mean_recall_at_10,
-          mean_recall_at_20: run.aggregate_metrics.mean_recall_at_20,
+          success_at_3: run.aggregate_metrics.success_at_3,
+          success_at_3_count: run.aggregate_metrics.success_at_3_count,
         },
+        performance_metrics: run.performance_metrics,
       },
       null,
       2,

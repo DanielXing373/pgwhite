@@ -1,0 +1,3103 @@
+{
+  "schema_version": "pgwhite-benchmark-review-draft.v1",
+  "review_id": "calib-zh-themes-library-review-2026-10-10",
+  "purpose": "Human satisfaction review of a small AI suggestion mock plus taxonomy and benchmark-label review.",
+  "notice": "Review draft only. Original benchmark labels are copied unchanged and are not ground truth certification. Assistant notes are provisional suggestions, not labels.",
+  "source_benchmark": {
+    "schema_version": "retrieval-benchmark.v1",
+    "benchmark_version": "calib-zh-themes.v1",
+    "created_at": "2026-10-09T00:00:00.000Z",
+    "research_only": true,
+    "calibration": true,
+    "exploratory": false,
+    "status": "frozen",
+    "notes": [
+      "Calibration Quotes manually authored from manual_defined_test.txt.",
+      "Expected Themes chosen by human; mapped only to active Themes in atomic-tag-library.v1.41.",
+      "Taxonomy gaps recorded explicitly (时间, 知识, 道德, 懒惰, 荣誉) — NOT substituted.",
+      "status=frozen after human review of validated manual GT; taxonomy gaps preserved (时间, 知识, 道德, 懒惰, 荣誉).",
+      "NOT Experiment 0.1. NOT training data."
+    ],
+    "quotes": [
+      {
+        "quote_id": "calib-001",
+        "text_zh": "加德纳先生唱了起来，很轻很柔地，像是只记得一部分歌词。可是他的声音还是清晰地回响在安静的运河上。而且真是太好听了。一时间我仿佛又回到了童年，回到了那个公寓。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "multi_theme",
+        "expected_theme_ids": [
+          "theme-0146-音乐",
+          "theme-0077-记忆",
+          "theme-0010-童年"
+        ],
+        "expected_theme_labels": [
+          "音乐",
+          "记忆",
+          "童年"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 音乐，记忆，童年"
+      },
+      {
+        "quote_id": "calib-002",
+        "text_zh": "知识是可以传授的，而智慧却不能。智慧只能被发现、被体验，可以活出来，可以成为人心的依托，甚至可以借它创造奇迹，但它无法用言语表达，也无法教授他人。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "mixed_expected_and_taxonomy_gap",
+        "expected_theme_ids": [
+          "theme-0070-智慧",
+          "theme-0145-语言"
+        ],
+        "expected_theme_labels": [
+          "智慧",
+          "语言"
+        ],
+        "ambiguity_flags": [
+          "taxonomy_gap",
+          "taxonomy_gap:知识"
+        ],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 知识，智慧，语言 taxonomy gap: 知识 — recorded as gap only; NOT substituted with another Theme."
+      },
+      {
+        "quote_id": "calib-003",
+        "text_zh": "他深深陷入了轮回之流，四面八方的厌恶与死亡被他吸收殆尽，就像一块吸满了水的海绵。他满是倦怠，满是苦痛，满是死亡。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "multi_theme",
+        "expected_theme_ids": [
+          "theme-0057-轮回",
+          "theme-0043-死亡"
+        ],
+        "expected_theme_labels": [
+          "轮回",
+          "死亡"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 轮回，死亡"
+      },
+      {
+        "quote_id": "calib-004",
+        "text_zh": "道德没有计量单位，即便对于那些永恒而普遍的范畴（诸如善与恶，仁慈与残忍），我们也时常稀里糊涂、无从对照，分不清谁是真正的善良，谁只是没有坏心眼儿；不知道何谓真正的正派，也搞不清楚这些品质的标准究竟何在。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "taxonomy_gap",
+        "expected_theme_ids": [],
+        "expected_theme_labels": [],
+        "ambiguity_flags": [
+          "taxonomy_gap",
+          "taxonomy_gap:道德"
+        ],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 道德 taxonomy gap: 道德 — recorded as gap only; NOT substituted with another Theme."
+      },
+      {
+        "quote_id": "calib-005",
+        "text_zh": "柳比歇夫的时间酷似物质，从不会了无痕迹地消失，不会平白无故地蒸发，而总能够查明它们变成了什么。借助时间核算，柳比歇夫不断地开采着新的时间。而时间，才是真正的矿藏。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "taxonomy_gap",
+        "expected_theme_ids": [],
+        "expected_theme_labels": [],
+        "ambiguity_flags": [
+          "taxonomy_gap",
+          "taxonomy_gap:时间"
+        ],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: taxonomy gap: 时间 taxonomy gap: 时间 — recorded as gap only; NOT substituted with another Theme."
+      },
+      {
+        "quote_id": "calib-006",
+        "text_zh": "人类对时间总抱有敌意。空间、物质，这些东西都被人驯服了。唯独时间，亘古便野性难驯。自人类眺望宇宙深处以来，便听得到世界时钟数十亿年未曾中断的嘀嗒声；当人类目睹星系的坍塌时，时间似乎变得更加可怕了。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "mixed_expected_and_taxonomy_gap",
+        "expected_theme_ids": [
+          "theme-0097-恐惧"
+        ],
+        "expected_theme_labels": [
+          "恐惧"
+        ],
+        "ambiguity_flags": [
+          "taxonomy_gap",
+          "taxonomy_gap:时间"
+        ],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 恐惧，taxonomy gap: 时间 taxonomy gap: 时间 — recorded as gap only; NOT substituted with another Theme."
+      },
+      {
+        "quote_id": "calib-007",
+        "text_zh": "为了能够通过搅乱气味、味道的正常秩序唤起自己的警觉，因为他相信，与令人绝望的永恒结局相比，死亡更是一种警告。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "single_theme",
+        "expected_theme_ids": [
+          "theme-0043-死亡"
+        ],
+        "expected_theme_labels": [
+          "死亡"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 死亡"
+      },
+      {
+        "quote_id": "calib-008",
+        "text_zh": "没有一只鸟在固体般坚实的天空中飞翔，没有动物用窸窣的响动打破像晨雾般在大地上弥漫的寂静，只有一头孤独、受惊的小鹿——仿佛泥沼在呼吸——时而仰头，时而低头，时刻准备着逃离，逃向远方。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "single_theme",
+        "expected_theme_ids": [
+          "theme-0127-寂静"
+        ],
+        "expected_theme_labels": [
+          "寂静"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 寂静"
+      },
+      {
+        "quote_id": "calib-009",
+        "text_zh": "一根位置放错的火柴或帕林卡酒盅本身就是对造成记忆力衰退的破坏性影响的纪念品。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "multi_theme",
+        "expected_theme_ids": [
+          "theme-0077-记忆",
+          "theme-0078-遗忘"
+        ],
+        "expected_theme_labels": [
+          "记忆",
+          "遗忘"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 记忆，遗忘"
+      },
+      {
+        "quote_id": "calib-010",
+        "text_zh": "某种无法解释的深深不安会给他注入一针兴奋剂，杯子或铅笔开始在他的手里抖动，焦虑地在日记本里记下想到的话，随后，又以粗莽、激愤的动作用橡皮擦掉。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "single_theme",
+        "expected_theme_ids": [
+          "theme-0104-焦虑"
+        ],
+        "expected_theme_labels": [
+          "焦虑"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 焦虑"
+      },
+      {
+        "quote_id": "calib-011",
+        "text_zh": "克拉奈尔夫人单有一把进屋的钥匙，每次她来，刚一迈腿进屋，就立即能闻到刺鼻的酸臭味，这股气味被吸进她的衣服里，甚至渗透进她的皮肤里，即便她——\"在登门探望医生的日子里\"——每天洗两遍澡也无济于事。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "zero_theme",
+        "expected_theme_ids": [],
+        "expected_theme_labels": [],
+        "ambiguity_flags": [
+          "zero_theme"
+        ],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 无 Manual marker 无 — zero expected Themes."
+      },
+      {
+        "quote_id": "calib-012",
+        "text_zh": "有那么几次，当他在由于黄昏的突然降临而变得昏暗的房间里一样样地审视他那些摆放如意的用品时，会感到一股温暖和些许的满足，他意识到所有的一切都在他的掌控之下，他的掌控力无所不在。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "multi_theme",
+        "expected_theme_ids": [
+          "theme-0148-掌控",
+          "theme-0103-满足"
+        ],
+        "expected_theme_labels": [
+          "掌控",
+          "满足"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 掌控，满足"
+      },
+      {
+        "quote_id": "calib-013",
+        "text_zh": "直到他的身体脏器与他解除那份\"能够维持彼此交易关系的协议\"，直到他的肉和骨头遭到死亡与腐烂的秃鹫的攻击。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "single_theme",
+        "expected_theme_ids": [
+          "theme-0043-死亡"
+        ],
+        "expected_theme_labels": [
+          "死亡"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 死亡"
+      },
+      {
+        "quote_id": "calib-014",
+        "text_zh": "医生全神贯注地观察了一会儿，然后在日记本里勾画了一张场景的草图，就连最小的水坑、水流都仔细、认真地标记出来，随后在草图的下方注明了时间。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "single_theme",
+        "expected_theme_ids": [
+          "theme-0198-观察"
+        ],
+        "expected_theme_labels": [
+          "观察"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 观察"
+      },
+      {
+        "quote_id": "calib-015",
+        "text_zh": "一支庞大的、衣衫褴褛的队伍在一片沙漠般的荒野里蜿蜒前行，在他们身后是一片笼罩在硝烟和火光之中的天塌地陷、千疮百孔的城市废墟，在他们前方有一块巨大、可怕的虚斑。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "multi_theme",
+        "expected_theme_ids": [
+          "theme-0042-末日",
+          "theme-0004-废墟"
+        ],
+        "expected_theme_labels": [
+          "末日",
+          "废墟"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 末日，废墟"
+      },
+      {
+        "quote_id": "calib-016",
+        "text_zh": "那样一来，他就不得不应付那些伪装成狡黠、粗俗的问候和寒暄的令人作呕的好奇心。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "single_theme",
+        "expected_theme_ids": [
+          "theme-0088-好奇"
+        ],
+        "expected_theme_labels": [
+          "好奇"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 好奇"
+      },
+      {
+        "quote_id": "calib-017",
+        "text_zh": "这部充满了各种感觉的小说突然被这些不知深浅的漩涡隔断了，犹如你希望生活充实结果却发现了生活中的空虚。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "single_theme",
+        "expected_theme_ids": [
+          "theme-0054-虚无"
+        ],
+        "expected_theme_labels": [
+          "虚无"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 虚无"
+      },
+      {
+        "quote_id": "calib-018",
+        "text_zh": "你用刀刃在纸张中开路犹如用思想在文字中开路，因为阅读就像在密林中前进。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "zero_theme",
+        "expected_theme_ids": [],
+        "expected_theme_labels": [],
+        "ambiguity_flags": [
+          "zero_theme"
+        ],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 无 Manual marker 无 — zero expected Themes."
+      },
+      {
+        "quote_id": "calib-019",
+        "text_zh": "你原来认为对生活寄托希望的年代已经过去了，现在却心满意足地走出书店。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "single_theme",
+        "expected_theme_ids": [
+          "theme-0093-希望"
+        ],
+        "expected_theme_labels": [
+          "希望"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 希望"
+      },
+      {
+        "quote_id": "calib-020",
+        "text_zh": "读者啊！那位幸福的女读者进入你的视野，进入你注意的范围，或者说你陷入了一个磁场，而且摆脱不了这个磁场的吸引力。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "zero_theme",
+        "expected_theme_ids": [],
+        "expected_theme_labels": [],
+        "ambiguity_flags": [
+          "zero_theme"
+        ],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 无 Manual marker 无 — zero expected Themes."
+      },
+      {
+        "quote_id": "calib-021",
+        "text_zh": "你在梦境之中要寻找一种抽象的、绝对的时空，并沿着一条明确的路线前进。但是，当你觉得你快要找到的时候，你却醒了，发现你躺在床上并未动弹，只得一切重新开始。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "single_theme",
+        "expected_theme_ids": [
+          "theme-0071-梦"
+        ],
+        "expected_theme_labels": [
+          "梦"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 梦"
+      },
+      {
+        "quote_id": "calib-022",
+        "text_zh": "难道你就没有想到我手表上的日历在那个小方框里啪啪倒退，仿佛断头台上被屠刀砍下的头颅一个个从我脚下滚过吗？",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "taxonomy_gap",
+        "expected_theme_ids": [],
+        "expected_theme_labels": [],
+        "ambiguity_flags": [
+          "taxonomy_gap",
+          "taxonomy_gap:时间"
+        ],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: taxonomy gap: 时间 taxonomy gap: 时间 — recorded as gap only; NOT substituted with another Theme."
+      },
+      {
+        "quote_id": "calib-023",
+        "text_zh": "眼睛盯着挂钟的指针，徒劳地要使那巨大的时针倒转，倒着经历那已经属于过去的时刻。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "taxonomy_gap",
+        "expected_theme_ids": [],
+        "expected_theme_labels": [],
+        "ambiguity_flags": [
+          "taxonomy_gap",
+          "taxonomy_gap:时间"
+        ],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: taxonomy gap: 时间 taxonomy gap: 时间 — recorded as gap only; NOT substituted with another Theme."
+      },
+      {
+        "quote_id": "calib-024",
+        "text_zh": "懒汉不干活，冬天里借口天冷，夏天里借口天热。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "taxonomy_gap",
+        "expected_theme_ids": [],
+        "expected_theme_labels": [],
+        "ambiguity_flags": [
+          "taxonomy_gap",
+          "taxonomy_gap:懒惰"
+        ],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 懒惰 taxonomy gap: 懒惰 — recorded as gap only; NOT substituted with another Theme."
+      },
+      {
+        "quote_id": "calib-025",
+        "text_zh": "要知道：有钱人保卫自身或财产的最强大力量，在于下人和邻人对他的敬爱和友爱。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "single_theme",
+        "expected_theme_ids": [
+          "theme-0175-财富"
+        ],
+        "expected_theme_labels": [
+          "财富"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 财富"
+      },
+      {
+        "quote_id": "calib-026",
+        "text_zh": "凡是你仆人和对你毕恭毕敬的人，对他们的意见特别要保持距离；因为他们的话恐怕出于惧怕而非敬爱。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "single_theme",
+        "expected_theme_ids": [
+          "theme-0097-恐惧"
+        ],
+        "expected_theme_labels": [
+          "恐惧"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 恐惧"
+      },
+      {
+        "quote_id": "calib-027",
+        "text_zh": "对朋友甜言蜜语的人，在他脚前安置了诱捕的罗网。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "single_theme",
+        "expected_theme_ids": [
+          "theme-0117-友情"
+        ],
+        "expected_theme_labels": [
+          "友情"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 友情"
+      },
+      {
+        "quote_id": "calib-028",
+        "text_zh": "可见，谁若满载着荣誉断了气，他的亲友该为他去世而欣喜，因为等他令名因年龄而枯槁，那时他的能耐已完全被忘掉。所以如果有人要留个好名誉，那么最好在声名最隆时死去。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "mixed_expected_and_taxonomy_gap",
+        "expected_theme_ids": [
+          "theme-0043-死亡"
+        ],
+        "expected_theme_labels": [
+          "死亡"
+        ],
+        "ambiguity_flags": [
+          "taxonomy_gap",
+          "taxonomy_gap:荣誉"
+        ],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 死亡，荣誉 taxonomy gap: 荣誉 — recorded as gap only; NOT substituted with another Theme."
+      },
+      {
+        "quote_id": "calib-029",
+        "text_zh": "所以我认为明智的做法就是：要自愿地去做非做不可的事，要甘心接受不可避免的情形，特别是我们必然遭遇的命运。",
+        "source": "manual_defined_test.txt",
+        "category": "calib",
+        "test_purpose": "single_theme",
+        "expected_theme_ids": [
+          "theme-0032-命运"
+        ],
+        "expected_theme_labels": [
+          "命运"
+        ],
+        "ambiguity_flags": [],
+        "notes": "Manual GT from manual_defined_test.txt; original labels: 命运"
+      }
+    ]
+  },
+  "source_run": {
+    "run_id": "calib-qwen06b-taskinstr-v1-20261010-C",
+    "representation": "C",
+    "tag_library_version": "atomic-tag-library.v1.41",
+    "benchmark_hash": "9ff6a089238ab20acfc325ce77a9a6aa86f41dc1800ffadca29cd02433a204b3",
+    "tag_library_hash": "d8e8d97127d5aa2211d70a3f268fb09a258548ec89abdfc69760d557a9dc56ac",
+    "recall_at_5": {
+      "evaluated_quotes": 21,
+      "mean_recall": 0.6666666666666666,
+      "skipped_empty_expected": 8
+    },
+    "interpretation": "Qwen embedding retrieval candidates, not generated or approved tags.",
+    "model": "Qwen/Qwen3-Embedding-0.6B",
+    "provider": "qwen3-embedding"
+  },
+  "display_mock": {
+    "default_suggestion_count": 3,
+    "expandable_candidate_count": 5,
+    "score_name": "cosine similarity",
+    "score_semantics": "Similarity ranking only; not calibrated confidence or probability. Top-5 is a candidate pool, not a recommendation to assign five tags.",
+    "personalization_prompt": "Please judge whether this small suggestion set is useful for your own quote library. Keeping zero tags is valid."
+  },
+  "quotes": [
+    {
+      "quote_id": "calib-001",
+      "text_zh": "加德纳先生唱了起来，很轻很柔地，像是只记得一部分歌词。可是他的声音还是清晰地回响在安静的运河上。而且真是太好听了。一时间我仿佛又回到了童年，回到了那个公寓。",
+      "source_expected_theme_ids": [
+        "theme-0146-音乐",
+        "theme-0077-记忆",
+        "theme-0010-童年"
+      ],
+      "source_expected_theme_labels": [
+        "音乐",
+        "记忆",
+        "童年"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [
+          {
+            "tag_id": "theme-0068-怀旧",
+            "label": "怀旧",
+            "definition": "对往昔的感伤回望与情感召回。"
+          }
+        ],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "怀旧是合理的可选解释；不应覆盖记忆、童年、音乐。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0068-怀旧",
+          "label": "怀旧",
+          "similarity": 0.45843036824222017,
+          "definition": "对往昔的感伤回望与情感召回。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0146-音乐",
+          "label": "音乐",
+          "similarity": 0.44305163300368317,
+          "definition": "音乐作为情感、记忆与意义的载体。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0010-童年",
+          "label": "童年",
+          "similarity": 0.4348808045800868,
+          "definition": "儿童时期的经验、感知与回忆。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0068-怀旧",
+          "label": "怀旧",
+          "similarity": 0.45843036824222017,
+          "definition": "对往昔的感伤回望与情感召回。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0146-音乐",
+          "label": "音乐",
+          "similarity": 0.44305163300368317,
+          "definition": "音乐作为情感、记忆与意义的载体。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0010-童年",
+          "label": "童年",
+          "similarity": 0.4348808045800868,
+          "definition": "儿童时期的经验、感知与回忆。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0077-记忆",
+          "label": "记忆",
+          "similarity": 0.4308994393016545,
+          "definition": "记住、回想与被过去经验塑造的心智领地，可涵盖回忆唤起、保存与改变。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0078-遗忘",
+          "label": "遗忘",
+          "similarity": 0.4285525950161272,
+          "definition": "记不起、被抹去或主动放下过去。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-002",
+      "text_zh": "知识是可以传授的，而智慧却不能。智慧只能被发现、被体验，可以活出来，可以成为人心的依托，甚至可以借它创造奇迹，但它无法用言语表达，也无法教授他人。",
+      "source_expected_theme_ids": [
+        "theme-0070-智慧",
+        "theme-0145-语言"
+      ],
+      "source_expected_theme_labels": [
+        "智慧",
+        "语言"
+      ],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:知识"
+      ],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [
+          "知识"
+        ],
+        "zero_theme_assessment": "not_marked",
+        "note": "知识可能是 taxonomy gap；智慧、语言仍需由人工确认。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0070-智慧",
+          "label": "智慧",
+          "similarity": 0.5690279822095983,
+          "definition": "深刻洞见与妥善判断的智性品质。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0161-教育",
+          "label": "教育",
+          "similarity": 0.5253015032420472,
+          "definition": "学习、教化与知识权力关系。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0144-表达",
+          "label": "表达",
+          "similarity": 0.4823624676570267,
+          "definition": "情感或思想如何被说出、写出或演出。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0070-智慧",
+          "label": "智慧",
+          "similarity": 0.5690279822095983,
+          "definition": "深刻洞见与妥善判断的智性品质。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0161-教育",
+          "label": "教育",
+          "similarity": 0.5253015032420472,
+          "definition": "学习、教化与知识权力关系。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0144-表达",
+          "label": "表达",
+          "similarity": 0.4823624676570267,
+          "definition": "情感或思想如何被说出、写出或演出。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0145-语言",
+          "label": "语言",
+          "similarity": 0.48212598863511846,
+          "definition": "言说、命名与表达能否抵达的问题。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0192-自我",
+          "label": "自我",
+          "similarity": 0.48024635323331094,
+          "definition": "自我意识、自我观察与自我关系。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-003",
+      "text_zh": "他深深陷入了轮回之流，四面八方的厌恶与死亡被他吸收殆尽，就像一块吸满了水的海绵。他满是倦怠，满是苦痛，满是死亡。",
+      "source_expected_theme_ids": [
+        "theme-0057-轮回",
+        "theme-0043-死亡"
+      ],
+      "source_expected_theme_labels": [
+        "轮回",
+        "死亡"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [
+          {
+            "tag_id": "theme-0105-痛苦",
+            "label": "痛苦",
+            "definition": "身体或精神上的受苦、伤痛与难耐体验。"
+          },
+          {
+            "tag_id": "theme-0081-倦怠",
+            "label": "倦怠",
+            "definition": "长期消耗后的身心疲惫与提不起劲。"
+          }
+        ],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "原文直接涉及倦怠、苦痛与死亡，可检查是否漏标。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0043-死亡",
+          "label": "死亡",
+          "similarity": 0.5547713396479215,
+          "definition": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0057-轮回",
+          "label": "轮回",
+          "similarity": 0.5300448175920534,
+          "definition": "循环往复、重复发生或生死流转的模式感。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0106-绝望",
+          "label": "绝望",
+          "similarity": 0.5281972730007939,
+          "definition": "感到无路可走、失去盼望的沉重心境。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0043-死亡",
+          "label": "死亡",
+          "similarity": 0.5547713396479215,
+          "definition": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0057-轮回",
+          "label": "轮回",
+          "similarity": 0.5300448175920534,
+          "definition": "循环往复、重复发生或生死流转的模式感。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0106-绝望",
+          "label": "绝望",
+          "similarity": 0.5281972730007939,
+          "definition": "感到无路可走、失去盼望的沉重心境。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0218-牺牲",
+          "label": "牺牲",
+          "similarity": 0.47303730093640317,
+          "definition": "为他者或价值放弃自身利益乃至生命。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0052-自杀",
+          "label": "自杀",
+          "similarity": 0.46548672349873627,
+          "definition": "结束自己生命的意念、行动或其阴影。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-004",
+      "text_zh": "道德没有计量单位，即便对于那些永恒而普遍的范畴（诸如善与恶，仁慈与残忍），我们也时常稀里糊涂、无从对照，分不清谁是真正的善良，谁只是没有坏心眼儿；不知道何谓真正的正派，也搞不清楚这些品质的标准究竟何在。",
+      "source_expected_theme_ids": [],
+      "source_expected_theme_labels": [],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:道德"
+      ],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [
+          {
+            "tag_id": "theme-0208-善恶",
+            "label": "善恶",
+            "definition": "道德上的善与恶及其边界。"
+          }
+        ],
+        "taxonomy_gaps_to_review": [
+          "道德"
+        ],
+        "zero_theme_assessment": "not_marked",
+        "note": "善恶定义覆盖道德善恶边界；“道德”是否需独立概念仍待判断。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0208-善恶",
+          "label": "善恶",
+          "similarity": 0.600064820975233,
+          "definition": "道德上的善与恶及其边界。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0215-公正",
+          "label": "公正",
+          "similarity": 0.5265688371669341,
+          "definition": "公平、正义诉求与奖惩是否得当。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0029-人性",
+          "label": "人性",
+          "similarity": 0.49596292457691266,
+          "definition": "关于人固有倾向、善恶与限度的思索。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0208-善恶",
+          "label": "善恶",
+          "similarity": 0.600064820975233,
+          "definition": "道德上的善与恶及其边界。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0215-公正",
+          "label": "公正",
+          "similarity": 0.5265688371669341,
+          "definition": "公平、正义诉求与奖惩是否得当。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0029-人性",
+          "label": "人性",
+          "similarity": 0.49596292457691266,
+          "definition": "关于人固有倾向、善恶与限度的思索。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0026-虚伪",
+          "label": "虚伪",
+          "similarity": 0.4952437204967918,
+          "definition": "表里不一或假装道德。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0207-伦理困境",
+          "label": "伦理困境",
+          "similarity": 0.49308707417277126,
+          "definition": "价值冲突下难以两全的抉择。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-005",
+      "text_zh": "柳比歇夫的时间酷似物质，从不会了无痕迹地消失，不会平白无故地蒸发，而总能够查明它们变成了什么。借助时间核算，柳比歇夫不断地开采着新的时间。而时间，才是真正的矿藏。",
+      "source_expected_theme_ids": [],
+      "source_expected_theme_labels": [],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:时间"
+      ],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [
+          "时间作为资源/价值"
+        ],
+        "zero_theme_assessment": "not_marked",
+        "note": "“时间像真正矿藏”可能不等同时间流逝；珍视仅是待评候选。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0040-时间流逝",
+          "label": "时间流逝",
+          "similarity": 0.534793997327359,
+          "definition": "感到时间过去、不可逆的变易意识（非 Scene/Time 标签）。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0041-未来",
+          "label": "未来",
+          "similarity": 0.4408369341789282,
+          "definition": "尚未到来的时间及其忧惧或希望。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0168-现代性",
+          "label": "现代性",
+          "similarity": 0.4350395238554198,
+          "definition": "现代社会的速度、技术与疏离经验。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0040-时间流逝",
+          "label": "时间流逝",
+          "similarity": 0.534793997327359,
+          "definition": "感到时间过去、不可逆的变易意识（非 Scene/Time 标签）。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0041-未来",
+          "label": "未来",
+          "similarity": 0.4408369341789282,
+          "definition": "尚未到来的时间及其忧惧或希望。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0168-现代性",
+          "label": "现代性",
+          "similarity": 0.4350395238554198,
+          "definition": "现代社会的速度、技术与疏离经验。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0044-珍视",
+          "label": "珍视",
+          "similarity": 0.4338813071910752,
+          "definition": "对人或物的宝贵感与舍不得失去。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0134-空间",
+          "label": "空间",
+          "similarity": 0.4116570363643319,
+          "definition": "空间感受、边界与压迫/开放感（非具体场景时刻）。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-006",
+      "text_zh": "人类对时间总抱有敌意。空间、物质，这些东西都被人驯服了。唯独时间，亘古便野性难驯。自人类眺望宇宙深处以来，便听得到世界时钟数十亿年未曾中断的嘀嗒声；当人类目睹星系的坍塌时，时间似乎变得更加可怕了。",
+      "source_expected_theme_ids": [
+        "theme-0097-恐惧"
+      ],
+      "source_expected_theme_labels": [
+        "恐惧"
+      ],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:时间"
+      ],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [
+          "时间"
+        ],
+        "zero_theme_assessment": "not_marked",
+        "note": "恐惧可解释，但当前检索未找回；时间也是中心概念。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0040-时间流逝",
+          "label": "时间流逝",
+          "similarity": 0.4989289388220176,
+          "definition": "感到时间过去、不可逆的变易意识（非 Scene/Time 标签）。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0041-未来",
+          "label": "未来",
+          "similarity": 0.4632573904852611,
+          "definition": "尚未到来的时间及其忧惧或希望。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0029-人性",
+          "label": "人性",
+          "similarity": 0.4618022579097255,
+          "definition": "关于人固有倾向、善恶与限度的思索。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0040-时间流逝",
+          "label": "时间流逝",
+          "similarity": 0.4989289388220176,
+          "definition": "感到时间过去、不可逆的变易意识（非 Scene/Time 标签）。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0041-未来",
+          "label": "未来",
+          "similarity": 0.4632573904852611,
+          "definition": "尚未到来的时间及其忧惧或希望。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0029-人性",
+          "label": "人性",
+          "similarity": 0.4618022579097255,
+          "definition": "关于人固有倾向、善恶与限度的思索。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0134-空间",
+          "label": "空间",
+          "similarity": 0.4457409766996423,
+          "definition": "空间感受、边界与压迫/开放感（非具体场景时刻）。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0168-现代性",
+          "label": "现代性",
+          "similarity": 0.4446757069584741,
+          "definition": "现代社会的速度、技术与疏离经验。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-007",
+      "text_zh": "为了能够通过搅乱气味、味道的正常秩序唤起自己的警觉，因为他相信，与令人绝望的永恒结局相比，死亡更是一种警告。",
+      "source_expected_theme_ids": [
+        "theme-0043-死亡"
+      ],
+      "source_expected_theme_labels": [
+        "死亡"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "死亡是明确主题；恐惧、绝望可作为可选个人解读。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0043-死亡",
+          "label": "死亡",
+          "similarity": 0.558176290149678,
+          "definition": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0045-生命",
+          "label": "生命",
+          "similarity": 0.4553250750452028,
+          "definition": "活着本身、生命力与生存境况。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0042-末日",
+          "label": "末日",
+          "similarity": 0.4551134691055534,
+          "definition": "世界或既有秩序走向终结的想象与危机感。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0043-死亡",
+          "label": "死亡",
+          "similarity": 0.558176290149678,
+          "definition": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0045-生命",
+          "label": "生命",
+          "similarity": 0.4553250750452028,
+          "definition": "活着本身、生命力与生存境况。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0042-末日",
+          "label": "末日",
+          "similarity": 0.4551134691055534,
+          "definition": "世界或既有秩序走向终结的想象与危机感。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0106-绝望",
+          "label": "绝望",
+          "similarity": 0.4483650763935392,
+          "definition": "感到无路可走、失去盼望的沉重心境。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0097-恐惧",
+          "label": "恐惧",
+          "similarity": 0.4384602932618365,
+          "definition": "对危险、未知或伤害的害怕与惊惧。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-008",
+      "text_zh": "没有一只鸟在固体般坚实的天空中飞翔，没有动物用窸窣的响动打破像晨雾般在大地上弥漫的寂静，只有一头孤独、受惊的小鹿——仿佛泥沼在呼吸——时而仰头，时而低头，时刻准备着逃离，逃向远方。",
+      "source_expected_theme_ids": [
+        "theme-0127-寂静"
+      ],
+      "source_expected_theme_labels": [
+        "寂静"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [
+          {
+            "tag_id": "theme-0127-寂静",
+            "label": "寂静",
+            "definition": "安静、无声或声音退后的氛围与内心状态。"
+          }
+        ],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "孤独可作为备选，但氛围与主题的边界需要你的判断。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0090-孤独",
+          "label": "孤独",
+          "similarity": 0.44018844885969266,
+          "definition": "缺乏联结、被隔绝或无人理解的感受。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0106-绝望",
+          "label": "绝望",
+          "similarity": 0.4217966381310127,
+          "definition": "感到无路可走、失去盼望的沉重心境。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0008-自然",
+          "label": "自然",
+          "similarity": 0.4183561482520378,
+          "definition": "自然界及其与人的关系。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0090-孤独",
+          "label": "孤独",
+          "similarity": 0.44018844885969266,
+          "definition": "缺乏联结、被隔绝或无人理解的感受。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0106-绝望",
+          "label": "绝望",
+          "similarity": 0.4217966381310127,
+          "definition": "感到无路可走、失去盼望的沉重心境。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0008-自然",
+          "label": "自然",
+          "similarity": 0.4183561482520378,
+          "definition": "自然界及其与人的关系。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0053-自由",
+          "label": "自由",
+          "similarity": 0.41413016510924455,
+          "definition": "免于束缚、能够自主选择与行动。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0001-动物",
+          "label": "动物",
+          "similarity": 0.4103857357355427,
+          "definition": "动物作为生命他者、象征或伦理对象。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-009",
+      "text_zh": "一根位置放错的火柴或帕林卡酒盅本身就是对造成记忆力衰退的破坏性影响的纪念品。",
+      "source_expected_theme_ids": [
+        "theme-0077-记忆",
+        "theme-0078-遗忘"
+      ],
+      "source_expected_theme_labels": [
+        "记忆",
+        "遗忘"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "记忆与遗忘都合理，检查展示数量是否造成冗余。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0078-遗忘",
+          "label": "遗忘",
+          "similarity": 0.6023869887894912,
+          "definition": "记不起、被抹去或主动放下过去。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0077-记忆",
+          "label": "记忆",
+          "similarity": 0.5456037439845228,
+          "definition": "记住、回想与被过去经验塑造的心智领地，可涵盖回忆唤起、保存与改变。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0044-珍视",
+          "label": "珍视",
+          "similarity": 0.4880794974365812,
+          "definition": "对人或物的宝贵感与舍不得失去。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0078-遗忘",
+          "label": "遗忘",
+          "similarity": 0.6023869887894912,
+          "definition": "记不起、被抹去或主动放下过去。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0077-记忆",
+          "label": "记忆",
+          "similarity": 0.5456037439845228,
+          "definition": "记住、回想与被过去经验塑造的心智领地，可涵盖回忆唤起、保存与改变。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0044-珍视",
+          "label": "珍视",
+          "similarity": 0.4880794974365812,
+          "definition": "对人或物的宝贵感与舍不得失去。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0131-气味",
+          "label": "气味",
+          "similarity": 0.4753797440407527,
+          "definition": "嗅觉触发的记忆与情感（感知主题，非修辞）。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0068-怀旧",
+          "label": "怀旧",
+          "similarity": 0.4738607941929889,
+          "definition": "对往昔的感伤回望与情感召回。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-010",
+      "text_zh": "某种无法解释的深深不安会给他注入一针兴奋剂，杯子或铅笔开始在他的手里抖动，焦虑地在日记本里记下想到的话，随后，又以粗莽、激愤的动作用橡皮擦掉。",
+      "source_expected_theme_ids": [
+        "theme-0104-焦虑"
+      ],
+      "source_expected_theme_labels": [
+        "焦虑"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "焦虑清晰；冲动、恐惧作为可选解释，不建议自动全加。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0104-焦虑",
+          "label": "焦虑",
+          "similarity": 0.6087028051256119,
+          "definition": "担忧、紧张与不安的持续性心理压力。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0083-冲动",
+          "label": "冲动",
+          "similarity": 0.5422499768290988,
+          "definition": "未经充分克制的突然行动倾向。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0097-恐惧",
+          "label": "恐惧",
+          "similarity": 0.5366256386513479,
+          "definition": "对危险、未知或伤害的害怕与惊惧。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0104-焦虑",
+          "label": "焦虑",
+          "similarity": 0.6087028051256119,
+          "definition": "担忧、紧张与不安的持续性心理压力。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0083-冲动",
+          "label": "冲动",
+          "similarity": 0.5422499768290988,
+          "definition": "未经充分克制的突然行动倾向。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0097-恐惧",
+          "label": "恐惧",
+          "similarity": 0.5366256386513479,
+          "definition": "对危险、未知或伤害的害怕与惊惧。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0196-怀疑",
+          "label": "怀疑",
+          "similarity": 0.5199438093704113,
+          "definition": "对信念、他者或自我的不确定。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0075-疯狂",
+          "label": "疯狂",
+          "similarity": 0.4752615007265333,
+          "definition": "理智失控或被视为失常的状态。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-011",
+      "text_zh": "克拉奈尔夫人单有一把进屋的钥匙，每次她来，刚一迈腿进屋，就立即能闻到刺鼻的酸臭味，这股气味被吸进她的衣服里，甚至渗透进她的皮肤里，即便她——\"在登门探望医生的日子里\"——每天洗两遍澡也无济于事。",
+      "source_expected_theme_ids": [],
+      "source_expected_theme_labels": [],
+      "ambiguity_flags": [
+        "zero_theme"
+      ],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "plausible",
+        "note": "偏感官描写，没有明显主题；空标签是合理结果。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0131-气味",
+          "label": "气味",
+          "similarity": 0.4662731986252086,
+          "definition": "嗅觉触发的记忆与情感（感知主题，非修辞）。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0139-传统",
+          "label": "传统",
+          "similarity": 0.440791748029641,
+          "definition": "被传承的习俗、规范与其束缚/安慰。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0134-空间",
+          "label": "空间",
+          "similarity": 0.4254181539725315,
+          "definition": "空间感受、边界与压迫/开放感（非具体场景时刻）。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0131-气味",
+          "label": "气味",
+          "similarity": 0.4662731986252086,
+          "definition": "嗅觉触发的记忆与情感（感知主题，非修辞）。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0139-传统",
+          "label": "传统",
+          "similarity": 0.440791748029641,
+          "definition": "被传承的习俗、规范与其束缚/安慰。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0134-空间",
+          "label": "空间",
+          "similarity": 0.4254181539725315,
+          "definition": "空间感受、边界与压迫/开放感（非具体场景时刻）。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0119-婚姻",
+          "label": "婚姻",
+          "similarity": 0.4219491086267517,
+          "definition": "婚姻制度与夫妻关系中的联结、张力与变故。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0209-尊严",
+          "label": "尊严",
+          "similarity": 0.4192503483747891,
+          "definition": "人格不受践踏的自我与社会承认。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-012",
+      "text_zh": "有那么几次，当他在由于黄昏的突然降临而变得昏暗的房间里一样样地审视他那些摆放如意的用品时，会感到一股温暖和些许的满足，他意识到所有的一切都在他的掌控之下，他的掌控力无所不在。",
+      "source_expected_theme_ids": [
+        "theme-0148-掌控",
+        "theme-0103-满足"
+      ],
+      "source_expected_theme_labels": [
+        "掌控",
+        "满足"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "掌控、满足和效率均可解释，用户偏好会影响取舍。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0148-掌控",
+          "label": "掌控",
+          "similarity": 0.5536019333193348,
+          "definition": "试图支配局面、他人或自我冲动的力量感与控制欲。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0103-满足",
+          "label": "满足",
+          "similarity": 0.495016252041227,
+          "definition": "感到足够、安稳或心意落地的状态。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0032-命运",
+          "label": "命运",
+          "similarity": 0.46646456468699427,
+          "definition": "命定、不可控力量或轨迹感如何塑造人生。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0148-掌控",
+          "label": "掌控",
+          "similarity": 0.5536019333193348,
+          "definition": "试图支配局面、他人或自我冲动的力量感与控制欲。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0103-满足",
+          "label": "满足",
+          "similarity": 0.495016252041227,
+          "definition": "感到足够、安稳或心意落地的状态。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0032-命运",
+          "label": "命运",
+          "similarity": 0.46646456468699427,
+          "definition": "命定、不可控力量或轨迹感如何塑造人生。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0116-占有",
+          "label": "占有",
+          "similarity": 0.4647094185552515,
+          "definition": "想把人或物据为己有的控制倾向。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0133-目光",
+          "label": "目光",
+          "similarity": 0.4510173527374224,
+          "definition": "看与被看所形成的权力或欲望关系。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-013",
+      "text_zh": "直到他的身体脏器与他解除那份\"能够维持彼此交易关系的协议\"，直到他的肉和骨头遭到死亡与腐烂的秃鹫的攻击。",
+      "source_expected_theme_ids": [
+        "theme-0043-死亡"
+      ],
+      "source_expected_theme_labels": [
+        "死亡"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "死亡是明确主题；C 轮排名较低，属于明显检索遗漏。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0218-牺牲",
+          "label": "牺牲",
+          "similarity": 0.5372566626858408,
+          "definition": "为他者或价值放弃自身利益乃至生命。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0206-身体",
+          "label": "身体",
+          "similarity": 0.47847478979006,
+          "definition": "肉身感知、外貌与身体处境。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0124-背叛",
+          "label": "背叛",
+          "similarity": 0.4634551008485454,
+          "definition": "信任被出卖或承诺被违背。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0218-牺牲",
+          "label": "牺牲",
+          "similarity": 0.5372566626858408,
+          "definition": "为他者或价值放弃自身利益乃至生命。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0206-身体",
+          "label": "身体",
+          "similarity": 0.47847478979006,
+          "definition": "肉身感知、外貌与身体处境。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0124-背叛",
+          "label": "背叛",
+          "similarity": 0.4634551008485454,
+          "definition": "信任被出卖或承诺被违背。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0045-生命",
+          "label": "生命",
+          "similarity": 0.46303637408768655,
+          "definition": "活着本身、生命力与生存境况。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0207-伦理困境",
+          "label": "伦理困境",
+          "similarity": 0.4621941149419792,
+          "definition": "价值冲突下难以两全的抉择。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-014",
+      "text_zh": "医生全神贯注地观察了一会儿，然后在日记本里勾画了一张场景的草图，就连最小的水坑、水流都仔细、认真地标记出来，随后在草图的下方注明了时间。",
+      "source_expected_theme_ids": [
+        "theme-0198-观察"
+      ],
+      "source_expected_theme_labels": [
+        "观察"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "观察语义吻合，但需要判断它是否属于主题，还是动作/感知描述。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0198-观察",
+          "label": "观察",
+          "similarity": 0.4586660563171234,
+          "definition": "注视、打量与认知他者/世界。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0192-自我",
+          "label": "自我",
+          "similarity": 0.42858030463241653,
+          "definition": "自我意识、自我观察与自我关系。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0133-目光",
+          "label": "目光",
+          "similarity": 0.41529364478773795,
+          "definition": "看与被看所形成的权力或欲望关系。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0198-观察",
+          "label": "观察",
+          "similarity": 0.4586660563171234,
+          "definition": "注视、打量与认知他者/世界。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0192-自我",
+          "label": "自我",
+          "similarity": 0.42858030463241653,
+          "definition": "自我意识、自我观察与自我关系。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0133-目光",
+          "label": "目光",
+          "similarity": 0.41529364478773795,
+          "definition": "看与被看所形成的权力或欲望关系。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0170-秩序",
+          "label": "秩序",
+          "similarity": 0.4152547390372672,
+          "definition": "规则、结构化稳定与其压制面向。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0044-珍视",
+          "label": "珍视",
+          "similarity": 0.41284335454661847,
+          "definition": "对人或物的宝贵感与舍不得失去。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-015",
+      "text_zh": "一支庞大的、衣衫褴褛的队伍在一片沙漠般的荒野里蜿蜒前行，在他们身后是一片笼罩在硝烟和火光之中的天塌地陷、千疮百孔的城市废墟，在他们前方有一块巨大、可怕的虚斑。",
+      "source_expected_theme_ids": [
+        "theme-0042-末日",
+        "theme-0004-废墟"
+      ],
+      "source_expected_theme_labels": [
+        "末日",
+        "废墟"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [
+          {
+            "tag_id": "theme-0007-灾难",
+            "label": "灾难",
+            "definition": "突发的大规模破坏与危机。"
+          }
+        ],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "末日、废墟贴切；灾难可作较宽泛候选。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0004-废墟",
+          "label": "废墟",
+          "similarity": 0.5274214890266662,
+          "definition": "毁坏后的残存空间与历史痕迹。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0106-绝望",
+          "label": "绝望",
+          "similarity": 0.47704698228175646,
+          "definition": "感到无路可走、失去盼望的沉重心境。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0042-末日",
+          "label": "末日",
+          "similarity": 0.463988337233208,
+          "definition": "世界或既有秩序走向终结的想象与危机感。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0004-废墟",
+          "label": "废墟",
+          "similarity": 0.5274214890266662,
+          "definition": "毁坏后的残存空间与历史痕迹。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0106-绝望",
+          "label": "绝望",
+          "similarity": 0.47704698228175646,
+          "definition": "感到无路可走、失去盼望的沉重心境。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0042-末日",
+          "label": "末日",
+          "similarity": 0.463988337233208,
+          "definition": "世界或既有秩序走向终结的想象与危机感。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0007-灾难",
+          "label": "灾难",
+          "similarity": 0.4522772371895717,
+          "definition": "突发的大规模破坏与危机。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0159-战争",
+          "label": "战争",
+          "similarity": 0.4495353478108678,
+          "definition": "武装冲突及其伦理与创伤。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-016",
+      "text_zh": "那样一来，他就不得不应付那些伪装成狡黠、粗俗的问候和寒暄的令人作呕的好奇心。",
+      "source_expected_theme_ids": [
+        "theme-0088-好奇"
+      ],
+      "source_expected_theme_labels": [
+        "好奇"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "好奇贴切，同时注意文本中的负面情绪修饰。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0198-观察",
+          "label": "观察",
+          "similarity": 0.4712477833580719,
+          "definition": "注视、打量与认知他者/世界。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0133-目光",
+          "label": "目光",
+          "similarity": 0.46455995828291935,
+          "definition": "看与被看所形成的权力或欲望关系。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0026-虚伪",
+          "label": "虚伪",
+          "similarity": 0.4635938602663783,
+          "definition": "表里不一或假装道德。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0198-观察",
+          "label": "观察",
+          "similarity": 0.4712477833580719,
+          "definition": "注视、打量与认知他者/世界。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0133-目光",
+          "label": "目光",
+          "similarity": 0.46455995828291935,
+          "definition": "看与被看所形成的权力或欲望关系。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0026-虚伪",
+          "label": "虚伪",
+          "similarity": 0.4635938602663783,
+          "definition": "表里不一或假装道德。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0084-冷漠",
+          "label": "冷漠",
+          "similarity": 0.45631922203858155,
+          "definition": "缺乏关心、情感抽离或不愿投入。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0027-虚荣",
+          "label": "虚荣",
+          "similarity": 0.4527187234403829,
+          "definition": "过度在意外表或他人评价。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-017",
+      "text_zh": "这部充满了各种感觉的小说突然被这些不知深浅的漩涡隔断了，犹如你希望生活充实结果却发现了生活中的空虚。",
+      "source_expected_theme_ids": [
+        "theme-0054-虚无"
+      ],
+      "source_expected_theme_labels": [
+        "虚无"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "虚无定义包含空虚，语义上可能吻合。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0054-虚无",
+          "label": "虚无",
+          "similarity": 0.5136068349207735,
+          "definition": "意义空缺、空洞与存在无根基感。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0101-无聊",
+          "label": "无聊",
+          "similarity": 0.4996757024355445,
+          "definition": "缺乏刺激或意义时的空虚与倦怠感。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0106-绝望",
+          "label": "绝望",
+          "similarity": 0.4748312585329099,
+          "definition": "感到无路可走、失去盼望的沉重心境。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0054-虚无",
+          "label": "虚无",
+          "similarity": 0.5136068349207735,
+          "definition": "意义空缺、空洞与存在无根基感。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0101-无聊",
+          "label": "无聊",
+          "similarity": 0.4996757024355445,
+          "definition": "缺乏刺激或意义时的空虚与倦怠感。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0106-绝望",
+          "label": "绝望",
+          "similarity": 0.4748312585329099,
+          "definition": "感到无路可走、失去盼望的沉重心境。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0090-孤独",
+          "label": "孤独",
+          "similarity": 0.44919042201400144,
+          "definition": "缺乏联结、被隔绝或无人理解的感受。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0168-现代性",
+          "label": "现代性",
+          "similarity": 0.4434139138558833,
+          "definition": "现代社会的速度、技术与疏离经验。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-018",
+      "text_zh": "你用刀刃在纸张中开路犹如用思想在文字中开路，因为阅读就像在密林中前进。",
+      "source_expected_theme_ids": [],
+      "source_expected_theme_labels": [],
+      "ambiguity_flags": [
+        "zero_theme"
+      ],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "plausible",
+        "note": "没有明显主导主题；候选中的书籍/智慧等可能只是误召回。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0137-书籍",
+          "label": "书籍",
+          "similarity": 0.46891978318502614,
+          "definition": "阅读、书籍物象及其知识/慰藉功能。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0070-智慧",
+          "label": "智慧",
+          "similarity": 0.44975311757056413,
+          "definition": "深刻洞见与妥善判断的智性品质。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0069-意志",
+          "label": "意志",
+          "similarity": 0.4394340881262416,
+          "definition": "坚持意向、推动行动的内在力量。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0137-书籍",
+          "label": "书籍",
+          "similarity": 0.46891978318502614,
+          "definition": "阅读、书籍物象及其知识/慰藉功能。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0070-智慧",
+          "label": "智慧",
+          "similarity": 0.44975311757056413,
+          "definition": "深刻洞见与妥善判断的智性品质。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0069-意志",
+          "label": "意志",
+          "similarity": 0.4394340881262416,
+          "definition": "坚持意向、推动行动的内在力量。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0184-寻找",
+          "label": "寻找",
+          "similarity": 0.43858557317293856,
+          "definition": "寻找某人或某种意义/真相的过程。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0186-旅行",
+          "label": "旅行",
+          "similarity": 0.43684784149725586,
+          "definition": "在路上的移动、寻找与通过仪式。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-019",
+      "text_zh": "你原来认为对生活寄托希望的年代已经过去了，现在却心满意足地走出书店。",
+      "source_expected_theme_ids": [
+        "theme-0093-希望"
+      ],
+      "source_expected_theme_labels": [
+        "希望"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "希望的年代已过去；幻灭或满足是可能的个人补充解读。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0168-现代性",
+          "label": "现代性",
+          "similarity": 0.4761188998993279,
+          "definition": "现代社会的速度、技术与疏离经验。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0106-绝望",
+          "label": "绝望",
+          "similarity": 0.4752847760236389,
+          "definition": "感到无路可走、失去盼望的沉重心境。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0035-幻灭",
+          "label": "幻灭",
+          "similarity": 0.4600648664372286,
+          "definition": "理想或信念破灭后的清醒与失落。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0168-现代性",
+          "label": "现代性",
+          "similarity": 0.4761188998993279,
+          "definition": "现代社会的速度、技术与疏离经验。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0106-绝望",
+          "label": "绝望",
+          "similarity": 0.4752847760236389,
+          "definition": "感到无路可走、失去盼望的沉重心境。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0035-幻灭",
+          "label": "幻灭",
+          "similarity": 0.4600648664372286,
+          "definition": "理想或信念破灭后的清醒与失落。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0103-满足",
+          "label": "满足",
+          "similarity": 0.45849339819193247,
+          "definition": "感到足够、安稳或心意落地的状态。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0068-怀旧",
+          "label": "怀旧",
+          "similarity": 0.456602764288212,
+          "definition": "对往昔的感伤回望与情感召回。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-020",
+      "text_zh": "读者啊！那位幸福的女读者进入你的视野，进入你注意的范围，或者说你陷入了一个磁场，而且摆脱不了这个磁场的吸引力。",
+      "source_expected_theme_ids": [],
+      "source_expected_theme_labels": [],
+      "ambiguity_flags": [
+        "zero_theme"
+      ],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "plausible",
+        "note": "没有清晰主导主题；Top 候选迷恋是否成立请重点判断。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0133-目光",
+          "label": "目光",
+          "similarity": 0.5535585770757934,
+          "definition": "看与被看所形成的权力或欲望关系。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0033-命运感",
+          "label": "命运感",
+          "similarity": 0.5057088102013891,
+          "definition": "感到事件被更大力量牵引的主观体验。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0137-书籍",
+          "label": "书籍",
+          "similarity": 0.48646610383659195,
+          "definition": "阅读、书籍物象及其知识/慰藉功能。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0133-目光",
+          "label": "目光",
+          "similarity": 0.5535585770757934,
+          "definition": "看与被看所形成的权力或欲望关系。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0033-命运感",
+          "label": "命运感",
+          "similarity": 0.5057088102013891,
+          "definition": "感到事件被更大力量牵引的主观体验。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0137-书籍",
+          "label": "书籍",
+          "similarity": 0.48646610383659195,
+          "definition": "阅读、书籍物象及其知识/慰藉功能。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0119-婚姻",
+          "label": "婚姻",
+          "similarity": 0.46919796151636245,
+          "definition": "婚姻制度与夫妻关系中的联结、张力与变故。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0109-迷恋",
+          "label": "迷恋",
+          "similarity": 0.4645647465363924,
+          "definition": "过度专注、难以放下的执念。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-021",
+      "text_zh": "你在梦境之中要寻找一种抽象的、绝对的时空，并沿着一条明确的路线前进。但是，当你觉得你快要找到的时候，你却醒了，发现你躺在床上并未动弹，只得一切重新开始。",
+      "source_expected_theme_ids": [
+        "theme-0071-梦"
+      ],
+      "source_expected_theme_labels": [
+        "梦"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "梦是明确主题；检查是否足够具体且不引入额外噪音。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0071-梦",
+          "label": "梦",
+          "similarity": 0.5493336907162526,
+          "definition": "梦境、愿望投射与潜意识显现。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0134-空间",
+          "label": "空间",
+          "similarity": 0.48339303580712034,
+          "definition": "空间感受、边界与压迫/开放感（非具体场景时刻）。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0041-未来",
+          "label": "未来",
+          "similarity": 0.4669492893630879,
+          "definition": "尚未到来的时间及其忧惧或希望。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0071-梦",
+          "label": "梦",
+          "similarity": 0.5493336907162526,
+          "definition": "梦境、愿望投射与潜意识显现。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0134-空间",
+          "label": "空间",
+          "similarity": 0.48339303580712034,
+          "definition": "空间感受、边界与压迫/开放感（非具体场景时刻）。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0041-未来",
+          "label": "未来",
+          "similarity": 0.4669492893630879,
+          "definition": "尚未到来的时间及其忧惧或希望。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0166-混乱",
+          "label": "混乱",
+          "similarity": 0.46435572506876366,
+          "definition": "失序、不可预测与结构崩解。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0168-现代性",
+          "label": "现代性",
+          "similarity": 0.45648131116435453,
+          "definition": "现代社会的速度、技术与疏离经验。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-022",
+      "text_zh": "难道你就没有想到我手表上的日历在那个小方框里啪啪倒退，仿佛断头台上被屠刀砍下的头颅一个个从我脚下滚过吗？",
+      "source_expected_theme_ids": [],
+      "source_expected_theme_labels": [],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:时间"
+      ],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [
+          "时间逆转"
+        ],
+        "zero_theme_assessment": "not_marked",
+        "note": "存在时间逆转与死亡意象；可同时判断死亡是否为有效主题。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0043-死亡",
+          "label": "死亡",
+          "similarity": 0.4583373584764845,
+          "definition": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0110-遗憾",
+          "label": "遗憾",
+          "similarity": 0.4473361628464434,
+          "definition": "对未能实现、未能挽回之事的怅恨。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0174-谋杀",
+          "label": "谋杀",
+          "similarity": 0.44670479948865194,
+          "definition": "故意杀害他人及其动机、罪责与后果。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0043-死亡",
+          "label": "死亡",
+          "similarity": 0.4583373584764845,
+          "definition": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0110-遗憾",
+          "label": "遗憾",
+          "similarity": 0.4473361628464434,
+          "definition": "对未能实现、未能挽回之事的怅恨。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0174-谋杀",
+          "label": "谋杀",
+          "similarity": 0.44670479948865194,
+          "definition": "故意杀害他人及其动机、罪责与后果。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0033-命运感",
+          "label": "命运感",
+          "similarity": 0.4350425427030647,
+          "definition": "感到事件被更大力量牵引的主观体验。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0133-目光",
+          "label": "目光",
+          "similarity": 0.4320605068485727,
+          "definition": "看与被看所形成的权力或欲望关系。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-023",
+      "text_zh": "眼睛盯着挂钟的指针，徒劳地要使那巨大的时针倒转，倒着经历那已经属于过去的时刻。",
+      "source_expected_theme_ids": [],
+      "source_expected_theme_labels": [],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:时间"
+      ],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [
+          {
+            "tag_id": "theme-0040-时间流逝",
+            "label": "时间流逝",
+            "definition": "感到时间过去、不可逆的变易意识（非 Scene/Time 标签）。"
+          },
+          {
+            "tag_id": "theme-0058-过去",
+            "label": "过去",
+            "definition": "已发生之事对当下的压力与召回。"
+          }
+        ],
+        "taxonomy_gaps_to_review": [
+          "时间逆转"
+        ],
+        "zero_theme_assessment": "not_marked",
+        "note": "现有“时间流逝”“过去”可能已覆盖部分语义，时间逆转可更窄。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0040-时间流逝",
+          "label": "时间流逝",
+          "similarity": 0.556928364843374,
+          "definition": "感到时间过去、不可逆的变易意识（非 Scene/Time 标签）。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0068-怀旧",
+          "label": "怀旧",
+          "similarity": 0.5073467434420652,
+          "definition": "对往昔的感伤回望与情感召回。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0058-过去",
+          "label": "过去",
+          "similarity": 0.49953415764866227,
+          "definition": "已发生之事对当下的压力与召回。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0040-时间流逝",
+          "label": "时间流逝",
+          "similarity": 0.556928364843374,
+          "definition": "感到时间过去、不可逆的变易意识（非 Scene/Time 标签）。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0068-怀旧",
+          "label": "怀旧",
+          "similarity": 0.5073467434420652,
+          "definition": "对往昔的感伤回望与情感召回。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0058-过去",
+          "label": "过去",
+          "similarity": 0.49953415764866227,
+          "definition": "已发生之事对当下的压力与召回。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0078-遗忘",
+          "label": "遗忘",
+          "similarity": 0.479345176873869,
+          "definition": "记不起、被抹去或主动放下过去。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0044-珍视",
+          "label": "珍视",
+          "similarity": 0.4508934714358758,
+          "definition": "对人或物的宝贵感与舍不得失去。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-024",
+      "text_zh": "懒汉不干活，冬天里借口天冷，夏天里借口天热。",
+      "source_expected_theme_ids": [],
+      "source_expected_theme_labels": [],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:懒惰"
+      ],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [
+          "懒惰"
+        ],
+        "zero_theme_assessment": "not_marked",
+        "note": "懒惰可能是有效缺口；不要与倦怠（疲惫）混为一谈。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0132-温度",
+          "label": "温度",
+          "similarity": 0.44156539235730985,
+          "definition": "温暖作为照料、人情或环境感受的隐喻领地。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0081-倦怠",
+          "label": "倦怠",
+          "similarity": 0.4294254960737147,
+          "definition": "长期消耗后的身心疲惫与提不起劲。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0029-人性",
+          "label": "人性",
+          "similarity": 0.4282776390543376,
+          "definition": "关于人固有倾向、善恶与限度的思索。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0132-温度",
+          "label": "温度",
+          "similarity": 0.44156539235730985,
+          "definition": "温暖作为照料、人情或环境感受的隐喻领地。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0081-倦怠",
+          "label": "倦怠",
+          "similarity": 0.4294254960737147,
+          "definition": "长期消耗后的身心疲惫与提不起劲。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0029-人性",
+          "label": "人性",
+          "similarity": 0.4282776390543376,
+          "definition": "关于人固有倾向、善恶与限度的思索。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0139-传统",
+          "label": "传统",
+          "similarity": 0.4282515717627862,
+          "definition": "被传承的习俗、规范与其束缚/安慰。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0084-冷漠",
+          "label": "冷漠",
+          "similarity": 0.4278073331455047,
+          "definition": "缺乏关心、情感抽离或不愿投入。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-025",
+      "text_zh": "要知道：有钱人保卫自身或财产的最强大力量，在于下人和邻人对他的敬爱和友爱。",
+      "source_expected_theme_ids": [
+        "theme-0175-财富"
+      ],
+      "source_expected_theme_labels": [
+        "财富"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "财富清晰；尊严可作为次要候选供判断。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0209-尊严",
+          "label": "尊严",
+          "similarity": 0.555888524617241,
+          "definition": "人格不受践踏的自我与社会承认。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0175-财富",
+          "label": "财富",
+          "similarity": 0.5474921254270828,
+          "definition": "富有、占有资源及其道德/社会效应。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0116-占有",
+          "label": "占有",
+          "similarity": 0.5041191379996894,
+          "definition": "想把人或物据为己有的控制倾向。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0209-尊严",
+          "label": "尊严",
+          "similarity": 0.555888524617241,
+          "definition": "人格不受践踏的自我与社会承认。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0175-财富",
+          "label": "财富",
+          "similarity": 0.5474921254270828,
+          "definition": "富有、占有资源及其道德/社会效应。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0116-占有",
+          "label": "占有",
+          "similarity": 0.5041191379996894,
+          "definition": "想把人或物据为己有的控制倾向。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0112-亲情",
+          "label": "亲情",
+          "similarity": 0.4816572079845572,
+          "definition": "家庭成员之间的情感联结与牵挂。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0029-人性",
+          "label": "人性",
+          "similarity": 0.4717198025855834,
+          "definition": "关于人固有倾向、善恶与限度的思索。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-026",
+      "text_zh": "凡是你仆人和对你毕恭毕敬的人，对他们的意见特别要保持距离；因为他们的话恐怕出于惧怕而非敬爱。",
+      "source_expected_theme_ids": [
+        "theme-0097-恐惧"
+      ],
+      "source_expected_theme_labels": [
+        "恐惧"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "恐惧贴切；注意不要把敬畏当作同义标签。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0209-尊严",
+          "label": "尊严",
+          "similarity": 0.48297125233611915,
+          "definition": "人格不受践踏的自我与社会承认。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0100-敬畏",
+          "label": "敬畏",
+          "similarity": 0.47425317954098606,
+          "definition": "面对巨大、崇高或神秘事物时的震慑与崇敬。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0080-体谅",
+          "label": "体谅",
+          "similarity": 0.46250719722513745,
+          "definition": "体察他人处境并予以包容理解。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0209-尊严",
+          "label": "尊严",
+          "similarity": 0.48297125233611915,
+          "definition": "人格不受践踏的自我与社会承认。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0100-敬畏",
+          "label": "敬畏",
+          "similarity": 0.47425317954098606,
+          "definition": "面对巨大、崇高或神秘事物时的震慑与崇敬。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0080-体谅",
+          "label": "体谅",
+          "similarity": 0.46250719722513745,
+          "definition": "体察他人处境并予以包容理解。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0133-目光",
+          "label": "目光",
+          "similarity": 0.4620457677692386,
+          "definition": "看与被看所形成的权力或欲望关系。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0089-嫉妒",
+          "label": "嫉妒",
+          "similarity": 0.4618452942531379,
+          "definition": "担心失去所爱，或因他人拥有而不平衡。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-027",
+      "text_zh": "对朋友甜言蜜语的人，在他脚前安置了诱捕的罗网。",
+      "source_expected_theme_ids": [
+        "theme-0117-友情"
+      ],
+      "source_expected_theme_labels": [
+        "友情"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "友情贴切；背叛、信任可能是可选的次级解读。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0117-友情",
+          "label": "友情",
+          "similarity": 0.5185428005305809,
+          "definition": "非血缘、非情爱的友伴关系与互助信任。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0124-背叛",
+          "label": "背叛",
+          "similarity": 0.48009858710817965,
+          "definition": "信任被出卖或承诺被违背。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0114-信任",
+          "label": "信任",
+          "similarity": 0.44982397187199974,
+          "definition": "信赖他人或被他人视为可靠。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0117-友情",
+          "label": "友情",
+          "similarity": 0.5185428005305809,
+          "definition": "非血缘、非情爱的友伴关系与互助信任。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0124-背叛",
+          "label": "背叛",
+          "similarity": 0.48009858710817965,
+          "definition": "信任被出卖或承诺被违背。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0114-信任",
+          "label": "信任",
+          "similarity": 0.44982397187199974,
+          "definition": "信赖他人或被他人视为可靠。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0121-忠诚",
+          "label": "忠诚",
+          "similarity": 0.44228604606256683,
+          "definition": "对人或价值保持忠贞不渝。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0044-珍视",
+          "label": "珍视",
+          "similarity": 0.4367090284022504,
+          "definition": "对人或物的宝贵感与舍不得失去。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-028",
+      "text_zh": "可见，谁若满载着荣誉断了气，他的亲友该为他去世而欣喜，因为等他令名因年龄而枯槁，那时他的能耐已完全被忘掉。所以如果有人要留个好名誉，那么最好在声名最隆时死去。",
+      "source_expected_theme_ids": [
+        "theme-0043-死亡"
+      ],
+      "source_expected_theme_labels": [
+        "死亡"
+      ],
+      "ambiguity_flags": [
+        "taxonomy_gap",
+        "taxonomy_gap:荣誉"
+      ],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [
+          {
+            "tag_id": "theme-0154-名声",
+            "label": "名声",
+            "definition": "被看见、被谈论的名望及其代价。"
+          },
+          {
+            "tag_id": "theme-0209-尊严",
+            "label": "尊严",
+            "definition": "人格不受践踏的自我与社会承认。"
+          }
+        ],
+        "taxonomy_gaps_to_review": [
+          "荣誉"
+        ],
+        "zero_theme_assessment": "not_marked",
+        "note": "名声在候选中且原文突出；尊严也可考虑。荣誉是否独立于名声待确认。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0154-名声",
+          "label": "名声",
+          "similarity": 0.5455382286157879,
+          "definition": "被看见、被谈论的名望及其代价。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0209-尊严",
+          "label": "尊严",
+          "similarity": 0.4902611799062119,
+          "definition": "人格不受践踏的自我与社会承认。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0121-忠诚",
+          "label": "忠诚",
+          "similarity": 0.467951339905845,
+          "definition": "对人或价值保持忠贞不渝。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0154-名声",
+          "label": "名声",
+          "similarity": 0.5455382286157879,
+          "definition": "被看见、被谈论的名望及其代价。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0209-尊严",
+          "label": "尊严",
+          "similarity": 0.4902611799062119,
+          "definition": "人格不受践踏的自我与社会承认。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0121-忠诚",
+          "label": "忠诚",
+          "similarity": 0.467951339905845,
+          "definition": "对人或价值保持忠贞不渝。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0044-珍视",
+          "label": "珍视",
+          "similarity": 0.4580370137847875,
+          "definition": "对人或物的宝贵感与舍不得失去。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0027-虚荣",
+          "label": "虚荣",
+          "similarity": 0.4561993788630025,
+          "definition": "过度在意外表或他人评价。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    },
+    {
+      "quote_id": "calib-029",
+      "text_zh": "所以我认为明智的做法就是：要自愿地去做非做不可的事，要甘心接受不可避免的情形，特别是我们必然遭遇的命运。",
+      "source_expected_theme_ids": [
+        "theme-0032-命运"
+      ],
+      "source_expected_theme_labels": [
+        "命运"
+      ],
+      "ambiguity_flags": [],
+      "assistant_review": {
+        "suggested_additional_existing_themes": [],
+        "taxonomy_gaps_to_review": [],
+        "zero_theme_assessment": "not_marked",
+        "note": "命运清晰；选择、适应可视为相邻但非必需主题。"
+      },
+      "mock_ai_default_top3": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0032-命运",
+          "label": "命运",
+          "similarity": 0.5189216861145507,
+          "definition": "命定、不可控力量或轨迹感如何塑造人生。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0060-选择",
+          "label": "选择",
+          "similarity": 0.5137406062265879,
+          "definition": "在可能性之间做出取舍及其后果。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0059-适应",
+          "label": "适应",
+          "similarity": 0.49290765730606884,
+          "definition": "调整自身以应对环境变化。"
+        }
+      ],
+      "mock_ai_expandable_top5": [
+        {
+          "rank": 1,
+          "tag_id": "theme-0032-命运",
+          "label": "命运",
+          "similarity": 0.5189216861145507,
+          "definition": "命定、不可控力量或轨迹感如何塑造人生。"
+        },
+        {
+          "rank": 2,
+          "tag_id": "theme-0060-选择",
+          "label": "选择",
+          "similarity": 0.5137406062265879,
+          "definition": "在可能性之间做出取舍及其后果。"
+        },
+        {
+          "rank": 3,
+          "tag_id": "theme-0059-适应",
+          "label": "适应",
+          "similarity": 0.49290765730606884,
+          "definition": "调整自身以应对环境变化。"
+        },
+        {
+          "rank": 4,
+          "tag_id": "theme-0207-伦理困境",
+          "label": "伦理困境",
+          "similarity": 0.4777160042578892,
+          "definition": "价值冲突下难以两全的抉择。"
+        },
+        {
+          "rank": 5,
+          "tag_id": "theme-0037-接受",
+          "label": "接受",
+          "similarity": 0.47613638257317276,
+          "definition": "承认现实并不再无谓抗拒。"
+        }
+      ],
+      "user_feedback": {
+        "satisfaction": "",
+        "keep_theme_ids": [],
+        "remove_theme_ids": [],
+        "missing_existing_theme_ids": [],
+        "missing_new_concept": "",
+        "too_many": null,
+        "too_few": null,
+        "comment": ""
+      }
+    }
+  ]
+}

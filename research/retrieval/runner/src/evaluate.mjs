@@ -1,5 +1,5 @@
 /**
- * Recall@K and aggregate reporting.
+ * Recall@K and Success@3 aggregate reporting.
  * Precision is intentionally not optimized here.
  */
 
@@ -43,9 +43,10 @@ export function expectedRanks(expectedIds, ranked) {
 }
 
 /**
- * Aggregate mean Recall@K over Quotes that have a non-empty expected set.
+ * Aggregate mean Recall@K and quote-level Success@3 over Quotes that have a
+ * non-empty expected set.
  */
-export function aggregateRecalls(perQuoteMetrics, ks = [5, 10, 20]) {
+export function aggregateRecalls(perQuoteMetrics, ks = [3, 5]) {
   const out = {
     evaluated_quotes: 0,
     skipped_empty_expected: 0,
@@ -54,6 +55,8 @@ export function aggregateRecalls(perQuoteMetrics, ks = [5, 10, 20]) {
     out[`mean_recall_at_${k}`] = null;
     out[`recall_at_${k}_values`] = [];
   }
+  out.success_at_3 = null;
+  out.success_at_3_count = 0;
 
   for (const q of perQuoteMetrics) {
     const r5 = q.recall_at?.[5];
@@ -64,8 +67,11 @@ export function aggregateRecalls(perQuoteMetrics, ks = [5, 10, 20]) {
     out.evaluated_quotes += 1;
     for (const k of ks) {
       const rk = q.recall_at?.[k];
-      if (rk?.evaluated) out[`recall_at_${k}_values`].push(rk.recall);
+      if (rk?.evaluated) {
+        out[`recall_at_${k}_values`].push(rk.recall);
+      }
     }
+    if (q.recall_at?.[3]?.hit_count > 0) out.success_at_3_count += 1;
   }
 
   for (const k of ks) {
@@ -75,5 +81,55 @@ export function aggregateRecalls(perQuoteMetrics, ks = [5, 10, 20]) {
         ? null
         : vals.reduce((a, b) => a + b, 0) / vals.length;
   }
+  out.success_at_3 =
+    out.evaluated_quotes === 0
+      ? null
+      : out.success_at_3_count / out.evaluated_quotes;
   return out;
+}
+
+/**
+ * Summarize measured per-quote work and project a sequential 1,000-quote run.
+ * One-time Theme index preparation is reported separately and included in
+ * the projected batch duration.
+ */
+export function summarizeTaggingLatency(
+  perQuoteMetrics,
+  {
+    theme_index_preparation_ms = 0,
+    route_model_preparation_ms = 0,
+    projected_quote_count = 1000,
+  } = {},
+) {
+  const samples = perQuoteMetrics
+    .map((quote) => quote.tagging_latency_ms)
+    .filter((value) => Number.isFinite(value) && value >= 0);
+  const mean =
+    samples.length === 0
+      ? null
+      : samples.reduce((sum, value) => sum + value, 0) / samples.length;
+  const preparation = Number.isFinite(theme_index_preparation_ms)
+    ? theme_index_preparation_ms
+    : 0;
+  const routePreparation = Number.isFinite(route_model_preparation_ms)
+    ? route_model_preparation_ms
+    : 0;
+
+  return {
+    timed_quotes: samples.length,
+    mean_tagging_latency_ms_per_quote: mean,
+    measured_tagging_latency_ms_total:
+      samples.length === 0
+        ? null
+        : samples.reduce((sum, value) => sum + value, 0),
+    theme_index_preparation_ms: preparation,
+    route_model_preparation_ms: routePreparation,
+    projected_quote_count,
+    estimated_1000_quote_batch_ms:
+      mean == null
+        ? null
+        : preparation + routePreparation + mean * projected_quote_count,
+    estimate_scope:
+      "Sequential runner estimate: one-time embedding and Theme index preparation + one-time route model preparation + measured mean per-quote route latency × projected quote count.",
+  };
 }

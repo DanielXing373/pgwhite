@@ -2,7 +2,7 @@
  * Embedding provider contract (documentation + helpers).
  *
  * A provider must expose:
- *   async embed(texts: string[]) => number[][]
+ *   async embed(texts: string[], { role: "query" | "document" }) => number[][]
  *   getMetadata() => { provider_id, model_name, model_revision?, dimensions?, device?, ... }
  *   optional async close()
  *

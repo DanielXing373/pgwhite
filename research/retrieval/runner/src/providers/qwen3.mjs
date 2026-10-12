@@ -6,6 +6,8 @@ import { createInterface } from "node:readline";
 import { assertEmbeddingBatch } from "./interface.mjs";
 
 const DEFAULT_MODEL = "Qwen/Qwen3-Embedding-0.6B";
+const DEFAULT_QUERY_INSTRUCTION =
+  "Given a Chinese literary quotation, retrieve the literary theme concepts whose meanings are expressed or strongly implied by the quotation. Match concepts by meaning, including implicit themes, rather than by keyword overlap alone.";
 
 function defaultWorkerPath() {
   return join(
@@ -34,6 +36,8 @@ export function buildQwen3WorkerArgs(options = {}) {
     model,
     "--batch-size",
     String(options.batch_size ?? 32),
+    "--query-instruction",
+    String(options.query_instruction ?? DEFAULT_QUERY_INSTRUCTION),
   ];
   if (options.normalize_embeddings === false) {
     args.push("--no-normalize-embeddings");
@@ -89,6 +93,9 @@ export function createQwen3EmbeddingProvider(options = {}) {
     dimensions: null,
     device: options.device ?? null,
     normalize_embeddings: options.normalize_embeddings !== false,
+    query_instruction: options.query_instruction ?? DEFAULT_QUERY_INSTRUCTION,
+    query_encoding: "Instruct: <query_instruction>\\nQuery:<text>",
+    document_encoding: "model.encode() without prompt",
     batch_size: options.batch_size ?? 32,
     require_cuda: requireCuda,
     python_executable: python,
@@ -235,9 +242,12 @@ export function createQwen3EmbeddingProvider(options = {}) {
     getMetadata() {
       return { ...runtimeMeta };
     },
-    async embed(texts) {
+    async embed(texts, { role = "document" } = {}) {
       const list = Array.isArray(texts) ? texts : [texts];
-      const msg = await request({ op: "embed", texts: list });
+      if (role !== "query" && role !== "document") {
+        throw new Error(`Qwen3 embedding role must be query|document, got ${role}`);
+      }
+      const msg = await request({ op: "embed", texts: list, role });
       const vectors = msg.vectors;
       assertEmbeddingBatch(list, vectors, runtimeMeta.dimensions ?? undefined);
       if (msg.dimensions != null) {

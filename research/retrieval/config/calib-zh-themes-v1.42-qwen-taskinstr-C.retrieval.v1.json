@@ -1,0 +1,43 @@
+{
+  "schema_version": "retrieval-config.v1",
+  "config_id": "calib-zh-themes-v1.42-qwen-taskinstr-C",
+  "research_only": true,
+  "dimension": "theme",
+  "tag_library_path": "research/tag-library/data/library/atomic-tag-library.v1.42.json",
+  "active_status": "active_candidate",
+  "benchmark_path": "research/retrieval/benchmark/fixtures/calib-zh-themes.v1.42.json",
+  "representation": "C",
+  "provider": {
+    "id": "qwen3",
+    "options": {
+      "model": "Qwen/Qwen3-Embedding-0.6B",
+      "normalize_embeddings": true,
+      "require_cuda": true,
+      "trust_remote_code": true,
+      "batch_size": 32,
+      "query_instruction": "Given a Chinese literary quotation, retrieve the literary theme concepts whose meanings are expressed or strongly implied by the quotation. Match concepts by meaning, including implicit themes, rather than by keyword overlap alone."
+    }
+  },
+  "ranking": {
+    "top_k_report": [
+      3,
+      5
+    ],
+    "store_full_ranking": true
+  },
+  "deterministic_match": {
+    "enabled": true,
+    "method": "exact_substring",
+    "notes": [
+      "Conservative Chinese exact substring of canonical/alias forms.",
+      "Short surfaces (len < 2) are recorded with caution_short_surface=true; no fuzzy/NLP."
+    ]
+  },
+  "runs_dir": "research/retrieval/runs",
+  "overwrite_completed_runs": false,
+  "notes": [
+    "Review-derived v1.42 Theme library and calibration draft.",
+    "Representation C; run B and C separately with immutable run IDs.",
+    "Retrieval candidates only; not a calibrated assignment probability or production auto-tag policy."
+  ]
+}

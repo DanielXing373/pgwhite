@@ -14,11 +14,35 @@
     "benchmark_version": { "type": "string" },
     "benchmark_hash": { "type": "string" },
     "representation": { "enum": ["A", "B", "C"] },
+    "route_id": { "enum": ["direct", "generate-map", "retrieve-rerank"] },
     "embedding_provider": { "type": "object" },
+    "route_model_provider": { "type": ["object", "null"] },
     "config": { "type": "object" },
     "hardware": { "type": "object" },
     "aggregate_metrics": { "type": "object" },
-    "results": { "type": "array" },
+    "performance_metrics": {
+      "type": "object",
+      "properties": {
+        "theme_index_preparation_ms": { "type": "number", "minimum": 0 },
+        "route_model_preparation_ms": { "type": "number", "minimum": 0 },
+        "mean_tagging_latency_ms_per_quote": { "type": ["number", "null"], "minimum": 0 },
+        "estimated_1000_quote_batch_ms": { "type": ["number", "null"], "minimum": 0 }
+      },
+      "description": "Measured per-quote complete-route latency, embedding/theme-index preparation, route-specific model preparation, and a sequential 1,000-quote duration estimate."
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "tagging_latency_ms": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Elapsed time for the complete selected route for this quote, including any generation, mapping, retrieval, or reranking performed per quote."
+          }
+        }
+      }
+    },
     "notes": {
       "type": "array",
       "items": { "type": "string" }

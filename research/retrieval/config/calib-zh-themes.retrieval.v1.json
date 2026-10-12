@@ -14,7 +14,7 @@
     }
   },
   "ranking": {
-    "top_k_report": [5, 10, 20],
+    "top_k_report": [3, 5],
     "store_full_ranking": true
   },
   "deterministic_match": {

@@ -24,7 +24,11 @@ import {
   resolvePythonExecutable,
 } from "../runner/src/providers/qwen3.mjs";
 import { cosineSimilarity, rankByCosine, takeTopK } from "../runner/src/rank.mjs";
-import { recallAtK, aggregateRecalls } from "../runner/src/evaluate.mjs";
+import {
+  recallAtK,
+  aggregateRecalls,
+  summarizeTaggingLatency,
+} from "../runner/src/evaluate.mjs";
 import { loadBenchmark, resolveExpectedThemeIds } from "../runner/src/benchmark.mjs";
 import {
   assertRunNotCompleted,
@@ -219,7 +223,7 @@ test("cosine ranking Top-K ordering is deterministic", () => {
   assert.equal(cosineSimilarity([1, 0], [1, 0]), 1);
 });
 
-test("Recall@5/10/20 calculation", () => {
+test("Recall@3, Recall@5, and quote-level Success@3 calculation", () => {
   const ranked = [
     { rank: 1, tag_id: "t1", canonical_zh: "一", similarity: 0.9 },
     { rank: 2, tag_id: "t2", canonical_zh: "二", similarity: 0.8 },
@@ -244,22 +248,43 @@ test("Recall@5/10/20 calculation", () => {
   const r5 = recallAtK(expected, full, 5);
   assert.equal(r5.hit_count, 1);
   assert.equal(r5.recall, 1 / 3);
-  const r10 = recallAtK(expected, full, 10);
-  assert.equal(r10.hit_count, 2);
-  const r20 = recallAtK(expected, full, 20);
-  assert.equal(r20.hit_count, 3);
-  assert.equal(r20.recall, 1);
+  const r3 = recallAtK(expected, full, 3);
+  assert.equal(r3.hit_count, 1);
+  assert.equal(r3.recall, 1 / 3);
+
+  const missAt3 = recallAtK(["t6"], full, 3);
+  assert.equal(missAt3.hit_count, 0);
+  assert.equal(missAt3.recall, 0);
 
   const empty = recallAtK([], full, 5);
   assert.equal(empty.evaluated, false);
 
   const agg = aggregateRecalls([
-    { recall_at: { 5: r5, 10: r10, 20: r20 } },
-    { recall_at: { 5: empty } },
+    { recall_at: { 3: r3, 5: r5 } },
+    { recall_at: { 3: missAt3, 5: recallAtK(["t6"], full, 5) } },
+    { recall_at: { 3: empty, 5: empty } },
   ]);
-  assert.equal(agg.evaluated_quotes, 1);
+  assert.equal(agg.evaluated_quotes, 2);
   assert.equal(agg.skipped_empty_expected, 1);
-  assert.equal(agg.mean_recall_at_5, 1 / 3);
+  assert.equal(agg.mean_recall_at_3, 1 / 6);
+  assert.equal(agg.mean_recall_at_5, 1 / 6);
+  assert.equal(agg.success_at_3_count, 1);
+  assert.equal(agg.success_at_3, 1 / 2);
+  assert.equal("mean_recall_at_10" in agg, false);
+  assert.equal("mean_recall_at_20" in agg, false);
+});
+
+test("tagging latency average and 1,000-quote estimate", () => {
+  const timing = summarizeTaggingLatency(
+    [{ tagging_latency_ms: 10 }, { tagging_latency_ms: 30 }],
+    { theme_index_preparation_ms: 500 },
+  );
+  assert.equal(timing.timed_quotes, 2);
+  assert.equal(timing.mean_tagging_latency_ms_per_quote, 20);
+  assert.equal(timing.measured_tagging_latency_ms_total, 40);
+  assert.equal(timing.theme_index_preparation_ms, 500);
+  assert.equal(timing.projected_quote_count, 1000);
+  assert.equal(timing.estimated_1000_quote_batch_ms, 20500);
 });
 
 test("benchmark loader + expected label resolution", () => {
@@ -312,7 +337,7 @@ test("config serialization fields exist", () => {
   );
   assert.equal(config.schema_version, "retrieval-config.v1");
   assert.equal(config.dimension, "theme");
-  assert.deepEqual(config.ranking.top_k_report, [5, 10, 20]);
+  assert.deepEqual(config.ranking.top_k_report, [3, 5]);
   assert.equal(config.overwrite_completed_runs, false);
 });
 
@@ -336,6 +361,15 @@ test("end-to-end fake pipeline dry metrics", async () => {
   assert.ok(q1.semantic_ranking.top_5);
   assert.ok(q1.semantic_ranking.top_20);
   assert.equal(typeof q1.recall_at[5].recall, "number");
+  assert.equal(typeof q1.tagging_latency_ms, "number");
+  assert.equal(
+    typeof run.performance_metrics.mean_tagging_latency_ms_per_quote,
+    "number",
+  );
+  assert.equal(
+    typeof run.performance_metrics.estimated_1000_quote_batch_ms,
+    "number",
+  );
   // deterministic hits remain separate object; ranking scores are only under semantic_ranking
   assert.ok(!("similarity" in (q1.deterministic_hits[0] || {})));
   assert.equal(manifest.completed, true);

@@ -4,7 +4,7 @@
 PGWhite 1.42 — Qwen3 embedding worker (Sentence Transformers).
 
 Protocol (line-delimited JSON over stdin/stdout):
-  Request:  {"op":"metadata"} | {"op":"embed","texts":[...]} | {"op":"shutdown"}
+  Request:  {"op":"metadata"} | {"op":"embed","texts":[...],"role":"query|document"} | {"op":"shutdown"}
   Response: {"ok":true,...} or {"ok":false,"error":"..."}
 
 Does not silently fall back from CUDA to CPU when require_cuda is true.
@@ -47,6 +47,11 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         default=True,
     )
     p.add_argument("--batch-size", type=int, default=32)
+    p.add_argument(
+        "--query-instruction",
+        required=True,
+        help="Task-specific instruction prepended to query texts using Qwen's Instruct/Query format.",
+    )
     p.add_argument(
         "--trust-remote-code",
         action=argparse.BooleanOptionalAction,
@@ -159,6 +164,9 @@ def collect_metadata(args: argparse.Namespace, model, device: str) -> dict[str, 
         "torch_version": getattr(torch, "__version__", None),
         "sentence_transformers_version": _st_version(),
         "backend": "sentence-transformers",
+        "query_instruction": args.query_instruction,
+        "query_encoding": "model.encode(prompt='Instruct: <query_instruction>\\nQuery:')",
+        "document_encoding": "model.encode() without prompt",
     }
 
 
@@ -171,17 +179,25 @@ def _st_version() -> str | None:
         return None
 
 
-def embed_texts(model, texts: list[str], args: argparse.Namespace) -> list[list[float]]:
+def embed_texts(
+    model, texts: list[str], args: argparse.Namespace, role: str
+) -> list[list[float]]:
     if not isinstance(texts, list) or any(not isinstance(t, str) for t in texts):
         fail("embed.texts must be an array of strings")
+    if role not in ("query", "document"):
+        fail("embed.role must be 'query' or 'document'")
     try:
-        vectors = model.encode(
-            texts,
-            batch_size=int(args.batch_size),
-            normalize_embeddings=bool(args.normalize_embeddings),
-            convert_to_numpy=True,
-            show_progress_bar=False,
-        )
+        encode_options = {
+            "batch_size": int(args.batch_size),
+            "normalize_embeddings": bool(args.normalize_embeddings),
+            "convert_to_numpy": True,
+            "show_progress_bar": False,
+        }
+        if role == "query":
+            encode_options["prompt"] = (
+                f"Instruct: {args.query_instruction}\nQuery:"
+            )
+        vectors = model.encode(texts, **encode_options)
     except Exception as exc:  # noqa: BLE001
         fail(f"model.encode failed: {exc}")
 
@@ -219,8 +235,9 @@ def main(argv: list[str]) -> None:
             emit({"ok": True, "metadata": meta})
         elif op == "embed":
             texts = req.get("texts")
+            role = req.get("role", "document")
             try:
-                vectors = embed_texts(model, texts, args)
+                vectors = embed_texts(model, texts, args, role)
             except SystemExit:
                 return
             except Exception as exc:  # noqa: BLE001

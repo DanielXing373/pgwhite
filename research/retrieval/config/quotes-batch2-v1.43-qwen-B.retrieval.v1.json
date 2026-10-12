@@ -1,0 +1,41 @@
+{
+  "schema_version": "retrieval-config.v1",
+  "config_id": "quotes-batch2-v1.43-qwen-B",
+  "research_only": true,
+  "dimension": "theme",
+  "tag_library_path": "research/tag-library/data/library/atomic-tag-library.v1.43.json",
+  "active_status": "active_candidate",
+  "benchmark_path": "research/retrieval/benchmark/fixtures/quotes-batch2.v1.43-dev.json",
+  "representation": "B",
+  "provider": {
+    "id": "qwen3",
+    "options": {
+      "model": "Qwen/Qwen3-Embedding-0.6B",
+      "normalize_embeddings": true,
+      "require_cuda": true,
+      "trust_remote_code": true,
+      "batch_size": 32,
+      "query_instruction": "Given a Chinese literary quotation, retrieve the literary theme concepts whose meanings are expressed or strongly implied by the quotation. Match concepts by meaning, including implicit themes, rather than by keyword overlap alone."
+    }
+  },
+  "ranking": {
+    "top_k_report": [
+      3,
+      5
+    ],
+    "store_full_ranking": true
+  },
+  "deterministic_match": {
+    "enabled": true,
+    "method": "exact_substring",
+    "notes": [
+      "Exact substring matching of canonical and alias forms; kept separate from semantic ranking."
+    ]
+  },
+  "runs_dir": "research/retrieval/runs",
+  "overwrite_completed_runs": false,
+  "notes": [
+    "Development benchmark only: v1.43 was curated from this same quote batch.",
+    "Report macro Recall@3, macro Recall@5, and quote-level Success@3; no Recall@10/@20 score reporting."
+  ]
+}

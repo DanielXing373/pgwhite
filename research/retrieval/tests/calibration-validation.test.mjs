@@ -324,7 +324,7 @@ test("populated calibration can be consumed by retrieval runner (fake, no Qwen)"
         benchmark_path: path,
         representation: "A",
         provider: { id: "fake", options: { dimensions: 32 } },
-        ranking: { top_k_report: [5, 10, 20], store_full_ranking: true },
+        ranking: { top_k_report: [3, 5], store_full_ranking: true },
         deterministic_match: { enabled: true },
         runs_dir: "research/retrieval/runs",
         overwrite_completed_runs: false,
@@ -337,6 +337,27 @@ test("populated calibration can be consumed by retrieval runner (fake, no Qwen)"
     assert.equal(manifest.exploratory, false);
     assert.equal(run.aggregate_metrics.evaluated_quotes, 1);
     assert.equal(typeof run.results[0].recall_at[5].recall, "number");
+    assert.equal(typeof run.aggregate_metrics.mean_recall_at_3, "number");
+    assert.equal(typeof run.aggregate_metrics.mean_recall_at_5, "number");
+    assert.equal(typeof run.aggregate_metrics.success_at_3, "number");
+    assert.ok(
+      run.aggregate_metrics.success_at_3_count === 0 ||
+        run.aggregate_metrics.success_at_3_count === 1,
+    );
+    assert.equal(
+      run.aggregate_metrics.success_at_3,
+      run.aggregate_metrics.success_at_3_count,
+    );
+    assert.equal(
+      typeof run.performance_metrics.mean_tagging_latency_ms_per_quote,
+      "number",
+    );
+    assert.equal(
+      typeof run.performance_metrics.estimated_1000_quote_batch_ms,
+      "number",
+    );
+    assert.equal("mean_recall_at_10" in run.aggregate_metrics, false);
+    assert.equal("mean_recall_at_20" in run.aggregate_metrics, false);
     assert.equal(run.embedding_provider.provider_id, "fake");
   } finally {
     rmSync(dir, { recursive: true, force: true });

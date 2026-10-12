@@ -1,40 +1,36 @@
-# PGWhite Tag Library (research) — 1.41
+# PGWhite Tag Library — current working library
 
-Initial **Atomic Tag Library** for future local Qwen3 embedding retrieval experiments.
+The current Theme source of truth for development and retrieval-route comparisons is:
 
-**Research only.** No production `tags` migration. No embeddings in this version.
+`research/tag-library/data/library/atomic-tag-library.v1.43.json`
+
+It currently contains 185 active Themes. All three route experiments use this same library and its canonical labels, definitions, and aliases. Update the current library forward as the taxonomy improves; do not spend development time preserving older library variants or adding backward-compatibility behavior. Older files and runs may remain as source-control history, but they are not active targets.
+
+The current library was assembled from the user's reviewed Theme cleanup and second quote batch. Those quote annotations informed the library, so the batch is useful for development comparisons, not an independent accuracy claim.
 
 ## Layout
 
 ```text
 research/tag-library/
   schemas/                 # JSON schemas
-  scripts/
-    ingest-lto.mjs         # LTO hierarchy extract (local clone)
-    build-atomic-library.py
-  src/representations.mjs       # A/B/C text representations
+  scripts/                 # source ingestion and library build utilities
+  src/                     # Theme document representations
   data/
-    lto/                   # LTO research extract + attribution
-    sources/               # per-provenance extracts
-    candidates/            # raw pool + cleanup log
-    library/               # final library + representations
+    lto/                   # LTO research extract and attribution
+    sources/               # provenance extracts
+    candidates/            # raw candidate pool and cleanup log
+    library/               # current working library and representations
   tests/
 ```
 
 ## Commands
 
-```bash
-npm run research:taglib:ingest-lto -- --lto-dir /path/to/theming
-npm run research:taglib:build
-npm run research:taglib:test
+```powershell
+pnpm run research:taglib:test
 ```
 
-## Philosophy (short)
+The retrieval route comparison and its shared quote set are documented in `research/retrieval/docs/theme-workflow-comparison-protocol.v1.md`.
 
-A PGWhite Tag is a **semantically atomic, reusable retrieval component**, not a miniature literary analysis.
+## Design principle
 
-Prefer `记忆` / `童年` / `亲情` over `音乐唤醒记忆` / `复杂的父子关系`.
-
-Canonical ≠ aliases ≠ related. Empty/unused Tags are acceptable.
-
-See `docs/research/1.41-atomic-tag-library.md`.
+A PGWhite Theme is a semantically atomic, reusable retrieval component, not a miniature literary analysis. Prefer `记忆` / `童年` / `亲情` over quote-specific phrases such as `音乐唤醒记忆` / `复杂的父子关系`. Canonical labels, aliases, and related concepts remain distinct fields.

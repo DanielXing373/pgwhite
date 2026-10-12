@@ -1,0 +1,36 @@
+{
+  "schema_version": "retrieval-run-manifest.v1",
+  "run_id": "route-comparison-generate-map-20261012-r1",
+  "created_at": "2026-10-12T17:35:51.882Z",
+  "git_commit_sha": "3ad99ffe626cdd2c574c377f518a0ee5b2378f60",
+  "representation": "C",
+  "route_id": "generate-map",
+  "provider_id": "qwen3-embedding",
+  "route_model_provider_id": "ollama-local-chat",
+  "model_name": "C:\\Users\\yuche\\.cache\\huggingface\\hub\\models--Qwen--Qwen3-Embedding-0.6B\\snapshots\\97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+  "model_identifier": "C:\\Users\\yuche\\.cache\\huggingface\\hub\\models--Qwen--Qwen3-Embedding-0.6B\\snapshots\\97b0c614be4d77ee51c0cef4e5f07c00f9eb65b3",
+  "benchmark_version": "route-comparison-development",
+  "benchmark_hash": "9a73e5a095d5ff32cddde1083e0891c646d4a5506f49d953329d828c870e92ed",
+  "tag_library_version": "atomic-tag-library.v1.43",
+  "tag_library_hash": "a71db8ba7e34ea5c2db33b53a6c1583d8ac8bbf3e11871198bf0deedc0ed39b7",
+  "active_theme_count": 185,
+  "exploratory": false,
+  "aggregate_metrics": {
+    "evaluated_quotes": 55,
+    "mean_recall_at_3": 0.5969696969696969,
+    "mean_recall_at_5": 0.6609090909090908,
+    "success_at_3": 0.8363636363636363,
+    "success_at_3_count": 46
+  },
+  "performance_metrics": {
+    "timed_quotes": 58,
+    "mean_tagging_latency_ms_per_quote": 430.40278965517206,
+    "measured_tagging_latency_ms_total": 24963.36179999998,
+    "theme_index_preparation_ms": 14223.533200000002,
+    "route_model_preparation_ms": 481.0136000000002,
+    "projected_quote_count": 1000,
+    "estimated_1000_quote_batch_ms": 445107.33645517204,
+    "estimate_scope": "Sequential runner estimate: one-time embedding and Theme index preparation + one-time route model preparation + measured mean per-quote route latency × projected quote count."
+  },
+  "completed": true
+}

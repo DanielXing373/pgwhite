@@ -1,0 +1,511 @@
+{
+  "schema_version": "retrieval-analysis.v1",
+  "notes": "Post-hoc human analysis only. Do not overwrite run.json raw outputs.",
+  "categories": {
+    "retrieval_failure": "Expected Tag exists in library but ranks poorly / outside Top-20.",
+    "taxonomy_gap": "Important concept appears missing from the Theme library.",
+    "benchmark_ambiguity": "Expected Tag itself is debatable or abstraction level unclear."
+  },
+  "quotes": [
+    {
+      "quote_id": "calib-001",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0010-童年",
+        "theme-0077-记忆",
+        "theme-0146-音乐"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0010-童年",
+          "rank": 3,
+          "similarity": 0.4759622403610722,
+          "in_top_20": true
+        },
+        {
+          "tag_id": "theme-0077-记忆",
+          "rank": 5,
+          "similarity": 0.44402489734831696,
+          "in_top_20": true
+        },
+        {
+          "tag_id": "theme-0146-音乐",
+          "rank": 2,
+          "similarity": 0.47695105940700344,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-002",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0070-智慧",
+        "theme-0145-语言"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0070-智慧",
+          "rank": 1,
+          "similarity": 0.5695270374115383,
+          "in_top_20": true
+        },
+        {
+          "tag_id": "theme-0145-语言",
+          "rank": 4,
+          "similarity": 0.48646558946391044,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-003",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0043-死亡",
+        "theme-0057-轮回"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0043-死亡",
+          "rank": 2,
+          "similarity": 0.5735185296250711,
+          "in_top_20": true
+        },
+        {
+          "tag_id": "theme-0057-轮回",
+          "rank": 3,
+          "similarity": 0.5555404637731476,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-004",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0219-伦理"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0219-伦理",
+          "rank": 2,
+          "similarity": 0.6016222386569158,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-005",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0039-时间"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0039-时间",
+          "rank": 1,
+          "similarity": 0.5885791727797108,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-006",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0039-时间",
+        "theme-0097-恐惧"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0039-时间",
+          "rank": 1,
+          "similarity": 0.5943868597636562,
+          "in_top_20": true
+        },
+        {
+          "tag_id": "theme-0097-恐惧",
+          "rank": 65,
+          "similarity": 0.33949442859276346,
+          "in_top_20": false
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-007",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0043-死亡"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0043-死亡",
+          "rank": 1,
+          "similarity": 0.5937863708755836,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-008",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [],
+      "ranks_of_expected": []
+    },
+    {
+      "quote_id": "calib-009",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0077-记忆",
+        "theme-0078-遗忘"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0077-记忆",
+          "rank": 2,
+          "similarity": 0.5559621288336325,
+          "in_top_20": true
+        },
+        {
+          "tag_id": "theme-0078-遗忘",
+          "rank": 1,
+          "similarity": 0.6004142553016569,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-010",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0104-焦虑"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0104-焦虑",
+          "rank": 1,
+          "similarity": 0.6083985215755034,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-011",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [],
+      "ranks_of_expected": []
+    },
+    {
+      "quote_id": "calib-012",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0103-满足",
+        "theme-0116-占有"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0103-满足",
+          "rank": 2,
+          "similarity": 0.5342089655483885,
+          "in_top_20": true
+        },
+        {
+          "tag_id": "theme-0116-占有",
+          "rank": 1,
+          "similarity": 0.5447658838309315,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-013",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0043-死亡"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0043-死亡",
+          "rank": 8,
+          "similarity": 0.45948334754991155,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-014",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0198-观察"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0198-观察",
+          "rank": 1,
+          "similarity": 0.4841512698858544,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-015",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0004-废墟",
+        "theme-0042-末日"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0004-废墟",
+          "rank": 1,
+          "similarity": 0.5399539332163571,
+          "in_top_20": true
+        },
+        {
+          "tag_id": "theme-0042-末日",
+          "rank": 3,
+          "similarity": 0.5317385830487582,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-016",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0088-好奇"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0088-好奇",
+          "rank": 6,
+          "similarity": 0.46154882491567584,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-017",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0054-虚无"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0054-虚无",
+          "rank": 1,
+          "similarity": 0.5248549414870218,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-018",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [],
+      "ranks_of_expected": []
+    },
+    {
+      "quote_id": "calib-019",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0093-希望"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0093-希望",
+          "rank": 8,
+          "similarity": 0.45234459484097733,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-020",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0123-爱情"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0123-爱情",
+          "rank": 33,
+          "similarity": 0.41805445535289504,
+          "in_top_20": false
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-021",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0071-梦"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0071-梦",
+          "rank": 1,
+          "similarity": 0.5924121371246723,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-022",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0039-时间"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0039-时间",
+          "rank": 35,
+          "similarity": 0.3809067507097253,
+          "in_top_20": false
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-023",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0039-时间"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0039-时间",
+          "rank": 6,
+          "similarity": 0.4923077630100016,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-024",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0081-倦怠"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0081-倦怠",
+          "rank": 4,
+          "similarity": 0.4495765139921714,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-025",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0175-财富"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0175-财富",
+          "rank": 1,
+          "similarity": 0.5955079417496952,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-026",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0097-恐惧"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0097-恐惧",
+          "rank": 65,
+          "similarity": 0.3521080419059201,
+          "in_top_20": false
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-027",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0117-友情"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0117-友情",
+          "rank": 1,
+          "similarity": 0.53294169620569,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-028",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0043-死亡",
+        "theme-0154-名声"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0043-死亡",
+          "rank": 17,
+          "similarity": 0.4045704581210709,
+          "in_top_20": true
+        },
+        {
+          "tag_id": "theme-0154-名声",
+          "rank": 1,
+          "similarity": 0.5185771763158485,
+          "in_top_20": true
+        }
+      ]
+    },
+    {
+      "quote_id": "calib-029",
+      "classification": null,
+      "analyst_notes": "",
+      "expected_theme_ids": [
+        "theme-0032-命运"
+      ],
+      "ranks_of_expected": [
+        {
+          "tag_id": "theme-0032-命运",
+          "rank": 4,
+          "similarity": 0.5441644195704133,
+          "in_top_20": true
+        }
+      ]
+    }
+  ]
+}
