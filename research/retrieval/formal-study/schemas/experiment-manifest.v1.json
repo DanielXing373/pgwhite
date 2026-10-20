@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pgwhite-formal-experiment-manifest.v1",
+  "title": "PGWhite Formal Study Experiment Manifest",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "study_id",
+    "experiments"
+  ],
+  "properties": {
+    "schema_version": { "const": "formal-experiment-manifest.v1" },
+    "study_id": { "type": "string" },
+    "created_at": { "type": "string" },
+    "ontology_version": { "type": "string" },
+    "ontology_sha256": { "type": "string" },
+    "benchmark_version": { "type": "string" },
+    "benchmark_sha256": { "type": "string" },
+    "experiments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "experiment_id",
+          "hypothesis",
+          "independent_variables",
+          "controlled_variables",
+          "status"
+        ],
+        "properties": {
+          "experiment_id": { "type": "string" },
+          "hypothesis": { "type": "string" },
+          "phase": { "type": "string" },
+          "independent_variables": { "type": "object" },
+          "controlled_variables": { "type": "object" },
+          "benchmark_version": { "type": "string" },
+          "benchmark_sha256": { "type": "string" },
+          "ontology_version": { "type": "string" },
+          "ontology_sha256": { "type": "string" },
+          "model": { "type": "string" },
+          "model_revision": { "type": ["string", "null"] },
+          "config_path": { "type": ["string", "null"] },
+          "config_sha256": { "type": ["string", "null"] },
+          "run_id": { "type": ["string", "null"] },
+          "git_sha": { "type": ["string", "null"] },
+          "environment_path": { "type": ["string", "null"] },
+          "started_at": { "type": ["string", "null"] },
+          "ended_at": { "type": ["string", "null"] },
+          "status": {
+            "enum": ["planned", "completed", "failed", "invalidated"]
+          },
+          "invalidation_reason": { "type": ["string", "null"] },
+          "artifact_path": { "type": ["string", "null"] }
+        }
+      }
+    }
+  }
+}

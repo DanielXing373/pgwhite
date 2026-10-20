@@ -146,11 +146,15 @@ test("fake embedding provider is deterministic", async () => {
 });
 
 test("qwen3 worker args default to require_cuda and normalize", () => {
-  const { model, args, requireCuda } = buildQwen3WorkerArgs({});
+  const { model, args, requireCuda, instructionMode } = buildQwen3WorkerArgs({});
   assert.equal(model, "Qwen/Qwen3-Embedding-0.6B");
   assert.equal(requireCuda, true);
+  assert.equal(instructionMode, "task_instruct");
   assert.ok(args.includes("--require-cuda"));
   assert.ok(args.includes("--normalize-embeddings"));
+  assert.ok(args.includes("--instruction-mode"));
+  assert.ok(args.includes("task_instruct"));
+  assert.ok(args.includes("--query-instruction"));
   // No hardcoded CUDA device index in default args (portable across machines).
   assert.ok(!args.includes("--device"));
   assert.ok(!args.includes("cuda:0"));

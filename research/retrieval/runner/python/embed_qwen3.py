@@ -48,9 +48,16 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
     )
     p.add_argument("--batch-size", type=int, default=32)
     p.add_argument(
+        "--instruction-mode",
+        choices=["none", "prompt_name=query", "task_instruct"],
+        default="task_instruct",
+        help="Qwen query encoding mode for formal reproducibility.",
+    )
+    p.add_argument(
         "--query-instruction",
-        required=True,
-        help="Task-specific instruction prepended to query texts using Qwen's Instruct/Query format.",
+        default=None,
+        help="Task instruction for instruction-mode=task_instruct "
+        "(Instruct: <text>\\nQuery:). Ignored for none / prompt_name=query.",
     )
     p.add_argument(
         "--trust-remote-code",
@@ -58,7 +65,10 @@ def parse_args(argv: list[str]) -> argparse.Namespace:
         default=True,
         help="Forwarded to SentenceTransformer (Qwen models often need this).",
     )
-    return p.parse_args(argv)
+    args = p.parse_args(argv)
+    if args.instruction_mode == "task_instruct" and not args.query_instruction:
+        p.error("--query-instruction is required when --instruction-mode=task_instruct")
+    return args
 
 
 def resolve_device(requested: str | None, require_cuda: bool) -> str:
@@ -164,9 +174,17 @@ def collect_metadata(args: argparse.Namespace, model, device: str) -> dict[str, 
         "torch_version": getattr(torch, "__version__", None),
         "sentence_transformers_version": _st_version(),
         "backend": "sentence-transformers",
+        "instruction_mode": args.instruction_mode,
         "query_instruction": args.query_instruction,
-        "query_encoding": "model.encode(prompt='Instruct: <query_instruction>\\nQuery:')",
+        "query_encoding": {
+            "none": "model.encode() without prompt",
+            "prompt_name=query": "model.encode(prompt_name='query')",
+            "task_instruct": "model.encode(prompt='Instruct: <query_instruction>\\nQuery:')",
+        }[args.instruction_mode],
         "document_encoding": "model.encode() without prompt",
+        "builtin_query_prompt": getattr(model, "prompts", {}).get("query")
+        if hasattr(model, "prompts")
+        else None,
     }
 
 
@@ -194,9 +212,13 @@ def embed_texts(
             "show_progress_bar": False,
         }
         if role == "query":
-            encode_options["prompt"] = (
-                f"Instruct: {args.query_instruction}\nQuery:"
-            )
+            if args.instruction_mode == "task_instruct":
+                encode_options["prompt"] = (
+                    f"Instruct: {args.query_instruction}\nQuery:"
+                )
+            elif args.instruction_mode == "prompt_name=query":
+                encode_options["prompt_name"] = "query"
+            # mode "none": leave symmetric with documents (no prompt)
         vectors = model.encode(texts, **encode_options)
     except Exception as exc:  # noqa: BLE001
         fail(f"model.encode failed: {exc}")

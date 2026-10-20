@@ -4,10 +4,14 @@ import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { createInterface } from "node:readline";
 import { assertEmbeddingBatch } from "./interface.mjs";
+import {
+  DEFAULT_LITERARY_TASK_INSTRUCTION,
+  normalizeInstructionMode,
+  resolveQwenQueryEncoding,
+} from "../qwenInstructionModes.mjs";
 
 const DEFAULT_MODEL = "Qwen/Qwen3-Embedding-0.6B";
-const DEFAULT_QUERY_INSTRUCTION =
-  "Given a Chinese literary quotation, retrieve the literary theme concepts whose meanings are expressed or strongly implied by the quotation. Match concepts by meaning, including implicit themes, rather than by keyword overlap alone.";
+const DEFAULT_QUERY_INSTRUCTION = DEFAULT_LITERARY_TASK_INSTRUCTION;
 
 function defaultWorkerPath() {
   return join(
@@ -30,15 +34,24 @@ export function resolvePythonExecutable(options = {}) {
 
 export function buildQwen3WorkerArgs(options = {}) {
   const model = options.model ?? DEFAULT_MODEL;
+  const instructionMode = normalizeInstructionMode(
+    options.instruction_mode ?? "task_instruct",
+  );
   const args = [
     options.worker_script ?? defaultWorkerPath(),
     "--model",
     model,
     "--batch-size",
     String(options.batch_size ?? 32),
-    "--query-instruction",
-    String(options.query_instruction ?? DEFAULT_QUERY_INSTRUCTION),
+    "--instruction-mode",
+    instructionMode,
   ];
+  if (instructionMode === "task_instruct") {
+    args.push(
+      "--query-instruction",
+      String(options.query_instruction ?? DEFAULT_QUERY_INSTRUCTION),
+    );
+  }
   if (options.normalize_embeddings === false) {
     args.push("--no-normalize-embeddings");
   } else {
@@ -55,7 +68,7 @@ export function buildQwen3WorkerArgs(options = {}) {
   if (options.device != null && options.device !== "") {
     args.push("--device", String(options.device));
   }
-  return { model, args, requireCuda };
+  return { model, args, requireCuda, instructionMode };
 }
 
 /**
@@ -65,9 +78,12 @@ export function buildQwen3WorkerArgs(options = {}) {
 export function createQwen3EmbeddingProvider(options = {}) {
   const python = resolvePythonExecutable(options);
   const workerScript = options.worker_script ?? defaultWorkerPath();
-  const { model, args, requireCuda } = buildQwen3WorkerArgs({
+  const { model, args, requireCuda, instructionMode } = buildQwen3WorkerArgs({
     ...options,
     worker_script: workerScript,
+  });
+  const encodingMeta = resolveQwenQueryEncoding(instructionMode, "", {
+    task_instruction: options.query_instruction ?? DEFAULT_QUERY_INSTRUCTION,
   });
 
   if (!existsSync(workerScript)) {
@@ -93,9 +109,11 @@ export function createQwen3EmbeddingProvider(options = {}) {
     dimensions: null,
     device: options.device ?? null,
     normalize_embeddings: options.normalize_embeddings !== false,
-    query_instruction: options.query_instruction ?? DEFAULT_QUERY_INSTRUCTION,
-    query_encoding: "Instruct: <query_instruction>\\nQuery:<text>",
-    document_encoding: "model.encode() without prompt",
+    instruction_mode: instructionMode,
+    query_instruction: encodingMeta.effective_query_instruction,
+    effective_prompt_prefix: encodingMeta.effective_prompt_prefix,
+    query_encoding: encodingMeta.query_encoding_description,
+    document_encoding: encodingMeta.document_encoding,
     batch_size: options.batch_size ?? 32,
     require_cuda: requireCuda,
     python_executable: python,

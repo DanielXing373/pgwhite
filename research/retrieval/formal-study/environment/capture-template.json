@@ -1,0 +1,21 @@
+{
+  "schema_version": "formal-environment.v1",
+  "captured_at": null,
+  "git_commit_sha": null,
+  "git_branch": null,
+  "os": { "platform": null, "release": null, "arch": null },
+  "cpu": null,
+  "gpu_name": null,
+  "cuda_device_id": null,
+  "cuda_available": null,
+  "torch_version": null,
+  "cuda_runtime_version": null,
+  "python_version": null,
+  "python_executable": null,
+  "sentence_transformers_version": null,
+  "transformers_version": null,
+  "numpy_version": null,
+  "node_version": null,
+  "random_seed": null,
+  "notes": "Fill from provider metadata + `python -c` / `nvidia-smi` at run time. Store beside each formal run as environment.json."
+}

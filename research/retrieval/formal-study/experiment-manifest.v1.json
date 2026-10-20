@@ -1,0 +1,119 @@
+{
+  "schema_version": "formal-experiment-manifest.v1",
+  "study_id": "pgwhite-theme-retrieve-select.v1",
+  "created_at": "2026-10-13T00:00:00.000Z",
+  "status_note": "Benchmark and 10-quote pilot are frozen. Phase 1 experiments remain PLANNED. Do not execute the GPU matrix until formal runner wiring stores per-quote effective query text and Recall@5/10/20.",
+  "ontology_version": "atomic-tag-library.v1.43",
+  "ontology_sha256": "a71db8ba7e34ea5c2db33b53a6c1583d8ac8bbf3e11871198bf0deedc0ed39b7",
+  "benchmark_version": "formal-benchmark.v1.frozen",
+  "benchmark_sha256": "5ad71ae64886fa09a52b8c51e93b8304da3553d09c9dabe9186b03360b5c70da",
+  "pilot_benchmark_version": "formal-pilot-10.v1.frozen",
+  "pilot_benchmark_sha256": "855fd0c338daf008259f8ae1886300a02cc1e9b02bc25d5a01dd611faba09f06",
+  "experiments": [
+    {
+      "experiment_id": "P1-A-none",
+      "phase": "1",
+      "hypothesis": "Symmetric no-instruction encoding with label-only Theme docs may maximize Recall@K for this ontology.",
+      "independent_variables": { "representation": "A", "instruction_mode": "none" },
+      "controlled_variables": {
+        "model": "Qwen/Qwen3-Embedding-0.6B",
+        "normalize_embeddings": true,
+        "similarity": "cosine",
+        "reranker": null,
+        "ontology": "atomic-tag-library.v1.43"
+      },
+      "status": "planned",
+      "run_id": null,
+      "artifact_path": null,
+      "invalidation_reason": null
+    },
+    {
+      "experiment_id": "P1-B-none",
+      "phase": "1",
+      "hypothesis": "Same as P1-A-none with label+definition documents.",
+      "independent_variables": { "representation": "B", "instruction_mode": "none" },
+      "controlled_variables": { "model": "Qwen/Qwen3-Embedding-0.6B", "reranker": null },
+      "status": "planned",
+      "run_id": null,
+      "artifact_path": null,
+      "invalidation_reason": null
+    },
+    {
+      "experiment_id": "P1-C-none",
+      "phase": "1",
+      "hypothesis": "Same as P1-A-none with label+definition+aliases documents.",
+      "independent_variables": { "representation": "C", "instruction_mode": "none" },
+      "controlled_variables": { "model": "Qwen/Qwen3-Embedding-0.6B", "reranker": null },
+      "status": "planned",
+      "run_id": null,
+      "artifact_path": null,
+      "invalidation_reason": null
+    },
+    {
+      "experiment_id": "P1-A-query",
+      "phase": "1",
+      "hypothesis": "Built-in prompt_name=query changes candidate recall vs none.",
+      "independent_variables": { "representation": "A", "instruction_mode": "prompt_name=query" },
+      "controlled_variables": { "model": "Qwen/Qwen3-Embedding-0.6B", "reranker": null },
+      "status": "planned",
+      "run_id": null,
+      "artifact_path": null,
+      "invalidation_reason": null
+    },
+    {
+      "experiment_id": "P1-B-query",
+      "phase": "1",
+      "hypothesis": "Built-in prompt_name=query with representation B.",
+      "independent_variables": { "representation": "B", "instruction_mode": "prompt_name=query" },
+      "controlled_variables": { "model": "Qwen/Qwen3-Embedding-0.6B", "reranker": null },
+      "status": "planned",
+      "run_id": null,
+      "artifact_path": null,
+      "invalidation_reason": null
+    },
+    {
+      "experiment_id": "P1-C-query",
+      "phase": "1",
+      "hypothesis": "Built-in prompt_name=query with representation C.",
+      "independent_variables": { "representation": "C", "instruction_mode": "prompt_name=query" },
+      "controlled_variables": { "model": "Qwen/Qwen3-Embedding-0.6B", "reranker": null },
+      "status": "planned",
+      "run_id": null,
+      "artifact_path": null,
+      "invalidation_reason": null
+    },
+    {
+      "experiment_id": "P1-A-task",
+      "phase": "1",
+      "hypothesis": "Literary task_instruct changes candidate recall vs none/query.",
+      "independent_variables": { "representation": "A", "instruction_mode": "task_instruct" },
+      "controlled_variables": { "model": "Qwen/Qwen3-Embedding-0.6B", "reranker": null },
+      "status": "planned",
+      "run_id": null,
+      "artifact_path": null,
+      "invalidation_reason": null
+    },
+    {
+      "experiment_id": "P1-B-task",
+      "phase": "1",
+      "hypothesis": "Literary task_instruct with representation B.",
+      "independent_variables": { "representation": "B", "instruction_mode": "task_instruct" },
+      "controlled_variables": { "model": "Qwen/Qwen3-Embedding-0.6B", "reranker": null },
+      "status": "planned",
+      "run_id": null,
+      "artifact_path": null,
+      "invalidation_reason": null
+    },
+    {
+      "experiment_id": "P1-C-task",
+      "phase": "1",
+      "hypothesis": "Literary task_instruct with representation C.",
+      "independent_variables": { "representation": "C", "instruction_mode": "task_instruct" },
+      "controlled_variables": { "model": "Qwen/Qwen3-Embedding-0.6B", "reranker": null },
+      "status": "planned",
+      "run_id": null,
+      "artifact_path": null,
+      "invalidation_reason": null
+    }
+  ]
+}

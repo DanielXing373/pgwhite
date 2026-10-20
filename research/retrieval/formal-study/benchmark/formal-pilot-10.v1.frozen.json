@@ -1,0 +1,217 @@
+{
+  "schema_version": "retrieval-benchmark.v1",
+  "benchmark_version": "formal-pilot-10.v1.frozen",
+  "status": "frozen",
+  "calibration": true,
+  "exploratory": false,
+  "research_only": true,
+  "parent_benchmark_version": "formal-benchmark.v1.frozen",
+  "parent_benchmark_sha256": "5ad71ae64886fa09a52b8c51e93b8304da3553d09c9dabe9186b03360b5c70da",
+  "ontology_version": "atomic-tag-library.v1.43",
+  "ontology_sha256": "a71db8ba7e34ea5c2db33b53a6c1583d8ac8bbf3e11871198bf0deedc0ed39b7",
+  "created_at": "2026-10-20T16:03:50Z",
+  "git_commit_sha": "3b6c9547178aa91b2ef3b5612ae87bfc31e64416",
+  "selection_rule": "Frozen before any selector or embedding-matrix results were inspected. Same 10 quotes for every selector model.",
+  "notes": [
+    "10-quote pilot subset of formal-benchmark.v1.frozen.",
+    "Not a statistical sample. Infrastructure, screening, and cost measurement only."
+  ],
+  "quotes": [
+    {
+      "quote_id": "batch1-calib-005",
+      "text_zh": "柳比歇夫的时间酷似物质，从不会了无痕迹地消失，不会平白无故地蒸发，而总能够查明它们变成了什么。借助时间核算，柳比歇夫不断地开采着新的时间。而时间，才是真正的矿藏。",
+      "batch": "batch1",
+      "source": "manual_defined_test.txt",
+      "expected_theme_ids": [
+        "theme-0039-时间"
+      ],
+      "expected_theme_labels": [
+        "时间"
+      ],
+      "ambiguity_flags": [],
+      "zero_theme": false,
+      "human_review_status": "APPROVED",
+      "notes": "建议与当前期望主题一致；按审阅人规则直接通过，不再单独确认。",
+      "pilot_index": 1,
+      "stratum": "single-theme"
+    },
+    {
+      "quote_id": "batch1-calib-001",
+      "text_zh": "加德纳先生唱了起来，很轻很柔地，像是只记得一部分歌词。可是他的声音还是清晰地回响在安静的运河上。而且真是太好听了。一时间我仿佛又回到了童年，回到了那个公寓。",
+      "batch": "batch1",
+      "source": "manual_defined_test.txt",
+      "expected_theme_ids": [
+        "theme-0010-童年",
+        "theme-0077-记忆",
+        "theme-0146-音乐"
+      ],
+      "expected_theme_labels": [
+        "童年",
+        "记忆",
+        "音乐"
+      ],
+      "ambiguity_flags": [],
+      "zero_theme": false,
+      "human_review_status": "APPROVED",
+      "notes": "建议与当前期望主题一致；按审阅人规则直接通过，不再单独确认。",
+      "pilot_index": 2,
+      "stratum": "multi-theme"
+    },
+    {
+      "quote_id": "batch1-calib-008",
+      "text_zh": "没有一只鸟在固体般坚实的天空中飞翔，没有动物用窸窣的响动打破像晨雾般在大地上弥漫的寂静，只有一头孤独、受惊的小鹿——仿佛泥沼在呼吸——时而仰头，时而低头，时刻准备着逃离，逃向远方。",
+      "batch": "batch1",
+      "source": "manual_defined_test.txt",
+      "expected_theme_ids": [],
+      "expected_theme_labels": [],
+      "ambiguity_flags": [
+        "zero_theme"
+      ],
+      "zero_theme": true,
+      "human_review_status": "APPROVED",
+      "notes": "人工确认零主题：环境描写，不涉及主题。部分零主题样本预留给后期修辞等维度。",
+      "pilot_index": 3,
+      "stratum": "zero-theme"
+    },
+    {
+      "quote_id": "batch2-batch2-001",
+      "text_zh": "你茫然地向周围的图书又看了一眼，便走出书店(或者说得更确切些，周围的图书怏怏地望着你走开，仿佛一只只丢失后被收容在市政府特意设置的笼子里的狗，看见一个同伴被其主人认领后牵着链子救走了)。",
+      "batch": "batch2",
+      "source": "用户提供的第二批quote.txt",
+      "expected_theme_ids": [],
+      "expected_theme_labels": [],
+      "ambiguity_flags": [],
+      "zero_theme": true,
+      "human_review_status": "EDITED",
+      "notes": "人工决定标为零主题：不采用「文学」，也不改标其他主题。",
+      "pilot_index": 4,
+      "stratum": "zero-theme"
+    },
+    {
+      "quote_id": "batch2-batch2-017",
+      "text_zh": "孩子们也绝不是幸福的，他们也有种种矛盾、种种分裂，承受着种种痛苦。",
+      "batch": "batch2",
+      "source": "用户提供的第二批quote.txt",
+      "expected_theme_ids": [
+        "theme-0010-童年",
+        "theme-0105-痛苦",
+        "theme-0087-幸福"
+      ],
+      "expected_theme_labels": [
+        "童年",
+        "痛苦",
+        "幸福"
+      ],
+      "ambiguity_flags": [],
+      "zero_theme": false,
+      "human_review_status": "EDITED",
+      "notes": "人工决定保留「童年」「痛苦」「幸福」：否定幸福仍属幸福主题；去掉「复杂性」。",
+      "pilot_index": 5,
+      "stratum": "negation-still-theme"
+    },
+    {
+      "quote_id": "batch1-calib-027",
+      "text_zh": "对朋友甜言蜜语的人，在他脚前安置了诱捕的罗网。",
+      "batch": "batch1",
+      "source": "manual_defined_test.txt",
+      "expected_theme_ids": [
+        "theme-0117-友情",
+        "theme-0026-虚伪"
+      ],
+      "expected_theme_labels": [
+        "友情",
+        "虚伪"
+      ],
+      "ambiguity_flags": [],
+      "zero_theme": false,
+      "human_review_status": "EDITED",
+      "notes": "人工更正：保留「友情」，并加上「虚伪」。",
+      "pilot_index": 6,
+      "stratum": "contextual-trap"
+    },
+    {
+      "quote_id": "batch2-batch2-022",
+      "text_zh": "因此父亲和欧维从来没有过多的交谈，但他们喜欢彼此的陪伴。沉默地分别坐在餐桌的两端就很满足。",
+      "batch": "batch2",
+      "source": "用户提供的第二批quote.txt",
+      "expected_theme_ids": [
+        "theme-0023-父亲",
+        "theme-0103-满足",
+        "theme-0112-亲情"
+      ],
+      "expected_theme_labels": [
+        "父亲",
+        "满足",
+        "亲情"
+      ],
+      "ambiguity_flags": [],
+      "zero_theme": false,
+      "human_review_status": "EDITED",
+      "notes": "人工接受建议：保留「父亲」「满足」「亲情」，去掉「表达」「疏离」。",
+      "pilot_index": 7,
+      "stratum": "multi-theme-edited"
+    },
+    {
+      "quote_id": "batch1-calib-006",
+      "text_zh": "人类对时间总抱有敌意。空间、物质，这些东西都被人驯服了。唯独时间，亘古便野性难驯。自人类眺望宇宙深处以来，便听得到世界时钟数十亿年未曾中断的嘀嗒声；当人类目睹星系的坍塌时，时间似乎变得更加可怕了。",
+      "batch": "batch1",
+      "source": "manual_defined_test.txt",
+      "expected_theme_ids": [
+        "theme-0039-时间",
+        "theme-0097-恐惧"
+      ],
+      "expected_theme_labels": [
+        "时间",
+        "恐惧"
+      ],
+      "ambiguity_flags": [],
+      "zero_theme": false,
+      "human_review_status": "APPROVED",
+      "notes": "人工接受建议：保留「时间」「恐惧」。",
+      "pilot_index": 8,
+      "stratum": "rhetoric-kept-theme"
+    },
+    {
+      "quote_id": "batch2-batch2-023",
+      "text_zh": "如果生命终将结束于坟墓中，我们又为何致力于艰辛地塑造自我，探索永恒？",
+      "batch": "batch2",
+      "source": "用户提供的第二批quote.txt",
+      "expected_theme_ids": [
+        "theme-0043-死亡",
+        "theme-0045-生命",
+        "theme-0223-目标"
+      ],
+      "expected_theme_labels": [
+        "死亡",
+        "生命",
+        "目标"
+      ],
+      "ambiguity_flags": [],
+      "zero_theme": false,
+      "human_review_status": "EDITED",
+      "notes": "人工指定：去掉「生活」「时间」「自我身份」，保留「死亡」「生命」「目标」。",
+      "pilot_index": 9,
+      "stratum": "multi-theme-pruned"
+    },
+    {
+      "quote_id": "batch1-calib-018",
+      "text_zh": "你用刀刃在纸张中开路犹如用思想在文字中开路，因为阅读就像在密林中前进。",
+      "batch": "batch1",
+      "source": "manual_defined_test.txt",
+      "expected_theme_ids": [
+        "theme-0137-文学"
+      ],
+      "expected_theme_labels": [
+        "文学"
+      ],
+      "ambiguity_flags": [
+        "zero_theme"
+      ],
+      "zero_theme": false,
+      "human_review_status": "EDITED",
+      "notes": "人工接受建议：由零主题改为「文学」。句子讨论阅读本身。",
+      "pilot_index": 10,
+      "stratum": "metaphor-assigned-theme"
+    }
+  ]
+}
