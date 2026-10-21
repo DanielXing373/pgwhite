@@ -14,10 +14,10 @@ import { collectGitInfo } from "./gitInfo.mjs";
 import { runRetrievalStage } from "./retrievalStage.mjs";
 import { runSelectionStage } from "./selectionStage.mjs";
 import { createSelectorProvider } from "./selector/registry.mjs";
-import { assertExecutionMode, collectBlockers, createBudgetGuard } from "./safety.mjs";
+import { assertExecutionMode, collectBlockers, createBudgetGuard, isFakeSelectorDryRun } from "./safety.mjs";
 
 export function defaultProviderFactory(effective, { executionMode, env, fetchImpl }) {
-  if (executionMode === "dry-run") {
+  if (executionMode === "dry-run" && !isFakeSelectorDryRun(executionMode, effective.stage, effective.provider?.id)) {
     throw new Error("dry-run must not construct a provider");
   }
   if (effective.stage === "retrieval") {
@@ -106,7 +106,9 @@ export async function executeFormalStudy({
     pricingRate: pricing,
   });
 
-  if (executionMode === "dry-run") {
+  const fakeSelectorDryRun = isFakeSelectorDryRun(executionMode, effective.stage, effective.provider?.id);
+
+  if (executionMode === "dry-run" && !fakeSelectorDryRun) {
     const library = loadTagLibrary(repoRoot, effective.ontology_path);
     const themes = selectActiveThemes(library.library, {
       activeStatus: effective.active_status ?? "active_candidate",
@@ -143,7 +145,7 @@ export async function executeFormalStudy({
     throw new Error(`STOP: ${blockers.join(" ")}`);
   }
   if (!runId || !/^[A-Za-z0-9._@+=-]+$/.test(runId)) {
-    throw new Error("STOP: a unique --run-id is required outside dry-run.");
+    throw new Error("STOP: a unique --run-id is required outside plan-only dry-run.");
   }
   const runsDir = runsRoot
     ?? resolve(repoRoot, effective.runs_dir ?? "research/retrieval/formal-study/runs");

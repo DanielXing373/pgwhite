@@ -1,7 +1,20 @@
 import { ProviderHttpError } from "../../safety.mjs";
 
+function defaultRespond() {
+  return {
+    selected_theme_ids: [],
+    usage: {
+      input_tokens: null,
+      output_tokens: null,
+      reasoning_tokens: null,
+      cached_tokens: null,
+    },
+  };
+}
+
 export function createFakeSelector({ respond, failTimes = 0 } = {}) {
   let calls = 0;
+  const respondFn = respond ?? defaultRespond;
   return {
     provider_id: "fake",
     async prepare() {
@@ -16,7 +29,7 @@ export function createFakeSelector({ respond, failTimes = 0 } = {}) {
           provider: "fake",
         });
       }
-      const out = await respond({ prompt, model, call: calls });
+      const out = await respondFn({ prompt, model, call: calls });
       const selected = out.selected_theme_ids ?? [];
       return {
         provider_id: "fake",

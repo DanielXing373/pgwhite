@@ -1,7 +1,7 @@
 import { performance } from "node:perf_hooks";
 import { loadBenchmark } from "../../../runner/src/benchmark.mjs";
 import { loadTagLibrary, selectActiveThemes } from "../../../runner/src/tagLibrary.mjs";
-import { candidatesForQuotes, loadRetrievalArtifact } from "./candidates.mjs";
+import { assertRequiredRetrieval, candidatesForQuotes, loadRetrievalArtifact } from "./candidates.mjs";
 import { summarizeCosts } from "./cost.mjs";
 import { FROZEN, verifyDeclaredAsset } from "./freeze.mjs";
 import { collectEnvironment } from "./gitInfo.mjs";
@@ -32,6 +32,7 @@ export async function runSelectionStage({
     "benchmark",
   );
   const artifact = loadRetrievalArtifact(repoRoot, effectiveConfig.retrieval_artifact_path);
+  assertRequiredRetrieval(artifact.run, effectiveConfig.required_retrieval);
   const loadedLib = loadTagLibrary(repoRoot, effectiveConfig.ontology_path);
   const themes = selectActiveThemes(loadedLib.library, {
     activeStatus: effectiveConfig.active_status ?? "active_candidate",
@@ -126,6 +127,23 @@ export async function runSelectionStage({
     retrieval_artifact_path: effectiveConfig.retrieval_artifact_path,
     retrieval_artifact_sha256: artifact.sha256,
     retrieval_run_id: artifact.run.run_id ?? null,
+    source_retrieval: {
+      run_id: artifact.run.run_id ?? null,
+      artifact_path: effectiveConfig.retrieval_artifact_path,
+      artifact_sha256: artifact.sha256,
+      effective_config_sha256: artifact.run.effective_config_sha256 ?? null,
+      ontology_sha256: artifact.run.ontology_sha256 ?? null,
+      benchmark_sha256: artifact.run.benchmark_sha256 ?? null,
+      representation: artifact.run.representation ?? null,
+      instruction_mode: artifact.run.instruction_mode ?? null,
+      embedding_model: artifact.run.embedding_provider?.model_name
+        ?? artifact.run.effective_config?.provider?.model
+        ?? null,
+      similarity: artifact.run.similarity ?? null,
+      normalize_embeddings: artifact.run.normalize_embeddings ?? null,
+      reranker: artifact.run.reranker ?? null,
+      active_theme_count: artifact.run.active_theme_count ?? null,
+    },
     candidate_k: effectiveConfig.candidate_k,
     max_selected: effectiveConfig.max_selected,
     include_aliases: effectiveConfig.include_aliases === true,

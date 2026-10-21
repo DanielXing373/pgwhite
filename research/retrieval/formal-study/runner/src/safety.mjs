@@ -46,9 +46,16 @@ export class ProviderHttpError extends Error {
   }
 }
 
+export function isFakeSelectorDryRun(executionMode, stage, providerId) {
+  return executionMode === "dry-run" && stage === "selection" && providerId === "fake";
+}
+
 export function assertExecutionMode({ executionMode, allowPaidApi, stage, providerId }) {
   if (!["dry-run", "local", "paid-api"].includes(executionMode)) {
     throw new Error(`Unknown execution mode: ${executionMode}`);
+  }
+  if (isFakeSelectorDryRun(executionMode, stage, providerId)) {
+    return { calls_provider: true, fake_dry_run: true };
   }
   if (executionMode === "dry-run") {
     return { calls_provider: false };

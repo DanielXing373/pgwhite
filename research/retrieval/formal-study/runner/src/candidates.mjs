@@ -13,7 +13,66 @@ export function loadRetrievalArtifact(repoRoot, relativeOrAbsolute) {
   return { path, sha256: sha256File(path), run };
 }
 
+export function assertRequiredRetrieval(run, required) {
+  if (!required) return;
+  const checks = [
+    ["representation", run.representation],
+    ["instruction_mode", run.instruction_mode],
+    ["similarity", run.similarity],
+    ["normalize_embeddings", run.normalize_embeddings],
+    ["reranker", run.reranker ?? null],
+    ["active_theme_count", run.active_theme_count],
+  ];
+  for (const [key, actual] of checks) {
+    if (!Object.hasOwn(required, key)) continue;
+    if (actual !== required[key]) {
+      throw new Error(
+        `STOP: retrieval artifact ${key} is ${JSON.stringify(actual)}, required ${JSON.stringify(required[key])}.`,
+      );
+    }
+  }
+  if (required.embedding_model) {
+    const model = run.embedding_provider?.model_name
+      ?? run.embedding_provider?.model_identifier
+      ?? run.effective_config?.provider?.model
+      ?? null;
+    if (model !== required.embedding_model) {
+      throw new Error(
+        `STOP: retrieval artifact embedding model is ${model}, required ${required.embedding_model}.`,
+      );
+    }
+  }
+  if (required.store_full_ranking === true) {
+    for (const row of run.results) {
+      if (!Array.isArray(row.ranking) || row.ranking.length !== (required.active_theme_count ?? row.ranking.length)) {
+        throw new Error(`STOP: retrieval artifact is missing a full ranking for ${row.quote_id}.`);
+      }
+    }
+  }
+}
+
+function selectorCandidate(theme, item, includeAliases) {
+  const candidate = {
+    id: theme.id,
+    canonical_zh: theme.canonical_zh,
+    definition: theme.definition,
+    retrieval_rank: item.rank,
+    similarity: item.similarity,
+    representation_text: item.representation_text ?? null,
+  };
+  if (includeAliases) candidate.aliases = [...theme.aliases];
+  return candidate;
+}
+
 export function candidatesForQuotes({ retrievalRun, quotes, themes, candidateK, includeAliases }) {
+  const k = Number(candidateK);
+  if (!Number.isInteger(k) || k < 1) {
+    throw new Error(`candidate_k must be a positive integer, got ${candidateK}`);
+  }
+  const quoteIds = quotes.map((quote) => quote.quote_id);
+  if (new Set(quoteIds).size !== quoteIds.length) {
+    throw new Error("Benchmark quote IDs must be unique. Refusing to silently slice the retrieval run.");
+  }
   const byId = indexThemesById(themes);
   const byQuote = new Map(retrievalRun.results.map((row) => [row.quote_id, row]));
   return quotes.map((quote) => {
@@ -29,23 +88,21 @@ export function candidatesForQuotes({ retrievalRun, quotes, themes, candidateK, 
     if (artifactIds.join("\n") !== benchmarkIds.join("\n")) {
       throw new Error(`Expected Theme IDs in the retrieval artifact differ for ${quote.quote_id}`);
     }
-    if (!Array.isArray(row.ranking) || row.ranking.length < 1) {
-      throw new Error(`Retrieval artifact is missing a full ranking for ${quote.quote_id}`);
+    if (!Array.isArray(row.ranking) || row.ranking.length < k) {
+      throw new Error(`Retrieval artifact ranking for ${quote.quote_id} is shorter than candidate_k=${k}`);
     }
-    const top = row.ranking.slice(0, candidateK);
+    const top = row.ranking.slice(0, k);
+    if (top.length !== k) {
+      throw new Error(`Expected ${k} candidates for ${quote.quote_id}, got ${top.length}`);
+    }
+    const ids = top.map((item) => item.tag_id);
+    if (new Set(ids).size !== ids.length) {
+      throw new Error(`Duplicate candidate Theme IDs for ${quote.quote_id}`);
+    }
     const candidates = top.map((item) => {
       const theme = byId.get(item.tag_id);
       if (!theme) throw new Error(`Candidate ${item.tag_id} is not an active Theme`);
-      const candidate = {
-        id: theme.id,
-        canonical_zh: theme.canonical_zh,
-        definition: theme.definition,
-        retrieval_rank: item.rank,
-        similarity: item.similarity,
-        representation_text: item.representation_text ?? null,
-      };
-      if (includeAliases) candidate.aliases = [...theme.aliases];
-      return candidate;
+      return selectorCandidate(theme, item, includeAliases === true);
     });
     return {
       quote_id: quote.quote_id,

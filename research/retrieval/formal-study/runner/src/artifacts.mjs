@@ -23,6 +23,12 @@ export function renderFormalSummary(run) {
     `- ontology_sha256: ${run.ontology_sha256}`,
     `- benchmark_sha256: ${run.benchmark_sha256}`,
   ];
+  if (run.stage === "selection") {
+    lines.push(
+      `- retrieval_run_id: ${run.retrieval_run_id}`,
+      `- retrieval_artifact_sha256: ${run.retrieval_artifact_sha256}`,
+    );
+  }
   if (run.stage === "retrieval") {
     const metrics = run.aggregate_metrics;
     lines.push(

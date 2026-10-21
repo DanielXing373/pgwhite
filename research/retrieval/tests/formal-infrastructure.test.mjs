@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { mkdtempSync, readFileSync, rmSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -38,7 +38,7 @@ import { createSelectorProvider } from "../formal-study/runner/src/selector/regi
 import { selectThemes } from "../formal-study/runner/src/selector/select.mjs";
 import { createBudgetGuard, redactDeep, redactSecrets } from "../formal-study/runner/src/safety.mjs";
 import { runSelectionStage } from "../formal-study/runner/src/selectionStage.mjs";
-import { readdirSync } from "node:fs";
+import { assertRequiredRetrieval, candidatesForQuotes } from "../formal-study/runner/src/candidates.mjs";
 
 const repoRoot = resolve(dirname(fileURLToPath(import.meta.url)), "../../..");
 const configDir = join(repoRoot, "research/retrieval/formal-study/configs");
@@ -210,13 +210,89 @@ test("selection metrics keep zero denominators null", () => {
 });
 
 test("selector validation rejects invented, duplicate, oversized, and malformed output", () => {
-  const candidates = ["theme-a", "theme-b"];
+  const candidates = ["theme-a", "theme-b", "theme-c"];
+  assert.equal(validateSelection(["theme-a"], candidates).status, "valid");
+  assert.deepEqual(validateSelection(["theme-a"], candidates).selected_theme_ids, ["theme-a"]);
+  assert.deepEqual(
+    validateSelection(["theme-a", "theme-c"], candidates).selected_theme_ids,
+    ["theme-a", "theme-c"],
+  );
   assert.deepEqual(validateSelection([], candidates).selected_theme_ids, []);
+  assert.equal(validateSelection(["theme-a", "theme-b", "theme-c", "theme-a"], candidates).reason, "too_many");
+  assert.equal(validateSelection(["theme-a", "theme-b", "theme-c", "theme-x"], candidates).reason, "too_many");
   assert.equal(validateSelection(["theme-a", "theme-a"], candidates).reason, "duplicate");
-  assert.equal(validateSelection(["theme-a", "theme-b", "theme-a", "theme-b"], candidates).reason, "too_many");
   assert.equal(validateSelection(["theme-missing"], candidates).reason, "id_not_in_candidates");
+  assert.equal(validateSelection(["theme-a", "theme-b", "theme-c", "theme-a"].slice(0, 3).concat(["theme-a"])).reason, "too_many");
+  assert.equal(validateSelection(["theme-a", "theme-outside"], candidates).reason, "id_not_in_candidates");
+  assert.equal(validateSelection(["theme-a", "theme-b", "theme-c"], candidates).status, "valid");
   assert.equal(parseSelectorResponse("not json").reason, "malformed_json");
+  assert.equal(parseSelectorResponse("{").reason, "malformed_json");
   assert.equal(parseSelectorResponse("{\"selected_theme_ids\":[]}").ok, true);
+  const rejected = validateSelection(["theme-missing"], candidates);
+  assert.equal(rejected.selected_theme_ids, null);
+  assert.deepEqual(rejected.invented_theme_ids, ["theme-missing"]);
+});
+
+test("pilot candidate extraction uses frozen quote IDs, not the first 10 retrieval rows", () => {
+  const { library } = loadTagLibrary(repoRoot, FROZEN.ontology.path);
+  const themes = selectActiveThemes(library);
+  const pilot = JSON.parse(readFileSync(join(repoRoot, FROZEN.pilot.path), "utf8"));
+  const expectedIds = [
+    "batch1-calib-005",
+    "batch1-calib-001",
+    "batch1-calib-008",
+    "batch2-batch2-001",
+    "batch2-batch2-017",
+    "batch1-calib-027",
+    "batch2-batch2-022",
+    "batch1-calib-006",
+    "batch2-batch2-023",
+    "batch1-calib-018",
+  ];
+  assert.equal(pilot.quotes.length, 10);
+  assert.deepEqual(pilot.quotes.map((quote) => quote.quote_id), expectedIds);
+  const ranking = themes.slice(0, 20).map((theme, index) => ({
+    rank: index + 1,
+    tag_id: theme.id,
+    canonical_zh: theme.canonical_zh,
+    representation_text: theme.canonical_zh,
+    similarity: 1 - index / 100,
+  }));
+  const firstTenRetrievalIds = Array.from({ length: 10 }, (_, index) => `other-${index}`);
+  const retrievalRun = {
+    results: [
+      ...firstTenRetrievalIds.map((quoteId) => ({
+        quote_id: quoteId,
+        text_zh: "not-pilot",
+        expected_theme_ids: [],
+        ranking,
+      })),
+      ...pilot.quotes.map((quote) => ({
+        quote_id: quote.quote_id,
+        text_zh: quote.text_zh,
+        expected_theme_ids: quote.expected_theme_ids,
+        ranking,
+      })),
+    ],
+  };
+  const rows = candidatesForQuotes({
+    retrievalRun,
+    quotes: pilot.quotes,
+    themes,
+    candidateK: 20,
+    includeAliases: false,
+  });
+  assert.equal(rows.length, 10);
+  assert.deepEqual(rows.map((row) => row.quote_id), expectedIds);
+  assert.equal(rows.every((row) => row.candidates.length === 20), true);
+  assert.equal(rows.every((row) => row.candidates[0].retrieval_rank === 1), true);
+  assert.equal(rows.every((row) => row.candidates[19].retrieval_rank === 20), true);
+  assert.equal(rows.every((row) => !("aliases" in row.candidates[0])), true);
+  assert.equal(rows.filter((row) => row.zero_theme).length, 2);
+  for (const row of rows) {
+    assert.equal(new Set(row.candidates.map((item) => item.id)).size, 20);
+    assert.equal(JSON.stringify(row.candidates).includes("expected_theme"), false);
+  }
 });
 
 test("fake selector records retries, unknown cost, and calculated cost", async () => {
@@ -263,6 +339,14 @@ test("fake selector records retries, unknown cost, and calculated cost", async (
   assert.equal(priced.cost.status, "calculated");
   assert.equal(priced.cost.usd, 4);
   assert.equal(priced.cost.pricing_source, "unit-test");
+
+  const unpriced = calculateUsdCost({
+    usage: { input_tokens: null, output_tokens: null, reasoning_tokens: null, cached_tokens: null },
+    pricing: null,
+  });
+  assert.equal(unpriced.status, "unknown");
+  assert.equal(unpriced.usd, null);
+  assert.equal(unpriced.reason, "token_usage_unavailable");
 
   const missingPrice = calculateUsdCost({
     usage: { input_tokens: 10, output_tokens: 2, reasoning_tokens: 4 },
@@ -637,6 +721,69 @@ test("documented query prompt is stored when the runtime prompt is unavailable",
     assert.equal(row.effective_prompt_prefix, QWEN_BUILTIN_QUERY_PROMPT);
     assert.equal(row.effective_query_text, `${QWEN_BUILTIN_QUERY_PROMPT}${row.text_zh}`);
     assert.equal(row.builtin_query_prompt_source, "documented_sentence_transformers_default");
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+const cTaskArtifact = join(
+  repoRoot,
+  "research/retrieval/formal-study/runs/formal-p1-c-task-20261021/run.json",
+);
+
+test("fake selector dry-run filters the frozen 10-quote C-task artifact", { skip: !existsSync(cTaskArtifact) }, async () => {
+  const dir = tempDir();
+  const seen = [];
+  try {
+    const retrieval = JSON.parse(readFileSync(cTaskArtifact, "utf8"));
+    assertRequiredRetrieval(retrieval, {
+      representation: "C",
+      instruction_mode: "task_instruct",
+      similarity: "cosine",
+      normalize_embeddings: true,
+      reranker: null,
+      active_theme_count: 185,
+      store_full_ranking: true,
+      embedding_model: FROZEN.embedding_model,
+    });
+    const result = await executeFormalStudy({
+      repoRoot,
+      configPath: join(configDir, "selector-fake.pilot.v1.json"),
+      executionMode: "dry-run",
+      runId: "fake-pilot-dry-run",
+      runsRoot: dir,
+      cli: { retrieval_artifact: cTaskArtifact, max_requests: 10 },
+      providerFactory: () => createFakeSelector({
+        respond({ prompt, call }) {
+          seen.push({ prompt, call });
+          return { selected_theme_ids: [] };
+        },
+      }),
+    });
+    assert.equal(result.run.status, "completed");
+    assert.equal(result.run.results.length, 10);
+    assert.equal(seen.length, 10);
+    assert.equal(result.run.retrieval_run_id, "formal-p1-c-task-20261021");
+    assert.equal(result.run.benchmark_sha256, FROZEN.pilot.sha256);
+    assert.equal(result.run.ontology_sha256, FROZEN.ontology.sha256);
+    assert.equal(result.run.source_retrieval.representation, "C");
+    assert.equal(result.run.source_retrieval.instruction_mode, "task_instruct");
+    assert.equal(result.run.cost_summary.total_usd_status, "unknown");
+    assert.equal(result.run.aggregate_metrics.zero_theme_denominator, 2);
+    assert.equal(result.run.aggregate_metrics.zero_theme_accuracy, 1);
+    assert.equal(result.run.results.every((row) => row.validation_status === "valid"), true);
+    assert.equal(result.run.results.every((row) => row.candidates.length === 20), true);
+    for (const row of result.run.results) {
+      assert.equal(row.prompt.task_instruction, SELECTOR_TASK_INSTRUCTION);
+      assert.equal(row.prompt.user_text.includes("aliases:"), false);
+      assert.equal(row.prompt.user_text.includes("expected_theme"), false);
+      assert.equal(JSON.stringify(row.candidates).includes("expected_theme"), false);
+    }
+    assert.equal(seen.every((item) => !JSON.stringify(item.prompt).includes("expected_theme")), true);
+    const names = readdirSync(join(dir, "fake-pilot-dry-run"));
+    for (const name of ["manifest.json", "run.json", "summary.md", "environment.json", "config.snapshot.json"]) {
+      assert.ok(names.includes(name));
+    }
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

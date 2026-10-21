@@ -2,7 +2,7 @@
 
 Do not start the Phase 1 GPU matrix or a paid selector until that run is explicitly approved.
 
-`dry-run` reads the frozen files and prints the effective plan. It does not load the embedding model and does not call an API.
+`dry-run` reads the frozen files and prints the effective plan. It does not load the embedding model and does not call an API. The exception is a **fake selector** dry-run: that path writes a 10-quote selection artifact using the in-process fake provider. It still does not call OpenAI, Ollama, or the GPU embedder.
 
 ## Checks that do not use the GPU or a paid API
 
@@ -33,6 +33,20 @@ npm run research:formal:run -- --stage retrieval --execution-mode local --config
 ```
 
 Constants in those configs: `Qwen/Qwen3-Embedding-0.6B`, 185 Themes, 58 quotes, cosine similarity, normalized embeddings, no reranker. The run stores the full 185-row ranking and derives Recall@5, Recall@10, and Recall@20 from it.
+
+## Fake-provider 10-quote selector dry-run
+
+Uses the frozen pilot (not the first 10 quotes of the 58-quote retrieval run) and the stored C-task rankings. Do not treat fake accuracy as a research result.
+
+```powershell
+npm run research:formal:run -- `
+  --stage selection `
+  --execution-mode dry-run `
+  --config research/retrieval/formal-study/configs/selector-fake.pilot.v1.json `
+  --retrieval-artifact research/retrieval/formal-study/runs/formal-p1-c-task-20261021/run.json `
+  --run-id formal-selector-fake-pilot-YYYYMMDD `
+  --max-requests 10
+```
 
 ## OpenAI 10-quote pilot
 

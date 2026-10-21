@@ -1,0 +1,39 @@
+{
+  "schema_version": "formal-selector-config.v1",
+  "experiment_id": "selector-fake-pilot",
+  "stage": "selection",
+  "provider": {
+    "id": "fake",
+    "model_id": "fake-selector"
+  },
+  "benchmark_path": "research/retrieval/formal-study/benchmark/formal-pilot-10.v1.frozen.json",
+  "expected_benchmark_sha256": "855fd0c338daf008259f8ae1886300a02cc1e9b02bc25d5a01dd611faba09f06",
+  "expected_quote_count": 10,
+  "ontology_path": "research/retrieval/formal-study/ontology/atomic-tag-library.v1.43.freeze.json",
+  "expected_ontology_sha256": "a71db8ba7e34ea5c2db33b53a6c1583d8ac8bbf3e11871198bf0deedc0ed39b7",
+  "active_status": "active_candidate",
+  "retrieval_artifact_path": null,
+  "candidate_k": 20,
+  "max_selected": 3,
+  "include_aliases": false,
+  "temperature": 0,
+  "pricing_catalog_path": "research/retrieval/formal-study/pricing/pricing-catalog.v1.json",
+  "required_retrieval": {
+    "representation": "C",
+    "instruction_mode": "task_instruct",
+    "similarity": "cosine",
+    "normalize_embeddings": true,
+    "reranker": null,
+    "active_theme_count": 185,
+    "store_full_ranking": true,
+    "embedding_model": "Qwen/Qwen3-Embedding-0.6B"
+  },
+  "runs_dir": "research/retrieval/formal-study/runs",
+  "execution": {
+    "timeout_ms": 60000,
+    "retry_limit": 0,
+    "max_requests": 10,
+    "max_estimated_budget_usd": null,
+    "stop_on_budget_exceeded": true
+  }
+}

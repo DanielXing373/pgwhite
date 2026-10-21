@@ -27,6 +27,10 @@ export async function selectThemes({
     candidates,
     includeAliases: config.include_aliases === true,
   });
+  const leaked = JSON.stringify({ prompt, candidates });
+  if (/expected_theme|gold_label|benchmark evaluation/i.test(leaked)) {
+    throw new Error("STOP: selector prompt or candidates contain gold-evaluation fields.");
+  }
   const retryLimit = config.execution?.retry_limit ?? 0;
   const started = performance.now();
   const errors = [];
