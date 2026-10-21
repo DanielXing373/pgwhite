@@ -1,0 +1,14 @@
+# Frozen study assets are SHA-256'd as raw bytes. Windows Git often has
+# core.autocrlf=true at the system level; without eol=lf, checkout rewrites
+# LF blobs to CRLF and the freeze hashes fail even though JSON is unchanged.
+research/retrieval/formal-study/ontology/*.json text eol=lf
+research/retrieval/formal-study/benchmark/*.json text eol=lf
+research/tag-library/data/library/*.json text eol=lf
+
+# The formal runner hashes these files into run provenance.
+research/retrieval/formal-study/configs/*.json text eol=lf
+research/retrieval/formal-study/pricing/*.json text eol=lf
+research/retrieval/formal-study/experiment-manifest.v1.json text eol=lf
+research/retrieval/formal-study/schemas/*.json text eol=lf
+research/retrieval/formal-study/environment/*.json text eol=lf
+research/retrieval/formal-study/audit/*.json text eol=lf

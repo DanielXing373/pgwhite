@@ -54,6 +54,13 @@ test("frozen ontology, benchmark, and pilot hashes match the study constants", (
   assert.equal(sha256File(join(repoRoot, FROZEN.pilot.path)), FROZEN.pilot.sha256);
 });
 
+test("frozen study JSON files are LF-only so SHA-256 is OS-independent", () => {
+  for (const rel of [FROZEN.ontology.path, FROZEN.benchmark.path, FROZEN.pilot.path]) {
+    const buf = readFileSync(join(repoRoot, rel));
+    assert.equal(buf.includes(0x0d), false, `${rel} contains CR bytes`);
+  }
+});
+
 test("nine retrieval configs cover A/B/C by none, query, and task_instruct", async () => {
   const files = [
     "P1-A-none", "P1-B-none", "P1-C-none",

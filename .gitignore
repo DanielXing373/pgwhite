@@ -51,6 +51,11 @@ research/annotation-workbench/fixtures/audit-snapshot.json
 !research/annotation-workbench/fixtures/examples/
 
 
+# Formal study GPU/API runs stay on disk as immutable local artifacts.
+# Ignoring them keeps git_dirty false for later runs while preserving history.
+research/retrieval/formal-study/runs/*
+!research/retrieval/formal-study/runs/.gitkeep
+
 # Retrieval benchmark: keep small committed runs; ignore local heavy caches only
 research/retrieval/.cache/
 research/retrieval/**/__pycache__/
