@@ -22,6 +22,22 @@ export const FROZEN = Object.freeze({
   embedding_model: "Qwen/Qwen3-Embedding-0.6B",
 });
 
+/** Locked Phase 1 retrieval source for Phase 2 selector pilots. */
+export const PHASE2_RETRIEVAL = Object.freeze({
+  path: "research/retrieval/formal-study/runs/formal-p1-c-task-20261021/run.json",
+  run_id: "formal-p1-c-task-20261021",
+  artifact_sha256: "570f99165e5ced8d3ddff16a7b9d21e231b86bc58d97d2ab6584ededb34b143d",
+  effective_config_sha256: "775e3d5c4b54dc3da84a1efc1e24a515bc23fe4fad26a7e359ca7dc01c9a165a",
+  representation: "C",
+  instruction_mode: "task_instruct",
+  similarity: "cosine",
+  normalize_embeddings: true,
+  reranker: null,
+  active_theme_count: 185,
+  store_full_ranking: true,
+  embedding_model: "Qwen/Qwen3-Embedding-0.6B",
+});
+
 export function assertSha256(filePath, expected, label) {
   const actual = sha256File(filePath);
   if (actual !== expected) {

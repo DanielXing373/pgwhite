@@ -32,7 +32,9 @@ export async function runSelectionStage({
     "benchmark",
   );
   const artifact = loadRetrievalArtifact(repoRoot, effectiveConfig.retrieval_artifact_path);
-  assertRequiredRetrieval(artifact.run, effectiveConfig.required_retrieval);
+  assertRequiredRetrieval(artifact.run, effectiveConfig.required_retrieval, {
+    sha256: artifact.sha256,
+  });
   const loadedLib = loadTagLibrary(repoRoot, effectiveConfig.ontology_path);
   const themes = selectActiveThemes(loadedLib.library, {
     activeStatus: effectiveConfig.active_status ?? "active_candidate",

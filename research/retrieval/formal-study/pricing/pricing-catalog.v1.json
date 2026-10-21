@@ -1,6 +1,25 @@
 {
   "schema_version": "formal-pricing-catalog.v1",
   "catalog_version": "unpriced-v1",
-  "source": "No provider prices are bundled. Add an operator-supplied rate before a budget-capped paid run.",
+  "currency": "USD",
+  "price_unit": "usd_per_million_tokens",
+  "source": "No provider prices are bundled. Add an operator-verified rate for the exact model id before a budget-capped paid run. Do not paste guessed or placeholder numbers.",
+  "rate_fields": {
+    "provider": "Provider id, e.g. openai",
+    "model_id": "Exact billed model id; must match PGWHITE_SELECTOR_MODEL / --model",
+    "input_usd_per_million": "Verified input token price",
+    "output_usd_per_million": "Verified output token price",
+    "reasoning_usd_per_million": "Optional; required if the provider reports reasoning tokens",
+    "cached_input_usd_per_million": "Optional; required if the provider reports cached tokens",
+    "currency": "USD",
+    "price_unit": "usd_per_million_tokens",
+    "source": "Operator-cited price page or invoice",
+    "verified_at": "ISO-8601 date of operator verification"
+  },
+  "notes": [
+    "USD totals are computed after a call from reported tokens and a matching catalog rate. Missing tokens or missing rates stay unknown; nothing is imputed.",
+    "max_estimated_budget_usd is a post-call estimated-spend stop, not a guaranteed pre-call cap. A single request can still exceed the budget. Unknown usage on any completed call blocks later calls.",
+    "Use max_requests as the hard pre-call limit. The OpenAI pilot config sets max_estimated_budget_usd to 1.00, which refuses to start until a matching verified rate exists."
+  ],
   "rates": []
 }

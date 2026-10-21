@@ -13,8 +13,28 @@ export function loadRetrievalArtifact(repoRoot, relativeOrAbsolute) {
   return { path, sha256: sha256File(path), run };
 }
 
-export function assertRequiredRetrieval(run, required) {
+export function assertRequiredRetrieval(run, required, { sha256 } = {}) {
   if (!required) return;
+  if (required.run_id && run.run_id !== required.run_id) {
+    throw new Error(
+      `STOP: retrieval run_id is ${JSON.stringify(run.run_id)}, required ${JSON.stringify(required.run_id)}.`,
+    );
+  }
+  if (required.artifact_sha256) {
+    if (!sha256 || sha256 !== required.artifact_sha256) {
+      throw new Error(
+        `STOP: retrieval artifact SHA-256 is ${sha256}, required ${required.artifact_sha256}.`,
+      );
+    }
+  }
+  if (
+    required.effective_config_sha256
+    && run.effective_config_sha256 !== required.effective_config_sha256
+  ) {
+    throw new Error(
+      `STOP: retrieval effective_config_sha256 is ${run.effective_config_sha256}, required ${required.effective_config_sha256}.`,
+    );
+  }
   const checks = [
     ["representation", run.representation],
     ["instruction_mode", run.instruction_mode],

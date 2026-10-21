@@ -60,14 +60,11 @@ npm run research:formal:run -- `
   --execution-mode paid-api `
   --allow-paid-api `
   --config research/retrieval/formal-study/configs/selector-openai.pilot.v1.json `
-  --retrieval-artifact research/retrieval/formal-study/runs/<retrieval-run-id>/run.json `
-  --run-id formal-selector-openai-pilot-YYYYMMDD `
-  --max-requests 40 `
-  --timeout-ms 60000 `
-  --retry-limit 2
+  --retrieval-artifact research/retrieval/formal-study/runs/formal-p1-c-task-20261021/run.json `
+  --run-id formal-selector-openai-pilot-YYYYMMDD
 ```
 
-`--allow-paid-api` is required. Without it the process stops before any request. To cap dollars, add a rate for that provider and model to `pricing/pricing-catalog.v1.json`, then add `--max-estimated-budget-usd <amount>`. A budget with no matching rate stops before the first request. The bundled catalog has no prices.
+`--allow-paid-api` is required. Without it the process stops before any request. The OpenAI pilot config locks the C-task retrieval artifact by run id and SHA-256 and sets `max_estimated_budget_usd` to 1.00. That USD stop is computed after each call from reported tokens; it is not a guaranteed pre-call cap. The bundled catalog has no rates, so a budget-capped OpenAI run stops before the first request until an operator adds a verified rate for the exact model id. `max_requests` is 10 (one call budget per frozen pilot quote; retries share that budget).
 
 DeepSeek uses `DEEPSEEK_API_KEY` and `selector-deepseek.pilot.v1.json`. Gemini uses `GEMINI_API_KEY` (or `GOOGLE_API_KEY`) and `selector-gemini.pilot.v1.json`. The API key is sent as a header, not in the URL.
 
@@ -76,7 +73,7 @@ DeepSeek uses `DEEPSEEK_API_KEY` and `selector-deepseek.pilot.v1.json`. Gemini u
 ```powershell
 $env:OLLAMA_HOST = "http://127.0.0.1:11434"
 $env:PGWHITE_SELECTOR_MODEL = "<ollama model id>"
-npm run research:formal:run -- --stage selection --execution-mode local --config research/retrieval/formal-study/configs/selector-ollama.pilot.v1.json --retrieval-artifact research/retrieval/formal-study/runs/<retrieval-run-id>/run.json --run-id formal-selector-ollama-pilot-YYYYMMDD
+npm run research:formal:run -- --stage selection --execution-mode local --config research/retrieval/formal-study/configs/selector-ollama.pilot.v1.json --retrieval-artifact research/retrieval/formal-study/runs/formal-p1-c-task-20261021/run.json --run-id formal-selector-ollama-pilot-YYYYMMDD
 ```
 
 Quantization and VRAM are recorded when `POST /api/show` and `GET /api/ps` return them. USD cost stays unknown unless the pricing catalog has a rate.

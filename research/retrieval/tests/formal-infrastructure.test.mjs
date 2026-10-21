@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync } from "node:fs";
+import { existsSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -13,7 +13,7 @@ import {
 import { buildThemeCorpus } from "../runner/src/representations.mjs";
 import { loadTagLibrary, selectActiveThemes } from "../runner/src/tagLibrary.mjs";
 import { representationA, representationB, representationC } from "../../tag-library/src/representations.mjs";
-import { FROZEN } from "../formal-study/runner/src/freeze.mjs";
+import { FROZEN, PHASE2_RETRIEVAL } from "../formal-study/runner/src/freeze.mjs";
 import { executeFormalStudy } from "../formal-study/runner/src/execute.mjs";
 import { calculateUsdCost } from "../formal-study/runner/src/cost.mjs";
 import { percentile, summarizeLatency } from "../formal-study/runner/src/latency.mjs";
@@ -656,9 +656,16 @@ test("fake full-benchmark retrieval is reproducible and selector reads that arti
     assert.equal(prompted.run.results[0].builtin_query_prompt_matches_documented, false);
     assert.ok(prompted.run.results[0].ranking[0].representation_text.includes("："));
 
+    const openaiUnlocked = JSON.parse(readFileSync(join(configDir, "selector-openai.pilot.v1.json"), "utf8"));
+    delete openaiUnlocked.required_retrieval;
+    openaiUnlocked.retrieval_artifact_path = null;
+    openaiUnlocked.execution.max_estimated_budget_usd = null;
+    openaiUnlocked.execution.max_requests = 40;
+    const openaiUnlockedPath = join(dir, "selector-openai-unlocked.json");
+    writeFileSync(openaiUnlockedPath, JSON.stringify(openaiUnlocked));
     const selected = await executeFormalStudy({
       repoRoot,
-      configPath: join(configDir, "selector-openai.pilot.v1.json"),
+      configPath: openaiUnlockedPath,
       executionMode: "paid-api",
       allowPaidApi: true,
       runId: "openai-pilot-fake-http",
@@ -701,6 +708,76 @@ test("fake full-benchmark retrieval is reproducible and selector reads that arti
     for (const name of ["manifest.json", "run.json", "summary.md", "environment.json", "config.snapshot.json"]) {
       assert.ok(names.includes(name));
     }
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test("OpenAI and Ollama pilot configs lock the Phase 1 C-task retrieval artifact", () => {
+  for (const name of ["selector-openai.pilot.v1.json", "selector-ollama.pilot.v1.json", "selector-fake.pilot.v1.json"]) {
+    const config = JSON.parse(readFileSync(join(configDir, name), "utf8"));
+    assert.equal(config.expected_quote_count, 10);
+    assert.equal(config.candidate_k, 20);
+    assert.equal(config.max_selected, 3);
+    assert.equal(config.include_aliases, false);
+    assert.equal(config.retrieval_artifact_path, PHASE2_RETRIEVAL.path);
+    assert.equal(config.required_retrieval.run_id, PHASE2_RETRIEVAL.run_id);
+    assert.equal(config.required_retrieval.artifact_sha256, PHASE2_RETRIEVAL.artifact_sha256);
+    assert.equal(config.required_retrieval.effective_config_sha256, PHASE2_RETRIEVAL.effective_config_sha256);
+    assert.equal(config.required_retrieval.representation, "C");
+    assert.equal(config.required_retrieval.instruction_mode, "task_instruct");
+  }
+  const openai = JSON.parse(readFileSync(join(configDir, "selector-openai.pilot.v1.json"), "utf8"));
+  assert.equal(openai.execution.max_estimated_budget_usd, 1);
+  assert.equal(openai.execution.max_requests, 10);
+});
+
+test("OpenAI USD 1 budget refuses to start without a matching catalog rate", async () => {
+  let called = 0;
+  await assert.rejects(
+    () => executeFormalStudy({
+      repoRoot,
+      configPath: join(configDir, "selector-openai.pilot.v1.json"),
+      executionMode: "paid-api",
+      allowPaidApi: true,
+      runId: "openai-unpriced-budget",
+      env: {
+        OPENAI_API_KEY: "sk-testsecretkeyvalue1234",
+        PGWHITE_SELECTOR_MODEL: "operator-chosen-model",
+      },
+      fetchImpl() {
+        called += 1;
+        throw new Error("must not fetch");
+      },
+    }),
+    /max_estimated_budget_usd/,
+  );
+  assert.equal(called, 0);
+});
+
+test("selector refuses a retrieval artifact that does not match the locked C-task hashes", async () => {
+  const dir = tempDir();
+  try {
+    const retrieval = await executeFormalStudy({
+      repoRoot,
+      configPath: join(configDir, "P1-A-none.retrieval.v1.json"),
+      executionMode: "local",
+      runId: "wrong-retrieval",
+      runsRoot: dir,
+      cli: { provider: "fake" },
+    });
+    await assert.rejects(
+      () => executeFormalStudy({
+        repoRoot,
+        configPath: join(configDir, "selector-fake.pilot.v1.json"),
+        executionMode: "dry-run",
+        runId: "fake-wrong-artifact",
+        runsRoot: dir,
+        cli: { retrieval_artifact: join(dir, "wrong-retrieval", "run.json") },
+      }),
+      /STOP: retrieval/,
+    );
+    assert.equal(retrieval.run.representation, "A");
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
