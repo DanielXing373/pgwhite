@@ -1,0 +1,101 @@
+{
+  "schema_version": "el-experiment-registry.v1",
+  "experiment_batch": "EL",
+  "created_at": "2026-10-21",
+  "status": "prepared_not_executed",
+  "dataset": {
+    "id": "EL-Pilot-10",
+    "path": "research/retrieval/formal-study/benchmark/formal-pilot-10.v1.frozen.json",
+    "sha256": "855fd0c338daf008259f8ae1886300a02cc1e9b02bc25d5a01dd611faba09f06",
+    "quote_count": 10,
+    "note": "Exploratory 10-quote pilot. Do not claim statistical significance from this set alone."
+  },
+  "ontology": {
+    "path": "research/retrieval/formal-study/ontology/atomic-tag-library.v1.43.freeze.json",
+    "sha256": "a71db8ba7e34ea5c2db33b53a6c1583d8ac8bbf3e11871198bf0deedc0ed39b7",
+    "active_themes": 185
+  },
+  "retrieval_source": {
+    "run_id": "formal-p1-c-task-20261021",
+    "artifact_sha256": "570f99165e5ced8d3ddff16a7b9d21e231b86bc58d97d2ab6584ededb34b143d",
+    "effective_config_sha256": "775e3d5c4b54dc3da84a1efc1e24a515bc23fe4fad26a7e359ca7dc01c9a165a",
+    "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+    "representation": "C",
+    "instruction_mode": "task_instruct",
+    "similarity": "cosine",
+    "normalize_embeddings": true,
+    "candidate_k": 20,
+    "reranker": null
+  },
+  "prompt_version": "selector-task-instruction.v1",
+  "output_schema": "theme_selection json_schema selected_theme_ids 0-3 candidate IDs",
+  "budget": {
+    "max_estimated_budget_usd": 1,
+    "max_estimated_budget_kind": "post_call_estimated_spend_stop",
+    "hard_pre_call_limit": "max_requests"
+  },
+  "experiments": [
+    {
+      "experiment_id": "EL-P1-GPT5MINI",
+      "provider": "openai",
+      "model_id": "gpt-5-mini-2025-08-07",
+      "model_alias": "gpt-5-mini",
+      "run_id": null,
+      "dataset": "EL-Pilot-10",
+      "retrieval_source": "formal-p1-c-task-20261021",
+      "prompt_configuration_version": "EL-P1-GPT5MINI.selection.v1",
+      "config_path": "research/retrieval/formal-study/configs/EL-P1-GPT5MINI.selection.v1.json",
+      "execution_date": null,
+      "artifact_location": null,
+      "archive_checksum": null,
+      "evaluation_status": "planned"
+    },
+    {
+      "experiment_id": "EL-P1-GPT52",
+      "provider": "openai",
+      "model_id": "gpt-5.2-2025-12-11",
+      "model_alias": "gpt-5.2",
+      "run_id": null,
+      "dataset": "EL-Pilot-10",
+      "retrieval_source": "formal-p1-c-task-20261021",
+      "prompt_configuration_version": "EL-P1-GPT52.selection.v1",
+      "config_path": "research/retrieval/formal-study/configs/EL-P1-GPT52.selection.v1.json",
+      "execution_date": null,
+      "artifact_location": null,
+      "archive_checksum": null,
+      "evaluation_status": "planned"
+    },
+    {
+      "experiment_id": "EL-P1-GPT5MINI-SMOKE",
+      "provider": "openai",
+      "model_id": "gpt-5-mini-2025-08-07",
+      "model_alias": "gpt-5-mini",
+      "run_id": null,
+      "dataset": "EL-Pilot-10 quote batch1-calib-005",
+      "retrieval_source": "formal-p1-c-task-20261021",
+      "prompt_configuration_version": "EL-P1-GPT5MINI.smoke.v1",
+      "config_path": "research/retrieval/formal-study/configs/EL-P1-GPT5MINI.smoke.v1.json",
+      "execution_date": null,
+      "artifact_location": null,
+      "archive_checksum": null,
+      "evaluation_status": "planned",
+      "note": "Single-quote smoke. Exclude from EL-Pilot comparison."
+    },
+    {
+      "experiment_id": "EL-P1-GPT52-SMOKE",
+      "provider": "openai",
+      "model_id": "gpt-5.2-2025-12-11",
+      "model_alias": "gpt-5.2",
+      "run_id": null,
+      "dataset": "EL-Pilot-10 quote batch1-calib-005",
+      "retrieval_source": "formal-p1-c-task-20261021",
+      "prompt_configuration_version": "EL-P1-GPT52.smoke.v1",
+      "config_path": "research/retrieval/formal-study/configs/EL-P1-GPT52.smoke.v1.json",
+      "execution_date": null,
+      "artifact_location": null,
+      "archive_checksum": null,
+      "evaluation_status": "planned",
+      "note": "Single-quote smoke. Exclude from EL-Pilot comparison."
+    }
+  ]
+}

@@ -2,7 +2,7 @@
   "schema_version": "formal-experiment-manifest.v1",
   "study_id": "pgwhite-theme-retrieve-select.v1",
   "created_at": "2026-10-13T00:00:00.000Z",
-  "status_note": "Benchmark, pilot, and formal runner are in place. Phase 1 GPU runs and paid selector calls remain planned until explicitly approved.",
+  "status_note": "Benchmark, pilot, and formal runner are in place. EL selector comparison is prepared in research/retrieval/formal-study/el/registry.json and remains planned until explicitly approved. Do not rename historical Phase 1/Phase 2 experiment IDs.",
   "ontology_version": "atomic-tag-library.v1.43",
   "ontology_sha256": "a71db8ba7e34ea5c2db33b53a6c1583d8ac8bbf3e11871198bf0deedc0ed39b7",
   "benchmark_version": "formal-benchmark.v1.frozen",

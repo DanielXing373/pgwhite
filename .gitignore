@@ -56,6 +56,10 @@ research/annotation-workbench/fixtures/audit-snapshot.json
 research/retrieval/formal-study/runs/*
 !research/retrieval/formal-study/runs/.gitkeep
 
+# EL / formal-study archives stay local. Copy them off-box yourself; do not commit.
+research/retrieval/formal-study/archives/*
+!research/retrieval/formal-study/archives/.gitkeep
+
 # Retrieval benchmark: keep small committed runs; ignore local heavy caches only
 research/retrieval/.cache/
 research/retrieval/**/__pycache__/

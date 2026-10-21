@@ -77,3 +77,39 @@ npm run research:formal:run -- --stage selection --execution-mode local --config
 ```
 
 Quantization and VRAM are recorded when `POST /api/show` and `GET /api/ps` return them. USD cost stays unknown unless the pricing catalog has a rate.
+
+## EL batch (prepared; do not execute until approved)
+
+EL uses the frozen 10-quote pilot and the locked C-task retrieval artifact. Identifiers: `EL`, `EL-Pilot-10`, `EL-P1-GPT5MINI`, `EL-P1-GPT52`. Registry: `research/retrieval/formal-study/el/registry.json`.
+
+`max_requests` is the hard pre-call cap. `max_estimated_budget_usd` is 1.00 and is a post-call estimated-spend stop, not a guaranteed pre-call cap.
+
+Dry-run (no API):
+
+```powershell
+npm run research:formal:run -- --stage selection --execution-mode dry-run --config research/retrieval/formal-study/configs/EL-P1-GPT5MINI.selection.v1.json
+npm run research:formal:run -- --stage selection --execution-mode dry-run --config research/retrieval/formal-study/configs/EL-P1-GPT52.selection.v1.json
+```
+
+Single-quote smoke tests (not part of the EL-Pilot comparison). Do not run until approved:
+
+```powershell
+$env:OPENAI_API_KEY = "<set in this shell only>"
+npm run research:formal:run -- --stage selection --execution-mode paid-api --allow-paid-api --config research/retrieval/formal-study/configs/EL-P1-GPT5MINI.smoke.v1.json --run-id EL-P1-GPT5MINI-SMOKE
+npm run research:formal:run -- --stage selection --execution-mode paid-api --allow-paid-api --config research/retrieval/formal-study/configs/EL-P1-GPT52.smoke.v1.json --run-id EL-P1-GPT52-SMOKE
+```
+
+Formal 10-quote EL pilots (do not run until approved; do not include smoke predictions):
+
+```powershell
+npm run research:formal:run -- --stage selection --execution-mode paid-api --allow-paid-api --config research/retrieval/formal-study/configs/EL-P1-GPT5MINI.selection.v1.json --run-id EL-P1-GPT5MINI
+npm run research:formal:run -- --stage selection --execution-mode paid-api --allow-paid-api --config research/retrieval/formal-study/configs/EL-P1-GPT52.selection.v1.json --run-id EL-P1-GPT52
+```
+
+Archive a completed run (local, gitignored, overwrite refused):
+
+```powershell
+node research/retrieval/formal-study/runner/scripts/archive-el-run.mjs --run-dir research/retrieval/formal-study/runs/EL-P1-GPT5MINI --archive-dir research/retrieval/formal-study/archives/EL-P1-GPT5MINI --experiment-id EL-P1-GPT5MINI
+```
+
+Copy `research/retrieval/formal-study/archives/` to external storage yourself. Do not upload research artifacts without explicit authorization.

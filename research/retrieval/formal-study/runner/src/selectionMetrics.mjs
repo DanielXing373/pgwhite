@@ -2,15 +2,28 @@ function unique(ids) {
   return [...new Set(ids ?? [])];
 }
 
-export function scoreSelectionQuote({ expectedIds, selectedIds, validationStatus }) {
+export function scoreSelectionQuote({
+  expectedIds,
+  selectedIds,
+  validationStatus,
+  candidateIds = null,
+}) {
   const valid = validationStatus === "valid";
   const expected = unique(expectedIds);
   const selected = valid ? unique(selectedIds) : [];
   const expectedSet = new Set(expected);
   const selectedSet = new Set(selected);
+  const candidateSet = candidateIds == null ? null : new Set(candidateIds);
   const tp = [...selectedSet].filter((id) => expectedSet.has(id));
   const fp = [...selectedSet].filter((id) => !expectedSet.has(id));
   const fn = [...expectedSet].filter((id) => !selectedSet.has(id));
+  const retrievalMissIds = candidateSet
+    ? expected.filter((id) => !candidateSet.has(id))
+    : [];
+  const selectorMissIds = candidateSet
+    ? expected.filter((id) => candidateSet.has(id) && !selectedSet.has(id))
+    : fn;
+  const falsePositiveIds = fp;
   const precision = !valid || selectedSet.size === 0 ? null : tp.length / selectedSet.size;
   const recall = !valid || expectedSet.size === 0 ? null : tp.length / expectedSet.size;
   let f1 = null;
@@ -32,6 +45,9 @@ export function scoreSelectionQuote({ expectedIds, selectedIds, validationStatus
     tp: valid ? tp.length : 0,
     fp: valid ? fp.length : 0,
     fn: valid ? fn.length : 0,
+    retrieval_miss_ids: retrievalMissIds,
+    selector_miss_ids: selectorMissIds,
+    false_positive_ids: falsePositiveIds,
   };
 }
 
@@ -64,6 +80,9 @@ export function aggregateSelection(quotes) {
   const zeroCorrect = zeroRows.filter((row) => row.zero_theme_correct === true).length;
   const exactValid = valid.filter((row) => row.exact_match).length;
   const exactAll = scored.filter((row) => row.exact_match).length;
+  const retrievalMiss = scored.reduce((sum, row) => sum + row.retrieval_miss_ids.length, 0);
+  const selectorMiss = scored.reduce((sum, row) => sum + row.selector_miss_ids.length, 0);
+  const falsePositive = scored.reduce((sum, row) => sum + row.false_positive_ids.length, 0);
   return {
     quotes: quotes.length,
     not_run_quotes: notRun,
@@ -101,11 +120,17 @@ export function aggregateSelection(quotes) {
       ? null
       : valid.reduce((sum, row) => sum + row.selected_count, 0) / valid.length,
     average_selected_denominator: valid.length,
+    error_attribution: {
+      retrieval_miss_count: retrievalMiss,
+      selector_miss_count: selectorMiss,
+      false_positive_count: falsePositive,
+    },
     notes: [
       "Per-quote precision is null when the selector returns no Themes, including a correct empty selection. That null is not treated as 1.",
       "Per-quote recall is null when the expected set is empty. That null is not treated as 1.",
       "Macro averages omit null per-quote scores. Micro precision and recall are null when their pooled denominators are zero.",
       "Invalid outputs are outside the micro and macro pools. They are included in invalid_output_rate and count as not exact in exact_match_rate_all_quotes.",
+      "End-to-end Micro-F1 is micro.f1. Error attribution counts gold Themes missing from Top20 (retrieval miss), gold Themes in Top20 but not selected (selector miss), and selected Themes absent from gold (false positive). Attribution does not change P/R/F1.",
     ],
   };
 }

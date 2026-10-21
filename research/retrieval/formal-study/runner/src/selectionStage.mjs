@@ -6,6 +6,7 @@ import { summarizeCosts } from "./cost.mjs";
 import { FROZEN, verifyDeclaredAsset } from "./freeze.mjs";
 import { collectEnvironment } from "./gitInfo.mjs";
 import { summarizeLatency } from "./latency.mjs";
+import { selectBenchmarkQuotes } from "./quotes.mjs";
 import { aggregateSelection } from "./selectionMetrics.mjs";
 import { selectThemes } from "./selector/select.mjs";
 
@@ -43,17 +44,25 @@ export async function runSelectionStage({
     throw new Error(`STOP: frozen ontology resolved ${themes.length} active Themes.`);
   }
   const loadedBench = loadBenchmark(repoRoot, effectiveConfig.benchmark_path);
+  const sourceExpected = effectiveConfig.expected_source_quote_count
+    ?? (effectiveConfig.quote_ids ? null : effectiveConfig.expected_quote_count);
+  if (sourceExpected != null && loadedBench.data.quotes.length !== sourceExpected) {
+    throw new Error(
+      `Source quote count ${loadedBench.data.quotes.length} != expected ${sourceExpected}`,
+    );
+  }
+  const quotes = selectBenchmarkQuotes(loadedBench.data.quotes, effectiveConfig.quote_ids ?? null);
   if (
     effectiveConfig.expected_quote_count != null
-    && loadedBench.data.quotes.length !== effectiveConfig.expected_quote_count
+    && quotes.length !== effectiveConfig.expected_quote_count
   ) {
     throw new Error(
-      `Quote count ${loadedBench.data.quotes.length} != expected ${effectiveConfig.expected_quote_count}`,
+      `Quote count ${quotes.length} != expected ${effectiveConfig.expected_quote_count}`,
     );
   }
   const rows = candidatesForQuotes({
     retrievalRun: artifact.run,
-    quotes: loadedBench.data.quotes,
+    quotes,
     themes,
     candidateK: effectiveConfig.candidate_k,
     includeAliases: effectiveConfig.include_aliases === true,
@@ -107,6 +116,7 @@ export async function runSelectionStage({
     expectedIds: row.expected_theme_ids,
     selectedIds: row.selected_theme_ids,
     validationStatus: row.validation_status,
+    candidateIds: (row.candidates ?? []).map((candidate) => candidate.id),
   })));
   const latencySamples = results
     .filter((row) => row.validation_status !== "not_run" && Number.isFinite(row.latency_ms))
@@ -146,6 +156,8 @@ export async function runSelectionStage({
       reranker: artifact.run.reranker ?? null,
       active_theme_count: artifact.run.active_theme_count ?? null,
     },
+    quote_ids: effectiveConfig.quote_ids ?? null,
+    source_quote_count: loadedBench.data.quotes.length,
     candidate_k: effectiveConfig.candidate_k,
     max_selected: effectiveConfig.max_selected,
     include_aliases: effectiveConfig.include_aliases === true,

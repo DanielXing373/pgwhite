@@ -1,6 +1,6 @@
 # PGWhite Formal Retrieval + Selector Study
 
-**Status:** benchmark and 10-quote pilot are frozen. Formal retrieval and selector infrastructure is implemented. The Phase 1 GPU matrix and paid API calls have not been run.
+**Status:** benchmark and 10-quote pilot are frozen. Formal retrieval and selector infrastructure is implemented. EL (GPT-5 mini vs GPT-5.2 on Qwen Top20) is prepared and not yet executed. Await explicit approval before paid API calls.
 
 ## Layout
 
@@ -12,8 +12,10 @@ formal-study/
   benchmark/          # source snapshot; formal frozen bench (after human review)
   audit/              # audit + human-review artifacts (EDIT HERE)
   schemas/            # manifest / run schemas
-  configs/            # planned formal configs (no runs yet)
-  runs/               # immutable formal runs (empty until approved)
+  configs/            # planned formal configs, including EL
+  el/                 # EL registry and model verification
+  runs/               # immutable formal runs (gitignored)
+  archives/           # recoverable EL archives (gitignored)
   summaries/          # cross-run tables
   adjudication/       # post-freeze GT issues (never silent GT edits)
   environment/        # capture templates

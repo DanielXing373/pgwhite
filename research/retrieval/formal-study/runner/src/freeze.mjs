@@ -22,7 +22,7 @@ export const FROZEN = Object.freeze({
   embedding_model: "Qwen/Qwen3-Embedding-0.6B",
 });
 
-/** Locked Phase 1 retrieval source for Phase 2 selector pilots. */
+/** Locked Phase 1 retrieval source for Phase 2 selector pilots and EL. */
 export const PHASE2_RETRIEVAL = Object.freeze({
   path: "research/retrieval/formal-study/runs/formal-p1-c-task-20261021/run.json",
   run_id: "formal-p1-c-task-20261021",

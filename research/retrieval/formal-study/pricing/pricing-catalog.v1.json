@@ -1,25 +1,78 @@
 {
   "schema_version": "formal-pricing-catalog.v1",
-  "catalog_version": "unpriced-v1",
+  "catalog_version": "openai-el-verified-2026-10-21",
   "currency": "USD",
   "price_unit": "usd_per_million_tokens",
-  "source": "No provider prices are bundled. Add an operator-verified rate for the exact model id before a budget-capped paid run. Do not paste guessed or placeholder numbers.",
+  "source": "https://developers.openai.com/api/docs/pricing",
+  "verified_at": "2026-10-21",
   "rate_fields": {
     "provider": "Provider id, e.g. openai",
-    "model_id": "Exact billed model id; must match PGWHITE_SELECTOR_MODEL / --model",
+    "model_id": "Exact billed model id; must match the config provider.model_id",
     "input_usd_per_million": "Verified input token price",
     "output_usd_per_million": "Verified output token price",
-    "reasoning_usd_per_million": "Optional; required if the provider reports reasoning tokens",
-    "cached_input_usd_per_million": "Optional; required if the provider reports cached tokens",
+    "reasoning_usd_per_million": "Optional separate reasoning rate. Omit when reasoning_billed_as is output.",
+    "reasoning_billed_as": "output means reasoning tokens are included in completion/output tokens and billed at the output rate. Do not add a second reasoning charge.",
+    "cached_input_usd_per_million": "Verified cached input token price when the API reports cached tokens",
     "currency": "USD",
     "price_unit": "usd_per_million_tokens",
-    "source": "Operator-cited price page or invoice",
-    "verified_at": "ISO-8601 date of operator verification"
+    "source": "Official price page",
+    "verified_at": "ISO-8601 date of verification"
   },
   "notes": [
     "USD totals are computed after a call from reported tokens and a matching catalog rate. Missing tokens or missing rates stay unknown; nothing is imputed.",
     "max_estimated_budget_usd is a post-call estimated-spend stop, not a guaranteed pre-call cap. A single request can still exceed the budget. Unknown usage on any completed call blocks later calls.",
-    "Use max_requests as the hard pre-call limit. The OpenAI pilot config sets max_estimated_budget_usd to 1.00, which refuses to start until a matching verified rate exists."
+    "Use max_requests as the hard pre-call limit. EL OpenAI configs set max_estimated_budget_usd to 1.00.",
+    "OpenAI GPT-5 family reasoning tokens are billed as output tokens. Catalog rows use reasoning_billed_as=output so the runner does not double-count them.",
+    "Only operator-verified official rates are listed. Other providers remain unpriced."
   ],
-  "rates": []
+  "rates": [
+    {
+      "provider": "openai",
+      "model_id": "gpt-5-mini",
+      "input_usd_per_million": 0.25,
+      "cached_input_usd_per_million": 0.025,
+      "output_usd_per_million": 2.0,
+      "reasoning_billed_as": "output",
+      "currency": "USD",
+      "price_unit": "usd_per_million_tokens",
+      "source": "https://developers.openai.com/api/docs/pricing ; https://developers.openai.com/api/docs/models/gpt-5-mini",
+      "verified_at": "2026-10-21"
+    },
+    {
+      "provider": "openai",
+      "model_id": "gpt-5-mini-2025-08-07",
+      "input_usd_per_million": 0.25,
+      "cached_input_usd_per_million": 0.025,
+      "output_usd_per_million": 2.0,
+      "reasoning_billed_as": "output",
+      "currency": "USD",
+      "price_unit": "usd_per_million_tokens",
+      "source": "https://developers.openai.com/api/docs/pricing ; https://developers.openai.com/api/docs/models/gpt-5-mini",
+      "verified_at": "2026-10-21"
+    },
+    {
+      "provider": "openai",
+      "model_id": "gpt-5.2",
+      "input_usd_per_million": 1.75,
+      "cached_input_usd_per_million": 0.175,
+      "output_usd_per_million": 14.0,
+      "reasoning_billed_as": "output",
+      "currency": "USD",
+      "price_unit": "usd_per_million_tokens",
+      "source": "https://developers.openai.com/api/docs/pricing ; https://developers.openai.com/api/docs/models/gpt-5.2",
+      "verified_at": "2026-10-21"
+    },
+    {
+      "provider": "openai",
+      "model_id": "gpt-5.2-2025-12-11",
+      "input_usd_per_million": 1.75,
+      "cached_input_usd_per_million": 0.175,
+      "output_usd_per_million": 14.0,
+      "reasoning_billed_as": "output",
+      "currency": "USD",
+      "price_unit": "usd_per_million_tokens",
+      "source": "https://developers.openai.com/api/docs/pricing ; https://developers.openai.com/api/docs/models/gpt-5.2",
+      "verified_at": "2026-10-21"
+    }
+  ]
 }

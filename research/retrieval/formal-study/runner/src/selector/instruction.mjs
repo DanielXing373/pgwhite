@@ -48,10 +48,16 @@ export function buildSelectorPrompt({ quoteId, textZh, candidates, includeAliase
   };
 }
 
-export function buildOpenAIBody({ model, prompt, candidateIds }) {
-  return {
+export function buildOpenAIBody({
+  model,
+  prompt,
+  candidateIds,
+  temperature = 0,
+  omitTemperature = false,
+  reasoningEffort = null,
+}) {
+  const body = {
     model,
-    temperature: 0,
     messages: [
       { role: "system", content: prompt.task_instruction },
       { role: "user", content: prompt.user_text },
@@ -65,6 +71,13 @@ export function buildOpenAIBody({ model, prompt, candidateIds }) {
       },
     },
   };
+  if (!omitTemperature && temperature != null) {
+    body.temperature = temperature;
+  }
+  if (reasoningEffort != null && reasoningEffort !== "") {
+    body.reasoning_effort = reasoningEffort;
+  }
+  return body;
 }
 
 export function buildDeepSeekBody({ model, prompt, candidateIds }) {

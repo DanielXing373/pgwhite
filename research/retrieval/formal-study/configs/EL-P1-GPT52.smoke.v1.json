@@ -1,0 +1,52 @@
+{
+  "schema_version": "formal-selector-config.v1",
+  "experiment_batch": "EL",
+  "experiment_id": "EL-P1-GPT52-SMOKE",
+  "dataset_id": "EL-Pilot-10",
+  "comparison_set": null,
+  "smoke_test": true,
+  "stage": "selection",
+  "provider": {
+    "id": "openai",
+    "model_id": "gpt-5.2-2025-12-11"
+  },
+  "model_alias": "gpt-5.2",
+  "benchmark_path": "research/retrieval/formal-study/benchmark/formal-pilot-10.v1.frozen.json",
+  "expected_benchmark_sha256": "855fd0c338daf008259f8ae1886300a02cc1e9b02bc25d5a01dd611faba09f06",
+  "expected_source_quote_count": 10,
+  "quote_ids": ["batch1-calib-005"],
+  "expected_quote_count": 1,
+  "ontology_path": "research/retrieval/formal-study/ontology/atomic-tag-library.v1.43.freeze.json",
+  "expected_ontology_sha256": "a71db8ba7e34ea5c2db33b53a6c1583d8ac8bbf3e11871198bf0deedc0ed39b7",
+  "active_status": "active_candidate",
+  "retrieval_artifact_path": "research/retrieval/formal-study/runs/formal-p1-c-task-20261021/run.json",
+  "candidate_k": 20,
+  "max_selected": 3,
+  "include_aliases": false,
+  "openai_request": {
+    "omit_temperature": true,
+    "reasoning_effort": "none"
+  },
+  "pricing_catalog_path": "research/retrieval/formal-study/pricing/pricing-catalog.v1.json",
+  "required_retrieval": {
+    "run_id": "formal-p1-c-task-20261021",
+    "artifact_sha256": "570f99165e5ced8d3ddff16a7b9d21e231b86bc58d97d2ab6584ededb34b143d",
+    "effective_config_sha256": "775e3d5c4b54dc3da84a1efc1e24a515bc23fe4fad26a7e359ca7dc01c9a165a",
+    "representation": "C",
+    "instruction_mode": "task_instruct",
+    "similarity": "cosine",
+    "normalize_embeddings": true,
+    "reranker": null,
+    "active_theme_count": 185,
+    "store_full_ranking": true,
+    "embedding_model": "Qwen/Qwen3-Embedding-0.6B"
+  },
+  "runs_dir": "research/retrieval/formal-study/runs",
+  "execution": {
+    "timeout_ms": 120000,
+    "retry_limit": 2,
+    "max_requests": 1,
+    "max_estimated_budget_usd": 1,
+    "stop_on_budget_exceeded": true
+  }
+}

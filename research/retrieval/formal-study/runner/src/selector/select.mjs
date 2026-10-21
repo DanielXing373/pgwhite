@@ -74,6 +74,7 @@ export async function selectThemes({
         prompt,
         candidates,
         timeoutMs: config.execution?.timeout_ms ?? 60000,
+        openaiRequest: config.openai_request ?? null,
       });
       const parsed = parseSelectorResponse(response.response_text);
       const validation = parsed.ok

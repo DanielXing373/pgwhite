@@ -41,7 +41,9 @@ export function calculateUsdCost({ usage, pricing }) {
 
   const reasoningTokens = finiteOrNull(usage?.reasoning_tokens);
   const cachedTokens = finiteOrNull(usage?.cached_tokens);
-  if (reasoningTokens != null && reasoningTokens > 0 && finiteOrNull(pricing?.reasoning_usd_per_million) == null) {
+  const reasoningRate = finiteOrNull(pricing?.reasoning_usd_per_million);
+  const reasoningBilledAsOutput = pricing?.reasoning_billed_as === "output";
+  if (reasoningTokens != null && reasoningTokens > 0 && reasoningRate == null && !reasoningBilledAsOutput) {
     return {
       status: "unknown",
       usd: null,
@@ -76,7 +78,9 @@ export function calculateUsdCost({ usage, pricing }) {
   const inputUsd = (billableInput * inputRate) / 1e6;
   const cachedUsd = ((cachedTokens ?? 0) * (pricing?.cached_input_usd_per_million ?? 0)) / 1e6;
   const outputUsd = (outputTokens * outputRate) / 1e6;
-  const reasoningUsd = ((reasoningTokens ?? 0) * (pricing?.reasoning_usd_per_million ?? 0)) / 1e6;
+  // OpenAI GPT-5 reasoning tokens are included in output/completion tokens and billed at the
+  // output rate. Do not add a second reasoning line unless the catalog has an explicit separate rate.
+  const reasoningUsd = reasoningRate == null ? 0 : ((reasoningTokens ?? 0) * reasoningRate) / 1e6;
   const usd = inputUsd + cachedUsd + outputUsd + reasoningUsd;
   return {
     status: "calculated",
