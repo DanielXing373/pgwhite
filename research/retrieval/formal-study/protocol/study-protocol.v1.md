@@ -17,12 +17,12 @@ Stages are scored independently.
 ## Controlled constants (Phase 1)
 
 - Ontology: frozen `atomic-tag-library.v1.43` (185 Themes) — see `ontology/FREEZE.md`
-- Benchmark: formal frozen 58-quote set — **pending human approval**
+- Benchmark: frozen 58-quote `formal-benchmark.v1.frozen.json`
 - Embedding model: `Qwen/Qwen3-Embedding-0.6B` (until later phases change it)
 - Similarity: cosine on L2-normalized embeddings
 - Hardware: single declared CUDA machine per run (recorded in artifacts)
 - No reranker in the initial 3×3 matrix
-- No paid LLM selector yet
+- No paid LLM selector calls until explicitly approved. The selector runner is implemented.
 
 ## Independent variables (Phase 1)
 

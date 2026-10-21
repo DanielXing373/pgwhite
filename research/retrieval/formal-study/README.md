@@ -1,6 +1,6 @@
 # PGWhite Formal Retrieval + Selector Study
 
-**Status:** benchmark and 10-quote pilot frozen. Phase 1 GPU matrix is still not started.
+**Status:** benchmark and 10-quote pilot are frozen. Formal retrieval and selector infrastructure is implemented. The Phase 1 GPU matrix and paid API calls have not been run.
 
 ## Layout
 

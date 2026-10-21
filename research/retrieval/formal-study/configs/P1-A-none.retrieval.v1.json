@@ -1,0 +1,35 @@
+{
+  "schema_version": "formal-retrieval-config.v1",
+  "experiment_id": "P1-A-none",
+  "stage": "retrieval",
+  "representation": "A",
+  "instruction_mode": "none",
+  "task_instruction": null,
+  "ontology_path": "research/retrieval/formal-study/ontology/atomic-tag-library.v1.43.freeze.json",
+  "expected_ontology_sha256": "a71db8ba7e34ea5c2db33b53a6c1583d8ac8bbf3e11871198bf0deedc0ed39b7",
+  "benchmark_path": "research/retrieval/formal-study/benchmark/formal-benchmark.v1.frozen.json",
+  "expected_benchmark_sha256": "5ad71ae64886fa09a52b8c51e93b8304da3553d09c9dabe9186b03360b5c70da",
+  "expected_quote_count": 58,
+  "active_status": "active_candidate",
+  "provider": {
+    "id": "qwen3",
+    "model": "Qwen/Qwen3-Embedding-0.6B",
+    "normalize_embeddings": true,
+    "require_cuda": true
+  },
+  "similarity": "cosine",
+  "normalize_embeddings": true,
+  "reranker": null,
+  "recall_ks": [
+    5,
+    10,
+    20
+  ],
+  "store_full_ranking": true,
+  "declared_gpu": "NVIDIA GeForce RTX 5070 Laptop GPU",
+  "runs_dir": "research/retrieval/formal-study/runs",
+  "execution": {
+    "timeout_ms": 120000,
+    "retry_limit": 0
+  }
+}

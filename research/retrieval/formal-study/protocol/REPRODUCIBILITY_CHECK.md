@@ -13,11 +13,12 @@
 | 10-quote pilot freeze | **PASS** | `formal-pilot-10.v1.frozen.json`; sha256 `855fd0c3…9f06` |
 | A/B/C construction verified | **PASS** | `representations.mjs` + unit test |
 | Instruction modes `none` / `prompt_name=query` / `task_instruct` | **PASS (helpers+worker)** | `qwenInstructionModes.mjs` + `embed_qwen3.py`; exact-string unit tests |
-| Pipeline stores effective query preview per quote | **FAIL / PARTIAL** | helper exists; formal runner wiring + full ranking@10/20 aggregates still needed before matrix |
-| Recall@5/10/20 function correctness | **PASS** | unit test; current route pipeline defaults aggregate ks to `[3,5]` — formal configs must pass `[5,10,20]` |
+| Formal runner stores effective query text and full ranking | **PASS** | `formal-study/runner`; Recall@5/10/20 from one ranking; effective config snapshot |
+| Historical retrieval pipeline aggregates | **PARTIAL** | `run-retrieval-benchmark.mjs` still reports Recall@3/@5. Formal runs use the formal runner. |
+| Recall@5/10/20 function correctness | **PASS** | unit test; formal stage passes `[5,10,20]` |
 | Environment capture template | **PASS** | `environment/capture-template.json` |
 | Experiment manifest | **PASS** | `experiment-manifest.v1.json` (planned) |
 | Immutable formal run dir | **PASS** | `runs/` empty |
 | Unit/infra tests | see CI command output | |
 
-**Gate:** The benchmark freeze is cleared. Phase 1 GPU matrix must still not start until formal runner wiring stores sample-level `effective_query_preview` and R@5/10/20 aggregates.
+**Gate:** Formal retrieval and selector infrastructure is implemented and covered by fake-provider tests. The Phase 1 GPU matrix and paid API calls stay stopped until an explicit approval.
