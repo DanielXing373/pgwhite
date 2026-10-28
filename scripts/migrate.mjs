@@ -5,11 +5,12 @@
  * Commands:
  *   pnpm db:migrate:status
  *   pnpm db:migrate
+ *   pnpm db:migrate --only <version> # apply one pending migration (e.g. 0007), nothing else
  *   pnpm db:migrate:mark <version>   # record only (no SQL) — for already-provisioned DBs
  *   pnpm db:migrate:new <slug>       # create empty migration file
  *
  * Safety:
- * - Refuses hosts that look like Railway/public remote unless MIGRATE_ALLOW_REMOTE=1
+ * - Refuses Railway hosts (public proxy or railway.internal) unless MIGRATE_ALLOW_REMOTE=1
  * - Never silently re-runs applied migrations (tracked in schema_migrations)
  * - Does not DROP DATABASE
  */
@@ -52,11 +53,12 @@ function resolveDbConfig() {
   return { host, port, user, password, database }
 }
 
-function isRemoteHost(host) {
+export function isRemoteHost(host) {
   const h = host.toLowerCase()
   return (
     h.includes('.rlwy.net') ||
     h.includes('railway.app') ||
+    h.includes('railway.internal') ||
     h.includes('.proxy.') ||
     env('MIGRATE_FORCE_REMOTE_CHECK', '') === '1'
   )
@@ -69,7 +71,7 @@ function shouldUseSsl(host) {
 }
 
 /** writing=false allows read-only status on remote; writing=true requires MIGRATE_ALLOW_REMOTE=1 */
-function assertSafeTarget(cfg, { writing }) {
+export function assertSafeTarget(cfg, { writing }) {
   if (!isRemoteHost(cfg.host)) return
   if (!writing) {
     console.warn(`[migrate] Remote target (read-only): ${cfg.host} / ${cfg.database}`)
@@ -93,9 +95,54 @@ function listMigrationFiles() {
     .sort()
 }
 
-function versionFromFilename(filename) {
+export function versionFromFilename(filename) {
   const m = basename(filename).match(/^(\d+)/)
   return m ? m[1] : basename(filename)
+}
+
+/** --only must name exactly one existing migration version (e.g. "0007"); prefixes are not accepted. */
+export function resolveOnly(files, only) {
+  const match = files.find(f => versionFromFilename(f) === only)
+  if (!match) {
+    throw new Error(`Unknown migration version "${only}". Known: ${files.map(versionFromFilename).join(', ')}`)
+  }
+  return match
+}
+
+export function selectMigrations(files, appliedSet, only) {
+  if (only == null) return files.filter(f => !appliedSet.has(versionFromFilename(f)))
+  const match = resolveOnly(files, only)
+  return appliedSet.has(versionFromFilename(match)) ? [] : [match]
+}
+
+const USAGE = `Usage:
+  node scripts/migrate.mjs status
+  node scripts/migrate.mjs up [--only <version>]
+  node scripts/migrate.mjs mark <version>
+  node scripts/migrate.mjs new <slug>`
+
+export function parseArgs(argv) {
+  const [cmd, ...rest] = argv
+  switch (cmd) {
+    case 'status':
+      if (rest.length) throw new Error(`status takes no arguments\n${USAGE}`)
+      return { cmd }
+    case 'up': {
+      if (rest.length === 0) return { cmd, only: null }
+      let only
+      if (rest.length === 2 && rest[0] === '--only') only = rest[1]
+      else if (rest.length === 1 && rest[0].startsWith('--only=')) only = rest[0].slice('--only='.length)
+      else throw new Error(`Unsupported arguments for up: ${rest.join(' ')}\n${USAGE}`)
+      if (!/^\d+$/.test(only)) throw new Error(`--only expects a migration version such as 0007, got "${only}"`)
+      return { cmd, only }
+    }
+    case 'mark':
+    case 'new':
+      if (rest.length !== 1) throw new Error(`${cmd} takes exactly one argument\n${USAGE}`)
+      return { cmd, arg: rest[0] }
+    default:
+      return { cmd: cmd ? 'invalid' : 'help' }
+  }
 }
 
 async function ensureMigrationsTable(conn) {
@@ -157,16 +204,21 @@ async function cmdStatus() {
   }
 }
 
-async function cmdUp() {
+async function cmdUp(only) {
+  const files = listMigrationFiles()
+  if (only != null) resolveOnly(files, only)
   const { conn, cfg } = await connect({ writing: true })
   try {
     await ensureMigrationsTable(conn)
     const applied = await appliedVersions(conn)
     const appliedSet = new Set(applied.map(r => r.version))
-    const files = listMigrationFiles()
-    const pending = files.filter(f => !appliedSet.has(versionFromFilename(f)))
+    const pending = selectMigrations(files, appliedSet, only)
     if (pending.length === 0) {
-      console.log(`No pending migrations (${cfg.host}/${cfg.database}).`)
+      console.log(
+        only != null
+          ? `Migration ${only} is already applied (${cfg.host}/${cfg.database}); nothing to do.`
+          : `No pending migrations (${cfg.host}/${cfg.database}).`
+      )
       return
     }
     for (const f of pending) {
@@ -236,13 +288,13 @@ function cmdNew(slug) {
 }
 
 async function main() {
-  const [cmd, arg] = process.argv.slice(2)
+  const { cmd, arg, only } = parseArgs(process.argv.slice(2))
   switch (cmd) {
     case 'status':
       await cmdStatus()
       break
     case 'up':
-      await cmdUp()
+      await cmdUp(only)
       break
     case 'mark':
       await cmdMark(arg)
@@ -251,16 +303,14 @@ async function main() {
       cmdNew(arg)
       break
     default:
-      console.log(`Usage:
-  node scripts/migrate.mjs status
-  node scripts/migrate.mjs up
-  node scripts/migrate.mjs mark <version>
-  node scripts/migrate.mjs new <slug>`)
-      process.exit(cmd ? 1 : 0)
+      console.log(USAGE)
+      process.exit(cmd === 'help' ? 0 : 1)
   }
 }
 
-main().catch(err => {
-  console.error(err.message || err)
-  process.exit(1)
-})
+if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
+  main().catch(err => {
+    console.error(err.message || err)
+    process.exit(1)
+  })
+}

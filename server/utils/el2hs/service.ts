@@ -88,9 +88,9 @@ export function metaPayload() {
 
 async function mysqlOrNull(): Promise<ResolvedStore | null> {
   try {
-    const { getDbPool } = await import('../db')
-    const config = useRuntimeConfig()
-    if (!config.dbHost || !config.dbUser || !config.dbName) return null
+    const { dbSettings, getDbPool } = await import('../db')
+    const db = dbSettings()
+    if (!db.host || !db.user || !db.database) return null
     const pool = getDbPool()
     return {
       kind: 'mysql',

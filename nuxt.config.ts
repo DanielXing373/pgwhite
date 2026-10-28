@@ -49,11 +49,12 @@ export default defineNuxtConfig({
   ],
 
   runtimeConfig: {
-    dbHost: process.env.DB_HOST,
-    dbPort: process.env.DB_PORT,
-    dbUser: process.env.DB_USER,
-    dbPassword: process.env.DB_PASSWORD,
-    dbName: process.env.DB_NAME,
+    /** DB credentials are read from DB_* at runtime (server/utils/db.ts); empty here so builds never embed them */
+    dbHost: '',
+    dbPort: '',
+    dbUser: '',
+    dbPassword: '',
+    dbName: '',
     /** quote_translations.language_code（你当前为 zh / en） */
     dbLangZh: process.env.DB_LANG_ZH || 'zh',
     dbLangEn: process.env.DB_LANG_EN || 'en',
@@ -62,9 +63,7 @@ export default defineNuxtConfig({
     /** 种类数值：场景时间 / 主题 / 修辞 — 对应你库里的 1、2、3（顺序可用环境变量改） */
     tagKindTime: process.env.TAG_KIND_TIME || '1',
     tagKindTheme: process.env.TAG_KIND_THEME || '2',
-    tagKindDevice: process.env.TAG_KIND_DEVICE || '3',
-    /** EL2 human-study export; never expose in public runtimeConfig */
-    el2HsExportToken: process.env.EL2_HS_EXPORT_TOKEN || ''
+    tagKindDevice: process.env.TAG_KIND_DEVICE || '3'
   },
   
   app: {

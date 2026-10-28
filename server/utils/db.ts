@@ -12,20 +12,31 @@ function shouldUseSsl(host: string): boolean {
   return host.includes('.rlwy.net') || host.includes('railway.app')
 }
 
+/** Read at request time so `nuxt build` never bakes credentials into .output. */
+export function dbSettings() {
+  const config = useRuntimeConfig()
+  return {
+    host: String(process.env.DB_HOST || config.dbHost || ''),
+    port: Number(process.env.DB_PORT || config.dbPort || 3306),
+    user: String(process.env.DB_USER || config.dbUser || ''),
+    password: String(process.env.DB_PASSWORD || config.dbPassword || ''),
+    database: String(process.env.DB_NAME || config.dbName || '')
+  }
+}
+
 export function getDbPool(): mysql.Pool {
   if (!pool) {
-    const config = useRuntimeConfig()
-    const host = String(config.dbHost || '')
+    const db = dbSettings()
     pool = mysql.createPool({
-      host: config.dbHost,
-      port: Number(config.dbPort),
-      user: config.dbUser,
-      password: config.dbPassword,
-      database: config.dbName,
+      host: db.host,
+      port: db.port,
+      user: db.user,
+      password: db.password,
+      database: db.database,
       waitForConnections: true,
       connectionLimit: 10,
       connectTimeout: 20_000,
-      ...(shouldUseSsl(host) ? { ssl: { rejectUnauthorized: false } } : {})
+      ...(shouldUseSsl(db.host) ? { ssl: { rejectUnauthorized: false } } : {})
     })
   }
   return pool
