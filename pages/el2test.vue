@@ -346,12 +346,13 @@ function flagMissing(): boolean {
   return true
 }
 
-function goSection(n: 1 | 2) {
+async function goSection(n: 1 | 2) {
   error.value = ''
   if (n === 2 && flagMissing()) return
   attempted.value = false
   screen.value = n === 1 ? 'section1' : 'section2'
-  window.scrollTo({ top: 0, behavior: 'smooth' })
+  await nextTick()
+  window.scrollTo({ top: 0 })
 }
 
 function askSubmit() {
