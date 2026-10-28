@@ -406,6 +406,9 @@ async function submit() {
   --el2-red: #dc2626;
   --el2-border: #e7e5e4;
   --el2-ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  /* System serif fonts only: Google Fonts is not loaded on this page. */
+  --font-serif: "Songti SC", "STSong", "Noto Serif CJK SC", "Source Han Serif SC", "SimSun",
+    "Georgia", "Times New Roman", serif;
 
   min-height: 100vh;
   max-width: 42rem;

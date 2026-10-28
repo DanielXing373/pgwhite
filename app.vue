@@ -26,4 +26,15 @@ File: app.vue
 <script setup lang="ts">
 const route = useRoute()
 const isEl2Study = computed(() => route.path.startsWith('/el2test'))
+
+// Google Fonts is render-blocking and slow from mainland China; /el2test uses system fonts instead.
+useHead(() => ({
+  link: isEl2Study.value
+    ? []
+    : [
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Noto+Serif+SC:wght@300;400;700&display=swap' }
+      ]
+}))
 </script>
