@@ -1,6 +1,6 @@
 <template>
-  <div class="el2">
-    <header class="el2-header">
+  <div class="el2" :class="{ 'el2--consent': screen === 'welcome' }">
+    <header v-if="screen !== 'welcome'" class="el2-header">
       <img src="/logo.svg" alt="" class="el2-logo" width="40" height="40" />
       <div>
         <p class="el2-kicker">鸽白词句库</p>
@@ -14,9 +14,8 @@
     <!-- Welcome & consent -->
     <section v-if="screen === 'welcome'" class="el2-panel el2-welcome">
       <h2 class="el2-h2">{{ copy.welcome }}</h2>
-      <p class="el2-text">{{ copy.research_description }}</p>
+      <p v-for="para in copy.research_description" :key="para" class="el2-text">{{ para }}</p>
       <div class="el2-consent">
-        <p class="el2-text el2-consent-intro">{{ copy.consent_intro }}</p>
         <ul class="el2-list">
           <li v-for="item in copy.consent_bullets" :key="item">{{ item }}</li>
         </ul>
@@ -460,7 +459,6 @@ async function submit() {
   background: var(--color-bg);
   border-radius: 8px;
 }
-.el2-consent-intro { margin-bottom: 8px; font-weight: 600; }
 .el2-list {
   margin: 0;
   padding-left: 1.25em;
@@ -469,6 +467,23 @@ async function submit() {
 }
 .el2-list li { margin: 0 0 8px; line-height: 1.6; }
 .el2-list li:last-child { margin-bottom: 0; }
+
+/* Consent screen: no header, so the card leads. svh keeps Safari's toolbar from forcing a scroll. */
+.el2.el2--consent {
+  box-sizing: border-box;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding-top: max(16px, env(safe-area-inset-top));
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+}
+.el2--consent .el2-panel { padding: 22px 18px; }
+.el2--consent .el2-h2 { margin-bottom: 12px; font-size: 1.125rem; }
+.el2--consent .el2-text { margin-bottom: 0.75em; font-size: 0.9375rem; line-height: 1.7; }
+.el2--consent .el2-consent { margin: 16px 0; padding: 14px 16px; }
+.el2--consent .el2-list { padding-left: 1.1em; font-size: 0.875rem; }
+.el2--consent .el2-list li { margin-bottom: 6px; line-height: 1.65; }
+.el2--consent .el2-muted { font-size: 0.875rem; }
+.el2--consent .el2-nav { margin-top: 20px; }
 
 /* Navigation row: back/decline on the left, forward action on the right. */
 .el2-nav {
@@ -733,6 +748,8 @@ async function submit() {
   .el2-progress { margin: 0 -24px 20px; padding: 10px 24px 12px; }
   .el2-question { padding: 24px; }
   .el2-options-grid { gap: 12px; }
+  .el2.el2--consent { padding-top: 48px; padding-bottom: 48px; }
+  .el2--consent .el2-panel { padding: 32px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
