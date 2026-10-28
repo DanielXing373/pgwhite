@@ -1,7 +1,7 @@
 export const DATASET_VERSION = 'el2-hs-questions.v1'
 export const PROTOCOL_VERSION = 'el2-human-preference.protocol.v1'
 export const RANDOMIZATION_VERSION = 'el2-assignment.v1'
-export const COPY_VERSION = 'el2-hs-copy.v3'
+export const COPY_VERSION = 'el2-hs-copy.v4'
 export const INTERNAL_MASTER_SHA256 =
   '1e3b6d1f61974de3f8d24600fe7b51f5e3f53dd9c734d89c2ba725713fc2a4d8'
 export const INTERNAL_MASTER_REL =

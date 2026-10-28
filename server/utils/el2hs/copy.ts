@@ -1,8 +1,8 @@
 /* Imported by pages/el2test.vue: must stay free of source ids and server-only data. */
 
-/** Participant copy; CONSENT.md mirrors it and COPY-REVISIONS.md records changes (`el2-hs-copy.v3`). */
+/** Participant copy; CONSENT.md mirrors it and COPY-REVISIONS.md records changes (`el2-hs-copy.v4`). */
 export const COPY = {
-  version: 'el2-hs-copy.v3',
+  version: 'el2-hs-copy.v4',
   welcome: '欢迎参加鸽白词句库的阅读研究',
   research_description: [
     '本研究希望了解读者如何为一段文字选择主题标签。',
