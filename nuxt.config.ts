@@ -20,7 +20,7 @@ export default defineNuxtConfig({
   css: ['./styles/theme.css'],
 
   routeRules: {
-    '/el2test': { ssr: false }
+    '/el2test': { ssr: false, prerender: true }
   },
   // Only rendered for ssr: false routes (/el2test) while the client bundle loads.
   spaLoadingTemplate: 'spa-loading-template.html',

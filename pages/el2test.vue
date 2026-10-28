@@ -265,13 +265,15 @@ async function recover() {
 }
 
 onMounted(async () => {
-  try {
-    const meta = await $fetch<{ copy: typeof copy.value }>('/api/el2test/meta')
-    copy.value = { ...copy.value, ...meta.copy }
-  } catch {
-    /* frozen fallback copy already in the page */
+  const loadMeta = async () => {
+    try {
+      const meta = await $fetch<{ copy: typeof copy.value }>('/api/el2test/meta')
+      copy.value = { ...copy.value, ...meta.copy }
+    } catch {
+      /* frozen fallback copy already in the page */
+    }
   }
-  await recover()
+  await Promise.all([loadMeta(), recover()])
   booting.value = false
 })
 
