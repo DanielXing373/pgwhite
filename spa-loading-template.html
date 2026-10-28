@@ -1,0 +1,46 @@
+<div class="el2-boot" role="status">
+  <span class="el2-boot-spinner" aria-hidden="true"></span>
+  <p>正在加载问卷，首次打开可能需要几秒钟…</p>
+</div>
+<style>
+  /* Fixed: Nuxt inserts the loader after the full-height #__nuxt element. */
+  .el2-boot {
+    box-sizing: border-box;
+    position: fixed;
+    top: max(16px, env(safe-area-inset-top));
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: calc(100% - 40px);
+    max-width: calc(42rem - 40px);
+    margin: 0 auto;
+    padding: 22px 18px;
+    background: #fff;
+    border: 1px solid #f5f5f4;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    color: #6b7280;
+    font-family: "Noto Serif SC", "Songti SC", "SimSun", serif;
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+  .el2-boot p { margin: 0; }
+  .el2-boot-spinner {
+    flex-shrink: 0;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #e7e5e4;
+    border-top-color: #2563eb;
+    border-radius: 50%;
+    animation: el2-boot-spin 0.7s linear infinite;
+  }
+  @keyframes el2-boot-spin { to { transform: rotate(360deg); } }
+  @media (min-width: 42rem) {
+    .el2-boot { top: 48px; max-width: calc(42rem - 48px); padding: 32px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .el2-boot-spinner { animation: none; }
+  }
+</style>

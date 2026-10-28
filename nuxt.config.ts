@@ -22,6 +22,8 @@ export default defineNuxtConfig({
   routeRules: {
     '/el2test': { ssr: false }
   },
+  // Only rendered for ssr: false routes (/el2test) while the client bundle loads.
+  spaLoadingTemplate: 'spa-loading-template.html',
 
   // @nuxt/ui 默认会拉 Google Fonts / Material Icons 元数据，国内常超时重试导致 dev 很慢
   ui: {

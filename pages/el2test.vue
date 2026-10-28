@@ -11,8 +11,13 @@
     <p v-if="studyMode === 'test'" class="el2-banner">{{ copy.test_banner }}</p>
     <p v-if="error" class="el2-error" role="alert">{{ error }}</p>
 
+    <section v-if="booting" class="el2-panel el2-loading" role="status">
+      <span class="el2-spinner el2-spinner--muted" aria-hidden="true" />
+      <p class="el2-text el2-muted">{{ copy.loading }}</p>
+    </section>
+
     <!-- Welcome & consent -->
-    <section v-if="screen === 'welcome'" class="el2-panel el2-welcome">
+    <section v-else-if="screen === 'welcome'" class="el2-panel el2-welcome">
       <h2 class="el2-h2">{{ copy.welcome }}</h2>
       <p v-for="para in copy.research_description" :key="para" class="el2-text">{{ para }}</p>
       <div class="el2-consent">
@@ -202,6 +207,7 @@ const copy = ref<typeof COPY>(COPY)
 const session = ref<Session | null>(null)
 const answers = ref<Record<number, Choice>>({})
 const screen = ref<'welcome' | 'section1' | 'section2' | 'done'>('welcome')
+const booting = ref(true)
 const loading = ref(false)
 const error = ref('')
 const confirmOpen = ref(false)
@@ -265,7 +271,8 @@ onMounted(async () => {
   } catch {
     /* frozen fallback copy already in the page */
   }
-  recover()
+  await recover()
+  booting.value = false
 })
 
 async function start() {
@@ -546,6 +553,8 @@ async function submit() {
   animation: el2-spin 0.7s linear infinite;
 }
 @keyframes el2-spin { to { transform: rotate(360deg); } }
+.el2-spinner--muted { flex-shrink: 0; border-color: #e7e5e4; border-top-color: var(--color-brand); }
+.el2-loading { display: flex; align-items: center; gap: 12px; }
 
 /* Progress */
 .el2-progress {
