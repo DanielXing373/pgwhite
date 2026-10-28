@@ -5,19 +5,25 @@ File: app.vue
 布局：主容器宽度受 --container-w 控制
 ====================================================== -->
 <template>
-  <!-- FlyingGhosts must be at root level, outside any container that might be blurred -->
-  <!-- Use stable key to prevent re-mounting on route/query parameter changes -->
-  <FlyingGhosts key="flying-ghosts-stable-root" />
-
-  <TopBar />
-
-  <main class="main-container" :style="{ maxWidth: 'var(--container-w)' }">
+  <template v-if="isEl2Study">
     <NuxtPage />
-  </main>
+  </template>
+  <template v-else>
+    <!-- FlyingGhosts must be at root level, outside any container that might be blurred -->
+    <!-- Use stable key to prevent re-mounting on route/query parameter changes -->
+    <FlyingGhosts key="flying-ghosts-stable-root" />
 
-  <FloatingButtons />
+    <TopBar />
+
+    <main class="main-container" :style="{ maxWidth: 'var(--container-w)' }">
+      <NuxtPage />
+    </main>
+
+    <FloatingButtons />
+  </template>
 </template>
 
 <script setup lang="ts">
-// 全局仅作布局承载
+const route = useRoute()
+const isEl2Study = computed(() => route.path.startsWith('/el2test'))
 </script>

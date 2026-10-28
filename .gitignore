@@ -50,5 +50,8 @@ research/annotation-workbench/fixtures/audit-snapshot.json
 # Keep committed mock examples; ignore other generated snapshots if re-exported locally
 !research/annotation-workbench/fixtures/examples/
 
+# EL2 questionnaire private data (source mappings, manifest, raw responses): provisioned locally, never committed
+research/retrieval/formal-study/el2/human-study/
+
 长日将尽笔记.txt
 outdated_import_example.txt
