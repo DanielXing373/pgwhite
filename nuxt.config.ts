@@ -19,6 +19,10 @@ export default defineNuxtConfig({
   },
   css: ['./styles/theme.css'],
 
+  routeRules: {
+    '/el2test': { ssr: false }
+  },
+
   // @nuxt/ui 默认会拉 Google Fonts / Material Icons 元数据，国内常超时重试导致 dev 很慢
   ui: {
     fonts: false
@@ -58,7 +62,9 @@ export default defineNuxtConfig({
     /** 种类数值：场景时间 / 主题 / 修辞 — 对应你库里的 1、2、3（顺序可用环境变量改） */
     tagKindTime: process.env.TAG_KIND_TIME || '1',
     tagKindTheme: process.env.TAG_KIND_THEME || '2',
-    tagKindDevice: process.env.TAG_KIND_DEVICE || '3'
+    tagKindDevice: process.env.TAG_KIND_DEVICE || '3',
+    /** EL2 human-study export; never expose in public runtimeConfig */
+    el2HsExportToken: process.env.EL2_HS_EXPORT_TOKEN || ''
   },
   
   app: {
