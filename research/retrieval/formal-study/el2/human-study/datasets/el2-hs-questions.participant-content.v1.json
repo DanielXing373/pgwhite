@@ -1,0 +1,1479 @@
+{
+  "schema_version": "el2-hs-participant-content.v1",
+  "dataset_version": "el2-hs-questions.v1",
+  "freeze_status": "frozen",
+  "note": "Content catalog only. Theme-set order is by opaque id, not source identity. Phase 2 server assigns A–D per session from the internal master.",
+  "none_of_the_above_label_zh": "以上都不合适",
+  "quotes": [
+    {
+      "quote_id": "batch1-calib-007",
+      "text_zh": "为了能够通过搅乱气味、味道的正常秩序唤起自己的警觉，因为他相信，与令人绝望的永恒结局相比，死亡更是一种警告。",
+      "author_name_zh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "book_title_zh": "撒旦探戈",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "0129e64de2781d5f",
+          "themes": [
+            {
+              "theme_id": "theme-0043-死亡",
+              "label_zh": "死亡",
+              "definition_zh": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+            },
+            {
+              "theme_id": "theme-0170-秩序",
+              "label_zh": "秩序",
+              "definition_zh": "规则、结构化稳定与其压制面向。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "549af3c787c322e6",
+          "themes": [
+            {
+              "theme_id": "theme-0043-死亡",
+              "label_zh": "死亡",
+              "definition_zh": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+            }
+          ],
+          "theme_count": 1
+        },
+        {
+          "theme_set_id": "e73c0131481b4881",
+          "themes": [
+            {
+              "theme_id": "theme-0043-死亡",
+              "label_zh": "死亡",
+              "definition_zh": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+            },
+            {
+              "theme_id": "theme-0045-生命",
+              "label_zh": "生命",
+              "definition_zh": "活着本身、生命力与生存境况。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "f9cd14e1117846de",
+          "themes": [
+            {
+              "theme_id": "theme-0043-死亡",
+              "label_zh": "死亡",
+              "definition_zh": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+            },
+            {
+              "theme_id": "theme-0106-绝望",
+              "label_zh": "绝望",
+              "definition_zh": "感到无路可走、失去盼望的沉重心境。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch1-calib-013",
+      "text_zh": "直到他的身体脏器与他解除那份\"能够维持彼此交易关系的协议\"，直到他的肉和骨头遭到死亡与腐烂的秃鹫的攻击。",
+      "author_name_zh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "book_title_zh": "撒旦探戈",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "0a1faae2aaab408b",
+          "themes": [
+            {
+              "theme_id": "theme-0043-死亡",
+              "label_zh": "死亡",
+              "definition_zh": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+            }
+          ],
+          "theme_count": 1
+        },
+        {
+          "theme_set_id": "2c8a19a9f7a89db0",
+          "themes": [
+            {
+              "theme_id": "theme-0206-身体",
+              "label_zh": "身体",
+              "definition_zh": "肉身感知、外貌与身体处境。"
+            },
+            {
+              "theme_id": "theme-0043-死亡",
+              "label_zh": "死亡",
+              "definition_zh": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "39b52676b7eebc2c",
+          "themes": [
+            {
+              "theme_id": "theme-0043-死亡",
+              "label_zh": "死亡",
+              "definition_zh": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+            },
+            {
+              "theme_id": "theme-0045-生命",
+              "label_zh": "生命",
+              "definition_zh": "活着本身、生命力与生存境况。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "511df8f76acc0f52",
+          "themes": [
+            {
+              "theme_id": "theme-0218-牺牲",
+              "label_zh": "牺牲",
+              "definition_zh": "为他者或价值放弃自身利益乃至生命。"
+            },
+            {
+              "theme_id": "theme-0206-身体",
+              "label_zh": "身体",
+              "definition_zh": "肉身感知、外貌与身体处境。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch1-calib-017",
+      "text_zh": "这部充满了各种感觉的小说突然被这些不知深浅的漩涡隔断了，犹如你希望生活充实结果却发现了生活中的空虚。",
+      "author_name_zh": "伊塔洛·卡尔维诺",
+      "book_title_zh": "如果在冬夜，一个旅人",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "150eeeb60b28a737",
+          "themes": [
+            {
+              "theme_id": "theme-0054-虚无",
+              "label_zh": "虚无",
+              "definition_zh": "意义空缺、空洞与存在无根基感。"
+            },
+            {
+              "theme_id": "theme-0101-无聊",
+              "label_zh": "无聊",
+              "definition_zh": "缺乏刺激或意义时的空虚与倦怠感。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "1813b035a898a9b0",
+          "themes": [
+            {
+              "theme_id": "theme-0054-虚无",
+              "label_zh": "虚无",
+              "definition_zh": "意义空缺、空洞与存在无根基感。"
+            },
+            {
+              "theme_id": "theme-0036-意义",
+              "label_zh": "意义",
+              "definition_zh": "人生、事件或行动是否值得、指向什么。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "53bc3e9dda0b1852",
+          "themes": [
+            {
+              "theme_id": "theme-0054-虚无",
+              "label_zh": "虚无",
+              "definition_zh": "意义空缺、空洞与存在无根基感。"
+            }
+          ],
+          "theme_count": 1
+        },
+        {
+          "theme_set_id": "6709a84c9e14e8ef",
+          "themes": [
+            {
+              "theme_id": "theme-0054-虚无",
+              "label_zh": "虚无",
+              "definition_zh": "意义空缺、空洞与存在无根基感。"
+            },
+            {
+              "theme_id": "theme-0229-生活",
+              "label_zh": "生活",
+              "definition_zh": "个人生活的现实处境、日常活动、关系与人生历程；区别于生物意义上的生命。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch1-calib-020",
+      "text_zh": "读者啊！那位幸福的女读者进入你的视野，进入你注意的范围，或者说你陷入了一个磁场，而且摆脱不了这个磁场的吸引力。",
+      "author_name_zh": "伊塔洛·卡尔维诺",
+      "book_title_zh": "如果在冬夜，一个旅人",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "4915475711f0bc82",
+          "themes": [
+            {
+              "theme_id": "theme-0137-文学",
+              "label_zh": "文学",
+              "definition_zh": "文学作品及其阅读、书写与审美或思想经验。"
+            },
+            {
+              "theme_id": "theme-0119-婚姻",
+              "label_zh": "婚姻",
+              "definition_zh": "婚姻制度与夫妻关系中的联结、张力与变故。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "6ed0ace6b4985f62",
+          "themes": [
+            {
+              "theme_id": "theme-0137-文学",
+              "label_zh": "文学",
+              "definition_zh": "文学作品及其阅读、书写与审美或思想经验。"
+            },
+            {
+              "theme_id": "theme-0109-迷恋",
+              "label_zh": "迷恋",
+              "definition_zh": "过度专注、难以放下的执念。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "bab27903159419cc",
+          "themes": [
+            {
+              "theme_id": "theme-0109-迷恋",
+              "label_zh": "迷恋",
+              "definition_zh": "过度专注、难以放下的执念。"
+            }
+          ],
+          "theme_count": 1
+        },
+        {
+          "theme_set_id": "c4de106597f34e21",
+          "themes": [
+            {
+              "theme_id": "theme-0123-爱情",
+              "label_zh": "爱情",
+              "definition_zh": "人与人之间的爱与亲密情感，包括浪漫吸引、依恋和情感纠葛。"
+            }
+          ],
+          "theme_count": 1
+        }
+      ]
+    },
+    {
+      "quote_id": "batch1-calib-021",
+      "text_zh": "你在梦境之中要寻找一种抽象的、绝对的时空，并沿着一条明确的路线前进。但是，当你觉得你快要找到的时候，你却醒了，发现你躺在床上并未动弹，只得一切重新开始。",
+      "author_name_zh": "伊塔洛·卡尔维诺",
+      "book_title_zh": "如果在冬夜，一个旅人",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "268d0a56252d829e",
+          "themes": [
+            {
+              "theme_id": "theme-0071-梦",
+              "label_zh": "梦",
+              "definition_zh": "梦境、愿望投射与潜意识显现。"
+            },
+            {
+              "theme_id": "theme-0041-未来",
+              "label_zh": "未来",
+              "definition_zh": "尚未到来的时间及其忧惧或希望。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "96b99140f7da2c9a",
+          "themes": [
+            {
+              "theme_id": "theme-0071-梦",
+              "label_zh": "梦",
+              "definition_zh": "梦境、愿望投射与潜意识显现。"
+            }
+          ],
+          "theme_count": 1
+        },
+        {
+          "theme_set_id": "9fd61ba22114ecb8",
+          "themes": [
+            {
+              "theme_id": "theme-0071-梦",
+              "label_zh": "梦",
+              "definition_zh": "梦境、愿望投射与潜意识显现。"
+            },
+            {
+              "theme_id": "theme-0184-寻找",
+              "label_zh": "寻找",
+              "definition_zh": "寻找某人或某种意义/真相的过程。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "bec3104685b94af4",
+          "themes": [
+            {
+              "theme_id": "theme-0071-梦",
+              "label_zh": "梦",
+              "definition_zh": "梦境、愿望投射与潜意识显现。"
+            },
+            {
+              "theme_id": "theme-0057-轮回",
+              "label_zh": "轮回",
+              "definition_zh": "循环往复、反复发生与生命周而复始的经验。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch1-calib-022",
+      "text_zh": "难道你就没有想到我手表上的日历在那个小方框里啪啪倒退，仿佛断头台上被屠刀砍下的头颅一个个从我脚下滚过吗？",
+      "author_name_zh": "伊塔洛·卡尔维诺",
+      "book_title_zh": "如果在冬夜，一个旅人",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "13baa8c8d73a0de0",
+          "themes": [
+            {
+              "theme_id": "theme-0043-死亡",
+              "label_zh": "死亡",
+              "definition_zh": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+            },
+            {
+              "theme_id": "theme-0058-过去",
+              "label_zh": "过去",
+              "definition_zh": "已发生之事对当下的压力与召回。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "b4a95db0a47cde78",
+          "themes": [
+            {
+              "theme_id": "theme-0043-死亡",
+              "label_zh": "死亡",
+              "definition_zh": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+            },
+            {
+              "theme_id": "theme-0057-轮回",
+              "label_zh": "轮回",
+              "definition_zh": "循环往复、反复发生与生命周而复始的经验。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "b9d3327c43b88c6d",
+          "themes": [
+            {
+              "theme_id": "theme-0039-时间",
+              "label_zh": "时间",
+              "definition_zh": "时间本身及人对时间的经验，包括经过、顺序、快慢、逆转与价值。"
+            }
+          ],
+          "theme_count": 1
+        },
+        {
+          "theme_set_id": "f62f50049581e632",
+          "themes": [
+            {
+              "theme_id": "theme-0043-死亡",
+              "label_zh": "死亡",
+              "definition_zh": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+            },
+            {
+              "theme_id": "theme-0174-谋杀",
+              "label_zh": "谋杀",
+              "definition_zh": "故意杀害他人及其动机、罪责与后果。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch2-batch2-004",
+      "text_zh": "每一门科学都有其相应的伪科学，由某种特殊类型的头脑所产生的怪诞扭曲形式，天文学有占星术这一滑稽模仿的伴侣，而化学则曾经有过炼金术。",
+      "author_name_zh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "book_title_zh": "索拉里斯星（译林幻系列）",
+      "attribution_status": "human_adjudicated",
+      "theme_sets": [
+        {
+          "theme_set_id": "30f6321d5a7ac297",
+          "themes": [
+            {
+              "theme_id": "theme-0160-科技",
+              "label_zh": "科技",
+              "definition_zh": "科学知识及其实际应用形成的方法、工具与技术变化。"
+            },
+            {
+              "theme_id": "theme-0226-幽默",
+              "label_zh": "幽默",
+              "definition_zh": "对可笑、荒诞或反差的感受、表达与观察。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "5200231ca4f289b6",
+          "themes": [
+            {
+              "theme_id": "theme-0160-科技",
+              "label_zh": "科技",
+              "definition_zh": "科学知识及其实际应用形成的方法、工具与技术变化。"
+            },
+            {
+              "theme_id": "theme-0029-人性",
+              "label_zh": "人性",
+              "definition_zh": "关于人固有倾向、善恶与限度的思索。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "9ae9f8b75c99e647",
+          "themes": [
+            {
+              "theme_id": "theme-0160-科技",
+              "label_zh": "科技",
+              "definition_zh": "科学知识及其实际应用形成的方法、工具与技术变化。"
+            }
+          ],
+          "theme_count": 1
+        },
+        {
+          "theme_set_id": "bbbb105e3bbf9b96",
+          "themes": [
+            {
+              "theme_id": "theme-0160-科技",
+              "label_zh": "科技",
+              "definition_zh": "科学知识及其实际应用形成的方法、工具与技术变化。"
+            },
+            {
+              "theme_id": "theme-0074-理智",
+              "label_zh": "理智",
+              "definition_zh": "冷静分析、克制情感的认知力量。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch2-batch2-006",
+      "text_zh": "能力非凡且个性坚强的人降生的频率多少是恒定的，只是他们的选择不均匀。",
+      "author_name_zh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "book_title_zh": "索拉里斯星（译林幻系列）",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "0e1105d4224e09c8",
+          "themes": [
+            {
+              "theme_id": "theme-0060-选择",
+              "label_zh": "选择",
+              "definition_zh": "在可能性之间做出取舍及其后果。"
+            }
+          ],
+          "theme_count": 1
+        },
+        {
+          "theme_set_id": "64fd5277c1e2244a",
+          "themes": [
+            {
+              "theme_id": "theme-0030-偶然",
+              "label_zh": "偶然",
+              "definition_zh": "无明确意图的巧合、机运与不确定。"
+            },
+            {
+              "theme_id": "theme-0032-命运",
+              "label_zh": "命运",
+              "definition_zh": "命运、宿命或更大力量如何牵引人生轨迹，也包括人对这种不可控性的感受。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "7b993d95c204d432",
+          "themes": [
+            {
+              "theme_id": "theme-0029-人性",
+              "label_zh": "人性",
+              "definition_zh": "关于人固有倾向、善恶与限度的思索。"
+            },
+            {
+              "theme_id": "theme-0060-选择",
+              "label_zh": "选择",
+              "definition_zh": "在可能性之间做出取舍及其后果。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "c2ab100d36ef64cd",
+          "themes": [
+            {
+              "theme_id": "theme-0060-选择",
+              "label_zh": "选择",
+              "definition_zh": "在可能性之间做出取舍及其后果。"
+            },
+            {
+              "theme_id": "theme-0032-命运",
+              "label_zh": "命运",
+              "definition_zh": "命运、宿命或更大力量如何牵引人生轨迹，也包括人对这种不可控性的感受。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch2-batch2-007",
+      "text_zh": "仿佛值得尊敬的做法就是硬着头皮往前走，陷入一片泥潭，在你不理解而且永远都不会理解的东西里活活淹死。",
+      "author_name_zh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "book_title_zh": "索拉里斯星（译林幻系列）",
+      "attribution_status": "human_adjudicated",
+      "theme_sets": [
+        {
+          "theme_set_id": "2804ac4556a84e62",
+          "themes": [
+            {
+              "theme_id": "theme-0106-绝望",
+              "label_zh": "绝望",
+              "definition_zh": "感到无路可走、失去盼望的沉重心境。"
+            }
+          ],
+          "theme_count": 1
+        },
+        {
+          "theme_set_id": "610facafdd300c75",
+          "themes": [
+            {
+              "theme_id": "theme-0106-绝望",
+              "label_zh": "绝望",
+              "definition_zh": "感到无路可走、失去盼望的沉重心境。"
+            },
+            {
+              "theme_id": "theme-0032-命运",
+              "label_zh": "命运",
+              "definition_zh": "命运、宿命或更大力量如何牵引人生轨迹，也包括人对这种不可控性的感受。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "de474e24fb8ffc0a",
+          "themes": [
+            {
+              "theme_id": "theme-0106-绝望",
+              "label_zh": "绝望",
+              "definition_zh": "感到无路可走、失去盼望的沉重心境。"
+            },
+            {
+              "theme_id": "theme-0218-牺牲",
+              "label_zh": "牺牲",
+              "definition_zh": "为他者或价值放弃自身利益乃至生命。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "f1ca35074d5ca6c1",
+          "themes": [
+            {
+              "theme_id": "theme-0032-命运",
+              "label_zh": "命运",
+              "definition_zh": "命运、宿命或更大力量如何牵引人生轨迹，也包括人对这种不可控性的感受。"
+            },
+            {
+              "theme_id": "theme-0059-接受",
+              "label_zh": "接受",
+              "definition_zh": "承认并接纳难以改变的事实或处境，减少抗拒并继续应对。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch2-batch2-011",
+      "text_zh": "智力好的人能学会的东西，他学了不少，是个相当聪明的人。但他学不会的，却是对自己和生活感到满意。",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "00b9b977124f9038",
+          "themes": [
+            {
+              "theme_id": "theme-0103-满足",
+              "label_zh": "满足",
+              "definition_zh": "感到足够、安稳或心意落地的状态。"
+            },
+            {
+              "theme_id": "theme-0229-生活",
+              "label_zh": "生活",
+              "definition_zh": "个人生活的现实处境、日常活动、关系与人生历程；区别于生物意义上的生命。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "6fa2477f2ca9a23c",
+          "themes": [
+            {
+              "theme_id": "theme-0070-智慧",
+              "label_zh": "智慧",
+              "definition_zh": "深刻洞见与妥善判断的智性品质。"
+            },
+            {
+              "theme_id": "theme-0103-满足",
+              "label_zh": "满足",
+              "definition_zh": "感到足够、安稳或心意落地的状态。"
+            },
+            {
+              "theme_id": "theme-0225-学习",
+              "label_zh": "学习",
+              "definition_zh": "通过学习、实践或经验获得知识、技能与理解的过程。"
+            },
+            {
+              "theme_id": "theme-0229-生活",
+              "label_zh": "生活",
+              "definition_zh": "个人生活的现实处境、日常活动、关系与人生历程；区别于生物意义上的生命。"
+            }
+          ],
+          "theme_count": 4
+        },
+        {
+          "theme_set_id": "8b44241fa9067eac",
+          "themes": [
+            {
+              "theme_id": "theme-0103-满足",
+              "label_zh": "满足",
+              "definition_zh": "感到足够、安稳或心意落地的状态。"
+            }
+          ],
+          "theme_count": 1
+        },
+        {
+          "theme_set_id": "b91304a53ffdfddd",
+          "themes": [
+            {
+              "theme_id": "theme-0070-智慧",
+              "label_zh": "智慧",
+              "definition_zh": "深刻洞见与妥善判断的智性品质。"
+            },
+            {
+              "theme_id": "theme-0074-理智",
+              "label_zh": "理智",
+              "definition_zh": "冷静分析、克制情感的认知力量。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch2-batch2-012",
+      "text_zh": "在束手无策地渴望温暖中折磨自己是多么可笑！孤独就是独立。多年来，我终于拥有了我一直渴求的孤独。孤独是冰冷的，哦，是的！",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "1072393bae112d42",
+          "themes": [
+            {
+              "theme_id": "theme-0090-孤独",
+              "label_zh": "孤独",
+              "definition_zh": "缺乏联结、被隔绝或无人理解的感受。"
+            },
+            {
+              "theme_id": "theme-0053-自由",
+              "label_zh": "自由",
+              "definition_zh": "免于束缚、能够自主选择与行动。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "1e808138debdc1f9",
+          "themes": [
+            {
+              "theme_id": "theme-0090-孤独",
+              "label_zh": "孤独",
+              "definition_zh": "缺乏联结、被隔绝或无人理解的感受。"
+            },
+            {
+              "theme_id": "theme-0084-冷漠",
+              "label_zh": "冷漠",
+              "definition_zh": "缺乏关心、情感抽离或不愿投入。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "6f2d27be55b90387",
+          "themes": [
+            {
+              "theme_id": "theme-0090-孤独",
+              "label_zh": "孤独",
+              "definition_zh": "缺乏联结、被隔绝或无人理解的感受。"
+            },
+            {
+              "theme_id": "theme-0105-痛苦",
+              "label_zh": "痛苦",
+              "definition_zh": "身体或精神上的受苦、伤痛与难耐体验。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "a247c8ef228c29d9",
+          "themes": [
+            {
+              "theme_id": "theme-0090-孤独",
+              "label_zh": "孤独",
+              "definition_zh": "缺乏联结、被隔绝或无人理解的感受。"
+            },
+            {
+              "theme_id": "theme-0191-疏离",
+              "label_zh": "疏离",
+              "definition_zh": "与他人、社会或自我格格不入。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch2-batch2-013",
+      "text_zh": "全部的文字意味着一次地狱之旅，一次时而忧惧时而英勇的旅行，在幽暗的灵魂世界的混沌中，以意志穿越地狱，直面混沌，忍受邪恶，直至终点。",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "attribution_status": "human_adjudicated",
+      "theme_sets": [
+        {
+          "theme_set_id": "26c7ff5b052e33a7",
+          "themes": [
+            {
+              "theme_id": "theme-0069-意志",
+              "label_zh": "意志",
+              "definition_zh": "坚持意向、推动行动的内在力量。"
+            },
+            {
+              "theme_id": "theme-0204-灵魂",
+              "label_zh": "灵魂",
+              "definition_zh": "内在精神本质或超越肉身的自我想象。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "39a8ffbcc2a12d96",
+          "themes": [
+            {
+              "theme_id": "theme-0032-命运",
+              "label_zh": "命运",
+              "definition_zh": "命运、宿命或更大力量如何牵引人生轨迹，也包括人对这种不可控性的感受。"
+            },
+            {
+              "theme_id": "theme-0029-人性",
+              "label_zh": "人性",
+              "definition_zh": "关于人固有倾向、善恶与限度的思索。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "9ffe3cade28df5f9",
+          "themes": [
+            {
+              "theme_id": "theme-0024-勇气",
+              "label_zh": "勇气",
+              "definition_zh": "面对恐惧或压力仍坚持行动。"
+            },
+            {
+              "theme_id": "theme-0069-意志",
+              "label_zh": "意志",
+              "definition_zh": "坚持意向、推动行动的内在力量。"
+            },
+            {
+              "theme_id": "theme-0097-恐惧",
+              "label_zh": "恐惧",
+              "definition_zh": "对危险、未知或伤害的害怕与惊惧。"
+            },
+            {
+              "theme_id": "theme-0137-文学",
+              "label_zh": "文学",
+              "definition_zh": "文学作品及其阅读、书写与审美或思想经验。"
+            },
+            {
+              "theme_id": "theme-0208-善恶",
+              "label_zh": "善恶",
+              "definition_zh": "道德上的善与恶及其边界。"
+            }
+          ],
+          "theme_count": 5
+        },
+        {
+          "theme_set_id": "ef8aaa88c81d0443",
+          "themes": [
+            {
+              "theme_id": "theme-0069-意志",
+              "label_zh": "意志",
+              "definition_zh": "坚持意向、推动行动的内在力量。"
+            },
+            {
+              "theme_id": "theme-0024-勇气",
+              "label_zh": "勇气",
+              "definition_zh": "面对恐惧或压力仍坚持行动。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch2-batch2-014",
+      "text_zh": "恋人和诗人对爱的力量怀有永恒的信念，认为它比死亡还要持久，但那句千百年来一直缠着我们不放的“生命虽尽，爱犹未尽”，实际上不过是一句谎言。这句谎言只是徒劳无益，并非荒唐可笑。",
+      "author_name_zh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "book_title_zh": "索拉里斯星（译林幻系列）",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "3ee586865c31c932",
+          "themes": [
+            {
+              "theme_id": "theme-0121-忠诚",
+              "label_zh": "忠诚",
+              "definition_zh": "对人或价值保持忠贞不渝。"
+            },
+            {
+              "theme_id": "theme-0123-爱情",
+              "label_zh": "爱情",
+              "definition_zh": "人与人之间的爱与亲密情感，包括浪漫吸引、依恋和情感纠葛。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "71bc060c349ee099",
+          "themes": [
+            {
+              "theme_id": "theme-0123-爱情",
+              "label_zh": "爱情",
+              "definition_zh": "人与人之间的爱与亲密情感，包括浪漫吸引、依恋和情感纠葛。"
+            },
+            {
+              "theme_id": "theme-0043-死亡",
+              "label_zh": "死亡",
+              "definition_zh": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "779f098e0a7e36d0",
+          "themes": [
+            {
+              "theme_id": "theme-0039-时间",
+              "label_zh": "时间",
+              "definition_zh": "时间本身及人对时间的经验，包括经过、顺序、快慢、逆转与价值。"
+            },
+            {
+              "theme_id": "theme-0043-死亡",
+              "label_zh": "死亡",
+              "definition_zh": "生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。"
+            },
+            {
+              "theme_id": "theme-0045-生命",
+              "label_zh": "生命",
+              "definition_zh": "活着本身、生命力与生存境况。"
+            },
+            {
+              "theme_id": "theme-0123-爱情",
+              "label_zh": "爱情",
+              "definition_zh": "人与人之间的爱与亲密情感，包括浪漫吸引、依恋和情感纠葛。"
+            },
+            {
+              "theme_id": "theme-0137-文学",
+              "label_zh": "文学",
+              "definition_zh": "文学作品及其阅读、书写与审美或思想经验。"
+            }
+          ],
+          "theme_count": 5
+        },
+        {
+          "theme_set_id": "acc66f86e87d9601",
+          "themes": [
+            {
+              "theme_id": "theme-0123-爱情",
+              "label_zh": "爱情",
+              "definition_zh": "人与人之间的爱与亲密情感，包括浪漫吸引、依恋和情感纠葛。"
+            },
+            {
+              "theme_id": "theme-0199-谎言",
+              "label_zh": "谎言",
+              "definition_zh": "故意不实的言说或伪装。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch2-batch2-016",
+      "text_zh": "与之相反，我经历的为数不多的快乐，那些愉悦、狂喜、巅峰体验，世人或许最多在文艺作品中见识过、寻觅过、热爱过。而在现实生活中，他们必定认为那不合常理、荒诞不经。",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "0ce2d51563d2dff5",
+          "themes": [
+            {
+              "theme_id": "theme-0076-经历",
+              "label_zh": "经历",
+              "definition_zh": "亲身遭遇的事件、情境与过程，以及它们带来的感受和体会。"
+            },
+            {
+              "theme_id": "theme-0087-幸福",
+              "label_zh": "幸福",
+              "definition_zh": "感到愉悦、满足或安好；包括具体的快乐时刻和对生活状态的幸福感。"
+            },
+            {
+              "theme_id": "theme-0229-生活",
+              "label_zh": "生活",
+              "definition_zh": "个人生活的现实处境、日常活动、关系与人生历程；区别于生物意义上的生命。"
+            }
+          ],
+          "theme_count": 3
+        },
+        {
+          "theme_set_id": "18e4ebd715923e3a",
+          "themes": [
+            {
+              "theme_id": "theme-0087-幸福",
+              "label_zh": "幸福",
+              "definition_zh": "感到愉悦、满足或安好；包括具体的快乐时刻和对生活状态的幸福感。"
+            },
+            {
+              "theme_id": "theme-0220-审美",
+              "label_zh": "审美",
+              "definition_zh": "对美、丑、形式及其价值的感受、判断与追求。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "467166b5bde82a26",
+          "themes": [
+            {
+              "theme_id": "theme-0087-幸福",
+              "label_zh": "幸福",
+              "definition_zh": "感到愉悦、满足或安好；包括具体的快乐时刻和对生活状态的幸福感。"
+            },
+            {
+              "theme_id": "theme-0229-生活",
+              "label_zh": "生活",
+              "definition_zh": "个人生活的现实处境、日常活动、关系与人生历程；区别于生物意义上的生命。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "522d5f1dbcf7de61",
+          "themes": [
+            {
+              "theme_id": "theme-0226-幽默",
+              "label_zh": "幽默",
+              "definition_zh": "对可笑、荒诞或反差的感受、表达与观察。"
+            },
+            {
+              "theme_id": "theme-0029-人性",
+              "label_zh": "人性",
+              "definition_zh": "关于人固有倾向、善恶与限度的思索。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch2-batch2-018",
+      "text_zh": "幽默是那些在完成伟大使命的过程中重重受阻，那些接近成为悲剧人物、不幸的非凡人物的美妙发明。",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "2bd38133ca844266",
+          "themes": [
+            {
+              "theme_id": "theme-0226-幽默",
+              "label_zh": "幽默",
+              "definition_zh": "对可笑、荒诞或反差的感受、表达与观察。"
+            },
+            {
+              "theme_id": "theme-0032-命运",
+              "label_zh": "命运",
+              "definition_zh": "命运、宿命或更大力量如何牵引人生轨迹，也包括人对这种不可控性的感受。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "5d0dc68a45f4b068",
+          "themes": [
+            {
+              "theme_id": "theme-0226-幽默",
+              "label_zh": "幽默",
+              "definition_zh": "对可笑、荒诞或反差的感受、表达与观察。"
+            }
+          ],
+          "theme_count": 1
+        },
+        {
+          "theme_set_id": "a84a41f6f4945480",
+          "themes": [
+            {
+              "theme_id": "theme-0087-幸福",
+              "label_zh": "幸福",
+              "definition_zh": "感到愉悦、满足或安好；包括具体的快乐时刻和对生活状态的幸福感。"
+            },
+            {
+              "theme_id": "theme-0105-痛苦",
+              "label_zh": "痛苦",
+              "definition_zh": "身体或精神上的受苦、伤痛与难耐体验。"
+            },
+            {
+              "theme_id": "theme-0226-幽默",
+              "label_zh": "幽默",
+              "definition_zh": "对可笑、荒诞或反差的感受、表达与观察。"
+            }
+          ],
+          "theme_count": 3
+        },
+        {
+          "theme_set_id": "be1306fe315e3600",
+          "themes": [
+            {
+              "theme_id": "theme-0226-幽默",
+              "label_zh": "幽默",
+              "definition_zh": "对可笑、荒诞或反差的感受、表达与观察。"
+            },
+            {
+              "theme_id": "theme-0030-偶然",
+              "label_zh": "偶然",
+              "definition_zh": "无明确意图的巧合、机运与不确定。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch2-batch2-019",
+      "text_zh": "他们的理想不是献身，而是自保。他们所追求的既不是神圣性，亦不是神圣性的对立面。一切绝对性他们都难以承受。他们虽侍奉上帝，却也贪图享乐，虽志愿品行端正，却也要在尘世中享有轻松舒适。",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "12955ed8ad4f716f",
+          "themes": [
+            {
+              "theme_id": "theme-0029-人性",
+              "label_zh": "人性",
+              "definition_zh": "关于人固有倾向、善恶与限度的思索。"
+            },
+            {
+              "theme_id": "theme-0223-目标",
+              "label_zh": "目标",
+              "definition_zh": "行动、选择或愿望所指向的目的、追求与预期成果。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "dd0acd1fc98877a2",
+          "themes": [
+            {
+              "theme_id": "theme-0029-人性",
+              "label_zh": "人性",
+              "definition_zh": "关于人固有倾向、善恶与限度的思索。"
+            },
+            {
+              "theme_id": "theme-0212-信仰",
+              "label_zh": "信仰",
+              "definition_zh": "对超越性、教义或终极意义的信靠。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "f2d72e0cf09992dd",
+          "themes": [
+            {
+              "theme_id": "theme-0219-伦理",
+              "label_zh": "伦理",
+              "definition_zh": "关于行为正当性、责任、义务与价值规范的思考。"
+            },
+            {
+              "theme_id": "theme-0209-尊严",
+              "label_zh": "尊严",
+              "definition_zh": "人格不受践踏的自我与社会承认。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "fc86faa88f1216de",
+          "themes": [
+            {
+              "theme_id": "theme-0029-人性",
+              "label_zh": "人性",
+              "definition_zh": "关于人固有倾向、善恶与限度的思索。"
+            },
+            {
+              "theme_id": "theme-0046-生存",
+              "label_zh": "生存",
+              "definition_zh": "在压力下活下去的优先目标。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch2-batch2-022",
+      "text_zh": "因此父亲和欧维从来没有过多的交谈，但他们喜欢彼此的陪伴。沉默地分别坐在餐桌的两端就很满足。",
+      "author_name_zh": "弗雷德里克·巴克曼",
+      "book_title_zh": "一个叫欧维的男人决定去死（同名电影原著）",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "2b33cf7054a58e8b",
+          "themes": [
+            {
+              "theme_id": "theme-0112-亲情",
+              "label_zh": "亲情",
+              "definition_zh": "家庭成员之间的情感联结、关怀与牵挂。"
+            },
+            {
+              "theme_id": "theme-0103-满足",
+              "label_zh": "满足",
+              "definition_zh": "感到足够、安稳或心意落地的状态。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "33ef6b237ddede0c",
+          "themes": [
+            {
+              "theme_id": "theme-0112-亲情",
+              "label_zh": "亲情",
+              "definition_zh": "家庭成员之间的情感联结、关怀与牵挂。"
+            },
+            {
+              "theme_id": "theme-0023-父亲",
+              "label_zh": "父亲",
+              "definition_zh": "父职、父亲形象及其情感/权力关系（高复用关系概念）。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "94ff3c200b812493",
+          "themes": [
+            {
+              "theme_id": "theme-0112-亲情",
+              "label_zh": "亲情",
+              "definition_zh": "家庭成员之间的情感联结、关怀与牵挂。"
+            },
+            {
+              "theme_id": "theme-0013-亲密",
+              "label_zh": "亲密",
+              "definition_zh": "深度靠近的情感/身体亲近。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "b33cf306e5d30eac",
+          "themes": [
+            {
+              "theme_id": "theme-0023-父亲",
+              "label_zh": "父亲",
+              "definition_zh": "父职、父亲形象及其情感/权力关系（高复用关系概念）。"
+            },
+            {
+              "theme_id": "theme-0103-满足",
+              "label_zh": "满足",
+              "definition_zh": "感到足够、安稳或心意落地的状态。"
+            },
+            {
+              "theme_id": "theme-0112-亲情",
+              "label_zh": "亲情",
+              "definition_zh": "家庭成员之间的情感联结、关怀与牵挂。"
+            }
+          ],
+          "theme_count": 3
+        }
+      ]
+    },
+    {
+      "quote_id": "batch2-batch2-024",
+      "text_zh": "这邪恶的金属漏斗果然喷出嚼烂的橡胶和支气管黏液的混合物，喷出留声机的拥有者和收音机用户们齐声称为“音乐”的东西",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "36101bfddf5117ac",
+          "themes": [
+            {
+              "theme_id": "theme-0146-音乐",
+              "label_zh": "音乐",
+              "definition_zh": "音乐作为情感、记忆与意义的载体。"
+            },
+            {
+              "theme_id": "theme-0015-倾听",
+              "label_zh": "倾听",
+              "definition_zh": "认真听取他者或世界的声音。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "3f0e9d0cdee3a446",
+          "themes": [
+            {
+              "theme_id": "theme-0086-厌恶",
+              "label_zh": "厌恶",
+              "definition_zh": "反感、嫌恶与排斥的情感反应。"
+            },
+            {
+              "theme_id": "theme-0146-音乐",
+              "label_zh": "音乐",
+              "definition_zh": "音乐作为情感、记忆与意义的载体。"
+            },
+            {
+              "theme_id": "theme-0160-科技",
+              "label_zh": "科技",
+              "definition_zh": "科学知识及其实际应用形成的方法、工具与技术变化。"
+            }
+          ],
+          "theme_count": 3
+        },
+        {
+          "theme_set_id": "5b6c8a366c2f46ae",
+          "themes": [
+            {
+              "theme_id": "theme-0146-音乐",
+              "label_zh": "音乐",
+              "definition_zh": "音乐作为情感、记忆与意义的载体。"
+            },
+            {
+              "theme_id": "theme-0086-厌恶",
+              "label_zh": "厌恶",
+              "definition_zh": "反感、嫌恶与排斥的情感反应。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "be3453354cbaf702",
+          "themes": [
+            {
+              "theme_id": "theme-0220-审美",
+              "label_zh": "审美",
+              "definition_zh": "对美、丑、形式及其价值的感受、判断与追求。"
+            },
+            {
+              "theme_id": "theme-0146-音乐",
+              "label_zh": "音乐",
+              "definition_zh": "音乐作为情感、记忆与意义的载体。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    },
+    {
+      "quote_id": "batch2-batch2-026",
+      "text_zh": "确实不能。他们也不能为亚当偷食禁果负责，但他们不得不为此赎罪。",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "7294fe66fff35a72",
+          "themes": [
+            {
+              "theme_id": "theme-0214-罪",
+              "label_zh": "罪",
+              "definition_zh": "过错、罪责或道德/宗教意义上的堕落。"
+            },
+            {
+              "theme_id": "theme-0215-公正",
+              "label_zh": "公正",
+              "definition_zh": "公平、正义诉求与奖惩是否得当。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "750945d2b7a04f52",
+          "themes": [
+            {
+              "theme_id": "theme-0158-惩罚",
+              "label_zh": "惩罚",
+              "definition_zh": "对过错施加的惩戒与其正义性。"
+            },
+            {
+              "theme_id": "theme-0213-救赎",
+              "label_zh": "救赎",
+              "definition_zh": "从罪责或堕落中寻求挽回与更新。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "8bb0023ce4550aca",
+          "themes": [
+            {
+              "theme_id": "theme-0214-罪",
+              "label_zh": "罪",
+              "definition_zh": "过错、罪责或道德/宗教意义上的堕落。"
+            },
+            {
+              "theme_id": "theme-0213-救赎",
+              "label_zh": "救赎",
+              "definition_zh": "从罪责或堕落中寻求挽回与更新。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "feeb8f464546679d",
+          "themes": [
+            {
+              "theme_id": "theme-0056-责任",
+              "label_zh": "责任",
+              "definition_zh": "对他人、角色或后果应承担的义务感。"
+            },
+            {
+              "theme_id": "theme-0214-罪",
+              "label_zh": "罪",
+              "definition_zh": "过错、罪责或道德/宗教意义上的堕落。"
+            },
+            {
+              "theme_id": "theme-0222-宗教",
+              "label_zh": "宗教",
+              "definition_zh": "围绕宗教信仰、神圣秩序、仪式与相关价值观的经验和思考。"
+            }
+          ],
+          "theme_count": 3
+        }
+      ]
+    },
+    {
+      "quote_id": "batch2-batch2-027",
+      "text_zh": "我几乎错过了她们每一个人，跌跌撞撞，逃之夭夭，随后将她们遗忘——但在这里，她们被保存下来，一个不缺，数以百计。现在我看见她们，献身于她们，沉沦于她们玫瑰色的昏暗的阴曹地府。",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "attribution_status": "verified",
+      "theme_sets": [
+        {
+          "theme_set_id": "194c0fee4f8bbc36",
+          "themes": [
+            {
+              "theme_id": "theme-0077-记忆",
+              "label_zh": "记忆",
+              "definition_zh": "记住、回想与被过去经验塑造的心智领地，可涵盖回忆唤起、保存与改变。"
+            },
+            {
+              "theme_id": "theme-0078-遗忘",
+              "label_zh": "遗忘",
+              "definition_zh": "记不起、被抹去或主动放下过去。"
+            },
+            {
+              "theme_id": "theme-0228-病态",
+              "label_zh": "病态",
+              "definition_zh": "被描写为不健康、失常或难以自控的心理倾向、行为或关系状态。"
+            }
+          ],
+          "theme_count": 3
+        },
+        {
+          "theme_set_id": "94eea03d411687a3",
+          "themes": [
+            {
+              "theme_id": "theme-0044-珍视",
+              "label_zh": "珍视",
+              "definition_zh": "对人或物的宝贵感与舍不得失去。"
+            },
+            {
+              "theme_id": "theme-0218-牺牲",
+              "label_zh": "牺牲",
+              "definition_zh": "为他者或价值放弃自身利益乃至生命。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "d21364e50de56190",
+          "themes": [
+            {
+              "theme_id": "theme-0078-遗忘",
+              "label_zh": "遗忘",
+              "definition_zh": "记不起、被抹去或主动放下过去。"
+            },
+            {
+              "theme_id": "theme-0109-迷恋",
+              "label_zh": "迷恋",
+              "definition_zh": "过度专注、难以放下的执念。"
+            }
+          ],
+          "theme_count": 2
+        },
+        {
+          "theme_set_id": "f61ba59e27cb845f",
+          "themes": [
+            {
+              "theme_id": "theme-0110-遗憾",
+              "label_zh": "遗憾",
+              "definition_zh": "对未能实现、未能挽回之事的怅恨。"
+            },
+            {
+              "theme_id": "theme-0078-遗忘",
+              "label_zh": "遗忘",
+              "definition_zh": "记不起、被抹去或主动放下过去。"
+            }
+          ],
+          "theme_count": 2
+        }
+      ]
+    }
+  ]
+}

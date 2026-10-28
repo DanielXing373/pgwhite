@@ -1,0 +1,379 @@
+{
+  "schema_version": "el2-hs-attribution.v1",
+  "dataset_version": "el2-hs-questions.v1",
+  "matching_algorithm": [
+    "Exact UTF-8 equality of frozen text_zh against pgwhite_weread_import.sql quote_translations.content (zh).",
+    "Exact UTF-8 equality against annotation-workbench/fixtures/benchmark.v1.json textZh and productionQuoteTextZh.",
+    "Join WeRead SQL quote_id → book_id → book_translations / author_translations.",
+    "Authors 1 and 2 are reused in the WeRead dump without INSERTs; names filled only from the annotation fixture by bookId when unique.",
+    "No punctuation or wording edits. Ambiguous or conflicting hits are flagged, not repaired.",
+    "Three remaining non-exact cases were filled only from human-attribution-overrides.v1.json (2026-10-27)."
+  ],
+  "public_release_ready": true,
+  "verified_count": 20,
+  "unresolved_quote_ids": [],
+  "quotes": [
+    {
+      "quote_id": "batch1-calib-007",
+      "text_zh": "为了能够通过搅乱气味、味道的正常秩序唤起自己的警觉，因为他相信，与令人绝望的永恒结局相比，死亡更是一种警告。",
+      "author_name_zh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "book_title_zh": "撒旦探戈",
+      "production_quote_id": 61,
+      "book_id": 4,
+      "author_id": null,
+      "provenance": [
+        "annotation_fixture:quoteId=61"
+      ],
+      "sql_hit_count": 0,
+      "fixture_hit_count": 1,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch1-calib-013",
+      "text_zh": "直到他的身体脏器与他解除那份\"能够维持彼此交易关系的协议\"，直到他的肉和骨头遭到死亡与腐烂的秃鹫的攻击。",
+      "author_name_zh": "克拉斯诺霍尔卡伊·拉斯洛",
+      "book_title_zh": "撒旦探戈",
+      "production_quote_id": 99,
+      "book_id": 4,
+      "author_id": null,
+      "provenance": [
+        "annotation_fixture:quoteId=99"
+      ],
+      "sql_hit_count": 0,
+      "fixture_hit_count": 1,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch1-calib-017",
+      "text_zh": "这部充满了各种感觉的小说突然被这些不知深浅的漩涡隔断了，犹如你希望生活充实结果却发现了生活中的空虚。",
+      "author_name_zh": "伊塔洛·卡尔维诺",
+      "book_title_zh": "如果在冬夜，一个旅人",
+      "production_quote_id": 120,
+      "book_id": 5,
+      "author_id": 5,
+      "provenance": [
+        "weread_sql:quote_id=120"
+      ],
+      "sql_hit_count": 1,
+      "fixture_hit_count": 0,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch1-calib-020",
+      "text_zh": "读者啊！那位幸福的女读者进入你的视野，进入你注意的范围，或者说你陷入了一个磁场，而且摆脱不了这个磁场的吸引力。",
+      "author_name_zh": "伊塔洛·卡尔维诺",
+      "book_title_zh": "如果在冬夜，一个旅人",
+      "production_quote_id": 124,
+      "book_id": 5,
+      "author_id": 5,
+      "provenance": [
+        "weread_sql:quote_id=124"
+      ],
+      "sql_hit_count": 1,
+      "fixture_hit_count": 0,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch1-calib-021",
+      "text_zh": "你在梦境之中要寻找一种抽象的、绝对的时空，并沿着一条明确的路线前进。但是，当你觉得你快要找到的时候，你却醒了，发现你躺在床上并未动弹，只得一切重新开始。",
+      "author_name_zh": "伊塔洛·卡尔维诺",
+      "book_title_zh": "如果在冬夜，一个旅人",
+      "production_quote_id": 125,
+      "book_id": 5,
+      "author_id": 5,
+      "provenance": [
+        "weread_sql:quote_id=125"
+      ],
+      "sql_hit_count": 1,
+      "fixture_hit_count": 0,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch1-calib-022",
+      "text_zh": "难道你就没有想到我手表上的日历在那个小方框里啪啪倒退，仿佛断头台上被屠刀砍下的头颅一个个从我脚下滚过吗？",
+      "author_name_zh": "伊塔洛·卡尔维诺",
+      "book_title_zh": "如果在冬夜，一个旅人",
+      "production_quote_id": 128,
+      "book_id": 5,
+      "author_id": 5,
+      "provenance": [
+        "weread_sql:quote_id=128"
+      ],
+      "sql_hit_count": 1,
+      "fixture_hit_count": 0,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch2-batch2-004",
+      "text_zh": "每一门科学都有其相应的伪科学，由某种特殊类型的头脑所产生的怪诞扭曲形式，天文学有占星术这一滑稽模仿的伴侣，而化学则曾经有过炼金术。",
+      "author_name_zh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "book_title_zh": "索拉里斯星（译林幻系列）",
+      "production_quote_id": null,
+      "book_id": 20,
+      "author_id": null,
+      "provenance": [
+        "human-attribution-overrides.v1.json"
+      ],
+      "sql_hit_count": 0,
+      "fixture_hit_count": 0,
+      "issues": [
+        "no_exact_text_match",
+        "human_adjudicated_non_exact_text",
+        "text_relationship:no_exact_row; same book and author as batch2-batch2-007 by human decision"
+      ],
+      "verification_status": "human_adjudicated",
+      "complete": true
+    },
+    {
+      "quote_id": "batch2-batch2-006",
+      "text_zh": "能力非凡且个性坚强的人降生的频率多少是恒定的，只是他们的选择不均匀。",
+      "author_name_zh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "book_title_zh": "索拉里斯星（译林幻系列）",
+      "production_quote_id": 1292,
+      "book_id": 20,
+      "author_id": null,
+      "provenance": [
+        "annotation_fixture:quoteId=1292"
+      ],
+      "sql_hit_count": 0,
+      "fixture_hit_count": 1,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch2-batch2-007",
+      "text_zh": "仿佛值得尊敬的做法就是硬着头皮往前走，陷入一片泥潭，在你不理解而且永远都不会理解的东西里活活淹死。",
+      "author_name_zh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "book_title_zh": "索拉里斯星（译林幻系列）",
+      "production_quote_id": 1297,
+      "book_id": 20,
+      "author_id": null,
+      "provenance": [
+        "human-attribution-overrides.v1.json"
+      ],
+      "sql_hit_count": 0,
+      "fixture_hit_count": 0,
+      "issues": [
+        "no_exact_text_match",
+        "near_miss_fixture_prefix:quoteId=1297;not_used",
+        "human_adjudicated_non_exact_text",
+        "text_relationship:production quote 1297 matches except a trailing Chinese right quotation mark"
+      ],
+      "verification_status": "human_adjudicated",
+      "complete": true
+    },
+    {
+      "quote_id": "batch2-batch2-011",
+      "text_zh": "智力好的人能学会的东西，他学了不少，是个相当聪明的人。但他学不会的，却是对自己和生活感到满意。",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "production_quote_id": 1283,
+      "book_id": 19,
+      "author_id": 2,
+      "provenance": [
+        "weread_sql:quote_id=1283",
+        "annotation_fixture:author_via_book_id=19"
+      ],
+      "sql_hit_count": 1,
+      "fixture_hit_count": 0,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch2-batch2-012",
+      "text_zh": "在束手无策地渴望温暖中折磨自己是多么可笑！孤独就是独立。多年来，我终于拥有了我一直渴求的孤独。孤独是冰冷的，哦，是的！",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "production_quote_id": 1285,
+      "book_id": 19,
+      "author_id": 2,
+      "provenance": [
+        "weread_sql:quote_id=1285",
+        "annotation_fixture:author_via_book_id=19"
+      ],
+      "sql_hit_count": 1,
+      "fixture_hit_count": 0,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch2-batch2-013",
+      "text_zh": "全部的文字意味着一次地狱之旅，一次时而忧惧时而英勇的旅行，在幽暗的灵魂世界的混沌中，以意志穿越地狱，直面混沌，忍受邪恶，直至终点。",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "production_quote_id": 1287,
+      "book_id": 19,
+      "author_id": 2,
+      "provenance": [
+        "human-attribution-overrides.v1.json"
+      ],
+      "sql_hit_count": 0,
+      "fixture_hit_count": 0,
+      "issues": [
+        "no_exact_text_match",
+        "near_miss_weread_prefix:quote_id=1287;not_used",
+        "human_adjudicated_non_exact_text",
+        "text_relationship:WeRead quote 1287 starts with the frozen text then continues after 直至终点。"
+      ],
+      "verification_status": "human_adjudicated",
+      "complete": true
+    },
+    {
+      "quote_id": "batch2-batch2-014",
+      "text_zh": "恋人和诗人对爱的力量怀有永恒的信念，认为它比死亡还要持久，但那句千百年来一直缠着我们不放的“生命虽尽，爱犹未尽”，实际上不过是一句谎言。这句谎言只是徒劳无益，并非荒唐可笑。",
+      "author_name_zh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "book_title_zh": "索拉里斯星（译林幻系列）",
+      "production_quote_id": 1288,
+      "book_id": 20,
+      "author_id": null,
+      "provenance": [
+        "annotation_fixture:quoteId=1288"
+      ],
+      "sql_hit_count": 0,
+      "fixture_hit_count": 1,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch2-batch2-016",
+      "text_zh": "与之相反，我经历的为数不多的快乐，那些愉悦、狂喜、巅峰体验，世人或许最多在文艺作品中见识过、寻觅过、热爱过。而在现实生活中，他们必定认为那不合常理、荒诞不经。",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "production_quote_id": 1274,
+      "book_id": 19,
+      "author_id": 2,
+      "provenance": [
+        "weread_sql:quote_id=1274",
+        "annotation_fixture:author_via_book_id=19"
+      ],
+      "sql_hit_count": 1,
+      "fixture_hit_count": 0,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch2-batch2-018",
+      "text_zh": "幽默是那些在完成伟大使命的过程中重重受阻，那些接近成为悲剧人物、不幸的非凡人物的美妙发明。",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "production_quote_id": 1277,
+      "book_id": 19,
+      "author_id": 2,
+      "provenance": [
+        "weread_sql:quote_id=1277",
+        "annotation_fixture:author_via_book_id=19"
+      ],
+      "sql_hit_count": 1,
+      "fixture_hit_count": 0,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch2-batch2-019",
+      "text_zh": "他们的理想不是献身，而是自保。他们所追求的既不是神圣性，亦不是神圣性的对立面。一切绝对性他们都难以承受。他们虽侍奉上帝，却也贪图享乐，虽志愿品行端正，却也要在尘世中享有轻松舒适。",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "production_quote_id": 1279,
+      "book_id": 19,
+      "author_id": 2,
+      "provenance": [
+        "weread_sql:quote_id=1279",
+        "annotation_fixture:author_via_book_id=19"
+      ],
+      "sql_hit_count": 1,
+      "fixture_hit_count": 0,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch2-batch2-022",
+      "text_zh": "因此父亲和欧维从来没有过多的交谈，但他们喜欢彼此的陪伴。沉默地分别坐在餐桌的两端就很满足。",
+      "author_name_zh": "弗雷德里克·巴克曼",
+      "book_title_zh": "一个叫欧维的男人决定去死（同名电影原著）",
+      "production_quote_id": 1240,
+      "book_id": 18,
+      "author_id": 16,
+      "provenance": [
+        "weread_sql:quote_id=1240"
+      ],
+      "sql_hit_count": 1,
+      "fixture_hit_count": 0,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch2-batch2-024",
+      "text_zh": "这邪恶的金属漏斗果然喷出嚼烂的橡胶和支气管黏液的混合物，喷出留声机的拥有者和收音机用户们齐声称为“音乐”的东西",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "production_quote_id": 1244,
+      "book_id": 19,
+      "author_id": 2,
+      "provenance": [
+        "weread_sql:quote_id=1244",
+        "annotation_fixture:author_via_book_id=19"
+      ],
+      "sql_hit_count": 1,
+      "fixture_hit_count": 1,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch2-batch2-026",
+      "text_zh": "确实不能。他们也不能为亚当偷食禁果负责，但他们不得不为此赎罪。",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "production_quote_id": 1247,
+      "book_id": 19,
+      "author_id": 2,
+      "provenance": [
+        "weread_sql:quote_id=1247",
+        "annotation_fixture:author_via_book_id=19"
+      ],
+      "sql_hit_count": 1,
+      "fixture_hit_count": 0,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    },
+    {
+      "quote_id": "batch2-batch2-027",
+      "text_zh": "我几乎错过了她们每一个人，跌跌撞撞，逃之夭夭，随后将她们遗忘——但在这里，她们被保存下来，一个不缺，数以百计。现在我看见她们，献身于她们，沉沦于她们玫瑰色的昏暗的阴曹地府。",
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "production_quote_id": 1249,
+      "book_id": 19,
+      "author_id": 2,
+      "provenance": [
+        "weread_sql:quote_id=1249",
+        "annotation_fixture:author_via_book_id=19"
+      ],
+      "sql_hit_count": 1,
+      "fixture_hit_count": 0,
+      "issues": [],
+      "verification_status": "verified",
+      "complete": true
+    }
+  ]
+}

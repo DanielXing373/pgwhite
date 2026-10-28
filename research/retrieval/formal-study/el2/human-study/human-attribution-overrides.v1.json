@@ -1,0 +1,31 @@
+{
+  "schema_version": "el2-hs-human-attribution.v1",
+  "adjudicated_on": "2026-10-27",
+  "note": "Human review of three non-exact catalog matches. Frozen EL2 text_zh is unchanged. Author/book only.",
+  "overrides": {
+    "batch2-batch2-004": {
+      "author_name_zh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "book_title_zh": "索拉里斯星（译林幻系列）",
+      "book_id": 20,
+      "author_id": null,
+      "production_quote_id": null,
+      "text_relationship": "no_exact_row; same book and author as batch2-batch2-007 by human decision"
+    },
+    "batch2-batch2-007": {
+      "author_name_zh": "[波兰]斯坦尼斯瓦夫·莱姆",
+      "book_title_zh": "索拉里斯星（译林幻系列）",
+      "book_id": 20,
+      "author_id": null,
+      "production_quote_id": 1297,
+      "text_relationship": "production quote 1297 matches except a trailing Chinese right quotation mark"
+    },
+    "batch2-batch2-013": {
+      "author_name_zh": "赫尔曼·黑塞",
+      "book_title_zh": "荒原狼（果麦经典）",
+      "book_id": 19,
+      "author_id": 2,
+      "production_quote_id": 1287,
+      "text_relationship": "WeRead quote 1287 starts with the frozen text then continues after 直至终点。"
+    }
+  }
+}

@@ -12,3 +12,8 @@ research/retrieval/formal-study/experiment-manifest.v1.json text eol=lf
 research/retrieval/formal-study/schemas/*.json text eol=lf
 research/retrieval/formal-study/environment/*.json text eol=lf
 research/retrieval/formal-study/audit/*.json text eol=lf
+
+# EL2 human-study files hashed in DATASET-MANIFEST.json and server/utils/el2hs/constants.ts.
+research/retrieval/formal-study/el2/human-study/datasets/*.json text eol=lf
+research/retrieval/formal-study/el2/human-study/*-REPORT.json text eol=lf
+research/retrieval/formal-study/el2/human-study/DATASET-MANIFEST.json text eol=lf

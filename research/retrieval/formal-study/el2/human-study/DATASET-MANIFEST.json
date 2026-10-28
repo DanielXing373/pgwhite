@@ -1,0 +1,32 @@
+{
+  "schema_version": "el2-hs-dataset-manifest.v1",
+  "dataset_version": "el2-hs-questions.v1",
+  "protocol_version": "el2-human-preference.protocol.v1",
+  "freeze_status": "frozen",
+  "created_utc_note": "Generated locally from frozen EL2 artifacts. Not a participant response file.",
+  "attribution_complete": true,
+  "unresolved_quote_ids": [],
+  "files": [
+    {
+      "path": "research/retrieval/formal-study/el2/human-study/datasets/el2-hs-questions.internal.v1.json",
+      "sha256": "1e3b6d1f61974de3f8d24600fe7b51f5e3f53dd9c734d89c2ba725713fc2a4d8",
+      "role": "internal_master"
+    },
+    {
+      "path": "research/retrieval/formal-study/el2/human-study/datasets/el2-hs-questions.participant-content.v1.json",
+      "sha256": "e11efbfd28697e21d0b4f43ccee8c826f61d8c80ce6f0a0e032e160274f3f950",
+      "role": "participant_content"
+    },
+    {
+      "path": "research/retrieval/formal-study/el2/human-study/EXCLUSION-REPORT.json",
+      "sha256": "f83e2f12066e0448e1ce4176ef20ac7a3c928554b004644e1af80810fadbc900",
+      "role": "exclusion_report"
+    },
+    {
+      "path": "research/retrieval/formal-study/el2/human-study/ATTRIBUTION-REPORT.json",
+      "sha256": "2e38d317bf4084bffdf7855bd6506abfbc4002ca8f6523ef6f646081dc7b23d2",
+      "role": "attribution_report"
+    }
+  ],
+  "phase2_exposure": "The Phase 2 server loads the internal master only. HTTP responses contain shuffled A–D theme sets for the assigned session, plus option E. The participant-safe file is a content catalog: theme_set_id values are salted hashes and are not source labels. Clients must not receive source_id, model_id, or run_id."
+}

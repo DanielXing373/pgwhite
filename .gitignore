@@ -60,6 +60,10 @@ research/retrieval/formal-study/runs/*
 research/retrieval/formal-study/archives/*
 !research/retrieval/formal-study/archives/.gitkeep
 
+# EL2 human-study raw responses stay off git.
+research/retrieval/formal-study/el2/human-study/responses/*
+!research/retrieval/formal-study/el2/human-study/responses/.gitkeep
+
 # Retrieval benchmark: keep small committed runs; ignore local heavy caches only
 research/retrieval/.cache/
 research/retrieval/**/__pycache__/
