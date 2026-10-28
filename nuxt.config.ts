@@ -22,6 +22,11 @@ export default defineNuxtConfig({
   routeRules: {
     '/el2test': { ssr: false, prerender: true }
   },
+  // Same region as the Railway MySQL (Southeast Asia); every query used to cross the Pacific from iad1.
+  nitro: {
+    vercel: { functions: { regions: ['sin1'] } }
+  },
+
   // Only rendered for ssr: false routes (/el2test) while the client bundle loads.
   spaLoadingTemplate: 'spa-loading-template.html',
 
