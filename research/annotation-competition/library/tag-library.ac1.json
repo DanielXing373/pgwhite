@@ -1,6 +1,6 @@
 {
   "schema_version": "ac-tag-library.v1",
-  "library_version": "ac1",
+  "library_version": "ac1.1",
   "research_only": true,
   "production_migration": false,
   "source": {
@@ -11,7 +11,7 @@
   "counts": {
     "theme": 185,
     "rhetoric": 15,
-    "technique": 9
+    "technique": 8
   },
   "dimensions": {
     "theme": [
@@ -2315,7 +2315,7 @@
         "dimension": "rhetoric",
         "label": "比喻",
         "label_en": "Simile/Metaphor",
-        "definition": "用相似的另一事物来写本体，包括明喻、暗喻（隐喻）和借喻。",
+        "definition": "用另一个具体事物来写本体，喻体鲜明可辨，包括明喻、暗喻（隐喻）和借喻。",
         "aliases": [
           "明喻",
           "暗喻",
@@ -2364,7 +2364,7 @@
         "dimension": "rhetoric",
         "label": "对比",
         "label_en": "Contrast",
-        "definition": "并置差异以凸显特征或主题张力。",
+        "definition": "把两个事物或两种情况明确并置、相互对照，且对照是句子的主要结构。证据必须同时包含对照的双方。普通的转折、否定不算。",
         "aliases": [
           "对照",
           "对比描写"
@@ -2519,7 +2519,7 @@
         "dimension": "technique",
         "label": "动作描写",
         "label_en": "Action Description",
-        "definition": "对人物动作与行为过程的刻画。",
+        "definition": "对人物动作与行为过程的细致刻画。只是交代人物做了什么，不算。",
         "aliases": [],
         "source_id": "device-0004-动作描写"
       },
@@ -2553,21 +2553,11 @@
         "dimension": "technique",
         "label": "细节描写",
         "label_en": "Detailed Description",
-        "definition": "以具体细部刻画增强实感与意味。",
+        "definition": "抓住具体的细小事物或细微动作加以刻画，增强实感与意味。普通的形容词修饰不算。",
         "aliases": [
           "细描"
         ],
         "source_id": "device-0024-细节描写"
-      },
-      {
-        "code": "D07",
-        "id": "technique-07-白描",
-        "dimension": "technique",
-        "label": "白描",
-        "label_en": "Plain Description",
-        "definition": "少修饰、以简练线条勾勒对象。",
-        "aliases": [],
-        "source_id": "device-0023-白描"
       },
       {
         "code": "D08",
@@ -2595,6 +2585,18 @@
       }
     ]
   },
+  "retired": [
+    {
+      "code": "D07",
+      "id": "technique-07-白描",
+      "dimension": "technique",
+      "label": "白描",
+      "label_en": "Plain Description",
+      "definition": "少修饰、以简练线条勾勒对象。",
+      "aliases": [],
+      "source_id": "device-0023-白描"
+    }
+  ],
   "cleanup": {
     "decided_at": "2026-11-12",
     "merged": [
@@ -2634,6 +2636,13 @@
       {
         "label": "长句描写",
         "reason": "句法特征，人工确认删除"
+      }
+    ],
+    "retired": [
+      {
+        "label": "白描",
+        "reason": "第 2 轮盲审（dev58）8 次全部被判不合适：模型把“句子短”当成白描。人工确认删除（2026-11-12）。",
+        "since": "ac1.1"
       }
     ],
     "added": [

@@ -30,11 +30,17 @@ const REMOVED = {
 // 新增或改写的定义/别名；其余沿用冻结库。
 const OVERRIDES = {
   比喻: {
-    definition: "用相似的另一事物来写本体，包括明喻、暗喻（隐喻）和借喻。",
+    definition: "用另一个具体事物来写本体，喻体鲜明可辨，包括明喻、暗喻（隐喻）和借喻。",
     aliases: ["明喻", "暗喻", "隐喻", "借喻"],
     label_en: "Simile/Metaphor",
   },
-  对比: { aliases: ["对照", "对比描写"] },
+  // ac1.1：以下三条定义按第 2 轮 dev58 盲审收紧（对比 4/14、动作描写 2/9、细节描写 5/10 被认可）。
+  对比: {
+    definition: "把两个事物或两种情况明确并置、相互对照，且对照是句子的主要结构。证据必须同时包含对照的双方。普通的转折、否定不算。",
+    aliases: ["对照", "对比描写"],
+  },
+  动作描写: { definition: "对人物动作与行为过程的细致刻画。只是交代人物做了什么，不算。" },
+  细节描写: { definition: "抓住具体的细小事物或细微动作加以刻画，增强实感与意味。普通的形容词修饰不算。" },
   象征: { aliases: ["通篇象征"] },
   重复: { aliases: ["反复"] },
   引用: { aliases: ["用典"] },
@@ -42,6 +48,11 @@ const OVERRIDES = {
   设问: { aliases: ["自问自答"] },
   // 冻结库定义里带内部备注，不适合给模型和评审看。
   环境描写: { definition: "对自然或社会环境、景物与氛围的刻画。" },
+};
+// 竞赛中退役的标签：不再进 prompt 和 schema，但保留编号和 ID，旧 run 和旧判定仍可计分。
+// 其余标签的编号不变（D07 空缺）。
+const RETIRED = {
+  白描: "第 2 轮盲审（dev58）8 次全部被判不合适：模型把“句子短”当成白描。人工确认删除（2026-11-12）。",
 };
 const ADDED = {
   语言描写: {
@@ -99,26 +110,38 @@ function buildDevices(labels, dimension, prefix) {
   });
 }
 
+const allRhetoric = buildDevices(RHETORIC, "rhetoric", "R");
+const allTechnique = buildDevices(TECHNIQUE, "technique", "D");
+const isRetired = (tag) => Object.hasOwn(RETIRED, tag.label);
+const rhetoric = allRhetoric.filter((tag) => !isRetired(tag));
+const technique = allTechnique.filter((tag) => !isRetired(tag));
+const retired = [...allRhetoric, ...allTechnique].filter(isRetired);
+const missingRetired = Object.keys(RETIRED).filter((label) => !retired.some((tag) => tag.label === label));
+if (missingRetired.length > 0) throw new Error(`STOP: RETIRED labels not in any list: ${missingRetired.join("、")}`);
+
 const library = {
   schema_version: "ac-tag-library.v1",
-  library_version: "ac1",
+  library_version: "ac1.1",
   research_only: true,
   production_migration: false,
   source: { path: FROZEN_ONTOLOGY, sha256: sourceSha, library_version: source.library_version },
-  counts: { theme: themes.length, rhetoric: RHETORIC.length, technique: TECHNIQUE.length },
+  counts: { theme: themes.length, rhetoric: rhetoric.length, technique: technique.length },
   dimensions: {
     theme: themes,
-    rhetoric: buildDevices(RHETORIC, "rhetoric", "R"),
-    technique: buildDevices(TECHNIQUE, "technique", "D"),
+    rhetoric,
+    technique,
   },
+  // 退役标签：只用于给旧 run、旧判定计分，不会出现在 prompt 和 schema 里。
+  retired,
   cleanup: {
     decided_at: "2026-11-12",
     merged: Object.entries(MERGED).map(([from, value]) => ({ from, ...value })),
     removed: Object.entries(REMOVED).map(([label, reason]) => ({ label, reason })),
+    retired: Object.entries(RETIRED).map(([label, reason]) => ({ label, reason, since: "ac1.1" })),
     added: Object.entries(ADDED).map(([label, value]) => ({ label, reason: value.reason })),
     note: "生产库中“隐喻→比喻”等迁移不在本研究范围内，上线前另行处理。",
   },
 };
 
 writeJson(fromRepo(AC_LIBRARY), library);
-console.log(`wrote ${AC_LIBRARY}: theme ${themes.length} / rhetoric ${RHETORIC.length} / technique ${TECHNIQUE.length}`);
+console.log(`wrote ${AC_LIBRARY}: theme ${themes.length} / rhetoric ${rhetoric.length} / technique ${technique.length} / retired ${retired.length}`);

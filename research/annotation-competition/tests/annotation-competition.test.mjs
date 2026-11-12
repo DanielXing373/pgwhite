@@ -34,12 +34,18 @@ function config(overrides = {}) {
   };
 }
 
-test("library: 185 themes, 15 rhetoric, 9 technique, cleanup decisions applied", () => {
+test("library: 185 themes, 15 rhetoric, 8 technique, cleanup decisions applied", () => {
   assert.equal(library.dimensions.theme.length, 185);
   assert.equal(library.dimensions.rhetoric.length, 15);
-  assert.equal(library.dimensions.technique.length, 9);
+  assert.equal(library.dimensions.technique.length, 8);
   const labels = new Set([...library.byCode.values()].map((tag) => tag.label));
-  for (const gone of ["隐喻", "对比描写", "通篇象征", "头韵", "内涵", "暗示", "意象", "长句描写"]) {
+  // 白描在 ac1.1 退役：不能被编号命中、不进 prompt，但旧 run 的 ID 仍能查到，其余编号不变。
+  assert.ok(!library.byCode.has("D07"));
+  assert.equal(library.byId.get("technique-07-白描")?.label, "白描");
+  assert.equal(library.byCode.get("D08").id, "technique-08-侧面描写");
+  assert.equal(library.byCode.get("D09").id, "technique-09-留白");
+  assert.ok(!buildSystemPrompt({ library, dimensions: ["technique"], evidence: true, themeScope: "full" }).includes("白描"));
+  for (const gone of ["隐喻", "对比描写", "通篇象征", "头韵", "内涵", "暗示", "意象", "长句描写", "白描"]) {
     assert.ok(!labels.has(gone), `${gone} should be merged or removed`);
   }
   assert.ok(labels.has("语言描写"));
