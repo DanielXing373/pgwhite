@@ -1,0 +1,438 @@
+{
+  "schema_version": "ac-dataset.v1",
+  "dataset_id": "holdout60",
+  "research_only": true,
+  "role": "validation set; never used to edit the tag library or the prompt",
+  "source": "pgwhite_weread_import.sql",
+  "sampling": {
+    "seed": 20261112,
+    "size": 60,
+    "min_chars": 15,
+    "max_chars": 200,
+    "method": "stratified by book, largest remainder",
+    "eligible": 1116,
+    "excluded_overlap_with": "dev58"
+  },
+  "quotes": [
+    {
+      "quote_id": "holdout-001",
+      "text_zh": "这里严肃的墙壁上到处是大学生们留下的超大字迹和微型图画，就像穴居的原始人觉得有必要装饰冰凉的穴壁，以便主宰折磨人的矿物的异己感，让它们变得熟悉起来",
+      "production_quote_id": 119,
+      "book_id": 5,
+      "book_title_zh": "如果在冬夜，一个旅人"
+    },
+    {
+      "quote_id": "holdout-002",
+      "text_zh": "作恶的反面不是作恶，报复的反面不是报复，伤害的反面不是伤害，那都是一路的。",
+      "production_quote_id": 142,
+      "book_id": 6,
+      "book_title_zh": "坎特伯雷故事（译文名著典藏）"
+    },
+    {
+      "quote_id": "holdout-003",
+      "text_zh": "国王同随从一样，也不免死去：只是有人死床上，有人死荒郊，有人死深海；这种事人人知道；毫无办法，人人都得走这条路——这条路可说适用于世上万物。",
+      "production_quote_id": 163,
+      "book_id": 6,
+      "book_title_zh": "坎特伯雷故事（译文名著典藏）"
+    },
+    {
+      "quote_id": "holdout-004",
+      "text_zh": "他眼睛色如柠檬，鼻子挺又高， 他的嘴唇很丰满，脸上血色好； 一些雀斑零星地散布在脸上， 雀斑颜色是黝黑之中带点黄。",
+      "production_quote_id": 169,
+      "book_id": 6,
+      "book_title_zh": "坎特伯雷故事（译文名著典藏）"
+    },
+    {
+      "quote_id": "holdout-005",
+      "text_zh": "一个人对自我意识和自我感知的体悟愈发深切，其出于对人类的挚爱而献身并牺牲整个人格时所体会到的快慰就愈发强烈。",
+      "production_quote_id": 189,
+      "book_id": 7,
+      "book_title_zh": "地下室手记（经典译本无删减）"
+    },
+    {
+      "quote_id": "holdout-006",
+      "text_zh": "当我仍不肯醒悟，执意抗争时，他就会突然叹息。他凝视着我，长长地、深深地叹息，仿佛要用这一声叹息来丈量我道德沦丧的全部深渊",
+      "production_quote_id": 208,
+      "book_id": 7,
+      "book_title_zh": "地下室手记（经典译本无删减）"
+    },
+    {
+      "quote_id": "holdout-007",
+      "text_zh": "那些屋子一间比一间矮小，处处散发着那种典型的小官吏般的节俭气息，连墙壁都泛着萎黄。",
+      "production_quote_id": 256,
+      "book_id": 7,
+      "book_title_zh": "地下室手记（经典译本无删减）"
+    },
+    {
+      "quote_id": "holdout-008",
+      "text_zh": "有时候，仅仅出于虚荣心的驱使，人反倒会给自己添加一些莫须有的罪责，我甚至完全理解这种特殊虚荣心的本质——那是一种以自我贬损为幌子的隐秘骄傲。",
+      "production_quote_id": 276,
+      "book_id": 7,
+      "book_title_zh": "地下室手记（经典译本无删减）"
+    },
+    {
+      "quote_id": "holdout-009",
+      "text_zh": "不仅如此，人必将立即从一个有血有肉的生命，蜕变成八音盒里的一枚小齿轮，或者类似的什么机械零件。",
+      "production_quote_id": 297,
+      "book_id": 7,
+      "book_title_zh": "地下室手记（经典译本无删减）"
+    },
+    {
+      "quote_id": "holdout-010",
+      "text_zh": "然而这还不够，每一次回忆，它都要像着了魔似的添油加醋，编织出愈发耻辱的细节，用自己的想象力残忍地挑逗自己，折磨自己，仿佛在进行一场永无止境的精神自虐。",
+      "production_quote_id": 303,
+      "book_id": 7,
+      "book_title_zh": "地下室手记（经典译本无删减）"
+    },
+    {
+      "quote_id": "holdout-011",
+      "text_zh": "维尼茨尤斯听到她这些话，就像当头挨了一棒似的跳了起来，不对，她恨他。",
+      "production_quote_id": 313,
+      "book_id": 8,
+      "book_title_zh": "你往何处去"
+    },
+    {
+      "quote_id": "holdout-012",
+      "text_zh": "在尼禄时代，人不过是一只蝴蝶，靠尼禄恩惠的阳光而活着，只要刮起一阵冷风，他就会死掉……不管他愿不愿意。",
+      "production_quote_id": 335,
+      "book_id": 8,
+      "book_title_zh": "你往何处去"
+    },
+    {
+      "quote_id": "holdout-013",
+      "text_zh": "他便恳求格劳库斯带他去找彼得，并且答应给贫穷的教区以丰厚的赠礼。他认为只要莉吉亚爱他，就消除了所有的障碍，每时每刻他都准备皈依基督。",
+      "production_quote_id": 342,
+      "book_id": 8,
+      "book_title_zh": "你往何处去"
+    },
+    {
+      "quote_id": "holdout-014",
+      "text_zh": "的脸色顿时变得苍白，他的鼻孔在不停地翕动，就像一匹东方的骏马那样。他的心在急剧地跳动着，这从他那件上下起伏着的紫红色的衬衣下面可以看得出来。他的呼吸十分短促，说起话来上气不接下气，他和她靠得这么近还是第一次。",
+      "production_quote_id": 375,
+      "book_id": 8,
+      "book_title_zh": "你往何处去"
+    },
+    {
+      "quote_id": "holdout-015",
+      "text_zh": "我注意到，在这段悬崖夹道的河流两侧，草木生长得更为繁茂——常蓝植物、矮小的红杉——低斜的落日将高处的枝条涂上了鲜艳的颜色。",
+      "production_quote_id": 391,
+      "book_id": 9,
+      "book_title_zh": "海伯利安四部曲"
+    },
+    {
+      "quote_id": "holdout-016",
+      "text_zh": "那共享温暖的记忆，第一次完全地分享生命力，总会让我冷静，平稳地度过人类恐惧的暴风雨。",
+      "production_quote_id": 406,
+      "book_id": 9,
+      "book_title_zh": "海伯利安四部曲"
+    },
+    {
+      "quote_id": "holdout-017",
+      "text_zh": "“为什么？​”飞船问道，​“那东西和你们的旅途并无关系，为什么要去调查？​”伊妮娅凑过来，抬起我的手腕。​“因为我们是人类。​”她说。",
+      "production_quote_id": 428,
+      "book_id": 9,
+      "book_title_zh": "海伯利安四部曲"
+    },
+    {
+      "quote_id": "holdout-018",
+      "text_zh": "我所说的英雄，是指那些胆识过人、慷慨仁慈、成为传奇佳话的人，他们甚至因此被尊奉成神灵。我所说的英雄是文学意义上的，我们的主人公惯于采取一些强大而有效的行动，他的悲剧性缺陷将带他走向毁灭之路。",
+      "production_quote_id": 472,
+      "book_id": 9,
+      "book_title_zh": "海伯利安四部曲"
+    },
+    {
+      "quote_id": "holdout-019",
+      "text_zh": "他们能看见光束，仅仅是因为现在纷乱的胶体微粒已经灌满了整个空间，就像是陈旧阁楼中扬起的灰尘",
+      "production_quote_id": 490,
+      "book_id": 9,
+      "book_title_zh": "海伯利安四部曲"
+    },
+    {
+      "quote_id": "holdout-020",
+      "text_zh": "此时，故事又中断了片刻，就好像这老头是台机器，偶尔会停掉，需要把内部的发条重新拧一下，才能再次开动。",
+      "production_quote_id": 494,
+      "book_id": 9,
+      "book_title_zh": "海伯利安四部曲"
+    },
+    {
+      "quote_id": "holdout-021",
+      "text_zh": "老人发出一阵干巴巴、飒飒的响声，似乎气管被梗住了，不过过了一会儿我才意识到，那其实是吃吃的笑声。",
+      "production_quote_id": 495,
+      "book_id": 9,
+      "book_title_zh": "海伯利安四部曲"
+    },
+    {
+      "quote_id": "holdout-022",
+      "text_zh": "索尔用去了一生的时间，希望无法返回的东西能够返回。他记起那天他突然看见萨莱在折叠瑞秋刚学会走路时的衣服，把它们放在阁楼的箱子里，他回想起她的泪水和他自己对女儿的失落感觉。",
+      "production_quote_id": 534,
+      "book_id": 9,
+      "book_title_zh": "海伯利安四部曲"
+    },
+    {
+      "quote_id": "holdout-023",
+      "text_zh": "这个女人缓缓踱步，在极小重力下优雅地迈步，唯有生在太空的人才有这种本事。",
+      "production_quote_id": 535,
+      "book_id": 9,
+      "book_title_zh": "海伯利安四部曲"
+    },
+    {
+      "quote_id": "holdout-024",
+      "text_zh": "低矮的小床，粗糙的毯子，木制的跪凳，一个极其朴素的梳洗台，里面有只灌满水的罐壶，还有一只普通的水盆；没有窗，没有媒体墙，没有全息显像井，没有数据接入平台。我怀疑这间房间甚至不是人机互动的。",
+      "production_quote_id": 546,
+      "book_id": 9,
+      "book_title_zh": "海伯利安四部曲"
+    },
+    {
+      "quote_id": "holdout-025",
+      "text_zh": "到时他将会发现自己在文化上有所欠缺，所有的财富不过是过眼云烟，并不能让他感到满足；假设他是个聪明人，他将会费尽心机让他的孩子获取他梦寐以求的知识文化；如此一来，他将会变成某个名门望族的奠基人。",
+      "production_quote_id": 621,
+      "book_id": 10,
+      "book_title_zh": "瓦尔登湖"
+    },
+    {
+      "quote_id": "holdout-026",
+      "text_zh": "要是能够把它买下来，然后别去管它，它将会生长出如画般的优美景色，而那才是我想要的收获。",
+      "production_quote_id": 626,
+      "book_id": 10,
+      "book_title_zh": "瓦尔登湖"
+    },
+    {
+      "quote_id": "holdout-027",
+      "text_zh": "有些人假使得到比现在更多的闲暇时间，将会不知道该做些什么，我建议他们加倍努力地工作——直到他们为自己赎了身，拿到自由的文件￼。",
+      "production_quote_id": 630,
+      "book_id": 10,
+      "book_title_zh": "瓦尔登湖"
+    },
+    {
+      "quote_id": "holdout-028",
+      "text_zh": "但是没有带走那只猫。她跑进树林里，变成野猫了，后来我听说她落进捕捉土拨鼠的陷阱，终于就这样变成了死猫",
+      "production_quote_id": 634,
+      "book_id": 10,
+      "book_title_zh": "瓦尔登湖"
+    },
+    {
+      "quote_id": "holdout-029",
+      "text_zh": "你得学会享受你的人生。傍晚是一天当中最美好的时光。你已经做完了一天的工作。该是你搁起脚来好好享受一下的时候了。我就是这么看的。随便找个人问问，他们也都会这么说的。傍晚是一天当中最美好的时光。​”",
+      "production_quote_id": 651,
+      "book_id": 11,
+      "book_title_zh": "长日将尽（译文经典）"
+    },
+    {
+      "quote_id": "holdout-030",
+      "text_zh": "人一旦凭借着后见之明，开始在自己的过去当中找寻类似的“转折点”，我想就常常会开始觉得它们无处不在了。",
+      "production_quote_id": 693,
+      "book_id": 11,
+      "book_title_zh": "长日将尽（译文经典）"
+    },
+    {
+      "quote_id": "holdout-031",
+      "text_zh": "可是独立伫立在一个荒凉的山坡上，透过一扇栅栏门望着远处一个村庄的灯火，天光几乎已经完全褪尽，雾气越来越浓，那滋味实在不怎么好受。",
+      "production_quote_id": 699,
+      "book_id": 11,
+      "book_title_zh": "长日将尽（译文经典）"
+    },
+    {
+      "quote_id": "holdout-032",
+      "text_zh": "可是，我已经想到了法拉戴先生有可能是为了不让我感到难堪才佯装浑然不觉的，如果我这么偷偷摸摸地把餐叉换回去，恐怕会被主人误解为对于自己的疏失我非但不痛心疾首，反而自鸣得意—或者更糟，是试图予以遮掩了。",
+      "production_quote_id": 713,
+      "book_id": 11,
+      "book_title_zh": "长日将尽（译文经典）"
+    },
+    {
+      "quote_id": "holdout-033",
+      "text_zh": "我记得，很快也就有好几位管家异军突起，每一位都宣称自己发现了可以超过马歇尔先生的妙方—这种妙方他们又无不装模作样地当作独得之秘概不外传，就如同那些独守祖传食谱秘方的法国名厨一般。",
+      "production_quote_id": 715,
+      "book_id": 11,
+      "book_title_zh": "长日将尽（译文经典）"
+    },
+    {
+      "quote_id": "holdout-034",
+      "text_zh": "有人说我们庄稼人早就习惯了家畜伤亡了，才不是那么回事呢。我的小儿子一连哭了好几天。您肯为了内莉停车真是菩萨心肠，先生。既然您都已经下了车了，何不进屋喝杯茶呢？",
+      "production_quote_id": 747,
+      "book_id": 11,
+      "book_title_zh": "长日将尽（译文经典）"
+    },
+    {
+      "quote_id": "holdout-035",
+      "text_zh": "他本质上是个真正的好人，一个彻头彻尾的绅士，时至今日，我都为自己能将最好的年华奉献给为这样一个人服务上而深感自豪。",
+      "production_quote_id": 756,
+      "book_id": 11,
+      "book_title_zh": "长日将尽（译文经典）"
+    },
+    {
+      "quote_id": "holdout-036",
+      "text_zh": "他说我得给他作证。我表示怎么都行，但我不知道该作证些什么。照雷蒙的意思，只需说那个女人冒犯了他就行了。我答应为他提供这样的证词。",
+      "production_quote_id": 790,
+      "book_id": 12,
+      "book_title_zh": "局外人（译文经典）"
+    },
+    {
+      "quote_id": "holdout-037",
+      "text_zh": "下午，巨大的电扇不断地搅和着大厅里混浊的空气，陪审员们手里五颜六色的小草扇全朝一个方向扇动。",
+      "production_quote_id": 810,
+      "book_id": 12,
+      "book_title_zh": "局外人（译文经典）"
+    },
+    {
+      "quote_id": "holdout-038",
+      "text_zh": "我在水里看见了玛丽·卡尔多娜，她以前是与我同一个办公室的打字员。那时，我很想把她弄到手。",
+      "production_quote_id": 843,
+      "book_id": 12,
+      "book_title_zh": "局外人（译文经典）"
+    },
+    {
+      "quote_id": "holdout-039",
+      "text_zh": "沙拉玛诺老头，他是我同楼层的邻居。他牵着狗，八年以来，人们都见他与狗形影不离。",
+      "production_quote_id": 844,
+      "book_id": 12,
+      "book_title_zh": "局外人（译文经典）"
+    },
+    {
+      "quote_id": "holdout-040",
+      "text_zh": "比如“魅力”这个词最早是指具有魔力的符咒，“迷人”这个词也一样。还有像“迷惑”和“销魂”这样的词更是一眼就看出来了。",
+      "production_quote_id": 882,
+      "book_id": 13,
+      "book_title_zh": "你一生的故事（译林幻系列）"
+    },
+    {
+      "quote_id": "holdout-041",
+      "text_zh": "这个团体的成员死的时候当然都下了地狱，但却是带着高傲自豪的态度下去的。",
+      "production_quote_id": 906,
+      "book_id": 13,
+      "book_title_zh": "你一生的故事（译林幻系列）"
+    },
+    {
+      "quote_id": "holdout-042",
+      "text_zh": "下一次集会罗宾没有参加，再下一次集会时，大伙儿听说了她的消息：罗宾自杀了，为的是和丈夫团圆。",
+      "production_quote_id": 913,
+      "book_id": 13,
+      "book_title_zh": "你一生的故事（译林幻系列）"
+    },
+    {
+      "quote_id": "holdout-043",
+      "text_zh": "如果哥德尔在世，他宁愿抛弃一切也要见识一下这种语言。",
+      "production_quote_id": 976,
+      "book_id": 13,
+      "book_title_zh": "你一生的故事（译林幻系列）"
+    },
+    {
+      "quote_id": "holdout-044",
+      "text_zh": "也许这是魔鬼的诱惑，但毕竟是诱惑。而且，我找不出抗拒的理由。",
+      "production_quote_id": 978,
+      "book_id": 13,
+      "book_title_zh": "你一生的故事（译林幻系列）"
+    },
+    {
+      "quote_id": "holdout-045",
+      "text_zh": "有关备忘录只是拐弯抹角地提及，这些计划漂浮在无伤大雅的文件形成的海洋中间，如果某个调查委员会审读全部档案，证据一定会被淹没在杂音里。然而，只要对那些暗藏玄机的备忘录作一番分析过滤，新闻界便一定会相信。",
+      "production_quote_id": 980,
+      "book_id": 13,
+      "book_title_zh": "你一生的故事（译林幻系列）"
+    },
+    {
+      "quote_id": "holdout-046",
+      "text_zh": "他翻了个身，呻吟起来。肢体没有一处不疼，他全身赤裸，身上大片擦伤，没有擦伤的皮肤被水泡得起皱。尽管如此，他能呼吸到空气。",
+      "production_quote_id": 994,
+      "book_id": 13,
+      "book_title_zh": "你一生的故事（译林幻系列）"
+    },
+    {
+      "quote_id": "holdout-047",
+      "text_zh": "你会好好考虑，你的小眉头上会皱起两个小窝窝，每当你绞你的小脑汁时就会这样。",
+      "production_quote_id": 1044,
+      "book_id": 13,
+      "book_title_zh": "你一生的故事（译林幻系列）"
+    },
+    {
+      "quote_id": "holdout-048",
+      "text_zh": "你会把一只行李箱填得满满的，把想带的衣服和玩具全都塞进去。你还会拖着行李箱满屋子走，看你拉着它能走多远。",
+      "production_quote_id": 1045,
+      "book_id": 13,
+      "book_title_zh": "你一生的故事（译林幻系列）"
+    },
+    {
+      "quote_id": "holdout-049",
+      "text_zh": "外星人有七根长肢，从四周向中央辐辏，轴心处挂着一个圆桶。整个形体极度对称，七肢中任何一肢都可以起到腿的作用，同时任何一肢也都可以当作手臂。",
+      "production_quote_id": 1049,
+      "book_id": 13,
+      "book_title_zh": "你一生的故事（译林幻系列）"
+    },
+    {
+      "quote_id": "holdout-050",
+      "text_zh": "于是做官的也各务奔竞，袭取社会名誉，却不管自己本官职务与实际工作，而其上司也无法奈何他。",
+      "production_quote_id": 1072,
+      "book_id": 14,
+      "book_title_zh": "中国历代政治得失"
+    },
+    {
+      "quote_id": "holdout-051",
+      "text_zh": "我们的奶茶中只是加了点盐，并没有像史诗中那样，加入地老天荒的时间",
+      "production_quote_id": 1083,
+      "book_id": 15,
+      "book_title_zh": "本巴（第十一届茅盾文学奖获奖作品）"
+    },
+    {
+      "quote_id": "holdout-052",
+      "text_zh": "江格尔环顾一周，见没一个挺身而起的英雄。无论嘴快的、腿快的、眼快的还是脑子快的，都沉默不语，眼睛全看着策吉。他是本巴的大谋士，大家都在说话时，他的话最有理，大家都没话说时，他的话最有用。",
+      "production_quote_id": 1112,
+      "book_id": 15,
+      "book_title_zh": "本巴（第十一届茅盾文学奖获奖作品）"
+    },
+    {
+      "quote_id": "holdout-053",
+      "text_zh": "有时醒来，感到身体里有冰冷的手。它们比冰还冷，每天都离我的心脏更近一些。",
+      "production_quote_id": 1123,
+      "book_id": 16,
+      "book_title_zh": "冰岛往事.1，狂暴海"
+    },
+    {
+      "quote_id": "holdout-054",
+      "text_zh": "她收到的下一封信会很厚，会是来自死者的充满激情的话语。",
+      "production_quote_id": 1136,
+      "book_id": 16,
+      "book_title_zh": "冰岛往事.1，狂暴海"
+    },
+    {
+      "quote_id": "holdout-055",
+      "text_zh": "他对这一点并没有清楚的认识，只是一种无意识的感觉而已，以至于到了最后，他觉得天空、海水、岩石、灯塔、金黄色沙滩、鼓满风的船帆、海鸥、退潮和涨潮—全都化成了一个巨大的整体，成为一个巨大的神秘的灵魂；而他自己也陷入在这样的神秘之中，感应到了在他周围活动和生息的那个灵魂。他沉浸在其中，受到它们陶醉，终于忘记了自身的存在。",
+      "production_quote_id": 1177,
+      "book_id": 17,
+      "book_title_zh": "显克维奇中短篇小说选（人文社外国文学名著经典·网格本）"
+    },
+    {
+      "quote_id": "holdout-056",
+      "text_zh": "打从那个时候起，不知水面上涌起过多少波涛，也不知天上飘逝过多少云彩，但是生了翅膀的记忆不停地把那种场面展现在我的眼前",
+      "production_quote_id": 1203,
+      "book_id": 17,
+      "book_title_zh": "显克维奇中短篇小说选（人文社外国文学名著经典·网格本）"
+    },
+    {
+      "quote_id": "holdout-057",
+      "text_zh": "我也无法祈祷，成百上千种的印象和情感在我的脑海里、心里不断涌现。种种不同的景象从我眼前掠过。然而从这种种混乱的思绪中，渐渐引导出一种思想、一种情感，这就是：这个闭着双眼，脸色苍白，偎靠在我肩膀上的小脸蛋，这个孤苦无依的小姑娘，现在成了我心爱的妹妹，为了她，我愿献出自己的生命，为了她，如果有必要，我可以向全世界挑战。",
+      "production_quote_id": 1209,
+      "book_id": 17,
+      "book_title_zh": "显克维奇中短篇小说选（人文社外国文学名著经典·网格本）"
+    },
+    {
+      "quote_id": "holdout-058",
+      "text_zh": "欧维的表情就像有机玻璃背后的男人刚问他是不是阳痿。那个男人闭上了嘴。",
+      "production_quote_id": 1225,
+      "book_id": 18,
+      "book_title_zh": "一个叫欧维的男人决定去死（同名电影原著）"
+    },
+    {
+      "quote_id": "holdout-059",
+      "text_zh": "“总经理问你愿不愿意继续在这儿出色地工作下去。”",
+      "production_quote_id": 1233,
+      "book_id": 18,
+      "book_title_zh": "一个叫欧维的男人决定去死（同名电影原著）"
+    },
+    {
+      "quote_id": "holdout-060",
+      "text_zh": "我看见牧师和几个赚死人钱的殡葬师各尽其职，极力装出一副庄重悲伤的样子，可他们过度的表演既让人尴尬又显得虚假，费尽周折反而滑稽",
+      "production_quote_id": 1275,
+      "book_id": 19,
+      "book_title_zh": "荒原狼（果麦经典）"
+    }
+  ]
+}

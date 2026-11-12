@@ -1,0 +1,33 @@
+{
+  "schema_version": "ac-arm-config.v1",
+  "arm_id": "R3-luna-joint-holdout60",
+  "provider": {
+    "id": "openai",
+    "model_id": "gpt-6-luna",
+    "request": {
+      "omit_temperature": true,
+      "reasoning_effort": "none"
+    }
+  },
+  "dataset": {
+    "id": "holdout60",
+    "path": "research/annotation-competition/benchmark/holdout-60.v1.json"
+  },
+  "dimensions": [
+    "theme",
+    "rhetoric",
+    "technique"
+  ],
+  "theme_scope": "full",
+  "batch_size": 20,
+  "evidence": true,
+  "call_mode": "joint",
+  "cny_per_usd": 7.2,
+  "execution": {
+    "concurrency": 2,
+    "timeout_ms": 120000,
+    "retry_limit": 2,
+    "max_requests": 3,
+    "max_estimated_budget_usd": 1
+  }
+}

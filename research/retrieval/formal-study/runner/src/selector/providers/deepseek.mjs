@@ -5,12 +5,13 @@ export function createDeepSeekSelector({ env = process.env, fetchImpl, baseUrl }
   const root = (baseUrl || env.DEEPSEEK_BASE_URL || "https://api.deepseek.com").replace(/\/$/, "");
   return {
     provider_id: "deepseek",
-    async complete({ model, prompt, candidates, timeoutMs }) {
+    async complete({ model, prompt, candidates, timeoutMs, deepseekRequest = null }) {
       const apiKey = requireEnv(env, "DEEPSEEK_API_KEY");
       const body = buildDeepSeekBody({
         model,
         prompt,
         candidateIds: candidates.map((candidate) => candidate.id),
+        deepseekRequest,
       });
       const response = await postJson({
         url: `${root}/chat/completions`,
@@ -24,6 +25,7 @@ export function createDeepSeekSelector({ env = process.env, fetchImpl, baseUrl }
       return {
         provider_id: "deepseek",
         model_id: response.body?.model ?? model,
+        system_fingerprint: response.body?.system_fingerprint ?? null,
         request_body: body,
         raw_response: response.body,
         response_text: text,

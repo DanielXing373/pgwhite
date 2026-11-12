@@ -1,0 +1,91 @@
+{
+  "schema_version": "el2-experiment-registry.v1",
+  "experiment_batch": "EL2",
+  "created_at": "2026-10-22",
+  "updated_at": "2026-10-22",
+  "status": "prepared_local_only",
+  "parent_batch": "EL",
+  "note": "Separate from EL1. Do not modify EL1 runs, configs, archives, Gold, ontology, or retrieval.",
+  "dataset": {
+    "id": "EL-58",
+    "path": "research/retrieval/formal-study/benchmark/formal-benchmark.v1.frozen.json",
+    "sha256": "5ad71ae64886fa09a52b8c51e93b8304da3553d09c9dabe9186b03360b5c70da",
+    "quote_count": 58,
+    "includes_el1_pilot": true,
+    "el1_pilot_path": "research/retrieval/formal-study/benchmark/formal-pilot-10.v1.frozen.json",
+    "el1_pilot_sha256": "855fd0c338daf008259f8ae1886300a02cc1e9b02bc25d5a01dd611faba09f06"
+  },
+  "ontology": {
+    "path": "research/retrieval/formal-study/ontology/atomic-tag-library.v1.43.freeze.json",
+    "sha256": "a71db8ba7e34ea5c2db33b53a6c1583d8ac8bbf3e11871198bf0deedc0ed39b7",
+    "active_themes": 185
+  },
+  "retrieval_source": {
+    "run_id": "formal-p1-c-task-20261021",
+    "artifact_sha256": "570f99165e5ced8d3ddff16a7b9d21e231b86bc58d97d2ab6584ededb34b143d",
+    "effective_config_sha256": "775e3d5c4b54dc3da84a1efc1e24a515bc23fe4fad26a7e359ca7dc01c9a165a",
+    "embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+    "representation": "C",
+    "instruction_mode": "task_instruct",
+    "similarity": "cosine",
+    "normalize_embeddings": true,
+    "candidate_k": 20,
+    "reranker": null,
+    "coverage": "58/58"
+  },
+  "prompt_version": "selector-task-instruction.el2.v1",
+  "prompt_path": "research/retrieval/formal-study/el2/prompt/selector-task-instruction.el2.v1.txt",
+  "llm_max_selected": 2,
+  "sources": [
+    {
+      "source_id": "human-gold",
+      "kind": "frozen_annotation",
+      "artifact": "research/retrieval/formal-study/el2/baselines/human-gold.v1.json",
+      "theme_limit": "none; original counts preserved",
+      "status": "derived_from_frozen_benchmark"
+    },
+    {
+      "source_id": "embedding-top2",
+      "kind": "deterministic_rank_slice",
+      "experiment_id": "EL2-EMBED-TOP2",
+      "config_path": "research/retrieval/formal-study/configs/EL2-EMBED-TOP2.selection.v1.json",
+      "artifact": "research/retrieval/formal-study/el2/baselines/embedding-top2.v1.json",
+      "run_id": null,
+      "theme_limit": "exactly 2",
+      "status": "prepared"
+    },
+    {
+      "source_id": "gpt-6-luna",
+      "kind": "llm_selector",
+      "experiment_id": "EL2-GPT6LUNA",
+      "smoke_experiment_id": "EL2-GPT6LUNA-SMOKE",
+      "config_path": "research/retrieval/formal-study/configs/EL2-GPT6LUNA.selection.v1.json",
+      "smoke_config_path": "research/retrieval/formal-study/configs/EL2-GPT6LUNA.smoke.v1.json",
+      "model_id": "gpt-6-luna",
+      "run_id": null,
+      "theme_limit": "0-2 ordered",
+      "status": "prepared"
+    },
+    {
+      "source_id": "deepseek-flash",
+      "kind": "llm_selector",
+      "experiment_id": "EL2-DSFLASH",
+      "smoke_experiment_id": "EL2-DSFLASH-SMOKE",
+      "config_path": "research/retrieval/formal-study/configs/EL2-DSFLASH.selection.v1.json",
+      "smoke_config_path": "research/retrieval/formal-study/configs/EL2-DSFLASH.smoke.v1.json",
+      "model_id": "deepseek-flash",
+      "run_id": null,
+      "theme_limit": "0-2 ordered",
+      "status": "prepared"
+    }
+  ],
+  "human_evaluation": {
+    "status": "plan_only",
+    "seed_reserved": 20261022,
+    "items_per_participant": "10-20 unique quotes from 58",
+    "sources_per_quote": 4,
+    "blinded": true,
+    "do_not_use_gold_as_answer_key": true,
+    "participant_pack": "not_generated"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "schema_version": "el2-coverage.v1",
+  "ontology_sha256": "a71db8ba7e34ea5c2db33b53a6c1583d8ac8bbf3e11871198bf0deedc0ed39b7",
+  "benchmark_sha256": "5ad71ae64886fa09a52b8c51e93b8304da3553d09c9dabe9186b03360b5c70da",
+  "retrieval_run_id": "formal-p1-c-task-20261021",
+  "retrieval_artifact_sha256": "570f99165e5ced8d3ddff16a7b9d21e231b86bc58d97d2ab6584ededb34b143d",
+  "retrieval_effective_config_sha256": "775e3d5c4b54dc3da84a1efc1e24a515bc23fe4fad26a7e359ca7dc01c9a165a",
+  "quote_count": 58,
+  "retrieval_result_count": 58,
+  "missing_retrieval_quote_ids": [],
+  "ranking_length": [
+    185
+  ],
+  "gold_distribution": {
+    "quote_count": 58,
+    "by_theme_count": {
+      "0": 3,
+      "1": 20,
+      "2": 19,
+      "3": 10,
+      "4": 3,
+      "5": 3
+    },
+    "empty_gold_quote_ids": [
+      "batch1-calib-008",
+      "batch1-calib-011",
+      "batch2-batch2-001"
+    ]
+  },
+  "embedding_top2_quote_count": 58,
+  "gold_vs_embedding_collisions": [
+    {
+      "quote_id": "batch1-calib-004",
+      "source_a": "human-gold",
+      "source_b": "embedding-top2",
+      "identical_ordered": false,
+      "identical_set": true,
+      "theme_ids": [
+        "theme-0219-伦理",
+        "theme-0208-善恶"
+      ],
+      "theme_count_a": 2,
+      "theme_count_b": 2
+    },
+    {
+      "quote_id": "batch1-calib-009",
+      "source_a": "human-gold",
+      "source_b": "embedding-top2",
+      "identical_ordered": false,
+      "identical_set": true,
+      "theme_ids": [
+        "theme-0077-记忆",
+        "theme-0078-遗忘"
+      ],
+      "theme_count_a": 2,
+      "theme_count_b": 2
+    },
+    {
+      "quote_id": "batch1-calib-012",
+      "source_a": "human-gold",
+      "source_b": "embedding-top2",
+      "identical_ordered": false,
+      "identical_set": true,
+      "theme_ids": [
+        "theme-0103-满足",
+        "theme-0116-占有"
+      ],
+      "theme_count_a": 2,
+      "theme_count_b": 2
+    },
+    {
+      "quote_id": "batch2-batch2-028",
+      "source_a": "human-gold",
+      "source_b": "embedding-top2",
+      "identical_ordered": true,
+      "identical_set": true,
+      "theme_ids": [
+        "theme-0166-混乱",
+        "theme-0170-秩序"
+      ],
+      "theme_count_a": 2,
+      "theme_count_b": 2
+    }
+  ],
+  "note": "LLM sources are not included until EL2-GPT6LUNA and EL2-DSFLASH complete."
+}

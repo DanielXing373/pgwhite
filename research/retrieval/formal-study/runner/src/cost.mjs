@@ -89,6 +89,9 @@ export function calculateUsdCost({ usage, pricing }) {
     reason: null,
     pricing_source: pricingSource,
     pricing_version: pricingVersion,
+    estimate_kind: "catalog_token_estimate",
+    invoice_status: "not_provider_confirmed",
+    billing_window: pricing?.billing_window ?? null,
     components: {
       input_usd: inputUsd,
       cached_input_usd: cachedUsd,

@@ -483,6 +483,14 @@ test("provider adapters share one task and do not fall back", () => {
   assert.equal(gemini.contents[0].parts[0].text, openai.messages[1].content);
   assert.equal(ollama.messages[1].content, openai.messages[1].content);
   assert.equal(openai.response_format.json_schema.schema.properties.selected_theme_ids.maxItems, 3);
+  assert.equal(openai.thinking, undefined);
+  assert.equal(openai.response_format.type, "json_schema");
+  assert.equal(deepseek.response_format.type, "json_object");
+  assert.equal(deepseek.response_format.json_schema, undefined);
+  assert.deepEqual(deepseek.thinking, { type: "disabled" });
+  assert.equal(deepseek.reasoning_effort, "none");
+  assert.equal(deepseek.max_tokens, 512);
+  assert.equal(deepseek.temperature, 0);
   assert.throws(() => createSelectorProvider("anthropic"), /No fallback/);
 });
 

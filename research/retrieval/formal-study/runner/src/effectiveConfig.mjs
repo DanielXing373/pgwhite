@@ -125,7 +125,12 @@ export function materializeEffectiveConfig(fileConfig, { cli = {}, env = {} } = 
     }
     effective.model_id = effective.provider?.model_id ?? null;
     effective.model_id_source = effective.model_id ? modelSource : null;
-    if (effective.max_selected !== 3) {
+    const batch = effective.experiment_batch ?? "EL";
+    if (batch === "EL2") {
+      if (effective.max_selected !== 2) {
+        throw new Error("EL2 selector max_selected must be 2.");
+      }
+    } else if (effective.max_selected !== 3) {
       throw new Error("Formal selector max_selected must be 3.");
     }
   }

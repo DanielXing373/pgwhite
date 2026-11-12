@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>标签盲审</title>
+<style>
+  :root { --ink:#1f2328; --muted:#6b7280; --line:#e2e5ea; --bg:#f6f7f9; --card:#fff; --yes:#12805c; --yes-bg:#e3f5ee; --no:#b3261e; --no-bg:#fbe9e7; --accent:#2f5bd8; }
+  * { box-sizing: border-box; }
+  body { margin:0; font:15px/1.6 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; color:var(--ink); background:var(--bg); }
+  header { position:sticky; top:0; z-index:5; background:var(--card); border-bottom:1px solid var(--line); padding:10px 16px; display:flex; flex-wrap:wrap; gap:10px 16px; align-items:center; }
+  header h1 { font-size:16px; margin:0 8px 0 0; }
+  header .grow { flex:1; }
+  button, .filebtn { font:inherit; border:1px solid var(--line); background:var(--card); border-radius:6px; padding:5px 12px; cursor:pointer; }
+  button.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  button:disabled { opacity:.45; cursor:default; }
+  .filebtn input { display:none; }
+  progress { width:160px; vertical-align:middle; }
+  main { max-width:860px; margin:0 auto; padding:16px; }
+  .intro { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px 18px; color:var(--muted); }
+  .intro b { color:var(--ink); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:16px 18px; margin:14px 0; }
+  .card.done { border-color:#b9dccd; }
+  .card .meta { display:flex; justify-content:space-between; color:var(--muted); font-size:12px; }
+  .quote { font-family:"Songti SC","Noto Serif SC",serif; font-size:17px; line-height:1.85; margin:6px 0 12px; white-space:pre-wrap; }
+  .dim { margin:10px 0 0; }
+  .dim h3 { font-size:13px; margin:0 0 6px; color:var(--muted); font-weight:600; }
+  .chips { display:flex; flex-wrap:wrap; gap:8px; }
+  .chip { text-align:left; border-radius:8px; padding:6px 10px; max-width:100%; }
+  .chip .label { font-weight:600; }
+  .chip .def { display:block; font-size:12px; color:var(--muted); }
+  .chip[data-v="accept"] { background:var(--yes-bg); border-color:var(--yes); }
+  .chip[data-v="accept"] .label::before { content:"✓ "; color:var(--yes); }
+  .chip[data-v="reject"] { background:var(--no-bg); border-color:var(--no); }
+  .chip[data-v="reject"] .label { text-decoration:line-through; }
+  .chip[data-v="reject"] .label::before { content:"✗ "; color:var(--no); text-decoration:none; display:inline-block; }
+  .row { display:flex; gap:10px; align-items:center; margin-top:14px; }
+  .row input[type=text] { flex:1; font:inherit; padding:5px 8px; border:1px solid var(--line); border-radius:6px; }
+  .hint { color:var(--muted); font-size:12px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>标签盲审</h1>
+  <label class="filebtn">载入盲审包<input type="file" id="packFile" accept=".json"></label>
+  <label class="filebtn">导入已有判定<input type="file" id="judgmentFile" accept=".json"></label>
+  <span id="progressText" class="hint">未载入</span>
+  <progress id="progressBar" value="0" max="1"></progress>
+  <label class="hint"><input type="checkbox" id="onlyOpen"> 只看未完成</label>
+  <span class="grow"></span>
+  <button class="primary" id="exportBtn" disabled>导出判定</button>
+</header>
+<main>
+  <div class="intro" id="intro">
+    <p><b>怎么判：</b>每段摘抄下面是所有参赛方法给出的标签，已合并、去重、打乱，你看不到来源。逐个点标签：点一次 = <b>合适</b>，点两次 = <b>不合适</b>，点三次 = 恢复未判。</p>
+    <p><b>标准：</b>只看这个标签贴在这段文字上是否成立，不要考虑“还有没有更好的”。如果觉得漏了重要标签，写在每段下面的备注里。</p>
+    <p>进度自动保存在本浏览器里。判完后点“导出判定”，把下载的文件放进 <code>research/annotation-competition/packs/</code>。</p>
+  </div>
+  <div id="list"></div>
+</main>
+<script>
+const DIMS = [["theme", "主题"], ["rhetoric", "修辞"], ["technique", "描写手法"]];
+const NEXT = { "": "accept", accept: "reject", reject: "" };
+let pack = null;
+let state = { judgments: {}, notes: {} };
+const $ = (id) => document.getElementById(id);
+const storageKey = () => `ac-review:${pack.pack_id}`;
+
+function save() {
+  try { localStorage.setItem(storageKey(), JSON.stringify(state)); } catch (error) { /* 存不了就只留在内存里 */ }
+}
+function load() {
+  try {
+    const raw = localStorage.getItem(storageKey());
+    if (raw) state = JSON.parse(raw);
+  } catch (error) { /* 读不到就从空白开始 */ }
+  state.judgments ??= {};
+  state.notes ??= {};
+}
+function verdict(quoteId, tagId) { return state.judgments[quoteId]?.[tagId] ?? ""; }
+function setVerdict(quoteId, tagId, value) {
+  state.judgments[quoteId] ??= {};
+  if (value) state.judgments[quoteId][tagId] = value;
+  else delete state.judgments[quoteId][tagId];
+}
+function itemTags(item) { return DIMS.flatMap(([key]) => item.dimensions[key] ?? []); }
+function itemDone(item) { return itemTags(item).every((tag) => verdict(item.quote_id, tag.tag_id)); }
+
+function refreshProgress() {
+  let total = 0, done = 0;
+  for (const item of pack.items) {
+    for (const tag of itemTags(item)) { total += 1; if (verdict(item.quote_id, tag.tag_id)) done += 1; }
+  }
+  $("progressText").textContent = `已判 ${done} / ${total} 个标签 · ${pack.items.filter(itemDone).length} / ${pack.items.length} 段`;
+  $("progressBar").max = total || 1;
+  $("progressBar").value = done;
+}
+
+function renderCard(item, index) {
+  const card = document.createElement("section");
+  card.className = "card";
+  const meta = document.createElement("div");
+  meta.className = "meta";
+  meta.innerHTML = `<span>第 ${index + 1} 段</span><span>${item.quote_id}</span>`;
+  const quote = document.createElement("div");
+  quote.className = "quote";
+  quote.textContent = item.text_zh;
+  card.append(meta, quote);
+  const chips = [];
+  for (const [key, title] of DIMS) {
+    const tags = item.dimensions[key] ?? [];
+    if (tags.length === 0) continue;
+    const block = document.createElement("div");
+    block.className = "dim";
+    const heading = document.createElement("h3");
+    heading.textContent = title;
+    const row = document.createElement("div");
+    row.className = "chips";
+    for (const tag of tags) {
+      const chip = document.createElement("button");
+      chip.className = "chip";
+      chip.dataset.v = verdict(item.quote_id, tag.tag_id);
+      const label = document.createElement("span");
+      label.className = "label";
+      label.textContent = tag.label;
+      const def = document.createElement("span");
+      def.className = "def";
+      def.textContent = tag.definition;
+      chip.append(label, def);
+      chip.addEventListener("click", () => {
+        const value = NEXT[chip.dataset.v];
+        chip.dataset.v = value;
+        setVerdict(item.quote_id, tag.tag_id, value);
+        after();
+      });
+      chips.push([chip, tag]);
+      row.append(chip);
+    }
+    block.append(heading, row);
+    card.append(block);
+  }
+  const tools = document.createElement("div");
+  tools.className = "row";
+  const rest = document.createElement("button");
+  rest.textContent = "其余都不合适";
+  rest.addEventListener("click", () => {
+    for (const [chip, tag] of chips) {
+      if (!chip.dataset.v) { chip.dataset.v = "reject"; setVerdict(item.quote_id, tag.tag_id, "reject"); }
+    }
+    after();
+  });
+  const note = document.createElement("input");
+  note.type = "text";
+  note.placeholder = "备注：漏掉的标签或其他问题（可不填）";
+  note.value = state.notes[item.quote_id] ?? "";
+  note.addEventListener("input", () => {
+    if (note.value.trim()) state.notes[item.quote_id] = note.value;
+    else delete state.notes[item.quote_id];
+    save();
+  });
+  tools.append(rest, note);
+  card.append(tools);
+  function after() {
+    card.classList.toggle("done", itemDone(item));
+    save();
+    refreshProgress();
+  }
+  card.classList.toggle("done", itemDone(item));
+  return card;
+}
+
+function render() {
+  const list = $("list");
+  list.textContent = "";
+  const onlyOpen = $("onlyOpen").checked;
+  pack.items.forEach((item, index) => {
+    if (onlyOpen && itemDone(item)) return;
+    list.append(renderCard(item, index));
+  });
+  refreshProgress();
+}
+
+function readJsonFile(file) {
+  return file.text().then((text) => JSON.parse(text));
+}
+
+$("packFile").addEventListener("change", async (event) => {
+  const file = event.target.files[0];
+  if (!file) return;
+  try {
+    const data = await readJsonFile(file);
+    if (data.schema_version !== "ac-review-pack.v1" || !Array.isArray(data.items)) throw new Error("不是盲审包文件（需要 *.public.json）");
+    pack = data;
+    state = { judgments: {}, notes: {} };
+    load();
+    $("exportBtn").disabled = false;
+    render();
+  } catch (error) {
+    window.alert(`载入失败：${error.message}`);
+  }
+  event.target.value = "";
+});
+
+$("judgmentFile").addEventListener("change", async (event) => {
+  const file = event.target.files[0];
+  if (!file || !pack) { event.target.value = ""; return; }
+  try {
+    const data = await readJsonFile(file);
+    for (const [quoteId, tags] of Object.entries(data.judgments ?? {})) {
+      for (const [tagId, value] of Object.entries(tags)) {
+        if (value === "accept" || value === "reject") setVerdict(quoteId, tagId, value);
+      }
+    }
+    Object.assign(state.notes, data.notes ?? {});
+    save();
+    render();
+  } catch (error) {
+    window.alert(`导入失败：${error.message}`);
+  }
+  event.target.value = "";
+});
+
+$("onlyOpen").addEventListener("change", () => { if (pack) render(); });
+
+$("exportBtn").addEventListener("click", () => {
+  const judgments = {};
+  for (const [quoteId, tags] of Object.entries(state.judgments)) {
+    if (Object.keys(tags).length > 0) judgments[quoteId] = tags;
+  }
+  const payload = {
+    schema_version: "ac-judgments.v1",
+    pack_id: pack.pack_id,
+    dataset_id: pack.dataset_id,
+    exported_at: new Date().toISOString(),
+    judgments,
+    notes: state.notes,
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2) + "\n"], { type: "application/json" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = `judgments-${pack.dataset_id}-${pack.pack_id}.json`;
+  link.click();
+  URL.revokeObjectURL(link.href);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{
+  "schema_version": "ac-arm-config.v1",
+  "arm_id": "R1-luna-top20-b1-noev",
+  "provider": {
+    "id": "openai",
+    "model_id": "gpt-6-luna",
+    "request": {
+      "omit_temperature": true,
+      "reasoning_effort": "none"
+    }
+  },
+  "dataset": {
+    "id": "dev58"
+  },
+  "dimensions": [
+    "theme"
+  ],
+  "theme_scope": "top20",
+  "batch_size": 1,
+  "evidence": false,
+  "call_mode": "joint",
+  "cny_per_usd": 7.2,
+  "execution": {
+    "concurrency": 4,
+    "timeout_ms": 120000,
+    "retry_limit": 2,
+    "max_requests": 58,
+    "max_estimated_budget_usd": 1
+  }
+}

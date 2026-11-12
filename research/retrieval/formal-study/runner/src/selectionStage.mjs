@@ -166,6 +166,13 @@ export async function runSelectionStage({
       provider_id: effectiveConfig.provider.id,
       model_id: effectiveConfig.model_id,
       model_id_source: effectiveConfig.model_id_source,
+      ...(effectiveConfig.prompt_version ? { prompt_version: effectiveConfig.prompt_version } : {}),
+      ...(effectiveConfig.provider.id === "deepseek"
+        ? {
+          thinking: effectiveConfig.deepseek_request?.thinking ?? { type: "disabled" },
+          schema_enforcement: effectiveConfig.deepseek_request?.schema_enforcement ?? "local_validateSelection",
+        }
+        : {}),
     },
     effective_config: effectiveConfig,
     effective_config_sha256: effectiveConfigSha256,

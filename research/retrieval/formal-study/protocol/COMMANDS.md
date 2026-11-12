@@ -80,7 +80,7 @@ Quantization and VRAM are recorded when `POST /api/show` and `GET /api/ps` retur
 
 ## EL batch (prepared; do not execute until approved)
 
-EL uses the frozen 10-quote pilot and the locked C-task retrieval artifact. Identifiers: `EL`, `EL-Pilot-10`, `EL-P1-GPT5MINI`, `EL-P1-GPT52`. Registry: `research/retrieval/formal-study/el/registry.json`.
+EL uses the frozen 10-quote pilot and the locked C-task retrieval artifact. Identifiers: `EL`, `EL-Pilot-10`, `EL-P1-GPT5MINI`, `EL-P1-GPT52`, `EL-P1-DSFLASH`, `EL-P1-DSPRO`, `EL-P1-GPT6LUNA`. Registry: `research/retrieval/formal-study/el/registry.json`. EL1 five-model selection is complete; do not re-run paid pilots.
 
 `max_requests` is the hard pre-call cap. `max_estimated_budget_usd` is 1.00 and is a post-call estimated-spend stop, not a guaranteed pre-call cap.
 
@@ -89,6 +89,9 @@ Dry-run (no API):
 ```powershell
 npm run research:formal:run -- --stage selection --execution-mode dry-run --config research/retrieval/formal-study/configs/EL-P1-GPT5MINI.selection.v1.json
 npm run research:formal:run -- --stage selection --execution-mode dry-run --config research/retrieval/formal-study/configs/EL-P1-GPT52.selection.v1.json
+npm run research:formal:run -- --stage selection --execution-mode dry-run --config research/retrieval/formal-study/configs/EL-P1-DSFLASH.selection.v1.json
+npm run research:formal:run -- --stage selection --execution-mode dry-run --config research/retrieval/formal-study/configs/EL-P1-DSPRO.selection.v1.json
+npm run research:formal:run -- --stage selection --execution-mode dry-run --config research/retrieval/formal-study/configs/EL-P1-GPT6LUNA.selection.v1.json
 ```
 
 Single-quote smoke tests (not part of the EL-Pilot comparison). Do not run until approved:
@@ -97,6 +100,10 @@ Single-quote smoke tests (not part of the EL-Pilot comparison). Do not run until
 $env:OPENAI_API_KEY = "<set in this shell only>"
 npm run research:formal:run -- --stage selection --execution-mode paid-api --allow-paid-api --config research/retrieval/formal-study/configs/EL-P1-GPT5MINI.smoke.v1.json --run-id EL-P1-GPT5MINI-SMOKE
 npm run research:formal:run -- --stage selection --execution-mode paid-api --allow-paid-api --config research/retrieval/formal-study/configs/EL-P1-GPT52.smoke.v1.json --run-id EL-P1-GPT52-SMOKE
+$env:DEEPSEEK_API_KEY = "<set in this shell only; never commit>"
+npm run research:formal:run -- --stage selection --execution-mode paid-api --allow-paid-api --config research/retrieval/formal-study/configs/EL-P1-DSFLASH.smoke.v1.json --run-id EL-P1-DSFLASH-SMOKE
+npm run research:formal:run -- --stage selection --execution-mode paid-api --allow-paid-api --config research/retrieval/formal-study/configs/EL-P1-DSPRO.smoke.v1.json --run-id EL-P1-DSPRO-SMOKE
+npm run research:formal:run -- --stage selection --execution-mode paid-api --allow-paid-api --config research/retrieval/formal-study/configs/EL-P1-GPT6LUNA.smoke.v1.json --run-id EL-P1-GPT6LUNA-SMOKE
 ```
 
 Formal 10-quote EL pilots (do not run until approved; do not include smoke predictions):
@@ -104,6 +111,9 @@ Formal 10-quote EL pilots (do not run until approved; do not include smoke predi
 ```powershell
 npm run research:formal:run -- --stage selection --execution-mode paid-api --allow-paid-api --config research/retrieval/formal-study/configs/EL-P1-GPT5MINI.selection.v1.json --run-id EL-P1-GPT5MINI
 npm run research:formal:run -- --stage selection --execution-mode paid-api --allow-paid-api --config research/retrieval/formal-study/configs/EL-P1-GPT52.selection.v1.json --run-id EL-P1-GPT52
+npm run research:formal:run -- --stage selection --execution-mode paid-api --allow-paid-api --config research/retrieval/formal-study/configs/EL-P1-DSFLASH.selection.v1.json --run-id EL-P1-DSFLASH
+npm run research:formal:run -- --stage selection --execution-mode paid-api --allow-paid-api --config research/retrieval/formal-study/configs/EL-P1-DSPRO.selection.v1.json --run-id EL-P1-DSPRO
+npm run research:formal:run -- --stage selection --execution-mode paid-api --allow-paid-api --config research/retrieval/formal-study/configs/EL-P1-GPT6LUNA.selection.v1.json --run-id EL-P1-GPT6LUNA
 ```
 
 Archive a completed run (local, gitignored, overwrite refused):
@@ -113,3 +123,15 @@ node research/retrieval/formal-study/runner/scripts/archive-el-run.mjs --run-dir
 ```
 
 Copy `research/retrieval/formal-study/archives/` to external storage yourself. Do not upload research artifacts without explicit authorization.
+
+## EL2 batch (prepared; 58-quote; do not execute paid APIs until approved)
+
+EL2 is separate from EL1. Dataset: frozen 58-quote benchmark. LLM max 2 Themes. Registry: `research/retrieval/formal-study/el2/registry.json`. Report: `research/retrieval/formal-study/el2/EL2.md`.
+
+```powershell
+npm run research:formal:run -- --stage selection --execution-mode dry-run --config research/retrieval/formal-study/configs/EL2-GPT6LUNA.selection.v1.json
+npm run research:formal:run -- --stage selection --execution-mode dry-run --config research/retrieval/formal-study/configs/EL2-DSFLASH.selection.v1.json
+npm run research:formal:run -- --stage selection --execution-mode local --config research/retrieval/formal-study/configs/EL2-EMBED-TOP2.selection.v1.json --run-id EL2-EMBED-TOP2
+```
+
+Paid smoke / 58-quote commands: see `el2/EL2.md`. Do not run them until authorized.

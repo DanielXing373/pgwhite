@@ -35,10 +35,16 @@ export function shuffleInPlace(items, rng) {
   return items;
 }
 
+function selectedIdsFromResult(row) {
+  if (Array.isArray(row.selected_theme_ids)) return row.selected_theme_ids;
+  if (Array.isArray(row.parsed_response?.selected_theme_ids)) return row.parsed_response.selected_theme_ids;
+  if (Array.isArray(row.invented_theme_ids)) return row.invented_theme_ids;
+  return [];
+}
+
 function selectedThemesFromResult(row) {
   const byId = new Map((row.candidates ?? []).map((candidate) => [candidate.id, candidate]));
-  const ids = Array.isArray(row.selected_theme_ids) ? row.selected_theme_ids : [];
-  return ids.map((id) => {
+  return selectedIdsFromResult(row).map((id) => {
     const candidate = byId.get(id);
     return {
       label: candidate?.canonical_zh ?? id,
@@ -114,6 +120,9 @@ export function buildBlindedHumanEval({
         text_zh: row.text_zh,
         selected_themes: selectedThemes,
         selection_status: row.validation_status,
+        ...(row.validation_status !== "valid"
+          ? { validation_reason: row.validation_reason ?? null }
+          : {}),
       });
       mapping.push({
         sample_id: sampleId,
@@ -123,7 +132,10 @@ export function buildBlindedHumanEval({
         run_id: run.run_id,
         experiment_id: run.experiment_id,
         selected_theme_ids: row.selected_theme_ids,
+        parsed_selected_theme_ids: row.parsed_response?.selected_theme_ids ?? null,
+        invented_theme_ids: row.invented_theme_ids ?? [],
         validation_status: row.validation_status,
+        validation_reason: row.validation_reason ?? null,
       });
     }
   }

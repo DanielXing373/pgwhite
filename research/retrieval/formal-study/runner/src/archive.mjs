@@ -4,11 +4,13 @@ import { sha256File } from "../../../runner/src/io.mjs";
 import { redactSecrets } from "./safety.mjs";
 
 const SECRET_HINTS = [
-  /sk-[A-Za-z0-9_-]{8,}/,
+  // Negative lookbehind avoids false positives such as retrieval run id
+  // `formal-p1-c-task-20261021` (`task-2026…` contains the letters `sk-`).
+  /(?<![A-Za-z])sk-[A-Za-z0-9_-]{16,}/,
   /OPENAI_API_KEY/i,
   /DEEPSEEK_API_KEY/i,
   /GEMINI_API_KEY/i,
-  /Bearer\s+[A-Za-z0-9._-]{8,}/,
+  /Bearer\s+[A-Za-z0-9._-]{16,}/,
 ];
 
 function listFiles(root) {

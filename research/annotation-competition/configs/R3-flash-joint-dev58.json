@@ -1,0 +1,35 @@
+{
+  "schema_version": "ac-arm-config.v1",
+  "arm_id": "R3-flash-joint-dev58",
+  "provider": {
+    "id": "deepseek",
+    "model_id": "deepseek-flash",
+    "request": {
+      "temperature": 0,
+      "thinking": {
+        "type": "disabled"
+      },
+      "reasoning_effort": "none"
+    }
+  },
+  "dataset": {
+    "id": "dev58"
+  },
+  "dimensions": [
+    "theme",
+    "rhetoric",
+    "technique"
+  ],
+  "theme_scope": "full",
+  "batch_size": 20,
+  "evidence": true,
+  "call_mode": "joint",
+  "cny_per_usd": 7.2,
+  "execution": {
+    "concurrency": 2,
+    "timeout_ms": 120000,
+    "retry_limit": 2,
+    "max_requests": 3,
+    "max_estimated_budget_usd": 1
+  }
+}

@@ -1,7 +1,7 @@
 import { performance } from "node:perf_hooks";
 import { calculateUsdCost } from "../cost.mjs";
 import { BudgetExceededError, redactDeep, redactSecrets } from "../safety.mjs";
-import { buildSelectorPrompt } from "./instruction.mjs";
+import { buildSelectorPrompt, SELECTOR_TASK_INSTRUCTION } from "./instruction.mjs";
 import { parseSelectorResponse, validateSelection } from "./validate.mjs";
 
 function emptyUsage() {
@@ -26,6 +26,8 @@ export async function selectThemes({
     textZh: quote.text_zh,
     candidates,
     includeAliases: config.include_aliases === true,
+    maxSelected: config.max_selected ?? 3,
+    taskInstruction: config.selector_task_instruction ?? SELECTOR_TASK_INSTRUCTION,
   });
   const leaked = JSON.stringify({ prompt, candidates });
   if (/expected_theme|gold_label|benchmark evaluation/i.test(leaked)) {
@@ -75,6 +77,8 @@ export async function selectThemes({
         candidates,
         timeoutMs: config.execution?.timeout_ms ?? 60000,
         openaiRequest: config.openai_request ?? null,
+        deepseekRequest: config.deepseek_request ?? null,
+        maxSelected: config.max_selected ?? 3,
       });
       const parsed = parseSelectorResponse(response.response_text);
       const validation = parsed.ok
@@ -105,6 +109,13 @@ export async function selectThemes({
         errors,
         provider_id: response.provider_id,
         model_id: response.model_id,
+        ...(response.provider_id === "deepseek" || response.system_fingerprint != null
+          ? {
+            system_fingerprint: response.system_fingerprint
+              ?? response.raw_response?.system_fingerprint
+              ?? null,
+          }
+          : {}),
         local_runtime: response.local_runtime ?? null,
         http_status: response.http_status ?? null,
       };

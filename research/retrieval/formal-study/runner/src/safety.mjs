@@ -74,7 +74,7 @@ export function assertExecutionMode({ executionMode, allowPaidApi, stage, provid
   }
   const localProviders = stage === "retrieval"
     ? new Set(["qwen3", "fake"])
-    : new Set(["ollama", "fake"]);
+    : new Set(["ollama", "fake", "embedding-top2"]);
   if (!localProviders.has(providerId)) {
     throw new Error(
       `STOP: local mode cannot run provider ${providerId}. No fallback provider will be used.`,
@@ -102,6 +102,14 @@ export function collectBlockers(effective, { artifactExists = false, pricingRate
   }
   if (effective.execution?.max_requests == null) {
     blockers.push("max_requests is required before a selector calls a model.");
+  }
+  if (effective.provider?.id === "deepseek") {
+    const thinkingType = effective.deepseek_request?.thinking?.type ?? "disabled";
+    if (thinkingType !== "disabled") {
+      blockers.push(
+        "DeepSeek thinking must be disabled for this EL matrix. Do not send a thinking-on request.",
+      );
+    }
   }
   return blockers;
 }

@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EL-Pilot-10 identified visual report</title>
+  <style>
+    :root {
+      --paper: #eef2f6;
+      --ink: #17202a;
+      --muted: #5b6775;
+      --card: #fbfcfe;
+      --rule: #c9d2dc;
+      --gold: #6b5420;
+      --match: #0f6a46;
+      --match-bg: #e5f4ec;
+      --extra: #b85c2a;
+      --extra-bg: #f8eee6;
+      --miss: #9f1d32;
+      --miss-bg: #f7e6e9;
+      --seal: #8c1c23;
+    }
+    * { box-sizing: border-box; }
+    html { color-scheme: light; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(180deg, #f4f7fa 0%, var(--paper) 180px);
+      font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+      line-height: 1.55;
+    }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 28px 20px 64px; }
+    .masthead {
+      display: grid;
+      grid-template-columns: 52px 1fr;
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+    .seal {
+      width: 52px;
+      height: 52px;
+      border: 2px solid var(--seal);
+      color: var(--seal);
+      display: grid;
+      place-items: center;
+      font-family: "Palatino Linotype", Palatino, "Songti SC", serif;
+      font-size: 22px;
+      letter-spacing: 0.04em;
+    }
+    h1 {
+      margin: 0 0 6px;
+      font-family: "Palatino Linotype", Palatino, "Songti SC", Georgia, serif;
+      font-size: 1.85rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+    .lede, .note, .legend, .prov { color: var(--muted); }
+    .lede { margin: 0; max-width: 62ch; }
+    .banner {
+      margin: 16px 0 0;
+      padding: 12px 14px;
+      background: #fff8e8;
+      border-left: 3px solid #c9a227;
+      color: #5a4a16;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 22px 0;
+    }
+    .metric {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 12px 14px;
+    }
+    .metric .label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+    .metric .pair { display: flex; justify-content: space-between; gap: 8px; margin-top: 6px; font-variant-numeric: tabular-nums; }
+    .metric .pair span:first-child { color: var(--muted); font-size: 0.85rem; }
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: color-mix(in srgb, var(--paper) 88%, white);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--rule);
+      padding: 10px 0 12px;
+      margin: 0 -20px 22px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    .nav-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .nav-item, .nav-all {
+      border: 1px solid var(--rule);
+      background: var(--card);
+      color: var(--ink);
+      padding: 6px 10px;
+      font: inherit;
+      font-size: 0.82rem;
+      cursor: pointer;
+    }
+    .nav-item[aria-pressed="true"], .nav-all[aria-pressed="true"] {
+      background: var(--ink);
+      color: #f7f9fb;
+      border-color: var(--ink);
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px 22px;
+      margin: 0 0 22px;
+      font-size: 0.92rem;
+    }
+    .swatch { display: inline-block; width: 0.85em; height: 0.85em; margin-right: 6px; vertical-align: -1px; }
+    .swatch.match { background: var(--match); }
+    .swatch.extra { background: var(--extra); }
+    .swatch.miss { background: var(--miss); }
+    .quote-card {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 20px;
+      margin-bottom: 22px;
+    }
+    .quote-head { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+    .kicker { margin: 0; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .qid { margin: 0; font-size: 0.9rem; font-variant-numeric: tabular-nums; }
+    .pill {
+      display: inline-block;
+      margin-left: 8px;
+      padding: 1px 7px;
+      border: 1px solid var(--rule);
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+    .quote-text {
+      margin: 14px 0 18px;
+      padding: 14px 16px;
+      border-left: 3px solid var(--ink);
+      background: #f3f6f9;
+      font-family: "NSimSun", "SimSun", "Songti SC", "Palatino Linotype", serif;
+      font-size: 1.18rem;
+      line-height: 1.8;
+      white-space: pre-wrap;
+    }
+    .answers {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .col h3 {
+      margin: 0 0 10px;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+    }
+    .col.gold h3 { color: var(--gold); }
+    .theme {
+      border: 1px solid var(--rule);
+      padding: 10px 11px;
+      margin-bottom: 8px;
+      background: #fff;
+    }
+    .theme header { display: flex; gap: 8px; align-items: baseline; }
+    .theme .mark {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .theme.match { background: var(--match-bg); border-color: #b7d8c6; }
+    .theme.extra { background: var(--extra-bg); border-color: #e4c8b3; }
+    .theme.miss { background: var(--miss-bg); border-color: #e3b7bf; }
+    .theme.gold-ref { background: #f7f3ea; border-color: #ddd3bb; }
+    .def { margin: 6px 0 0; }
+    .tid { margin: 4px 0 0; font-size: 0.75rem; color: var(--muted); word-break: break-all; }
+    .empty {
+      margin: 0;
+      padding: 18px 12px;
+      border: 1px dashed var(--rule);
+      color: var(--muted);
+      text-align: center;
+    }
+    .omitted-label {
+      margin: 12px 0 6px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--miss);
+    }
+    .prov {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+      font-size: 0.85rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .prov code { font-family: Consolas, "Cascadia Mono", monospace; font-size: 0.8rem; word-break: break-all; }
+    @media (max-width: 900px) {
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .answers { grid-template-columns: 1fr; }
+      .masthead { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="masthead">
+      <div class="seal" aria-hidden="true">EL</div>
+      <div>
+        <h1>EL-Pilot-10 identified comparison</h1>
+        <p class="lede">Frozen human gold beside GPT-5 mini and GPT-5.2 Theme selections for the same ten Chinese quotations. Internal identified report — not a blinded evaluation sheet.</p>
+        <p class="banner">Exploratory 10-quote set. Do not claim statistical significance. An “extra” Theme is absent from frozen Gold; it is not automatically semantically wrong.</p>
+      </div>
+    </header>
+
+    <section class="metrics" aria-label="Summary metrics">
+      <article class="metric">
+        <div class="label">Micro-F1</div>
+        <div class="pair"><span>mini</span><strong>47.6%</strong></div>
+        <div class="pair"><span>5.2</span><strong>50.0%</strong></div>
+      </article>
+      <article class="metric">
+        <div class="label">Precision / Recall</div>
+        <div class="pair"><span>mini</span><strong>41.7% / 55.6%</strong></div>
+        <div class="pair"><span>5.2</span><strong>40.0% / 66.7%</strong></div>
+      </article>
+      <article class="metric">
+        <div class="label">Exact match</div>
+        <div class="pair"><span>mini</span><strong>0.0%</strong></div>
+        <div class="pair"><span>5.2</span><strong>10.0%</strong></div>
+      </article>
+      <article class="metric">
+        <div class="label">Zero-theme accuracy</div>
+        <div class="pair"><span>mini</span><strong>0.0%</strong></div>
+        <div class="pair"><span>5.2</span><strong>0.0%</strong></div>
+      </article>
+      <article class="metric">
+        <div class="label">Avg. selected Themes</div>
+        <div class="pair"><span>mini</span><strong>2.4</strong></div>
+        <div class="pair"><span>5.2</span><strong>3</strong></div>
+      </article>
+      <article class="metric">
+        <div class="label">Total USD</div>
+        <div class="pair"><span>mini</span><strong>$0.0056</strong></div>
+        <div class="pair"><span>5.2</span><strong>$0.0254</strong></div>
+      </article>
+      <article class="metric">
+        <div class="label">Mean latency</div>
+        <div class="pair"><span>mini</span><strong>2254 ms</strong></div>
+        <div class="pair"><span>5.2</span><strong>1033 ms</strong></div>
+      </article>
+      <article class="metric">
+        <div class="label">Valid outputs</div>
+        <div class="pair"><span>mini</span><strong>10 / 10</strong></div>
+        <div class="pair"><span>5.2</span><strong>10 / 10</strong></div>
+      </article>
+    </section>
+
+    <nav class="nav" aria-label="Quote navigation">
+      <div class="nav-row">
+        <button type="button" class="nav-all" data-target="all" aria-pressed="true">All 10 quotes</button>
+        <button type="button" class="nav-item" data-target="batch1-calib-005">01 batch1-calib-005</button><button type="button" class="nav-item" data-target="batch1-calib-001">02 batch1-calib-001</button><button type="button" class="nav-item" data-target="batch1-calib-008">03 batch1-calib-008</button><button type="button" class="nav-item" data-target="batch2-batch2-001">04 batch2-batch2-001</button><button type="button" class="nav-item" data-target="batch2-batch2-017">05 batch2-batch2-017</button><button type="button" class="nav-item" data-target="batch1-calib-027">06 batch1-calib-027</button><button type="button" class="nav-item" data-target="batch2-batch2-022">07 batch2-batch2-022</button><button type="button" class="nav-item" data-target="batch1-calib-006">08 batch1-calib-006</button><button type="button" class="nav-item" data-target="batch2-batch2-023">09 batch2-batch2-023</button><button type="button" class="nav-item" data-target="batch1-calib-018">10 batch1-calib-018</button>
+      </div>
+    </nav>
+
+    <p class="legend">
+      <span><i class="swatch match"></i>Match: selected and in Gold</span>
+      <span><i class="swatch extra"></i>Extra: selected, absent from frozen Gold (not necessarily wrong)</span>
+      <span><i class="swatch miss"></i>Omitted: in Gold, not selected by this model</span>
+    </p>
+
+    <section class="quote-card" data-quote-id="batch1-calib-005" id="batch1-calib-005">
+    <header class="quote-head">
+      <p class="kicker">Quote 01</p>
+      <p class="qid">batch1-calib-005 </p>
+    </header>
+    <blockquote class="quote-text">柳比歇夫的时间酷似物质，从不会了无痕迹地消失，不会平白无故地蒸发，而总能够查明它们变成了什么。借助时间核算，柳比歇夫不断地开采着新的时间。而时间，才是真正的矿藏。</blockquote>
+    <div class="answers">
+      <section class="col gold">
+        <h3>Human Gold / Our Answer</h3>
+        <article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>时间</strong>
+      </header>
+      <p class="def">时间本身及人对时间的经验，包括经过、顺序、快慢、逆转与价值。</p>
+      <p class="tid">theme-0039-时间</p>
+    </article>
+      </section>
+      <section class="col mini">
+        <h3>GPT-5 mini</h3>
+        <article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>时间</strong>
+      </header>
+      <p class="def">时间本身及人对时间的经验，包括经过、顺序、快慢、逆转与价值。</p>
+      <p class="tid">theme-0039-时间</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>珍视</strong>
+      </header>
+      <p class="def">对人或物的宝贵感与舍不得失去。</p>
+      <p class="tid">theme-0044-珍视</p>
+    </article>
+      </section>
+      <section class="col full">
+        <h3>GPT-5.2</h3>
+        <article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>时间</strong>
+      </header>
+      <p class="def">时间本身及人对时间的经验，包括经过、顺序、快慢、逆转与价值。</p>
+      <p class="tid">theme-0039-时间</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>珍视</strong>
+      </header>
+      <p class="def">对人或物的宝贵感与舍不得失去。</p>
+      <p class="tid">theme-0044-珍视</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>理智</strong>
+      </header>
+      <p class="def">冷静分析、克制情感的认知力量。</p>
+      <p class="tid">theme-0074-理智</p>
+    </article>
+      </section>
+    </div>
+  </section>
+<section class="quote-card" data-quote-id="batch1-calib-001" id="batch1-calib-001">
+    <header class="quote-head">
+      <p class="kicker">Quote 02</p>
+      <p class="qid">batch1-calib-001 </p>
+    </header>
+    <blockquote class="quote-text">加德纳先生唱了起来，很轻很柔地，像是只记得一部分歌词。可是他的声音还是清晰地回响在安静的运河上。而且真是太好听了。一时间我仿佛又回到了童年，回到了那个公寓。</blockquote>
+    <div class="answers">
+      <section class="col gold">
+        <h3>Human Gold / Our Answer</h3>
+        <article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>童年</strong>
+      </header>
+      <p class="def">儿童时期的经验、感知与回忆。</p>
+      <p class="tid">theme-0010-童年</p>
+    </article><article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>记忆</strong>
+      </header>
+      <p class="def">记住、回想与被过去经验塑造的心智领地，可涵盖回忆唤起、保存与改变。</p>
+      <p class="tid">theme-0077-记忆</p>
+    </article><article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>音乐</strong>
+      </header>
+      <p class="def">音乐作为情感、记忆与意义的载体。</p>
+      <p class="tid">theme-0146-音乐</p>
+    </article>
+      </section>
+      <section class="col mini">
+        <h3>GPT-5 mini</h3>
+        <article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>怀旧</strong>
+      </header>
+      <p class="def">对往昔的感伤回望与情感召回。</p>
+      <p class="tid">theme-0068-怀旧</p>
+    </article><article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>音乐</strong>
+      </header>
+      <p class="def">音乐作为情感、记忆与意义的载体。</p>
+      <p class="tid">theme-0146-音乐</p>
+    </article><article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>童年</strong>
+      </header>
+      <p class="def">儿童时期的经验、感知与回忆。</p>
+      <p class="tid">theme-0010-童年</p>
+    </article><div class="omitted-block"><p class="omitted-label">Omitted gold</p><article class="theme miss">
+        <header>
+          <span class="mark">Omitted</span>
+          <strong>记忆</strong>
+        </header>
+        <p class="def">记住、回想与被过去经验塑造的心智领地，可涵盖回忆唤起、保存与改变。</p>
+        <p class="tid">theme-0077-记忆</p>
+      </article></div>
+      </section>
+      <section class="col full">
+        <h3>GPT-5.2</h3>
+        <article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>音乐</strong>
+      </header>
+      <p class="def">音乐作为情感、记忆与意义的载体。</p>
+      <p class="tid">theme-0146-音乐</p>
+    </article><article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>记忆</strong>
+      </header>
+      <p class="def">记住、回想与被过去经验塑造的心智领地，可涵盖回忆唤起、保存与改变。</p>
+      <p class="tid">theme-0077-记忆</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>怀旧</strong>
+      </header>
+      <p class="def">对往昔的感伤回望与情感召回。</p>
+      <p class="tid">theme-0068-怀旧</p>
+    </article><div class="omitted-block"><p class="omitted-label">Omitted gold</p><article class="theme miss">
+        <header>
+          <span class="mark">Omitted</span>
+          <strong>童年</strong>
+        </header>
+        <p class="def">儿童时期的经验、感知与回忆。</p>
+        <p class="tid">theme-0010-童年</p>
+      </article></div>
+      </section>
+    </div>
+  </section>
+<section class="quote-card" data-quote-id="batch1-calib-008" id="batch1-calib-008">
+    <header class="quote-head">
+      <p class="kicker">Quote 03</p>
+      <p class="qid">batch1-calib-008 <span class="pill">Zero-theme gold</span></p>
+    </header>
+    <blockquote class="quote-text">没有一只鸟在固体般坚实的天空中飞翔，没有动物用窸窣的响动打破像晨雾般在大地上弥漫的寂静，只有一头孤独、受惊的小鹿——仿佛泥沼在呼吸——时而仰头，时而低头，时刻准备着逃离，逃向远方。</blockquote>
+    <div class="answers">
+      <section class="col gold">
+        <h3>Human Gold / Our Answer</h3>
+        <p class="empty">No Theme</p>
+      </section>
+      <section class="col mini">
+        <h3>GPT-5 mini</h3>
+        <article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>孤独</strong>
+      </header>
+      <p class="def">缺乏联结、被隔绝或无人理解的感受。</p>
+      <p class="tid">theme-0090-孤独</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>脆弱</strong>
+      </header>
+      <p class="def">易受伤害、需要被保护的状态。</p>
+      <p class="tid">theme-0051-脆弱</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>恐惧</strong>
+      </header>
+      <p class="def">对危险、未知或伤害的害怕与惊惧。</p>
+      <p class="tid">theme-0097-恐惧</p>
+    </article>
+      </section>
+      <section class="col full">
+        <h3>GPT-5.2</h3>
+        <article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>孤独</strong>
+      </header>
+      <p class="def">缺乏联结、被隔绝或无人理解的感受。</p>
+      <p class="tid">theme-0090-孤独</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>恐惧</strong>
+      </header>
+      <p class="def">对危险、未知或伤害的害怕与惊惧。</p>
+      <p class="tid">theme-0097-恐惧</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>自然</strong>
+      </header>
+      <p class="def">自然界及其与人的关系。</p>
+      <p class="tid">theme-0008-自然</p>
+    </article>
+      </section>
+    </div>
+  </section>
+<section class="quote-card" data-quote-id="batch2-batch2-001" id="batch2-batch2-001">
+    <header class="quote-head">
+      <p class="kicker">Quote 04</p>
+      <p class="qid">batch2-batch2-001 <span class="pill">Zero-theme gold</span></p>
+    </header>
+    <blockquote class="quote-text">你茫然地向周围的图书又看了一眼，便走出书店(或者说得更确切些，周围的图书怏怏地望着你走开，仿佛一只只丢失后被收容在市政府特意设置的笼子里的狗，看见一个同伴被其主人认领后牵着链子救走了)。</blockquote>
+    <div class="answers">
+      <section class="col gold">
+        <h3>Human Gold / Our Answer</h3>
+        <p class="empty">No Theme</p>
+      </section>
+      <section class="col mini">
+        <h3>GPT-5 mini</h3>
+        <article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>抛弃</strong>
+      </header>
+      <p class="def">被离开、被弃置或切断依赖。</p>
+      <p class="tid">theme-0016-抛弃</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>孤独</strong>
+      </header>
+      <p class="def">缺乏联结、被隔绝或无人理解的感受。</p>
+      <p class="tid">theme-0090-孤独</p>
+    </article>
+      </section>
+      <section class="col full">
+        <h3>GPT-5.2</h3>
+        <article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>抛弃</strong>
+      </header>
+      <p class="def">被离开、被弃置或切断依赖。</p>
+      <p class="tid">theme-0016-抛弃</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>孤独</strong>
+      </header>
+      <p class="def">缺乏联结、被隔绝或无人理解的感受。</p>
+      <p class="tid">theme-0090-孤独</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>寻找</strong>
+      </header>
+      <p class="def">寻找某人或某种意义/真相的过程。</p>
+      <p class="tid">theme-0184-寻找</p>
+    </article>
+      </section>
+    </div>
+  </section>
+<section class="quote-card" data-quote-id="batch2-batch2-017" id="batch2-batch2-017">
+    <header class="quote-head">
+      <p class="kicker">Quote 05</p>
+      <p class="qid">batch2-batch2-017 </p>
+    </header>
+    <blockquote class="quote-text">孩子们也绝不是幸福的，他们也有种种矛盾、种种分裂，承受着种种痛苦。</blockquote>
+    <div class="answers">
+      <section class="col gold">
+        <h3>Human Gold / Our Answer</h3>
+        <article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>童年</strong>
+      </header>
+      <p class="def">儿童时期的经验、感知与回忆。</p>
+      <p class="tid">theme-0010-童年</p>
+    </article><article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>痛苦</strong>
+      </header>
+      <p class="def">身体或精神上的受苦、伤痛与难耐体验。</p>
+      <p class="tid">theme-0105-痛苦</p>
+    </article><article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>幸福</strong>
+      </header>
+      <p class="def">感到愉悦、满足或安好；包括具体的快乐时刻和对生活状态的幸福感。</p>
+      <p class="tid">theme-0087-幸福</p>
+    </article>
+      </section>
+      <section class="col mini">
+        <h3>GPT-5 mini</h3>
+        <article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>童年</strong>
+      </header>
+      <p class="def">儿童时期的经验、感知与回忆。</p>
+      <p class="tid">theme-0010-童年</p>
+    </article><article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>痛苦</strong>
+      </header>
+      <p class="def">身体或精神上的受苦、伤痛与难耐体验。</p>
+      <p class="tid">theme-0105-痛苦</p>
+    </article><div class="omitted-block"><p class="omitted-label">Omitted gold</p><article class="theme miss">
+        <header>
+          <span class="mark">Omitted</span>
+          <strong>幸福</strong>
+        </header>
+        <p class="def">感到愉悦、满足或安好；包括具体的快乐时刻和对生活状态的幸福感。</p>
+        <p class="tid">theme-0087-幸福</p>
+      </article></div>
+      </section>
+      <section class="col full">
+        <h3>GPT-5.2</h3>
+        <article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>童年</strong>
+      </header>
+      <p class="def">儿童时期的经验、感知与回忆。</p>
+      <p class="tid">theme-0010-童年</p>
+    </article><article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>痛苦</strong>
+      </header>
+      <p class="def">身体或精神上的受苦、伤痛与难耐体验。</p>
+      <p class="tid">theme-0105-痛苦</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>脆弱</strong>
+      </header>
+      <p class="def">易受伤害、需要被保护的状态。</p>
+      <p class="tid">theme-0051-脆弱</p>
+    </article><div class="omitted-block"><p class="omitted-label">Omitted gold</p><article class="theme miss">
+        <header>
+          <span class="mark">Omitted</span>
+          <strong>幸福</strong>
+        </header>
+        <p class="def">感到愉悦、满足或安好；包括具体的快乐时刻和对生活状态的幸福感。</p>
+        <p class="tid">theme-0087-幸福</p>
+      </article></div>
+      </section>
+    </div>
+  </section>
+<section class="quote-card" data-quote-id="batch1-calib-027" id="batch1-calib-027">
+    <header class="quote-head">
+      <p class="kicker">Quote 06</p>
+      <p class="qid">batch1-calib-027 </p>
+    </header>
+    <blockquote class="quote-text">对朋友甜言蜜语的人，在他脚前安置了诱捕的罗网。</blockquote>
+    <div class="answers">
+      <section class="col gold">
+        <h3>Human Gold / Our Answer</h3>
+        <article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>友情</strong>
+      </header>
+      <p class="def">非血缘、非情爱的友伴关系与互助信任。</p>
+      <p class="tid">theme-0117-友情</p>
+    </article><article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>虚伪</strong>
+      </header>
+      <p class="def">表里不一或假装道德。</p>
+      <p class="tid">theme-0026-虚伪</p>
+    </article>
+      </section>
+      <section class="col mini">
+        <h3>GPT-5 mini</h3>
+        <article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>背叛</strong>
+      </header>
+      <p class="def">信任被出卖或承诺被违背。</p>
+      <p class="tid">theme-0124-背叛</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>信任</strong>
+      </header>
+      <p class="def">信赖他人或被他人视为可靠。</p>
+      <p class="tid">theme-0114-信任</p>
+    </article><div class="omitted-block"><p class="omitted-label">Omitted gold</p><article class="theme miss">
+        <header>
+          <span class="mark">Omitted</span>
+          <strong>友情</strong>
+        </header>
+        <p class="def">非血缘、非情爱的友伴关系与互助信任。</p>
+        <p class="tid">theme-0117-友情</p>
+      </article><article class="theme miss">
+        <header>
+          <span class="mark">Omitted</span>
+          <strong>虚伪</strong>
+        </header>
+        <p class="def">表里不一或假装道德。</p>
+        <p class="tid">theme-0026-虚伪</p>
+      </article></div>
+      </section>
+      <section class="col full">
+        <h3>GPT-5.2</h3>
+        <article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>背叛</strong>
+      </header>
+      <p class="def">信任被出卖或承诺被违背。</p>
+      <p class="tid">theme-0124-背叛</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>信任</strong>
+      </header>
+      <p class="def">信赖他人或被他人视为可靠。</p>
+      <p class="tid">theme-0114-信任</p>
+    </article><article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>友情</strong>
+      </header>
+      <p class="def">非血缘、非情爱的友伴关系与互助信任。</p>
+      <p class="tid">theme-0117-友情</p>
+    </article><div class="omitted-block"><p class="omitted-label">Omitted gold</p><article class="theme miss">
+        <header>
+          <span class="mark">Omitted</span>
+          <strong>虚伪</strong>
+        </header>
+        <p class="def">表里不一或假装道德。</p>
+        <p class="tid">theme-0026-虚伪</p>
+      </article></div>
+      </section>
+    </div>
+  </section>
+<section class="quote-card" data-quote-id="batch2-batch2-022" id="batch2-batch2-022">
+    <header class="quote-head">
+      <p class="kicker">Quote 07</p>
+      <p class="qid">batch2-batch2-022 </p>
+    </header>
+    <blockquote class="quote-text">因此父亲和欧维从来没有过多的交谈，但他们喜欢彼此的陪伴。沉默地分别坐在餐桌的两端就很满足。</blockquote>
+    <div class="answers">
+      <section class="col gold">
+        <h3>Human Gold / Our Answer</h3>
+        <article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>父亲</strong>
+      </header>
+      <p class="def">父职、父亲形象及其情感/权力关系（高复用关系概念）。</p>
+      <p class="tid">theme-0023-父亲</p>
+    </article><article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>满足</strong>
+      </header>
+      <p class="def">感到足够、安稳或心意落地的状态。</p>
+      <p class="tid">theme-0103-满足</p>
+    </article><article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>亲情</strong>
+      </header>
+      <p class="def">家庭成员之间的情感联结、关怀与牵挂。</p>
+      <p class="tid">theme-0112-亲情</p>
+    </article>
+      </section>
+      <section class="col mini">
+        <h3>GPT-5 mini</h3>
+        <article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>亲情</strong>
+      </header>
+      <p class="def">家庭成员之间的情感联结、关怀与牵挂。</p>
+      <p class="tid">theme-0112-亲情</p>
+    </article><article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>满足</strong>
+      </header>
+      <p class="def">感到足够、安稳或心意落地的状态。</p>
+      <p class="tid">theme-0103-满足</p>
+    </article><div class="omitted-block"><p class="omitted-label">Omitted gold</p><article class="theme miss">
+        <header>
+          <span class="mark">Omitted</span>
+          <strong>父亲</strong>
+        </header>
+        <p class="def">父职、父亲形象及其情感/权力关系（高复用关系概念）。</p>
+        <p class="tid">theme-0023-父亲</p>
+      </article></div>
+      </section>
+      <section class="col full">
+        <h3>GPT-5.2</h3>
+        <article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>父亲</strong>
+      </header>
+      <p class="def">父职、父亲形象及其情感/权力关系（高复用关系概念）。</p>
+      <p class="tid">theme-0023-父亲</p>
+    </article><article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>亲情</strong>
+      </header>
+      <p class="def">家庭成员之间的情感联结、关怀与牵挂。</p>
+      <p class="tid">theme-0112-亲情</p>
+    </article><article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>满足</strong>
+      </header>
+      <p class="def">感到足够、安稳或心意落地的状态。</p>
+      <p class="tid">theme-0103-满足</p>
+    </article>
+      </section>
+    </div>
+  </section>
+<section class="quote-card" data-quote-id="batch1-calib-006" id="batch1-calib-006">
+    <header class="quote-head">
+      <p class="kicker">Quote 08</p>
+      <p class="qid">batch1-calib-006 </p>
+    </header>
+    <blockquote class="quote-text">人类对时间总抱有敌意。空间、物质，这些东西都被人驯服了。唯独时间，亘古便野性难驯。自人类眺望宇宙深处以来，便听得到世界时钟数十亿年未曾中断的嘀嗒声；当人类目睹星系的坍塌时，时间似乎变得更加可怕了。</blockquote>
+    <div class="answers">
+      <section class="col gold">
+        <h3>Human Gold / Our Answer</h3>
+        <article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>时间</strong>
+      </header>
+      <p class="def">时间本身及人对时间的经验，包括经过、顺序、快慢、逆转与价值。</p>
+      <p class="tid">theme-0039-时间</p>
+    </article><article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>恐惧</strong>
+      </header>
+      <p class="def">对危险、未知或伤害的害怕与惊惧。</p>
+      <p class="tid">theme-0097-恐惧</p>
+    </article>
+      </section>
+      <section class="col mini">
+        <h3>GPT-5 mini</h3>
+        <article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>时间</strong>
+      </header>
+      <p class="def">时间本身及人对时间的经验，包括经过、顺序、快慢、逆转与价值。</p>
+      <p class="tid">theme-0039-时间</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>敬畏</strong>
+      </header>
+      <p class="def">面对巨大、崇高或神秘事物时的震慑与崇敬。</p>
+      <p class="tid">theme-0100-敬畏</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>命运</strong>
+      </header>
+      <p class="def">命运、宿命或更大力量如何牵引人生轨迹，也包括人对这种不可控性的感受。</p>
+      <p class="tid">theme-0032-命运</p>
+    </article><div class="omitted-block"><p class="omitted-label">Omitted gold</p><article class="theme miss">
+        <header>
+          <span class="mark">Omitted</span>
+          <strong>恐惧</strong>
+        </header>
+        <p class="def">对危险、未知或伤害的害怕与惊惧。</p>
+        <p class="tid">theme-0097-恐惧</p>
+      </article></div>
+      </section>
+      <section class="col full">
+        <h3>GPT-5.2</h3>
+        <article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>时间</strong>
+      </header>
+      <p class="def">时间本身及人对时间的经验，包括经过、顺序、快慢、逆转与价值。</p>
+      <p class="tid">theme-0039-时间</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>敬畏</strong>
+      </header>
+      <p class="def">面对巨大、崇高或神秘事物时的震慑与崇敬。</p>
+      <p class="tid">theme-0100-敬畏</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>人性</strong>
+      </header>
+      <p class="def">关于人固有倾向、善恶与限度的思索。</p>
+      <p class="tid">theme-0029-人性</p>
+    </article><div class="omitted-block"><p class="omitted-label">Omitted gold</p><article class="theme miss">
+        <header>
+          <span class="mark">Omitted</span>
+          <strong>恐惧</strong>
+        </header>
+        <p class="def">对危险、未知或伤害的害怕与惊惧。</p>
+        <p class="tid">theme-0097-恐惧</p>
+      </article></div>
+      </section>
+    </div>
+  </section>
+<section class="quote-card" data-quote-id="batch2-batch2-023" id="batch2-batch2-023">
+    <header class="quote-head">
+      <p class="kicker">Quote 09</p>
+      <p class="qid">batch2-batch2-023 </p>
+    </header>
+    <blockquote class="quote-text">如果生命终将结束于坟墓中，我们又为何致力于艰辛地塑造自我，探索永恒？</blockquote>
+    <div class="answers">
+      <section class="col gold">
+        <h3>Human Gold / Our Answer</h3>
+        <article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>死亡</strong>
+      </header>
+      <p class="def">生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。</p>
+      <p class="tid">theme-0043-死亡</p>
+    </article><article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>生命</strong>
+      </header>
+      <p class="def">活着本身、生命力与生存境况。</p>
+      <p class="tid">theme-0045-生命</p>
+    </article><article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>目标</strong>
+      </header>
+      <p class="def">行动、选择或愿望所指向的目的、追求与预期成果。</p>
+      <p class="tid">theme-0223-目标</p>
+    </article>
+      </section>
+      <section class="col mini">
+        <h3>GPT-5 mini</h3>
+        <article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>死亡</strong>
+      </header>
+      <p class="def">生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。</p>
+      <p class="tid">theme-0043-死亡</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>意义</strong>
+      </header>
+      <p class="def">人生、事件或行动是否值得、指向什么。</p>
+      <p class="tid">theme-0036-意义</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>自我身份</strong>
+      </header>
+      <p class="def">关于自我认同、身份形成及其变化的经验与思考。</p>
+      <p class="tid">theme-0221-自我身份</p>
+    </article><div class="omitted-block"><p class="omitted-label">Omitted gold</p><article class="theme miss">
+        <header>
+          <span class="mark">Omitted</span>
+          <strong>生命</strong>
+        </header>
+        <p class="def">活着本身、生命力与生存境况。</p>
+        <p class="tid">theme-0045-生命</p>
+      </article><article class="theme miss">
+        <header>
+          <span class="mark">Omitted</span>
+          <strong>目标</strong>
+        </header>
+        <p class="def">行动、选择或愿望所指向的目的、追求与预期成果。</p>
+        <p class="tid">theme-0223-目标</p>
+      </article></div>
+      </section>
+      <section class="col full">
+        <h3>GPT-5.2</h3>
+        <article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>死亡</strong>
+      </header>
+      <p class="def">生命终结、死亡意识，以及围绕死亡的恐惧、接受或反思。</p>
+      <p class="tid">theme-0043-死亡</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>意义</strong>
+      </header>
+      <p class="def">人生、事件或行动是否值得、指向什么。</p>
+      <p class="tid">theme-0036-意义</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>自我身份</strong>
+      </header>
+      <p class="def">关于自我认同、身份形成及其变化的经验与思考。</p>
+      <p class="tid">theme-0221-自我身份</p>
+    </article><div class="omitted-block"><p class="omitted-label">Omitted gold</p><article class="theme miss">
+        <header>
+          <span class="mark">Omitted</span>
+          <strong>生命</strong>
+        </header>
+        <p class="def">活着本身、生命力与生存境况。</p>
+        <p class="tid">theme-0045-生命</p>
+      </article><article class="theme miss">
+        <header>
+          <span class="mark">Omitted</span>
+          <strong>目标</strong>
+        </header>
+        <p class="def">行动、选择或愿望所指向的目的、追求与预期成果。</p>
+        <p class="tid">theme-0223-目标</p>
+      </article></div>
+      </section>
+    </div>
+  </section>
+<section class="quote-card" data-quote-id="batch1-calib-018" id="batch1-calib-018">
+    <header class="quote-head">
+      <p class="kicker">Quote 10</p>
+      <p class="qid">batch1-calib-018 </p>
+    </header>
+    <blockquote class="quote-text">你用刀刃在纸张中开路犹如用思想在文字中开路，因为阅读就像在密林中前进。</blockquote>
+    <div class="answers">
+      <section class="col gold">
+        <h3>Human Gold / Our Answer</h3>
+        <article class="theme gold-ref">
+      <header>
+        <span class="mark">Gold</span>
+        <strong>文学</strong>
+      </header>
+      <p class="def">文学作品及其阅读、书写与审美或思想经验。</p>
+      <p class="tid">theme-0137-文学</p>
+    </article>
+      </section>
+      <section class="col mini">
+        <h3>GPT-5 mini</h3>
+        <article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>文学</strong>
+      </header>
+      <p class="def">文学作品及其阅读、书写与审美或思想经验。</p>
+      <p class="tid">theme-0137-文学</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>思考</strong>
+      </header>
+      <p class="def">围绕事物形成想法、理解或判断的心智活动。</p>
+      <p class="tid">theme-0230-思考</p>
+    </article>
+      </section>
+      <section class="col full">
+        <h3>GPT-5.2</h3>
+        <article class="theme match">
+      <header>
+        <span class="mark">Match</span>
+        <strong>文学</strong>
+      </header>
+      <p class="def">文学作品及其阅读、书写与审美或思想经验。</p>
+      <p class="tid">theme-0137-文学</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>思考</strong>
+      </header>
+      <p class="def">围绕事物形成想法、理解或判断的心智活动。</p>
+      <p class="tid">theme-0230-思考</p>
+    </article><article class="theme extra">
+      <header>
+        <span class="mark">Extra</span>
+        <strong>语言</strong>
+      </header>
+      <p class="def">言说、命名与表达能否抵达的问题。</p>
+      <p class="tid">theme-0145-语言</p>
+    </article>
+      </section>
+    </div>
+  </section>
+
+    <footer class="prov">
+      <h2>Provenance</h2>
+      <p>GPT-5 mini snapshot <code>gpt-5-mini-2025-08-07</code> · run <code>EL-P1-GPT5MINI</code> · <code>7d1ab53a40e3848c97902df5450aa8e33175b4890cc1cf03e3c3aa7ec2e38630</code></p>
+      <p>GPT-5.2 snapshot <code>gpt-5.2-2025-12-11</code> · run <code>EL-P1-GPT52</code> · <code>020b2604aa06e722ea75ff0ec6c53689475d09ea70cb4e3630942ccfaf742d14</code></p>
+      <p>Pilot <code>research/retrieval/formal-study/benchmark/formal-pilot-10.v1.frozen.json</code> · <code>855fd0c338daf008259f8ae1886300a02cc1e9b02bc25d5a01dd611faba09f06</code></p>
+      <p>Ontology <code>research/retrieval/formal-study/ontology/atomic-tag-library.v1.43.freeze.json</code> · <code>a71db8ba7e34ea5c2db33b53a6c1583d8ac8bbf3e11871198bf0deedc0ed39b7</code></p>
+      <p>Effective configs: mini <code>808f6e5a82c00430c4983097fa5620cfc45a5bc8f297991a0fc76c96377b8365</code> · 5.2 <code>c284f02dc4b5bcc499a610e4f2a2d60a5eb585547140a9d0db5ebdc7b49dde91</code></p>
+      <p>Read-only local report. No network requests. Open this file directly in a browser.</p>
+    </footer>
+  </div>
+  <script>
+    (function () {
+      var buttons = document.querySelectorAll(".nav-item, .nav-all");
+      var cards = document.querySelectorAll(".quote-card");
+      function show(id) {
+        cards.forEach(function (card) {
+          card.style.display = (id === "all" || card.getAttribute("data-quote-id") === id) ? "" : "none";
+        });
+        buttons.forEach(function (btn) {
+          btn.setAttribute("aria-pressed", btn.getAttribute("data-target") === id ? "true" : "false");
+        });
+      }
+      buttons.forEach(function (btn) {
+        btn.addEventListener("click", function () { show(btn.getAttribute("data-target")); });
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -5,7 +5,7 @@ export function createOpenAISelector({ env = process.env, fetchImpl, baseUrl } =
   const root = (baseUrl || env.OPENAI_BASE_URL || "https://api.openai.com/v1").replace(/\/$/, "");
   return {
     provider_id: "openai",
-    async complete({ model, prompt, candidates, timeoutMs, openaiRequest = null }) {
+    async complete({ model, prompt, candidates, timeoutMs, openaiRequest = null, maxSelected = 3 }) {
       const apiKey = requireEnv(env, "OPENAI_API_KEY");
       const body = buildOpenAIBody({
         model,
@@ -14,6 +14,7 @@ export function createOpenAISelector({ env = process.env, fetchImpl, baseUrl } =
         omitTemperature: openaiRequest?.omit_temperature === true,
         reasoningEffort: openaiRequest?.reasoning_effort ?? null,
         temperature: openaiRequest?.temperature ?? 0,
+        maxSelected,
       });
       const response = await postJson({
         url: `${root}/chat/completions`,
@@ -27,6 +28,7 @@ export function createOpenAISelector({ env = process.env, fetchImpl, baseUrl } =
       return {
         provider_id: "openai",
         model_id: response.body?.model ?? model,
+        system_fingerprint: response.body?.system_fingerprint ?? null,
         request_body: body,
         raw_response: response.body,
         response_text: text,

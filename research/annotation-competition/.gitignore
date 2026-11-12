@@ -1,0 +1,5 @@
+# 付费/本地运行产物与盲审包留在本机，不进 git（与 formal-study/runs 的约定一致）
+runs/*
+!runs/.gitkeep
+packs/*
+!packs/.gitkeep

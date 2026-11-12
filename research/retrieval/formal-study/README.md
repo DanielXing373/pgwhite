@@ -1,6 +1,6 @@
 # PGWhite Formal Retrieval + Selector Study
 
-**Status:** benchmark and 10-quote pilot are frozen. Formal retrieval and selector infrastructure is implemented. EL (GPT-5 mini vs GPT-5.2 on Qwen Top20) is prepared and not yet executed. Await explicit approval before paid API calls.
+**Status:** benchmark and 10-quote pilot are frozen. EL1 five-model Theme-selection is complete and immutable. EL2 (58-quote preference sources) is prepared separately under `el2/`; do not mix EL2 runs into EL1 archives.
 
 ## Layout
 
@@ -13,7 +13,8 @@ formal-study/
   audit/              # audit + human-review artifacts (EDIT HERE)
   schemas/            # manifest / run schemas
   configs/            # planned formal configs, including EL
-  el/                 # EL registry and model verification
+  el/                 # EL1 registry and model verification
+  el2/                # EL2 58-quote preference-source preparation
   runs/               # immutable formal runs (gitignored)
   archives/           # recoverable EL archives (gitignored)
   summaries/          # cross-run tables

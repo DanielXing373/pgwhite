@@ -1,8 +1,8 @@
 # EL experiment batch
 
-EL compares how accurately two OpenAI models select 0–3 literary Themes from the frozen Qwen Top20 candidates. Automated metrics use the existing selection pipeline. Human evaluation is model-blinded and is organized separately by the project owner.
+EL compares how accurately selector models select 0–3 literary Themes from the frozen Qwen Top20 candidates. Automated metrics use the existing selection pipeline. Human evaluation is model-blinded and is organized separately by the project owner.
 
-**Status:** infrastructure prepared. No EL paid API calls have been executed.
+**Status:** EL1 five-model Theme-selection pilot is complete (`EL-P1-GPT5MINI`, `EL-P1-GPT52`, `EL-P1-DSFLASH`, `EL-P1-DSPRO`, `EL-P1-GPT6LUNA`). Results are exploratory (n=10). Smoke-test history is separate and is not part of the Pilot comparison. Do not start EL2 from this close-out.
 
 ## Identifiers
 
@@ -14,6 +14,12 @@ EL compares how accurately two OpenAI models select 0–3 literary Themes from t
 | GPT-5.2 formal run | EL-P1-GPT52 |
 | GPT-5 mini smoke | EL-P1-GPT5MINI-SMOKE |
 | GPT-5.2 smoke | EL-P1-GPT52-SMOKE |
+| DeepSeek Flash formal run | EL-P1-DSFLASH |
+| DeepSeek V4 Pro formal run | EL-P1-DSPRO |
+| DeepSeek Flash smoke | EL-P1-DSFLASH-SMOKE |
+| DeepSeek V4 Pro smoke | EL-P1-DSPRO-SMOKE |
+| GPT-6 Luna formal run | EL-P1-GPT6LUNA |
+| GPT-6 Luna smoke | EL-P1-GPT6LUNA-SMOKE |
 
 Do not rename historical Phase 1 or Phase 2 runs. Do not mark an experiment `completed` until that run has actually finished.
 
@@ -62,6 +68,22 @@ node research/retrieval/formal-study/runner/scripts/export-el-human-eval.mjs `
 
 The public file has sample IDs, Chinese quotes, selected Theme labels/definitions, and selection status. It must not include model names, providers, run IDs, costs, tokens, gold labels, or automated scores. The private mapping stays in the archive.
 
+Five-model blinded pack (do not overwrite the two-model directory):
+
+```powershell
+node research/retrieval/formal-study/runner/scripts/export-el-human-eval.mjs `
+  --run research/retrieval/formal-study/runs/EL-P1-GPT5MINI/run.json `
+  --run research/retrieval/formal-study/runs/EL-P1-GPT52/run.json `
+  --run research/retrieval/formal-study/runs/EL-P1-DSFLASH/run.json `
+  --run research/retrieval/formal-study/runs/EL-P1-DSPRO/run.json `
+  --run research/retrieval/formal-study/runs/EL-P1-GPT6LUNA/run.json `
+  --seed 20261021 `
+  --public-out research/retrieval/formal-study/archives/EL-human-eval-five-model/public.json `
+  --private-out research/retrieval/formal-study/archives/EL-human-eval-five-model/private-mapping.json
+```
+
+Visual report: `el/EL-Five-Model-Theme-Visual-Report.html`. Integrity: `el/EL1-INTEGRITY.md`. Comparison: `el/EL-Pilot-10-five-model-comparison.md`.
+
 ## Automated metrics
 
 Primary: end-to-end Micro-F1 (`aggregate_metrics.micro.f1`). Secondary: micro precision/recall, macro-F1, exact match, zero-theme accuracy, invalid output rate, cost per quote, latency per quote. Error attribution: retrieval miss, selector miss, false positive. Pilot numbers are exploratory.
@@ -70,4 +92,4 @@ Primary: end-to-end Micro-F1 (`aggregate_metrics.micro.f1`). Secondary: micro pr
 
 Smoke configs keep the frozen 10-quote file and hash, then select `batch1-calib-005` only. Formal 10-quote validation is unchanged.
 
-See `protocol/COMMANDS.md`.
+See `protocol/COMMANDS.md`. DeepSeek smokes require `DEEPSEEK_API_KEY` in the same shell. Do not run them until explicitly authorized.
