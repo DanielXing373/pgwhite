@@ -28,6 +28,7 @@ import { readJson, sha256Text, writeJson } from "./util.mjs";
 
 export const RUN_SCHEMA = "ac-run.v1";
 export const DEFAULT_CNY_PER_USD = 7.2;
+const PROVIDER_KEY_ENV = { openai: "OPENAI_API_KEY", deepseek: "DEEPSEEK_API_KEY" };
 
 export function validateConfig(config) {
   const problems = [];
@@ -225,6 +226,12 @@ export async function runArm({
     if (allowPaidApi !== true) throw new Error("STOP: paid-api requires --allow-paid-api. No request was sent.");
     if (!PAID_PROVIDERS.has(config.provider.id)) {
       throw new Error(`STOP: paid-api refuses provider ${config.provider.id}. No fallback provider will be used.`);
+    }
+  }
+  if (executionMode === "paid-api" && !provider) {
+    const keyName = PROVIDER_KEY_ENV[config.provider.id];
+    if (!env[keyName]) {
+      throw new Error(`STOP: ${keyName} is not set (shell or repo-root .env). No request was sent and nothing was written.`);
     }
   }
   const library = loadLibrary(libraryFile);

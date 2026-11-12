@@ -99,7 +99,7 @@ node research/annotation-competition/scripts/build-review-pack.mjs --out-name ro
 node research/annotation-competition/scripts/score.mjs --judgments research/annotation-competition/packs/judgments-dev58-<pack_id>.json --out research/annotation-competition/packs/round1-dev58.report.md --run ...
 ```
 
-DeepSeek 组合需要 `$env:DEEPSEEK_API_KEY`。
+key 的两种给法：在仓库根目录 `.env` 里写 `OPENAI_API_KEY=...`、`DEEPSEEK_API_KEY=...`（付费模式自动读取，只读这几个变量，`.env` 优先于 shell），或者在当前 PowerShell 窗口里用 `$env:` 设置。
 
 安全约定（沿用 formal-study）：
 

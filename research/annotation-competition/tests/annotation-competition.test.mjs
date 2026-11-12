@@ -4,6 +4,7 @@ import os from "node:os";
 import path from "node:path";
 import test from "node:test";
 import { loadDataset, loadThemeCandidates } from "../src/datasets.mjs";
+import { loadProviderEnv } from "../src/dotenv.mjs";
 import { loadLibrary } from "../src/library.mjs";
 import { parseAnnotationResponse } from "../src/parse.mjs";
 import { AC_ROOT, FROZEN_RETRIEVAL, fromRepo } from "../src/paths.mjs";
@@ -176,6 +177,15 @@ test("run: paid-api refuses without the explicit flag, and refuses the fake prov
   );
 });
 
+test("run: paid-api without the provider key stops before writing a run", async () => {
+  const runsDir = tmp();
+  await assert.rejects(
+    runArm({ config: config(), executionMode: "paid-api", allowPaidApi: true, runId: "x", runsDir, env: {} }),
+    /OPENAI_API_KEY is not set/,
+  );
+  assert.deepEqual(fs.readdirSync(runsDir), []);
+});
+
 test("run: a plan larger than max_requests stops before any call", async () => {
   const small = config({ execution: { max_requests: 2 } });
   await assert.rejects(runArm({ config: small, executionMode: "fake", runId: "x", runsDir: tmp() }), /max_requests is 2/);
@@ -307,4 +317,13 @@ test("score: conflicting judgment files are reported, later file wins", () => {
   ]);
   assert.equal(judgments.q1[id], "reject");
   assert.equal(conflicts.length, 1);
+});
+
+test("dotenv: loads only provider variables, .env wins, values are not returned", () => {
+  const file = path.join(tmp(), ".env");
+  fs.writeFileSync(file, "# note\nDB_PASSWORD=hunter2\nOPENAI_API_KEY=\"sk-from-file\"\nexport DEEPSEEK_API_KEY=ds-file\nOPENAI_BASE_URL=\n");
+  const env = { OPENAI_API_KEY: "sk-stale-shell" };
+  assert.deepEqual(loadProviderEnv({ file, env }), ["OPENAI_API_KEY", "DEEPSEEK_API_KEY"]);
+  assert.deepEqual(env, { OPENAI_API_KEY: "sk-from-file", DEEPSEEK_API_KEY: "ds-file" });
+  assert.deepEqual(loadProviderEnv({ file: path.join(tmp(), "missing"), env }), []);
 });
