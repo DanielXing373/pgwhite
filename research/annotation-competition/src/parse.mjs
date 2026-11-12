@@ -22,6 +22,8 @@ function extractJson(text) {
  *
  * A bad tag (unknown code, wrong dimension, not a candidate, evidence not found in the
  * quotation) is dropped and counted; the quote's other tags stay. Nothing is repaired.
+ * One normalisation only: a tag written as its exact label instead of its code is mapped
+ * back to the code (same dimension, exact match) and marked code_from_label.
  * A quote is "invalid" only when its whole result is unusable (malformed JSON, missing row).
  */
 export function parseAnnotationResponse(text, {
@@ -43,6 +45,10 @@ export function parseAnnotationResponse(text, {
       dropped: [],
     }));
   }
+  const labelIndex = Object.fromEntries(dimensions.map((dimension) => [
+    dimension,
+    new Map(library.dimensions[dimension].map((tag) => [tag.label, tag])),
+  ]));
   const byN = new Map();
   for (const row of rows) {
     const n = Number(row?.n);
@@ -67,9 +73,17 @@ export function parseAnnotationResponse(text, {
       const seen = new Set();
       tags[dimension] = [];
       for (const item of items) {
-        const code = typeof item === "string" ? item : item?.c;
+        let code = typeof item === "string" ? item : item?.c;
         const quoteEvidence = typeof item === "object" && item !== null ? item.e ?? null : null;
-        const tag = library.byCode.get(code);
+        let tag = library.byCode.get(code);
+        let fromLabel = false;
+        if (!tag && typeof code === "string") {
+          // 没有 schema 约束的接口有时直接写标签名（“比喻”）而不是编号（R01）。
+          // 只做同一维度内的精确匹配，映射回编号；不猜近义词，其余校验照常。
+          tag = labelIndex[dimension].get(code.trim()) ?? null;
+          fromLabel = Boolean(tag);
+          if (tag) code = tag.code;
+        }
         let reason = null;
         if (!tag) reason = "unknown_code";
         else if (tag.dimension !== dimension) reason = "wrong_dimension";
@@ -90,6 +104,7 @@ export function parseAnnotationResponse(text, {
           tag_id: tag.id,
           label: tag.label,
           evidence: evidence ? quoteEvidence : null,
+          ...(fromLabel ? { code_from_label: true } : {}),
         });
       }
     }

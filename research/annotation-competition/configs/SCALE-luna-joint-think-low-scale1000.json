@@ -1,0 +1,33 @@
+{
+    "schema_version":  "ac-arm-config.v1",
+    "arm_id":  "SCALE-luna-joint-think-low-scale1000",
+    "provider":  {
+                     "id":  "openai",
+                     "model_id":  "gpt-6-luna",
+                     "request":  {
+                                     "omit_temperature":  true,
+                                     "reasoning_effort":  "low"
+                                 }
+                 },
+    "dataset":  {
+                    "id":  "scale1000",
+                    "path":  "research/annotation-competition/benchmark/scale-1000.v1.json"
+                },
+    "dimensions":  [
+                       "theme",
+                       "rhetoric",
+                       "technique"
+                   ],
+    "theme_scope":  "full",
+    "batch_size":  20,
+    "evidence":  true,
+    "call_mode":  "joint",
+    "cny_per_usd":  7.2,
+    "execution":  {
+                      "concurrency":  8,
+                      "timeout_ms":  300000,
+                      "retry_limit":  2,
+                      "max_requests":  70,
+                      "max_estimated_budget_usd":  2
+                  }
+}

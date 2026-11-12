@@ -149,6 +149,35 @@ test("parse: keeps supported tags, drops bad ones without repairing, allows empt
   assert.deepEqual(second.tags, { theme: [], rhetoric: [] });
 });
 
+test("parse: an exact label in place of a code is mapped back, same dimension only", () => {
+  const text = JSON.stringify({ results: [
+    { n: 1, theme: [
+      { c: "时间", e: "时间像一条河" },            // label instead of code → mapped
+      { c: time, e: "带走了" },                   // same tag again by code → duplicate
+      { c: "比喻", e: "像一条河" },                // a rhetoric label under theme → still unknown
+      { c: "时光", e: "时间" },                    // near-synonym → not guessed
+      { c: "白描", e: "时间" },                    // retired label → not mapped
+    ], rhetoric: [
+      { c: " 比喻 ", e: "时间像一条河" },          // surrounding whitespace tolerated
+      { c: "拟人", e: "河水在歌唱" },              // mapped, but evidence still has to hold
+    ] },
+    { n: 2, theme: [], rhetoric: [] },
+  ] });
+  const [first] = parseAnnotationResponse(text, parseOptions);
+  assert.deepEqual(first.tags.theme, [
+    { code: time, tag_id: library.byCode.get(time).id, label: "时间", evidence: "时间像一条河", code_from_label: true },
+  ]);
+  assert.deepEqual(first.tags.rhetoric.map((tag) => [tag.code, tag.code_from_label]), [["R01", true]]);
+  assert.deepEqual(first.dropped.map((item) => item.reason), [
+    "duplicate", "unknown_code", "unknown_code", "unknown_code", "evidence_not_in_quote",
+  ]);
+  // A tag given by code carries no marker.
+  const [plain] = parseAnnotationResponse(JSON.stringify({ results: [
+    { n: 1, theme: [{ c: time, e: "时间像一条河" }], rhetoric: [] }, { n: 2, theme: [], rhetoric: [] },
+  ] }), parseOptions);
+  assert.ok(!("code_from_label" in plain.tags.theme[0]));
+});
+
 test("parse: malformed JSON or a missing row invalidates only what is unusable", () => {
   assert.ok(parseAnnotationResponse("not json", parseOptions).every((row) => row.reason === "malformed_json"));
   const partial = parseAnnotationResponse(JSON.stringify({ results: [{ n: 1, theme: [], rhetoric: [] }] }), parseOptions);
