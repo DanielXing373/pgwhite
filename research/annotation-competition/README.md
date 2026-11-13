@@ -99,7 +99,13 @@ node research/annotation-competition/scripts/build-review-pack.mjs --out-name ro
 
 # 7. 计分（--run 列表同第 5 步）
 node research/annotation-competition/scripts/score.mjs --judgments research/annotation-competition/packs/judgments-dev58-<pack_id>.json --out research/annotation-competition/packs/round1-dev58.report.md --run ...
+
+# 7b. 三档计分：打勾 = 合适，未判 = 可接受，打叉 = 明显错误。
+#     只用于评审一次看到全部候选标签的盲审包（如 holdout60），增量补判的包不能用。
+node research/annotation-competition/scripts/score.mjs --unjudged acceptable --judgments research/annotation-competition/packs/judgments-holdout60-<pack_id>.json --out research/annotation-competition/results/holdout60-final.report.md --run ...
 ```
+
+带 `--out` 时同时写一份同名 `.json`，含全部计数、比例和 Wilson 95% 区间。历次结果汇总在 `results/README.md`。
 
 key 的两种给法：在仓库根目录 `.env` 里写 `OPENAI_API_KEY=...`、`DEEPSEEK_API_KEY=...`（付费模式自动读取，只读这几个变量，`.env` 优先于 shell），或者在当前 PowerShell 窗口里用 `$env:` 设置。
 

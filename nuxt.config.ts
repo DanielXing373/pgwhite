@@ -20,7 +20,8 @@ export default defineNuxtConfig({
   css: ['./styles/theme.css'],
 
   routeRules: {
-    '/el2test': { ssr: false }
+    '/el2test': { ssr: false },
+    '/ac1test': { ssr: false }
   },
 
   // @nuxt/ui 默认会拉 Google Fonts / Material Icons 元数据，国内常超时重试导致 dev 很慢
@@ -64,7 +65,9 @@ export default defineNuxtConfig({
     tagKindTheme: process.env.TAG_KIND_THEME || '2',
     tagKindDevice: process.env.TAG_KIND_DEVICE || '3',
     /** EL2 human-study export; never expose in public runtimeConfig */
-    el2HsExportToken: process.env.EL2_HS_EXPORT_TOKEN || ''
+    el2HsExportToken: process.env.EL2_HS_EXPORT_TOKEN || '',
+    /** AC1 questionnaire export; never expose in public runtimeConfig */
+    ac1HsExportToken: process.env.AC1_HS_EXPORT_TOKEN || ''
   },
   
   app: {

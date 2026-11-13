@@ -1,0 +1,1085 @@
+// 由 research/annotation-competition/scripts/build-questionnaire-set.mjs 生成，不要手改。
+// 仅服务端使用：含“标签来自哪个配置”的对照，不能被 pages/ 或 components/ 引用。
+import type { InternalMaster } from './types'
+
+export const AC1_INTERNAL_MASTER: InternalMaster = {
+  "schema_version": "ac1-hs-internal-master.v1",
+  "dataset_version": "ac1-hs-questions.v1",
+  "protocol_version": "ac1-human-tag-review.protocol.v1",
+  "freeze_status": "frozen",
+  "research_only": true,
+  "note": "Server-side only. Contains the tag → source mapping; never import from pages/ or send to a browser.",
+  "built_from": {
+    "dataset": "research/annotation-competition/benchmark/holdout-60.v1.json",
+    "seed": 20261112,
+    "pool_size": 20,
+    "min_tags_per_quote": 2,
+    "eligible_quotes": 51,
+    "library_version": "ac1.1",
+    "runs": [
+      {
+        "source_id": "deepseek-flash",
+        "run_id": "R3-flash-joint-holdout60",
+        "prompt_version": "ac-annotate.zh.v2",
+        "model_id": "deepseek-flash"
+      },
+      {
+        "source_id": "gpt-6-luna-low",
+        "run_id": "R3-luna-joint-think-low-holdout60",
+        "prompt_version": "ac-annotate.zh.v2",
+        "model_id": "gpt-6-luna"
+      },
+      {
+        "source_id": "gpt-6-luna-medium",
+        "run_id": "R3-luna-joint-think-medium-holdout60",
+        "prompt_version": "ac-annotate.zh.v2",
+        "model_id": "gpt-6-luna"
+      }
+    ]
+  },
+  "source_ids": [
+    "deepseek-flash",
+    "gpt-6-luna-low",
+    "gpt-6-luna-medium"
+  ],
+  "content_sha256": "300a53ab8e3202c17bfe909d032bfd1f575751907047a3fb92431f8debc87f36",
+  "quotes": [
+    {
+      "quote_id": "holdout-001",
+      "text_zh": "这里严肃的墙壁上到处是大学生们留下的超大字迹和微型图画，就像穴居的原始人觉得有必要装饰冰凉的穴壁，以便主宰折磨人的矿物的异己感，让它们变得熟悉起来",
+      "attribution": {
+        "author_name_zh": "伊塔洛·卡尔维诺",
+        "book_title_zh": "如果在冬夜，一个旅人"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0189-城市",
+          "dimension": "theme",
+          "label_zh": "城市",
+          "sources": [
+            "deepseek-flash"
+          ]
+        },
+        {
+          "tag_id": "theme-0144-表达",
+          "dimension": "theme",
+          "label_zh": "表达",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "theme-0198-观察",
+          "dimension": "theme",
+          "label_zh": "观察",
+          "sources": [
+            "deepseek-flash"
+          ]
+        },
+        {
+          "tag_id": "theme-0191-疏离",
+          "dimension": "theme",
+          "label_zh": "疏离",
+          "sources": [
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "rhetoric-01-比喻",
+          "dimension": "rhetoric",
+          "label_zh": "比喻",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "technique-05-环境描写",
+          "dimension": "technique",
+          "label_zh": "环境描写",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-002",
+      "text_zh": "作恶的反面不是作恶，报复的反面不是报复，伤害的反面不是伤害，那都是一路的。",
+      "attribution": {
+        "author_name_zh": "乔叟",
+        "book_title_zh": "坎特伯雷故事（译文名著典藏）"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0217-报复",
+          "dimension": "theme",
+          "label_zh": "报复",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "theme-0219-伦理",
+          "dimension": "theme",
+          "label_zh": "伦理",
+          "sources": [
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0208-善恶",
+          "dimension": "theme",
+          "label_zh": "善恶",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0162-暴力",
+          "dimension": "theme",
+          "label_zh": "暴力",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "rhetoric-04-排比",
+          "dimension": "rhetoric",
+          "label_zh": "排比",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-004",
+      "text_zh": "他眼睛色如柠檬，鼻子挺又高， 他的嘴唇很丰满，脸上血色好； 一些雀斑零星地散布在脸上， 雀斑颜色是黝黑之中带点黄。",
+      "attribution": {
+        "author_name_zh": "乔叟",
+        "book_title_zh": "坎特伯雷故事（译文名著典藏）"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0206-身体",
+          "dimension": "theme",
+          "label_zh": "身体",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "technique-01-外貌描写",
+          "dimension": "technique",
+          "label_zh": "外貌描写",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "technique-06-细节描写",
+          "dimension": "technique",
+          "label_zh": "细节描写",
+          "sources": [
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-005",
+      "text_zh": "一个人对自我意识和自我感知的体悟愈发深切，其出于对人类的挚爱而献身并牺牲整个人格时所体会到的快慰就愈发强烈。",
+      "attribution": {
+        "author_name_zh": "陀思妥耶夫斯基",
+        "book_title_zh": "地下室手记（经典译本无删减）"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0087-幸福",
+          "dimension": "theme",
+          "label_zh": "幸福",
+          "sources": [
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0218-牺牲",
+          "dimension": "theme",
+          "label_zh": "牺牲",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0095-怜悯",
+          "dimension": "theme",
+          "label_zh": "怜悯",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "theme-0221-自我身份",
+          "dimension": "theme",
+          "label_zh": "自我身份",
+          "sources": [
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0029-人性",
+          "dimension": "theme",
+          "label_zh": "人性",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-010",
+      "text_zh": "然而这还不够，每一次回忆，它都要像着了魔似的添油加醋，编织出愈发耻辱的细节，用自己的想象力残忍地挑逗自己，折磨自己，仿佛在进行一场永无止境的精神自虐。",
+      "attribution": {
+        "author_name_zh": "陀思妥耶夫斯基",
+        "book_title_zh": "地下室手记（经典译本无删减）"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0228-病态",
+          "dimension": "theme",
+          "label_zh": "病态",
+          "sources": [
+            "deepseek-flash"
+          ]
+        },
+        {
+          "tag_id": "theme-0107-羞愧",
+          "dimension": "theme",
+          "label_zh": "羞愧",
+          "sources": [
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0105-痛苦",
+          "dimension": "theme",
+          "label_zh": "痛苦",
+          "sources": [
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0077-记忆",
+          "dimension": "theme",
+          "label_zh": "记忆",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "rhetoric-02-拟人",
+          "dimension": "rhetoric",
+          "label_zh": "拟人",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "rhetoric-01-比喻",
+          "dimension": "rhetoric",
+          "label_zh": "比喻",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "technique-04-心理描写",
+          "dimension": "technique",
+          "label_zh": "心理描写",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-012",
+      "text_zh": "在尼禄时代，人不过是一只蝴蝶，靠尼禄恩惠的阳光而活着，只要刮起一阵冷风，他就会死掉……不管他愿不愿意。",
+      "attribution": {
+        "author_name_zh": "亨利克·显克维奇",
+        "book_title_zh": "你往何处去"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0163-权力",
+          "dimension": "theme",
+          "label_zh": "权力",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0043-死亡",
+          "dimension": "theme",
+          "label_zh": "死亡",
+          "sources": [
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0051-脆弱",
+          "dimension": "theme",
+          "label_zh": "脆弱",
+          "sources": [
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0032-命运",
+          "dimension": "theme",
+          "label_zh": "命运",
+          "sources": [
+            "deepseek-flash"
+          ]
+        },
+        {
+          "tag_id": "rhetoric-01-比喻",
+          "dimension": "rhetoric",
+          "label_zh": "比喻",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-013",
+      "text_zh": "他便恳求格劳库斯带他去找彼得，并且答应给贫穷的教区以丰厚的赠礼。他认为只要莉吉亚爱他，就消除了所有的障碍，每时每刻他都准备皈依基督。",
+      "attribution": {
+        "author_name_zh": "亨利克·显克维奇",
+        "book_title_zh": "你往何处去"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0222-宗教",
+          "dimension": "theme",
+          "label_zh": "宗教",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "theme-0212-信仰",
+          "dimension": "theme",
+          "label_zh": "信仰",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0176-贫穷",
+          "dimension": "theme",
+          "label_zh": "贫穷",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "theme-0123-爱情",
+          "dimension": "theme",
+          "label_zh": "爱情",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-019",
+      "text_zh": "他们能看见光束，仅仅是因为现在纷乱的胶体微粒已经灌满了整个空间，就像是陈旧阁楼中扬起的灰尘",
+      "attribution": {
+        "author_name_zh": "丹·西蒙斯",
+        "book_title_zh": "海伯利安四部曲"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0160-科技",
+          "dimension": "theme",
+          "label_zh": "科技",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "rhetoric-01-比喻",
+          "dimension": "rhetoric",
+          "label_zh": "比喻",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "technique-05-环境描写",
+          "dimension": "technique",
+          "label_zh": "环境描写",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-020",
+      "text_zh": "此时，故事又中断了片刻，就好像这老头是台机器，偶尔会停掉，需要把内部的发条重新拧一下，才能再次开动。",
+      "attribution": {
+        "author_name_zh": "丹·西蒙斯",
+        "book_title_zh": "海伯利安四部曲"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0137-文学",
+          "dimension": "theme",
+          "label_zh": "文学",
+          "sources": [
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "rhetoric-01-比喻",
+          "dimension": "rhetoric",
+          "label_zh": "比喻",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "technique-09-留白",
+          "dimension": "technique",
+          "label_zh": "留白",
+          "sources": [
+            "deepseek-flash"
+          ]
+        },
+        {
+          "tag_id": "technique-03-动作描写",
+          "dimension": "technique",
+          "label_zh": "动作描写",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-025",
+      "text_zh": "到时他将会发现自己在文化上有所欠缺，所有的财富不过是过眼云烟，并不能让他感到满足；假设他是个聪明人，他将会费尽心机让他的孩子获取他梦寐以求的知识文化；如此一来，他将会变成某个名门望族的奠基人。",
+      "attribution": {
+        "author_name_zh": "亨利·戴维·梭罗",
+        "book_title_zh": "瓦尔登湖"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0175-财富",
+          "dimension": "theme",
+          "label_zh": "财富",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0223-目标",
+          "dimension": "theme",
+          "label_zh": "目标",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "theme-0225-学习",
+          "dimension": "theme",
+          "label_zh": "学习",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "theme-0161-教育",
+          "dimension": "theme",
+          "label_zh": "教育",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "rhetoric-01-比喻",
+          "dimension": "rhetoric",
+          "label_zh": "比喻",
+          "sources": [
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-028",
+      "text_zh": "但是没有带走那只猫。她跑进树林里，变成野猫了，后来我听说她落进捕捉土拨鼠的陷阱，终于就这样变成了死猫",
+      "attribution": {
+        "author_name_zh": "亨利·戴维·梭罗",
+        "book_title_zh": "瓦尔登湖"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0016-抛弃",
+          "dimension": "theme",
+          "label_zh": "抛弃",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "theme-0043-死亡",
+          "dimension": "theme",
+          "label_zh": "死亡",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0034-失去",
+          "dimension": "theme",
+          "label_zh": "失去",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-036",
+      "text_zh": "他说我得给他作证。我表示怎么都行，但我不知道该作证些什么。照雷蒙的意思，只需说那个女人冒犯了他就行了。我答应为他提供这样的证词。",
+      "attribution": {
+        "author_name_zh": "阿尔贝·加缪",
+        "book_title_zh": "局外人（译文经典）"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0219-伦理",
+          "dimension": "theme",
+          "label_zh": "伦理",
+          "sources": [
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0199-谎言",
+          "dimension": "theme",
+          "label_zh": "谎言",
+          "sources": [
+            "deepseek-flash"
+          ]
+        },
+        {
+          "tag_id": "theme-0164-法律",
+          "dimension": "theme",
+          "label_zh": "法律",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "theme-0195-判断",
+          "dimension": "theme",
+          "label_zh": "判断",
+          "sources": [
+            "deepseek-flash"
+          ]
+        },
+        {
+          "tag_id": "theme-0060-选择",
+          "dimension": "theme",
+          "label_zh": "选择",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "technique-02-语言描写",
+          "dimension": "technique",
+          "label_zh": "语言描写",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-038",
+      "text_zh": "我在水里看见了玛丽·卡尔多娜，她以前是与我同一个办公室的打字员。那时，我很想把她弄到手。",
+      "attribution": {
+        "author_name_zh": "阿尔贝·加缪",
+        "book_title_zh": "局外人（译文经典）"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0072-欲望",
+          "dimension": "theme",
+          "label_zh": "欲望",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0201-性",
+          "dimension": "theme",
+          "label_zh": "性",
+          "sources": [
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-047",
+      "text_zh": "你会好好考虑，你的小眉头上会皱起两个小窝窝，每当你绞你的小脑汁时就会这样。",
+      "attribution": {
+        "author_name_zh": "特德·姜",
+        "book_title_zh": "你一生的故事（译林幻系列）"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0013-亲密",
+          "dimension": "theme",
+          "label_zh": "亲密",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "theme-0102-温柔",
+          "dimension": "theme",
+          "label_zh": "温柔",
+          "sources": [
+            "deepseek-flash"
+          ]
+        },
+        {
+          "tag_id": "theme-0088-好奇",
+          "dimension": "theme",
+          "label_zh": "好奇",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "theme-0230-思考",
+          "dimension": "theme",
+          "label_zh": "思考",
+          "sources": [
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "technique-06-细节描写",
+          "dimension": "technique",
+          "label_zh": "细节描写",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-050",
+      "text_zh": "于是做官的也各务奔竞，袭取社会名誉，却不管自己本官职务与实际工作，而其上司也无法奈何他。",
+      "attribution": {
+        "author_name_zh": "钱穆",
+        "book_title_zh": "中国历代政治得失"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0157-工作",
+          "dimension": "theme",
+          "label_zh": "工作",
+          "sources": [
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0173-腐败",
+          "dimension": "theme",
+          "label_zh": "腐败",
+          "sources": [
+            "deepseek-flash"
+          ]
+        },
+        {
+          "tag_id": "theme-0154-名声",
+          "dimension": "theme",
+          "label_zh": "名声",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0056-责任",
+          "dimension": "theme",
+          "label_zh": "责任",
+          "sources": [
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0026-虚伪",
+          "dimension": "theme",
+          "label_zh": "虚伪",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-052",
+      "text_zh": "江格尔环顾一周，见没一个挺身而起的英雄。无论嘴快的、腿快的、眼快的还是脑子快的，都沉默不语，眼睛全看着策吉。他是本巴的大谋士，大家都在说话时，他的话最有理，大家都没话说时，他的话最有用。",
+      "attribution": {
+        "author_name_zh": "刘亮程",
+        "book_title_zh": "本巴（第十一届茅盾文学奖获奖作品）"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0070-智慧",
+          "dimension": "theme",
+          "label_zh": "智慧",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0179-领导",
+          "dimension": "theme",
+          "label_zh": "领导",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "rhetoric-04-排比",
+          "dimension": "rhetoric",
+          "label_zh": "排比",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "rhetoric-05-对比",
+          "dimension": "rhetoric",
+          "label_zh": "对比",
+          "sources": [
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "technique-03-动作描写",
+          "dimension": "technique",
+          "label_zh": "动作描写",
+          "sources": [
+            "deepseek-flash"
+          ]
+        },
+        {
+          "tag_id": "technique-08-侧面描写",
+          "dimension": "technique",
+          "label_zh": "侧面描写",
+          "sources": [
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-053",
+      "text_zh": "有时醒来，感到身体里有冰冷的手。它们比冰还冷，每天都离我的心脏更近一些。",
+      "attribution": {
+        "author_name_zh": "约恩·卡尔曼·斯特凡松",
+        "book_title_zh": "冰岛往事.1，狂暴海"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0205-疾病",
+          "dimension": "theme",
+          "label_zh": "疾病",
+          "sources": [
+            "deepseek-flash"
+          ]
+        },
+        {
+          "tag_id": "theme-0105-痛苦",
+          "dimension": "theme",
+          "label_zh": "痛苦",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "theme-0097-恐惧",
+          "dimension": "theme",
+          "label_zh": "恐惧",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0206-身体",
+          "dimension": "theme",
+          "label_zh": "身体",
+          "sources": [
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "rhetoric-03-夸张",
+          "dimension": "rhetoric",
+          "label_zh": "夸张",
+          "sources": [
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "rhetoric-01-比喻",
+          "dimension": "rhetoric",
+          "label_zh": "比喻",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "technique-04-心理描写",
+          "dimension": "technique",
+          "label_zh": "心理描写",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-057",
+      "text_zh": "我也无法祈祷，成百上千种的印象和情感在我的脑海里、心里不断涌现。种种不同的景象从我眼前掠过。然而从这种种混乱的思绪中，渐渐引导出一种思想、一种情感，这就是：这个闭着双眼，脸色苍白，偎靠在我肩膀上的小脸蛋，这个孤苦无依的小姑娘，现在成了我心爱的妹妹，为了她，我愿献出自己的生命，为了她，如果有必要，我可以向全世界挑战。",
+      "attribution": {
+        "author_name_zh": "亨利克·显克维奇",
+        "book_title_zh": "显克维奇中短篇小说选（人文社外国文学名著经典·网格本）"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0112-亲情",
+          "dimension": "theme",
+          "label_zh": "亲情",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0024-勇气",
+          "dimension": "theme",
+          "label_zh": "勇气",
+          "sources": [
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0218-牺牲",
+          "dimension": "theme",
+          "label_zh": "牺牲",
+          "sources": [
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "theme-0014-保护",
+          "dimension": "theme",
+          "label_zh": "保护",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low"
+          ]
+        },
+        {
+          "tag_id": "rhetoric-13-重复",
+          "dimension": "rhetoric",
+          "label_zh": "重复",
+          "sources": [
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "rhetoric-04-排比",
+          "dimension": "rhetoric",
+          "label_zh": "排比",
+          "sources": [
+            "deepseek-flash"
+          ]
+        },
+        {
+          "tag_id": "technique-01-外貌描写",
+          "dimension": "technique",
+          "label_zh": "外貌描写",
+          "sources": [
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "technique-04-心理描写",
+          "dimension": "technique",
+          "label_zh": "心理描写",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-058",
+      "text_zh": "欧维的表情就像有机玻璃背后的男人刚问他是不是阳痿。那个男人闭上了嘴。",
+      "attribution": {
+        "author_name_zh": "弗雷德里克·巴克曼",
+        "book_title_zh": "一个叫欧维的男人决定去死（同名电影原著）"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0099-愤怒",
+          "dimension": "theme",
+          "label_zh": "愤怒",
+          "sources": [
+            "deepseek-flash"
+          ]
+        },
+        {
+          "tag_id": "theme-0226-幽默",
+          "dimension": "theme",
+          "label_zh": "幽默",
+          "sources": [
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "rhetoric-01-比喻",
+          "dimension": "rhetoric",
+          "label_zh": "比喻",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "technique-01-外貌描写",
+          "dimension": "technique",
+          "label_zh": "外貌描写",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    },
+    {
+      "quote_id": "holdout-059",
+      "text_zh": "“总经理问你愿不愿意继续在这儿出色地工作下去。”",
+      "attribution": {
+        "author_name_zh": "弗雷德里克·巴克曼",
+        "book_title_zh": "一个叫欧维的男人决定去死（同名电影原著）"
+      },
+      "tags": [
+        {
+          "tag_id": "theme-0157-工作",
+          "dimension": "theme",
+          "label_zh": "工作",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        },
+        {
+          "tag_id": "technique-02-语言描写",
+          "dimension": "technique",
+          "label_zh": "语言描写",
+          "sources": [
+            "deepseek-flash",
+            "gpt-6-luna-low",
+            "gpt-6-luna-medium"
+          ]
+        }
+      ]
+    }
+  ]
+}

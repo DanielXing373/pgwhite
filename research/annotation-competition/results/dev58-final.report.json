@@ -1,0 +1,1919 @@
+{
+  "unjudged_as": "pending",
+  "runs": [
+    "BASE-embedding-top2-dev58",
+    "BASE-human-gold-dev58",
+    "LEGACY-EL2-GPT6LUNA",
+    "LEGACY-EL2-DSFLASH",
+    "R1-luna-top20-b1-noev",
+    "R1-luna-top20-b1-ev",
+    "R1-luna-full-b1-noev",
+    "R1-luna-full-b1-ev",
+    "R1-luna-full-b20-noev",
+    "R1-luna-full-b20-ev",
+    "R2-luna-joint",
+    "R2-luna-separate",
+    "R2-luna-joint-v2",
+    "R2-luna-joint-think-low",
+    "R2-luna-joint-think-medium"
+  ],
+  "judgment_files": [
+    "research/annotation-competition/packs/judgments-dev58-6979542fd625.filled.json",
+    "research/annotation-competition/packs/judgments-dev58-410885690787.filled.json",
+    "research/annotation-competition/packs/judgments-dev58-e23b11a73500.filled.json"
+  ],
+  "scores": [
+    {
+      "run_id": "BASE-embedding-top2-dev58",
+      "arm_id": "embedding-top2",
+      "kind": "baseline",
+      "dataset_id": "dev58",
+      "unjudged_as": "pending",
+      "quotes": 58,
+      "overall": {
+        "tags_produced": 116,
+        "tags_judged": 116,
+        "tags_accepted": 69,
+        "tags_acceptable": 0,
+        "tags_rejected": 47,
+        "acceptance": 0.5948275862068966,
+        "acceptance_ci95": [
+          0.5038395533408654,
+          0.6797360998546861
+        ],
+        "acceptable_rate": 0,
+        "reject_rate": 0.4051724137931034,
+        "reject_rate_ci95": [
+          0.3202639001453139,
+          0.4961604466591346
+        ],
+        "quotes_with_reject": 40,
+        "quotes_with_reject_rate": 0.6896551724137931
+      },
+      "invalid_quote_rate": 0,
+      "dropped_tags_by_reason": {},
+      "cny_per_10k_quotes": null,
+      "seconds_per_10k_quotes": null,
+      "dimensions": {
+        "theme": {
+          "tags_produced": 116,
+          "tags_judged": 116,
+          "tags_unjudged": 0,
+          "tags_accepted": 69,
+          "tags_acceptable": 0,
+          "tags_rejected": 47,
+          "acceptance": 0.5948275862068966,
+          "acceptance_ci95": [
+            0.5038395533408654,
+            0.6797360998546861
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.4051724137931034,
+          "reject_rate_ci95": [
+            0.3202639001453139,
+            0.4961604466591346
+          ],
+          "quotes_with_reject": 40,
+          "pool_accepted": 225,
+          "coverage": 0.30666666666666664,
+          "f1": 0.4046920821114369,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 58,
+              "accepted": 40,
+              "acceptable": 0,
+              "rejected": 18,
+              "acceptance": 0.6896551724137931,
+              "reject_rate": 0.3103448275862069
+            },
+            "2": {
+              "judged": 58,
+              "accepted": 29,
+              "acceptable": 0,
+              "rejected": 29,
+              "acceptance": 0.5,
+              "reject_rate": 0.5
+            }
+          },
+          "should_be_empty_quotes": 0,
+          "correctly_empty_quotes": 0,
+          "empty_accuracy": null
+        }
+      }
+    },
+    {
+      "run_id": "BASE-human-gold-dev58",
+      "arm_id": "human-gold",
+      "kind": "baseline",
+      "dataset_id": "dev58",
+      "unjudged_as": "pending",
+      "quotes": 58,
+      "overall": {
+        "tags_produced": 115,
+        "tags_judged": 115,
+        "tags_accepted": 97,
+        "tags_acceptable": 0,
+        "tags_rejected": 18,
+        "acceptance": 0.8434782608695652,
+        "acceptance_ci95": [
+          0.7661108636409549,
+          0.8986395267947175
+        ],
+        "acceptable_rate": 0,
+        "reject_rate": 0.1565217391304348,
+        "reject_rate_ci95": [
+          0.10136047320528253,
+          0.23388913635904512
+        ],
+        "quotes_with_reject": 14,
+        "quotes_with_reject_rate": 0.2413793103448276
+      },
+      "invalid_quote_rate": 0,
+      "dropped_tags_by_reason": {},
+      "cny_per_10k_quotes": null,
+      "seconds_per_10k_quotes": null,
+      "dimensions": {
+        "theme": {
+          "tags_produced": 115,
+          "tags_judged": 115,
+          "tags_unjudged": 0,
+          "tags_accepted": 97,
+          "tags_acceptable": 0,
+          "tags_rejected": 18,
+          "acceptance": 0.8434782608695652,
+          "acceptance_ci95": [
+            0.7661108636409549,
+            0.8986395267947175
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.1565217391304348,
+          "reject_rate_ci95": [
+            0.10136047320528253,
+            0.23388913635904512
+          ],
+          "quotes_with_reject": 14,
+          "pool_accepted": 225,
+          "coverage": 0.4311111111111111,
+          "f1": 0.5705882352941177,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 55,
+              "accepted": 48,
+              "acceptable": 0,
+              "rejected": 7,
+              "acceptance": 0.8727272727272727,
+              "reject_rate": 0.12727272727272726
+            },
+            "2": {
+              "judged": 35,
+              "accepted": 28,
+              "acceptable": 0,
+              "rejected": 7,
+              "acceptance": 0.8,
+              "reject_rate": 0.2
+            },
+            "3": {
+              "judged": 16,
+              "accepted": 15,
+              "acceptable": 0,
+              "rejected": 1,
+              "acceptance": 0.9375,
+              "reject_rate": 0.0625
+            },
+            "4+": {
+              "judged": 9,
+              "accepted": 6,
+              "acceptable": 0,
+              "rejected": 3,
+              "acceptance": 0.6666666666666666,
+              "reject_rate": 0.3333333333333333
+            }
+          },
+          "should_be_empty_quotes": 0,
+          "correctly_empty_quotes": 0,
+          "empty_accuracy": null
+        }
+      }
+    },
+    {
+      "run_id": "LEGACY-EL2-GPT6LUNA",
+      "arm_id": "legacy-el2-gpt6luna",
+      "kind": "baseline",
+      "dataset_id": "dev58",
+      "unjudged_as": "pending",
+      "quotes": 58,
+      "overall": {
+        "tags_produced": 108,
+        "tags_judged": 108,
+        "tags_accepted": 85,
+        "tags_acceptable": 0,
+        "tags_rejected": 23,
+        "acceptance": 0.7870370370370371,
+        "acceptance_ci95": [
+          0.7006639174764425,
+          0.8536915280822762
+        ],
+        "acceptable_rate": 0,
+        "reject_rate": 0.21296296296296297,
+        "reject_rate_ci95": [
+          0.14630847191772375,
+          0.2993360825235575
+        ],
+        "quotes_with_reject": 21,
+        "quotes_with_reject_rate": 0.3620689655172414
+      },
+      "invalid_quote_rate": 0,
+      "dropped_tags_by_reason": {},
+      "cny_per_10k_quotes": 9.8964,
+      "seconds_per_10k_quotes": null,
+      "dimensions": {
+        "theme": {
+          "tags_produced": 108,
+          "tags_judged": 108,
+          "tags_unjudged": 0,
+          "tags_accepted": 85,
+          "tags_acceptable": 0,
+          "tags_rejected": 23,
+          "acceptance": 0.7870370370370371,
+          "acceptance_ci95": [
+            0.7006639174764425,
+            0.8536915280822762
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.21296296296296297,
+          "reject_rate_ci95": [
+            0.14630847191772375,
+            0.2993360825235575
+          ],
+          "quotes_with_reject": 21,
+          "pool_accepted": 225,
+          "coverage": 0.37777777777777777,
+          "f1": 0.5105105105105104,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 58,
+              "accepted": 47,
+              "acceptable": 0,
+              "rejected": 11,
+              "acceptance": 0.8103448275862069,
+              "reject_rate": 0.1896551724137931
+            },
+            "2": {
+              "judged": 50,
+              "accepted": 38,
+              "acceptable": 0,
+              "rejected": 12,
+              "acceptance": 0.76,
+              "reject_rate": 0.24
+            }
+          },
+          "should_be_empty_quotes": 0,
+          "correctly_empty_quotes": 0,
+          "empty_accuracy": null
+        }
+      }
+    },
+    {
+      "run_id": "LEGACY-EL2-DSFLASH",
+      "arm_id": "legacy-el2-dsflash",
+      "kind": "baseline",
+      "dataset_id": "dev58",
+      "unjudged_as": "pending",
+      "quotes": 58,
+      "overall": {
+        "tags_produced": 102,
+        "tags_judged": 102,
+        "tags_accepted": 74,
+        "tags_acceptable": 0,
+        "tags_rejected": 28,
+        "acceptance": 0.7254901960784313,
+        "acceptance_ci95": [
+          0.6318925545739451,
+          0.8027191670931499
+        ],
+        "acceptable_rate": 0,
+        "reject_rate": 0.27450980392156865,
+        "reject_rate_ci95": [
+          0.1972808329068501,
+          0.36810744542605506
+        ],
+        "quotes_with_reject": 24,
+        "quotes_with_reject_rate": 0.41379310344827586
+      },
+      "invalid_quote_rate": 0.1206896551724138,
+      "dropped_tags_by_reason": {},
+      "cny_per_10k_quotes": 20.03809655172414,
+      "seconds_per_10k_quotes": null,
+      "dimensions": {
+        "theme": {
+          "tags_produced": 102,
+          "tags_judged": 102,
+          "tags_unjudged": 0,
+          "tags_accepted": 74,
+          "tags_acceptable": 0,
+          "tags_rejected": 28,
+          "acceptance": 0.7254901960784313,
+          "acceptance_ci95": [
+            0.6318925545739451,
+            0.8027191670931499
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.27450980392156865,
+          "reject_rate_ci95": [
+            0.1972808329068501,
+            0.36810744542605506
+          ],
+          "quotes_with_reject": 24,
+          "pool_accepted": 225,
+          "coverage": 0.3288888888888889,
+          "f1": 0.4525993883792049,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 51,
+              "accepted": 42,
+              "acceptable": 0,
+              "rejected": 9,
+              "acceptance": 0.8235294117647058,
+              "reject_rate": 0.17647058823529413
+            },
+            "2": {
+              "judged": 51,
+              "accepted": 32,
+              "acceptable": 0,
+              "rejected": 19,
+              "acceptance": 0.6274509803921569,
+              "reject_rate": 0.37254901960784315
+            }
+          },
+          "should_be_empty_quotes": 0,
+          "correctly_empty_quotes": 0,
+          "empty_accuracy": null
+        }
+      }
+    },
+    {
+      "run_id": "R1-luna-top20-b1-noev",
+      "arm_id": "R1-luna-top20-b1-noev",
+      "kind": "llm",
+      "dataset_id": "dev58",
+      "unjudged_as": "pending",
+      "quotes": 58,
+      "overall": {
+        "tags_produced": 181,
+        "tags_judged": 181,
+        "tags_accepted": 117,
+        "tags_acceptable": 0,
+        "tags_rejected": 64,
+        "acceptance": 0.6464088397790055,
+        "acceptance_ci95": [
+          0.5743764333872926,
+          0.7123555576796533
+        ],
+        "acceptable_rate": 0,
+        "reject_rate": 0.35359116022099446,
+        "reject_rate_ci95": [
+          0.2876444423203466,
+          0.4256235666127073
+        ],
+        "quotes_with_reject": 35,
+        "quotes_with_reject_rate": 0.603448275862069
+      },
+      "invalid_quote_rate": 0,
+      "dropped_tags_by_reason": {},
+      "cny_per_10k_quotes": 11.217103448275866,
+      "seconds_per_10k_quotes": 3172.3322758620693,
+      "dimensions": {
+        "theme": {
+          "tags_produced": 181,
+          "tags_judged": 181,
+          "tags_unjudged": 0,
+          "tags_accepted": 117,
+          "tags_acceptable": 0,
+          "tags_rejected": 64,
+          "acceptance": 0.6464088397790055,
+          "acceptance_ci95": [
+            0.5743764333872926,
+            0.7123555576796533
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.35359116022099446,
+          "reject_rate_ci95": [
+            0.2876444423203466,
+            0.4256235666127073
+          ],
+          "quotes_with_reject": 35,
+          "pool_accepted": 225,
+          "coverage": 0.52,
+          "f1": 0.5763546798029556,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 58,
+              "accepted": 44,
+              "acceptable": 0,
+              "rejected": 14,
+              "acceptance": 0.7586206896551724,
+              "reject_rate": 0.2413793103448276
+            },
+            "2": {
+              "judged": 55,
+              "accepted": 39,
+              "acceptable": 0,
+              "rejected": 16,
+              "acceptance": 0.7090909090909091,
+              "reject_rate": 0.2909090909090909
+            },
+            "3": {
+              "judged": 43,
+              "accepted": 24,
+              "acceptable": 0,
+              "rejected": 19,
+              "acceptance": 0.5581395348837209,
+              "reject_rate": 0.4418604651162791
+            },
+            "4+": {
+              "judged": 25,
+              "accepted": 10,
+              "acceptable": 0,
+              "rejected": 15,
+              "acceptance": 0.4,
+              "reject_rate": 0.6
+            }
+          },
+          "should_be_empty_quotes": 0,
+          "correctly_empty_quotes": 0,
+          "empty_accuracy": null
+        }
+      }
+    },
+    {
+      "run_id": "R1-luna-top20-b1-ev",
+      "arm_id": "R1-luna-top20-b1-ev",
+      "kind": "llm",
+      "dataset_id": "dev58",
+      "unjudged_as": "pending",
+      "quotes": 58,
+      "overall": {
+        "tags_produced": 155,
+        "tags_judged": 155,
+        "tags_accepted": 105,
+        "tags_acceptable": 0,
+        "tags_rejected": 50,
+        "acceptance": 0.6774193548387096,
+        "acceptance_ci95": [
+          0.6003040219082607,
+          0.7459528780474183
+        ],
+        "acceptable_rate": 0,
+        "reject_rate": 0.3225806451612903,
+        "reject_rate_ci95": [
+          0.2540471219525816,
+          0.3996959780917392
+        ],
+        "quotes_with_reject": 33,
+        "quotes_with_reject_rate": 0.5689655172413793
+      },
+      "invalid_quote_rate": 0,
+      "dropped_tags_by_reason": {
+        "evidence_not_in_quote": 1
+      },
+      "cny_per_10k_quotes": 12.552827586206895,
+      "seconds_per_10k_quotes": 3767.63548275862,
+      "dimensions": {
+        "theme": {
+          "tags_produced": 155,
+          "tags_judged": 155,
+          "tags_unjudged": 0,
+          "tags_accepted": 105,
+          "tags_acceptable": 0,
+          "tags_rejected": 50,
+          "acceptance": 0.6774193548387096,
+          "acceptance_ci95": [
+            0.6003040219082607,
+            0.7459528780474183
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.3225806451612903,
+          "reject_rate_ci95": [
+            0.2540471219525816,
+            0.3996959780917392
+          ],
+          "quotes_with_reject": 33,
+          "pool_accepted": 225,
+          "coverage": 0.4666666666666667,
+          "f1": 0.5526315789473684,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 58,
+              "accepted": 44,
+              "acceptable": 0,
+              "rejected": 14,
+              "acceptance": 0.7586206896551724,
+              "reject_rate": 0.2413793103448276
+            },
+            "2": {
+              "judged": 52,
+              "accepted": 35,
+              "acceptable": 0,
+              "rejected": 17,
+              "acceptance": 0.6730769230769231,
+              "reject_rate": 0.3269230769230769
+            },
+            "3": {
+              "judged": 35,
+              "accepted": 22,
+              "acceptable": 0,
+              "rejected": 13,
+              "acceptance": 0.6285714285714286,
+              "reject_rate": 0.37142857142857144
+            },
+            "4+": {
+              "judged": 10,
+              "accepted": 4,
+              "acceptable": 0,
+              "rejected": 6,
+              "acceptance": 0.4,
+              "reject_rate": 0.6
+            }
+          },
+          "should_be_empty_quotes": 0,
+          "correctly_empty_quotes": 0,
+          "empty_accuracy": null
+        }
+      }
+    },
+    {
+      "run_id": "R1-luna-full-b1-noev",
+      "arm_id": "R1-luna-full-b1-noev",
+      "kind": "llm",
+      "dataset_id": "dev58",
+      "unjudged_as": "pending",
+      "quotes": 58,
+      "overall": {
+        "tags_produced": 200,
+        "tags_judged": 200,
+        "tags_accepted": 132,
+        "tags_acceptable": 0,
+        "tags_rejected": 68,
+        "acceptance": 0.66,
+        "acceptance_ci95": [
+          0.5918836703220929,
+          0.7220856077840445
+        ],
+        "acceptable_rate": 0,
+        "reject_rate": 0.34,
+        "reject_rate_ci95": [
+          0.2779143922159556,
+          0.40811632967790723
+        ],
+        "quotes_with_reject": 40,
+        "quotes_with_reject_rate": 0.6896551724137931
+      },
+      "invalid_quote_rate": 0,
+      "dropped_tags_by_reason": {},
+      "cny_per_10k_quotes": 5.20721379310345,
+      "seconds_per_10k_quotes": 3138.6381379310346,
+      "dimensions": {
+        "theme": {
+          "tags_produced": 200,
+          "tags_judged": 200,
+          "tags_unjudged": 0,
+          "tags_accepted": 132,
+          "tags_acceptable": 0,
+          "tags_rejected": 68,
+          "acceptance": 0.66,
+          "acceptance_ci95": [
+            0.5918836703220929,
+            0.7220856077840445
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.34,
+          "reject_rate_ci95": [
+            0.2779143922159556,
+            0.40811632967790723
+          ],
+          "quotes_with_reject": 40,
+          "pool_accepted": 225,
+          "coverage": 0.5866666666666667,
+          "f1": 0.6211764705882354,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 58,
+              "accepted": 48,
+              "acceptable": 0,
+              "rejected": 10,
+              "acceptance": 0.8275862068965517,
+              "reject_rate": 0.1724137931034483
+            },
+            "2": {
+              "judged": 58,
+              "accepted": 43,
+              "acceptable": 0,
+              "rejected": 15,
+              "acceptance": 0.7413793103448276,
+              "reject_rate": 0.25862068965517243
+            },
+            "3": {
+              "judged": 49,
+              "accepted": 25,
+              "acceptable": 0,
+              "rejected": 24,
+              "acceptance": 0.5102040816326531,
+              "reject_rate": 0.4897959183673469
+            },
+            "4+": {
+              "judged": 35,
+              "accepted": 16,
+              "acceptable": 0,
+              "rejected": 19,
+              "acceptance": 0.45714285714285713,
+              "reject_rate": 0.5428571428571428
+            }
+          },
+          "should_be_empty_quotes": 0,
+          "correctly_empty_quotes": 0,
+          "empty_accuracy": null
+        }
+      }
+    },
+    {
+      "run_id": "R1-luna-full-b1-ev",
+      "arm_id": "R1-luna-full-b1-ev",
+      "kind": "llm",
+      "dataset_id": "dev58",
+      "unjudged_as": "pending",
+      "quotes": 58,
+      "overall": {
+        "tags_produced": 181,
+        "tags_judged": 181,
+        "tags_accepted": 114,
+        "tags_acceptable": 0,
+        "tags_rejected": 67,
+        "acceptance": 0.6298342541436464,
+        "acceptance_ci95": [
+          0.5574742702987874,
+          0.6967974953643532
+        ],
+        "acceptable_rate": 0,
+        "reject_rate": 0.3701657458563536,
+        "reject_rate_ci95": [
+          0.30320250463564663,
+          0.44252572970121257
+        ],
+        "quotes_with_reject": 39,
+        "quotes_with_reject_rate": 0.6724137931034483
+      },
+      "invalid_quote_rate": 0,
+      "dropped_tags_by_reason": {},
+      "cny_per_10k_quotes": 6.251710344827588,
+      "seconds_per_10k_quotes": 3832.245120689656,
+      "dimensions": {
+        "theme": {
+          "tags_produced": 181,
+          "tags_judged": 181,
+          "tags_unjudged": 0,
+          "tags_accepted": 114,
+          "tags_acceptable": 0,
+          "tags_rejected": 67,
+          "acceptance": 0.6298342541436464,
+          "acceptance_ci95": [
+            0.5574742702987874,
+            0.6967974953643532
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.3701657458563536,
+          "reject_rate_ci95": [
+            0.30320250463564663,
+            0.44252572970121257
+          ],
+          "quotes_with_reject": 39,
+          "pool_accepted": 225,
+          "coverage": 0.5066666666666667,
+          "f1": 0.5615763546798029,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 58,
+              "accepted": 47,
+              "acceptable": 0,
+              "rejected": 11,
+              "acceptance": 0.8103448275862069,
+              "reject_rate": 0.1896551724137931
+            },
+            "2": {
+              "judged": 56,
+              "accepted": 37,
+              "acceptable": 0,
+              "rejected": 19,
+              "acceptance": 0.6607142857142857,
+              "reject_rate": 0.3392857142857143
+            },
+            "3": {
+              "judged": 41,
+              "accepted": 20,
+              "acceptable": 0,
+              "rejected": 21,
+              "acceptance": 0.4878048780487805,
+              "reject_rate": 0.5121951219512195
+            },
+            "4+": {
+              "judged": 26,
+              "accepted": 10,
+              "acceptable": 0,
+              "rejected": 16,
+              "acceptance": 0.38461538461538464,
+              "reject_rate": 0.6153846153846154
+            }
+          },
+          "should_be_empty_quotes": 0,
+          "correctly_empty_quotes": 0,
+          "empty_accuracy": null
+        }
+      }
+    },
+    {
+      "run_id": "R1-luna-full-b20-noev",
+      "arm_id": "R1-luna-full-b20-noev",
+      "kind": "llm",
+      "dataset_id": "dev58",
+      "unjudged_as": "pending",
+      "quotes": 58,
+      "overall": {
+        "tags_produced": 213,
+        "tags_judged": 213,
+        "tags_accepted": 129,
+        "tags_acceptable": 0,
+        "tags_rejected": 84,
+        "acceptance": 0.6056338028169014,
+        "acceptance_ci95": [
+          0.5386866070436043,
+          0.6688381483538839
+        ],
+        "acceptable_rate": 0,
+        "reject_rate": 0.39436619718309857,
+        "reject_rate_ci95": [
+          0.331161851646116,
+          0.4613133929563956
+        ],
+        "quotes_with_reject": 48,
+        "quotes_with_reject_rate": 0.8275862068965517
+      },
+      "invalid_quote_rate": 0,
+      "dropped_tags_by_reason": {},
+      "cny_per_10k_quotes": 2.1117103448275865,
+      "seconds_per_10k_quotes": 2033.3129827586208,
+      "dimensions": {
+        "theme": {
+          "tags_produced": 213,
+          "tags_judged": 213,
+          "tags_unjudged": 0,
+          "tags_accepted": 129,
+          "tags_acceptable": 0,
+          "tags_rejected": 84,
+          "acceptance": 0.6056338028169014,
+          "acceptance_ci95": [
+            0.5386866070436043,
+            0.6688381483538839
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.39436619718309857,
+          "reject_rate_ci95": [
+            0.331161851646116,
+            0.4613133929563956
+          ],
+          "quotes_with_reject": 48,
+          "pool_accepted": 225,
+          "coverage": 0.5733333333333334,
+          "f1": 0.589041095890411,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 58,
+              "accepted": 47,
+              "acceptable": 0,
+              "rejected": 11,
+              "acceptance": 0.8103448275862069,
+              "reject_rate": 0.1896551724137931
+            },
+            "2": {
+              "judged": 58,
+              "accepted": 38,
+              "acceptable": 0,
+              "rejected": 20,
+              "acceptance": 0.6551724137931034,
+              "reject_rate": 0.3448275862068966
+            },
+            "3": {
+              "judged": 56,
+              "accepted": 23,
+              "acceptable": 0,
+              "rejected": 33,
+              "acceptance": 0.4107142857142857,
+              "reject_rate": 0.5892857142857143
+            },
+            "4+": {
+              "judged": 41,
+              "accepted": 21,
+              "acceptable": 0,
+              "rejected": 20,
+              "acceptance": 0.5121951219512195,
+              "reject_rate": 0.4878048780487805
+            }
+          },
+          "should_be_empty_quotes": 0,
+          "correctly_empty_quotes": 0,
+          "empty_accuracy": null
+        }
+      }
+    },
+    {
+      "run_id": "R1-luna-full-b20-ev",
+      "arm_id": "R1-luna-full-b20-ev",
+      "kind": "llm",
+      "dataset_id": "dev58",
+      "unjudged_as": "pending",
+      "quotes": 58,
+      "overall": {
+        "tags_produced": 181,
+        "tags_judged": 181,
+        "tags_accepted": 112,
+        "tags_acceptable": 0,
+        "tags_rejected": 69,
+        "acceptance": 0.6187845303867403,
+        "acceptance_ci95": [
+          0.5462540591747177,
+          0.6863775562192195
+        ],
+        "acceptable_rate": 0,
+        "reject_rate": 0.3812154696132597,
+        "reject_rate_ci95": [
+          0.31362244378078047,
+          0.45374594082528225
+        ],
+        "quotes_with_reject": 42,
+        "quotes_with_reject_rate": 0.7241379310344828
+      },
+      "invalid_quote_rate": 0,
+      "dropped_tags_by_reason": {
+        "duplicate": 1
+      },
+      "cny_per_10k_quotes": 2.7542482758620683,
+      "seconds_per_10k_quotes": 3081.928103448276,
+      "dimensions": {
+        "theme": {
+          "tags_produced": 181,
+          "tags_judged": 181,
+          "tags_unjudged": 0,
+          "tags_accepted": 112,
+          "tags_acceptable": 0,
+          "tags_rejected": 69,
+          "acceptance": 0.6187845303867403,
+          "acceptance_ci95": [
+            0.5462540591747177,
+            0.6863775562192195
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.3812154696132597,
+          "reject_rate_ci95": [
+            0.31362244378078047,
+            0.45374594082528225
+          ],
+          "quotes_with_reject": 42,
+          "pool_accepted": 225,
+          "coverage": 0.49777777777777776,
+          "f1": 0.5517241379310345,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 58,
+              "accepted": 48,
+              "acceptable": 0,
+              "rejected": 10,
+              "acceptance": 0.8275862068965517,
+              "reject_rate": 0.1724137931034483
+            },
+            "2": {
+              "judged": 58,
+              "accepted": 33,
+              "acceptable": 0,
+              "rejected": 25,
+              "acceptance": 0.5689655172413793,
+              "reject_rate": 0.43103448275862066
+            },
+            "3": {
+              "judged": 47,
+              "accepted": 24,
+              "acceptable": 0,
+              "rejected": 23,
+              "acceptance": 0.5106382978723404,
+              "reject_rate": 0.48936170212765956
+            },
+            "4+": {
+              "judged": 18,
+              "accepted": 7,
+              "acceptable": 0,
+              "rejected": 11,
+              "acceptance": 0.3888888888888889,
+              "reject_rate": 0.6111111111111112
+            }
+          },
+          "should_be_empty_quotes": 0,
+          "correctly_empty_quotes": 0,
+          "empty_accuracy": null
+        }
+      }
+    },
+    {
+      "run_id": "R2-luna-joint",
+      "arm_id": "R2-luna-joint",
+      "kind": "llm",
+      "dataset_id": "dev58",
+      "unjudged_as": "pending",
+      "quotes": 58,
+      "overall": {
+        "tags_produced": 261,
+        "tags_judged": 261,
+        "tags_accepted": 162,
+        "tags_acceptable": 0,
+        "tags_rejected": 99,
+        "acceptance": 0.6206896551724138,
+        "acceptance_ci95": [
+          0.5604745034806453,
+          0.6774035338065483
+        ],
+        "acceptable_rate": 0,
+        "reject_rate": 0.3793103448275862,
+        "reject_rate_ci95": [
+          0.3225964661934518,
+          0.43952549651935463
+        ],
+        "quotes_with_reject": 50,
+        "quotes_with_reject_rate": 0.8620689655172413
+      },
+      "invalid_quote_rate": 0,
+      "dropped_tags_by_reason": {
+        "evidence_not_in_quote": 6,
+        "duplicate": 10
+      },
+      "cny_per_10k_quotes": 5.337347586206897,
+      "seconds_per_10k_quotes": 5126.696637931034,
+      "dimensions": {
+        "theme": {
+          "tags_produced": 147,
+          "tags_judged": 147,
+          "tags_unjudged": 0,
+          "tags_accepted": 100,
+          "tags_acceptable": 0,
+          "tags_rejected": 47,
+          "acceptance": 0.6802721088435374,
+          "acceptance_ci95": [
+            0.6011130925685308,
+            0.7502488659362847
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.3197278911564626,
+          "reject_rate_ci95": [
+            0.24975113406371527,
+            0.39888690743146915
+          ],
+          "quotes_with_reject": 33,
+          "pool_accepted": 225,
+          "coverage": 0.4444444444444444,
+          "f1": 0.5376344086021504,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 58,
+              "accepted": 45,
+              "acceptable": 0,
+              "rejected": 13,
+              "acceptance": 0.7758620689655172,
+              "reject_rate": 0.22413793103448276
+            },
+            "2": {
+              "judged": 54,
+              "accepted": 34,
+              "acceptable": 0,
+              "rejected": 20,
+              "acceptance": 0.6296296296296297,
+              "reject_rate": 0.37037037037037035
+            },
+            "3": {
+              "judged": 31,
+              "accepted": 18,
+              "acceptable": 0,
+              "rejected": 13,
+              "acceptance": 0.5806451612903226,
+              "reject_rate": 0.41935483870967744
+            },
+            "4+": {
+              "judged": 4,
+              "accepted": 3,
+              "acceptable": 0,
+              "rejected": 1,
+              "acceptance": 0.75,
+              "reject_rate": 0.25
+            }
+          },
+          "should_be_empty_quotes": 0,
+          "correctly_empty_quotes": 0,
+          "empty_accuracy": null
+        },
+        "rhetoric": {
+          "tags_produced": 71,
+          "tags_judged": 71,
+          "tags_unjudged": 0,
+          "tags_accepted": 35,
+          "tags_acceptable": 0,
+          "tags_rejected": 36,
+          "acceptance": 0.49295774647887325,
+          "acceptance_ci95": [
+            0.3800495431702562,
+            0.6065889038966157
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.5070422535211268,
+          "reject_rate_ci95": [
+            0.3934110961033843,
+            0.6199504568297438
+          ],
+          "quotes_with_reject": 28,
+          "pool_accepted": 46,
+          "coverage": 0.7608695652173914,
+          "f1": 0.5982905982905984,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 46,
+              "accepted": 25,
+              "acceptable": 0,
+              "rejected": 21,
+              "acceptance": 0.5434782608695652,
+              "reject_rate": 0.45652173913043476
+            },
+            "2": {
+              "judged": 19,
+              "accepted": 8,
+              "acceptable": 0,
+              "rejected": 11,
+              "acceptance": 0.42105263157894735,
+              "reject_rate": 0.5789473684210527
+            },
+            "3": {
+              "judged": 6,
+              "accepted": 2,
+              "acceptable": 0,
+              "rejected": 4,
+              "acceptance": 0.3333333333333333,
+              "reject_rate": 0.6666666666666666
+            }
+          },
+          "should_be_empty_quotes": 24,
+          "correctly_empty_quotes": 10,
+          "empty_accuracy": 0.4166666666666667
+        },
+        "technique": {
+          "tags_produced": 43,
+          "tags_judged": 43,
+          "tags_unjudged": 0,
+          "tags_accepted": 27,
+          "tags_acceptable": 0,
+          "tags_rejected": 16,
+          "acceptance": 0.627906976744186,
+          "acceptance_ci95": [
+            0.47859538265273166,
+            0.7562386110622568
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.37209302325581395,
+          "reject_rate_ci95": [
+            0.2437613889377433,
+            0.5214046173472684
+          ],
+          "quotes_with_reject": 14,
+          "pool_accepted": 39,
+          "coverage": 0.6923076923076923,
+          "f1": 0.6585365853658537,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 28,
+              "accepted": 19,
+              "acceptable": 0,
+              "rejected": 9,
+              "acceptance": 0.6785714285714286,
+              "reject_rate": 0.32142857142857145
+            },
+            "2": {
+              "judged": 13,
+              "accepted": 7,
+              "acceptable": 0,
+              "rejected": 6,
+              "acceptance": 0.5384615384615384,
+              "reject_rate": 0.46153846153846156
+            },
+            "3": {
+              "judged": 2,
+              "accepted": 1,
+              "acceptable": 0,
+              "rejected": 1,
+              "acceptance": 0.5,
+              "reject_rate": 0.5
+            }
+          },
+          "should_be_empty_quotes": 29,
+          "correctly_empty_quotes": 26,
+          "empty_accuracy": 0.896551724137931
+        }
+      }
+    },
+    {
+      "run_id": "R2-luna-separate",
+      "arm_id": "R2-luna-separate",
+      "kind": "llm",
+      "dataset_id": "dev58",
+      "unjudged_as": "pending",
+      "quotes": 58,
+      "overall": {
+        "tags_produced": 366,
+        "tags_judged": 366,
+        "tags_accepted": 196,
+        "tags_acceptable": 0,
+        "tags_rejected": 170,
+        "acceptance": 0.5355191256830601,
+        "acceptance_ci95": [
+          0.4843189036112345,
+          0.5859814628159064
+        ],
+        "acceptable_rate": 0,
+        "reject_rate": 0.4644808743169399,
+        "reject_rate_ci95": [
+          0.41401853718409365,
+          0.5156810963887656
+        ],
+        "quotes_with_reject": 56,
+        "quotes_with_reject_rate": 0.9655172413793104
+      },
+      "invalid_quote_rate": 0,
+      "dropped_tags_by_reason": {
+        "evidence_not_in_quote": 3,
+        "duplicate": 10
+      },
+      "cny_per_10k_quotes": 7.417737931034483,
+      "seconds_per_10k_quotes": 5631.884086206896,
+      "dimensions": {
+        "theme": {
+          "tags_produced": 194,
+          "tags_judged": 194,
+          "tags_unjudged": 0,
+          "tags_accepted": 120,
+          "tags_acceptable": 0,
+          "tags_rejected": 74,
+          "acceptance": 0.6185567010309279,
+          "acceptance_ci95": [
+            0.548528989630413,
+            0.6839802500845914
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.38144329896907214,
+          "reject_rate_ci95": [
+            0.31601974991540865,
+            0.4514710103695871
+          ],
+          "quotes_with_reject": 44,
+          "pool_accepted": 225,
+          "coverage": 0.5333333333333333,
+          "f1": 0.5727923627684964,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 58,
+              "accepted": 47,
+              "acceptable": 0,
+              "rejected": 11,
+              "acceptance": 0.8103448275862069,
+              "reject_rate": 0.1896551724137931
+            },
+            "2": {
+              "judged": 58,
+              "accepted": 41,
+              "acceptable": 0,
+              "rejected": 17,
+              "acceptance": 0.7068965517241379,
+              "reject_rate": 0.29310344827586204
+            },
+            "3": {
+              "judged": 53,
+              "accepted": 20,
+              "acceptable": 0,
+              "rejected": 33,
+              "acceptance": 0.37735849056603776,
+              "reject_rate": 0.6226415094339622
+            },
+            "4+": {
+              "judged": 25,
+              "accepted": 12,
+              "acceptable": 0,
+              "rejected": 13,
+              "acceptance": 0.48,
+              "reject_rate": 0.52
+            }
+          },
+          "should_be_empty_quotes": 0,
+          "correctly_empty_quotes": 0,
+          "empty_accuracy": null
+        },
+        "rhetoric": {
+          "tags_produced": 77,
+          "tags_judged": 77,
+          "tags_unjudged": 0,
+          "tags_accepted": 37,
+          "tags_acceptable": 0,
+          "tags_rejected": 40,
+          "acceptance": 0.4805194805194805,
+          "acceptance_ci95": [
+            0.3725285050287548,
+            0.5903618880362019
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.5194805194805194,
+          "reject_rate_ci95": [
+            0.40963811196379796,
+            0.6274714949712452
+          ],
+          "quotes_with_reject": 33,
+          "pool_accepted": 46,
+          "coverage": 0.8043478260869565,
+          "f1": 0.6016260162601625,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 50,
+              "accepted": 25,
+              "acceptable": 0,
+              "rejected": 25,
+              "acceptance": 0.5,
+              "reject_rate": 0.5
+            },
+            "2": {
+              "judged": 22,
+              "accepted": 11,
+              "acceptable": 0,
+              "rejected": 11,
+              "acceptance": 0.5,
+              "reject_rate": 0.5
+            },
+            "3": {
+              "judged": 4,
+              "accepted": 1,
+              "acceptable": 0,
+              "rejected": 3,
+              "acceptance": 0.25,
+              "reject_rate": 0.75
+            },
+            "4+": {
+              "judged": 1,
+              "accepted": 0,
+              "acceptable": 0,
+              "rejected": 1,
+              "acceptance": 0,
+              "reject_rate": 1
+            }
+          },
+          "should_be_empty_quotes": 24,
+          "correctly_empty_quotes": 8,
+          "empty_accuracy": 0.3333333333333333
+        },
+        "technique": {
+          "tags_produced": 95,
+          "tags_judged": 95,
+          "tags_unjudged": 0,
+          "tags_accepted": 39,
+          "tags_acceptable": 0,
+          "tags_rejected": 56,
+          "acceptance": 0.4105263157894737,
+          "acceptance_ci95": [
+            0.3169599925646133,
+            0.5110476479430274
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.5894736842105263,
+          "reject_rate_ci95": [
+            0.4889523520569727,
+            0.6830400074353867
+          ],
+          "quotes_with_reject": 38,
+          "pool_accepted": 39,
+          "coverage": 1,
+          "f1": 0.582089552238806,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 51,
+              "accepted": 20,
+              "acceptable": 0,
+              "rejected": 31,
+              "acceptance": 0.39215686274509803,
+              "reject_rate": 0.6078431372549019
+            },
+            "2": {
+              "judged": 32,
+              "accepted": 15,
+              "acceptable": 0,
+              "rejected": 17,
+              "acceptance": 0.46875,
+              "reject_rate": 0.53125
+            },
+            "3": {
+              "judged": 10,
+              "accepted": 3,
+              "acceptable": 0,
+              "rejected": 7,
+              "acceptance": 0.3,
+              "reject_rate": 0.7
+            },
+            "4+": {
+              "judged": 2,
+              "accepted": 1,
+              "acceptable": 0,
+              "rejected": 1,
+              "acceptance": 0.5,
+              "reject_rate": 0.5
+            }
+          },
+          "should_be_empty_quotes": 29,
+          "correctly_empty_quotes": 7,
+          "empty_accuracy": 0.2413793103448276
+        }
+      }
+    },
+    {
+      "run_id": "R2-luna-joint-v2",
+      "arm_id": "R2-luna-joint",
+      "kind": "llm",
+      "dataset_id": "dev58",
+      "unjudged_as": "pending",
+      "quotes": 58,
+      "overall": {
+        "tags_produced": 265,
+        "tags_judged": 265,
+        "tags_accepted": 154,
+        "tags_acceptable": 0,
+        "tags_rejected": 111,
+        "acceptance": 0.5811320754716981,
+        "acceptance_ci95": [
+          0.520984194705368,
+          0.6389612899220111
+        ],
+        "acceptable_rate": 0,
+        "reject_rate": 0.4188679245283019,
+        "reject_rate_ci95": [
+          0.36103871007798893,
+          0.47901580529463195
+        ],
+        "quotes_with_reject": 51,
+        "quotes_with_reject_rate": 0.8793103448275862
+      },
+      "invalid_quote_rate": 0,
+      "dropped_tags_by_reason": {
+        "evidence_not_in_quote": 2,
+        "duplicate": 1
+      },
+      "cny_per_10k_quotes": 4.662844137931035,
+      "seconds_per_10k_quotes": 4123.047293103449,
+      "dimensions": {
+        "theme": {
+          "tags_produced": 166,
+          "tags_judged": 166,
+          "tags_unjudged": 0,
+          "tags_accepted": 100,
+          "tags_acceptable": 0,
+          "tags_rejected": 66,
+          "acceptance": 0.6024096385542169,
+          "acceptance_ci95": [
+            0.5264534165129757,
+            0.6737331102272341
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.39759036144578314,
+          "reject_rate_ci95": [
+            0.32626688977276586,
+            0.4735465834870244
+          ],
+          "quotes_with_reject": 40,
+          "pool_accepted": 225,
+          "coverage": 0.4444444444444444,
+          "f1": 0.5115089514066495,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 58,
+              "accepted": 46,
+              "acceptable": 0,
+              "rejected": 12,
+              "acceptance": 0.7931034482758621,
+              "reject_rate": 0.20689655172413793
+            },
+            "2": {
+              "judged": 57,
+              "accepted": 31,
+              "acceptable": 0,
+              "rejected": 26,
+              "acceptance": 0.543859649122807,
+              "reject_rate": 0.45614035087719296
+            },
+            "3": {
+              "judged": 44,
+              "accepted": 23,
+              "acceptable": 0,
+              "rejected": 21,
+              "acceptance": 0.5227272727272727,
+              "reject_rate": 0.4772727272727273
+            },
+            "4+": {
+              "judged": 7,
+              "accepted": 0,
+              "acceptable": 0,
+              "rejected": 7,
+              "acceptance": 0,
+              "reject_rate": 1
+            }
+          },
+          "should_be_empty_quotes": 0,
+          "correctly_empty_quotes": 0,
+          "empty_accuracy": null
+        },
+        "rhetoric": {
+          "tags_produced": 63,
+          "tags_judged": 63,
+          "tags_unjudged": 0,
+          "tags_accepted": 32,
+          "tags_acceptable": 0,
+          "tags_rejected": 31,
+          "acceptance": 0.5079365079365079,
+          "acceptance_ci95": [
+            0.38762677115387556,
+            0.6273339718564653
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.49206349206349204,
+          "reject_rate_ci95": [
+            0.3726660281435346,
+            0.6123732288461243
+          ],
+          "quotes_with_reject": 27,
+          "pool_accepted": 46,
+          "coverage": 0.6956521739130435,
+          "f1": 0.5871559633027522,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 48,
+              "accepted": 28,
+              "acceptable": 0,
+              "rejected": 20,
+              "acceptance": 0.5833333333333334,
+              "reject_rate": 0.4166666666666667
+            },
+            "2": {
+              "judged": 14,
+              "accepted": 4,
+              "acceptable": 0,
+              "rejected": 10,
+              "acceptance": 0.2857142857142857,
+              "reject_rate": 0.7142857142857143
+            },
+            "3": {
+              "judged": 1,
+              "accepted": 0,
+              "acceptable": 0,
+              "rejected": 1,
+              "acceptance": 0,
+              "reject_rate": 1
+            }
+          },
+          "should_be_empty_quotes": 24,
+          "correctly_empty_quotes": 7,
+          "empty_accuracy": 0.2916666666666667
+        },
+        "technique": {
+          "tags_produced": 36,
+          "tags_judged": 36,
+          "tags_unjudged": 0,
+          "tags_accepted": 22,
+          "tags_acceptable": 0,
+          "tags_rejected": 14,
+          "acceptance": 0.6111111111111112,
+          "acceptance_ci95": [
+            0.4486417029674347,
+            0.7521534458217705
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.3888888888888889,
+          "reject_rate_ci95": [
+            0.24784655417822943,
+            0.5513582970325652
+          ],
+          "quotes_with_reject": 12,
+          "pool_accepted": 39,
+          "coverage": 0.5641025641025641,
+          "f1": 0.5866666666666667,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 24,
+              "accepted": 15,
+              "acceptable": 0,
+              "rejected": 9,
+              "acceptance": 0.625,
+              "reject_rate": 0.375
+            },
+            "2": {
+              "judged": 10,
+              "accepted": 7,
+              "acceptable": 0,
+              "rejected": 3,
+              "acceptance": 0.7,
+              "reject_rate": 0.3
+            },
+            "3": {
+              "judged": 2,
+              "accepted": 0,
+              "acceptable": 0,
+              "rejected": 2,
+              "acceptance": 0,
+              "reject_rate": 1
+            }
+          },
+          "should_be_empty_quotes": 29,
+          "correctly_empty_quotes": 25,
+          "empty_accuracy": 0.8620689655172413
+        }
+      }
+    },
+    {
+      "run_id": "R2-luna-joint-think-low",
+      "arm_id": "R2-luna-joint-think-low",
+      "kind": "llm",
+      "dataset_id": "dev58",
+      "unjudged_as": "pending",
+      "quotes": 58,
+      "overall": {
+        "tags_produced": 218,
+        "tags_judged": 218,
+        "tags_accepted": 140,
+        "tags_acceptable": 0,
+        "tags_rejected": 78,
+        "acceptance": 0.6422018348623854,
+        "acceptance_ci95": [
+          0.5766116302843309,
+          0.7028670608177889
+        ],
+        "acceptable_rate": 0,
+        "reject_rate": 0.3577981651376147,
+        "reject_rate_ci95": [
+          0.2971329391822112,
+          0.4233883697156693
+        ],
+        "quotes_with_reject": 42,
+        "quotes_with_reject_rate": 0.7241379310344828
+      },
+      "invalid_quote_rate": 0,
+      "dropped_tags_by_reason": {
+        "duplicate": 5
+      },
+      "cny_per_10k_quotes": 5.915222068965517,
+      "seconds_per_10k_quotes": 6245.741137931033,
+      "dimensions": {
+        "theme": {
+          "tags_produced": 146,
+          "tags_judged": 146,
+          "tags_unjudged": 0,
+          "tags_accepted": 95,
+          "tags_acceptable": 0,
+          "tags_rejected": 51,
+          "acceptance": 0.6506849315068494,
+          "acceptance_ci95": [
+            0.5703872266929169,
+            0.7232561940927662
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.3493150684931507,
+          "reject_rate_ci95": [
+            0.2767438059072339,
+            0.42961277330708314
+          ],
+          "quotes_with_reject": 34,
+          "pool_accepted": 225,
+          "coverage": 0.4222222222222222,
+          "f1": 0.5121293800539084,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 58,
+              "accepted": 45,
+              "acceptable": 0,
+              "rejected": 13,
+              "acceptance": 0.7758620689655172,
+              "reject_rate": 0.22413793103448276
+            },
+            "2": {
+              "judged": 56,
+              "accepted": 35,
+              "acceptable": 0,
+              "rejected": 21,
+              "acceptance": 0.625,
+              "reject_rate": 0.375
+            },
+            "3": {
+              "judged": 28,
+              "accepted": 13,
+              "acceptable": 0,
+              "rejected": 15,
+              "acceptance": 0.4642857142857143,
+              "reject_rate": 0.5357142857142857
+            },
+            "4+": {
+              "judged": 4,
+              "accepted": 2,
+              "acceptable": 0,
+              "rejected": 2,
+              "acceptance": 0.5,
+              "reject_rate": 0.5
+            }
+          },
+          "should_be_empty_quotes": 0,
+          "correctly_empty_quotes": 0,
+          "empty_accuracy": null
+        },
+        "rhetoric": {
+          "tags_produced": 48,
+          "tags_judged": 48,
+          "tags_unjudged": 0,
+          "tags_accepted": 26,
+          "tags_acceptable": 0,
+          "tags_rejected": 22,
+          "acceptance": 0.5416666666666666,
+          "acceptance_ci95": [
+            0.4029083309494732,
+            0.6742497814544648
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.4583333333333333,
+          "reject_rate_ci95": [
+            0.3257502185455351,
+            0.5970916690505266
+          ],
+          "quotes_with_reject": 21,
+          "pool_accepted": 46,
+          "coverage": 0.5652173913043478,
+          "f1": 0.5531914893617021,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 39,
+              "accepted": 21,
+              "acceptable": 0,
+              "rejected": 18,
+              "acceptance": 0.5384615384615384,
+              "reject_rate": 0.46153846153846156
+            },
+            "2": {
+              "judged": 9,
+              "accepted": 5,
+              "acceptable": 0,
+              "rejected": 4,
+              "acceptance": 0.5555555555555556,
+              "reject_rate": 0.4444444444444444
+            }
+          },
+          "should_be_empty_quotes": 24,
+          "correctly_empty_quotes": 14,
+          "empty_accuracy": 0.5833333333333334
+        },
+        "technique": {
+          "tags_produced": 24,
+          "tags_judged": 24,
+          "tags_unjudged": 0,
+          "tags_accepted": 19,
+          "tags_acceptable": 0,
+          "tags_rejected": 5,
+          "acceptance": 0.7916666666666666,
+          "acceptance_ci95": [
+            0.5952915551476452,
+            0.9075531089521192
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.20833333333333334,
+          "reject_rate_ci95": [
+            0.0924468910478809,
+            0.40470844485235474
+          ],
+          "quotes_with_reject": 5,
+          "pool_accepted": 39,
+          "coverage": 0.48717948717948717,
+          "f1": 0.6031746031746031,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 18,
+              "accepted": 14,
+              "acceptable": 0,
+              "rejected": 4,
+              "acceptance": 0.7777777777777778,
+              "reject_rate": 0.2222222222222222
+            },
+            "2": {
+              "judged": 6,
+              "accepted": 5,
+              "acceptable": 0,
+              "rejected": 1,
+              "acceptance": 0.8333333333333334,
+              "reject_rate": 0.16666666666666666
+            }
+          },
+          "should_be_empty_quotes": 29,
+          "correctly_empty_quotes": 27,
+          "empty_accuracy": 0.9310344827586207
+        }
+      }
+    },
+    {
+      "run_id": "R2-luna-joint-think-medium",
+      "arm_id": "R2-luna-joint-think-medium",
+      "kind": "llm",
+      "dataset_id": "dev58",
+      "unjudged_as": "pending",
+      "quotes": 58,
+      "overall": {
+        "tags_produced": 209,
+        "tags_judged": 209,
+        "tags_accepted": 143,
+        "tags_acceptable": 0,
+        "tags_rejected": 66,
+        "acceptance": 0.6842105263157895,
+        "acceptance_ci95": [
+          0.6183488163627944,
+          0.743422566675108
+        ],
+        "acceptable_rate": 0,
+        "reject_rate": 0.3157894736842105,
+        "reject_rate_ci95": [
+          0.256577433324892,
+          0.3816511836372056
+        ],
+        "quotes_with_reject": 38,
+        "quotes_with_reject_rate": 0.6551724137931034
+      },
+      "invalid_quote_rate": 0,
+      "dropped_tags_by_reason": {
+        "evidence_not_in_quote": 2
+      },
+      "cny_per_10k_quotes": 10.661809655172414,
+      "seconds_per_10k_quotes": 20845.034,
+      "dimensions": {
+        "theme": {
+          "tags_produced": 138,
+          "tags_judged": 138,
+          "tags_unjudged": 0,
+          "tags_accepted": 101,
+          "tags_acceptable": 0,
+          "tags_rejected": 37,
+          "acceptance": 0.7318840579710145,
+          "acceptance_ci95": [
+            0.6524322132312959,
+            0.798775330958843
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.26811594202898553,
+          "reject_rate_ci95": [
+            0.2012246690411571,
+            0.34756778676870415
+          ],
+          "quotes_with_reject": 27,
+          "pool_accepted": 225,
+          "coverage": 0.4488888888888889,
+          "f1": 0.5564738292011019,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 58,
+              "accepted": 47,
+              "acceptable": 0,
+              "rejected": 11,
+              "acceptance": 0.8103448275862069,
+              "reject_rate": 0.1896551724137931
+            },
+            "2": {
+              "judged": 49,
+              "accepted": 38,
+              "acceptable": 0,
+              "rejected": 11,
+              "acceptance": 0.7755102040816326,
+              "reject_rate": 0.22448979591836735
+            },
+            "3": {
+              "judged": 28,
+              "accepted": 15,
+              "acceptable": 0,
+              "rejected": 13,
+              "acceptance": 0.5357142857142857,
+              "reject_rate": 0.4642857142857143
+            },
+            "4+": {
+              "judged": 3,
+              "accepted": 1,
+              "acceptable": 0,
+              "rejected": 2,
+              "acceptance": 0.3333333333333333,
+              "reject_rate": 0.6666666666666666
+            }
+          },
+          "should_be_empty_quotes": 0,
+          "correctly_empty_quotes": 0,
+          "empty_accuracy": null
+        },
+        "rhetoric": {
+          "tags_produced": 46,
+          "tags_judged": 46,
+          "tags_unjudged": 0,
+          "tags_accepted": 23,
+          "tags_acceptable": 0,
+          "tags_rejected": 23,
+          "acceptance": 0.5,
+          "acceptance_ci95": [
+            0.3611870167007236,
+            0.6388129832992764
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.5,
+          "reject_rate_ci95": [
+            0.3611870167007236,
+            0.6388129832992764
+          ],
+          "quotes_with_reject": 21,
+          "pool_accepted": 46,
+          "coverage": 0.5,
+          "f1": 0.5,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 37,
+              "accepted": 19,
+              "acceptable": 0,
+              "rejected": 18,
+              "acceptance": 0.5135135135135135,
+              "reject_rate": 0.4864864864864865
+            },
+            "2": {
+              "judged": 9,
+              "accepted": 4,
+              "acceptable": 0,
+              "rejected": 5,
+              "acceptance": 0.4444444444444444,
+              "reject_rate": 0.5555555555555556
+            }
+          },
+          "should_be_empty_quotes": 24,
+          "correctly_empty_quotes": 13,
+          "empty_accuracy": 0.5416666666666666
+        },
+        "technique": {
+          "tags_produced": 25,
+          "tags_judged": 25,
+          "tags_unjudged": 0,
+          "tags_accepted": 19,
+          "tags_acceptable": 0,
+          "tags_rejected": 6,
+          "acceptance": 0.76,
+          "acceptance_ci95": [
+            0.5656994004476144,
+            0.8850384226967327
+          ],
+          "acceptable_rate": 0,
+          "reject_rate": 0.24,
+          "reject_rate_ci95": [
+            0.11496157730326725,
+            0.43430059955238565
+          ],
+          "quotes_with_reject": 5,
+          "pool_accepted": 39,
+          "coverage": 0.48717948717948717,
+          "f1": 0.59375,
+          "acceptance_by_rank": {
+            "1": {
+              "judged": 16,
+              "accepted": 13,
+              "acceptable": 0,
+              "rejected": 3,
+              "acceptance": 0.8125,
+              "reject_rate": 0.1875
+            },
+            "2": {
+              "judged": 7,
+              "accepted": 6,
+              "acceptable": 0,
+              "rejected": 1,
+              "acceptance": 0.8571428571428571,
+              "reject_rate": 0.14285714285714285
+            },
+            "3": {
+              "judged": 2,
+              "accepted": 0,
+              "acceptable": 0,
+              "rejected": 2,
+              "acceptance": 0,
+              "reject_rate": 1
+            }
+          },
+          "should_be_empty_quotes": 29,
+          "correctly_empty_quotes": 28,
+          "empty_accuracy": 0.9655172413793104
+        }
+      }
+    }
+  ],
+  "conflicts": []
+}

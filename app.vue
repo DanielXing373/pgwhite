@@ -25,5 +25,6 @@ File: app.vue
 
 <script setup lang="ts">
 const route = useRoute()
-const isEl2Study = computed(() => route.path.startsWith('/el2test'))
+// Standalone questionnaires (/el2test, /ac1test) render without the site chrome.
+const isEl2Study = computed(() => route.path.startsWith('/el2test') || route.path.startsWith('/ac1test'))
 </script>

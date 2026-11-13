@@ -1,0 +1,14 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ac1test-local-memory",
+      "runtimeExecutable": "node",
+      "runtimeArgs": [
+        "-e",
+        "process.env.AC1_HS_STORE='memory';require('child_process').spawn('pnpm',['dev','--port','3210'],{stdio:'inherit',shell:true}).on('exit',c=>process.exit(c??0))"
+      ],
+      "port": 3210
+    }
+  ]
+}

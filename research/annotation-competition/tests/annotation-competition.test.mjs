@@ -12,7 +12,7 @@ import { buildReviewPack, mergeJudgments } from "../src/pool.mjs";
 import { buildResponseSchema, buildSystemPrompt, buildUserPrompt } from "../src/prompt.mjs";
 import { fakeProvider } from "../src/providers.mjs";
 import { planRequests, runArm } from "../src/run.mjs";
-import { buildPool, scoreRun } from "../src/score.mjs";
+import { buildPool, renderMarkdown, scoreRun, wilson95 } from "../src/score.mjs";
 import { readJson } from "../src/util.mjs";
 
 const library = loadLibrary();
@@ -342,6 +342,58 @@ test("score: acceptance, pooled coverage, rank breakdown, empty handling, invali
   assert.equal(b.dimensions.theme.coverage, 2 / 3);
   assert.equal(b.dimensions.theme.correctly_empty_quotes, 0);
   assert.equal(b.invalid_quote_rate, 1 / 3);
+});
+
+test("score: three-way mode counts an unjudged tag as acceptable and reports the reject rate", () => {
+  const tag = (label) => ({ tag_id: idOf(label), label });
+  const run = {
+    run_id: "arm-3way", arm_id: "arm-3way", kind: "llm", dataset: { id: "mini", sha256: "x", limit: null },
+    dimensions: ["theme", "rhetoric"],
+    results: [
+      { quote_id: "q1", status: "valid", tags: { theme: [tag("时间"), tag("童年"), tag("记忆")], rhetoric: [tag("比喻")] } },
+      { quote_id: "q2", status: "valid", tags: { theme: [tag("孤独")], rhetoric: [] } },
+      { quote_id: "q3", status: "valid", tags: { theme: [], rhetoric: [tag("对比")] } },
+    ],
+  };
+  const judgments = {
+    q1: { [idOf("时间")]: "accept", [idOf("童年")]: "reject", [idOf("比喻")]: "accept" }, // 记忆 left unjudged
+    q3: { [idOf("对比")]: "reject" },                                                      // q2 孤独 left unjudged
+  };
+  const pool = buildPool([run], library);
+  const strict = scoreRun({ run, judgments, poolByQuote: pool });
+  assert.equal(strict.unjudged_as, "pending");
+  assert.equal(strict.dimensions.theme.tags_judged, 2);
+  assert.equal(strict.dimensions.theme.tags_unjudged, 2);
+  assert.equal(strict.dimensions.theme.acceptance, 1 / 2);
+
+  const three = scoreRun({ run, judgments, poolByQuote: pool, unjudgedAs: "acceptable" });
+  const theme = three.dimensions.theme;
+  assert.deepEqual(
+    [theme.tags_produced, theme.tags_judged, theme.tags_unjudged, theme.tags_accepted, theme.tags_acceptable, theme.tags_rejected],
+    [4, 4, 0, 1, 2, 1],
+  );
+  assert.equal(theme.acceptance, 1 / 4);
+  assert.equal(theme.reject_rate, 1 / 4);
+  assert.equal(theme.quotes_with_reject, 1);
+  assert.equal(theme.acceptance_by_rank["2"].reject_rate, 1);
+  assert.equal(theme.acceptance_by_rank["3"].acceptable, 1);
+  // q2 has only an acceptable tag and q3 has none: neither has an accepted theme in the pool.
+  assert.equal(theme.should_be_empty_quotes, 2);
+  assert.equal(theme.correctly_empty_quotes, 1);
+  assert.deepEqual(
+    [three.overall.tags_produced, three.overall.tags_accepted, three.overall.tags_acceptable, three.overall.tags_rejected],
+    [6, 2, 2, 2],
+  );
+  assert.equal(three.overall.reject_rate, 2 / 6);
+  assert.equal(three.overall.quotes_with_reject, 2); // q1 (theme) and q3 (rhetoric)
+  const [low, high] = three.overall.reject_rate_ci95;
+  assert.ok(low > 0 && low < 2 / 6 && high > 2 / 6 && high < 1);
+  assert.deepEqual(wilson95(0, 0), null);
+  const report = renderMarkdown([three]);
+  assert.match(report, /盲审计分（三档）/);
+  assert.match(report, /33\.3%（2）/);
+  assert.match(renderMarkdown([strict]), /^# 盲审计分\n/);
+  assert.throws(() => scoreRun({ run, judgments, poolByQuote: pool, unjudgedAs: "reject" }), /unknown unjudged mode/);
 });
 
 test("score: conflicting judgment files are reported, later file wins", () => {
