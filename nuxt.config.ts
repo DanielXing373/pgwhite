@@ -20,14 +20,15 @@ export default defineNuxtConfig({
   css: ['./styles/theme.css'],
 
   routeRules: {
-    '/el2test': { ssr: false, prerender: true }
+    '/el2test': { ssr: false, prerender: true },
+    '/ac1test': { ssr: false, prerender: true }
   },
   // Same region as the Railway MySQL (Southeast Asia); every query used to cross the Pacific from iad1.
   nitro: {
     vercel: { functions: { regions: ['sin1'] } }
   },
 
-  // Only rendered for ssr: false routes (/el2test) while the client bundle loads.
+  // Only rendered for ssr: false routes (/el2test, /ac1test) while the client bundle loads.
   spaLoadingTemplate: 'spa-loading-template.html',
 
   // @nuxt/ui 默认会拉 Google Fonts / Material Icons 元数据，国内常超时重试导致 dev 很慢

@@ -25,9 +25,10 @@ File: app.vue
 
 <script setup lang="ts">
 const route = useRoute()
-const isEl2Study = computed(() => route.path.startsWith('/el2test'))
+// Standalone questionnaires (/el2test, /ac1test) render without the site chrome.
+const isEl2Study = computed(() => route.path.startsWith('/el2test') || route.path.startsWith('/ac1test'))
 
-// Google Fonts is render-blocking and slow from mainland China; /el2test uses system fonts instead.
+// Google Fonts is render-blocking and slow from mainland China; the questionnaires use system fonts instead.
 useHead(() => ({
   link: isEl2Study.value
     ? []
